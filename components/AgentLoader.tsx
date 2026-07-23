@@ -28,11 +28,7 @@ type AgentLoaderProps = {
 };
 
 function isTestRuntime() {
-  if (typeof process !== "undefined" && process.env.NODE_ENV === "test") {
-    return true;
-  }
-  // Vite/Vitest only — Next may leave import.meta.env undefined
-  return import.meta.env?.MODE === "test";
+  return typeof process !== "undefined" && process.env.NODE_ENV === "test";
 }
 
 export function AgentLoader({
