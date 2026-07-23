@@ -20,6 +20,7 @@ export function ContactForm() {
     const body = encodeURIComponent(
       `Tên: ${data.name}\nLiên hệ: ${data.contact}\n\n${data.message}`,
     );
+    // Placeholder until YeGa has a real inbox.
     window.location.href = `mailto:hello@yega.local?subject=${subject}&body=${body}`;
     setSent(true);
   };

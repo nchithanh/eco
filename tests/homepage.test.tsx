@@ -1,6 +1,8 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, within } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { describe, expect, it } from "vitest";
 import Home from "@/app/page";
+import { Nav } from "@/components/Nav";
 
 describe("YeGa homepage", () => {
   it("renders hero brand and primary CTA", () => {
@@ -43,5 +45,18 @@ describe("YeGa homepage", () => {
     expect(
       screen.getByRole("button", { name: /Gửi yêu cầu/i }),
     ).toBeInTheDocument();
+  });
+
+  it("reveals the contact link from the mobile menu", async () => {
+    const user = userEvent.setup();
+    render(<Nav />);
+
+    await user.click(screen.getByRole("button", { name: /Mở menu/i }));
+
+    expect(
+      within(
+        screen.getByRole("navigation", { name: /Điều hướng di động/i }),
+      ).getByRole("link", { name: /Liên hệ/i }),
+    ).toHaveAttribute("href", "#contact");
   });
 });
