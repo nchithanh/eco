@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { BrandText } from "@/components/BrandName";
 import { TimezoneDropdown } from "@/components/TimezoneDropdown";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
@@ -28,12 +29,12 @@ export function AnnouncementBar() {
         </p>
         <div className="flex shrink-0 items-center justify-center gap-2 sm:justify-end">
           <TimezoneDropdown variant="banner" />
-          <a
+          <Link
             href="/careers"
             className="inline-flex items-center rounded-lg bg-[#7c3aed] px-3 py-1.5 text-[10px] font-bold tracking-wide text-white uppercase shadow-sm transition duration-200 hover:-translate-y-0.5 hover:bg-[#6d28d9] hover:shadow-[0_8px_18px_rgba(109,40,217,0.35)] sm:text-[11px]"
           >
             {b.cta}
-          </a>
+          </Link>
         </div>
       </div>
     </div>

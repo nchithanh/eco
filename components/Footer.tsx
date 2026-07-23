@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { BrandName } from "@/components/BrandName";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
@@ -31,9 +32,9 @@ export function Footer() {
           <a href={`${home}#stack`} className={linkClass}>
             {t.nav.stack}
           </a>
-          <a href="/careers" className={linkClass}>
+          <Link href="/careers" className={linkClass}>
             {t.nav.careers}
-          </a>
+          </Link>
           <a href={`${home}#contact`} className={linkClass}>
             {t.nav.contact}
           </a>

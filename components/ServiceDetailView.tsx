@@ -63,12 +63,12 @@ export function ServiceDetailView({ slug }: { slug: ServiceSlug }) {
           />
         </div>
         <div className="mx-auto mt-12 max-w-6xl px-6">
-          <a
+          <Link
             href="/#contact"
             className="kuct-btn-primary inline-flex items-center rounded-full px-7 py-3 text-sm font-semibold"
           >
             {ui.cta}
-          </a>
+          </Link>
         </div>
       </section>
       <Footer />
