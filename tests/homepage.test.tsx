@@ -27,4 +27,21 @@ describe("YeGa homepage", () => {
     expect(screen.getByText(/Discovery/i)).toBeInTheDocument();
     expect(screen.getByText(/Handover/i)).toBeInTheDocument();
   });
+
+  it("renders secondary services and contact form", () => {
+    render(<Home />);
+    expect(
+      screen.getByRole("heading", { name: /Thêm từ YeGa/i }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(/Kiến trúc & hỗ trợ hệ thống/i),
+    ).toBeInTheDocument();
+    expect(screen.getByText(/Cộng đồng đầu tư CK/i)).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: /Bắt đầu dự án với YeGa/i }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: /Gửi yêu cầu/i }),
+    ).toBeInTheDocument();
+  });
 });
