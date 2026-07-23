@@ -1,6 +1,6 @@
-# YeGa
+# KU THANH
 
-Vietnamese one-page marketing site for YeGa, a web and mobile app studio.
+Vietnamese one-page marketing site for KU THANH, a web and mobile app studio.
 
 ## Development
 

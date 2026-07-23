@@ -1,9 +1,19 @@
 import { z } from "zod";
 
-export const contactSchema = z.object({
-  name: z.string().min(1, "Vui lòng nhập tên"),
-  contact: z.string().min(1, "Vui lòng nhập email hoặc Zalo"),
-  message: z.string().min(1, "Vui lòng mô tả ngắn dự án"),
-});
+export function createContactSchema(errors: {
+  name: string;
+  contact: string;
+  message: string;
+}) {
+  return z.object({
+    name: z.string().min(1, errors.name),
+    contact: z.string().min(1, errors.contact),
+    message: z.string().min(1, errors.message),
+  });
+}
 
-export type ContactValues = z.infer<typeof contactSchema>;
+export type ContactValues = {
+  name: string;
+  contact: string;
+  message: string;
+};

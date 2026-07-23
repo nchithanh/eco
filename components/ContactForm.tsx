@@ -1,91 +1,108 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { contactSchema, type ContactValues } from "@/lib/contact-schema";
+import {
+  createContactSchema,
+  type ContactValues,
+} from "@/lib/contact-schema";
+import { BrandText } from "@/components/BrandName";
+import { useLocale } from "@/lib/i18n/LocaleProvider";
+
+const fieldClass =
+  "mt-1 w-full rounded-2xl border border-white/70 bg-white/50 px-4 py-2.5 text-[var(--kuct-text)] outline-none backdrop-blur-md kuct-field focus:border-[var(--kuct-accent)]";
 
 export function ContactForm() {
+  const { locale } = useLocale();
+  return <ContactFormInner key={locale} />;
+}
+
+function ContactFormInner() {
+  const { t } = useLocale();
+  const c = t.contact;
   const [sent, setSent] = useState(false);
+
+  const schema = useMemo(() => createContactSchema(c.errors), [c.errors]);
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<ContactValues>({
-    resolver: zodResolver(contactSchema),
+    resolver: zodResolver(schema),
   });
 
   const onSubmit = (data: ContactValues) => {
-    const subject = encodeURIComponent(`YeGa — yêu cầu từ ${data.name}`);
+    const subject = encodeURIComponent(`${c.mailSubject} ${data.name}`);
     const body = encodeURIComponent(
-      `Tên: ${data.name}\nLiên hệ: ${data.contact}\n\n${data.message}`,
+      `${c.mailBodyName}: ${data.name}\n${c.mailBodyContact}: ${data.contact}\n\n${data.message}`,
     );
-    // Placeholder until YeGa has a real inbox.
-    window.location.href = `mailto:hello@yega.local?subject=${subject}&body=${body}`;
+    // Placeholder until KU THANH has a real inbox.
+    window.location.href = `mailto:hello@ku-thanh.local?subject=${subject}&body=${body}`;
     setSent(true);
   };
 
   return (
-    <section id="contact" className="scroll-mt-20 border-t border-white/5 bg-[var(--yega-surface)] py-24">
+    <section
+      id="contact"
+      className="scroll-mt-20 border-t border-white/40 py-24"
+    >
       <div className="mx-auto max-w-6xl px-6">
-        <h2 className="font-display text-3xl font-semibold sm:text-4xl">
-          Bắt đầu dự án với YeGa
+        <p className="text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
+          {c.eyebrow}
+        </p>
+        <h2 className="mt-3 font-display text-3xl font-semibold sm:text-4xl">
+          {c.title}
         </h2>
+        <p className="mt-3 max-w-xl text-[var(--kuct-muted)]">
+          <BrandText size="sm">{c.support}</BrandText>
+        </p>
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="mt-10 max-w-xl space-y-5"
           noValidate
         >
           <div>
-            <label htmlFor="name" className="block text-sm text-[var(--yega-muted)]">
-              Tên
+            <label htmlFor="name" className="block text-sm text-[var(--kuct-muted)]">
+              {c.name}
             </label>
-            <input
-              id="name"
-              className="mt-1 w-full border border-white/10 bg-[#0B1220] px-3 py-2 text-[var(--yega-text)] outline-none focus:border-[var(--yega-accent)]"
-              {...register("name")}
-            />
+            <input id="name" className={fieldClass} {...register("name")} />
             {errors.name && (
-              <p className="mt-1 text-xs text-red-400">{errors.name.message}</p>
+              <p className="mt-1 text-xs text-red-600">{errors.name.message}</p>
             )}
           </div>
           <div>
-            <label htmlFor="contact" className="block text-sm text-[var(--yega-muted)]">
-              Email hoặc Zalo
+            <label htmlFor="contact" className="block text-sm text-[var(--kuct-muted)]">
+              {c.contact}
             </label>
-            <input
-              id="contact"
-              className="mt-1 w-full border border-white/10 bg-[#0B1220] px-3 py-2 text-[var(--yega-text)] outline-none focus:border-[var(--yega-accent)]"
-              {...register("contact")}
-            />
+            <input id="contact" className={fieldClass} {...register("contact")} />
             {errors.contact && (
-              <p className="mt-1 text-xs text-red-400">{errors.contact.message}</p>
+              <p className="mt-1 text-xs text-red-600">{errors.contact.message}</p>
             )}
           </div>
           <div>
-            <label htmlFor="message" className="block text-sm text-[var(--yega-muted)]">
-              Mô tả ngắn dự án
+            <label htmlFor="message" className="block text-sm text-[var(--kuct-muted)]">
+              {c.message}
             </label>
             <textarea
               id="message"
               rows={4}
-              className="mt-1 w-full border border-white/10 bg-[#0B1220] px-3 py-2 text-[var(--yega-text)] outline-none focus:border-[var(--yega-accent)]"
+              className={fieldClass}
               {...register("message")}
             />
             {errors.message && (
-              <p className="mt-1 text-xs text-red-400">{errors.message.message}</p>
+              <p className="mt-1 text-xs text-red-600">{errors.message.message}</p>
             )}
           </div>
           <button
             type="submit"
-            className="bg-[var(--yega-accent)] px-6 py-3 text-sm font-semibold text-[#0B1220] transition hover:brightness-110"
+            className="kuct-btn-primary rounded-full px-7 py-3 text-sm font-semibold"
           >
-            Gửi yêu cầu
+            {c.submit}
           </button>
           {sent && (
-            <p className="text-sm text-[var(--yega-accent)]">
-              Đã mở ứng dụng email của bạn (hoặc sao chép nội dung nếu trình duyệt chặn mailto).
-            </p>
+            <p className="text-sm text-[var(--kuct-accent)]">{c.sent}</p>
           )}
         </form>
       </div>
