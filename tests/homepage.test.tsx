@@ -19,7 +19,7 @@ describe("KU THANH homepage", () => {
     expect(screen.getAllByLabelText(/KU THANH/i).length).toBeGreaterThanOrEqual(1);
     expect(
       screen.getByRole("heading", {
-        name: /Giải pháp web & app tổng thể/i,
+        name: /Xây web & app, tự động hóa quy trình, tích hợp AI/i,
       }),
     ).toBeInTheDocument();
     expect(
@@ -95,7 +95,7 @@ describe("KU THANH homepage", () => {
 
     expect(
       screen.getByRole("heading", {
-        name: /Web & Appのトータルソリューション/i,
+        name: /Web & App構築、業務自動化、AI連携/i,
       }),
     ).toBeInTheDocument();
     expect(
@@ -112,7 +112,7 @@ describe("KU THANH homepage", () => {
 
     expect(
       screen.getByRole("heading", {
-        name: /End-to-end web & app solutions/i,
+        name: /Build web & apps, automate workflows, integrate AI/i,
       }),
     ).toBeInTheDocument();
     expect(
@@ -129,7 +129,7 @@ describe("KU THANH homepage", () => {
 
     expect(
       screen.getByRole("heading", {
-        name: /Web- & App-Lösungen aus einer Hand/i,
+        name: /Web & Apps bauen, Prozesse automatisieren, AI integrieren/i,
       }),
     ).toBeInTheDocument();
     expect(
