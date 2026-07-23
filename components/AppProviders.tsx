@@ -1,8 +1,14 @@
 "use client";
 
 import type { ReactNode } from "react";
+import { AgentLoader } from "@/components/AgentLoader";
 import { LocaleProvider } from "@/lib/i18n/LocaleProvider";
 
 export function AppProviders({ children }: { children: ReactNode }) {
-  return <LocaleProvider>{children}</LocaleProvider>;
+  return (
+    <LocaleProvider>
+      <AgentLoader />
+      {children}
+    </LocaleProvider>
+  );
 }

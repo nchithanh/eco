@@ -287,14 +287,107 @@ body::before {
   animation: kuct-glow-pulse 4s ease-in-out infinite;
 }
 
+.kuct-loader {
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 35%, rgba(240, 171, 252, 0.28), transparent 55%),
+    radial-gradient(ellipse 60% 45% at 20% 80%, rgba(167, 139, 250, 0.22), transparent 50%),
+    radial-gradient(ellipse 55% 40% at 85% 70%, rgba(196, 181, 253, 0.2), transparent 50%),
+    rgba(247, 244, 252, 0.92);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  opacity: 1;
+  transition:
+    opacity 0.42s ease,
+    filter 0.42s ease,
+    visibility 0.42s ease;
+}
+
+.kuct-loader--exit {
+  opacity: 0;
+  filter: blur(8px);
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.kuct-loader-grid {
+  background-image:
+    linear-gradient(rgba(155, 126, 248, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(155, 126, 248, 0.08) 1px, transparent 1px);
+  background-size: 28px 28px;
+  mask-image: radial-gradient(circle at center, black 20%, transparent 72%);
+}
+
+.kuct-loader-orbit {
+  animation: kuct-loader-spin 12s linear infinite;
+  transform-origin: 50px 50px;
+}
+
+.kuct-loader-link {
+  animation: kuct-loader-dash 1.6s linear infinite;
+}
+
+.kuct-loader-core {
+  animation: kuct-loader-core-pulse 2.4s ease-in-out infinite;
+}
+
+.kuct-loader-node {
+  animation:
+    kuct-loader-node-in 0.7s ease-out both,
+    kuct-float 5.5s ease-in-out infinite;
+}
+
+@keyframes kuct-loader-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes kuct-loader-dash {
+  to {
+    stroke-dashoffset: -18;
+  }
+}
+
+@keyframes kuct-loader-core-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 18px 50px rgba(139, 92, 246, 0.28);
+  }
+  50% {
+    transform: scale(1.04);
+    box-shadow: 0 22px 60px rgba(139, 92, 246, 0.4);
+  }
+}
+
+@keyframes kuct-loader-node-in {
+  from {
+    opacity: 0;
+    transform: scale(0.72);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-kuct-fade,
   .animate-kuct-float,
   .animate-kuct-float-delay,
   .animate-kuct-avatar,
   .animate-kuct-avatar-ring,
-  .animate-kuct-glow {
+  .animate-kuct-glow,
+  .kuct-loader-orbit,
+  .kuct-loader-link,
+  .kuct-loader-core,
+  .kuct-loader-node {
     animation: none;
+  }
+
+  .kuct-loader-node {
+    opacity: 1;
+    transform: none;
   }
 
   body::before {

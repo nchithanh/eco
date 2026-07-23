@@ -25,11 +25,16 @@ const vi: Dictionary = {
   },
   hero: {
     eyebrow: "Studio",
-    headline: "Giải pháp web & app tổng thể",
+    headline: "Xây web & app, tự động hóa quy trình, tích hợp AI",
     support:
       "Chúng tôi từng đứng phía làm sản phẩm và outsource cho startup, nên biết áp lực tiến độ, ngân sách và kỳ vọng của khách. KU THANH mang đội ngũ chuyên nghiệp, giao tiếp thẳng và báo giá hợp lý — không “phóng” phạm vi.",
     ctaPrimary: "Nhận báo giá",
     ctaSecondary: "Xem dịch vụ",
+    visual: {
+      web: "Web & App",
+      automation: "Tự động hóa",
+      ai: "Tích hợp AI",
+    },
   },
   capabilities: {
     eyebrow: "Dịch vụ",
@@ -161,7 +166,7 @@ const vi: Dictionary = {
     role: "Co-founder",
     name: "Thanh NC",
     description:
-      "Developer 7+ năm kinh nghiệm product & outsource, từng đồng hành nhiều startup — hiểu rõ áp lực tiến độ, ngân sách và kỳ vọng của khách. Xây KU THANH với đội ngũ chuyên nghiệp, giao tiếp thẳng và mức giá phù hợp để bạn đi từ ý tưởng đến sản phẩm thật.",
+      "Developer 7+ năm kinh nghiệm product & outsource, từng đồng hành nhiều startup — hiểu rõ áp lực tiến độ, ngân sách và kỳ vọng của khách. KU THANH với đội ngũ chuyên nghiệp, giao tiếp thẳng và mức giá phù hợp để bạn đi từ ý tưởng đến sản phẩm thật.",
   },
   secondary: {
     eyebrow: "Mở rộng",
@@ -199,6 +204,16 @@ const vi: Dictionary = {
     disclaimer:
       "Nội dung liên quan chứng khoán chỉ mang tính chia sẻ cộng đồng — không phải tư vấn đầu tư có giấy phép và không cam kết lợi nhuận.",
   },
+  loader: {
+    aria: "Đang khởi động hệ thống agent",
+    status: "Đang khởi động agent…",
+    agents: {
+      scout: "Scout",
+      plan: "Plan",
+      build: "Build",
+      ship: "Ship",
+    },
+  },
 };
 
 const en: Dictionary = {
@@ -225,11 +240,16 @@ const en: Dictionary = {
   },
   hero: {
     eyebrow: "Studio",
-    headline: "End-to-end web & app solutions",
+    headline: "Build web & apps, automate workflows, integrate AI",
     support:
       "We've stood on both the product and startup-outsourcing sides, so we know the pressure of timelines, budgets, and expectations. KU THANH brings a professional team, straight talk, and fair quotes — without inflating scope.",
     ctaPrimary: "Get a quote",
     ctaSecondary: "View services",
+    visual: {
+      web: "Web & App",
+      automation: "Automation",
+      ai: "AI Integrate",
+    },
   },
   capabilities: {
     eyebrow: "Services",
@@ -361,7 +381,7 @@ const en: Dictionary = {
     role: "Co-founder",
     name: "Thanh NC",
     description:
-      "Developer with 7+ years in product & outsourcing, partnering with many startups — knows the pressure of timelines, budgets, and client expectations. Building KU THANH with a professional team, straight communication, and fair pricing to take you from idea to a real product.",
+      "Developer with 7+ years in product & outsourcing, partnering with many startups — knows the pressure of timelines, budgets, and client expectations. KU THANH with a professional team, straight communication, and fair pricing to take you from idea to a real product.",
   },
   secondary: {
     eyebrow: "More",
@@ -399,6 +419,16 @@ const en: Dictionary = {
     disclaimer:
       "Stock-related content is community sharing only — not licensed investment advice and no profit guarantees.",
   },
+  loader: {
+    aria: "Booting agent system",
+    status: "Booting agents…",
+    agents: {
+      scout: "Scout",
+      plan: "Plan",
+      build: "Build",
+      ship: "Ship",
+    },
+  },
 };
 
 const de: Dictionary = {
@@ -425,11 +455,16 @@ const de: Dictionary = {
   },
   hero: {
     eyebrow: "Studio",
-    headline: "Web- & App-Lösungen aus einer Hand",
+    headline: "Web & Apps bauen, Prozesse automatisieren, AI integrieren",
     support:
       "Wir kennen beide Seiten — Produktentwicklung und Outsourcing für Startups — und damit den Druck von Terminen, Budget und Erwartungen. KU THANH bringt ein professionelles Team, klare Kommunikation und faire Angebote — ohne aufgeblähten Scope.",
     ctaPrimary: "Angebot anfordern",
     ctaSecondary: "Leistungen ansehen",
+    visual: {
+      web: "Web & App",
+      automation: "Automation",
+      ai: "AI-Integration",
+    },
   },
   capabilities: {
     eyebrow: "Leistungen",
@@ -561,7 +596,7 @@ const de: Dictionary = {
     role: "Co-founder",
     name: "Thanh NC",
     description:
-      "Developer mit über 7 Jahren Erfahrung in Produkt & Outsourcing, Begleiter vieler Startups — kennt den Druck von Terminen, Budget und Kundenerwartungen. Baut KU THANH mit professionellem Team, klarer Kommunikation und fairen Preisen — von der Idee zum echten Produkt.",
+      "Developer mit über 7 Jahren Erfahrung in Produkt & Outsourcing, Begleiter vieler Startups — kennt den Druck von Terminen, Budget und Kundenerwartungen. KU THANH mit professionellem Team, klarer Kommunikation und fairen Preisen — von der Idee zum echten Produkt.",
   },
   secondary: {
     eyebrow: "Erweiterung",
@@ -599,6 +634,16 @@ const de: Dictionary = {
     disclaimer:
       "Inhalte zu Aktien dienen nur dem Community-Austausch — keine lizenzierte Anlageberatung und keine Gewinngarantie.",
   },
+  loader: {
+    aria: "Agent-System wird gestartet",
+    status: "Agents starten…",
+    agents: {
+      scout: "Scout",
+      plan: "Plan",
+      build: "Build",
+      ship: "Ship",
+    },
+  },
 };
 
 const ja: Dictionary = {
@@ -625,11 +670,16 @@ const ja: Dictionary = {
   },
   hero: {
     eyebrow: "Studio",
-    headline: "Web & Appのトータルソリューション",
+    headline: "Web & App構築、業務自動化、AI連携",
     support:
       "私たちはプロダクト開発とスタートアップ向けアウトソースの現場に立ってきたため、納期・予算・期待値のプレッシャーを理解しています。KU THANHはプロのチーム、率直なコミュニケーション、妥当な見積もりで進めます — スコープを水増ししません。",
     ctaPrimary: "見積もりを依頼",
     ctaSecondary: "サービスを見る",
+    visual: {
+      web: "Web & App",
+      automation: "業務自動化",
+      ai: "AI連携",
+    },
   },
   capabilities: {
     eyebrow: "サービス",
@@ -798,6 +848,16 @@ const ja: Dictionary = {
   footer: {
     disclaimer:
       "証券関連の内容はコミュニティ共有であり、認可を受けた投資助言ではなく、利益を保証するものでもありません。",
+  },
+  loader: {
+    aria: "エージェントシステムを起動中",
+    status: "エージェント起動中…",
+    agents: {
+      scout: "Scout",
+      plan: "Plan",
+      build: "Build",
+      ship: "Ship",
+    },
   },
 };
 

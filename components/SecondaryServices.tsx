@@ -32,7 +32,6 @@ export function SecondaryServices() {
         <h2 className="mt-3 font-display text-3xl font-semibold sm:text-4xl">
           <BrandText size="md">{s.title}</BrandText>
         </h2>
-        <p className="mt-3 max-w-2xl text-[var(--kuct-muted)]">{s.support}</p>
 
         <div className="mt-12 grid gap-6 md:grid-cols-2">
           {services.map((item) => (

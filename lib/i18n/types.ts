@@ -36,6 +36,11 @@ export type Dictionary = {
     support: string;
     ctaPrimary: string;
     ctaSecondary: string;
+    visual: {
+      web: string;
+      automation: string;
+      ai: string;
+    };
   };
   capabilities: {
     eyebrow: string;
@@ -157,5 +162,15 @@ export type Dictionary = {
   };
   footer: {
     disclaimer: string;
+  };
+  loader: {
+    aria: string;
+    status: string;
+    agents: {
+      scout: string;
+      plan: string;
+      build: string;
+      ship: string;
+    };
   };
 };
