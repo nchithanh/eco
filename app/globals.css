@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+:root {
+  --yega-bg: #0b1220;
+  --yega-surface: #121a2b;
+  --yega-accent: #2dd4bf;
+  --yega-text: #f8fafc;
+  --yega-muted: #94a3b8;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--yega-bg);
+  color: var(--yega-text);
+  font-family: var(--font-body), system-ui, sans-serif;
+}
+
+.font-display {
+  font-family: var(--font-display), system-ui, sans-serif;
+}
+
+@keyframes yega-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes yega-grid-drift {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 48px 48px;
+  }
+}
+
+.animate-yega-fade {
+  animation: yega-fade-in 0.8s ease-out both;
+}
+
+.yega-grid {
+  background-image:
+    linear-gradient(rgba(45, 212, 191, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(45, 212, 191, 0.06) 1px, transparent 1px);
+  background-size: 48px 48px;
+  animation: yega-grid-drift 28s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-yega-fade,
+  .yega-grid {
+    animation: none;
+  }
+}
