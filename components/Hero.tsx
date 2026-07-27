@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Logo } from "@/components/Logo";
 import { AccentText, BrandText } from "@/components/BrandName";
 import { useQuote } from "@/components/QuoteProvider";
+import { assetPath } from "@/lib/asset";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
 
 function IconWeb() {
@@ -157,7 +158,7 @@ export function Hero() {
           <GlassPanels />
           {/* Companion only — sits beside panels, below brand column visual weight */}
           <Image
-            src="/mascot/dolphin-eco.png"
+            src={assetPath("/mascot/dolphin-eco.png")}
             alt=""
             width={678}
             height={977}

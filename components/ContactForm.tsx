@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { AccentText, BrandText } from "@/components/BrandName";
+import { assetPath } from "@/lib/asset";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
 
 /** Contact panel visual — lg+ only. */
@@ -16,7 +17,7 @@ function ContactVisualScene() {
       aria-hidden
     >
       <Image
-        src="/mascot/dolphin-contact.png"
+        src={assetPath("/mascot/dolphin-contact.png")}
         alt=""
         width={635}
         height={967}
