@@ -1,47 +1,35 @@
 "use client";
 
-import { useMemo, useState } from "react";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import {
-  createContactSchema,
-  type ContactValues,
-} from "@/lib/contact-schema";
-import { BrandText } from "@/components/BrandName";
+import Image from "next/image";
+import { AccentText, BrandText } from "@/components/BrandName";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
 
-const fieldClass =
-  "mt-1 w-full rounded-2xl border border-white/70 bg-white/50 px-4 py-2.5 text-[var(--kuct-text)] outline-none backdrop-blur-md kuct-field focus:border-[var(--kuct-accent)]";
-
-export function ContactForm() {
-  const { locale } = useLocale();
-  return <ContactFormInner key={locale} />;
+/** Contact panel visual — lg+ only. */
+function ContactVisualScene() {
+  return (
+    <div
+      className="relative hidden min-h-[22rem] items-end justify-center overflow-hidden rounded-[1.75rem] lg:flex"
+      style={{
+        background:
+          "radial-gradient(ellipse at 70% 42%, rgb(var(--kuct-accent-rgb) / 0.16), transparent 62%), linear-gradient(145deg, color-mix(in srgb, var(--kuct-accent-3) 22%, transparent), transparent 70%)",
+      }}
+      aria-hidden
+    >
+      <Image
+        src="/mascot/dolphin-contact.png"
+        alt=""
+        width={635}
+        height={967}
+        className="kuct-mascot-float relative z-[1] h-auto max-h-[min(22rem,55vh)] w-auto max-w-[70%] object-contain drop-shadow-[0_16px_32px_rgba(var(--kuct-accent-rgb),0.22)] select-none"
+        sizes="(min-width: 1024px) 40vw, 0px"
+      />
+    </div>
+  );
 }
 
-function ContactFormInner() {
+export function ContactForm() {
   const { t } = useLocale();
   const c = t.contact;
-  const [sent, setSent] = useState(false);
-
-  const schema = useMemo(() => createContactSchema(c.errors), [c.errors]);
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<ContactValues>({
-    resolver: zodResolver(schema),
-  });
-
-  const onSubmit = (data: ContactValues) => {
-    const subject = encodeURIComponent(`${c.mailSubject} ${data.name}`);
-    const body = encodeURIComponent(
-      `${c.mailBodyName}: ${data.name}\n${c.mailBodyContact}: ${data.contact}\n\n${data.message}`,
-    );
-    // Placeholder until KU THANH has a real inbox.
-    window.location.href = `mailto:hello@ku-thanh.local?subject=${subject}&body=${body}`;
-    setSent(true);
-  };
 
   return (
     <section
@@ -49,62 +37,37 @@ function ContactFormInner() {
       className="scroll-mt-20 border-t border-white/40 py-24"
     >
       <div className="mx-auto max-w-6xl px-6">
-        <p className="text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
-          {c.eyebrow}
-        </p>
-        <h2 className="mt-3 font-display text-3xl font-semibold sm:text-4xl">
-          {c.title}
-        </h2>
-        <p className="mt-3 max-w-xl text-[var(--kuct-muted)]">
-          <BrandText size="sm">{c.support}</BrandText>
-        </p>
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          className="mt-10 max-w-xl space-y-5"
-          noValidate
-        >
+        <div className="grid items-stretch gap-10 lg:grid-cols-2 lg:gap-14">
           <div>
-            <label htmlFor="name" className="block text-sm text-[var(--kuct-muted)]">
-              {c.name}
-            </label>
-            <input id="name" className={fieldClass} {...register("name")} />
-            {errors.name && (
-              <p className="mt-1 text-xs text-red-600">{errors.name.message}</p>
-            )}
+            <p className="text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
+              {c.eyebrow}
+            </p>
+            <h2 className="mt-3 font-display text-3xl font-semibold sm:text-4xl">
+              <AccentText>{c.title}</AccentText>
+            </h2>
+            <p className="mt-3 max-w-xl text-[var(--kuct-muted)]">
+              <BrandText size="sm">{c.support}</BrandText>
+            </p>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <a
+                href="https://zalo.me/0779937633"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="kuct-btn-primary inline-flex items-center rounded-full px-6 py-2.5 text-sm font-semibold"
+              >
+                {c.ctaZalo}
+              </a>
+              <a
+                href="mailto:nchithanh9999@gmail.com"
+                className="kuct-btn-ghost inline-flex items-center rounded-full px-6 py-2.5 text-sm font-medium"
+              >
+                {c.ctaEmail}
+              </a>
+            </div>
           </div>
-          <div>
-            <label htmlFor="contact" className="block text-sm text-[var(--kuct-muted)]">
-              {c.contact}
-            </label>
-            <input id="contact" className={fieldClass} {...register("contact")} />
-            {errors.contact && (
-              <p className="mt-1 text-xs text-red-600">{errors.contact.message}</p>
-            )}
-          </div>
-          <div>
-            <label htmlFor="message" className="block text-sm text-[var(--kuct-muted)]">
-              {c.message}
-            </label>
-            <textarea
-              id="message"
-              rows={4}
-              className={fieldClass}
-              {...register("message")}
-            />
-            {errors.message && (
-              <p className="mt-1 text-xs text-red-600">{errors.message.message}</p>
-            )}
-          </div>
-          <button
-            type="submit"
-            className="kuct-btn-primary rounded-full px-7 py-3 text-sm font-semibold"
-          >
-            {c.submit}
-          </button>
-          {sent && (
-            <p className="text-sm text-[var(--kuct-accent)]">{c.sent}</p>
-          )}
-        </form>
+
+          <ContactVisualScene />
+        </div>
       </div>
     </section>
   );

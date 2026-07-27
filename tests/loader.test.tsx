@@ -3,7 +3,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { AgentLoader } from "@/components/AgentLoader";
 import { LocaleProvider } from "@/lib/i18n/LocaleProvider";
 
-function renderLoader(minDurationMs = 3000) {
+function renderLoader(minDurationMs = 1500) {
   return render(
     <LocaleProvider>
       <AgentLoader disabled={false} minDurationMs={minDurationMs} />
@@ -13,6 +13,7 @@ function renderLoader(minDurationMs = 3000) {
 
 describe("AgentLoader", () => {
   beforeEach(() => {
+    window.localStorage.setItem("kuct-locale", "vi");
     vi.stubGlobal(
       "matchMedia",
       vi.fn().mockReturnValue({
@@ -36,7 +37,7 @@ describe("AgentLoader", () => {
 
   it("shows agent constellation and status", () => {
     vi.useFakeTimers({ toFake: ["setTimeout", "requestAnimationFrame"] });
-    renderLoader(3000);
+    renderLoader(1500);
 
     expect(screen.getByRole("status", { name: /Đang khởi động hệ thống agent/i })).toBeInTheDocument();
     expect(screen.getByText(/Đang khởi động agent/i)).toBeInTheDocument();
@@ -48,12 +49,12 @@ describe("AgentLoader", () => {
 
   it("stays for min duration then unmounts", async () => {
     vi.useFakeTimers({ toFake: ["setTimeout", "requestAnimationFrame", "performance"] });
-    renderLoader(3000);
+    renderLoader(1500);
 
     expect(screen.getByRole("status")).toBeInTheDocument();
 
     await act(async () => {
-      await vi.advanceTimersByTimeAsync(2990);
+      await vi.advanceTimersByTimeAsync(1490);
     });
     expect(screen.getByRole("status")).toBeInTheDocument();
 

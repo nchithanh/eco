@@ -1,6 +1,6 @@
-# KU THANH
+# Dolphin Kick
 
-Vietnamese marketing site for KU THANH, a web and mobile app studio.
+Vietnamese marketing site for Dolphin Kick, a web and mobile app studio.
 
 ## Development
 

@@ -16,7 +16,9 @@ import {
   type Locale,
 } from "./types";
 
-const STORAGE_KEY = "kuct-locale";
+export const LOCALE_STORAGE_KEY = "kuct-locale";
+export const LOCALE_PENDING_ATTR = "data-locale-pending";
+export const LOCALE_BOOT_STYLE_ID = "kuct-locale-boot";
 
 type LocaleContextValue = {
   locale: Locale;
@@ -26,27 +28,96 @@ type LocaleContextValue = {
 
 const LocaleContext = createContext<LocaleContextValue | null>(null);
 
-function isLocale(value: string | null): value is Locale {
-  return value === "vi" || value === "en" || value === "ja" || value === "de";
+export function isLocale(value: string | null | undefined): value is Locale {
+  return (
+    value === "vi" ||
+    value === "en" ||
+    value === "ja" ||
+    value === "de" ||
+    value === "zh"
+  );
+}
+
+/** Map BCP-47 / navigator language tags to supported locales. */
+export function detectBrowserLocale(
+  languages: readonly string[] | undefined,
+): Locale {
+  if (!languages?.length) return DEFAULT_LOCALE;
+
+  for (const raw of languages) {
+    const tag = raw.toLowerCase();
+    const primary = tag.split("-")[0] ?? tag;
+    if (primary === "vi") return "vi";
+    if (primary === "ja") return "ja";
+    if (primary === "zh") return "zh";
+    if (primary === "de") return "de";
+    if (primary === "en") return "en";
+  }
+  return DEFAULT_LOCALE;
+}
+
+function readStoredLocale(): Locale | null {
+  try {
+    const stored = window.localStorage.getItem(LOCALE_STORAGE_KEY);
+    return isLocale(stored) ? stored : null;
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Resolve locale on the client: boot-script `data-locale` → localStorage →
+ * navigator languages → DEFAULT_LOCALE.
+ */
+export function resolveClientLocale(): Locale {
+  if (typeof document !== "undefined") {
+    const fromDom = document.documentElement.getAttribute("data-locale");
+    if (isLocale(fromDom)) return fromDom;
+  }
+
+  const stored = readStoredLocale();
+  if (stored) return stored;
+
+  // Vitest: keep DEFAULT_LOCALE when no preference is stored
+  if (process.env.NODE_ENV === "test") return DEFAULT_LOCALE;
+
+  return detectBrowserLocale(
+    typeof navigator !== "undefined"
+      ? navigator.languages?.length
+        ? navigator.languages
+        : [navigator.language]
+      : undefined,
+  );
+}
+
+function applyLocaleToDocument(locale: Locale) {
+  document.documentElement.lang = locale;
+  document.documentElement.setAttribute("data-locale", locale);
+  document.documentElement.removeAttribute(LOCALE_PENDING_ATTR);
+  document.getElementById(LOCALE_BOOT_STYLE_ID)?.remove();
 }
 
 export function LocaleProvider({ children }: { children: ReactNode }) {
   const [locale, setLocaleState] = useState<Locale>(DEFAULT_LOCALE);
 
   useEffect(() => {
-    const stored = window.localStorage.getItem(STORAGE_KEY);
-    if (isLocale(stored)) {
-      setLocaleState(stored);
-    }
+    const resolved = resolveClientLocale();
+    setLocaleState(resolved);
+    applyLocaleToDocument(resolved);
   }, []);
 
   useEffect(() => {
     document.documentElement.lang = locale;
+    document.documentElement.setAttribute("data-locale", locale);
   }, [locale]);
 
   const setLocale = useCallback((next: Locale) => {
     setLocaleState(next);
-    window.localStorage.setItem(STORAGE_KEY, next);
+    try {
+      window.localStorage.setItem(LOCALE_STORAGE_KEY, next);
+    } catch {
+      // ignore private mode / blocked storage
+    }
   }, []);
 
   const value = useMemo(

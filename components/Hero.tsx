@@ -1,7 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import { Logo } from "@/components/Logo";
-import { BrandText } from "@/components/BrandName";
+import { AccentText, BrandText } from "@/components/BrandName";
+import { useQuote } from "@/components/QuoteProvider";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
 
 function IconWeb() {
@@ -73,21 +75,21 @@ function GlassPanels() {
       label: v.web,
       icon: <IconWeb />,
       className:
-        "animate-kuct-float absolute left-[6%] top-[10%] flex h-[72%] w-[38%] -rotate-[10deg] flex-col items-center justify-center gap-3 rounded-[1.75rem] border border-white/55 bg-gradient-to-br from-white/70 via-[#e9d5ff]/45 to-[#c4b5fd]/30 p-4 text-center shadow-[0_25px_60px_rgba(139,92,246,0.2)] backdrop-blur-xl",
+        "kuct-glass-panel animate-kuct-float absolute left-[6%] top-[10%] flex h-[72%] w-[38%] -rotate-[10deg] flex-col items-center justify-center gap-3 rounded-[1.75rem] p-4 text-center",
     },
     {
       key: "automation",
       label: v.automation,
       icon: <IconAutomation />,
       className:
-        "animate-kuct-float-delay absolute left-[31%] top-[2%] z-10 flex h-[82%] w-[40%] rotate-[6deg] flex-col items-center justify-center gap-3 rounded-[1.75rem] border border-white/65 bg-gradient-to-br from-[#f5d0fe]/65 via-[#ddd6fe]/45 to-white/40 p-4 text-center shadow-[0_30px_70px_rgba(168,85,247,0.22)] backdrop-blur-2xl",
+        "kuct-glass-panel animate-kuct-float-delay absolute left-[31%] top-[2%] z-10 flex h-[82%] w-[40%] rotate-[6deg] flex-col items-center justify-center gap-3 rounded-[1.75rem] p-4 text-center",
     },
     {
       key: "ai",
       label: v.ai,
       icon: <IconAi />,
       className:
-        "animate-kuct-float absolute right-[4%] top-[14%] flex h-[68%] w-[36%] rotate-[14deg] flex-col items-center justify-center gap-3 rounded-[1.75rem] border border-white/50 bg-gradient-to-br from-[#c4b5fd]/50 via-white/30 to-[#f0abfc]/35 p-4 text-center shadow-[0_20px_50px_rgba(192,132,252,0.25)] backdrop-blur-xl [animation-delay:1.4s]",
+        "kuct-glass-panel animate-kuct-float absolute right-[4%] top-[14%] flex h-[68%] w-[36%] rotate-[14deg] flex-col items-center justify-center gap-3 rounded-[1.75rem] p-4 text-center [animation-delay:1.4s]",
     },
   ] as const;
 
@@ -96,7 +98,7 @@ function GlassPanels() {
       className="relative mx-auto h-[280px] w-full max-w-md sm:h-[340px] lg:mx-0 lg:h-[420px] lg:max-w-none"
       aria-hidden
     >
-      <div className="animate-kuct-glow absolute inset-0 rounded-full bg-[radial-gradient(circle,_rgba(192,132,252,0.35)_0%,_transparent_65%)] blur-2xl" />
+      <div className="kuct-glow-orb animate-kuct-glow absolute inset-0 rounded-full blur-2xl" />
       {panels.map((panel) => (
         <div key={panel.key} className={panel.className}>
           <div className="grid size-12 place-items-center rounded-2xl bg-white/55 text-[var(--kuct-accent)] shadow-sm ring-1 ring-white/70">
@@ -114,6 +116,7 @@ function GlassPanels() {
 
 export function Hero() {
   const { t } = useLocale();
+  const { openQuote } = useQuote();
 
   return (
     <section
@@ -129,18 +132,19 @@ export function Hero() {
             <Logo className="h-14 w-auto sm:h-16 md:h-20" />
           </div>
           <h1 className="mt-6 max-w-xl font-display text-3xl font-semibold leading-[1.15] tracking-tight text-[var(--kuct-text)] sm:text-4xl lg:text-5xl">
-            {t.hero.headline}
+            <AccentText>{t.hero.headline}</AccentText>
           </h1>
           <p className="mt-5 max-w-lg text-base leading-relaxed text-[var(--kuct-muted)] sm:text-lg">
             <BrandText size="sm">{t.hero.support}</BrandText>
           </p>
           <div className="mt-10 flex flex-wrap gap-3">
-            <a
-              href="#contact"
+            <button
+              type="button"
+              onClick={openQuote}
               className="kuct-btn-primary inline-flex items-center rounded-full px-7 py-3 text-sm font-semibold"
             >
               {t.hero.ctaPrimary}
-            </a>
+            </button>
             <a
               href="#capabilities"
               className="kuct-btn-ghost inline-flex items-center rounded-full px-7 py-3 text-sm font-medium"
@@ -151,6 +155,15 @@ export function Hero() {
         </div>
         <div className="animate-kuct-fade relative z-0 [animation-delay:120ms]">
           <GlassPanels />
+          {/* Companion only — sits beside panels, below brand column visual weight */}
+          <Image
+            src="/mascot/dolphin-eco.png"
+            alt=""
+            width={678}
+            height={977}
+            aria-hidden
+            className="kuct-mascot-float pointer-events-none absolute -bottom-2 right-0 z-[1] h-40 w-auto max-w-[42%] object-contain drop-shadow-[0_12px_24px_rgba(var(--kuct-accent-rgb),0.22)] select-none sm:right-2 sm:h-48 lg:-bottom-4 lg:-right-2 lg:h-56"
+          />
         </div>
       </div>
     </section>

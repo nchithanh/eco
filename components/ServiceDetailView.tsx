@@ -1,34 +1,73 @@
 "use client";
 
 import Link from "next/link";
+import { LazyImage } from "@/components/LazyImage";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { BrandText } from "@/components/BrandName";
+import { usePagePreview } from "@/components/PagePreviewProvider";
+import { useQuote } from "@/components/QuoteProvider";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
 import {
   getServiceDetail,
   getServiceDetailUi,
   type ServiceSlug,
 } from "@/lib/i18n/service-details";
+import {
+  getDetailExtrasUi,
+  getServiceExtras,
+  serviceHero,
+} from "@/lib/detail-extras";
+import { useTheme } from "@/lib/theme";
 
-export function ServiceDetailView({ slug }: { slug: ServiceSlug }) {
+export function ServiceDetailContent({
+  slug,
+  embedded = false,
+}: {
+  slug: ServiceSlug;
+  embedded?: boolean;
+}) {
   const { locale, t } = useLocale();
+  const { theme } = useTheme();
+  const { close } = usePagePreview();
+  const { openQuote } = useQuote();
   const detail = getServiceDetail(locale, slug);
   const ui = getServiceDetailUi(locale);
+  const extras = getServiceExtras(locale, slug);
+  const xui = getDetailExtrasUi(locale);
   const card = t.capabilities.items.find((item) => item.id === slug);
+  const hero = serviceHero(slug, theme);
 
   return (
-    <main>
-      <Nav />
-      <section className="relative overflow-hidden border-b border-white/40 py-16 sm:py-20">
+    <div>
+      <section
+        className={
+          embedded
+            ? "relative overflow-hidden border-b border-white/40 py-10 sm:py-12"
+            : "relative overflow-hidden border-b border-white/40 py-16 sm:py-20"
+        }
+      >
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[#faf5ff] via-white/50 to-[#ede9fe]/80" />
         <div className="relative mx-auto max-w-6xl px-6">
-          <Link
-            href="/#capabilities"
-            className="kuct-link inline-flex text-sm font-medium text-[var(--kuct-muted)]"
+          {!embedded ? (
+            <Link
+              href="/#capabilities"
+              className="kuct-link inline-flex text-sm font-medium text-[var(--kuct-muted)]"
+            >
+              {ui.back}
+            </Link>
+          ) : null}
+          <div
+            className={`${embedded ? "mt-0" : "mt-6"} relative aspect-[16/9] max-w-3xl overflow-hidden rounded-2xl border border-white/60 shadow-[0_1rem_2.5rem_rgba(139,92,246,0.12)]`}
           >
-            {ui.back}
-          </Link>
+            <LazyImage
+              src={hero}
+              alt={detail.title}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 48rem"
+            />
+          </div>
           <p className="mt-6 text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
             {card?.category ?? t.capabilities.eyebrow}
           </p>
@@ -53,7 +92,7 @@ export function ServiceDetailView({ slug }: { slug: ServiceSlug }) {
         </div>
       </section>
 
-      <section className="py-16 sm:py-20">
+      <section className={embedded ? "py-10 sm:py-12" : "py-16 sm:py-20"}>
         <div className="mx-auto grid max-w-6xl gap-10 px-6 lg:grid-cols-3">
           <DetailBlock title={ui.highlightsTitle} items={detail.highlights} />
           <DetailBlock title={ui.processTitle} items={detail.process} />
@@ -62,15 +101,65 @@ export function ServiceDetailView({ slug }: { slug: ServiceSlug }) {
             items={detail.deliverables}
           />
         </div>
+
+        <div className="mx-auto mt-10 grid max-w-6xl gap-8 px-6 lg:grid-cols-2">
+          <div className="kuct-glass rounded-2xl p-6">
+            <h2 className="font-display text-lg font-semibold text-[var(--kuct-text)]">
+              {xui.audienceTitle}
+            </h2>
+            <p className="mt-3 text-sm leading-relaxed text-[var(--kuct-muted)] sm:text-base">
+              {extras.audience}
+            </p>
+            <h3 className="mt-6 font-display text-base font-semibold text-[var(--kuct-text)]">
+              {xui.useCasesTitle}
+            </h3>
+            <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-relaxed text-[var(--kuct-muted)]">
+              {extras.useCases.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
+          <div className="kuct-glass rounded-2xl p-6">
+            <h2 className="font-display text-lg font-semibold text-[var(--kuct-text)]">
+              {xui.faqTitle}
+            </h2>
+            <ul className="mt-4 space-y-4">
+              {extras.faq.map((item) => (
+                <li key={item.q}>
+                  <p className="text-sm font-semibold text-[var(--kuct-text)]">
+                    {item.q}
+                  </p>
+                  <p className="mt-1 text-sm leading-relaxed text-[var(--kuct-muted)]">
+                    {item.a}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
         <div className="mx-auto mt-12 max-w-6xl px-6">
-          <Link
-            href="/#contact"
+          <button
+            type="button"
             className="kuct-btn-primary inline-flex items-center rounded-full px-7 py-3 text-sm font-semibold"
+            onClick={() => {
+              if (embedded) close();
+              openQuote();
+            }}
           >
             {ui.cta}
-          </Link>
+          </button>
         </div>
       </section>
+    </div>
+  );
+}
+
+export function ServiceDetailView({ slug }: { slug: ServiceSlug }) {
+  return (
+    <main>
+      <Nav />
+      <ServiceDetailContent slug={slug} />
       <Footer />
     </main>
   );

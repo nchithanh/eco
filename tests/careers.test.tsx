@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { describe, expect, it } from "vitest";
+import { beforeEach, describe, expect, it } from "vitest";
 import CareersPage from "@/app/careers/page";
 import { AppProviders } from "@/components/AppProviders";
 
@@ -12,7 +12,10 @@ function renderCareers() {
   );
 }
 
-describe("KU THANH careers page", () => {
+describe("Dolphin Kick careers page", () => {
+  beforeEach(() => {
+    window.localStorage.setItem("kuct-locale", "vi");
+  });
   it("renders freelance hero and open roles including sales", () => {
     renderCareers();
     expect(

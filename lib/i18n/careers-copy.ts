@@ -4,13 +4,13 @@ type CareersCopy = Dictionary["careers"];
 
 const vi: CareersCopy = {
   meta: {
-    title: "KU THANH — Tuyển dụng freelancer",
+    title: "Dolphin Kick — Tuyển dụng freelancer",
     description:
-      "Cộng tác freelance với KU THANH — web, mobile, backend, UI/UX. ~1000 USD/tháng tương đương, linh hoạt theo giờ.",
+      "Cộng tác freelance với Dolphin Kick — web, mobile, backend, UI/UX. ~1000 USD/tháng tương đương, linh hoạt theo giờ.",
   },
   hero: {
     eyebrow: "Careers",
-    headline: "Freelance cùng KU THANH",
+    headline: "Freelance cùng Dolphin Kick",
     support:
       "Cần đồng đội linh hoạt theo dự án — không phải full-time. Mức ~1000 USD/tháng tương đương full capacity, thanh toán theo giờ thỏa thuận.",
   },
@@ -23,12 +23,21 @@ const vi: CareersCopy = {
   engagement: "Freelance",
   comp: "~$1,000/tháng tương đương · linh hoạt theo giờ",
   applyCta: "Ứng tuyển",
+  hiring: {
+    closed: "Đã đóng",
+    expired: "Hết hạn ứng tuyển",
+    countdown: "Còn lại",
+    days: "ngày",
+    hours: "giờ",
+    minutes: "phút",
+    seconds: "giây",
+  },
   jobs: [
     {
       id: "sales",
       title: "Sales / Business Development",
       summary:
-        "Tìm và chốt deal web/app cho KU THANH — freelance, hoa hồng theo deal.",
+        "Tìm và chốt deal web/app cho Dolphin Kick — freelance, hoa hồng theo deal.",
       bullets: [
         "Tự săn lead / network khách hàng SME & startup",
         "Hiểu dịch vụ web, app, backend đủ để tư vấn sơ bộ",
@@ -91,7 +100,7 @@ const vi: CareersCopy = {
   apply: {
     eyebrow: "Apply",
     title: "Gửi hồ sơ freelance",
-    support: "Điền form — KU THANH sẽ mở email để bạn gửi kèm portfolio.",
+    support: "Điền form — Dolphin Kick sẽ mở email để bạn gửi kèm portfolio.",
     name: "Tên",
     contact: "Email hoặc Zalo",
     portfolio: "Link portfolio / GitHub",
@@ -99,7 +108,7 @@ const vi: CareersCopy = {
     message: "Giới thiệu ngắn + availability",
     submit: "Gửi ứng tuyển",
     sent: "Đã mở ứng dụng email của bạn (hoặc sao chép nội dung nếu trình duyệt chặn mailto).",
-    mailSubject: "KU THANH Careers —",
+    mailSubject: "Dolphin Kick Careers —",
     mailBodyName: "Tên",
     mailBodyContact: "Liên hệ",
     mailBodyPortfolio: "Portfolio",
@@ -116,13 +125,13 @@ const vi: CareersCopy = {
 
 const en: CareersCopy = {
   meta: {
-    title: "KU THANH — Freelance careers",
+    title: "Dolphin Kick — Freelance careers",
     description:
-      "Freelance with KU THANH — web, mobile, backend, UI/UX. ~USD 1,000/mo equivalent, hourly flexible.",
+      "Freelance with Dolphin Kick — web, mobile, backend, UI/UX. ~USD 1,000/mo equivalent, hourly flexible.",
   },
   hero: {
     eyebrow: "Careers",
-    headline: "Freelance with KU THANH",
+    headline: "Freelance with Dolphin Kick",
     support:
       "We need flexible teammates per project — not full-time. About USD 1,000/mo full-capacity equivalent, paid hourly by agreement.",
   },
@@ -135,12 +144,21 @@ const en: CareersCopy = {
   engagement: "Freelance",
   comp: "~$1,000/mo equivalent · hourly flexible",
   applyCta: "Apply",
+  hiring: {
+    closed: "Closed",
+    expired: "Application period ended",
+    countdown: "Time left",
+    days: "d",
+    hours: "h",
+    minutes: "m",
+    seconds: "s",
+  },
   jobs: [
     {
       id: "sales",
       title: "Sales / Business Development",
       summary:
-        "Source and close web/app deals for KU THANH — freelance, commission per deal.",
+        "Source and close web/app deals for Dolphin Kick — freelance, commission per deal.",
       bullets: [
         "Hunt leads / network with SME & startup clients",
         "Enough product literacy to pitch web, app, backend",
@@ -203,7 +221,7 @@ const en: CareersCopy = {
   apply: {
     eyebrow: "Apply",
     title: "Send your freelance profile",
-    support: "Fill the form — KU THANH will open email so you can send your portfolio.",
+    support: "Fill the form — Dolphin Kick will open email so you can send your portfolio.",
     name: "Name",
     contact: "Email or Zalo",
     portfolio: "Portfolio / GitHub link",
@@ -211,7 +229,7 @@ const en: CareersCopy = {
     message: "Short intro + availability",
     submit: "Submit application",
     sent: "Opened your email app (or copy the content if the browser blocked mailto).",
-    mailSubject: "KU THANH Careers —",
+    mailSubject: "Dolphin Kick Careers —",
     mailBodyName: "Name",
     mailBodyContact: "Contact",
     mailBodyPortfolio: "Portfolio",
@@ -228,13 +246,13 @@ const en: CareersCopy = {
 
 const ja: CareersCopy = {
   meta: {
-    title: "KU THANH — フリーランス採用",
+    title: "Dolphin Kick — フリーランス採用",
     description:
-      "KU THANHとのフリーランス協業 — Web、モバイル、バックエンド、UI/UX。約1,000 USD/月相当、時間単価で柔軟。",
+      "Dolphin Kickとのフリーランス協業 — Web、モバイル、バックエンド、UI/UX。約1,000 USD/月相当、時間単価で柔軟。",
   },
   hero: {
     eyebrow: "Careers",
-    headline: "KU THANHとフリーランスで働く",
+    headline: "Dolphin Kickとフリーランスで働く",
     support:
       "プロジェクト単位で柔軟に動ける仲間を募集 — 正社員ではありません。フル稼働換算で約1,000 USD/月、時間単価で合意します。",
   },
@@ -247,12 +265,21 @@ const ja: CareersCopy = {
   engagement: "Freelance",
   comp: "約1,000 USD/月相当 · 時間単価で柔軟",
   applyCta: "応募する",
+  hiring: {
+    closed: "募集終了",
+    expired: "応募期間終了",
+    countdown: "残り",
+    days: "日",
+    hours: "時間",
+    minutes: "分",
+    seconds: "秒",
+  },
   jobs: [
     {
       id: "sales",
       title: "Sales / Business Development",
       summary:
-        "KU THANHのWeb/App案件を開拓・成約 — フリーランス、案件ごとのコミッション。",
+        "Dolphin KickのWeb/App案件を開拓・成約 — フリーランス、案件ごとのコミッション。",
       bullets: [
         "SME・スタートアップ向けリード獲得 / ネットワーク",
         "Web・App・バックエンドを説明できる程度の理解",
@@ -323,7 +350,7 @@ const ja: CareersCopy = {
     message: "短い自己紹介 + 稼働可能時間",
     submit: "応募を送信",
     sent: "メールアプリを開きました（ブラウザがmailtoをブロックした場合は内容をコピーしてください）。",
-    mailSubject: "KU THANH Careers —",
+    mailSubject: "Dolphin Kick Careers —",
     mailBodyName: "お名前",
     mailBodyContact: "連絡先",
     mailBodyPortfolio: "ポートフォリオ",
@@ -340,13 +367,13 @@ const ja: CareersCopy = {
 
 const de: CareersCopy = {
   meta: {
-    title: "KU THANH — Freelance Karriere",
+    title: "Dolphin Kick — Freelance Karriere",
     description:
-      "Freelance mit KU THANH — Web, Mobile, Backend, UI/UX. ~1.000 USD/Monat Äquivalent, stundenweise flexibel.",
+      "Freelance mit Dolphin Kick — Web, Mobile, Backend, UI/UX. ~1.000 USD/Monat Äquivalent, stundenweise flexibel.",
   },
   hero: {
     eyebrow: "Careers",
-    headline: "Freelance mit KU THANH",
+    headline: "Freelance mit Dolphin Kick",
     support:
       "Wir suchen flexible Mitstreiter pro Projekt — kein Fulltime. Etwa 1.000 USD/Monat Vollzeit-Äquivalent, stundenweise nach Vereinbarung.",
   },
@@ -359,12 +386,21 @@ const de: CareersCopy = {
   engagement: "Freelance",
   comp: "~1.000 USD/Monat Äquivalent · stundenweise flexibel",
   applyCta: "Bewerben",
+  hiring: {
+    closed: "Geschlossen",
+    expired: "Bewerbungsfrist abgelaufen",
+    countdown: "Verbleibend",
+    days: "T",
+    hours: "Std",
+    minutes: "Min",
+    seconds: "Sek",
+  },
   jobs: [
     {
       id: "sales",
       title: "Sales / Business Development",
       summary:
-        "Web-/App-Deals für KU THANH akquirieren und abschließen — Freelance, Provision pro Deal.",
+        "Web-/App-Deals für Dolphin Kick akquirieren und abschließen — Freelance, Provision pro Deal.",
       bullets: [
         "Leads jagen / Netzwerk zu SME- & Startup-Kunden",
         "Genug Produktverständnis für Web, App, Backend",
@@ -427,7 +463,7 @@ const de: CareersCopy = {
   apply: {
     eyebrow: "Apply",
     title: "Freelance-Profil senden",
-    support: "Formular ausfüllen — KU THANH öffnet die E-Mail, damit Sie Ihr Portfolio mitschicken.",
+    support: "Formular ausfüllen — Dolphin Kick öffnet die E-Mail, damit Sie Ihr Portfolio mitschicken.",
     name: "Name",
     contact: "E-Mail oder Zalo",
     portfolio: "Portfolio- / GitHub-Link",
@@ -435,7 +471,7 @@ const de: CareersCopy = {
     message: "Kurze Vorstellung + Verfügbarkeit",
     submit: "Bewerbung senden",
     sent: "E-Mail-App geöffnet (oder Inhalt kopieren, falls der Browser mailto blockiert).",
-    mailSubject: "KU THANH Careers —",
+    mailSubject: "Dolphin Kick Careers —",
     mailBodyName: "Name",
     mailBodyContact: "Kontakt",
     mailBodyPortfolio: "Portfolio",
@@ -450,11 +486,137 @@ const de: CareersCopy = {
   },
 };
 
-export const careersByLocale: Record<Locale, CareersCopy> = { vi, en, ja, de };
+const zh: CareersCopy = {
+  meta: {
+    title: "Dolphin Kick — 自由职业招聘",
+    description:
+      "与 Dolphin Kick 自由协作 — Web、移动、后端、UI/UX。约 1000 美元/月等价，按小时灵活结算。",
+  },
+  hero: {
+    eyebrow: "Careers",
+    headline: "与 Dolphin Kick 自由协作",
+    support:
+      "按项目寻找灵活搭档 — 非全职。全量约合 1000 美元/月，按协商小时结算。",
+  },
+  roles: {
+    eyebrow: "Open roles",
+    title: "开放职位",
+    support: "五个方向对齐工作室服务与市场拓展。欢迎远程。",
+  },
+  engagement: "Freelance",
+  comp: "约 $1,000/月等价 · 按小时灵活",
+  applyCta: "申请",
+  hiring: {
+    closed: "已关闭",
+    expired: "申请已截止",
+    countdown: "剩余",
+    days: "天",
+    hours: "时",
+    minutes: "分",
+    seconds: "秒",
+  },
+  jobs: [
+    {
+      id: "sales",
+      title: "Sales / Business Development",
+      summary: "为 Dolphin Kick 开拓并成交 Web/App 项目 — 自由协作，按单抽成。",
+      bullets: [
+        "自主获客 / 连接中小企业与创业客户网络",
+        "具备足够的 Web、App、后端理解以便初步顾问",
+        "每成交一单抽成 50%",
+        "无底薪 — 按结果计酬",
+      ],
+      tags: ["Sales", "BD", "Commission"],
+      comp: "成交抽成 50% · 无底薪",
+      priority: "优先 · 急招",
+    },
+    {
+      id: "frontend",
+      title: "Frontend Developer (Next.js / React)",
+      summary: "使用 Next.js & React 交付落地页、企业站与 Web 产品。",
+      bullets: [
+        "擅长 React / Next.js / TypeScript",
+        "熟悉 Tailwind 与 UI 组件模式",
+        "沟通清晰，参与冲刺演示",
+        "真实 Web 作品集",
+      ],
+      tags: ["Next.js", "React", "TypeScript"],
+    },
+    {
+      id: "mobile",
+      title: "Mobile Developer (Flutter / React Native)",
+      summary: "按产品需求交付 iOS/Android 或跨平台应用。",
+      bullets: [
+        "Flutter 和/或 React Native",
+        "扎实的生命周期、导航与 API 经验",
+        "优先 UX 与稳定发布",
+        "已上线应用或清晰演示",
+      ],
+      tags: ["Flutter", "React Native", "Mobile"],
+    },
+    {
+      id: "backend",
+      title: "Backend Developer (Node.js / API)",
+      summary: "API、认证、支付与第三方服务集成。",
+      bullets: [
+        "Node.js（NestJS / Express）与 REST 等",
+        "认证、校验与错误处理扎实",
+        "有 PostgreSQL 等经验更佳",
+        "简洁的 API 文档",
+      ],
+      tags: ["Node.js", "API", "PostgreSQL"],
+    },
+    {
+      id: "design",
+      title: "UI/UX Designer",
+      summary: "界面设计、设计系统，并向工程交接。",
+      bullets: [
+        "精通 Figma，理解设计系统",
+        "清晰的产品 / UX 思维",
+        "面向开发的干净交接",
+        "Web 或 App UI 作品集",
+      ],
+      tags: ["UI/UX", "Figma", "Design system"],
+    },
+  ],
+  apply: {
+    eyebrow: "Apply",
+    title: "提交自由职业申请",
+    support: "填写表单后将打开邮件应用，便于发送作品集。",
+    name: "姓名",
+    contact: "邮箱或 Zalo",
+    portfolio: "作品集 / GitHub 链接",
+    role: "职位",
+    message: "简短自我介绍 + 可工作时间",
+    submit: "发送申请",
+    sent: "已打开邮件应用（若浏览器拦截 mailto，请复制内容）。",
+    mailSubject: "Dolphin Kick Careers —",
+    mailBodyName: "姓名",
+    mailBodyContact: "联系方式",
+    mailBodyPortfolio: "作品集",
+    mailBodyRole: "职位",
+    errors: {
+      name: "请输入姓名",
+      contact: "请输入邮箱或 Zalo",
+      portfolio: "请输入作品集链接",
+      role: "请选择职位",
+      message: "请填写简短自我介绍",
+    },
+  },
+};
+
+export const careersByLocale: Record<Locale, CareersCopy> = {
+  vi,
+  en,
+  ja,
+  de,
+  zh,
+};
 
 export const careersNavLabel: Record<Locale, string> = {
   vi: "Tuyển dụng",
   en: "Careers",
   ja: "採用",
   de: "Karriere",
+  zh: "招聘",
 };

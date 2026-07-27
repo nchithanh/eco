@@ -21,17 +21,76 @@ const instrumentSerif = Instrument_Serif({
   style: ["normal", "italic"],
 });
 
+const isGithubPages = process.env.GITHUB_PAGES === "true";
+const siteUrl = isGithubPages
+  ? "https://nchithanh.github.io/eco"
+  : "http://localhost:3000";
+
 export const metadata: Metadata = {
-  title: "KU THANH — Studio web & app",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "KU THANH",
+    template: "%s | KU THANH",
+  },
   description:
-    "KU THANH là studio làm website & mobile app — từ landing đơn giản đến hệ thống phức tạp.",
+    "Dolphin Kick / KU THANH — studio làm website & mobile app, tự động hóa quy trình và tích hợp AI. Từ landing đến hệ thống vận hành.",
+  keywords: [
+    "Dolphin Kick",
+    "KU THANH",
+    "web studio",
+    "mobile app",
+    "Next.js",
+    "AI agents",
+    "freelance",
+  ],
+  authors: [{ name: "KU THANH" }],
+  creator: "KU THANH",
+  robots: {
+    index: true,
+    follow: true,
+  },
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    locale: "ja_JP",
+    alternateLocale: ["vi_VN", "en_US", "de_DE"],
+    url: "/",
+    siteName: "KU THANH",
+    title: "KU THANH",
+    description:
+      "Studio xây website, mobile app, tự động hóa và AI — KU THANH / Dolphin Kick.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "KU THANH",
+    description:
+      "Studio xây website, mobile app, tự động hóa và AI — KU THANH / Dolphin Kick.",
+  },
 };
 
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="vi">
+    <html lang="ja" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem("kuct-theme");var ok=["violet","slate"];if(t&&ok.indexOf(t)>=0)document.documentElement.setAttribute("data-theme",t);else document.documentElement.setAttribute("data-theme","violet");}catch(e){document.documentElement.setAttribute("data-theme","violet");}})();`,
+          }}
+        />
+        {/*
+          Resolve locale before first paint (stored → navigator → ja) and hide
+          SSR chrome until LocaleProvider applies the same locale — prevents ja flash.
+        */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){var d=document.documentElement;try{d.setAttribute("data-locale-pending","");var s=document.createElement("style");s.id="kuct-locale-boot";s.textContent="html[data-locale-pending],html[data-locale-pending] body{visibility:hidden!important}";document.head.appendChild(s);var ok=["vi","en","ja","de","zh"];var locale=null;try{var stored=localStorage.getItem("kuct-locale");if(stored&&ok.indexOf(stored)>=0)locale=stored;}catch(e){}if(!locale){var langs=(navigator.languages&&navigator.languages.length)?navigator.languages:[navigator.language];for(var i=0;i<langs.length;i++){var p=String(langs[i]||"").toLowerCase().split("-")[0];if(ok.indexOf(p)>=0){locale=p;break;}}}if(!locale)locale="ja";d.lang=locale;d.setAttribute("data-locale",locale);}catch(e){d.lang="ja";d.setAttribute("data-locale","ja");d.removeAttribute("data-locale-pending");var b=document.getElementById("kuct-locale-boot");if(b)b.remove();}})();`,
+          }}
+        />
+      </head>
       <body
         className={`${quicksand.variable} ${notoSansJp.variable} ${instrumentSerif.variable} antialiased`}
       >
