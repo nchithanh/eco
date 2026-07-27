@@ -15,19 +15,19 @@ export function CoFounder() {
       className="kuct-section-wash scroll-mt-20 border-t border-white/40 py-24"
     >
       <div className="mx-auto max-w-6xl px-6">
-        <div className="kuct-glass kuct-card-hover grid items-center gap-10 rounded-3xl p-8 sm:p-10 lg:grid-cols-[220px_1fr] lg:gap-14">
-          <div className="relative mx-auto w-full max-w-[200px]">
+        <div className="kuct-glass kuct-card-hover grid items-center gap-10 rounded-3xl p-8 sm:p-10 lg:grid-cols-[200px_1fr] lg:gap-14">
+          <div className="relative mx-auto w-full max-w-[180px]">
             <div
               aria-hidden
-              className="animate-kuct-avatar-ring absolute -inset-3 rounded-full bg-[var(--kuct-accent)]/25 blur-[1px]"
+              className="animate-kuct-avatar-ring absolute -inset-3 rounded-2xl bg-[var(--kuct-accent)]/25 blur-[1px]"
             />
-            <div className="animate-kuct-avatar relative aspect-square overflow-hidden rounded-full border-4 border-white/80 shadow-[0_20px_50px_rgb(var(--kuct-accent-rgb)/0.25)] ring-4 ring-[var(--kuct-accent)]/25">
+            <div className="animate-kuct-avatar relative aspect-[4/5] overflow-hidden rounded-2xl border-4 border-white/80 shadow-[0_20px_50px_rgb(var(--kuct-accent-rgb)/0.25)] ring-4 ring-[var(--kuct-accent)]/25">
               <LazyImage
                 src={assetPath("/avatar.png")}
                 alt={`${c.name} — ${c.role}`}
                 fill
-                className="object-cover object-[center_18%]"
-                sizes="200px"
+                className="object-cover object-center"
+                sizes="180px"
                 watermark={false}
               />
             </div>

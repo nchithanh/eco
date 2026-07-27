@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AccentText } from "@/components/BrandName";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
 
@@ -163,6 +163,27 @@ function dataArcPath(x1: number, y1: number, x2: number, y2: number): string {
   const cx = mx + (dx / len) * bulge;
   const cy = my + (dy / len) * bulge;
   return `M${x1} ${y1} Q${cx} ${cy} ${x2} ${y2}`;
+}
+
+function useDesktopLg() {
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 1024px)");
+    const sync = () => setIsDesktop(mq.matches);
+    sync();
+    mq.addEventListener("change", sync);
+    return () => mq.removeEventListener("change", sync);
+  }, []);
+
+  return isDesktop;
+}
+
+/** Skip mounting the animated globe below lg — heavy SVG/CSS lags on mobile/tablet. */
+function DesktopNeuralSphere() {
+  const isDesktop = useDesktopLg();
+  if (!isDesktop) return null;
+  return <NeuralSphere />;
 }
 
 function NeuralSphere() {
@@ -473,8 +494,8 @@ function TechnologyDashboard({
       </div>
 
       <div className="relative min-h-[16.5rem] sm:min-h-[18rem]">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <NeuralSphere />
+        <div className="absolute inset-0 hidden items-center justify-center lg:flex">
+          <DesktopNeuralSphere />
         </div>
 
         {/* Activity bars — top left */}
