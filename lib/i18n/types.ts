@@ -1,13 +1,18 @@
-export type Locale = "vi" | "en" | "ja" | "de";
+export type Locale = "vi" | "en" | "ja" | "de" | "zh";
 
-export const LOCALES: { code: Locale; label: string; name: string }[] = [
+export const LOCALES: {
+  code: Locale;
+  label: string;
+  name: string;
+}[] = [
   { code: "vi", label: "VI", name: "Tiếng Việt" },
   { code: "en", label: "EN", name: "English" },
   { code: "ja", label: "JA", name: "日本語" },
   { code: "de", label: "DE", name: "Deutsch" },
+  { code: "zh", label: "ZH", name: "中文" },
 ];
 
-export const DEFAULT_LOCALE: Locale = "vi";
+export const DEFAULT_LOCALE: Locale = "ja";
 
 export type Dictionary = {
   meta: {
@@ -22,6 +27,7 @@ export type Dictionary = {
     services: string;
     process: string;
     stack: string;
+    news: string;
     careers: string;
     contact: string;
   };
@@ -42,12 +48,22 @@ export type Dictionary = {
       ai: string;
     };
   };
+  trust: {
+    aria: string;
+    eyebrow: string;
+    title: string;
+    support: string;
+    items: { value: string; label: string }[];
+  };
   capabilities: {
     eyebrow: string;
     title: string;
     support: string;
+    wheelTagline: string;
     filterAll: string;
     learnMore: string;
+    prevPage: string;
+    nextPage: string;
     items: {
       id: string;
       category: string;
@@ -56,11 +72,64 @@ export type Dictionary = {
       tags: string[];
     }[];
   };
+  siteOutcomes: {
+    eyebrow: string;
+    title: string;
+    support: string;
+    items: { title: string; body: string }[];
+  };
+  whatYouGet: {
+    eyebrow: string;
+    title: string;
+    support: string;
+    items: { title: string; body: string }[];
+  };
+  ops: {
+    eyebrow: string;
+    title: string;
+    support: string;
+    cta: string;
+    before: string;
+    after: string;
+    steps: { name: string; detail: string }[];
+    chips: string[];
+  };
+  works: {
+    eyebrow: string;
+    title: string;
+    support: string;
+    cta: string;
+    problemLabel: string;
+    scopeLabel: string;
+    resultLabel: string;
+    items: {
+      id: string;
+      title: string;
+      tag: string;
+      problem: string;
+      scope: string;
+      result: string;
+    }[];
+  };
   process: {
     eyebrow: string;
     title: string;
     support: string;
-    steps: { name: string; detail: string }[];
+    deliverableLabel: string;
+    steps: { name: string; detail: string; deliverable: string }[];
+  };
+  technology: {
+    eyebrow: string;
+    title: string;
+    support: string;
+    cta: string;
+    live: string;
+    tabs: string[];
+    widgets: {
+      activity: string;
+      pulse: string;
+      nodes: string;
+    };
   };
   stack: {
     eyebrow: string;
@@ -81,20 +150,12 @@ export type Dictionary = {
     name: string;
     description: string;
   };
-  secondary: {
-    eyebrow: string;
-    title: string;
-    support: string;
-    architectureTitle: string;
-    architectureBody: string;
-    stockTitle: string;
-    stockBody: string;
-    learnMore: string;
-  };
   contact: {
     eyebrow: string;
     title: string;
     support: string;
+    ctaZalo: string;
+    ctaEmail: string;
     name: string;
     contact: string;
     message: string;
@@ -107,6 +168,29 @@ export type Dictionary = {
       name: string;
       contact: string;
       message: string;
+    };
+  };
+  news: {
+    meta: { title: string; description: string };
+    title: string;
+    blurb: string;
+    homeEyebrow: string;
+    homeTitle: string;
+    viewAll: string;
+    filterAll: string;
+    readMore: string;
+    prevPage: string;
+    nextPage: string;
+    relatedTitle: string;
+    cta: string;
+    breadcrumbHome: string;
+    breadcrumbNews: string;
+    categories: {
+      process: string;
+      product: string;
+      tech: string;
+      studio: string;
+      cases: string;
     };
   };
   careers: {
@@ -124,6 +208,15 @@ export type Dictionary = {
     engagement: string;
     comp: string;
     applyCta: string;
+    hiring: {
+      closed: string;
+      expired: string;
+      countdown: string;
+      days: string;
+      hours: string;
+      minutes: string;
+      seconds: string;
+    };
     jobs: {
       id: "frontend" | "mobile" | "backend" | "design" | "sales";
       title: string;
@@ -160,6 +253,12 @@ export type Dictionary = {
       };
     };
   };
+  faq: {
+    eyebrow: string;
+    title: string;
+    support: string;
+    items: { q: string; a: string }[];
+  };
   footer: {
     disclaimer: string;
   };
@@ -172,5 +271,32 @@ export type Dictionary = {
       build: string;
       ship: string;
     };
+  };
+  contactFab: {
+    open: string;
+    close: string;
+    zalo: string;
+    phone: string;
+    email: string;
+  };
+  cookie: {
+    title: string;
+    body: string;
+    accept: string;
+    decline: string;
+  };
+  preview: {
+    close: string;
+    viewFull: string;
+    loading: string;
+  };
+  theme: {
+    aria: string;
+    violet: string;
+    ocean: string;
+    forest: string;
+    coral: string;
+    slate: string;
+    black: string;
   };
 };

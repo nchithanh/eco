@@ -2,12 +2,19 @@
 
 import { Nav } from "@/components/Nav";
 import { Hero } from "@/components/Hero";
+import { Technology } from "@/components/Technology";
+import { TrustStrip } from "@/components/TrustStrip";
 import { Capabilities } from "@/components/Capabilities";
+import { SiteOutcomes } from "@/components/SiteOutcomes";
+import { WhatYouGet } from "@/components/WhatYouGet";
+import { OpsLifecycle } from "@/components/OpsLifecycle";
+import { WorksShowcase } from "@/components/WorksShowcase";
 import { Process } from "@/components/Process";
 import { TechStack } from "@/components/TechStack";
 import { WhyKuct } from "@/components/WhyKuct";
 import { CoFounder } from "@/components/CoFounder";
-import { SecondaryServices } from "@/components/SecondaryServices";
+import { HomeNews } from "@/components/HomeNews";
+import { Faq } from "@/components/Faq";
 import { ContactForm } from "@/components/ContactForm";
 import { Footer } from "@/components/Footer";
 
@@ -16,12 +23,19 @@ export default function Home() {
     <main>
       <Nav />
       <Hero />
+      <Technology />
       <Capabilities />
+      <SiteOutcomes />
+      <WhatYouGet />
+      <OpsLifecycle />
+      <WorksShowcase />
       <Process />
+      <TrustStrip />
       <TechStack />
       <WhyKuct />
       <CoFounder />
-      <SecondaryServices />
+      <HomeNews />
+      <Faq />
       <ContactForm />
       <Footer />
     </main>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useId, useRef, useState } from "react";
+import { FlagIcon } from "@/components/FlagIcon";
 import { LOCALES, type Locale } from "@/lib/i18n/types";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
 
@@ -40,13 +41,14 @@ export function LanguageSwitcher() {
     <div ref={rootRef} className="relative">
       <button
         type="button"
-        className="inline-flex items-center gap-1 rounded-full border border-white/60 bg-white/40 px-2.5 py-1 text-xs font-semibold tracking-wide text-[var(--kuct-text)] backdrop-blur-md transition duration-200 hover:-translate-y-0.5 hover:border-[var(--kuct-accent)] hover:bg-white/70 hover:shadow-[0_8px_18px_rgba(139,92,246,0.12)]"
+        className="inline-flex items-center gap-1.5 rounded-full border border-white/60 bg-white/40 px-2.5 py-1 text-xs font-semibold tracking-wide text-[var(--kuct-text)] backdrop-blur-md transition duration-300 hover:-translate-y-0.5 hover:border-[var(--kuct-accent)]/35 hover:bg-white/70 hover:shadow-[0_8px_18px_rgb(var(--kuct-accent-rgb)/0.1)]"
         aria-label="Language"
         aria-haspopup="listbox"
         aria-expanded={open}
         aria-controls={listId}
         onClick={() => setOpen((value) => !value)}
       >
+        <FlagIcon locale={current.code} className="h-3 w-[1.125rem]" />
         <span>{current.label}</span>
         <span aria-hidden className="text-[var(--kuct-muted)]">
           {open ? "▴" : "▾"}
@@ -58,7 +60,7 @@ export function LanguageSwitcher() {
           id={listId}
           role="listbox"
           aria-label="Language"
-          className="absolute right-0 z-50 mt-2 min-w-[9.5rem] overflow-hidden rounded-xl border border-white/70 bg-white/95 py-1 shadow-[0_12px_30px_rgba(139,92,246,0.14)] backdrop-blur-xl"
+          className="absolute right-0 z-50 mt-2 min-w-[11rem] overflow-hidden rounded-xl border border-white/70 bg-white/95 py-1 shadow-[0_12px_30px_rgba(139,92,246,0.14)] backdrop-blur-xl"
         >
           {LOCALES.map((item) => (
             <li key={item.code} role="option" aria-selected={locale === item.code}>
@@ -66,12 +68,13 @@ export function LanguageSwitcher() {
                 type="button"
                 className={
                   locale === item.code
-                    ? "kuct-menu-item flex w-full items-center justify-between gap-3 px-3 py-2 text-left text-xs font-semibold text-[var(--kuct-accent)]"
-                    : "kuct-menu-item flex w-full items-center justify-between gap-3 px-3 py-2 text-left text-xs font-semibold text-[var(--kuct-muted)]"
+                    ? "kuct-menu-item flex w-full items-center gap-2.5 px-3 py-2 text-left text-xs font-semibold text-[var(--kuct-accent)]"
+                    : "kuct-menu-item flex w-full items-center gap-2.5 px-3 py-2 text-left text-xs font-semibold text-[var(--kuct-muted)]"
                 }
                 onClick={() => choose(item.code)}
               >
-                <span>{item.name}</span>
+                <FlagIcon locale={item.code} className="h-3.5 w-[1.3125rem]" />
+                <span className="flex-1">{item.name}</span>
                 <span className="opacity-60">{item.label}</span>
               </button>
             </li>

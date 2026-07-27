@@ -1,25 +1,53 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState, type MouseEvent } from "react";
 import { usePathname } from "next/navigation";
 import { AnnouncementBar } from "@/components/AnnouncementBar";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { ThemeSwitcher } from "@/components/ThemeSwitcher";
 import { Logo } from "@/components/Logo";
+import { BASE_PATH, assetPath } from "@/lib/asset";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
+import { usePagePreview } from "@/components/PagePreviewProvider";
 
 export function Nav() {
   const { t } = useLocale();
   const pathname = usePathname();
+  const { openHref } = usePagePreview();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const home = pathname === "/" ? "" : "/";
+  const sectionBase = pathname === "/" ? "" : `${BASE_PATH}/`;
+  const contactHref = `${sectionBase}#contact`;
+  const homeHref = pathname === "/" ? "#top" : assetPath("/");
+
+  // Close mobile drawer when switching to desktop breakpoint
+  useEffect(() => {
+    if (typeof window.matchMedia !== "function") return;
+
+    const mq = window.matchMedia("(min-width: 768px)");
+    const onChange = () => {
+      if (mq.matches) setIsMenuOpen(false);
+    };
+    onChange();
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
 
   const links = [
-    { href: `${home}#capabilities`, label: t.nav.services },
-    { href: `${home}#process`, label: t.nav.process },
-    { href: `${home}#stack`, label: t.nav.stack },
-    { href: "/careers", label: t.nav.careers },
-    { href: `${home}#contact`, label: t.nav.contact },
+    { href: `${sectionBase}#capabilities`, label: t.nav.services },
+    { href: `${sectionBase}#process`, label: t.nav.process },
+    { href: `${sectionBase}#technology`, label: t.nav.stack },
+    { href: assetPath("/news/"), label: t.nav.news },
+    { href: assetPath("/careers/"), label: t.nav.careers },
   ] as const;
+
+  const onNavClick = (
+    href: string,
+    event: MouseEvent<HTMLAnchorElement>,
+  ) => {
+    if (href.includes("/careers")) {
+      openHref(href, event);
+    }
+  };
 
   return (
     <div className="sticky top-0 z-50">
@@ -30,8 +58,8 @@ export function Nav() {
           aria-label={t.nav.ariaMain}
         >
           <a
-            href={pathname === "/" ? "#top" : "/"}
-            className="text-[var(--kuct-text)] transition duration-200 hover:opacity-75 hover:scale-[1.02]"
+            href={homeHref}
+            className="flex shrink-0 items-center text-[var(--kuct-text)] transition duration-200 hover:opacity-75 hover:scale-[1.02]"
             aria-label="KU THANH"
           >
             <Logo className="h-9 w-auto sm:h-10" />
@@ -43,15 +71,17 @@ export function Nav() {
                   <a
                     href={l.href}
                     className="kuct-link"
+                    onClick={(event) => onNavClick(l.href, event)}
                   >
                     {l.label}
                   </a>
                 </li>
               ))}
             </ul>
+            <ThemeSwitcher />
             <LanguageSwitcher />
             <a
-              href={`${home}#contact`}
+              href={contactHref}
               className="kuct-btn-primary hidden rounded-full px-4 py-2 text-xs font-semibold sm:inline-flex"
             >
               {t.nav.contact}
@@ -70,7 +100,7 @@ export function Nav() {
             </button>
           </div>
         </nav>
-        {isMenuOpen && (
+        {isMenuOpen ? (
           <nav
             id="mobile-nav"
             aria-label={t.nav.ariaMobile}
@@ -82,15 +112,27 @@ export function Nav() {
                   <a
                     href={link.href}
                     className="kuct-link"
-                    onClick={() => setIsMenuOpen(false)}
+                    onClick={(event) => {
+                      onNavClick(link.href, event);
+                      setIsMenuOpen(false);
+                    }}
                   >
                     {link.label}
                   </a>
                 </li>
               ))}
+              <li>
+                <a
+                  href={contactHref}
+                  className="kuct-link"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {t.nav.contact}
+                </a>
+              </li>
             </ul>
           </nav>
-        )}
+        ) : null}
       </header>
     </div>
   );

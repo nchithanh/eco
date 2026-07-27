@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { Logo } from "@/components/Logo";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
 
-const MIN_DURATION_MS = 3000;
+const MIN_DURATION_MS = 1500;
 const EXIT_MS = 420;
 
 type AgentKey = "scout" | "plan" | "build" | "ship";
@@ -31,6 +31,22 @@ function isTestRuntime() {
   return typeof process !== "undefined" && process.env.NODE_ENV === "test";
 }
 
+function lockScroll() {
+  const html = document.documentElement;
+  const body = document.body;
+  html.classList.add("kuct-loading");
+  html.style.overflow = "hidden";
+  body.style.overflow = "hidden";
+}
+
+function unlockScroll() {
+  const html = document.documentElement;
+  const body = document.body;
+  html.classList.remove("kuct-loading");
+  html.style.overflow = "";
+  body.style.overflow = "";
+}
+
 export function AgentLoader({
   disabled = isTestRuntime(),
   minDurationMs = MIN_DURATION_MS,
@@ -50,16 +66,20 @@ export function AgentLoader({
     let raf = 0;
     let exitTimer = 0;
 
-    document.documentElement.classList.add("kuct-loading");
-    document.body.style.overflow = "hidden";
+    lockScroll();
+
+    const onTouchMove = (event: TouchEvent) => {
+      event.preventDefault();
+    };
+    document.addEventListener("touchmove", onTouchMove, { passive: false });
 
     const finish = () => {
       setProgress(100);
       setPhase("exiting");
       exitTimer = window.setTimeout(() => {
         setPhase("done");
-        document.body.style.overflow = "";
-        document.documentElement.classList.remove("kuct-loading");
+        unlockScroll();
+        document.removeEventListener("touchmove", onTouchMove);
       }, EXIT_MS);
     };
 
@@ -78,8 +98,8 @@ export function AgentLoader({
     return () => {
       cancelAnimationFrame(raf);
       window.clearTimeout(exitTimer);
-      document.body.style.overflow = "";
-      document.documentElement.classList.remove("kuct-loading");
+      document.removeEventListener("touchmove", onTouchMove);
+      unlockScroll();
     };
   }, [disabled, minDurationMs]);
 
@@ -98,7 +118,7 @@ export function AgentLoader({
       }`}
     >
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="animate-kuct-glow absolute left-1/2 top-1/2 size-[min(90vw,520px)] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,_rgba(192,132,252,0.45)_0%,_transparent_68%)] blur-2xl" />
+        <div className="kuct-glow-orb animate-kuct-glow absolute left-1/2 top-1/2 size-[min(90vw,520px)] -translate-x-1/2 -translate-y-1/2 rounded-full blur-2xl opacity-[0.45]" />
         <div className="kuct-loader-grid absolute inset-0 opacity-[0.35]" />
       </div>
 
@@ -134,7 +154,7 @@ export function AgentLoader({
           </svg>
 
           <div className="absolute left-1/2 top-1/2 z-10 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-2">
-            <div className="kuct-loader-core grid place-items-center rounded-2xl border border-white/70 bg-white/55 p-3 shadow-[0_18px_50px_rgba(139,92,246,0.28)] backdrop-blur-xl">
+            <div className="kuct-loader-core grid place-items-center rounded-2xl p-3">
               <Logo variant="mark" className="h-10 w-auto" />
             </div>
           </div>
@@ -152,10 +172,10 @@ export function AgentLoader({
                 className="kuct-loader-node flex flex-col items-center gap-1.5"
                 style={{ animationDelay: agent.delay }}
               >
-                <span className="grid size-9 place-items-center rounded-full border border-white/70 bg-white/70 text-[10px] font-bold tracking-wide text-[var(--kuct-accent)] shadow-[0_10px_28px_rgba(139,92,246,0.22)] backdrop-blur-md ring-2 ring-[var(--kuct-accent)]/20">
+                <span className="kuct-loader-node__badge grid size-9 place-items-center rounded-full text-[10px] font-bold tracking-wide">
                   {agents[agent.key].slice(0, 1)}
                 </span>
-                <span className="rounded-full border border-white/55 bg-white/55 px-2 py-0.5 text-[10px] font-semibold tracking-[0.08em] text-[var(--kuct-text)] uppercase shadow-sm backdrop-blur-md">
+                <span className="kuct-loader-node__label rounded-full px-2 py-0.5 text-[10px] font-semibold tracking-[0.08em] uppercase shadow-sm">
                   {agents[agent.key]}
                 </span>
               </div>
@@ -168,11 +188,11 @@ export function AgentLoader({
             {t.loader.status}
           </p>
           <div
-            className="mt-3 h-1 overflow-hidden rounded-full bg-white/50 ring-1 ring-white/60"
+            className="kuct-loader-progress mt-3 h-1 overflow-hidden rounded-full"
             aria-hidden
           >
             <div
-              className="h-full rounded-full bg-gradient-to-r from-[#8b5cf6] via-[#a78bfa] to-[#c084fc] transition-[width] duration-75 ease-linear"
+              className="kuct-loader-progress__bar h-full rounded-full transition-[width] duration-75 ease-linear"
               style={{ width: `${progress}%` }}
             />
           </div>

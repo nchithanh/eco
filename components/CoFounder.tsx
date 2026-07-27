@@ -1,7 +1,8 @@
 "use client";
 
-import Image from "next/image";
+import { LazyImage } from "@/components/LazyImage";
 import { BrandText } from "@/components/BrandName";
+import { assetPath } from "@/lib/asset";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
 
 export function CoFounder() {
@@ -11,7 +12,7 @@ export function CoFounder() {
   return (
     <section
       id="cofounder"
-      className="scroll-mt-20 border-t border-white/40 bg-gradient-to-br from-[#faf5ff] via-[#f3e8ff]/80 to-[#ede9fe] py-24"
+      className="kuct-section-wash scroll-mt-20 border-t border-white/40 py-24"
     >
       <div className="mx-auto max-w-6xl px-6">
         <div className="kuct-glass kuct-card-hover grid items-center gap-10 rounded-3xl p-8 sm:p-10 lg:grid-cols-[220px_1fr] lg:gap-14">
@@ -20,19 +21,19 @@ export function CoFounder() {
               aria-hidden
               className="animate-kuct-avatar-ring absolute -inset-3 rounded-full bg-[var(--kuct-accent)]/25 blur-[1px]"
             />
-            <div className="animate-kuct-avatar relative aspect-square overflow-hidden rounded-full border-4 border-white/80 shadow-[0_20px_50px_rgba(139,92,246,0.25)] ring-4 ring-[var(--kuct-accent)]/25">
-              <Image
-                src="/avatar.png"
+            <div className="animate-kuct-avatar relative aspect-square overflow-hidden rounded-full border-4 border-white/80 shadow-[0_20px_50px_rgb(var(--kuct-accent-rgb)/0.25)] ring-4 ring-[var(--kuct-accent)]/25">
+              <LazyImage
+                src={assetPath("/avatar.png")}
                 alt={`${c.name} — ${c.role}`}
                 fill
-                className="object-cover object-[30%_20%]"
+                className="object-cover object-[center_18%]"
                 sizes="200px"
-                priority={false}
+                watermark={false}
               />
             </div>
           </div>
 
-          <div className="text-center lg:text-left">
+          <div className="text-left">
             <p className="text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
               {c.eyebrow}
             </p>

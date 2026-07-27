@@ -3,6 +3,7 @@ type LogoProps = {
   variant?: "full" | "mark";
 };
 
+/** Accent KU mark + THANH wordmark. */
 export function Logo({ className, variant = "full" }: LogoProps) {
   if (variant === "mark") {
     return (
@@ -36,7 +37,7 @@ export function Logo({ className, variant = "full" }: LogoProps) {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       role="img"
-      aria-label="KU THANH — Since 2024"
+      aria-label="KU THANH"
     >
       <rect x="2" y="8" width="34" height="28" rx="6" fill="var(--kuct-accent)" />
       <text
@@ -66,7 +67,7 @@ export function Logo({ className, variant = "full" }: LogoProps) {
         className="font-display"
         style={{ fontSize: 9, fontWeight: 500, letterSpacing: "0.38em", opacity: 0.75 }}
       >
-        SINCE 2024
+        SINCE 2026
       </text>
     </svg>
   );

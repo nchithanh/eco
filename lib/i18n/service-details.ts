@@ -64,6 +64,14 @@ const ui: Record<Locale, ServiceDetailUi> = {
     cta: "Angebot anfordern",
     notFound: "Dieser Service wurde nicht gefunden.",
   },
+  zh: {
+    back: "← 返回首页",
+    highlightsTitle: "你将获得",
+    processTitle: "我们如何做",
+    deliverablesTitle: "交付物",
+    cta: "获取报价",
+    notFound: "未找到该服务。",
+  },
 };
 
 const vi: Record<ServiceSlug, ServiceDetail> = {
@@ -611,6 +619,7 @@ const detailsByLocale: Record<Locale, Record<ServiceSlug, ServiceDetail>> = {
   en,
   ja,
   de,
+  zh: en,
 };
 
 export function getServiceDetailUi(locale: Locale): ServiceDetailUi {

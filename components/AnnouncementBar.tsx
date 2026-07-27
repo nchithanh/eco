@@ -1,40 +1,44 @@
 "use client";
 
-import Link from "next/link";
 import { BrandText } from "@/components/BrandName";
-import { TimezoneDropdown } from "@/components/TimezoneDropdown";
+import { LocaleTimezone } from "@/components/LocaleTimezone";
+import { usePagePreview } from "@/components/PagePreviewProvider";
+import { assetPath } from "@/lib/asset";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
 
 const BANNER_FALLBACK = {
   aria: "Announcement",
-  text: "KU THANH is hiring freelancers — Sales is urgent priority, 50% deal commission. Apply today!",
+  text: "Dolphin Kick is hiring freelancers — Sales is urgent priority, 50% deal commission. Apply today!",
   cta: "Apply now",
 } as const;
 
 export function AnnouncementBar() {
   const { t } = useLocale();
+  const { openHref } = usePagePreview();
   const b = t.banner ?? BANNER_FALLBACK;
+  const careersHref = assetPath("/careers/");
 
   return (
     <div
-      className="relative z-[60] bg-gradient-to-r from-[#c026d3] via-[#a855f7] to-[#f43f5e] text-white"
+      className="kuct-banner relative z-[60]"
       role="region"
       aria-label={b.aria}
     >
-      <div className="mx-auto flex max-w-6xl flex-col items-stretch gap-2 px-4 py-2 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:px-6">
-        <p className="min-w-0 flex-1 text-center text-[11px] leading-snug font-medium sm:text-left sm:text-xs md:text-sm">
+      <div className="mx-auto flex max-w-6xl flex-col items-stretch gap-1.5 px-4 py-1.5 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:px-6 sm:py-1.5">
+        <p className="min-w-0 flex-1 text-center text-[10px] leading-snug font-medium text-white/95 sm:text-left sm:text-[11px] md:text-xs">
           <BrandText size="xs" onDark>
             {b.text}
           </BrandText>
         </p>
-        <div className="flex shrink-0 items-center justify-center gap-2 sm:justify-end">
-          <TimezoneDropdown variant="banner" />
-          <Link
-            href="/careers"
-            className="inline-flex items-center rounded-lg bg-[#7c3aed] px-3 py-1.5 text-[10px] font-bold tracking-wide text-white uppercase shadow-sm transition duration-200 hover:-translate-y-0.5 hover:bg-[#6d28d9] hover:shadow-[0_8px_18px_rgba(109,40,217,0.35)] sm:text-[11px]"
+        <div className="flex shrink-0 items-center justify-center gap-1.5 sm:justify-end">
+          <LocaleTimezone />
+          <a
+            href={careersHref}
+            onClick={(event) => openHref(careersHref, event)}
+            className="kuct-banner-cta inline-flex items-center rounded-full px-2.5 py-1 text-[9px] font-semibold tracking-[0.06em] uppercase sm:text-[10px]"
           >
             {b.cta}
-          </Link>
+          </a>
         </div>
       </div>
     </div>
