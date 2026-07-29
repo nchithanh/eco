@@ -65,6 +65,9 @@ export type Dictionary = {
     support: string;
     wheelTagline: string;
     filterAll: string;
+    filterBuild: string;
+    filterConnect: string;
+    filterAi: string;
     learnMore: string;
     prevPage: string;
     nextPage: string;
