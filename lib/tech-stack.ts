@@ -13,6 +13,12 @@ export const TECH_SLUGS = [
   "nestjs",
   "express",
   "strapi",
+  "aws",
+  "kubernetes",
+  "grafana",
+  "elasticsearch",
+  "redis",
+  "terraform",
 ] as const;
 
 export type TechSlug = (typeof TECH_SLUGS)[number];
@@ -35,6 +41,12 @@ export const TECH_NAME_TO_SLUG: Record<string, TechSlug> = {
   NestJS: "nestjs",
   Express: "express",
   Strapi: "strapi",
+  AWS: "aws",
+  Kubernetes: "kubernetes",
+  Grafana: "grafana",
+  Elasticsearch: "elasticsearch",
+  Redis: "redis",
+  Terraform: "terraform",
 };
 
 export type TechDetail = {
@@ -173,6 +185,36 @@ const meta: Record<TechSlug, TechMeta> = {
     name: "Strapi",
     color: "#4945FF",
     officialUrl: "https://strapi.io/",
+  },
+  aws: {
+    name: "AWS",
+    color: "#FF9900",
+    officialUrl: "https://aws.amazon.com/",
+  },
+  kubernetes: {
+    name: "Kubernetes",
+    color: "#326CE5",
+    officialUrl: "https://kubernetes.io/",
+  },
+  grafana: {
+    name: "Grafana",
+    color: "#F46800",
+    officialUrl: "https://grafana.com/",
+  },
+  elasticsearch: {
+    name: "Elasticsearch",
+    color: "#005571",
+    officialUrl: "https://www.elastic.co/elasticsearch",
+  },
+  redis: {
+    name: "Redis",
+    color: "#DC382D",
+    officialUrl: "https://redis.io/",
+  },
+  terraform: {
+    name: "Terraform",
+    color: "#7B42BC",
+    officialUrl: "https://www.terraform.io/",
   },
 };
 
@@ -466,6 +508,150 @@ const copyByLocale: Record<Locale, Record<TechSlug, TechCopy>> = {
         },
       ],
     },
+    aws: {
+      tagline: "Cloud infrastructure for scalable products",
+      intro: "Amazon Web Services provides compute, storage, networking, and managed data services so teams can deploy and grow production systems without owning a data center.",
+      highlights: [
+        "Global regions and managed building blocks (EC2, S3, RDS, Lambda…)",
+        "Security, IAM, and compliance tooling for production workloads",
+        "Pay-as-you-go capacity that scales with traffic",
+        "Deep ecosystem of observability and deployment integrations",
+      ],
+      features: [
+        {
+          title: "Ship on managed primitives",
+          body: "Use VMs, containers, serverless, and managed databases instead of racking hardware — focus engineering time on product logic.",
+        },
+        {
+          title: "Operate with guardrails",
+          body: "IAM, VPC, and audit logs help keep environments separated and reviewable as the stack grows.",
+        },
+        {
+          title: "Grow without replatforming",
+          body: "Start small, then add CDN, queues, and autoscaling when demand appears — same cloud, clearer stages.",
+        },
+      ],
+    },
+    kubernetes: {
+      tagline: "Container orchestration at scale",
+      intro: "Kubernetes automates deployment, scaling, and operations of containerized applications across clusters — the de facto control plane for modern microservices.",
+      highlights: [
+        "Declarative deployments, rollouts, and rollbacks",
+        "Service discovery, load balancing, and self-healing",
+        "Works with Docker images and cloud/on-prem clusters",
+        "Huge ecosystem: Helm, operators, GitOps tooling",
+      ],
+      features: [
+        {
+          title: "Standardize how services run",
+          body: "Pods, Deployments, and Services give every app the same lifecycle — easier ops across teams.",
+        },
+        {
+          title: "Scale with demand",
+          body: "Horizontal pod autoscaling and resource limits keep workloads responsive without manual SSH firefighting.",
+        },
+        {
+          title: "Portable by design",
+          body: "The same manifests can target managed K8s (EKS/GKE/AKS) or a private cluster when requirements change.",
+        },
+      ],
+    },
+    grafana: {
+      tagline: "Observability dashboards for metrics, logs, and traces",
+      intro: "Grafana helps teams visualize and alert on operational data from Prometheus, Loki, Tempo, cloud providers, and more — one pane for system health.",
+      highlights: [
+        "Rich dashboards for metrics, logs, and traces",
+        "Alerting rules tied to real signals",
+        "Plugins for popular datasources and clouds",
+        "Shareable views for eng, SRE, and stakeholders",
+      ],
+      features: [
+        {
+          title: "See the system, not just logs",
+          body: "Correlate latency, errors, and saturation so incidents get diagnosed faster.",
+        },
+        {
+          title: "Alert on what matters",
+          body: "Route actionable alerts instead of noisy thresholds that everyone ignores.",
+        },
+        {
+          title: "Fit the stack you already run",
+          body: "Connect Prometheus, Elasticsearch, CloudWatch, and others without rebuilding telemetry.",
+        },
+      ],
+    },
+    elasticsearch: {
+      tagline: "Search and analytics engine for logs and content",
+      intro: "Elasticsearch is a distributed search and analytics engine used for full-text search, log aggregation, and near-real-time analysis across large datasets.",
+      highlights: [
+        "Full-text search with relevance ranking",
+        "Scalable indexing for logs and events",
+        "Aggregations for operational and product analytics",
+        "Pairs with Kibana / OpenSearch dashboards in many stacks",
+      ],
+      features: [
+        {
+          title: "Find needles in product data",
+          body: "Power search boxes, filters, and faceted navigation when SQL alone is not enough.",
+        },
+        {
+          title: "Centralize operational signals",
+          body: "Ingest app and infra logs for investigation during incidents and audits.",
+        },
+        {
+          title: "Analyze at ingest speed",
+          body: "Near-real-time indexes keep dashboards and alerts close to live traffic.",
+        },
+      ],
+    },
+    redis: {
+      tagline: "In-memory data store for speed and coordination",
+      intro: "Redis is an open-source in-memory data structure store used as a cache, message broker, session store, and fast ephemeral database.",
+      highlights: [
+        "Sub-millisecond reads and writes",
+        "Structures: strings, hashes, lists, sets, streams",
+        "Pub/Sub and streams for lightweight messaging",
+        "Common companion to PostgreSQL-backed APIs",
+      ],
+      features: [
+        {
+          title: "Cut hot-path latency",
+          body: "Cache frequent queries and session data so APIs stay snappy under load.",
+        },
+        {
+          title: "Coordinate workers",
+          body: "Queues, locks, and rate limits help background jobs and APIs stay consistent.",
+        },
+        {
+          title: "Simple operational footprint",
+          body: "Managed Redis or a small instance covers most SMB product needs before heavier brokers.",
+        },
+      ],
+    },
+    terraform: {
+      tagline: "Infrastructure as code",
+      intro: "Terraform lets teams define cloud resources in declarative configuration, plan changes safely, and apply reproducible infrastructure across environments.",
+      highlights: [
+        "Declarative IaC for major clouds and SaaS providers",
+        "Plan → apply workflow with reviewable diffs",
+        "Modules for reusable environment patterns",
+        "State tracking for long-lived infrastructure",
+      ],
+      features: [
+        {
+          title: "Environments you can repeat",
+          body: "Dev, staging, and prod stay aligned because networking and services are coded, not clicked.",
+        },
+        {
+          title: "Safer changes",
+          body: "Plans show what will be created, updated, or destroyed before anything hits production.",
+        },
+        {
+          title: "Team-scale ops",
+          body: "Modules and remote state help multiple engineers collaborate without snowflake servers.",
+        },
+      ],
+    }
 },
   vi: {
     react: {
@@ -756,6 +942,150 @@ const copyByLocale: Record<Locale, Record<TechSlug, TechCopy>> = {
         },
       ],
     },
+    aws: {
+      tagline: "Hạ tầng cloud để sản phẩm scale",
+      intro: "Amazon Web Services cung cấp compute, storage, mạng và dịch vụ dữ liệu managed để đội ngũ deploy/production mà không cần tự vận hành data center.",
+      highlights: [
+        "Region toàn cầu và khối dựng managed (EC2, S3, RDS, Lambda…)",
+        "IAM, bảo mật và công cụ tuân thủ cho workload production",
+        "Capacity pay-as-you-go theo traffic",
+        "Hệ sinh thái quan sát và deploy sâu",
+      ],
+      features: [
+        {
+          title: "Ship trên primitive managed",
+          body: "Dùng VM, container, serverless và DB managed thay vì tự dựng máy — tập trung vào logic sản phẩm.",
+        },
+        {
+          title: "Vận hành có guardrail",
+          body: "IAM, VPC và audit log giúp tách môi trường và review khi stack lớn dần.",
+        },
+        {
+          title: "Scale không phải dựng lại",
+          body: "Bắt đầu nhỏ, thêm CDN, queue và autoscaling khi có nhu cầu — cùng cloud, giai đoạn rõ.",
+        },
+      ],
+    },
+    kubernetes: {
+      tagline: "Điều phối container ở quy mô lớn",
+      intro: "Kubernetes tự động hóa deploy, scale và vận hành ứng dụng container trên cluster — control plane phổ biến cho microservice hiện đại.",
+      highlights: [
+        "Deploy khai báo, rollout và rollback",
+        "Service discovery, load balancing và self-healing",
+        "Chạy image Docker trên cloud hoặc on-prem",
+        "Hệ sinh thái lớn: Helm, operator, GitOps",
+      ],
+      features: [
+        {
+          title: "Chuẩn hóa cách service chạy",
+          body: "Pod, Deployment và Service cho mọi app cùng một vòng đời — ops dễ hơn giữa các đội.",
+        },
+        {
+          title: "Scale theo nhu cầu",
+          body: "Autoscaling và resource limit giúp workload ổn định mà không SSH chữa cháy thủ công.",
+        },
+        {
+          title: "Portable by design",
+          body: "Cùng manifest có thể chạy managed K8s (EKS/GKE/AKS) hoặc cluster riêng khi yêu cầu đổi.",
+        },
+      ],
+    },
+    grafana: {
+      tagline: "Dashboard quan sát metrics, logs và traces",
+      intro: "Grafana giúp đội ngũ visualize và alert trên dữ liệu vận hành từ Prometheus, Loki, Tempo, cloud provider… — một nơi xem sức khỏe hệ thống.",
+      highlights: [
+        "Dashboard cho metrics, logs và traces",
+        "Alert gắn với tín hiệu thật",
+        "Plugin datasource phổ biến",
+        "Share view cho eng, SRE và stakeholder",
+      ],
+      features: [
+        {
+          title: "Nhìn hệ thống, không chỉ log",
+          body: "Tương quan latency, lỗi và saturation để xử lý sự cố nhanh hơn.",
+        },
+        {
+          title: "Alert đúng việc",
+          body: "Đưa alert actionable thay vì ngưỡng ồn mà ai cũng bỏ qua.",
+        },
+        {
+          title: "Khớp stack sẵn có",
+          body: "Nối Prometheus, Elasticsearch, CloudWatch… mà không dựng lại telemetry.",
+        },
+      ],
+    },
+    elasticsearch: {
+      tagline: "Search và analytics cho log lẫn nội dung",
+      intro: "Elasticsearch là search/analytics engine phân tán dùng cho full-text search, gom log và phân tích gần realtime trên dataset lớn.",
+      highlights: [
+        "Full-text search có xếp hạng relevance",
+        "Index scale cho log và event",
+        "Aggregation cho analytics vận hành/sản phẩm",
+        "Thường đi với Kibana / OpenSearch dashboard",
+      ],
+      features: [
+        {
+          title: "Tìm nhanh trong dữ liệu sản phẩm",
+          body: "Power ô search, filter và facet khi chỉ SQL không đủ.",
+        },
+        {
+          title: "Tập trung tín hiệu vận hành",
+          body: "Ingest log app/infra để điều tra sự cố và audit.",
+        },
+        {
+          title: "Phân tích gần realtime",
+          body: "Index gần live giúp dashboard và alert bám traffic thật.",
+        },
+      ],
+    },
+    redis: {
+      tagline: "In-memory store cho tốc độ và phối hợp",
+      intro: "Redis là in-memory data store mã nguồn mở dùng làm cache, message broker, session store và DB tạm tốc độ cao.",
+      highlights: [
+        "Đọc/ghi dưới millisecond",
+        "Cấu trúc: string, hash, list, set, stream",
+        "Pub/Sub và stream cho messaging nhẹ",
+        "Thường kèm API dựa PostgreSQL",
+      ],
+      features: [
+        {
+          title: "Giảm latency hot-path",
+          body: "Cache query/session thường dùng để API vẫn nhanh khi tải cao.",
+        },
+        {
+          title: "Phối hợp worker",
+          body: "Queue, lock và rate limit giúp job nền và API nhất quán.",
+        },
+        {
+          title: "Vận hành gọn",
+          body: "Managed Redis hoặc instance nhỏ đủ cho hầu hết sản phẩm SMB trước khi cần broker nặng.",
+        },
+      ],
+    },
+    terraform: {
+      tagline: "Infrastructure as code",
+      intro: "Terraform giúp định nghĩa tài nguyên cloud bằng cấu hình khai báo, plan thay đổi an toàn và apply hạ tầng lặp lại giữa các môi trường.",
+      highlights: [
+        "IaC khai báo cho cloud và nhiều SaaS",
+        "Luồng plan → apply với diff review được",
+        "Module tái sử dụng theo môi trường",
+        "State theo dõi hạ tầng dài hạn",
+      ],
+      features: [
+        {
+          title: "Môi trường lặp lại được",
+          body: "Dev/staging/prod khớp nhau vì mạng và service được code, không click tay.",
+        },
+        {
+          title: "Thay đổi an toàn hơn",
+          body: "Plan cho thấy create/update/destroy trước khi đụng production.",
+        },
+        {
+          title: "Ops theo đội",
+          body: "Module và remote state giúp nhiều engineer cộng tác không tạo server snowflake.",
+        },
+      ],
+    }
 },
   ja: {
     react: {
@@ -1046,6 +1376,150 @@ const copyByLocale: Record<Locale, Record<TechSlug, TechCopy>> = {
         },
       ],
     },
+    aws: {
+      tagline: "Cloud infrastructure for scalable products",
+      intro: "Amazon Web Services provides compute, storage, networking, and managed data services so teams can deploy and grow production systems without owning a data center.",
+      highlights: [
+        "Global regions and managed building blocks (EC2, S3, RDS, Lambda…)",
+        "Security, IAM, and compliance tooling for production workloads",
+        "Pay-as-you-go capacity that scales with traffic",
+        "Deep ecosystem of observability and deployment integrations",
+      ],
+      features: [
+        {
+          title: "Ship on managed primitives",
+          body: "Use VMs, containers, serverless, and managed databases instead of racking hardware — focus engineering time on product logic.",
+        },
+        {
+          title: "Operate with guardrails",
+          body: "IAM, VPC, and audit logs help keep environments separated and reviewable as the stack grows.",
+        },
+        {
+          title: "Grow without replatforming",
+          body: "Start small, then add CDN, queues, and autoscaling when demand appears — same cloud, clearer stages.",
+        },
+      ],
+    },
+    kubernetes: {
+      tagline: "Container orchestration at scale",
+      intro: "Kubernetes automates deployment, scaling, and operations of containerized applications across clusters — the de facto control plane for modern microservices.",
+      highlights: [
+        "Declarative deployments, rollouts, and rollbacks",
+        "Service discovery, load balancing, and self-healing",
+        "Works with Docker images and cloud/on-prem clusters",
+        "Huge ecosystem: Helm, operators, GitOps tooling",
+      ],
+      features: [
+        {
+          title: "Standardize how services run",
+          body: "Pods, Deployments, and Services give every app the same lifecycle — easier ops across teams.",
+        },
+        {
+          title: "Scale with demand",
+          body: "Horizontal pod autoscaling and resource limits keep workloads responsive without manual SSH firefighting.",
+        },
+        {
+          title: "Portable by design",
+          body: "The same manifests can target managed K8s (EKS/GKE/AKS) or a private cluster when requirements change.",
+        },
+      ],
+    },
+    grafana: {
+      tagline: "Observability dashboards for metrics, logs, and traces",
+      intro: "Grafana helps teams visualize and alert on operational data from Prometheus, Loki, Tempo, cloud providers, and more — one pane for system health.",
+      highlights: [
+        "Rich dashboards for metrics, logs, and traces",
+        "Alerting rules tied to real signals",
+        "Plugins for popular datasources and clouds",
+        "Shareable views for eng, SRE, and stakeholders",
+      ],
+      features: [
+        {
+          title: "See the system, not just logs",
+          body: "Correlate latency, errors, and saturation so incidents get diagnosed faster.",
+        },
+        {
+          title: "Alert on what matters",
+          body: "Route actionable alerts instead of noisy thresholds that everyone ignores.",
+        },
+        {
+          title: "Fit the stack you already run",
+          body: "Connect Prometheus, Elasticsearch, CloudWatch, and others without rebuilding telemetry.",
+        },
+      ],
+    },
+    elasticsearch: {
+      tagline: "Search and analytics engine for logs and content",
+      intro: "Elasticsearch is a distributed search and analytics engine used for full-text search, log aggregation, and near-real-time analysis across large datasets.",
+      highlights: [
+        "Full-text search with relevance ranking",
+        "Scalable indexing for logs and events",
+        "Aggregations for operational and product analytics",
+        "Pairs with Kibana / OpenSearch dashboards in many stacks",
+      ],
+      features: [
+        {
+          title: "Find needles in product data",
+          body: "Power search boxes, filters, and faceted navigation when SQL alone is not enough.",
+        },
+        {
+          title: "Centralize operational signals",
+          body: "Ingest app and infra logs for investigation during incidents and audits.",
+        },
+        {
+          title: "Analyze at ingest speed",
+          body: "Near-real-time indexes keep dashboards and alerts close to live traffic.",
+        },
+      ],
+    },
+    redis: {
+      tagline: "In-memory data store for speed and coordination",
+      intro: "Redis is an open-source in-memory data structure store used as a cache, message broker, session store, and fast ephemeral database.",
+      highlights: [
+        "Sub-millisecond reads and writes",
+        "Structures: strings, hashes, lists, sets, streams",
+        "Pub/Sub and streams for lightweight messaging",
+        "Common companion to PostgreSQL-backed APIs",
+      ],
+      features: [
+        {
+          title: "Cut hot-path latency",
+          body: "Cache frequent queries and session data so APIs stay snappy under load.",
+        },
+        {
+          title: "Coordinate workers",
+          body: "Queues, locks, and rate limits help background jobs and APIs stay consistent.",
+        },
+        {
+          title: "Simple operational footprint",
+          body: "Managed Redis or a small instance covers most SMB product needs before heavier brokers.",
+        },
+      ],
+    },
+    terraform: {
+      tagline: "Infrastructure as code",
+      intro: "Terraform lets teams define cloud resources in declarative configuration, plan changes safely, and apply reproducible infrastructure across environments.",
+      highlights: [
+        "Declarative IaC for major clouds and SaaS providers",
+        "Plan → apply workflow with reviewable diffs",
+        "Modules for reusable environment patterns",
+        "State tracking for long-lived infrastructure",
+      ],
+      features: [
+        {
+          title: "Environments you can repeat",
+          body: "Dev, staging, and prod stay aligned because networking and services are coded, not clicked.",
+        },
+        {
+          title: "Safer changes",
+          body: "Plans show what will be created, updated, or destroyed before anything hits production.",
+        },
+        {
+          title: "Team-scale ops",
+          body: "Modules and remote state help multiple engineers collaborate without snowflake servers.",
+        },
+      ],
+    }
 },
   de: {
     react: {
@@ -1336,6 +1810,150 @@ const copyByLocale: Record<Locale, Record<TechSlug, TechCopy>> = {
         },
       ],
     },
+    aws: {
+      tagline: "Cloud infrastructure for scalable products",
+      intro: "Amazon Web Services provides compute, storage, networking, and managed data services so teams can deploy and grow production systems without owning a data center.",
+      highlights: [
+        "Global regions and managed building blocks (EC2, S3, RDS, Lambda…)",
+        "Security, IAM, and compliance tooling for production workloads",
+        "Pay-as-you-go capacity that scales with traffic",
+        "Deep ecosystem of observability and deployment integrations",
+      ],
+      features: [
+        {
+          title: "Ship on managed primitives",
+          body: "Use VMs, containers, serverless, and managed databases instead of racking hardware — focus engineering time on product logic.",
+        },
+        {
+          title: "Operate with guardrails",
+          body: "IAM, VPC, and audit logs help keep environments separated and reviewable as the stack grows.",
+        },
+        {
+          title: "Grow without replatforming",
+          body: "Start small, then add CDN, queues, and autoscaling when demand appears — same cloud, clearer stages.",
+        },
+      ],
+    },
+    kubernetes: {
+      tagline: "Container orchestration at scale",
+      intro: "Kubernetes automates deployment, scaling, and operations of containerized applications across clusters — the de facto control plane for modern microservices.",
+      highlights: [
+        "Declarative deployments, rollouts, and rollbacks",
+        "Service discovery, load balancing, and self-healing",
+        "Works with Docker images and cloud/on-prem clusters",
+        "Huge ecosystem: Helm, operators, GitOps tooling",
+      ],
+      features: [
+        {
+          title: "Standardize how services run",
+          body: "Pods, Deployments, and Services give every app the same lifecycle — easier ops across teams.",
+        },
+        {
+          title: "Scale with demand",
+          body: "Horizontal pod autoscaling and resource limits keep workloads responsive without manual SSH firefighting.",
+        },
+        {
+          title: "Portable by design",
+          body: "The same manifests can target managed K8s (EKS/GKE/AKS) or a private cluster when requirements change.",
+        },
+      ],
+    },
+    grafana: {
+      tagline: "Observability dashboards for metrics, logs, and traces",
+      intro: "Grafana helps teams visualize and alert on operational data from Prometheus, Loki, Tempo, cloud providers, and more — one pane for system health.",
+      highlights: [
+        "Rich dashboards for metrics, logs, and traces",
+        "Alerting rules tied to real signals",
+        "Plugins for popular datasources and clouds",
+        "Shareable views for eng, SRE, and stakeholders",
+      ],
+      features: [
+        {
+          title: "See the system, not just logs",
+          body: "Correlate latency, errors, and saturation so incidents get diagnosed faster.",
+        },
+        {
+          title: "Alert on what matters",
+          body: "Route actionable alerts instead of noisy thresholds that everyone ignores.",
+        },
+        {
+          title: "Fit the stack you already run",
+          body: "Connect Prometheus, Elasticsearch, CloudWatch, and others without rebuilding telemetry.",
+        },
+      ],
+    },
+    elasticsearch: {
+      tagline: "Search and analytics engine for logs and content",
+      intro: "Elasticsearch is a distributed search and analytics engine used for full-text search, log aggregation, and near-real-time analysis across large datasets.",
+      highlights: [
+        "Full-text search with relevance ranking",
+        "Scalable indexing for logs and events",
+        "Aggregations for operational and product analytics",
+        "Pairs with Kibana / OpenSearch dashboards in many stacks",
+      ],
+      features: [
+        {
+          title: "Find needles in product data",
+          body: "Power search boxes, filters, and faceted navigation when SQL alone is not enough.",
+        },
+        {
+          title: "Centralize operational signals",
+          body: "Ingest app and infra logs for investigation during incidents and audits.",
+        },
+        {
+          title: "Analyze at ingest speed",
+          body: "Near-real-time indexes keep dashboards and alerts close to live traffic.",
+        },
+      ],
+    },
+    redis: {
+      tagline: "In-memory data store for speed and coordination",
+      intro: "Redis is an open-source in-memory data structure store used as a cache, message broker, session store, and fast ephemeral database.",
+      highlights: [
+        "Sub-millisecond reads and writes",
+        "Structures: strings, hashes, lists, sets, streams",
+        "Pub/Sub and streams for lightweight messaging",
+        "Common companion to PostgreSQL-backed APIs",
+      ],
+      features: [
+        {
+          title: "Cut hot-path latency",
+          body: "Cache frequent queries and session data so APIs stay snappy under load.",
+        },
+        {
+          title: "Coordinate workers",
+          body: "Queues, locks, and rate limits help background jobs and APIs stay consistent.",
+        },
+        {
+          title: "Simple operational footprint",
+          body: "Managed Redis or a small instance covers most SMB product needs before heavier brokers.",
+        },
+      ],
+    },
+    terraform: {
+      tagline: "Infrastructure as code",
+      intro: "Terraform lets teams define cloud resources in declarative configuration, plan changes safely, and apply reproducible infrastructure across environments.",
+      highlights: [
+        "Declarative IaC for major clouds and SaaS providers",
+        "Plan → apply workflow with reviewable diffs",
+        "Modules for reusable environment patterns",
+        "State tracking for long-lived infrastructure",
+      ],
+      features: [
+        {
+          title: "Environments you can repeat",
+          body: "Dev, staging, and prod stay aligned because networking and services are coded, not clicked.",
+        },
+        {
+          title: "Safer changes",
+          body: "Plans show what will be created, updated, or destroyed before anything hits production.",
+        },
+        {
+          title: "Team-scale ops",
+          body: "Modules and remote state help multiple engineers collaborate without snowflake servers.",
+        },
+      ],
+    }
 },
 
 
@@ -1628,6 +2246,150 @@ const copyByLocale: Record<Locale, Record<TechSlug, TechCopy>> = {
         },
       ],
     },
+    aws: {
+      tagline: "Cloud infrastructure for scalable products",
+      intro: "Amazon Web Services provides compute, storage, networking, and managed data services so teams can deploy and grow production systems without owning a data center.",
+      highlights: [
+        "Global regions and managed building blocks (EC2, S3, RDS, Lambda…)",
+        "Security, IAM, and compliance tooling for production workloads",
+        "Pay-as-you-go capacity that scales with traffic",
+        "Deep ecosystem of observability and deployment integrations",
+      ],
+      features: [
+        {
+          title: "Ship on managed primitives",
+          body: "Use VMs, containers, serverless, and managed databases instead of racking hardware — focus engineering time on product logic.",
+        },
+        {
+          title: "Operate with guardrails",
+          body: "IAM, VPC, and audit logs help keep environments separated and reviewable as the stack grows.",
+        },
+        {
+          title: "Grow without replatforming",
+          body: "Start small, then add CDN, queues, and autoscaling when demand appears — same cloud, clearer stages.",
+        },
+      ],
+    },
+    kubernetes: {
+      tagline: "Container orchestration at scale",
+      intro: "Kubernetes automates deployment, scaling, and operations of containerized applications across clusters — the de facto control plane for modern microservices.",
+      highlights: [
+        "Declarative deployments, rollouts, and rollbacks",
+        "Service discovery, load balancing, and self-healing",
+        "Works with Docker images and cloud/on-prem clusters",
+        "Huge ecosystem: Helm, operators, GitOps tooling",
+      ],
+      features: [
+        {
+          title: "Standardize how services run",
+          body: "Pods, Deployments, and Services give every app the same lifecycle — easier ops across teams.",
+        },
+        {
+          title: "Scale with demand",
+          body: "Horizontal pod autoscaling and resource limits keep workloads responsive without manual SSH firefighting.",
+        },
+        {
+          title: "Portable by design",
+          body: "The same manifests can target managed K8s (EKS/GKE/AKS) or a private cluster when requirements change.",
+        },
+      ],
+    },
+    grafana: {
+      tagline: "Observability dashboards for metrics, logs, and traces",
+      intro: "Grafana helps teams visualize and alert on operational data from Prometheus, Loki, Tempo, cloud providers, and more — one pane for system health.",
+      highlights: [
+        "Rich dashboards for metrics, logs, and traces",
+        "Alerting rules tied to real signals",
+        "Plugins for popular datasources and clouds",
+        "Shareable views for eng, SRE, and stakeholders",
+      ],
+      features: [
+        {
+          title: "See the system, not just logs",
+          body: "Correlate latency, errors, and saturation so incidents get diagnosed faster.",
+        },
+        {
+          title: "Alert on what matters",
+          body: "Route actionable alerts instead of noisy thresholds that everyone ignores.",
+        },
+        {
+          title: "Fit the stack you already run",
+          body: "Connect Prometheus, Elasticsearch, CloudWatch, and others without rebuilding telemetry.",
+        },
+      ],
+    },
+    elasticsearch: {
+      tagline: "Search and analytics engine for logs and content",
+      intro: "Elasticsearch is a distributed search and analytics engine used for full-text search, log aggregation, and near-real-time analysis across large datasets.",
+      highlights: [
+        "Full-text search with relevance ranking",
+        "Scalable indexing for logs and events",
+        "Aggregations for operational and product analytics",
+        "Pairs with Kibana / OpenSearch dashboards in many stacks",
+      ],
+      features: [
+        {
+          title: "Find needles in product data",
+          body: "Power search boxes, filters, and faceted navigation when SQL alone is not enough.",
+        },
+        {
+          title: "Centralize operational signals",
+          body: "Ingest app and infra logs for investigation during incidents and audits.",
+        },
+        {
+          title: "Analyze at ingest speed",
+          body: "Near-real-time indexes keep dashboards and alerts close to live traffic.",
+        },
+      ],
+    },
+    redis: {
+      tagline: "In-memory data store for speed and coordination",
+      intro: "Redis is an open-source in-memory data structure store used as a cache, message broker, session store, and fast ephemeral database.",
+      highlights: [
+        "Sub-millisecond reads and writes",
+        "Structures: strings, hashes, lists, sets, streams",
+        "Pub/Sub and streams for lightweight messaging",
+        "Common companion to PostgreSQL-backed APIs",
+      ],
+      features: [
+        {
+          title: "Cut hot-path latency",
+          body: "Cache frequent queries and session data so APIs stay snappy under load.",
+        },
+        {
+          title: "Coordinate workers",
+          body: "Queues, locks, and rate limits help background jobs and APIs stay consistent.",
+        },
+        {
+          title: "Simple operational footprint",
+          body: "Managed Redis or a small instance covers most SMB product needs before heavier brokers.",
+        },
+      ],
+    },
+    terraform: {
+      tagline: "Infrastructure as code",
+      intro: "Terraform lets teams define cloud resources in declarative configuration, plan changes safely, and apply reproducible infrastructure across environments.",
+      highlights: [
+        "Declarative IaC for major clouds and SaaS providers",
+        "Plan → apply workflow with reviewable diffs",
+        "Modules for reusable environment patterns",
+        "State tracking for long-lived infrastructure",
+      ],
+      features: [
+        {
+          title: "Environments you can repeat",
+          body: "Dev, staging, and prod stay aligned because networking and services are coded, not clicked.",
+        },
+        {
+          title: "Safer changes",
+          body: "Plans show what will be created, updated, or destroyed before anything hits production.",
+        },
+        {
+          title: "Team-scale ops",
+          body: "Modules and remote state help multiple engineers collaborate without snowflake servers.",
+        },
+      ],
+    }
 }
 };
 

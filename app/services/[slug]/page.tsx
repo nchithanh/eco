@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { CustomAgentPage } from "@/components/CustomAgentContent";
 import { ServiceDetailView } from "@/components/ServiceDetailView";
 import {
   SERVICE_SLUGS,
@@ -17,6 +18,10 @@ export default async function ServicePage({
   const { slug } = await params;
   if (!isServiceSlug(slug)) {
     notFound();
+  }
+
+  if (slug === "custom-agent") {
+    return <CustomAgentPage />;
   }
 
   return <ServiceDetailView slug={slug} />;

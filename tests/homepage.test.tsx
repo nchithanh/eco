@@ -16,7 +16,7 @@ function renderHome() {
 describe("Dolphin Kick homepage", () => {
   it("renders hero brand and primary CTA", () => {
     renderHome();
-    expect(screen.getAllByLabelText(/KU THANH/i).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByLabelText(/Dolphin Kich/i).length).toBeGreaterThanOrEqual(1);
     expect(
       screen.getByRole("heading", {
         name: /事業の課題から、運用しやすいシステムへ/i,
@@ -46,12 +46,12 @@ describe("Dolphin Kick homepage", () => {
     expect(
       screen.getByRole("heading", {
         level: 2,
-        name: /散らばっていたシグナルを、ひとつのコンソールへ/i,
+        name: /AI を業務の中核へ/i,
       }),
     ).toBeInTheDocument();
     expect(
       within(technology!).getByRole("link", { name: /詳しく見る/i }),
-    ).toHaveAttribute("href", "#stack");
+    ).toHaveAttribute("href", expect.stringMatching(/\/ai-transform\/?$/));
   });
 
   it("renders capabilities and process headings", () => {
@@ -220,14 +220,15 @@ describe("Dolphin Kick homepage", () => {
     });
     expect(titleLink).toHaveAttribute("href", "/news/from-mvp-to-v1/");
     expect(document.getElementById("contact")).toBeTruthy();
+    const contact = within(document.getElementById("contact")!);
     expect(
-      screen.getByRole("heading", { name: /プロジェクトを始めませんか/i }),
+      contact.getByRole("heading", { name: /プロジェクトを始めませんか/i }),
     ).toBeInTheDocument();
     expect(
-      screen.getByRole("link", { name: /Zaloで相談/i }),
+      contact.getByRole("link", { name: /Zaloで相談/i }),
     ).toHaveAttribute("href", "https://zalo.me/0779937633");
     expect(
-      screen.getByRole("link", { name: /メールを送る/i }),
+      contact.getByRole("link", { name: /メールを送る/i }),
     ).toHaveAttribute("href", "mailto:nchithanh9999@gmail.com");
   });
 
@@ -303,36 +304,37 @@ describe("Dolphin Kick homepage", () => {
     ).toBeInTheDocument();
   });
 
-  it("keeps contact FAB clickable when toggled", async () => {
+  it("keeps AI chat widget clickable when toggled", async () => {
     const user = userEvent.setup();
     renderHome();
 
-    const toggle = screen.getByRole("button", { name: /クイック連絡を開く/i });
+    const toggle = screen.getByRole("button", {
+      name: /Dolphin Assist チャットを開く/i,
+    });
     expect(toggle).toBeInTheDocument();
     await user.click(toggle);
     expect(
-      screen.getByRole("button", { name: /クイック連絡を閉じる/i }),
+      screen.getByRole("button", { name: /Dolphin Assist チャットを閉じる/i }),
     ).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: /Zaloでチャット/i })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: /Zaloでチャット/i })).toHaveAttribute(
+      "href",
+      "https://zalo.me/0779937633",
+    );
+    expect(
+      screen.getByRole("dialog", { name: /Dolphin Assist/i }),
+    ).toBeInTheDocument();
   });
 
-  it("exposes violet and slate theme options", async () => {
-    const user = userEvent.setup();
+  it("hides theme switcher temporarily", () => {
     render(
       <AppProviders>
         <Nav />
       </AppProviders>,
     );
 
-    await user.click(screen.getByRole("button", { name: /カラーテーマ/i }));
-
-    const list = screen.getByRole("listbox", { name: /カラーテーマ/i });
     expect(
-      within(list).getByRole("button", { name: /バイオレット/i }),
-    ).toBeInTheDocument();
-    expect(
-      within(list).getByRole("button", { name: /スレート/i }),
-    ).toBeInTheDocument();
+      screen.queryByRole("button", { name: /カラーテーマ/i }),
+    ).not.toBeInTheDocument();
   });
 
   it("switches language to Vietnamese", async () => {

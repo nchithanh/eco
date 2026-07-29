@@ -39,11 +39,11 @@ export function WorkDetailContent({
       <section
         className={
           embedded
-            ? "relative overflow-hidden border-b border-white/40 py-10 sm:py-12"
-            : "relative overflow-hidden border-b border-white/40 py-16 sm:py-20"
+            ? "relative overflow-hidden border-b border-[var(--kuct-border)] py-10 sm:py-12"
+            : "relative overflow-hidden border-b border-[var(--kuct-border)] py-16 sm:py-20"
         }
       >
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[#faf5ff] via-white/50 to-[#ede9fe]/80" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[rgba(var(--kuct-accent-rgb),0.08)] via-transparent to-[rgba(var(--kuct-accent-rgb),0.05)]" />
         <div className="relative mx-auto max-w-6xl px-6">
           {!embedded ? (
             <Link
@@ -54,7 +54,7 @@ export function WorkDetailContent({
             </Link>
           ) : null}
           <div
-            className={`${embedded ? "mt-0" : "mt-6"} relative aspect-[16/9] max-w-3xl overflow-hidden rounded-2xl border border-white/60 shadow-[0_1rem_2.5rem_rgba(139,92,246,0.12)]`}
+            className={`${embedded ? "mt-0" : "mt-6"} relative aspect-[16/9] max-w-3xl overflow-hidden rounded-2xl border border-[var(--kuct-border)] shadow-[0_1rem_2.5rem_rgba(139,92,246,0.12)]`}
           >
             <LazyImage
               src={themeAsset(detail.image, theme)}
@@ -63,7 +63,7 @@ export function WorkDetailContent({
               className="object-cover"
               sizes="(max-width: 768px) 100vw, 48rem"
             />
-            <span className="absolute left-4 top-4 rounded-full border border-white/70 bg-white/80 px-3 py-1 text-[0.65rem] font-semibold tracking-[0.12em] text-[var(--kuct-text)] uppercase shadow-sm backdrop-blur-md">
+            <span className="absolute left-4 top-4 rounded-full border border-[var(--kuct-border)] bg-[rgba(12,10,24,0.78)] px-3 py-1 text-[0.65rem] font-semibold tracking-[0.12em] text-[var(--kuct-text)] uppercase shadow-sm backdrop-blur-md">
               {detail.tag}
             </span>
           </div>
@@ -134,7 +134,7 @@ export function WorkDetailContent({
               {extras.stack.map((item) => (
                 <span
                   key={item}
-                  className="rounded-full border border-white/70 bg-white/50 px-3 py-1 text-xs font-semibold text-[var(--kuct-muted)]"
+                  className="rounded-full border border-[var(--kuct-border)] bg-[rgba(12,10,24,0.62)] px-3 py-1 text-xs font-semibold text-[var(--kuct-muted)]"
                 >
                   {item}
                 </span>

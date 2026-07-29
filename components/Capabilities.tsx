@@ -13,7 +13,7 @@ import {
 import { AccentText } from "@/components/BrandName";
 import { LazyImage } from "@/components/LazyImage";
 import { usePagePreview } from "@/components/PagePreviewProvider";
-import { themeAsset } from "@/lib/asset";
+import { assetPath, themeAsset } from "@/lib/asset";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
 import { isServiceSlug, type ServiceSlug } from "@/lib/i18n/service-details";
 import { useTheme } from "@/lib/theme";
@@ -25,6 +25,7 @@ const CAPABILITY_IMAGES: Record<ServiceSlug, string> = {
   design: "/capabilities/design.jpg",
   integrations: "/capabilities/integrations.jpg",
   agents: "/capabilities/agents.jpg",
+  "custom-agent": "/capabilities/custom-agent.jpg",
 };
 
 const DESKTOP_MQ = "(min-width: 640px)";
@@ -186,9 +187,12 @@ export function Capabilities() {
             }`}
           >
             {visible.map((item) => {
-              const href = isServiceSlug(item.id)
-                ? `/services/${item.id}`
-                : "/#contact";
+              const href =
+                item.id === "custom-agent"
+                  ? assetPath("/custom-agent/")
+                  : isServiceSlug(item.id)
+                    ? `/services/${item.id}`
+                    : "/#contact";
               const image = isServiceSlug(item.id)
                 ? themeAsset(CAPABILITY_IMAGES[item.id], theme)
                 : undefined;

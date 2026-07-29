@@ -9,7 +9,12 @@ import {
   type ThemeId,
 } from "@/lib/theme";
 
+/** Set to `true` when theme switcher should be visible again. */
+const THEME_SWITCHER_ENABLED = false;
+
 export function ThemeSwitcher() {
+  if (!THEME_SWITCHER_ENABLED) return null;
+
   const { t } = useLocale();
   const { theme, setTheme } = useTheme();
   const [open, setOpen] = useState(false);

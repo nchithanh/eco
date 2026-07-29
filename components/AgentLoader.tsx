@@ -45,6 +45,8 @@ function unlockScroll() {
   html.classList.remove("kuct-loading");
   html.style.overflow = "";
   body.style.overflow = "";
+  html.style.touchAction = "";
+  body.style.touchAction = "";
 }
 
 export function AgentLoader({
@@ -65,21 +67,18 @@ export function AgentLoader({
     const start = performance.now();
     let raf = 0;
     let exitTimer = 0;
+    let finished = false;
 
     lockScroll();
 
-    const onTouchMove = (event: TouchEvent) => {
-      event.preventDefault();
-    };
-    document.addEventListener("touchmove", onTouchMove, { passive: false });
-
     const finish = () => {
+      if (finished) return;
+      finished = true;
       setProgress(100);
       setPhase("exiting");
       exitTimer = window.setTimeout(() => {
         setPhase("done");
         unlockScroll();
-        document.removeEventListener("touchmove", onTouchMove);
       }, EXIT_MS);
     };
 
@@ -95,10 +94,15 @@ export function AgentLoader({
 
     raf = requestAnimationFrame(tick);
 
+    const onPageShow = (event: PageTransitionEvent) => {
+      if (event.persisted) unlockScroll();
+    };
+    window.addEventListener("pageshow", onPageShow);
+
     return () => {
       cancelAnimationFrame(raf);
       window.clearTimeout(exitTimer);
-      document.removeEventListener("touchmove", onTouchMove);
+      window.removeEventListener("pageshow", onPageShow);
       unlockScroll();
     };
   }, [disabled, minDurationMs]);

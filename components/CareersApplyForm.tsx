@@ -13,7 +13,7 @@ import { useLocale } from "@/lib/i18n/LocaleProvider";
 import { isJobAcceptingApplications, JOB_HIRING, sortJobsByDisplayOrder } from "@/lib/careers-jobs";
 
 const fieldClass =
-  "mt-1 w-full rounded-2xl border border-white/70 bg-white/50 px-4 py-2.5 text-[var(--kuct-text)] outline-none backdrop-blur-md kuct-field focus:border-[var(--kuct-accent)]";
+  "mt-1 w-full rounded-2xl border border-[var(--kuct-border)] bg-[rgba(12,10,24,0.72)] px-4 py-2.5 text-[var(--kuct-text)] outline-none backdrop-blur-md kuct-field focus:border-[var(--kuct-accent)]";
 
 type Props = { initialRole?: JobId };
 

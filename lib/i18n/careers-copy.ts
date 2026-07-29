@@ -18,7 +18,7 @@ const vi: CareersCopy = {
     eyebrow: "Open roles",
     title: "Vị trí đang mở",
     support:
-      "Năm hướng khớp dịch vụ và go-to-market của studio. Remote-friendly.",
+      "Nhiều hướng khớp dịch vụ, AI và quality của studio. Remote-friendly.",
   },
   engagement: "Freelance",
   comp: "~$1,000/tháng tương đương · linh hoạt theo giờ",
@@ -47,6 +47,47 @@ const vi: CareersCopy = {
       tags: ["Sales", "BD", "Commission"],
       comp: "Hoa hồng 50% deal · không lương cứng",
       priority: "Ưu tiên · Gấp",
+    },
+    {
+      id: "ai-engineer",
+      title: "AI Engineer",
+      summary:
+        "Xây AI agent, pipeline LLM và tooling cho sản phẩm Dolphin Kich — freelance, remote-friendly.",
+      bullets: [
+        "Kinh nghiệm LLM APIs, RAG và agent workflow",
+        "Node.js/Python và tích hợp API vững",
+        "Tư duy sản phẩm — ship feature đo được",
+        "Portfolio hoặc repo AI thực tế",
+      ],
+      tags: ["LLM", "AI Agent", "RAG"],
+    },
+    {
+      id: "intern-fullstack",
+      title: "Intern Fullstack",
+      summary:
+        "Thực tập fullstack trên hệ thống AI content & Vibe Coding của Dolphin Kich.",
+      bullets: [
+        "React/Next.js hoặc Node.js cơ bản, ham học và chủ động",
+        "Làm task thật trên nền tảng AI content nội bộ",
+        "Mentor sát, review code thường xuyên",
+        "Ưu tiên sinh viên năm cuối / mới ra trường",
+      ],
+      tags: ["Intern", "Next.js", "Vibe Coding"],
+      comp: "Intern · có mentor",
+    },
+    {
+      id: "fresher-tester",
+      title: "Fresher Tester (Manual + Automation)",
+      summary:
+        "Kiểm thử web/app — manual có hệ thống, học automation từ đầu.",
+      bullets: [
+        "Viết test case, report bug rõ ràng, có tái hiện bước",
+        "Manual testing web/mobile trong sprint thật",
+        "Học Playwright/Cypress hoặc tương đương",
+        "Tỉ mỉ, chủ động, giao tiếp tốt với dev",
+      ],
+      tags: ["QA", "Manual", "Automation"],
+      comp: "Fresher · manual + automation",
     },
     {
       id: "frontend",
@@ -139,7 +180,7 @@ const en: CareersCopy = {
     eyebrow: "Open roles",
     title: "Open positions",
     support:
-      "Five tracks matching our studio services and go-to-market. Remote-friendly.",
+      "Multiple tracks across services, AI, and quality. Remote-friendly.",
   },
   engagement: "Freelance",
   comp: "~$1,000/mo equivalent · hourly flexible",
@@ -168,6 +209,47 @@ const en: CareersCopy = {
       tags: ["Sales", "BD", "Commission"],
       comp: "50% deal commission · no base salary",
       priority: "Priority · Urgent",
+    },
+    {
+      id: "ai-engineer",
+      title: "AI Engineer",
+      summary:
+        "Build AI agents, LLM pipelines, and tooling for Dolphin Kich products — freelance, remote-friendly.",
+      bullets: [
+        "Hands-on with LLM APIs, RAG, and agent workflows",
+        "Solid Node.js/Python and API integration",
+        "Product mindset — ship measurable features",
+        "Real AI portfolio or public repos",
+      ],
+      tags: ["LLM", "AI Agent", "RAG"],
+    },
+    {
+      id: "intern-fullstack",
+      title: "Intern Fullstack",
+      summary:
+        "Fullstack internship on Dolphin Kich's AI content system and Vibe Coding platform.",
+      bullets: [
+        "Basic React/Next.js or Node.js; eager to learn",
+        "Real tasks on the in-house AI content platform",
+        "Close mentorship and regular code review",
+        "Final-year students or recent grads preferred",
+      ],
+      tags: ["Intern", "Next.js", "Vibe Coding"],
+      comp: "Intern · mentored",
+    },
+    {
+      id: "fresher-tester",
+      title: "Fresher Tester (Manual + Automation)",
+      summary:
+        "Test web/app products — structured manual QA, learning automation from day one.",
+      bullets: [
+        "Write test cases and clear bug reports with repro steps",
+        "Manual web/mobile testing in real sprints",
+        "Learn Playwright/Cypress or equivalent",
+        "Detail-oriented, proactive, good dev communication",
+      ],
+      tags: ["QA", "Manual", "Automation"],
+      comp: "Fresher · manual + automation",
     },
     {
       id: "frontend",
@@ -260,7 +342,7 @@ const ja: CareersCopy = {
     eyebrow: "Open roles",
     title: "募集中のポジション",
     support:
-      "スタジオのサービスと営業に沿った5領域。リモート歓迎。",
+      "スタジオのサービス、AI、品質に沿った複数ポジション。リモート歓迎。",
   },
   engagement: "Freelance",
   comp: "約1,000 USD/月相当 · 時間単価で柔軟",
@@ -289,6 +371,47 @@ const ja: CareersCopy = {
       tags: ["Sales", "BD", "Commission"],
       comp: "案件手数料50% · 基本給なし",
       priority: "優先 · 急募",
+    },
+    {
+      id: "ai-engineer",
+      title: "AI Engineer",
+      summary:
+        "Dolphin Kich 製品向けの AI Agent、LLM パイプライン、ツーリングを構築 — フリーランス、リモート可。",
+      bullets: [
+        "LLM API、RAG、Agent ワークフローの実務経験",
+        "Node.js/Python と API 連携が堅実",
+        "プロダクト思考 — 測定可能な機能を出荷",
+        "実務の AI ポートフォリオまたは公開リポ",
+      ],
+      tags: ["LLM", "AI Agent", "RAG"],
+    },
+    {
+      id: "intern-fullstack",
+      title: "Intern Fullstack",
+      summary:
+        "Dolphin Kich の AI コンテンツ基盤と Vibe Coding 上でのフルスタックインターン。",
+      bullets: [
+        "React/Next.js または Node.js の基礎、学習意欲",
+        "社内 AI コンテンツ基盤の実タスク",
+        "メンター付き、定期的なコードレビュー",
+        "大学4年生または新卒歓迎",
+      ],
+      tags: ["Intern", "Next.js", "Vibe Coding"],
+      comp: "インターン · メンター付き",
+    },
+    {
+      id: "fresher-tester",
+      title: "Fresher Tester (Manual + Automation)",
+      summary:
+        "Web/App のテスト — 体系的な手動 QA と、初日からの自動化学習。",
+      bullets: [
+        "テストケース作成と再現手順付きバグ報告",
+        "実スプリントでの Web/モバイル手動テスト",
+        "Playwright/Cypress 等を学習",
+        "丁寧さ、主体性、開発とのコミュニケーション",
+      ],
+      tags: ["QA", "Manual", "Automation"],
+      comp: "フレッシャー · 手動 + 自動化",
     },
     {
       id: "frontend",
@@ -381,7 +504,7 @@ const de: CareersCopy = {
     eyebrow: "Open roles",
     title: "Offene Positionen",
     support:
-      "Fünf Bereiche passend zu Studio-Leistungen und Go-to-Market. Remote-freundlich.",
+      "Mehrere Bereiche zu Services, AI und Qualität im Studio. Remote-freundlich.",
   },
   engagement: "Freelance",
   comp: "~1.000 USD/Monat Äquivalent · stundenweise flexibel",
@@ -410,6 +533,47 @@ const de: CareersCopy = {
       tags: ["Sales", "BD", "Commission"],
       comp: "50% Deal-Provision · kein Fixgehalt",
       priority: "Priorität · Dringend",
+    },
+    {
+      id: "ai-engineer",
+      title: "AI Engineer",
+      summary:
+        "AI Agents, LLM-Pipelines und Tooling für Dolphin-Kich-Produkte — Freelance, remote-freundlich.",
+      bullets: [
+        "Praxis mit LLM-APIs, RAG und Agent-Workflows",
+        "Solides Node.js/Python und API-Integration",
+        "Produktdenken — messbare Features ausliefern",
+        "Echtes AI-Portfolio oder öffentliche Repos",
+      ],
+      tags: ["LLM", "AI Agent", "RAG"],
+    },
+    {
+      id: "intern-fullstack",
+      title: "Intern Fullstack",
+      summary:
+        "Fullstack-Praktikum auf Dolphin Kichs AI-Content-System und Vibe-Coding-Plattform.",
+      bullets: [
+        "Grundlagen React/Next.js oder Node.js, lernbereit",
+        "Echte Tasks auf der internen AI-Content-Plattform",
+        "Enges Mentoring und regelmäßiges Code-Review",
+        "Bevorzugt: Studierende im letzten Jahr / Absolventen",
+      ],
+      tags: ["Intern", "Next.js", "Vibe Coding"],
+      comp: "Praktikum · mit Mentor",
+    },
+    {
+      id: "fresher-tester",
+      title: "Fresher Tester (Manual + Automation)",
+      summary:
+        "Web/App testen — strukturiertes manuelles QA, Automation von Anfang an lernen.",
+      bullets: [
+        "Testfälle schreiben und klare Bug-Reports mit Repro-Schritten",
+        "Manuelles Web/Mobile-Testing in echten Sprints",
+        "Playwright/Cypress oder Äquivalent lernen",
+        "Sorgfältig, proaktiv, gute Dev-Kommunikation",
+      ],
+      tags: ["QA", "Manual", "Automation"],
+      comp: "Fresher · manuell + Automation",
     },
     {
       id: "frontend",
@@ -501,7 +665,7 @@ const zh: CareersCopy = {
   roles: {
     eyebrow: "Open roles",
     title: "开放职位",
-    support: "五个方向对齐工作室服务与市场拓展。欢迎远程。",
+    support: "多个方向覆盖工作室服务、AI 与质量保障。欢迎远程。",
   },
   engagement: "Freelance",
   comp: "约 $1,000/月等价 · 按小时灵活",
@@ -529,6 +693,46 @@ const zh: CareersCopy = {
       tags: ["Sales", "BD", "Commission"],
       comp: "成交抽成 50% · 无底薪",
       priority: "优先 · 急招",
+    },
+    {
+      id: "ai-engineer",
+      title: "AI Engineer",
+      summary:
+        "为 Dolphin Kich 产品构建 AI Agent、LLM 流水线与工具 — 自由协作，支持远程。",
+      bullets: [
+        "熟悉 LLM API、RAG 与 Agent 工作流",
+        "扎实的 Node.js/Python 与 API 集成",
+        "产品思维 — 交付可衡量的功能",
+        "真实 AI 作品集或公开仓库",
+      ],
+      tags: ["LLM", "AI Agent", "RAG"],
+    },
+    {
+      id: "intern-fullstack",
+      title: "Intern Fullstack",
+      summary:
+        "在 Dolphin Kich 的 AI 内容系统与 Vibe Coding 平台上进行全栈实习。",
+      bullets: [
+        "具备 React/Next.js 或 Node.js 基础，学习主动",
+        "在内部 AI 内容平台承担真实任务",
+        "导师跟进，定期代码评审",
+        "优先大四学生 / 应届毕业生",
+      ],
+      tags: ["Intern", "Next.js", "Vibe Coding"],
+      comp: "实习 · 有导师",
+    },
+    {
+      id: "fresher-tester",
+      title: "Fresher Tester (Manual + Automation)",
+      summary: "测试 Web/App — 系统化手工测试，从零学习自动化。",
+      bullets: [
+        "编写测试用例，提交含复现步骤的清晰缺陷报告",
+        "在真实迭代中进行 Web/移动端手工测试",
+        "学习 Playwright/Cypress 或同类工具",
+        "细致、主动，与开发沟通顺畅",
+      ],
+      tags: ["QA", "Manual", "Automation"],
+      comp: "应届生 · 手工 + 自动化",
     },
     {
       id: "frontend",

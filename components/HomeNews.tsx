@@ -14,8 +14,8 @@ import {
   listNews,
 } from "@/lib/news-details";
 
-const PAGE_SIZE = 8;
-const FEATURED_COUNT = 2;
+const PAGE_SIZE = 9;
+const FEATURED_COUNT = 3;
 
 export function HomeNews() {
   const { locale, t } = useLocale();
@@ -71,7 +71,7 @@ export function HomeNews() {
           {n.blurb}
         </p>
 
-        <ul className="mt-12 grid grid-cols-1 gap-x-8 gap-y-1 md:grid-cols-2">
+        <ul className="mt-12 grid grid-cols-1 gap-x-8 gap-y-1 md:grid-cols-3">
           {visible.map((item, index) => {
             const href = assetPath(`/news/${item.slug}/`);
             const featured = index < FEATURED_COUNT;
@@ -81,7 +81,7 @@ export function HomeNews() {
                 className={`group kuct-list-hover touch-pan-y -mx-3 flex h-full flex-col rounded-2xl px-3 ${featured ? "py-4" : "py-3"}`}
               >
                 {featured ? (
-                  <div className="relative mb-3 aspect-[16/10] overflow-hidden rounded-xl border border-white/60 bg-white/40">
+                  <div className="relative mb-3 aspect-[16/10] overflow-hidden rounded-xl border border-[var(--kuct-border)] bg-[rgba(12,10,24,0.5)]">
                     <LazyImage
                       src={themeAsset(getNewsImage(item.slug), theme)}
                       alt=""
@@ -105,17 +105,12 @@ export function HomeNews() {
                 <h3 className="mt-1 font-display text-xl font-semibold tracking-tight text-[var(--kuct-text)] sm:text-2xl">
                   <a
                     href={href}
-                    className="line-clamp-1 transition duration-300 group-hover:text-[var(--kuct-accent)] group-focus-within:text-[var(--kuct-accent)] focus-visible:text-[var(--kuct-accent)]"
+                    className="line-clamp-2 transition duration-300 group-hover:text-[var(--kuct-accent)] group-focus-within:text-[var(--kuct-accent)] focus-visible:text-[var(--kuct-accent)]"
                     onClick={(event) => openHref(href, event)}
                   >
                     {item.title}
                   </a>
                 </h3>
-                {featured ? (
-                  <p className="mt-1 max-w-3xl text-sm leading-relaxed text-[var(--kuct-muted)] sm:text-base line-clamp-2">
-                    {item.excerpt}
-                  </p>
-                ) : null}
               </li>
             );
           })}

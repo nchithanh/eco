@@ -18,12 +18,13 @@ import { isTechSlug, type TechSlug } from "@/lib/tech-stack";
 import { isWorkSlug, type WorkSlug } from "@/lib/works-details";
 import { PagePreviewModal } from "@/components/PagePreviewModal";
 
-type PreviewTarget =
+export type PreviewTarget =
   | { kind: "service"; slug: ServiceSlug; href: string }
   | { kind: "tech"; slug: TechSlug; href: string }
   | { kind: "work"; slug: WorkSlug; href: string }
   | { kind: "more"; slug: MoreSlug; href: string }
-  | { kind: "careers"; href: string }
+  | { kind: "custom-agent"; href: string }
+  | { kind: "ai-transform"; href: string }
   | { kind: "news"; href: string }
   | { kind: "news-detail"; slug: NewsSlug; href: string };
 
@@ -33,7 +34,6 @@ type PagePreviewContextValue = {
   openTech: (slug: TechSlug) => void;
   openWork: (slug: WorkSlug) => void;
   openMore: (slug: MoreSlug) => void;
-  openCareers: () => void;
   openNews: () => void;
   openNewsDetail: (slug: NewsSlug) => void;
   close: () => void;
@@ -58,8 +58,16 @@ function resolveTarget(href: string): PreviewTarget | null {
   const base = assetPath("").replace(/\/$/, "");
   const stripped = base && path.startsWith(base) ? path.slice(base.length) || "/" : path;
 
-  if (stripped === "/careers" || stripped.endsWith("/careers")) {
-    return { kind: "careers", href: assetPath("/careers/") };
+  if (
+    stripped === "/custom-agent" ||
+    stripped.endsWith("/custom-agent") ||
+    stripped.endsWith("/services/custom-agent")
+  ) {
+    return { kind: "custom-agent", href: assetPath("/custom-agent/") };
+  }
+
+  if (stripped === "/ai-transform" || stripped.endsWith("/ai-transform")) {
+    return { kind: "ai-transform", href: assetPath("/ai-transform/") };
   }
 
   if (stripped === "/news" || stripped.endsWith("/news")) {
@@ -104,6 +112,9 @@ function resolveTarget(href: string): PreviewTarget | null {
 
   const serviceMatch = stripped.match(/\/services\/([^/]+)$/);
   if (serviceMatch && isServiceSlug(serviceMatch[1])) {
+    if (serviceMatch[1] === "custom-agent") {
+      return { kind: "custom-agent", href: assetPath("/custom-agent/") };
+    }
     return {
       kind: "service",
       slug: serviceMatch[1],
@@ -120,6 +131,10 @@ export function PagePreviewProvider({ children }: { children: ReactNode }) {
   const close = useCallback(() => setTarget(null), []);
 
   const openService = useCallback((slug: ServiceSlug) => {
+    if (slug === "custom-agent") {
+      setTarget({ kind: "custom-agent", href: assetPath("/custom-agent/") });
+      return;
+    }
     setTarget({
       kind: "service",
       slug,
@@ -149,10 +164,6 @@ export function PagePreviewProvider({ children }: { children: ReactNode }) {
       slug,
       href: assetPath(`/more/${slug}/`),
     });
-  }, []);
-
-  const openCareers = useCallback(() => {
-    setTarget({ kind: "careers", href: assetPath("/careers/") });
   }, []);
 
   const openNews = useCallback(() => {
@@ -198,7 +209,6 @@ export function PagePreviewProvider({ children }: { children: ReactNode }) {
       openTech,
       openWork,
       openMore,
-      openCareers,
       openNews,
       openNewsDetail,
       close,
@@ -209,7 +219,6 @@ export function PagePreviewProvider({ children }: { children: ReactNode }) {
       openTech,
       openWork,
       openMore,
-      openCareers,
       openNews,
       openNewsDetail,
       close,
@@ -231,5 +240,3 @@ export function usePagePreview() {
   }
   return ctx;
 }
-
-export type { PreviewTarget };

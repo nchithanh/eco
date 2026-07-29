@@ -1,19 +1,25 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { LazyImage } from "@/components/LazyImage";
 import { usePagePreview } from "@/components/PagePreviewProvider";
-import { assetPath } from "@/lib/asset";
+import { assetPath, themeAsset } from "@/lib/asset";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
+import { useTheme } from "@/lib/theme";
 import { newsCategoryChipClasses } from "@/lib/news-category-styles";
 import {
   NEWS_CATEGORIES,
   formatNewsDate,
+  getNewsImage,
   listNews,
   type NewsCategory,
 } from "@/lib/news-details";
 
+const FEATURED_COUNT = 3;
+
 export function NewsContent({ embedded = false }: { embedded?: boolean }) {
   const { locale, t } = useLocale();
+  const { theme } = useTheme();
   const { openHref } = usePagePreview();
   const n = t.news;
   const [filter, setFilter] = useState<NewsCategory | "all">("all");
@@ -29,8 +35,8 @@ export function NewsContent({ embedded = false }: { embedded?: boolean }) {
       <section
         className={
           embedded
-            ? "border-b border-white/40 py-10 sm:py-12"
-            : "border-b border-white/40 py-16 sm:py-20"
+            ? "border-b border-[var(--kuct-border)] py-10 sm:py-12"
+            : "border-b border-[var(--kuct-border)] py-16 sm:py-20"
         }
       >
         <div className="mx-auto max-w-6xl px-6">
@@ -52,7 +58,7 @@ export function NewsContent({ embedded = false }: { embedded?: boolean }) {
               className={
                 filter === "all"
                   ? "rounded-full border border-[var(--kuct-accent)]/40 bg-[var(--kuct-accent)]/10 px-4 py-1.5 text-sm font-medium text-[var(--kuct-text)]"
-                  : "rounded-full border border-white/60 bg-white/40 px-4 py-1.5 text-sm font-medium text-[var(--kuct-muted)] transition hover:border-[var(--kuct-accent)]/30 hover:text-[var(--kuct-text)]"
+                  : "rounded-full border border-[var(--kuct-border)] bg-[rgba(12,10,24,0.62)] px-4 py-1.5 text-sm font-medium text-[var(--kuct-muted)] transition hover:border-[var(--kuct-accent)]/30 hover:text-[var(--kuct-text)]"
               }
             >
               {n.filterAll}
@@ -65,7 +71,7 @@ export function NewsContent({ embedded = false }: { embedded?: boolean }) {
                 className={
                   filter === cat
                     ? "rounded-full border border-[var(--kuct-accent)]/40 bg-[var(--kuct-accent)]/10 px-4 py-1.5 text-sm font-medium text-[var(--kuct-text)]"
-                    : "rounded-full border border-white/60 bg-white/40 px-4 py-1.5 text-sm font-medium text-[var(--kuct-muted)] transition hover:border-[var(--kuct-accent)]/30 hover:text-[var(--kuct-text)]"
+                    : "rounded-full border border-[var(--kuct-border)] bg-[rgba(12,10,24,0.62)] px-4 py-1.5 text-sm font-medium text-[var(--kuct-muted)] transition hover:border-[var(--kuct-accent)]/30 hover:text-[var(--kuct-text)]"
                 }
               >
                 {n.categories[cat]}
@@ -77,14 +83,26 @@ export function NewsContent({ embedded = false }: { embedded?: boolean }) {
 
       <section className={embedded ? "py-8 sm:py-10" : "py-12 sm:py-16"}>
         <div className="mx-auto max-w-6xl px-6">
-          <ul className="divide-y divide-[var(--kuct-accent)]/12">
-            {items.map((item) => {
+          <ul className="grid grid-cols-1 gap-x-8 gap-y-1 md:grid-cols-3">
+            {items.map((item, index) => {
               const href = assetPath(`/news/${item.slug}/`);
+              const featured = index < FEATURED_COUNT;
               return (
                 <li
                   key={item.slug}
-                  className="group kuct-list-hover touch-pan-y -mx-3 rounded-2xl px-3 py-6 first:mt-0"
+                  className={`group kuct-list-hover touch-pan-y -mx-3 flex h-full flex-col rounded-2xl px-3 ${featured ? "py-4" : "py-3"}`}
                 >
+                  {featured ? (
+                    <div className="relative mb-3 aspect-[16/10] overflow-hidden rounded-xl border border-[var(--kuct-border)] bg-[rgba(12,10,24,0.5)]">
+                      <LazyImage
+                        src={themeAsset(getNewsImage(item.slug), theme)}
+                        alt=""
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, 28rem"
+                      />
+                    </div>
+                  ) : null}
                   <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
                     <time
                       dateTime={item.date}

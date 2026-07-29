@@ -72,7 +72,7 @@ function ProcessStep({
     >
       <span
         aria-hidden
-        className="absolute top-5 left-0 grid size-9 place-items-center rounded-full text-xs font-bold text-white shadow-[0_8px_20px_rgba(var(--kuct-accent-rgb),0.28)] sm:size-10 sm:text-sm"
+        className="absolute top-5 left-0 z-10 grid size-9 place-items-center rounded-full text-xs font-bold text-white shadow-[0_8px_20px_rgba(var(--kuct-accent-rgb),0.28)] sm:size-10 sm:text-sm"
         style={{
           background: tone,
           boxShadow: `0 8px 22px color-mix(in srgb, ${tone} 40%, transparent)`,

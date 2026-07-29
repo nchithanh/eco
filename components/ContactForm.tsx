@@ -9,7 +9,7 @@ import { useLocale } from "@/lib/i18n/LocaleProvider";
 function ContactVisualScene() {
   return (
     <div
-      className="relative hidden min-h-[22rem] items-end justify-center overflow-hidden rounded-[1.75rem] lg:flex"
+      className="relative hidden min-h-[16rem] items-center justify-center overflow-hidden rounded-[1.75rem] lg:flex"
       style={{
         background:
           "radial-gradient(ellipse at 70% 42%, rgb(var(--kuct-accent-rgb) / 0.16), transparent 62%), linear-gradient(145deg, color-mix(in srgb, var(--kuct-accent-3) 22%, transparent), transparent 70%)",
@@ -17,12 +17,12 @@ function ContactVisualScene() {
       aria-hidden
     >
       <Image
-        src={assetPath("/mascot/dolphin-contact.png")}
+        src={assetPath("/brand/logo-dolphin.png")}
         alt=""
-        width={635}
-        height={967}
-        className="kuct-mascot-float relative z-[1] h-auto max-h-[min(22rem,55vh)] w-auto max-w-[70%] object-contain drop-shadow-[0_16px_32px_rgba(var(--kuct-accent-rgb),0.22)] select-none"
-        sizes="(min-width: 1024px) 40vw, 0px"
+        width={519}
+        height={519}
+        className="kuct-mascot-float relative z-[1] h-auto max-h-64 w-auto max-w-[min(18rem,70%)] object-contain drop-shadow-[0_16px_32px_rgba(var(--kuct-accent-rgb),0.22)] select-none sm:max-h-72"
+        sizes="(min-width: 1024px) 12rem, 0px"
       />
     </div>
   );

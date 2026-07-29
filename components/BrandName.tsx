@@ -1,4 +1,6 @@
 import type { ReactNode } from "react";
+import { assetPath } from "@/lib/asset";
+import { BRAND_DISPLAY_NAME } from "@/components/Logo";
 
 type BrandNameProps = {
   className?: string;
@@ -7,25 +9,49 @@ type BrandNameProps = {
   onDark?: boolean;
 };
 
+const LOGO_SRC = "/brand/logo-dolphin.png";
+
 const sizeClass = {
   xs: {
-    wrap: "gap-1",
-    mark: "h-[1.05em] min-w-[1.35em] px-[0.28em] text-[0.68em]",
-    word: "text-[0.95em] tracking-[0.14em]",
+    logo: "h-[1.05em]",
+    word: "text-[0.95em]",
+    gap: "gap-1",
   },
   sm: {
-    wrap: "gap-1.5",
-    mark: "h-[1.15em] min-w-[1.5em] px-[0.32em] text-[0.72em]",
-    word: "text-[1em] tracking-[0.14em]",
+    logo: "h-[1.15em]",
+    word: "text-[1em]",
+    gap: "gap-1.5",
   },
   md: {
-    wrap: "gap-2",
-    mark: "h-[1.25em] min-w-[1.65em] px-[0.35em] text-[0.75em]",
-    word: "text-[1.05em] tracking-[0.16em]",
+    logo: "h-[1.25em]",
+    word: "text-[1.05em]",
+    gap: "gap-2",
   },
 } as const;
 
-/** Inline brand lockup matching the logo: purple KU mark + THANH. */
+/** Text-only brand for inline copy (no logo image). */
+function BrandWord({
+  size = "sm",
+  onDark = false,
+}: Pick<BrandNameProps, "size" | "onDark">) {
+  const wordClass = {
+    xs: "text-[0.95em]",
+    sm: "text-[1em]",
+    md: "text-[1.05em]",
+  } as const;
+
+  return (
+    <span
+      className={`font-display font-bold leading-none tracking-tight ${wordClass[size]} ${
+        onDark ? "text-white" : "text-current"
+      }`}
+    >
+      {BRAND_DISPLAY_NAME}
+    </span>
+  );
+}
+
+/** Logo + wordmark lockup for Nav, Hero, Footer. */
 export function BrandName({
   className = "",
   size = "sm",
@@ -35,24 +61,22 @@ export function BrandName({
 
   return (
     <span
-      className={`inline-flex items-center ${s.wrap} align-middle ${className}`}
-      aria-label="KU THANH"
+      className={`inline-flex items-center ${s.gap} align-middle ${className}`}
+      aria-label={BRAND_DISPLAY_NAME}
     >
+      <img
+        src={assetPath(LOGO_SRC)}
+        alt=""
+        className={`${s.logo} w-auto object-contain`}
+        width={size === "xs" ? 20 : size === "sm" ? 24 : 28}
+        height={size === "xs" ? 20 : size === "sm" ? 24 : 28}
+      />
       <span
-        className={`inline-flex items-center justify-center rounded-[0.28em] font-display font-bold leading-none ${s.mark} ${
-          onDark
-            ? "bg-white text-[#7c3aed]"
-            : "bg-[var(--kuct-accent)] text-[var(--kuct-on-accent)]"
-        }`}
-      >
-        KU
-      </span>
-      <span
-        className={`font-display font-bold leading-none ${s.word} ${
+        className={`font-display font-bold leading-none tracking-tight ${s.word} ${
           onDark ? "text-white" : "text-current"
         }`}
       >
-        THANH
+        {BRAND_DISPLAY_NAME}
       </span>
     </span>
   );
@@ -65,9 +89,9 @@ type BrandTextProps = {
   onDark?: boolean;
 };
 
-const BRAND_SPLIT = /(Dolphin Kick|KU THANH)/g;
+const BRAND_SPLIT = /(Dolphin Kick|Dolphin Kich|KU THANH)/g;
 
-/** Replaces brand phrases in a string with the logo-style BrandName (KU THANH). */
+/** Replaces brand phrases in a string with the logo-style BrandName. */
 export function BrandText({
   children,
   className,
@@ -79,18 +103,24 @@ export function BrandText({
   return (
     <span className={className}>
       {parts.map((part, index) => {
-        if (part === "Dolphin Kick" || part === "KU THANH") {
+        if (
+          part === "Dolphin Kick" ||
+          part === "Dolphin Kich" ||
+          part === "KU THANH"
+        ) {
           return (
             <span key={`brand-${index}`}>
               {"\u00A0"}
-              <BrandName size={size} onDark={onDark} />
+              <BrandWord size={size} onDark={onDark} />
             </span>
           );
         }
         // Trim trailing space before brand — BrandName supplies its own.
         const next = parts[index + 1];
         const cleaned =
-          next === "Dolphin Kick" || next === "KU THANH"
+          next === "Dolphin Kick" ||
+          next === "Dolphin Kich" ||
+          next === "KU THANH"
             ? part.replace(/\s+$/, "")
             : part;
         return cleaned ? <span key={`text-${index}`}>{cleaned}</span> : null;
@@ -100,7 +130,11 @@ export function BrandText({
 }
 
 export function hasBrand(text: string): boolean {
-  return text.includes("Dolphin Kick") || text.includes("KU THANH");
+  return (
+    text.includes("Dolphin Kick") ||
+    text.includes("Dolphin Kich") ||
+    text.includes("KU THANH")
+  );
 }
 
 export function renderMaybeBrand(

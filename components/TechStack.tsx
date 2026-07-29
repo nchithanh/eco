@@ -18,6 +18,12 @@ const LOGO_COLORS: Record<string, string> = {
   NestJS: "#E0234E",
   Express: "#444444",
   Strapi: "#4945FF",
+  AWS: "#FF9900",
+  Kubernetes: "#326CE5",
+  Grafana: "#F46800",
+  Elasticsearch: "#005571",
+  Redis: "#DC382D",
+  Terraform: "#7B42BC",
 };
 
 export function TechStack() {
@@ -36,7 +42,7 @@ export function TechStack() {
       />
 
       <div className="relative mx-auto max-w-5xl px-6 text-left">
-        <p className="text-xs font-semibold tracking-[0.22em] text-[var(--kuct-muted)] uppercase">
+        <p className="text-xs font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase">
           {eyebrow}
         </p>
 

@@ -7,6 +7,7 @@ export const SERVICE_SLUGS = [
   "design",
   "integrations",
   "agents",
+  "custom-agent",
 ] as const;
 export type ServiceSlug = (typeof SERVICE_SLUGS)[number];
 
@@ -207,6 +208,29 @@ const vi: Record<ServiceSlug, ServiceDetail> = {
       "Checklist bảo mật và mở rộng tool mới",
     ],
   },
+
+  "custom-agent": {
+    title: "AI Agent theo yêu cầu",
+    intro:
+      "Không phải chatbot kịch bản bán sẵn. Dolphin nạp nghiệp vụ thật của bạn — quy trình, bảng giá, chính sách — nối hệ thống đang chạy (CRM, Zalo, lịch, thanh toán) để agent tự nhận việc và làm tới kết quả đo được.",
+    highlights: [
+      "Nạp nghiệp vụ riêng: quy trình, giá, cách xưng hô, ngoại lệ",
+      "Nối hệ thống đang dùng — không bắt đổi cả bộ máy",
+      "Một agent gánh một khâu rõ: lead, lịch, báo giá, nhắc việc…",
+      "Human-in-the-loop cho bước nhạy cảm; có log và chỉnh sau bàn giao",
+    ],
+    process: [
+      "Soi luồng việc thật — chọn khâu lặp / đốt người nhất trước",
+      "Nạp nghiệp vụ + quy tắc + nguồn dữ liệu cần thiết",
+      "Nối tool / API / kênh (CRM, Zalo, lịch…) trong phạm vi đã chốt",
+      "Chạy thử trên việc thật, đo số, tinh chỉnh rồi mở rộng",
+    ],
+    deliverables: [
+      "Agent / workflow chạy trên môi trường thỏa thuận",
+      "Tài liệu nghiệp vụ đã nạp + hướng dẫn vận hành ngắn",
+      "Checklist bảo mật, quyền truy cập và mở rộng khâu tiếp",
+    ],
+  },
 };
 
 const en: Record<ServiceSlug, ServiceDetail> = {
@@ -340,6 +364,29 @@ const en: Record<ServiceSlug, ServiceDetail> = {
       "Runnable agent / MCP stack per environment",
       "Business context pack + usage guideline",
       "Security checklist and path to add new tools",
+    ],
+  },
+
+  "custom-agent": {
+    title: "Custom AI agents built to order",
+    intro:
+      "Not an off-the-shelf scripted chatbot. Dolphin loads your real operations — process, pricing, policies — and connects systems you already run (CRM, messaging, calendar, payments) so the agent takes work and finishes measurable outcomes.",
+    highlights: [
+      "Business rules packed in: process, pricing, tone, exceptions",
+      "Connect current tools — no full stack rip-and-replace",
+      "One agent owns one clear job: leads, booking, quotes, follow-ups…",
+      "Human-in-the-loop for sensitive steps; logs and post-handover tuning",
+    ],
+    process: [
+      "Map the real workflow — pick the most repetitive pain first",
+      "Load business rules, data sources, and success criteria",
+      "Wire tools / APIs / channels in agreed scope",
+      "Pilot on live work, measure, refine, then expand",
+    ],
+    deliverables: [
+      "Running agent / workflow in the agreed environment",
+      "Loaded business pack + short ops guide",
+      "Security / access checklist and path for the next job",
     ],
   },
 };
@@ -477,6 +524,29 @@ const ja: Record<ServiceSlug, ServiceDetail> = {
       "セキュリティチェックとツール拡張手順",
     ],
   },
+
+  "custom-agent": {
+    title: "要件に合わせたカスタム AI Agent",
+    intro:
+      "既製のシナリオ型チャットボットではありません。業務・価格・ポリシーを取り込み、既存システム（CRM、メッセージ、予約、決済）へ接続し、エージェントが作業を受けて測定可能な成果まで進めます。",
+    highlights: [
+      "業務ルールの実装：手順・価格・トーン・例外",
+      "現行ツールへ接続 — 全面刷新は不要",
+      "1エージェントが1業務を担当：リード、予約、見積、フォロー…",
+      "重要ステップは人確認、ログと引き渡し後の調整あり",
+    ],
+    process: [
+      "実フローを可視化し、最も繰り返しの多い箇所から選定",
+      "業務ルールとデータソース、成功指標を投入",
+      "合意範囲でツール / API / チャネルを接続",
+      "本番相当で試験し、数値で測り、改善してから拡張",
+    ],
+    deliverables: [
+      "合意環境で動くエージェント / ワークフロー",
+      "投入済み業務パックと短い運用ガイド",
+      "権限・セキュリティチェックと次業務への拡張パス",
+    ],
+  },
 };
 
 const de: Record<ServiceSlug, ServiceDetail> = {
@@ -610,6 +680,29 @@ const de: Record<ServiceSlug, ServiceDetail> = {
       "Lauffähiger Agent-/MCP-Stack je Umgebung",
       "Business-Context-Pack + Nutzungsleitfaden",
       "Security-Checkliste und Pfad für neue Tools",
+    ],
+  },
+
+  "custom-agent": {
+    title: "Individuelle AI-Agents nach Auftrag",
+    intro:
+      "Kein fertiges Skript-Chatbot. Dolphin lädt Ihre echten Abläufe — Prozess, Preise, Richtlinien — und verbindet bestehende Systeme (CRM, Messaging, Kalender, Zahlung), damit der Agent Arbeit übernimmt und messbare Ergebnisse liefert.",
+    highlights: [
+      "Geschäftsregeln eingebettet: Prozess, Preise, Ton, Ausnahmen",
+      "Anbindung an aktuelle Tools — kein Komplettaustausch",
+      "Ein Agent, eine klare Aufgabe: Leads, Termine, Angebote, Follow-ups…",
+      "Human-in-the-loop bei kritischen Schritten; Logs und Nachjustierung",
+    ],
+    process: [
+      "Realen Workflow kartieren — zuerst den teuersten Wiederholschritt",
+      "Regeln, Datenquellen und Erfolgskriterien laden",
+      "Tools / APIs / Kanäle im vereinbarten Scope anbinden",
+      "Pilot mit echten Fällen, messen, nachschärfen, dann erweitern",
+    ],
+    deliverables: [
+      "Laufender Agent / Workflow in der vereinbarten Umgebung",
+      "Geladenes Business-Pack + kurze Ops-Anleitung",
+      "Security-/Zugangs-Checkliste und Pfad für den nächsten Job",
     ],
   },
 };

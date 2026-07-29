@@ -42,7 +42,7 @@ export function Faq() {
                     id={buttonId}
                     aria-expanded={open}
                     aria-controls={panelId}
-                    className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left text-sm font-semibold text-[var(--kuct-text)] transition hover:bg-white/50 sm:px-6 sm:text-base"
+                    className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left text-sm font-semibold text-[var(--kuct-text)] transition hover:bg-[rgba(var(--kuct-accent-rgb),0.12)] sm:px-6 sm:text-base"
                     onClick={() =>
                       setOpenIndex((current) => (current === index ? null : index))
                     }

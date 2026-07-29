@@ -2,7 +2,6 @@
 
 import { BrandText } from "@/components/BrandName";
 import { LocaleTimezone } from "@/components/LocaleTimezone";
-import { usePagePreview } from "@/components/PagePreviewProvider";
 import { assetPath } from "@/lib/asset";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
 
@@ -14,7 +13,6 @@ const BANNER_FALLBACK = {
 
 export function AnnouncementBar() {
   const { t } = useLocale();
-  const { openHref } = usePagePreview();
   const b = t.banner ?? BANNER_FALLBACK;
   const careersHref = assetPath("/careers/");
 
@@ -34,7 +32,6 @@ export function AnnouncementBar() {
           <LocaleTimezone />
           <a
             href={careersHref}
-            onClick={(event) => openHref(careersHref, event)}
             className="kuct-banner-cta inline-flex items-center rounded-full px-2.5 py-1 text-[9px] font-semibold tracking-[0.06em] uppercase sm:text-[10px]"
           >
             {b.cta}

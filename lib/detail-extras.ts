@@ -142,6 +142,28 @@ const serviceExtras: L<ServiceExtras> = {
         },
       ],
     },
+    "custom-agent": {
+      audience: "SME / chủ vận hành có khâu lặp rõ và muốn agent gắn nghiệp vụ thật, không chatbot kịch bản.",
+      useCases: [
+        "Trả lời & gom lead đa kênh theo quy trình riêng",
+        "Đặt lịch / nhắc lịch gắn slot thật",
+        "Báo giá hoặc soạn giấy tờ theo mẫu + duyệt người",
+      ],
+      faq: [
+        {
+          q: "Khác chatbot bán sẵn thế nào?",
+          a: "Chatbot kịch bản tắc ngoài script. Agent theo yêu cầu được nạp nghiệp vụ, nối hệ thống và làm tới kết quả (lead, lịch, báo giá…) trong phạm vi đã chốt.",
+        },
+        {
+          q: "Doanh nghiệp nhỏ có làm được không?",
+          a: "Có — bắt đầu một khâu đau nhất, đo bằng số, rồi mới mở rộng. Không vẽ hệ thống đồ sộ ngay từ đầu.",
+        },
+        {
+          q: "Có cần người trông sau bàn giao?",
+          a: "Có, như nhân sự mới. Dolphin bàn giao kèm hướng dẫn; tinh chỉnh khi quy trình/giá đổi theo thỏa thuận bảo hành hoặc hạng mục riêng.",
+        },
+      ],
+    },
   },
   en: {
     web: {
@@ -249,6 +271,28 @@ const serviceExtras: L<ServiceExtras> = {
         {
           q: "Where does it run?",
           a: "Per your policy: managed cloud or self-hosted when required.",
+        },
+      ],
+    },
+    "custom-agent": {
+      audience: "SMEs / operators with a clear repetitive job who want an agent tied to real process — not a scripted chatbot.",
+      useCases: [
+        "Multi-channel reply & lead capture with your rules",
+        "Booking / reminders against real availability",
+        "Quote or document drafts with human approval",
+      ],
+      faq: [
+        {
+          q: "How is this different from an off-the-shelf chatbot?",
+          a: "Scripted bots stall outside the script. A custom agent loads your process, connects systems, and finishes outcomes (leads, bookings, quotes…) in agreed scope.",
+        },
+        {
+          q: "Can a small business start?",
+          a: "Yes — start with one painful job, measure, then expand. No giant platform on day one.",
+        },
+        {
+          q: "Do we still need humans after handover?",
+          a: "Yes for sensitive steps. Dolphin hands over an ops guide; further tuning when rules change is covered by warranty or a scoped follow-up.",
         },
       ],
     },
@@ -326,6 +370,28 @@ const serviceExtras: L<ServiceExtras> = {
         { q: "実行環境は？", a: "方針に応じマネージドクラウドまたはセルフホスト。" },
       ],
     },
+    "custom-agent": {
+      audience: "繰り返し業務が明確で、シナリオ型ボットではなく業務接続の Agent が必要な中小・現場責任者。",
+      useCases: [
+        "独自ルールでの多チャネル応答とリード取得",
+        "実枠に基づく予約・リマインド",
+        "見積や書類ドラフト＋人の承認",
+      ],
+      faq: [
+        {
+          q: "既製チャットボットとの違いは？",
+          a: "シナリオ外で止まるボットと異なり、業務を取り込みシステム接続し、合意範囲で成果まで進めます。",
+        },
+        {
+          q: "小規模でも可能？",
+          a: "はい。最も痛い1業務から始め、数値で測ってから拡張します。",
+        },
+        {
+          q: "引き渡し後も人が必要？",
+          a: "重要判断は人確認。運用ガイドを渡し、ルール変更時の調整は保証または別スコープで対応します。",
+        },
+      ],
+    },
   },
   de: {
     web: {
@@ -398,6 +464,28 @@ const serviceExtras: L<ServiceExtras> = {
       faq: [
         { q: "Ersetzt AI Menschen?", a: "Nein — kritische Schritte bleiben human-in-the-loop." },
         { q: "Wo läuft es?", a: "Nach Policy: Managed Cloud oder Self-Host." },
+      ],
+    },
+    "custom-agent": {
+      audience: "KMU / Betreiber mit klarem Wiederholjob — Agent am echten Prozess, kein Skript-Chatbot.",
+      useCases: [
+        "Multichannel-Antwort & Lead-Capture nach Ihren Regeln",
+        "Termine / Reminder an echte Verfügbarkeit",
+        "Angebots-/Dokumententwürfe mit Freigabe",
+      ],
+      faq: [
+        {
+          q: "Unterschied zum Fertig-Chatbot?",
+          a: "Skript-Bots stoppen außerhalb des Skripts. Ein Custom-Agent lädt Ihren Prozess, koppelt Systeme und liefert Outcomes im Scope.",
+        },
+        {
+          q: "Auch für kleine Teams?",
+          a: "Ja — zuerst ein Engpass, messen, dann erweitern. Kein Riesenprojekt am Tag eins.",
+        },
+        {
+          q: "Braucht es danach noch Menschen?",
+          a: "Ja bei sensiblen Schritten. Ops-Guide inklusive; Nachjustierung bei Regeländerungen laut Gewährleistung oder Follow-up.",
+        },
       ],
     },
   },
@@ -511,6 +599,28 @@ const serviceExtras: L<ServiceExtras> = {
         },
       ],
     },
+    "custom-agent": {
+      audience: "SMEs / operators with a clear repetitive job who want an agent tied to real process — not a scripted chatbot.",
+      useCases: [
+        "Multi-channel reply & lead capture with your rules",
+        "Booking / reminders against real availability",
+        "Quote or document drafts with human approval",
+      ],
+      faq: [
+        {
+          q: "How is this different from an off-the-shelf chatbot?",
+          a: "Scripted bots stall outside the script. A custom agent loads your process, connects systems, and finishes outcomes (leads, bookings, quotes…) in agreed scope.",
+        },
+        {
+          q: "Can a small business start?",
+          a: "Yes — start with one painful job, measure, then expand. No giant platform on day one.",
+        },
+        {
+          q: "Do we still need humans after handover?",
+          a: "Yes for sensitive steps. Dolphin hands over an ops guide; further tuning when rules change is covered by warranty or a scoped follow-up.",
+        },
+      ],
+    },
   }
 };
 
@@ -564,6 +674,30 @@ const techExtras: L<TechExtras> = {
       whenToUse: ["CMS headless", "Editor tự cập nhật", "Nhiều kênh frontend"],
       stackFit: "Nội dung marketing / blog cho Next.js.",
     },
+    aws: {
+      whenToUse: ["Cần cloud managed", "Scale theo traffic", "Nhiều dịch vụ (compute/DB/storage)"],
+      stackFit: "Nền deploy production và managed data cho sản phẩm Dolphin Kick.",
+    },
+    kubernetes: {
+      whenToUse: ["Nhiều service container", "Cần rollout/rollback chuẩn", "GitOps / platform team"],
+      stackFit: "Khi hệ thống vượt 1–2 container Compose và cần orchestration.",
+    },
+    grafana: {
+      whenToUse: ["Cần dashboard vận hành", "Alert theo metrics/logs", "Nhiều datasource"],
+      stackFit: "Lớp quan sát kèm Prometheus/Loki hoặc cloud metrics.",
+    },
+    elasticsearch: {
+      whenToUse: ["Full-text search", "Gom log/event lớn", "Analytics gần realtime"],
+      stackFit: "Search sản phẩm hoặc log pipeline khi PostgreSQL không đủ.",
+    },
+    redis: {
+      whenToUse: ["Cache hot-path", "Session / rate limit", "Queue nhẹ"],
+      stackFit: "Đi kèm API Nest/Express + PostgreSQL.",
+    },
+    terraform: {
+      whenToUse: ["Nhiều môi trường cloud", "Muốn IaC review được", "Tránh click-ops"],
+      stackFit: "Định nghĩa AWS/K8s và dịch vụ kèm theo một cách lặp lại.",
+    }
   },
   en: {
     react: {
@@ -614,6 +748,30 @@ const techExtras: L<TechExtras> = {
       whenToUse: ["Headless CMS", "Editor self-serve updates", "Multi-channel frontends"],
       stackFit: "Marketing / blog content for Next.js.",
     },
+    aws: {
+      whenToUse: ["Need managed cloud", "Scale with traffic", "Compute/DB/storage building blocks"],
+      stackFit: "Production deploy and managed data foundation for Dolphin Kick products.",
+    },
+    kubernetes: {
+      whenToUse: ["Many containerized services", "Standard rollouts/rollbacks", "GitOps / platform teams"],
+      stackFit: "When the system outgrows one or two Compose containers.",
+    },
+    grafana: {
+      whenToUse: ["Ops dashboards", "Metric/log alerts", "Multiple datasources"],
+      stackFit: "Observability layer with Prometheus/Loki or cloud metrics.",
+    },
+    elasticsearch: {
+      whenToUse: ["Full-text search", "Large log/event volumes", "Near-real-time analytics"],
+      stackFit: "Product search or log pipelines when PostgreSQL is not enough.",
+    },
+    redis: {
+      whenToUse: ["Hot-path cache", "Sessions / rate limits", "Lightweight queues"],
+      stackFit: "Pairs with Nest/Express APIs and PostgreSQL.",
+    },
+    terraform: {
+      whenToUse: ["Multi-env cloud", "Reviewable IaC", "Avoid click-ops"],
+      stackFit: "Defines repeatable AWS/K8s and related services.",
+    }
   },
   ja: {
     react: {
@@ -664,6 +822,30 @@ const techExtras: L<TechExtras> = {
       whenToUse: ["ヘッドレス CMS", "編集者セルフ更新", "多チャネル配信"],
       stackFit: "Next.js 向けマーケ / ブログコンテンツに。",
     },
+    aws: {
+      whenToUse: ["Need managed cloud", "Scale with traffic", "Compute/DB/storage building blocks"],
+      stackFit: "Production deploy and managed data foundation for Dolphin Kick products.",
+    },
+    kubernetes: {
+      whenToUse: ["Many containerized services", "Standard rollouts/rollbacks", "GitOps / platform teams"],
+      stackFit: "When the system outgrows one or two Compose containers.",
+    },
+    grafana: {
+      whenToUse: ["Ops dashboards", "Metric/log alerts", "Multiple datasources"],
+      stackFit: "Observability layer with Prometheus/Loki or cloud metrics.",
+    },
+    elasticsearch: {
+      whenToUse: ["Full-text search", "Large log/event volumes", "Near-real-time analytics"],
+      stackFit: "Product search or log pipelines when PostgreSQL is not enough.",
+    },
+    redis: {
+      whenToUse: ["Hot-path cache", "Sessions / rate limits", "Lightweight queues"],
+      stackFit: "Pairs with Nest/Express APIs and PostgreSQL.",
+    },
+    terraform: {
+      whenToUse: ["Multi-env cloud", "Reviewable IaC", "Avoid click-ops"],
+      stackFit: "Defines repeatable AWS/K8s and related services.",
+    }
   },
   de: {
     react: {
@@ -714,6 +896,30 @@ const techExtras: L<TechExtras> = {
       whenToUse: ["Headless CMS", "Editor-Self-Serve", "Multi-Channel-Frontends"],
       stackFit: "Marketing-/Blog-Content für Next.js.",
     },
+    aws: {
+      whenToUse: ["Need managed cloud", "Scale with traffic", "Compute/DB/storage building blocks"],
+      stackFit: "Production deploy and managed data foundation for Dolphin Kick products.",
+    },
+    kubernetes: {
+      whenToUse: ["Many containerized services", "Standard rollouts/rollbacks", "GitOps / platform teams"],
+      stackFit: "When the system outgrows one or two Compose containers.",
+    },
+    grafana: {
+      whenToUse: ["Ops dashboards", "Metric/log alerts", "Multiple datasources"],
+      stackFit: "Observability layer with Prometheus/Loki or cloud metrics.",
+    },
+    elasticsearch: {
+      whenToUse: ["Full-text search", "Large log/event volumes", "Near-real-time analytics"],
+      stackFit: "Product search or log pipelines when PostgreSQL is not enough.",
+    },
+    redis: {
+      whenToUse: ["Hot-path cache", "Sessions / rate limits", "Lightweight queues"],
+      stackFit: "Pairs with Nest/Express APIs and PostgreSQL.",
+    },
+    terraform: {
+      whenToUse: ["Multi-env cloud", "Reviewable IaC", "Avoid click-ops"],
+      stackFit: "Defines repeatable AWS/K8s and related services.",
+    }
   },
 
   zh: {
@@ -765,6 +971,30 @@ const techExtras: L<TechExtras> = {
       whenToUse: ["Headless CMS", "Editor self-serve updates", "Multi-channel frontends"],
       stackFit: "Marketing / blog content for Next.js.",
     },
+    aws: {
+      whenToUse: ["Need managed cloud", "Scale with traffic", "Compute/DB/storage building blocks"],
+      stackFit: "Production deploy and managed data foundation for Dolphin Kick products.",
+    },
+    kubernetes: {
+      whenToUse: ["Many containerized services", "Standard rollouts/rollbacks", "GitOps / platform teams"],
+      stackFit: "When the system outgrows one or two Compose containers.",
+    },
+    grafana: {
+      whenToUse: ["Ops dashboards", "Metric/log alerts", "Multiple datasources"],
+      stackFit: "Observability layer with Prometheus/Loki or cloud metrics.",
+    },
+    elasticsearch: {
+      whenToUse: ["Full-text search", "Large log/event volumes", "Near-real-time analytics"],
+      stackFit: "Product search or log pipelines when PostgreSQL is not enough.",
+    },
+    redis: {
+      whenToUse: ["Hot-path cache", "Sessions / rate limits", "Lightweight queues"],
+      stackFit: "Pairs with Nest/Express APIs and PostgreSQL.",
+    },
+    terraform: {
+      whenToUse: ["Multi-env cloud", "Reviewable IaC", "Avoid click-ops"],
+      stackFit: "Defines repeatable AWS/K8s and related services.",
+    }
   }
 };
 
@@ -933,7 +1163,7 @@ const extrasUi: Record<Locale, DetailExtrasUi> = {
     useCasesTitle: "Use cases",
     faqTitle: "Câu hỏi thường gặp",
     whenToUseTitle: "Khi nào nên dùng",
-    stackFitTitle: "Trong stack Dolphin Kick",
+    stackFitTitle: "Trong stack KU THANH",
     timelineTitle: "Timeline tham khảo",
     stackTitle: "Stack đã dùng",
   },
@@ -942,7 +1172,7 @@ const extrasUi: Record<Locale, DetailExtrasUi> = {
     useCasesTitle: "Use cases",
     faqTitle: "FAQ",
     whenToUseTitle: "When to use it",
-    stackFitTitle: "In the Dolphin Kick stack",
+    stackFitTitle: "In the KU THANH stack",
     timelineTitle: "Reference timeline",
     stackTitle: "Stack used",
   },
@@ -951,7 +1181,7 @@ const extrasUi: Record<Locale, DetailExtrasUi> = {
     useCasesTitle: "ユースケース",
     faqTitle: "よくある質問",
     whenToUseTitle: "こんなときに",
-    stackFitTitle: "Dolphin Kick スタックでの位置",
+    stackFitTitle: "KU THANH スタックでの位置",
     timelineTitle: "参考スケジュール",
     stackTitle: "使用スタック",
   },
@@ -960,7 +1190,7 @@ const extrasUi: Record<Locale, DetailExtrasUi> = {
     useCasesTitle: "Use Cases",
     faqTitle: "FAQ",
     whenToUseTitle: "Wann einsetzen",
-    stackFitTitle: "Im Dolphin Kick Stack",
+    stackFitTitle: "Im KU THANH Stack",
     timelineTitle: "Orientierungszeitplan",
     stackTitle: "Verwendeter Stack",
   },
@@ -971,7 +1201,7 @@ const extrasUi: Record<Locale, DetailExtrasUi> = {
     useCasesTitle: "使用场景",
     faqTitle: "常见问题",
     whenToUseTitle: "何时使用",
-    stackFitTitle: "在 Dolphin Kick 技术栈中",
+    stackFitTitle: "在 KU THANH 技术栈中",
     timelineTitle: "参考时间表",
     stackTitle: "所用技术栈",
   }

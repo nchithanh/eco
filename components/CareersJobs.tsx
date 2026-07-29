@@ -89,7 +89,10 @@ export function CareersJobs({ onApply }: Props) {
   }, []);
 
   return (
-    <section id="roles" className="scroll-mt-20 border-b border-white/40 py-24">
+    <section
+      id="roles"
+      className="scroll-mt-20 border-b border-[var(--kuct-border)] py-24"
+    >
       <div className="mx-auto max-w-6xl px-6">
         <p className="text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
           {c.roles.eyebrow}
@@ -115,10 +118,10 @@ export function CareersJobs({ onApply }: Props) {
                 key={job.id}
                 className={
                   job.priority && !closed
-                    ? "kuct-card-hover relative flex flex-col rounded-2xl border-2 border-rose-400/70 bg-gradient-to-br from-rose-50/90 via-white/70 to-[#faf5ff]/80 p-6 shadow-[0_14px_36px_rgba(244,63,94,0.12)] backdrop-blur-md hover:border-rose-400/85 hover:shadow-[0_20px_44px_rgba(244,63,94,0.18)]"
+                    ? "kuct-card-hover relative flex flex-col rounded-2xl border-2 border-rose-400/70 bg-gradient-to-br from-[rgba(80,12,32,0.82)] via-[rgba(34,16,40,0.78)] to-[rgba(26,18,42,0.72)] p-6 shadow-[0_14px_36px_rgba(244,63,94,0.18)] backdrop-blur-md hover:border-rose-400/85 hover:shadow-[0_20px_44px_rgba(244,63,94,0.24)]"
                     : closed
-                      ? "relative flex flex-col rounded-2xl border border-white/50 bg-white/35 p-6 opacity-75 backdrop-blur-md"
-                      : "kuct-card-hover flex flex-col rounded-2xl border border-white/60 bg-white/50 p-6 shadow-[0_10px_30px_rgba(139,92,246,0.06)] backdrop-blur-md"
+                      ? "relative flex flex-col rounded-2xl border border-[var(--kuct-border)] bg-[rgba(12,10,24,0.62)] p-6 opacity-75 backdrop-blur-md"
+                      : "kuct-card-hover flex flex-col rounded-2xl border border-[var(--kuct-border)] bg-[rgba(12,10,24,0.62)] p-6 shadow-[0_10px_30px_rgba(139,92,246,0.12)] backdrop-blur-md"
                 }
               >
                 <div className="flex flex-wrap items-center gap-2 text-xs font-semibold">
@@ -156,7 +159,7 @@ export function CareersJobs({ onApply }: Props) {
                   {job.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="kuct-chip rounded-full border border-white/70 bg-white/40 px-2.5 py-0.5 text-xs text-[var(--kuct-muted)]"
+                      className="kuct-chip rounded-full border border-[var(--kuct-border)] bg-[rgba(12,10,24,0.58)] px-2.5 py-0.5 text-xs text-[var(--kuct-muted)]"
                     >
                       {tag}
                     </span>

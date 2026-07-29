@@ -2,6 +2,8 @@ import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { ServiceDetailView } from "@/components/ServiceDetailView";
+import { CustomAgentContent } from "@/components/CustomAgentContent";
+import { AiTransformContent } from "@/components/AiTransformContent";
 import { AppProviders } from "@/components/AppProviders";
 import Home from "@/app/page";
 
@@ -56,6 +58,12 @@ describe("service detail pages", () => {
     expect(
       section.getByRole("link", { name: /Hệ sinh thái agent cho business/i }),
     ).toHaveAttribute("href", "/services/agents");
+
+    await user.click(section.getByRole("button", { name: /Trang sau/i }));
+
+    expect(
+      section.getByRole("link", { name: /AI Agent theo yêu cầu/i }),
+    ).toHaveAttribute("href", expect.stringMatching(/\/custom-agent\/?$/));
   });
 
   it("works showcase paginates like capabilities", async () => {
@@ -114,5 +122,39 @@ describe("service detail pages", () => {
     expect(
       screen.getByRole("button", { name: /Nhận báo giá/i }),
     ).toBeInTheDocument();
+  });
+
+  it("renders custom-agent service detail content", () => {
+    render(
+      <AppProviders>
+        <CustomAgentContent />
+      </AppProviders>,
+    );
+
+    expect(
+      screen.getByRole("heading", {
+        name: /Đặt riêng agent gánh đúng/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(/Không phải chatbot bán sẵn trả lời cho có/i),
+    ).toBeInTheDocument();
+  });
+
+  it("renders ai-transform landing content", () => {
+    render(
+      <AppProviders>
+        <AiTransformContent />
+      </AppProviders>,
+    );
+
+    expect(
+      screen.getByRole("heading", {
+        name: /Gắn AI vào lõi vận hành/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("link", { name: /Xem AI Agent theo yêu cầu/i }),
+    ).toHaveAttribute("href", expect.stringMatching(/\/custom-agent\/?$/));
   });
 });
