@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { AccentText, BrandText } from "@/components/BrandName";
+import { Reveal } from "@/components/Reveal";
 import { assetPath } from "@/lib/asset";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
 
@@ -35,11 +36,11 @@ export function ContactForm() {
   return (
     <section
       id="contact"
-      className="scroll-mt-20 border-t border-white/40 py-24"
+      className="scroll-mt-20 py-24"
     >
       <div className="mx-auto max-w-6xl px-6">
         <div className="grid items-stretch gap-10 lg:grid-cols-2 lg:gap-14">
-          <div>
+          <Reveal variant="left">
             <p className="text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
               {c.eyebrow}
             </p>
@@ -65,9 +66,11 @@ export function ContactForm() {
                 {c.ctaEmail}
               </a>
             </div>
-          </div>
+          </Reveal>
 
-          <ContactVisualScene />
+          <Reveal variant="right" delay={100}>
+            <ContactVisualScene />
+          </Reveal>
         </div>
       </div>
     </section>

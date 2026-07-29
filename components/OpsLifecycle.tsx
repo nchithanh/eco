@@ -1,6 +1,7 @@
 "use client";
 
 import { AccentText } from "@/components/BrandName";
+import { Reveal } from "@/components/Reveal";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
 
 /** Slack / Jira on top; Docs / Lifecycle lower sides (never above step cards). */
@@ -63,7 +64,7 @@ function OpsVisualScene({
 
   return (
     <div
-      className="relative min-h-[18rem] overflow-hidden sm:min-h-[22rem] lg:min-h-full"
+      className="relative min-h-[18rem] w-full overflow-hidden sm:min-h-[22rem] lg:min-h-[36rem]"
       aria-hidden
     >
       <div className="pointer-events-none absolute inset-0">
@@ -123,10 +124,10 @@ export function OpsLifecycle() {
   const o = t.ops;
 
   return (
-    <section id="ops" className="scroll-mt-20 border-t border-white/40 py-24">
+    <section id="ops" className="scroll-mt-20 py-24">
       <div className="mx-auto max-w-6xl px-6">
-        <div className="grid items-center gap-12 md:grid-cols-2 md:gap-14 lg:gap-16">
-          <div className="animate-kuct-fade max-w-xl">
+        <div className="grid items-stretch gap-12 md:grid-cols-2 md:gap-14 lg:gap-16">
+          <Reveal className="max-w-xl" variant="left">
             <p className="text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
               {o.eyebrow}
             </p>
@@ -168,12 +169,19 @@ export function OpsLifecycle() {
             >
               {o.cta}
             </a>
-          </div>
+          </Reveal>
 
-          <OpsVisualScene
-            chips={o.chips}
-            stepNames={o.steps.map((s) => s.name)}
-          />
+          <Reveal
+            variant="right"
+            delay={120}
+            className="relative min-h-[18rem] w-full sm:min-h-[22rem] lg:min-h-[36rem]"
+            inViewOptions={{ threshold: 0.05, rootMargin: "0px 0px -2% 0px" }}
+          >
+            <OpsVisualScene
+              chips={o.chips}
+              stepNames={o.steps.map((s) => s.name)}
+            />
+          </Reveal>
         </div>
       </div>
     </section>

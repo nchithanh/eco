@@ -1,6 +1,7 @@
 "use client";
 
 import { usePagePreview } from "@/components/PagePreviewProvider";
+import { Reveal } from "@/components/Reveal";
 import { assetPath } from "@/lib/asset";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
 import { TECH_NAME_TO_SLUG } from "@/lib/tech-stack";
@@ -34,7 +35,7 @@ export function TechStack() {
   return (
     <section
       id="stack"
-      className="relative scroll-mt-20 overflow-hidden border-t border-white/40 py-24"
+      className="relative scroll-mt-20 overflow-hidden py-24"
     >
       <div
         aria-hidden
@@ -42,29 +43,31 @@ export function TechStack() {
       />
 
       <div className="relative mx-auto max-w-5xl px-6 text-left">
-        <p className="text-xs font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase">
-          {eyebrow}
-        </p>
+        <Reveal>
+          <p className="text-xs font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase">
+            {eyebrow}
+          </p>
 
-        <h2 className="mt-4 font-display text-3xl font-semibold leading-tight tracking-tight text-[var(--kuct-text)] sm:text-4xl md:text-5xl">
-          <span className="block">{titleLead}</span>
-          <span className="font-serif-accent mt-1 block whitespace-nowrap text-[1.08em] font-normal">
-            {titleHighlight}
-          </span>
-        </h2>
+          <h2 className="mt-4 font-display text-3xl font-semibold leading-tight tracking-tight text-[var(--kuct-text)] sm:text-4xl md:text-5xl">
+            <span className="block">{titleLead}</span>
+            <span className="font-serif-accent mt-1 block whitespace-nowrap text-[1.08em] font-normal">
+              {titleHighlight}
+            </span>
+          </h2>
 
-        <p className="mt-5 max-w-2xl text-sm leading-relaxed text-[var(--kuct-muted)] sm:text-base">
-          {support}
-        </p>
+          <p className="mt-5 max-w-2xl text-sm leading-relaxed text-[var(--kuct-muted)] sm:text-base">
+            {support}
+          </p>
+        </Reveal>
 
         <ul className="mt-14 grid grid-cols-2 gap-x-4 gap-y-4 sm:flex sm:flex-wrap sm:items-center sm:justify-center sm:gap-x-10 sm:gap-y-6">
-          {logos.map((name) => {
+          {logos.map((name, index) => {
             const slug = TECH_NAME_TO_SLUG[name];
             if (!slug) return null;
             const href = assetPath(`/tech/${slug}/`);
 
             return (
-              <li key={name}>
+              <Reveal as="li" key={name} delay={index * 40} variant="scale">
                 <a
                   href={href}
                   title={name}
@@ -84,7 +87,7 @@ export function TechStack() {
                   </span>
                   <span className="min-w-0">{name}</span>
                 </a>
-              </li>
+              </Reveal>
             );
           })}
         </ul>

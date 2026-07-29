@@ -2,6 +2,7 @@
 
 import { useId, useState } from "react";
 import { AccentText } from "@/components/BrandName";
+import { Reveal } from "@/components/Reveal";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
 
 export function Faq() {
@@ -13,10 +14,10 @@ export function Faq() {
   return (
     <section
       id="faq"
-      className="kuct-section-wash scroll-mt-20 border-t border-white/40 py-24"
+      className="kuct-section-wash scroll-mt-20 py-24"
     >
       <div className="mx-auto max-w-6xl px-6">
-        <div className="mx-auto max-w-2xl text-center">
+        <Reveal className="mx-auto max-w-2xl text-center">
           <p className="text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
             {f.eyebrow}
           </p>
@@ -26,9 +27,13 @@ export function Faq() {
           <p className="mt-4 text-base leading-relaxed text-[var(--kuct-muted)] sm:text-lg">
             {f.support}
           </p>
-        </div>
+        </Reveal>
 
-        <div className="mx-auto mt-12 max-w-3xl divide-y divide-[var(--kuct-border)] overflow-hidden rounded-2xl border border-white/60 bg-white/55 shadow-[0_1rem_2.5rem_rgb(var(--kuct-accent-rgb)/0.08)] backdrop-blur-md">
+        <Reveal
+          className="mx-auto mt-12 max-w-3xl divide-y divide-[var(--kuct-border)] overflow-hidden rounded-2xl border border-white/60 bg-white/55 shadow-[0_1rem_2.5rem_rgb(var(--kuct-accent-rgb)/0.08)] backdrop-blur-md"
+          delay={80}
+          variant="scale"
+        >
           {f.items.map((item, index) => {
             const panelId = `${baseId}-panel-${index}`;
             const buttonId = `${baseId}-btn-${index}`;
@@ -68,7 +73,7 @@ export function Faq() {
               </div>
             );
           })}
-        </div>
+        </Reveal>
       </div>
     </section>
   );

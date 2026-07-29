@@ -12,7 +12,7 @@ export function Footer() {
   const linkClass = "kuct-link";
 
   return (
-    <footer className="border-t border-white/40 py-10">
+    <footer className="py-10">
       <div className="mx-auto flex max-w-6xl flex-col gap-4 px-6 sm:flex-row sm:items-center sm:justify-between">
         <p className="flex items-center gap-2 text-sm font-medium text-[var(--kuct-text)]">
           <BrandName size="sm" />

@@ -12,6 +12,7 @@ import {
 } from "react";
 import { AccentText } from "@/components/BrandName";
 import { LazyImage } from "@/components/LazyImage";
+import { Reveal } from "@/components/Reveal";
 import { usePagePreview } from "@/components/PagePreviewProvider";
 import { assetPath, themeAsset } from "@/lib/asset";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
@@ -133,24 +134,27 @@ export function Capabilities() {
   return (
     <section
       id="capabilities"
-      className="scroll-mt-20 border-t border-white/40 py-24"
+      className="scroll-mt-20 py-24"
     >
       <div className="mx-auto max-w-6xl px-6">
-        <p className="text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
-          {t.capabilities.eyebrow}
-        </p>
-        <h2 className="mt-3 font-display text-3xl font-semibold sm:text-4xl">
-          <AccentText>{t.capabilities.title}</AccentText>
-        </h2>
-        <p className="mt-3 max-w-2xl text-[var(--kuct-muted)]">
-          {t.capabilities.support}
-        </p>
+        <Reveal>
+          <p className="text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
+            {t.capabilities.eyebrow}
+          </p>
+          <h2 className="mt-3 font-display text-3xl font-semibold sm:text-4xl">
+            <AccentText>{t.capabilities.title}</AccentText>
+          </h2>
+          <p className="mt-3 max-w-2xl text-[var(--kuct-muted)]">
+            {t.capabilities.support}
+          </p>
+        </Reveal>
 
-        <div
-          className="mt-10 flex flex-wrap gap-2"
-          role="tablist"
-          aria-label={t.capabilities.eyebrow}
-        >
+        <Reveal delay={80}>
+          <div
+            className="mt-10 flex flex-wrap gap-2"
+            role="tablist"
+            aria-label={t.capabilities.eyebrow}
+          >
           {filters.map((filter) => {
             const isActive = active === filter.id;
             return (
@@ -163,14 +167,15 @@ export function Capabilities() {
                 className={
                   isActive
                     ? "rounded-full bg-[var(--kuct-accent)] px-4 py-2 text-sm font-semibold text-white shadow-[0_8px_20px_rgb(var(--kuct-accent-rgb)/0.35)] transition duration-200 hover:-translate-y-0.5 hover:brightness-105 hover:shadow-[0_12px_24px_rgb(var(--kuct-accent-rgb)/0.45)]"
-                    : "kuct-chip rounded-full border border-[var(--kuct-text)]/80 bg-transparent px-4 py-2 text-sm font-medium text-[var(--kuct-text)]"
+                    : "kuct-chip rounded-full border border-[var(--kuct-text)]/80 bg-transparent px-4 py-2 text-sm font-medium text-[var(--kuct-text)] hover:border-[var(--kuct-accent)] hover:text-[var(--kuct-accent-3)]"
                 }
               >
                 {filter.label}
               </button>
             );
           })}
-        </div>
+          </div>
+        </Reveal>
 
         <div
           className="relative mt-10 touch-pan-y"
@@ -186,7 +191,7 @@ export function Capabilities() {
                 : "sm:grid-cols-2 lg:grid-cols-3"
             }`}
           >
-            {visible.map((item) => {
+            {visible.map((item, index) => {
               const href =
                 item.id === "custom-agent"
                   ? assetPath("/custom-agent/")
@@ -198,7 +203,7 @@ export function Capabilities() {
                 : undefined;
 
               return (
-                <li key={item.id}>
+                <Reveal as="li" key={item.id} delay={index * 70}>
                   <Link
                     href={href}
                     onClick={(event) => onNav(href, event)}
@@ -240,7 +245,7 @@ export function Capabilities() {
                       </span>
                     </div>
                   </Link>
-                </li>
+                </Reveal>
               );
             })}
           </ul>

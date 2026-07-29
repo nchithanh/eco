@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { AccentText } from "@/components/BrandName";
+import { Reveal } from "@/components/Reveal";
 import { assetPath } from "@/lib/asset";
 import { getAiTransformCopy } from "@/lib/i18n/ai-transform-copy";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
@@ -572,10 +573,10 @@ export function Technology() {
   return (
     <section
       id="technology"
-      className="relative scroll-mt-20 overflow-hidden border-t border-white/40 py-24"
+      className="relative scroll-mt-20 overflow-hidden py-24"
     >
       <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 lg:grid-cols-[0.95fr_1.05fr] lg:gap-14">
-        <div className="animate-kuct-fade max-w-xl">
+        <Reveal className="max-w-xl" variant="left">
           <p className="text-xs font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase">
             {ai.eyebrow}
           </p>
@@ -591,15 +592,15 @@ export function Technology() {
           >
             {tech.cta}
           </a>
-        </div>
+        </Reveal>
 
-        <div className="animate-kuct-fade [animation-delay:100ms]">
+        <Reveal variant="right" delay={100}>
           <TechnologyDashboard
             tabs={tech.tabs}
             live={tech.live}
             widgets={tech.widgets}
           />
-        </div>
+        </Reveal>
       </div>
     </section>
   );

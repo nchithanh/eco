@@ -40,10 +40,10 @@ export function NewsContent({ embedded = false }: { embedded?: boolean }) {
         }
       >
         <div className="mx-auto max-w-6xl px-6">
-          <h1 className="max-w-2xl font-display text-3xl font-semibold tracking-tight text-[var(--kuct-text)] sm:text-4xl md:text-5xl">
+          <h1 className="max-w-2xl font-display text-2xl font-semibold tracking-tight text-[var(--kuct-text)] sm:text-3xl md:text-4xl">
             {n.title}
           </h1>
-          <p className="mt-4 max-w-2xl text-base leading-relaxed text-[var(--kuct-muted)] sm:text-lg">
+          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-[var(--kuct-muted)] sm:text-base">
             {n.blurb}
           </p>
 
@@ -114,7 +114,7 @@ export function NewsContent({ embedded = false }: { embedded?: boolean }) {
                       {n.categories[item.category]}
                     </span>
                   </div>
-                  <h2 className="mt-2 font-display text-xl font-semibold tracking-tight text-[var(--kuct-text)] sm:text-2xl">
+                  <h2 className="mt-2 font-display text-lg font-semibold tracking-tight text-[var(--kuct-text)] sm:text-xl">
                     <a
                       href={href}
                       className="transition duration-300 group-hover:text-[var(--kuct-accent)] group-focus-within:text-[var(--kuct-accent)] focus-visible:text-[var(--kuct-accent)]"
@@ -123,7 +123,7 @@ export function NewsContent({ embedded = false }: { embedded?: boolean }) {
                       {item.title}
                     </a>
                   </h2>
-                  <p className="mt-2 max-w-3xl text-sm leading-relaxed text-[var(--kuct-muted)] sm:text-base line-clamp-2">
+                  <p className="mt-2 max-w-3xl text-sm leading-relaxed text-[var(--kuct-muted)] line-clamp-2">
                     {item.excerpt}
                   </p>
                   <a

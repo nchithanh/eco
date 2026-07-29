@@ -10,6 +10,7 @@ import {
 } from "react";
 import { AccentText } from "@/components/BrandName";
 import { LazyImage } from "@/components/LazyImage";
+import { Reveal } from "@/components/Reveal";
 import { usePagePreview } from "@/components/PagePreviewProvider";
 import { assetPath, themeAsset } from "@/lib/asset";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
@@ -112,24 +113,26 @@ export function WorksShowcase() {
   return (
     <section
       id="works"
-      className="scroll-mt-20 border-t border-white/40 py-24"
+      className="scroll-mt-20 py-24"
     >
       <div className="mx-auto max-w-6xl px-6">
-        <p className="text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
-          {w.eyebrow}
-        </p>
-        <h2 className="mt-3 max-w-2xl font-display text-3xl font-semibold sm:text-4xl">
-          <AccentText>{w.title}</AccentText>
-        </h2>
-        <p className="mt-3 max-w-2xl text-sm leading-relaxed text-[var(--kuct-muted)] sm:text-base">
-          {w.support}
-        </p>
-        <a
-          href="#contact"
-          className="kuct-btn-primary mt-6 inline-flex items-center rounded-full px-7 py-3 text-sm font-semibold"
-        >
-          {w.cta}
-        </a>
+        <Reveal>
+          <p className="text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
+            {w.eyebrow}
+          </p>
+          <h2 className="mt-3 max-w-2xl font-display text-3xl font-semibold sm:text-4xl">
+            <AccentText>{w.title}</AccentText>
+          </h2>
+          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-[var(--kuct-muted)] sm:text-base">
+            {w.support}
+          </p>
+          <a
+            href="#contact"
+            className="kuct-btn-primary mt-6 inline-flex items-center rounded-full px-7 py-3 text-sm font-semibold"
+          >
+            {w.cta}
+          </a>
+        </Reveal>
 
         <div
           className="relative mt-12 touch-pan-y"
@@ -150,7 +153,7 @@ export function WorksShowcase() {
               const href = slug ? assetPath(`/works/${slug}/`) : "#contact";
 
               return (
-                <li key={item.id}>
+                <Reveal as="li" key={item.id} delay={index * 70}>
                   <a
                     href={href}
                     onClick={(event) => {
@@ -212,7 +215,7 @@ export function WorksShowcase() {
                       </dl>
                     </div>
                   </a>
-                </li>
+                </Reveal>
               );
             })}
           </ul>
