@@ -15,7 +15,7 @@ import {
   listNews,
 } from "@/lib/news-details";
 
-const PAGE_SIZE = 9;
+const PAGE_SIZE = 6;
 const FEATURED_COUNT = 3;
 
 export function HomeNews() {
@@ -55,67 +55,82 @@ export function HomeNews() {
     <section id="news" className="scroll-mt-20 py-24">
       <div className="mx-auto max-w-6xl px-6">
         <Reveal>
-          <p className="text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
+          <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
             {n.homeEyebrow}
           </p>
-          <div className="mt-3 flex flex-wrap items-end justify-between gap-4">
-            <h2 className="max-w-2xl font-display text-xl font-semibold sm:text-2xl">
+          <div className="mt-4 flex flex-wrap items-end justify-between gap-4">
+            <h2 className="max-w-3xl font-display text-3xl font-semibold leading-[1.12] tracking-tight sm:text-[2.15rem] lg:text-[2.35rem] lg:leading-[1.1]">
               <AccentText>{n.homeTitle}</AccentText>
             </h2>
             <a
               href={viewAllHref}
-              className="kuct-link text-sm font-semibold text-[var(--kuct-text)]"
+              className="inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--kuct-accent)] transition hover:text-[var(--kuct-text)]"
             >
               {n.viewAll}
+              <span aria-hidden>→</span>
             </a>
           </div>
-          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-[var(--kuct-muted)]">
+          <p className="mt-5 max-w-[40ch] text-base leading-[1.7] text-[var(--kuct-muted)]">
             {n.blurb}
           </p>
         </Reveal>
 
-        <ul className="mt-12 grid grid-cols-1 gap-x-8 gap-y-1 md:grid-cols-3">
+        <ul className="mt-12 grid list-none grid-cols-1 gap-5 p-0 sm:mt-14 md:grid-cols-3">
           {visible.map((item, index) => {
             const href = assetPath(`/news/${item.slug}/`);
             const featured = index < FEATURED_COUNT;
+
             return (
               <Reveal
                 as="li"
                 key={item.slug}
-                delay={index * 60}
-                className={`group kuct-list-hover touch-pan-y -mx-3 flex h-full flex-col rounded-2xl px-3 ${featured ? "py-4" : "py-3"}`}
+                delay={index * 45}
+                className={
+                  featured
+                    ? "group flex h-full flex-col overflow-hidden rounded-2xl border border-[var(--kuct-border)] bg-[rgba(6,6,14,0.88)] ring-1 ring-[var(--kuct-accent)]/20 backdrop-blur-md transition duration-300 hover:border-[var(--kuct-accent)]/40"
+                    : "group flex h-full flex-col overflow-hidden rounded-2xl border border-[var(--kuct-border)] bg-[rgba(6,6,14,0.72)] backdrop-blur-md transition duration-300 hover:border-[var(--kuct-accent)]/35"
+                }
               >
                 {featured ? (
-                  <div className="relative mb-3 aspect-[16/10] overflow-hidden rounded-xl border border-[var(--kuct-border)] bg-[rgba(12,10,24,0.5)]">
+                  <div className="relative aspect-[16/10] overflow-hidden border-b border-[var(--kuct-border)] bg-[rgba(12,10,24,0.5)]">
                     <LazyImage
                       src={themeAsset(getNewsImage(item.slug), theme)}
                       alt=""
                       fill
-                      className="object-cover"
+                      className="object-cover transition duration-500 group-hover:scale-[1.03]"
                       sizes="(max-width: 768px) 100vw, 28rem"
                     />
                   </div>
                 ) : null}
-                <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-                  <time
-                    dateTime={item.date}
-                    className="text-xs font-medium tracking-wide text-[var(--kuct-muted)]"
+
+                <div className="flex flex-1 flex-col p-5">
+                  <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                    <time
+                      dateTime={item.date}
+                      className="text-[11px] font-medium tracking-wide text-[var(--kuct-muted)]"
+                    >
+                      {formatNewsDate(locale, item.date)}
+                    </time>
+                    <span className={newsCategoryChipClasses(item.category)}>
+                      {n.categories[item.category]}
+                    </span>
+                  </div>
+                  <h3
+                    className={
+                      featured
+                        ? "mt-3 font-display text-lg font-semibold leading-snug tracking-tight text-[var(--kuct-text)]"
+                        : "mt-3 font-display text-base font-semibold leading-snug tracking-tight text-[var(--kuct-text)]"
+                    }
                   >
-                    {formatNewsDate(locale, item.date)}
-                  </time>
-                  <span className={newsCategoryChipClasses(item.category)}>
-                    {n.categories[item.category]}
-                  </span>
+                    <a
+                      href={href}
+                      className="line-clamp-2 transition duration-300 group-hover:text-[var(--kuct-accent)] group-focus-within:text-[var(--kuct-accent)] focus-visible:text-[var(--kuct-accent)]"
+                      onClick={(event) => openHref(href, event)}
+                    >
+                      {item.title}
+                    </a>
+                  </h3>
                 </div>
-                <h3 className="mt-1 font-display text-lg font-semibold tracking-tight text-[var(--kuct-text)] sm:text-xl">
-                  <a
-                    href={href}
-                    className="line-clamp-2 transition duration-300 group-hover:text-[var(--kuct-accent)] group-focus-within:text-[var(--kuct-accent)] focus-visible:text-[var(--kuct-accent)]"
-                    onClick={(event) => openHref(href, event)}
-                  >
-                    {item.title}
-                  </a>
-                </h3>
               </Reveal>
             );
           })}
@@ -127,18 +142,21 @@ export function HomeNews() {
               type="button"
               onClick={goPrev}
               aria-label={n.prevPage}
-              className="grid size-10 place-items-center rounded-full border border-[var(--kuct-border)] bg-white/70 text-[var(--kuct-text)] transition hover:border-[var(--kuct-accent)]/40 hover:text-[var(--kuct-accent)]"
+              className="grid size-10 place-items-center rounded-full border border-[var(--kuct-border)] bg-[rgba(8,8,16,0.85)] text-[var(--kuct-text)] transition hover:border-[var(--kuct-accent)]/40 hover:text-[var(--kuct-accent)]"
             >
               <span aria-hidden>←</span>
             </button>
-            <p className="text-sm text-[var(--kuct-muted)]" aria-live="polite">
+            <p
+              className="text-sm tabular-nums text-[var(--kuct-muted)]"
+              aria-live="polite"
+            >
               {page + 1} / {pageCount}
             </p>
             <button
               type="button"
               onClick={goNext}
               aria-label={n.nextPage}
-              className="grid size-10 place-items-center rounded-full border border-[var(--kuct-border)] bg-white/70 text-[var(--kuct-text)] transition hover:border-[var(--kuct-accent)]/40 hover:text-[var(--kuct-accent)]"
+              className="grid size-10 place-items-center rounded-full border border-[var(--kuct-border)] bg-[rgba(8,8,16,0.85)] text-[var(--kuct-text)] transition hover:border-[var(--kuct-accent)]/40 hover:text-[var(--kuct-accent)]"
             >
               <span aria-hidden>→</span>
             </button>
