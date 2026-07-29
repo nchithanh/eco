@@ -971,7 +971,7 @@ const de: Dictionary = {
     stack: "Technik",
     news: newsNavLabel.de,
     careers: careersNavLabel.de,
-    about: "Über mich",
+    about: "Über uns",
     customAgent: "AI Agent",
     customAgentItem: "Individuelle AI-Agents",
     aiTransform: "KI-Transformation",
