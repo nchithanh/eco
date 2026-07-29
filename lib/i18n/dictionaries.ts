@@ -126,7 +126,7 @@ const vi: Dictionary = {
     eyebrow: "Kết quả vận hành",
     title: "Sau bàn giao, bạn [[chạy được những việc này]]",
     support:
-      "Gắn mục tiêu kinh doanh — lead, đặt lịch, nội dung, thanh toán, vận hành — không phải catalog tính năng.",
+      "Sau bàn giao — lead, lịch, nội dung, thanh toán và vận hành chạy được; không phải catalog tính năng.",
     items: [
       {
         title: "Thu lead và chuyển đổi rõ",
@@ -571,7 +571,7 @@ const en: Dictionary = {
     eyebrow: "Operating outcomes",
     title: "After handover, you can [[run these jobs]]",
     support:
-      "Tied to business goals — leads, bookings, content, payments, ops — not a feature catalog.",
+      "After handover — leads, bookings, content, payments, and ops you can run; not a feature catalog.",
     items: [
       {
         title: "Capture leads and convert clearly",
@@ -1016,7 +1016,7 @@ const de: Dictionary = {
     eyebrow: "Betriebsergebnisse",
     title: "Nach der Übergabe [[laufen diese Aufgaben]]",
     support:
-      "An Geschäftsziele gekoppelt — Leads, Termine, Inhalte, Zahlungen, Ops — kein Feature-Katalog.",
+      "Nach der Übergabe — Leads, Termine, Inhalte, Zahlungen und Ops, die laufen; kein Feature-Katalog.",
     items: [
       {
         title: "Leads klar erfassen und konvertieren",
@@ -1461,7 +1461,7 @@ const ja: Dictionary = {
     eyebrow: "運用成果",
     title: "引き渡し後に[[回せる仕事]]",
     support:
-      "ビジネス目標に紐づく — リード、予約、コンテンツ、決済、運用。機能カタログではありません。",
+      "引き渡し後 — リード・予約・コンテンツ・決済・運用が回る。機能カタログではありません。",
     items: [
       {
         title: "リード獲得と転換をはっきり",
@@ -1905,7 +1905,7 @@ const zh: Dictionary = {
     eyebrow: "运营成果",
     title: "交付后你能[[跑起来的业务]]",
     support:
-      "对齐业务目标——获客、预约、内容、支付、运营——不是功能目录。",
+      "交付后——获客、预约、内容、支付与运营能跑起来；不是功能目录。",
     items: [
       {
         title: "清楚获客与转化",
