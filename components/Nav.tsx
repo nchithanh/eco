@@ -40,6 +40,7 @@ export function Nav() {
     { href: `${sectionBase}#process`, label: t.nav.process },
     { href: `${sectionBase}#technology`, label: t.nav.stack },
     { href: assetPath("/news/"), label: t.nav.news },
+    { href: assetPath("/about/"), label: t.nav.about },
     { href: assetPath("/careers/"), label: t.nav.careers },
   ];
 

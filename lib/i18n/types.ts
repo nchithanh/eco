@@ -29,6 +29,7 @@ export type Dictionary = {
     stack: string;
     news: string;
     careers: string;
+    about: string;
     customAgent: string;
     customAgentItem: string;
     aiTransform: string;
