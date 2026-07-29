@@ -89,6 +89,8 @@ export type Dictionary = {
     eyebrow: string;
     title: string;
     support: string;
+    groupOwn: string;
+    groupRun: string;
     items: { title: string; body: string }[];
   };
   ops: {
@@ -98,6 +100,7 @@ export type Dictionary = {
     cta: string;
     before: string;
     after: string;
+    loopHint: string;
     steps: { name: string; detail: string }[];
     chips: string[];
   };

@@ -155,50 +155,52 @@ const vi: Dictionary = {
     ],
   },
   whatYouGet: {
-    eyebrow: "Đầu ra hợp tác",
+    eyebrow: "Bàn giao dự án",
     title: "Mỗi dự án [[kết thúc bằng đầu ra rõ]]",
     support:
-      "Phạm vi, source, nền tảng mở rộng và bảo hành — đội bạn vận hành độc lập, không bị khóa vendor.",
+      "Bàn giao rõ — tài liệu, quyền sở hữu, vận hành độc lập; không khóa vendor.",
+    groupOwn: "Own — sở hữu & nền tảng",
+    groupRun: "Run — vận hành & bảo hành",
     items: [
       {
-        title: "Phạm vi và milestone đã chốt",
-        body: "Báo giá theo đầu ra thống nhất — demo định kỳ để chỉnh sớm, không giờ công mơ hồ.",
+        title: "Phạm vi & milestone đã chốt",
+        body: "Báo giá theo đầu ra — demo định kỳ để chỉnh sớm, không giờ công mơ hồ.",
       },
       {
-        title: "Source và quyền vận hành thuộc bạn",
-        body: "Mã nguồn / repo theo thỏa thuận — bạn nắm quyền chạy tiếp, không bị khóa nhà thầu.",
+        title: "Source & quyền vận hành",
+        body: "Repo theo thỏa thuận — bạn nắm quyền chạy tiếp, không bị khóa nhà thầu.",
       },
       {
-        title: "Cấu trúc sẵn để mở rộng sau",
-        body: "Thêm trang, form hay tính năng theo milestone — không phải dựng lại từ đầu.",
+        title: "Cấu trúc sẵn mở rộng",
+        body: "Thêm trang, form hay tính năng theo milestone — không dựng lại từ đầu.",
       },
       {
-        title: "SEO on-page và hiệu năng nền",
-        body: "Responsive, heading/meta rõ, tốc độ hợp lý cho SMB — nền để tối ưu tiếp, không hứa xếp hạng ảo.",
+        title: "SEO on-page & hiệu năng",
+        body: "Responsive, heading/meta rõ, tốc độ hợp lý SMB — nền để tối ưu tiếp.",
       },
       {
-        title: "Hướng dẫn vận hành ngắn",
-        body: "Docs / walkthrough để đội bạn tự chạy nội dung và checklist deploy cơ bản.",
+        title: "Hướng dẫn vận hành",
+        body: "Docs / walkthrough để đội bạn tự chạy nội dung và checklist deploy.",
       },
       {
-        title: "Bảo hành lỗi kỹ thuật 3–6 tháng",
-        body: "Trong phạm vi đã nghiệm thu theo thỏa thuận — tính năng mới là hạng mục riêng, báo giá trước.",
+        title: "Bảo hành kỹ thuật 3–6 tháng",
+        body: "Trong phạm vi đã nghiệm thu — tính năng mới là hạng mục riêng, báo giá trước.",
       },
     ],
   },
   ops: {
     eyebrow: "Tự động hóa vận hành",
-    title: "Một [[lifecycle]] điều hành — không còn gom tin từ mười nơi",
+    title: "Một [[lifecycle]] điều hành — thôi đuổi tin qua mười tool",
     support:
-      "Trước: tin rải trên Slack, Jira, docs — lãnh đạo phải tự ghép. Sau: một vòng Collect → Normalize → Run → Govern chạy định kỳ, toàn cảnh trên một luồng.",
+      "Tín hiệu vào một vòng — Collect → Improve. Toàn cảnh trên một luồng, không chase cập nhật.",
     cta: "Trao đổi về tự động hóa",
-    before: "Trước: nhảy qua lại giữa Slack / Jira / docs để “biết đang gì”.",
-    after:
-      "Sau: tín hiệu được thu → chuẩn hóa → chạy chu kỳ → điều hành từ một console.",
+    before: "Trước: nhảy Slack / Jira / docs để biết đang gì.",
+    after: "Sau: một console, một vòng vận hành.",
+    loopHint: "Vòng lặp lại Collect",
     steps: [
       {
         name: "Collect",
-        detail: "Thu thập tín hiệu từ Slack, Jira, docs và công cụ nội bộ.",
+        detail: "Thu tín hiệu từ Slack, Jira, docs và công cụ nội bộ.",
       },
       {
         name: "Normalize",
@@ -206,14 +208,22 @@ const vi: Dictionary = {
       },
       {
         name: "Run",
-        detail: "Lặp chu kỳ định kỳ — báo cáo, nhắc việc, escalate đúng lúc.",
+        detail: "Chu kỳ định kỳ — báo cáo, nhắc việc, escalate đúng lúc.",
+      },
+      {
+        name: "Observe",
+        detail: "Theo dõi tín hiệu vận hành — thấy lệch trước khi trễ.",
       },
       {
         name: "Govern",
-        detail: "Điều hành từ một bảng điều khiển — không phải tự đi gom tin.",
+        detail: "Điều hành từ một console — không tự đi gom tin.",
+      },
+      {
+        name: "Improve",
+        detail: "Chỉnh quy tắc và chu kỳ theo bằng chứng vừa quan sát.",
       },
     ],
-    chips: ["Slack", "Jira", "Docs", "Lifecycle"],
+    chips: ["Slack", "Jira", "Docs"],
   },
   works: {
     eyebrow: "Dự án SMB",
@@ -603,31 +613,33 @@ const en: Dictionary = {
     eyebrow: "Engagement outputs",
     title: "Every project [[ends with clear deliverables]]",
     support:
-      "Scope, source, an extensible base, and warranty — your team runs independently, without vendor lock-in.",
+      "Clear handover — docs, ownership, and independent ops; no vendor lock-in.",
+    groupOwn: "Own — ownership & foundation",
+    groupRun: "Run — operations & warranty",
     items: [
       {
-        title: "Locked scope and milestones",
-        body: "Quotes tied to agreed outputs — periodic demos to course-correct early, not vague hours.",
+        title: "Locked scope & milestones",
+        body: "Quotes tied to agreed outputs — periodic demos to course-correct early.",
       },
       {
-        title: "Source and operating rights you keep",
-        body: "Source / repo per agreement — you keep the right to run it, no contractor lock-in.",
+        title: "Source & operating rights",
+        body: "Source / repo per agreement — you keep the right to run it onward.",
       },
       {
-        title: "Structure ready to extend later",
+        title: "Structure ready to extend",
         body: "Add pages, forms, or features by milestone — without rebuilding from scratch.",
       },
       {
-        title: "On-page SEO and performance baseline",
-        body: "Responsive, clear heading/meta, sensible SMB speed — a base to improve on, not fake ranking promises.",
+        title: "On-page SEO & performance",
+        body: "Responsive, clear heading/meta, sensible SMB speed — a base to improve on.",
       },
       {
-        title: "Short ops walkthrough",
+        title: "Ops walkthrough",
         body: "Docs / walkthrough so your team can run content and a basic deploy checklist.",
       },
       {
-        title: "3–6 month technical-fix warranty",
-        body: "Within accepted scope by agreement — new features are a separate line item, quoted first.",
+        title: "3–6 month bug warranty",
+        body: "Within accepted scope — new features are a separate line item, quoted first.",
       },
     ],
   },
@@ -635,11 +647,11 @@ const en: Dictionary = {
     eyebrow: "Ops automation",
     title: "One operating [[lifecycle]] — stop chasing updates across tools",
     support:
-      "Before: signals scattered across Slack, Jira, docs — leadership stitches them by hand. After: one Collect → Normalize → Run → Govern loop, the whole picture in a single flow.",
+      "Signals into one loop — Collect through Improve. The whole picture in a single flow.",
     cta: "Talk automation",
-    before: "Before: hopping Slack / Jira / docs just to know what’s going on.",
-    after:
-      "After: signals collected → normalized → cycled → governed from one console.",
+    before: "Before: hopping Slack / Jira / docs to know what’s on.",
+    after: "After: one console, one operating loop.",
+    loopHint: "Loops back to Collect",
     steps: [
       {
         name: "Collect",
@@ -651,14 +663,22 @@ const en: Dictionary = {
       },
       {
         name: "Run",
-        detail: "Run recurring cycles — reports, nudges, escalation on time.",
+        detail: "Recurring cycles — reports, nudges, escalation on time.",
+      },
+      {
+        name: "Observe",
+        detail: "Watch operating signals — spot drift before it slips.",
       },
       {
         name: "Govern",
         detail: "Steer from one console — no more manual info hunting.",
       },
+      {
+        name: "Improve",
+        detail: "Tune rules and cadence from what you just observed.",
+      },
     ],
-    chips: ["Slack", "Jira", "Docs", "Lifecycle"],
+    chips: ["Slack", "Jira", "Docs"],
   },
   works: {
     eyebrow: "SMB work",
@@ -1045,34 +1065,36 @@ const de: Dictionary = {
     ],
   },
   whatYouGet: {
-    eyebrow: "Kooperations-Outputs",
+    eyebrow: "Engagement-Outputs",
     title: "Jedes Projekt [[endet mit klaren Deliverables]]",
     support:
-      "Scope, Source, erweiterbare Basis und Garantie — Ihr Team läuft selbstständig, ohne Vendor-Lock-in.",
+      "Klare Übergabe — Docs, Eigentum, unabhängiger Betrieb; kein Vendor-Lock-in.",
+    groupOwn: "Own — Eigentum & Fundament",
+    groupRun: "Run — Betrieb & Garantie",
     items: [
       {
-        title: "Festgeschriebener Scope und Meilensteine",
-        body: "Angebote an vereinbarte Outputs — Demos zur frühen Kurskorrektur, keine vagen Stunden.",
+        title: "Scope & Meilensteine fest",
+        body: "Angebote an vereinbarte Outputs — Demos zur frühen Kurskorrektur.",
       },
       {
-        title: "Source und Betriebsrechte bei Ihnen",
-        body: "Source / Repo laut Vereinbarung — Sie behalten das Recht zum Weiterbetrieb, kein Contractor-Lock-in.",
+        title: "Source & Betriebsrechte",
+        body: "Source / Repo laut Vereinbarung — Sie behalten das Recht zum Weiterbetrieb.",
       },
       {
-        title: "Struktur für spätere Erweiterung",
-        body: "Seiten, Formulare oder Features per Meilenstein ergänzen — ohne Neubau von null.",
+        title: "Struktur für Erweiterung",
+        body: "Seiten, Formulare oder Features per Meilenstein — ohne Neubau von null.",
       },
       {
-        title: "On-Page-SEO und Performance-Basis",
-        body: "Responsiv, klare Heading/Meta, sinnvolle SMB-Speed — Basis zum Nachziehen, keine Fake-Rankings.",
+        title: "On-Page-SEO & Performance",
+        body: "Responsiv, klare Heading/Meta, sinnvolle SMB-Speed — Basis zum Nachziehen.",
       },
       {
-        title: "Kurzer Ops-Walkthrough",
-        body: "Docs / Walkthrough, damit Ihr Team Inhalte und eine Basis-Deploy-Checkliste selbst fährt.",
+        title: "Ops-Walkthrough",
+        body: "Docs / Walkthrough für Inhalte und eine Basis-Deploy-Checkliste.",
       },
       {
         title: "3–6 Monate Bug-Garantie",
-        body: "Im abgenommenen Scope laut Vereinbarung — neue Features sind eigene Position, vorher angeboten.",
+        body: "Im abgenommenen Scope — neue Features separat, vorher angeboten.",
       },
     ],
   },
@@ -1080,11 +1102,11 @@ const de: Dictionary = {
     eyebrow: "Ops-Automatisierung",
     title: "Ein Operating-[[Lifecycle]] — Schluss mit Tool-Hopping",
     support:
-      "Vorher: Signale verstreut in Slack, Jira, Docs — Führung puzzelt manuell. Nachher: ein Collect → Normalize → Run → Govern-Zyklus, Gesamtbild in einem Fluss.",
+      "Signale in eine Schleife — Collect bis Improve. Gesamtbild in einem Fluss.",
     cta: "Über Automatisierung sprechen",
-    before: "Vorher: zwischen Slack / Jira / Docs springen, um den Stand zu kennen.",
-    after:
-      "Nachher: Signale sammeln → normalisieren → Zyklus → steuern aus einer Konsole.",
+    before: "Vorher: Slack / Jira / Docs springen für den Stand.",
+    after: "Nachher: eine Konsole, ein Operating-Loop.",
+    loopHint: "Zurück zu Collect",
     steps: [
       {
         name: "Collect",
@@ -1099,11 +1121,19 @@ const de: Dictionary = {
         detail: "Wiederkehrende Zyklen — Reports, Nudges, Eskalation zur rechten Zeit.",
       },
       {
+        name: "Observe",
+        detail: "Betriebssignale beobachten — Drift sehen, bevor es rutscht.",
+      },
+      {
         name: "Govern",
         detail: "Steuern aus einer Konsole — ohne manuelles Informationssammeln.",
       },
+      {
+        name: "Improve",
+        detail: "Regeln und Takt aus dem Beobachteten nachschärfen.",
+      },
     ],
-    chips: ["Slack", "Jira", "Docs", "Lifecycle"],
+    chips: ["Slack", "Jira", "Docs"],
   },
   works: {
     eyebrow: "SMB-Projekte",
@@ -1490,34 +1520,36 @@ const ja: Dictionary = {
     ],
   },
   whatYouGet: {
-    eyebrow: "協業の成果物",
+    eyebrow: "Engagement outputs",
     title: "プロジェクトは[[明確な成果物で終わる]]",
     support:
-      "スコープ、ソース、拡張可能な基盤、保証 — チームが自立運用し、ベンダーロックを避けます。",
+      "明確な引き渡し — ドキュメント、所有権、自立運用。ベンダーロックなし。",
+    groupOwn: "Own — 所有と基盤",
+    groupRun: "Run — 運用と保証",
     items: [
       {
         title: "確定したスコープとマイルストーン",
-        body: "合意した成果物に紐づく見積もり — 定期デモで早期修正、曖昧な工数ではありません。",
+        body: "合意した成果物に紐づく見積もり — 定期デモで早期修正。",
       },
       {
-        title: "ソースと運用権はあなた側",
-        body: "契約どおりのソース／リポジトリ — 運用を続ける権利はあなた、請負ロックなし。",
+        title: "ソースと運用権",
+        body: "契約どおりのソース／リポジトリ — 運用を続ける権利はあなた側。",
       },
       {
         title: "後から足せる構造",
         body: "ページ・フォーム・機能をマイルストーンで追加 — ゼロからの作り直しを避けます。",
       },
       {
-        title: "オンページSEOと性能の土台",
-        body: "レスポンシブ、見出し／メタ明確、SMB向けの妥当な速度 — 誇張した順位約束はしません。",
+        title: "オンページSEOと性能",
+        body: "レスポンシブ、見出し／メタ明確、SMB向けの妥当な速度 — 改善の土台。",
       },
       {
-        title: "短い運用ウォークスルー",
+        title: "運用ウォークスルー",
         body: "ドキュメント／ウォークスルーで、コンテンツ運用と基本デプロイを自走。",
       },
       {
         title: "技術不具合保証 3〜6か月",
-        body: "検収範囲内（契約どおり）— 新機能は別項目として、先に見積もります。",
+        body: "検収範囲内 — 新機能は別項目として、先に見積もります。",
       },
     ],
   },
@@ -1525,10 +1557,11 @@ const ja: Dictionary = {
     eyebrow: "業務自動化",
     title: "ひとつの運用[[ライフサイクル]] — ツール横断の追いかけをやめる",
     support:
-      "以前: Slack / Jira / Docs に情報が散らばり、経営が手作業でつなぐ。以後: Collect → Normalize → Run → Govern の循環で全体を一望。",
+      "シグナルを一つのループへ — Collect から Improve。全体を一望。",
     cta: "自動化について相談する",
-    before: "以前: 状況把握のため Slack / Jira / Docs を行き来する。",
-    after: "以後: 収集 → 正規化 → 周期実行 → ひとつのコンソールで統制",
+    before: "以前: Slack / Jira / Docs を行き来して状況把握。",
+    after: "以後: ひとつのコンソール、ひとつの運用ループ。",
+    loopHint: "Collect へ戻る",
     steps: [
       {
         name: "Collect",
@@ -1543,11 +1576,19 @@ const ja: Dictionary = {
         detail: "定周期で回す — レポート、リマインド、適切なエスカレーション。",
       },
       {
+        name: "Observe",
+        detail: "運用シグナルを見る — 遅れる前にズレを捉える。",
+      },
+      {
         name: "Govern",
         detail: "ひとつのコンソールから指揮 — 手作業の情報収集は不要。",
       },
+      {
+        name: "Improve",
+        detail: "観察した根拠でルールと周期を調整する。",
+      },
     ],
-    chips: ["Slack", "Jira", "Docs", "Lifecycle"],
+    chips: ["Slack", "Jira", "Docs"],
   },
   works: {
     eyebrow: "SMB実績",
@@ -1934,34 +1975,36 @@ const zh: Dictionary = {
     ],
   },
   whatYouGet: {
-    eyebrow: "合作产出",
+    eyebrow: "项目交付",
     title: "每个项目都以[[清晰交付物收尾]]",
     support:
-      "范围、源码、可扩展底座与质保——团队独立运营，不被供应商锁定。",
+      "清晰交接——文档、所有权、独立运营；无供应商锁定。",
+    groupOwn: "Own — 所有权与底座",
+    groupRun: "Run — 运营与质保",
     items: [
       {
-        title: "已锁定的范围与里程碑",
-        body: "报价绑定已约定产出——定期演示便于早改，不是模糊工时。",
+        title: "范围与里程碑已锁定",
+        body: "报价绑定已约定产出——定期演示便于早改。",
       },
       {
-        title: "源码与运营权归你",
-        body: "按约定交付源码／仓库——继续运营的权利在你，不被承包商锁定。",
+        title: "源码与运营权",
+        body: "按约定交付源码／仓库——继续运营的权利在你。",
       },
       {
-        title: "结构预留后续扩展",
+        title: "结构预留扩展",
         body: "按里程碑加页面、表单或功能——不必从零重做。",
       },
       {
-        title: "页面 SEO 与性能底座",
-        body: "响应式、标题／元信息清晰、合理 SMB 速度——可继续优化，不承诺虚假排名。",
+        title: "页面 SEO 与性能",
+        body: "响应式、标题／元信息清晰、合理 SMB 速度——可继续优化。",
       },
       {
-        title: "简短运营走查",
+        title: "运营走查",
         body: "文档／走查，让团队自行管理内容与基础部署清单。",
       },
       {
         title: "技术缺陷质保 3–6 个月",
-        body: "按约定在已验收范围内——新功能单独报价，先谈再做。",
+        body: "在已验收范围内——新功能单独报价，先谈再做。",
       },
     ],
   },
@@ -1969,10 +2012,11 @@ const zh: Dictionary = {
     eyebrow: "运营自动化",
     title: "一条运营[[生命周期]]——不再跨工具追进度",
     support:
-      "之前：信号散落在 Slack、Jira、文档——管理层手工拼图。之后：Collect → Normalize → Run → Govern 循环，一条流看清全局。",
+      "信号进入一个闭环——Collect 到 Improve。一条流看清全局。",
     cta: "聊聊自动化",
-    before: "之前：在 Slack / Jira / 文档间跳转才能知道进度。",
-    after: "之后：采集 → 规范化 → 周期执行 → 从一个控制台治理",
+    before: "之前：在 Slack / Jira / 文档间跳转才知道进度。",
+    after: "之后：一个控制台，一条运营闭环。",
+    loopHint: "回到 Collect",
     steps: [
       {
         name: "Collect",
@@ -1987,11 +2031,19 @@ const zh: Dictionary = {
         detail: "按周期运行——报告、提醒、按时升级。",
       },
       {
+        name: "Observe",
+        detail: "观察运营信号——在滞后前发现偏差。",
+      },
+      {
         name: "Govern",
         detail: "从一个控制台指挥——无需手工拼信息。",
       },
+      {
+        name: "Improve",
+        detail: "根据刚观察到的证据调整规则与节奏。",
+      },
     ],
-    chips: ["Slack", "Jira", "Docs", "Lifecycle"],
+    chips: ["Slack", "Jira", "Docs"],
   },
   works: {
     eyebrow: "SMB 案例",
