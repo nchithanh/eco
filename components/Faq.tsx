@@ -12,50 +12,53 @@ export function Faq() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section
-      id="faq"
-      className="kuct-section-wash scroll-mt-20 py-24"
-    >
+    <section id="faq" className="scroll-mt-20 py-24">
       <div className="mx-auto max-w-6xl px-6">
         <Reveal className="mx-auto max-w-2xl text-center">
-          <p className="text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
+          <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
             {f.eyebrow}
           </p>
-          <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight text-[var(--kuct-text)] sm:text-4xl">
+          <h2 className="mt-4 font-display text-3xl font-semibold leading-[1.12] tracking-tight text-[var(--kuct-text)] sm:text-[2.15rem] lg:text-[2.35rem] lg:leading-[1.1]">
             <AccentText>{f.title}</AccentText>
           </h2>
-          <p className="mt-4 text-base leading-relaxed text-[var(--kuct-muted)] sm:text-lg">
+          <p className="mx-auto mt-5 max-w-[68ch] text-base leading-[1.7] text-[var(--kuct-muted)] sm:whitespace-nowrap">
             {f.support}
           </p>
         </Reveal>
 
-        <Reveal
-          className="mx-auto mt-12 max-w-3xl divide-y divide-[var(--kuct-border)] overflow-hidden rounded-2xl border border-white/60 bg-white/55 shadow-[0_1rem_2.5rem_rgb(var(--kuct-accent-rgb)/0.08)] backdrop-blur-md"
-          delay={80}
-          variant="scale"
-        >
+        <div className="mx-auto mt-12 flex max-w-3xl flex-col gap-3 sm:mt-14">
           {f.items.map((item, index) => {
             const panelId = `${baseId}-panel-${index}`;
             const buttonId = `${baseId}-btn-${index}`;
             const open = openIndex === index;
 
             return (
-              <div key={item.q}>
+              <Reveal
+                key={item.q}
+                delay={Math.min(index, 6) * 40}
+                className={
+                  open
+                    ? "overflow-hidden rounded-2xl border border-[var(--kuct-border)] bg-[rgba(6,6,14,0.88)] ring-1 ring-[var(--kuct-accent)]/25 backdrop-blur-md"
+                    : "overflow-hidden rounded-2xl border border-[var(--kuct-border)] bg-[rgba(6,6,14,0.72)] backdrop-blur-md transition duration-300 hover:border-[var(--kuct-accent)]/35"
+                }
+              >
                 <h3>
                   <button
                     type="button"
                     id={buttonId}
                     aria-expanded={open}
                     aria-controls={panelId}
-                    className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left text-sm font-semibold text-[var(--kuct-text)] transition hover:bg-[rgba(var(--kuct-accent-rgb),0.12)] sm:px-6 sm:text-base"
+                    className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left text-sm font-semibold text-[var(--kuct-text)] transition hover:text-[var(--kuct-accent)] sm:px-6 sm:text-base"
                     onClick={() =>
-                      setOpenIndex((current) => (current === index ? null : index))
+                      setOpenIndex((current) =>
+                        current === index ? null : index,
+                      )
                     }
                   >
                     <span>{item.q}</span>
                     <span
                       aria-hidden
-                      className="grid size-7 shrink-0 place-items-center rounded-full border border-[var(--kuct-accent)]/25 bg-white/70 text-[var(--kuct-accent)]"
+                      className="grid size-8 shrink-0 place-items-center rounded-full border border-[var(--kuct-border)] bg-[rgba(8,8,16,0.9)] text-sm text-[var(--kuct-accent)]"
                     >
                       {open ? "−" : "+"}
                     </span>
@@ -66,14 +69,14 @@ export function Faq() {
                   role="region"
                   aria-labelledby={buttonId}
                   hidden={!open}
-                  className="px-5 pb-5 text-sm leading-relaxed text-[var(--kuct-muted)] sm:px-6 sm:text-[0.9375rem]"
+                  className="border-t border-[var(--kuct-border)] px-5 py-4 text-sm leading-[1.7] text-[var(--kuct-muted)] sm:px-6"
                 >
                   {item.a}
                 </div>
-              </div>
+              </Reveal>
             );
           })}
-        </Reveal>
+        </div>
       </div>
     </section>
   );
