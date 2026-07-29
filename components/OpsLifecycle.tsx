@@ -17,64 +17,66 @@ function OpsVisualScene({
 }) {
   return (
     <div
-      className="relative flex h-full min-h-[18rem] w-full flex-col overflow-hidden rounded-[1.75rem] border border-[var(--kuct-border)] bg-[rgba(6,6,14,0.88)] p-5 backdrop-blur-md sm:min-h-[22rem] sm:p-6 lg:min-h-[36rem] lg:p-7"
+      className="relative flex h-full w-full flex-col items-center justify-center overflow-hidden rounded-[1.75rem] border border-[var(--kuct-border)] bg-[rgba(6,6,14,0.88)] p-5 backdrop-blur-md sm:p-6"
       aria-hidden
     >
-      <div className="pointer-events-none absolute inset-[12%] rounded-full opacity-70 blur-2xl kuct-glow-orb" />
+      <div className="pointer-events-none absolute inset-[18%] rounded-full opacity-60 blur-2xl kuct-glow-orb" />
 
-      <div className="relative z-[1] flex flex-wrap items-center justify-center gap-2">
-        {chips.map((chip) => (
+      <div className="relative z-[1] flex w-full max-w-[17.5rem] flex-col items-center sm:max-w-[19rem]">
+        <div className="flex flex-wrap items-center justify-center gap-2">
+          {chips.map((chip) => (
+            <span
+              key={chip}
+              className="inline-flex items-center rounded-full border border-[var(--kuct-border)] bg-[rgba(10,10,20,0.9)] px-3 py-1 text-[11px] font-semibold tracking-wide text-[var(--kuct-muted)]"
+            >
+              <span className="mr-2 size-1.5 rounded-full bg-[var(--kuct-accent)]/80" />
+              {chip}
+            </span>
+          ))}
+        </div>
+
+        <div className="mx-auto mt-3 mb-2 h-4 w-px bg-gradient-to-b from-[rgba(var(--kuct-accent-rgb),0.45)] to-[rgba(var(--kuct-accent-rgb),0.15)]" />
+
+        <ol className="relative m-0 w-full list-none space-y-2 p-0">
           <span
-            key={chip}
-            className="inline-flex items-center rounded-full border border-[var(--kuct-border)] bg-[rgba(10,10,20,0.9)] px-3 py-1 text-[11px] font-semibold tracking-wide text-[var(--kuct-muted)]"
-          >
-            <span className="mr-2 size-1.5 rounded-full bg-[var(--kuct-accent)]/80" />
-            {chip}
-          </span>
-        ))}
-      </div>
+            className="pointer-events-none absolute top-3 bottom-3 left-[0.95rem] w-px bg-[rgba(var(--kuct-accent-rgb),0.28)] sm:left-[1.05rem]"
+          />
 
-      <div className="relative z-[1] mx-auto mt-4 mb-3 h-6 w-px bg-gradient-to-b from-[rgba(var(--kuct-accent-rgb),0.45)] to-[rgba(var(--kuct-accent-rgb),0.15)]" />
+          {steps.map((step, index) => {
+            const isLead = LEAD_STEP_INDEXES.has(index);
 
-      <ol className="relative z-[1] m-0 flex flex-1 list-none flex-col justify-between gap-2 p-0">
-        <span
-          className="pointer-events-none absolute top-3 bottom-10 left-[1.15rem] w-px bg-[rgba(var(--kuct-accent-rgb),0.28)] sm:left-[1.25rem]"
-        />
-
-        {steps.map((step, index) => {
-          const isLead = LEAD_STEP_INDEXES.has(index);
-
-          return (
-            <li key={`${step.name}-${index}`} className="relative flex items-center gap-3">
-              <span
-                className={
-                  isLead
-                    ? "relative z-[1] grid size-9 shrink-0 place-items-center rounded-full border border-[var(--kuct-accent)]/50 bg-[rgba(12,8,24,0.95)] text-[0.65rem] font-semibold tabular-nums text-[var(--kuct-accent)] ring-1 ring-[var(--kuct-accent)]/35 sm:size-10 sm:text-xs"
-                    : "relative z-[1] grid size-9 shrink-0 place-items-center rounded-full border border-[var(--kuct-border)] bg-[rgba(8,8,16,0.95)] text-[0.65rem] font-semibold tabular-nums text-[var(--kuct-muted)] sm:size-10 sm:text-xs"
-                }
-              >
-                {String(index + 1).padStart(2, "0")}
-              </span>
-              <div
-                className={
-                  isLead
-                    ? "min-w-0 flex-1 rounded-xl border border-[var(--kuct-border)] bg-[rgba(10,10,22,0.92)] px-3.5 py-2.5 ring-1 ring-[var(--kuct-accent)]/25 sm:px-4"
-                    : "min-w-0 flex-1 rounded-xl border border-[var(--kuct-border)] bg-[rgba(10,10,22,0.72)] px-3.5 py-2.5 sm:px-4"
-                }
-              >
-                <span className="block truncate text-sm font-semibold tracking-wide text-[var(--kuct-text)]">
-                  {step.name}
+            return (
+              <li key={`${step.name}-${index}`} className="relative flex items-center gap-2.5">
+                <span
+                  className={
+                    isLead
+                      ? "relative z-[1] grid size-8 shrink-0 place-items-center rounded-full border border-[var(--kuct-accent)]/50 bg-[rgba(12,8,24,0.95)] text-[0.65rem] font-semibold tabular-nums text-[var(--kuct-accent)] ring-1 ring-[var(--kuct-accent)]/35"
+                      : "relative z-[1] grid size-8 shrink-0 place-items-center rounded-full border border-[var(--kuct-border)] bg-[rgba(8,8,16,0.95)] text-[0.65rem] font-semibold tabular-nums text-[var(--kuct-muted)]"
+                  }
+                >
+                  {String(index + 1).padStart(2, "0")}
                 </span>
-              </div>
-            </li>
-          );
-        })}
-      </ol>
+                <div
+                  className={
+                    isLead
+                      ? "min-w-0 flex-1 rounded-xl border border-[var(--kuct-border)] bg-[rgba(10,10,22,0.92)] px-3 py-2 ring-1 ring-[var(--kuct-accent)]/25"
+                      : "min-w-0 flex-1 rounded-xl border border-[var(--kuct-border)] bg-[rgba(10,10,22,0.72)] px-3 py-2"
+                  }
+                >
+                  <span className="block truncate text-sm font-semibold tracking-wide text-[var(--kuct-text)]">
+                    {step.name}
+                  </span>
+                </div>
+              </li>
+            );
+          })}
+        </ol>
 
-      <p className="relative z-[1] mt-4 flex items-center justify-center gap-2 text-[11px] font-semibold tracking-[0.16em] text-[var(--kuct-accent)]/80 uppercase">
-        <span aria-hidden>↻</span>
-        {loopHint}
-      </p>
+        <p className="mt-3 flex items-center justify-center gap-2 text-[11px] font-semibold tracking-[0.16em] text-[var(--kuct-accent)]/80 uppercase">
+          <span aria-hidden>↻</span>
+          {loopHint}
+        </p>
+      </div>
     </div>
   );
 }
@@ -86,8 +88,8 @@ export function OpsLifecycle() {
   return (
     <section id="ops" className="scroll-mt-20 py-24">
       <div className="mx-auto max-w-6xl px-6">
-        <div className="grid items-stretch gap-12 md:grid-cols-2 md:gap-14 lg:gap-16">
-          <Reveal className="max-w-xl" variant="left">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-x-14 md:gap-y-8 lg:gap-x-16">
+          <Reveal className="max-w-xl md:col-start-1 md:row-start-1">
             <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
               {o.eyebrow}
             </p>
@@ -105,8 +107,10 @@ export function OpsLifecycle() {
               </span>
               <span className="text-[var(--kuct-text)]">{o.after}</span>
             </p>
+          </Reveal>
 
-            <ol className="mt-8 grid gap-2.5" aria-label={o.eyebrow}>
+          <Reveal variant="left" className="md:col-start-1 md:row-start-2">
+            <ol className="grid gap-2.5" aria-label={o.eyebrow}>
               {o.steps.map((step, index) => {
                 const isLead = LEAD_STEP_INDEXES.has(index);
 
@@ -137,19 +141,12 @@ export function OpsLifecycle() {
                 );
               })}
             </ol>
-
-            <a
-              href="#contact"
-              className="kuct-btn-primary mt-8 inline-flex items-center rounded-full px-7 py-3 text-sm font-semibold"
-            >
-              {o.cta}
-            </a>
           </Reveal>
 
           <Reveal
             variant="right"
             delay={120}
-            className="relative min-h-[18rem] w-full sm:min-h-[22rem] lg:min-h-[36rem]"
+            className="relative h-full w-full md:col-start-2 md:row-start-2"
             inViewOptions={{ threshold: 0.05, rootMargin: "0px 0px -2% 0px" }}
           >
             <OpsVisualScene
@@ -157,6 +154,15 @@ export function OpsLifecycle() {
               steps={o.steps}
               loopHint={o.loopHint}
             />
+          </Reveal>
+
+          <Reveal className="md:col-start-1 md:row-start-3">
+            <a
+              href="#contact"
+              className="kuct-btn-primary inline-flex items-center rounded-full px-7 py-3 text-sm font-semibold"
+            >
+              {o.cta}
+            </a>
           </Reveal>
         </div>
       </div>

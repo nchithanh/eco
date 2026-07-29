@@ -352,7 +352,7 @@ export function AiChatWidget() {
           id={panelId}
           role="dialog"
           aria-label={c.agentName}
-          className="kuct-ai-chat__panel pointer-events-auto flex w-[min(22.5rem,calc(100vw-2rem))] flex-col overflow-hidden rounded-[1.25rem] border border-white/70 bg-white/95 shadow-[0_18px_48px_rgb(var(--kuct-accent-rgb)/0.22)] backdrop-blur-xl max-sm:fixed max-sm:inset-0 max-sm:z-[200] max-sm:h-dvh max-sm:w-full max-sm:max-w-none max-sm:rounded-none max-sm:border-0 max-sm:shadow-none"
+          className="kuct-ai-chat__panel pointer-events-auto flex w-[min(22.5rem,calc(100vw-2rem))] flex-col overflow-hidden rounded-[1.25rem] border border-[var(--kuct-border)] bg-[rgba(6,6,14,0.96)] shadow-[0_18px_48px_rgba(var(--kuct-accent-rgb),0.18)] backdrop-blur-xl max-sm:fixed max-sm:inset-0 max-sm:z-[200] max-sm:h-dvh max-sm:w-full max-sm:max-w-none max-sm:rounded-none max-sm:border-0 max-sm:shadow-none"
         >
           <header className="flex shrink-0 items-center gap-3 border-b border-[var(--kuct-border)] bg-gradient-to-r from-[var(--kuct-btn-from)] via-[var(--kuct-btn-mid)] to-[var(--kuct-btn-to)] px-4 py-3 text-white max-sm:pt-[max(0.75rem,env(safe-area-inset-top))]">
             <span className="relative shrink-0">
@@ -364,7 +364,7 @@ export function AiChatWidget() {
                 className="size-10 rounded-full object-cover"
               />
               <span
-                className="absolute right-0 bottom-0 size-2.5 rounded-full bg-emerald-400 ring-2 ring-white"
+                className="absolute right-0 bottom-0 size-2.5 rounded-full bg-emerald-400 ring-2 ring-[rgba(6,6,14,0.96)]"
                 title={c.online}
               />
             </span>
@@ -392,7 +392,7 @@ export function AiChatWidget() {
                 className={
                   m.role === "user"
                     ? "ml-8 self-end rounded-2xl rounded-br-md bg-[var(--kuct-accent)] px-3.5 py-2.5 text-sm leading-relaxed text-white"
-                    : "mr-6 self-start rounded-2xl rounded-bl-md border border-[var(--kuct-border)] bg-[var(--kuct-bg)] px-3.5 py-2.5 text-sm leading-relaxed text-[var(--kuct-text)]"
+                    : "mr-6 self-start rounded-2xl rounded-bl-md border border-[var(--kuct-border)] bg-[rgba(10,10,22,0.8)] px-3.5 py-2.5 text-sm leading-relaxed text-[var(--kuct-text)]"
                 }
               >
                 {m.text}
@@ -408,7 +408,7 @@ export function AiChatWidget() {
               <button
                 key={s}
                 type="button"
-                className="rounded-full border border-[var(--kuct-border)] bg-white/80 px-3 py-1 text-[0.7rem] font-medium text-[var(--kuct-muted)] transition hover:border-[var(--kuct-accent)] hover:text-[var(--kuct-accent)]"
+                className="rounded-full border border-[var(--kuct-border)] bg-[rgba(10,10,22,0.7)] px-3 py-1 text-[0.7rem] font-medium text-[var(--kuct-muted)] transition hover:border-[var(--kuct-accent)]/60 hover:text-[var(--kuct-accent)]"
                 onClick={() => pushUserAndReply(s)}
               >
                 {s}
@@ -427,7 +427,7 @@ export function AiChatWidget() {
               onKeyDown={onKeyDown}
               placeholder={c.placeholder}
               aria-label={c.placeholder}
-              className="min-w-0 flex-1 rounded-full border border-[var(--kuct-border)] bg-white px-4 py-2.5 text-sm text-gray-900 outline-none placeholder:text-gray-400 focus:border-[var(--kuct-accent)]"
+              className="min-w-0 flex-1 rounded-full border border-[var(--kuct-border)] bg-[rgba(10,10,22,0.7)] px-4 py-2.5 text-sm text-[var(--kuct-text)] outline-none placeholder:text-[var(--kuct-muted)]/60 focus:border-[var(--kuct-accent)]/60"
             />
             <button
               type="submit"

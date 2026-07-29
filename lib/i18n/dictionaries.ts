@@ -33,7 +33,7 @@ const vi: Dictionary = {
     eyebrow: "Studio",
     headline: "Từ bài toán [[kinh doanh]] đến [[hệ thống]] dễ vận hành",
     support:
-      "Bạn nói mục tiêu — bán hàng, lead, đặt lịch hay vận hành nội bộ. Dolphin Kich chốt phạm vi rõ, giao đúng milestone, bàn giao source và hướng dẫn để đội bạn tự chạy.",
+      "Bạn nói mục tiêu. Dolphin Kich chốt scope, ship theo milestone, bàn giao source + hướng dẫn để đội bạn tự chạy.",
     trustLine: "Phạm vi rõ · Milestone đúng hạn · Source + hướng dẫn vận hành",
     ctaPrimary: "Nhận báo giá",
     ctaSecondary: "Xem dịch vụ",
@@ -410,7 +410,8 @@ const vi: Dictionary = {
     eyebrow: "Liên hệ",
     title: "Sẵn sàng [[khởi động]] dự án?",
     support:
-      "Chat Zalo để trao đổi nhanh, hoặc gửi form / email với mục tiêu và mẫu tham khảo. Dolphin Kick đề xuất hướng triển khai và báo giá theo phạm vi — không cần biết kỹ thuật. Xem FAQ phía trên nếu muốn rõ timeline, bảo hành và MVP trước.",
+      "Chat Zalo nhanh hoặc gửi email brief — scope và bước tiếp theo, không cần biết kỹ thuật.",
+    nextHint: "Phản hồi với hướng triển khai + phạm vi ước tính.",
     ctaZalo: "Chat Zalo",
     ctaEmail: "Gửi email",
     name: "Tên",
@@ -433,6 +434,10 @@ const vi: Dictionary = {
   footer: {
     disclaimer:
       "Nội dung liên quan chứng khoán chỉ mang tính chia sẻ cộng đồng — không phải tư vấn đầu tư có giấy phép và không cam kết lợi nhuận.",
+    groupExplore: "Explore",
+    groupStudio: "Studio",
+    groupUpdates: "Updates",
+    groupConnect: "Connect",
   },
   loader: {
     aria: "Đang khởi động hệ thống agent",
@@ -503,7 +508,7 @@ const en: Dictionary = {
     eyebrow: "Studio",
     headline: "From [[business problems]] to [[systems]] you can run",
     support:
-      "Tell us the goal — sell, capture leads, take bookings, or run internal ops. Dolphin Kich locks a clear scope, ships by milestone, and hands over source plus a walkthrough so your team can operate.",
+      "Tell us the goal. Dolphin Kich locks scope, ships by milestone, and hands over source plus a walkthrough so your team can run it.",
     trustLine: "Clear scope · On-time milestones · Source + ops walkthrough",
     ctaPrimary: "Get a quote",
     ctaSecondary: "View services",
@@ -880,7 +885,8 @@ const en: Dictionary = {
     eyebrow: "Contact",
     title: "Ready to [[start]] a project?",
     support:
-      "Chat on Zalo for a quick exchange, or send the form / email with goals and a reference sample. Dolphin Kick proposes an approach and a scoped quote — no technical background required. See the FAQ above for timeline, warranty, and MVP staging.",
+      "Chat on Zalo or email a short brief — scope and next step, no technical background needed.",
+    nextHint: "You’ll get an approach and estimated scope back.",
     ctaZalo: "Chat on Zalo",
     ctaEmail: "Send email",
     name: "Name",
@@ -903,6 +909,10 @@ const en: Dictionary = {
   footer: {
     disclaimer:
       "Stock-related content is community sharing only — not licensed investment advice and no profit guarantees.",
+    groupExplore: "Explore",
+    groupStudio: "Studio",
+    groupUpdates: "Updates",
+    groupConnect: "Connect",
   },
   loader: {
     aria: "Booting agent system",
@@ -973,7 +983,7 @@ const de: Dictionary = {
     eyebrow: "Studio",
     headline: "Vom [[Geschäftsproblem]] zum [[betreibbaren System]]",
     support:
-      "Nennen Sie das Ziel — verkaufen, Leads, Buchungen oder interne Ops. Dolphin Kich fixiert klaren Scope, liefert per Meilenstein und übergibt Source plus Einweisung.",
+      "Nennen Sie das Ziel. Dolphin Kich fixiert den Scope, liefert per Meilenstein und übergibt Source plus Einweisung.",
     trustLine: "Klarer Scope · Meilensteine · Source + Betriebsanleitung",
     ctaPrimary: "Angebot anfordern",
     ctaSecondary: "Leistungen ansehen",
@@ -1350,7 +1360,8 @@ const de: Dictionary = {
     eyebrow: "Kontakt",
     title: "Bereit, ein [[Projekt]] zu starten?",
     support:
-      "Schneller Austausch per Zalo-Chat, oder Formular / E-Mail mit Ziel und Referenzbeispiel. Dolphin Kick schlägt Vorgehen und Scope-Angebot vor — Technikkenntnisse sind nicht nötig. FAQ oben zu Timeline, Garantie und MVP-Stufen.",
+      "Zalo-Chat oder kurze E-Mail mit Brief — Scope und nächster Schritt, ohne Technikkenntnisse.",
+    nextHint: "Antwort mit Vorgehen und geschätztem Scope.",
     ctaZalo: "Zalo-Chat",
     ctaEmail: "E-Mail senden",
     name: "Name",
@@ -1373,6 +1384,10 @@ const de: Dictionary = {
   footer: {
     disclaimer:
       "Inhalte zu Aktien dienen nur dem Community-Austausch — keine lizenzierte Anlageberatung und keine Gewinngarantie.",
+    groupExplore: "Entdecken",
+    groupStudio: "Studio",
+    groupUpdates: "Updates",
+    groupConnect: "Kontakt",
   },
   loader: {
     aria: "Agent-System wird gestartet",
@@ -1443,7 +1458,7 @@ const ja: Dictionary = {
     eyebrow: "Studio",
     headline: "事業の[[課題]]から、[[運用しやすいシステム]]へ",
     support:
-      "販売・リード獲得・予約・社内運用など、ゴールを教えてください。Dolphin Kichはスコープを明確にし、マイルストーンで届け、ソースと操作ガイドを引き渡します。",
+      "ゴールを教えてください。Dolphin Kichはスコープを明確にし、マイルストーンで届け、ソースと操作ガイドを引き渡します。",
     trustLine: "明確なスコープ · マイルストーン · ソース＋運用ガイド",
     ctaPrimary: "見積もりを依頼",
     ctaSecondary: "サービスを見る",
@@ -1820,7 +1835,8 @@ const ja: Dictionary = {
     eyebrow: "お問い合わせ",
     title: "[[プロジェクト]]を始めませんか？",
     support:
-      "Zaloで素早く相談、またはフォーム/メールで目的と参考例を送ってください。Dolphin Kickが方針と範囲付き見積もりを提案します。技術知識は不要です。期間・保証・段階的MVPは上のFAQをご覧ください。",
+      "Zaloで素早く相談、または短いメールで概要を — スコープと次の一歩。技術知識は不要です。",
+    nextHint: "方針と概算スコープで返信します。",
     ctaZalo: "Zaloで相談",
     ctaEmail: "メールを送る",
     name: "お名前",
@@ -1843,6 +1859,10 @@ const ja: Dictionary = {
   footer: {
     disclaimer:
       "証券関連の内容はコミュニティ共有であり、認可を受けた投資助言ではなく、利益を保証するものでもありません。",
+    groupExplore: "Explore",
+    groupStudio: "Studio",
+    groupUpdates: "Updates",
+    groupConnect: "Connect",
   },
   loader: {
     aria: "エージェントシステムを起動中",
@@ -1913,7 +1933,7 @@ const zh: Dictionary = {
     eyebrow: "Studio",
     headline: "从[[业务问题]]到[[可运营的系统]]",
     support:
-      "告诉我们目标——获客、销售、预约还是内部运营。Dolphin Kich 锁定清晰范围、按里程碑交付，并交接源码与操作指引，让团队能自跑。",
+      "告诉我们目标。Dolphin Kich 锁定范围、按里程碑交付，并交接源码与操作指引，让团队能自跑。",
     trustLine: "范围清晰 · 里程碑准时 · 源码 + 运营指引",
     ctaPrimary: "获取报价",
     ctaSecondary: "查看服务",
@@ -2290,7 +2310,8 @@ const zh: Dictionary = {
     eyebrow: "联系",
     title: "[[开始]]你的项目？",
     support:
-      "用 Zalo 快速沟通，或通过表单/邮件发送目标与参考样例。Dolphin Kick 给出实现方向与按范围报价——无需技术背景。上方 FAQ 可先了解周期、质保与分阶段 MVP。",
+      "用 Zalo 快速沟通，或发邮件附简要说明——范围与下一步，无需技术背景。",
+    nextHint: "回复实现方向与估算范围。",
     ctaZalo: "Zalo 沟通",
     ctaEmail: "发送邮件",
     name: "姓名",
@@ -2313,6 +2334,10 @@ const zh: Dictionary = {
   footer: {
     disclaimer:
       "证券相关内容为社区分享，不是持牌投资建议，也不保证收益。",
+    groupExplore: "探索",
+    groupStudio: "工作室",
+    groupUpdates: "动态",
+    groupConnect: "联系",
   },
   loader: {
     aria: "正在启动 Agent 系统",

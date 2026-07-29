@@ -98,7 +98,7 @@ function GlassPanels() {
       className="pointer-events-none relative mx-auto h-[260px] w-full max-w-md touch-pan-y sm:h-[320px] lg:mx-0 lg:h-[440px] lg:max-w-none"
       aria-hidden
     >
-      <div className="kuct-glow-orb kuct-glow-orb--soft absolute inset-[12%] rounded-full blur-3xl opacity-60" />
+      <div className="kuct-glow-orb kuct-glow-orb--soft absolute inset-[18%] rounded-full blur-3xl opacity-40" />
       {panels.map((panel) => (
         <div key={panel.key} className={panel.className}>
           <div
@@ -143,10 +143,10 @@ export function Hero() {
           <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
             {t.hero.eyebrow}
           </p>
-          <h1 className="mt-5 max-w-[16ch] font-display text-[1.85rem] font-semibold leading-[1.12] tracking-tight text-[var(--kuct-text)] sm:max-w-[18ch] sm:text-4xl lg:text-[2.85rem] lg:leading-[1.1]">
+          <h1 className="mt-5 max-w-[18ch] font-display text-[1.85rem] font-semibold leading-[1.12] tracking-tight text-[var(--kuct-text)] sm:max-w-[20ch] sm:text-4xl lg:text-[2.85rem] lg:leading-[1.1]">
             <AccentText>{t.hero.headline}</AccentText>
           </h1>
-          <p className="mt-6 max-w-[36ch] text-base leading-[1.7] text-[var(--kuct-muted)] sm:text-[1.0625rem] sm:leading-[1.7]">
+          <p className="mt-6 max-w-[38ch] text-base leading-[1.7] text-[var(--kuct-muted)] sm:text-[1.0625rem] sm:leading-[1.7]">
             <BrandText size="sm">{t.hero.support}</BrandText>
           </p>
           <div className="mt-9 flex flex-wrap items-center gap-4">
@@ -159,12 +159,12 @@ export function Hero() {
             </button>
             <a
               href="#capabilities"
-              className="inline-flex items-center rounded-full border border-[var(--kuct-border)] bg-transparent px-6 py-3 text-sm font-medium text-[var(--kuct-muted)] transition duration-200 hover:border-[var(--kuct-accent)]/45 hover:text-[var(--kuct-text)]"
+              className="inline-flex items-center rounded-full border border-[var(--kuct-border)] bg-transparent px-6 py-3 text-sm font-medium text-[var(--kuct-muted)] transition duration-200 hover:border-[var(--kuct-accent)]/45 hover:bg-[var(--kuct-accent)]/10 hover:text-[var(--kuct-text)]"
             >
               {t.hero.ctaSecondary}
             </a>
           </div>
-          <p className="mt-5 max-w-md text-xs leading-relaxed tracking-wide text-[var(--kuct-muted)]/90 sm:text-[0.8125rem]">
+          <p className="mt-5 max-w-md text-sm leading-relaxed tracking-wide text-[var(--kuct-muted)]">
             {t.hero.trustLine}
           </p>
         </div>
@@ -177,7 +177,7 @@ export function Hero() {
             height={1024}
             aria-hidden
             priority
-            className="kuct-mascot-float pointer-events-none absolute -bottom-1 -right-1 z-20 h-44 w-auto max-w-[48%] object-contain drop-shadow-[0_16px_32px_rgba(var(--kuct-accent-rgb),0.28)] select-none sm:right-0 sm:h-52 lg:-bottom-2 lg:-right-4 lg:h-64 lg:max-w-[52%]"
+            className="kuct-mascot-float pointer-events-none absolute -right-3 -bottom-2 z-20 h-40 w-auto max-w-[42%] object-contain drop-shadow-[0_16px_32px_rgba(var(--kuct-accent-rgb),0.22)] select-none sm:-right-4 sm:h-48 sm:max-w-[40%] lg:-right-10 lg:-bottom-3 lg:h-52 lg:max-w-[42%]"
           />
         </div>
       </div>

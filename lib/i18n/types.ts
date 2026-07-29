@@ -171,6 +171,7 @@ export type Dictionary = {
     eyebrow: string;
     title: string;
     support: string;
+    nextHint: string;
     ctaZalo: string;
     ctaEmail: string;
     name: string;
@@ -286,6 +287,10 @@ export type Dictionary = {
   };
   footer: {
     disclaimer: string;
+    groupExplore: string;
+    groupStudio: string;
+    groupUpdates: string;
+    groupConnect: string;
   };
   loader: {
     aria: string;
