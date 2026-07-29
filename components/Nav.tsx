@@ -63,18 +63,18 @@ export function Nav() {
       <AnnouncementBar />
       <header className="border-b border-[var(--kuct-border)] bg-[rgba(4,4,12,0.95)] backdrop-blur-xl">
         <nav
-          className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-4"
+          className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-6 py-2.5 sm:py-3"
           aria-label={t.nav.ariaMain}
         >
           <a
             href={homeHref}
-            className="flex min-w-0 max-w-[min(100%,11rem)] shrink items-center text-[var(--kuct-text)] transition duration-200 hover:opacity-75 hover:scale-[1.02] sm:max-w-[14rem] lg:max-w-none"
+            className="flex min-w-0 max-w-[min(100%,10rem)] shrink items-center text-[var(--kuct-text)] transition duration-200 hover:opacity-75 sm:max-w-[12rem] lg:max-w-none"
             aria-label="Dolphin Kich"
           >
             <Logo showWordmark />
           </a>
-          <div className="flex min-w-0 flex-1 items-center justify-end gap-3 sm:gap-5">
-            <ul className="hidden items-center gap-7 text-sm text-[var(--kuct-muted)] md:flex">
+          <div className="flex min-w-0 flex-1 items-center justify-end gap-2.5 sm:gap-4">
+            <ul className="hidden items-center gap-5 text-[0.8125rem] text-[var(--kuct-muted)] lg:gap-6 md:flex">
               <li>
                 <a href={`${sectionBase}#capabilities`} className="kuct-link">
                   {t.nav.services}
@@ -135,7 +135,7 @@ export function Nav() {
             <LanguageSwitcher />
             <a
               href={contactHref}
-              className="kuct-btn-primary hidden rounded-full px-4 py-2 text-xs font-semibold sm:inline-flex"
+              className="kuct-btn-primary hidden rounded-full px-5 py-2.5 text-xs font-semibold shadow-[0_10px_24px_rgb(var(--kuct-accent-rgb)/0.35)] sm:inline-flex"
             >
               {t.nav.contact}
             </a>

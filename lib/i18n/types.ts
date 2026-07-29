@@ -43,6 +43,7 @@ export type Dictionary = {
     eyebrow: string;
     headline: string;
     support: string;
+    trustLine: string;
     ctaPrimary: string;
     ctaSecondary: string;
     visual: {

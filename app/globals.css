@@ -992,33 +992,39 @@ html[data-theme="black"] .kuct-glass-panel {
   will-change: auto;
 }
 
+.kuct-hero-panel--side {
+  border-width: 1.5px;
+  box-shadow:
+    0 0 6px rgb(var(--kuct-accent-rgb) / 0.25),
+    0 0 20px rgb(var(--kuct-accent-rgb) / 0.12),
+    inset 0 0 20px rgb(var(--kuct-accent-rgb) / 0.04);
+}
+
+.kuct-hero-panel--mid {
+  border-width: 2px;
+}
+
 .kuct-hero-reflection {
   background: linear-gradient(
     to bottom,
-    rgb(var(--kuct-accent-rgb) / 0.12) 0%,
-    rgb(var(--kuct-accent-rgb) / 0.04) 30%,
+    rgb(var(--kuct-accent-rgb) / 0.1) 0%,
+    rgb(var(--kuct-accent-rgb) / 0.03) 30%,
     transparent 100%
   );
   mask-image: linear-gradient(to bottom, black 0%, transparent 80%);
   -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent 80%);
   filter: blur(6px);
-  opacity: 0.6;
-  transform: scaleY(-0.3) translateY(-20%);
+  transform: scaleY(-0.28) translateY(-20%);
   transform-origin: top center;
 }
 
 @media (min-width: 1024px) {
-  .kuct-hero-panel {
-    animation: kuct-float 7s ease-in-out infinite;
-  }
-
   .kuct-hero-panel--mid {
-    animation: kuct-float-delay 8.5s ease-in-out infinite;
+    animation: kuct-float-delay 9s ease-in-out infinite;
   }
 
-  .kuct-hero-panel--late {
-    animation: kuct-float 7s ease-in-out infinite;
-    animation-delay: 1.4s;
+  .kuct-hero-panel--side {
+    animation: none;
   }
 }
 
@@ -1220,8 +1226,8 @@ html[data-theme="black"] .kuct-loader-progress {
 .kuct-contact-fab__btn {
   display: grid;
   place-items: center;
-  width: 3.15rem;
-  height: 3.15rem;
+  width: 2.65rem;
+  height: 2.65rem;
   border-radius: 9999px;
   color: #fff;
   background: linear-gradient(
@@ -1231,9 +1237,9 @@ html[data-theme="black"] .kuct-loader-progress {
     var(--kuct-fab-to) 100%
   );
   box-shadow:
-    0 10px 28px rgb(var(--kuct-accent-rgb) / 0.42),
-    inset 0 1px 0 rgba(255, 255, 255, 0.35);
-  border: 1px solid rgba(255, 255, 255, 0.35);
+    0 8px 20px rgb(var(--kuct-accent-rgb) / 0.32),
+    inset 0 1px 0 rgba(255, 255, 255, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.28);
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease,
@@ -1287,8 +1293,8 @@ html[data-theme="black"] .kuct-loader-progress {
   position: relative;
   display: grid;
   place-items: center;
-  width: 3.65rem;
-  height: 3.65rem;
+  width: 3.15rem;
+  height: 3.15rem;
 }
 
 .kuct-ai-chat__avatar {
@@ -1296,8 +1302,8 @@ html[data-theme="black"] .kuct-loader-progress {
   z-index: 1;
   display: grid;
   place-items: center;
-  width: 3.65rem;
-  height: 3.65rem;
+  width: 3.15rem;
+  height: 3.15rem;
   border: none;
   background: transparent;
   box-shadow: none;

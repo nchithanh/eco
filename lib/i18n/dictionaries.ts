@@ -33,7 +33,8 @@ const vi: Dictionary = {
     eyebrow: "Studio",
     headline: "Từ bài toán [[kinh doanh]] đến [[hệ thống]] dễ vận hành",
     support:
-      "Bạn nói mục tiêu — bán hàng, nhận lead, đặt lịch hay vận hành nội bộ. Dolphin Kick chốt phạm vi rõ, giao đúng milestone, bàn giao source + hướng dẫn để đội bạn tự chạy. Không bán giờ công hay danh sách công nghệ; đo bằng kết quả vận hành. 7 năm production: giao tiếp thẳng, không phóng scope.",
+      "Bạn nói mục tiêu — bán hàng, lead, đặt lịch hay vận hành nội bộ. Dolphin Kich chốt phạm vi rõ, giao đúng milestone, bàn giao source và hướng dẫn để đội bạn tự chạy.",
+    trustLine: "Phạm vi rõ · Milestone đúng hạn · Source + hướng dẫn vận hành",
     ctaPrimary: "Nhận báo giá",
     ctaSecondary: "Xem dịch vụ",
     visual: {
@@ -474,7 +475,8 @@ const en: Dictionary = {
     eyebrow: "Studio",
     headline: "From [[business problems]] to [[systems]] you can run",
     support:
-      "Tell us the goal — sell, capture leads, take bookings, or run internal ops. Dolphin Kick locks a clear scope, ships by milestone, and hands over source plus a walkthrough so your team can operate. We don't sell man-hours or a tech laundry list; we measure by operating results. 7 years in production: straight talk, no inflated scope.",
+      "Tell us the goal — sell, capture leads, take bookings, or run internal ops. Dolphin Kich locks a clear scope, ships by milestone, and hands over source plus a walkthrough so your team can operate.",
+    trustLine: "Clear scope · On-time milestones · Source + ops walkthrough",
     ctaPrimary: "Get a quote",
     ctaSecondary: "View services",
     visual: {
@@ -915,7 +917,8 @@ const de: Dictionary = {
     eyebrow: "Studio",
     headline: "Vom [[Geschäftsproblem]] zum [[betreibbaren System]]",
     support:
-      "Nennen Sie das Ziel — verkaufen, Leads, Buchungen oder interne Ops. Dolphin Kick fixiert klaren Scope, liefert per Meilenstein und übergibt Source plus Einweisung. Keine Mannstunden-Theater und keine Tech-Liste; Maßstab sind Betriebsergebnisse. 7 Jahre Production: klare Sprache, kein aufgeblähter Scope.",
+      "Nennen Sie das Ziel — verkaufen, Leads, Buchungen oder interne Ops. Dolphin Kich fixiert klaren Scope, liefert per Meilenstein und übergibt Source plus Einweisung.",
+    trustLine: "Klarer Scope · Meilensteine · Source + Betriebsanleitung",
     ctaPrimary: "Angebot anfordern",
     ctaSecondary: "Leistungen ansehen",
     visual: {
@@ -1356,7 +1359,8 @@ const ja: Dictionary = {
     eyebrow: "Studio",
     headline: "事業の[[課題]]から、[[運用しやすいシステム]]へ",
     support:
-      "販売・リード獲得・予約・社内運用など、ゴールを教えてください。Dolphin Kickはスコープを明確にし、マイルストーンで届け、ソースと操作ガイドを引き渡します。工数売りや技術カタログではなく、運用成果で測ります。本番7年：率直な対話、スコープ水増しなし。",
+      "販売・リード獲得・予約・社内運用など、ゴールを教えてください。Dolphin Kichはスコープを明確にし、マイルストーンで届け、ソースと操作ガイドを引き渡します。",
+    trustLine: "明確なスコープ · マイルストーン · ソース＋運用ガイド",
     ctaPrimary: "見積もりを依頼",
     ctaSecondary: "サービスを見る",
     visual: {
@@ -1796,7 +1800,8 @@ const zh: Dictionary = {
     eyebrow: "Studio",
     headline: "从[[业务问题]]到[[可运营的系统]]",
     support:
-      "告诉我们目标——获客、销售、预约还是内部运营。Dolphin Kick 锁定清晰范围、按里程碑交付，并交接源码与操作指引，让团队能自跑。不卖工时演戏或技术清单；以运营结果衡量。7 年生产经验：直率沟通，不虚增范围。",
+      "告诉我们目标——获客、销售、预约还是内部运营。Dolphin Kich 锁定清晰范围、按里程碑交付，并交接源码与操作指引，让团队能自跑。",
+    trustLine: "范围清晰 · 里程碑准时 · 源码 + 运营指引",
     ctaPrimary: "获取报价",
     ctaSecondary: "查看服务",
     visual: {
