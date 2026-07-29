@@ -239,7 +239,7 @@ function NeuralSphere() {
   }, []);
 
   return (
-    <div className="relative mx-auto aspect-square w-[68%] max-w-[16rem] translate-x-3 md:translate-x-4 lg:translate-x-6">
+    <div className="relative mx-auto aspect-square w-[78%] max-w-[18rem]">
       {/* Soft accent bloom */}
       <div
         aria-hidden
@@ -467,98 +467,100 @@ function TechnologyDashboard({
   live: string;
   widgets: { activity: string; pulse: string; nodes: string };
 }) {
+  const widgetClass =
+    "kuct-tech-widget rounded-xl border border-[var(--kuct-border)] bg-[rgba(6,6,14,0.9)] p-2.5 backdrop-blur-md sm:p-3";
+
   return (
     <div
-      className="kuct-glass relative overflow-hidden rounded-[1.75rem] border border-white/70 p-4 shadow-[var(--kuct-shadow)] sm:p-5 md:p-6"
+      className="kuct-tech-dashboard relative overflow-hidden rounded-[1.5rem] border border-[var(--kuct-border)] p-4 sm:p-5 md:p-6"
       aria-hidden
     >
-      <div className="pointer-events-none absolute -right-12 -top-14 h-44 w-44 rounded-full bg-[var(--kuct-glow-1)] blur-3xl" />
-      <div className="pointer-events-none absolute -bottom-16 -left-10 h-40 w-40 rounded-full bg-[var(--kuct-glow-2)] blur-3xl" />
+      <div className="pointer-events-none absolute -right-16 -top-20 h-48 w-48 rounded-full bg-[var(--kuct-glow-1)] opacity-50 blur-3xl" />
 
-      <div className="relative mb-5 flex flex-wrap items-center justify-between gap-3">
-        <div className="flex flex-wrap gap-1.5 rounded-full bg-white/45 p-1 ring-1 ring-[var(--kuct-border)] backdrop-blur-md">
+      <div className="relative mb-4 flex flex-wrap items-center justify-between gap-2.5">
+        <div className="flex flex-wrap gap-1 rounded-full border border-[var(--kuct-border)] bg-[rgba(4,4,12,0.75)] p-0.5">
           {tabs.map((tab, index) => (
             <span
               key={tab}
               className={
                 index === 0
-                  ? "rounded-full bg-gradient-to-r from-[var(--kuct-btn-from)] via-[var(--kuct-btn-mid)] to-[var(--kuct-btn-to)] px-3.5 py-1.5 text-xs font-semibold text-[var(--kuct-on-accent)] shadow-sm"
-                  : "rounded-full px-3.5 py-1.5 text-xs font-semibold text-[var(--kuct-muted)]"
+                  ? "rounded-full bg-[var(--kuct-accent)] px-2.5 py-1 text-[11px] font-semibold text-[var(--kuct-on-accent)]"
+                  : "rounded-full px-2.5 py-1 text-[11px] font-medium text-[var(--kuct-muted)]"
               }
             >
               {tab}
             </span>
           ))}
         </div>
-        <span className="inline-flex items-center gap-1.5 rounded-full bg-white/70 px-3 py-1 text-[0.65rem] font-bold tracking-[0.14em] text-[var(--kuct-accent)] uppercase ring-1 ring-[var(--kuct-accent)]/20">
-          <span className="size-1.5 rounded-full bg-[var(--kuct-accent)] shadow-[0_0_0.4rem_rgba(155,126,248,0.9)]" />
+        <span className="inline-flex items-center gap-1.5 rounded-full border border-[var(--kuct-accent)]/25 bg-[rgba(8,8,16,0.85)] px-2.5 py-1 text-[0.6rem] font-semibold tracking-[0.14em] text-[var(--kuct-muted)] uppercase">
+          <span className="size-1.5 rounded-full bg-[var(--kuct-accent)] shadow-[0_0_0.35rem_rgb(var(--kuct-accent-rgb)/0.55)]" />
           {live}
         </span>
       </div>
 
-      <div className="relative min-h-[16.5rem] touch-pan-y sm:min-h-[18rem]">
+      <div className="relative touch-pan-y">
         <div className="pointer-events-none absolute inset-0 hidden items-center justify-center lg:flex">
           <DesktopNeuralSphere />
         </div>
 
-        {/* Activity bars — top left */}
-        <div className="animate-kuct-soft-float pointer-events-none absolute left-0 top-1 w-[42%] max-w-[9.5rem] rounded-2xl bg-white/75 p-3 shadow-[0_0.75rem_1.5rem_rgba(139,92,246,0.14)] ring-1 ring-white/80 backdrop-blur-md">
-          <p className="text-[0.65rem] font-semibold tracking-[0.12em] text-[var(--kuct-muted)] uppercase">
-            {widgets.activity}
-          </p>
-          <div className="mt-2.5 flex h-14 items-end gap-1">
-            {ACTIVITY_BARS.map((h, i) => (
-              <span
-                key={i}
-                className="min-w-0 flex-1 rounded-t-sm bg-gradient-to-t from-[var(--kuct-btn-from)] to-[var(--kuct-accent-3)] opacity-90"
-                style={{ height: `${h}px` }}
+        <div className="relative grid grid-cols-2 gap-2.5 lg:min-h-[19rem] lg:grid-cols-1 lg:gap-0">
+          <div className={`${widgetClass} lg:absolute lg:left-0 lg:top-1 lg:w-[38%] lg:max-w-[9rem]`}>
+            <p className="text-[0.6rem] font-semibold tracking-[0.12em] text-[var(--kuct-muted)] uppercase">
+              {widgets.activity}
+            </p>
+            <div className="mt-2 flex h-11 items-end gap-0.5 sm:h-12 sm:gap-1">
+              {ACTIVITY_BARS.map((h, i) => (
+                <span
+                  key={i}
+                  className="min-w-0 flex-1 rounded-t-sm bg-gradient-to-t from-[var(--kuct-btn-from)] to-[var(--kuct-accent-3)] opacity-85"
+                  style={{ height: `${Math.round(h * 0.85)}px` }}
+                />
+              ))}
+            </div>
+          </div>
+
+          <div
+            className={`${widgetClass} text-center lg:absolute lg:right-0 lg:top-0 lg:w-auto lg:px-3.5 lg:py-2.5`}
+          >
+            <p className="font-display text-2xl font-semibold leading-none text-[var(--kuct-accent)] sm:text-[1.65rem]">
+              26
+            </p>
+            <p className="mt-1 text-[0.6rem] font-semibold tracking-[0.1em] text-[var(--kuct-muted)] uppercase">
+              {widgets.nodes}
+            </p>
+          </div>
+
+          <div className={`${widgetClass} col-span-2 sm:col-span-1 lg:absolute lg:bottom-1 lg:left-0 lg:w-[42%] lg:max-w-[10rem]`}>
+            <p className="text-[0.6rem] font-semibold tracking-[0.12em] text-[var(--kuct-muted)] uppercase">
+              {widgets.pulse}
+            </p>
+            <svg viewBox="0 0 120 36" className="mt-1.5 h-8 w-full" aria-hidden>
+              <path
+                d={pulseWavePath(PULSE_Y, 120, true)}
+                fill="rgb(var(--kuct-accent-rgb) / 0.12)"
               />
+              <path
+                d={pulseWavePath(PULSE_Y)}
+                fill="none"
+                stroke="var(--kuct-accent)"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </div>
+
+          <div className="col-span-2 flex items-center justify-end gap-1.5 sm:col-span-1 lg:absolute lg:bottom-2 lg:right-0 lg:flex-col lg:items-end lg:gap-1">
+            {["API", "CI", "AI"].map((label) => (
+              <span
+                key={label}
+                className="inline-flex items-center gap-1 rounded-full border border-[var(--kuct-border)] bg-[rgba(6,6,14,0.88)] px-2 py-0.5 text-[0.6rem] font-medium tracking-wide text-[var(--kuct-muted)]"
+              >
+                <span className="size-1 rounded-full bg-[var(--kuct-accent)]/80" />
+                {label}
+              </span>
             ))}
           </div>
-        </div>
-
-        {/* Big metric — top right */}
-        <div className="animate-kuct-soft-float-alt pointer-events-none absolute right-0 top-0 rounded-2xl bg-white/80 px-4 py-3 text-center shadow-[0_0.75rem_1.5rem_rgba(139,92,246,0.16)] ring-1 ring-white/80 backdrop-blur-md [animation-delay:0.4s]">
-          <p className="font-display text-3xl font-semibold leading-none text-[var(--kuct-accent)]">
-            26
-          </p>
-          <p className="mt-1 text-[0.65rem] font-semibold tracking-[0.1em] text-[var(--kuct-muted)] uppercase">
-            {widgets.nodes}
-          </p>
-        </div>
-
-        {/* Mini sparkline — bottom left */}
-        <div className="animate-kuct-soft-float pointer-events-none absolute bottom-2 left-0 w-[46%] max-w-[10rem] rounded-2xl bg-white/75 p-3 shadow-[0_0.75rem_1.5rem_rgba(139,92,246,0.14)] ring-1 ring-white/80 backdrop-blur-md [animation-delay:0.7s]">
-          <p className="text-[0.65rem] font-semibold tracking-[0.12em] text-[var(--kuct-muted)] uppercase">
-            {widgets.pulse}
-          </p>
-          <svg viewBox="0 0 120 36" className="mt-2 h-9 w-full" aria-hidden>
-            <path
-              d={pulseWavePath(PULSE_Y, 120, true)}
-              fill="rgb(var(--kuct-accent-rgb) / 0.16)"
-            />
-            <path
-              d={pulseWavePath(PULSE_Y)}
-              fill="none"
-              stroke="var(--kuct-accent)"
-              strokeWidth="2.2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </div>
-
-        {/* Status chips — bottom right */}
-        <div className="animate-kuct-soft-float-alt pointer-events-none absolute bottom-3 right-0 flex flex-col gap-1.5 [animation-delay:1s]">
-          {["API", "CI", "AI"].map((label) => (
-            <span
-              key={label}
-              className="inline-flex items-center gap-1.5 rounded-full border border-white/70 bg-white/75 px-2.5 py-1 text-[0.65rem] font-semibold tracking-wide text-[var(--kuct-text)] shadow-sm backdrop-blur-md"
-            >
-              <span className="size-1.5 rounded-full bg-[var(--kuct-accent)]" />
-              {label}
-            </span>
-          ))}
         </div>
       </div>
     </div>
@@ -575,23 +577,26 @@ export function Technology() {
       id="technology"
       className="relative scroll-mt-20 overflow-hidden py-24"
     >
-      <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 lg:grid-cols-[0.95fr_1.05fr] lg:gap-14">
-        <Reveal className="max-w-xl" variant="left">
-          <p className="text-xs font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase">
+      <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:gap-20">
+        <Reveal className="max-w-lg" variant="left">
+          <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
             {ai.eyebrow}
           </p>
-          <h2 className="mt-4 font-display text-3xl font-semibold leading-tight tracking-tight text-[var(--kuct-text)] sm:text-4xl">
+          <h2 className="mt-4 max-w-[16ch] font-display text-3xl font-semibold leading-[1.12] tracking-tight text-[var(--kuct-text)] sm:max-w-[18ch] sm:text-[2.15rem] lg:text-[2.35rem] lg:leading-[1.1]">
             <AccentText>{ai.headline}</AccentText>
           </h2>
-          <p className="mt-5 max-w-md text-sm leading-relaxed text-[var(--kuct-muted)] sm:text-base">
+          <p className="mt-5 max-w-[36ch] text-base leading-[1.7] text-[var(--kuct-muted)]">
             {ai.support}
           </p>
           <a
             href={assetPath("/ai-transform/")}
-            className="kuct-btn-primary mt-8 inline-flex items-center rounded-full px-7 py-3 text-sm font-semibold"
+            className="kuct-btn-primary mt-8 inline-flex items-center rounded-full px-8 py-3.5 text-sm font-semibold shadow-[0_12px_32px_rgb(var(--kuct-accent-rgb)/0.38)]"
           >
             {tech.cta}
           </a>
+          <p className="mt-4 max-w-md text-xs leading-relaxed tracking-wide text-[var(--kuct-muted)]/90">
+            {ai.trustLine}
+          </p>
         </Reveal>
 
         <Reveal variant="right" delay={100}>
