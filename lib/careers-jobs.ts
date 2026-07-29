@@ -20,11 +20,17 @@ export const JOB_HIRING: Record<JobId, JobHiringMeta> = {
   mobile: { kind: "open", durationDays: 45 },
   backend: { kind: "open", durationDays: 50 },
   sales: { kind: "open" },
+  "ai-engineer": { kind: "open" },
+  "intern-fullstack": { kind: "open" },
+  "fresher-tester": { kind: "open" },
 };
 
 /** Display / form order: open & priority first, closed last. */
 export const JOB_DISPLAY_ORDER: JobId[] = [
   "sales",
+  "ai-engineer",
+  "intern-fullstack",
+  "fresher-tester",
   "mobile",
   "backend",
   "frontend",

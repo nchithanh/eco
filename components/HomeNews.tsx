@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { AccentText } from "@/components/BrandName";
 import { LazyImage } from "@/components/LazyImage";
+import { Reveal } from "@/components/Reveal";
 import { usePagePreview } from "@/components/PagePreviewProvider";
 import { assetPath, themeAsset } from "@/lib/asset";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
@@ -14,8 +15,8 @@ import {
   listNews,
 } from "@/lib/news-details";
 
-const PAGE_SIZE = 8;
-const FEATURED_COUNT = 2;
+const PAGE_SIZE = 9;
+const FEATURED_COUNT = 3;
 
 export function HomeNews() {
   const { locale, t } = useLocale();
@@ -51,37 +52,41 @@ export function HomeNews() {
   const viewAllHref = assetPath("/news/");
 
   return (
-    <section id="news" className="scroll-mt-20 border-t border-white/40 py-24">
+    <section id="news" className="scroll-mt-20 py-24">
       <div className="mx-auto max-w-6xl px-6">
-        <p className="text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
-          {n.homeEyebrow}
-        </p>
-        <div className="mt-3 flex flex-wrap items-end justify-between gap-4">
-          <h2 className="max-w-2xl font-display text-2xl font-semibold sm:text-3xl">
-            <AccentText>{n.homeTitle}</AccentText>
-          </h2>
-          <a
-            href={viewAllHref}
-            className="kuct-link text-sm font-semibold text-[var(--kuct-text)]"
-          >
-            {n.viewAll}
-          </a>
-        </div>
-        <p className="mt-3 max-w-2xl text-sm leading-relaxed text-[var(--kuct-muted)] sm:text-base">
-          {n.blurb}
-        </p>
+        <Reveal>
+          <p className="text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
+            {n.homeEyebrow}
+          </p>
+          <div className="mt-3 flex flex-wrap items-end justify-between gap-4">
+            <h2 className="max-w-2xl font-display text-xl font-semibold sm:text-2xl">
+              <AccentText>{n.homeTitle}</AccentText>
+            </h2>
+            <a
+              href={viewAllHref}
+              className="kuct-link text-sm font-semibold text-[var(--kuct-text)]"
+            >
+              {n.viewAll}
+            </a>
+          </div>
+          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-[var(--kuct-muted)]">
+            {n.blurb}
+          </p>
+        </Reveal>
 
-        <ul className="mt-12 grid grid-cols-1 gap-x-8 gap-y-1 md:grid-cols-2">
+        <ul className="mt-12 grid grid-cols-1 gap-x-8 gap-y-1 md:grid-cols-3">
           {visible.map((item, index) => {
             const href = assetPath(`/news/${item.slug}/`);
             const featured = index < FEATURED_COUNT;
             return (
-              <li
+              <Reveal
+                as="li"
                 key={item.slug}
+                delay={index * 60}
                 className={`group kuct-list-hover touch-pan-y -mx-3 flex h-full flex-col rounded-2xl px-3 ${featured ? "py-4" : "py-3"}`}
               >
                 {featured ? (
-                  <div className="relative mb-3 aspect-[16/10] overflow-hidden rounded-xl border border-white/60 bg-white/40">
+                  <div className="relative mb-3 aspect-[16/10] overflow-hidden rounded-xl border border-[var(--kuct-border)] bg-[rgba(12,10,24,0.5)]">
                     <LazyImage
                       src={themeAsset(getNewsImage(item.slug), theme)}
                       alt=""
@@ -102,21 +107,16 @@ export function HomeNews() {
                     {n.categories[item.category]}
                   </span>
                 </div>
-                <h3 className="mt-1 font-display text-xl font-semibold tracking-tight text-[var(--kuct-text)] sm:text-2xl">
+                <h3 className="mt-1 font-display text-lg font-semibold tracking-tight text-[var(--kuct-text)] sm:text-xl">
                   <a
                     href={href}
-                    className="line-clamp-1 transition duration-300 group-hover:text-[var(--kuct-accent)] group-focus-within:text-[var(--kuct-accent)] focus-visible:text-[var(--kuct-accent)]"
+                    className="line-clamp-2 transition duration-300 group-hover:text-[var(--kuct-accent)] group-focus-within:text-[var(--kuct-accent)] focus-visible:text-[var(--kuct-accent)]"
                     onClick={(event) => openHref(href, event)}
                   >
                     {item.title}
                   </a>
                 </h3>
-                {featured ? (
-                  <p className="mt-1 max-w-3xl text-sm leading-relaxed text-[var(--kuct-muted)] sm:text-base line-clamp-2">
-                    {item.excerpt}
-                  </p>
-                ) : null}
-              </li>
+              </Reveal>
             );
           })}
         </ul>

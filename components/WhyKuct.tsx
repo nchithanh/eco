@@ -1,6 +1,7 @@
 "use client";
 
 import { AccentText, BrandText } from "@/components/BrandName";
+import { Reveal } from "@/components/Reveal";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
 
 const REASON_IDS = [
@@ -134,10 +135,10 @@ export function WhyKuct() {
   return (
     <section
       id="why"
-      className="scroll-mt-20 border-t border-white/40 py-24"
+      className="scroll-mt-20 py-24"
     >
       <div className="relative mx-auto max-w-6xl px-6">
-        <div>
+        <Reveal>
           <p className="text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
             <BrandText size="xs">{t.why.eyebrow}</BrandText>
           </p>
@@ -147,14 +148,16 @@ export function WhyKuct() {
           <p className="mt-3 max-w-2xl text-[var(--kuct-muted)]">
             {t.why.support}
           </p>
-        </div>
+        </Reveal>
         <ul className="mt-14 grid gap-6 sm:grid-cols-2">
           {reasons.map((reason, index) => {
             const artId = REASON_IDS[index] ?? "experience";
 
             return (
-              <li
+              <Reveal
+                as="li"
                 key={reason.title}
+                delay={index * 70}
                 className="group kuct-glass kuct-card-hover relative overflow-hidden rounded-2xl p-6"
               >
                 <div className="relative z-10 max-w-[calc(100%-5.5rem)]">
@@ -171,7 +174,7 @@ export function WhyKuct() {
                 >
                   <WhyArt id={artId} />
                 </div>
-              </li>
+              </Reveal>
             );
           })}
         </ul>

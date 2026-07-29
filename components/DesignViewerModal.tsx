@@ -46,9 +46,9 @@ export function DesignViewerModal({
         role="dialog"
         aria-modal="true"
         aria-label={d.viewerLabel}
-        className="relative z-10 flex max-h-[min(94svh,60rem)] w-full max-w-4xl flex-col overflow-hidden rounded-[1.5rem] border border-white/70 bg-[var(--kuct-bg)] shadow-[0_1.5rem_4rem_rgba(30,27,46,0.4)]"
+        className="relative z-10 flex max-h-[min(94svh,60rem)] w-full max-w-4xl flex-col overflow-hidden rounded-[1.5rem] border border-[var(--kuct-border)] bg-[rgba(8,8,18,0.95)] shadow-[0_1.5rem_4rem_rgb(0_0_0/0.5)]"
       >
-        <div className="flex shrink-0 items-center justify-between gap-3 border-b border-white/50 bg-white/55 px-4 py-3 backdrop-blur-xl sm:px-5">
+        <div className="flex shrink-0 items-center justify-between gap-3 border-b border-[var(--kuct-border)] bg-[rgba(8,8,18,0.95)] px-4 py-3 backdrop-blur-xl sm:px-5">
           <p className="min-w-0 truncate text-sm font-semibold text-[var(--kuct-text)]">
             {d.viewerLabel}
           </p>
@@ -61,7 +61,7 @@ export function DesignViewerModal({
           </button>
         </div>
 
-        <div className="min-h-0 flex-1 overflow-y-auto bg-[#1e1b2e]/6">
+        <div className="min-h-0 flex-1 overflow-y-auto bg-[rgba(8,8,18,0.85)]">
           <div className="relative mx-auto w-full max-w-3xl">
             <LazyImage
               src={assetPath(BILLIARD_DESIGN_SRC)}

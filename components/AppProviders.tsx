@@ -2,7 +2,7 @@
 
 import type { ReactNode } from "react";
 import { AgentLoader } from "@/components/AgentLoader";
-import { ContactFab } from "@/components/ContactFab";
+import { AiChatWidget } from "@/components/AiChatWidget";
 import { CookieConsent } from "@/components/CookieConsent";
 import { PagePreviewProvider } from "@/components/PagePreviewProvider";
 import { QuoteProvider } from "@/components/QuoteProvider";
@@ -22,7 +22,7 @@ export function AppProviders({ children }: { children: ReactNode }) {
             {SHOW_WHALE_BACKDROP ? <WhaleBackdrop /> : null}
             <AgentLoader />
             <div className="relative z-10">{children}</div>
-            <ContactFab />
+            <AiChatWidget />
             <CookieConsent />
           </PagePreviewProvider>
         </QuoteProvider>

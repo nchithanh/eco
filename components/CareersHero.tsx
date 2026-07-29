@@ -8,8 +8,8 @@ export function CareersHero() {
   const h = t.careers.hero;
 
   return (
-    <section className="relative overflow-hidden border-b border-white/40 py-20 sm:py-28">
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[#faf5ff] via-white/40 to-[#ede9fe]/80" />
+    <section className="relative overflow-hidden border-b border-[var(--kuct-border)] py-20 sm:py-28">
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[rgba(var(--kuct-accent-rgb),0.08)] via-transparent to-[rgba(var(--kuct-accent-rgb),0.05)]" />
       <div className="relative mx-auto max-w-6xl px-6 text-center">
         <p className="text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
           {h.eyebrow}

@@ -10,9 +10,15 @@ const ServiceDetailContent = lazy(() =>
   })),
 );
 
-const CareersContent = lazy(() =>
-  import("@/components/CareersContent").then((mod) => ({
-    default: mod.CareersContent,
+const CustomAgentContent = lazy(() =>
+  import("@/components/CustomAgentContent").then((mod) => ({
+    default: mod.CustomAgentContent,
+  })),
+);
+
+const AiTransformContent = lazy(() =>
+  import("@/components/AiTransformContent").then((mod) => ({
+    default: mod.AiTransformContent,
   })),
 );
 
@@ -66,7 +72,7 @@ function PreviewLoading({ label }: { label: string }) {
       </p>
       <div
         aria-hidden
-        className="h-1 w-40 overflow-hidden rounded-full bg-white/60 ring-1 ring-white/70"
+        className="h-1 w-40 overflow-hidden rounded-full bg-[rgba(var(--kuct-accent-rgb),0.15)] ring-1 ring-[var(--kuct-border)]"
       >
         <div className="h-full w-1/2 animate-kuct-glow rounded-full bg-gradient-to-r from-[var(--kuct-btn-from)] via-[var(--kuct-btn-mid)] to-[var(--kuct-btn-to)]" />
       </div>
@@ -109,9 +115,9 @@ export function PagePreviewModal({
         role="dialog"
         aria-modal="true"
         aria-label={p.viewFull}
-        className="relative z-10 flex max-h-[min(92svh,56rem)] w-full max-w-5xl flex-col overflow-hidden rounded-[1.5rem] border border-white/70 bg-[var(--kuct-bg)] shadow-[0_1.5rem_4rem_rgba(30,27,46,0.35)]"
+        className="relative z-10 flex max-h-[min(92svh,56rem)] w-full max-w-5xl flex-col overflow-hidden rounded-[1.5rem] border border-[var(--kuct-border)] bg-[rgba(8,8,18,0.95)] shadow-[0_1.5rem_4rem_rgb(0_0_0/0.5)]"
       >
-        <div className="flex shrink-0 items-center justify-between gap-3 border-b border-white/50 bg-white/55 px-4 py-3 backdrop-blur-xl sm:px-5">
+        <div className="flex shrink-0 items-center justify-between gap-3 border-b border-[var(--kuct-border)] bg-[rgba(8,8,18,0.95)] px-4 py-3 backdrop-blur-xl sm:px-5">
           <button
             type="button"
             className="kuct-btn-ghost rounded-full px-4 py-2 text-sm font-medium"
@@ -144,8 +150,10 @@ export function PagePreviewModal({
                 <NewsContent embedded />
               ) : target.kind === "news-detail" ? (
                 <NewsDetailContent slug={target.slug} embedded />
+              ) : target.kind === "custom-agent" ? (
+                <CustomAgentContent embedded />
               ) : (
-                <CareersContent embedded />
+                <AiTransformContent embedded />
               )}
             </Suspense>
           )}

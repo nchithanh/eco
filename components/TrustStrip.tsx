@@ -1,5 +1,6 @@
 "use client";
 
+import { Reveal } from "@/components/Reveal";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
 
 export function TrustStrip() {
@@ -10,22 +11,27 @@ export function TrustStrip() {
     <section
       id="handover"
       aria-label={aria}
-      className="border-t border-white/40 py-14 sm:py-16"
+      className="py-14 sm:py-16"
     >
       <div className="mx-auto max-w-6xl px-6">
-        <p className="text-center text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
-          {eyebrow}
-        </p>
-        <h2 className="mt-3 text-center font-display text-2xl font-semibold sm:text-3xl">
-          {title}
-        </h2>
-        <p className="mx-auto mt-3 max-w-2xl text-center text-sm leading-relaxed text-[var(--kuct-muted)] sm:text-base">
-          {support}
-        </p>
+        <Reveal className="text-center">
+          <p className="text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
+            {eyebrow}
+          </p>
+          <h2 className="mt-3 font-display text-2xl font-semibold sm:text-3xl">
+            {title}
+          </h2>
+          <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-[var(--kuct-muted)] sm:text-base">
+            {support}
+          </p>
+        </Reveal>
         <ul className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-5 lg:gap-4">
-          {items.map((item) => (
-            <li
+          {items.map((item, index) => (
+            <Reveal
+              as="li"
               key={item.value}
+              delay={index * 50}
+              variant="scale"
               className="kuct-glass rounded-2xl px-4 py-4 text-left"
             >
               <p className="font-display text-sm font-semibold text-[var(--kuct-text)] sm:text-base">
@@ -34,7 +40,7 @@ export function TrustStrip() {
               <p className="mt-1.5 text-xs leading-snug text-[var(--kuct-muted)] sm:text-sm">
                 {item.label}
               </p>
-            </li>
+            </Reveal>
           ))}
         </ul>
       </div>

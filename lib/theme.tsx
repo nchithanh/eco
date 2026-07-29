@@ -29,7 +29,7 @@ export const DEFAULT_THEME: ThemeId = "violet";
 export const THEME_STORAGE_KEY = "kuct-theme";
 
 export const THEME_SWATCH: Record<ThemeId, string> = {
-  violet: "#9b7ef8",
+  violet: "#7c3aed",
   ocean: "#0d9488",
   forest: "#3d8b6e",
   coral: "#e11d48",

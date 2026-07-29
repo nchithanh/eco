@@ -95,7 +95,7 @@ export function CookieConsent() {
       aria-describedby="kuct-cookie-body"
       className="pointer-events-none fixed inset-x-0 bottom-0 z-[130] flex justify-center p-4 sm:p-6"
     >
-      <div className="pointer-events-auto relative w-full max-w-6xl animate-kuct-fade rounded-2xl border border-white/70 bg-white/90 p-5 shadow-[0_1.25rem_3rem_rgba(139,92,246,0.18)] backdrop-blur-xl sm:p-6">
+      <div className="kuct-cookie-banner pointer-events-auto relative w-full max-w-6xl animate-kuct-fade rounded-2xl p-5 sm:p-6">
         <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between lg:gap-8">
           <div className="min-w-0 flex-1">
             <p

@@ -29,6 +29,9 @@ export type Dictionary = {
     stack: string;
     news: string;
     careers: string;
+    customAgent: string;
+    customAgentItem: string;
+    aiTransform: string;
     contact: string;
   };
   banner: {
@@ -218,7 +221,15 @@ export type Dictionary = {
       seconds: string;
     };
     jobs: {
-      id: "frontend" | "mobile" | "backend" | "design" | "sales";
+      id:
+        | "frontend"
+        | "mobile"
+        | "backend"
+        | "design"
+        | "sales"
+        | "ai-engineer"
+        | "intern-fullstack"
+        | "fresher-tester";
       title: string;
       summary: string;
       bullets: string[];

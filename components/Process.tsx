@@ -1,12 +1,11 @@
 "use client";
 
 import {
-  useEffect,
-  useRef,
-  useState,
   type CSSProperties,
 } from "react";
 import { AccentText } from "@/components/BrandName";
+import { Reveal } from "@/components/Reveal";
+import { useInView } from "@/lib/useInView";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
 
 const STEP_TONES = [
@@ -34,31 +33,7 @@ function ProcessStep({
   tone: string;
   deliverableLabel: string;
 }) {
-  const ref = useRef<HTMLLIElement>(null);
-  const [inView, setInView] = useState(false);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduced || typeof IntersectionObserver === "undefined") {
-      setInView(true);
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (!entry?.isIntersecting) return;
-        setInView(true);
-        observer.disconnect();
-      },
-      { threshold: 0.18, rootMargin: "0px 0px -6% 0px" },
-    );
-
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
+  const { ref, inView } = useInView<HTMLLIElement>({ threshold: 0.18, rootMargin: "0px 0px -6% 0px" });
 
   return (
     <li
@@ -72,7 +47,7 @@ function ProcessStep({
     >
       <span
         aria-hidden
-        className="absolute top-5 left-0 grid size-9 place-items-center rounded-full text-xs font-bold text-white shadow-[0_8px_20px_rgba(var(--kuct-accent-rgb),0.28)] sm:size-10 sm:text-sm"
+        className="absolute top-5 left-0 z-10 grid size-9 place-items-center rounded-full text-xs font-bold text-white shadow-[0_8px_20px_rgba(var(--kuct-accent-rgb),0.28)] sm:size-10 sm:text-sm"
         style={{
           background: tone,
           boxShadow: `0 8px 22px color-mix(in srgb, ${tone} 40%, transparent)`,
@@ -112,18 +87,20 @@ export function Process() {
   return (
     <section
       id="process"
-      className="scroll-mt-20 border-t border-white/40 py-24"
+      className="scroll-mt-20 py-24"
     >
       <div className="mx-auto max-w-6xl px-6">
-        <p className="text-center text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
-          {t.process.eyebrow}
-        </p>
-        <h2 className="mt-3 text-center font-display text-3xl font-semibold sm:text-4xl">
-          <AccentText>{t.process.title}</AccentText>
-        </h2>
-        <p className="mx-auto mt-3 max-w-2xl text-center text-[var(--kuct-muted)]">
-          {t.process.support}
-        </p>
+        <Reveal className="mx-auto max-w-2xl text-center">
+          <p className="text-center text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
+            {t.process.eyebrow}
+          </p>
+          <h2 className="mt-3 text-center font-display text-3xl font-semibold sm:text-4xl">
+            <AccentText>{t.process.title}</AccentText>
+          </h2>
+          <p className="mx-auto mt-3 max-w-2xl text-center text-[var(--kuct-muted)]">
+            {t.process.support}
+          </p>
+        </Reveal>
 
         <div className="kuct-glass mx-auto mt-14 max-w-3xl rounded-[1.75rem] p-5 sm:p-8">
           <ol className="relative m-0 list-none space-y-5 p-0 sm:space-y-6">

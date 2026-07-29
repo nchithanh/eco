@@ -4,18 +4,15 @@ import { usePathname } from "next/navigation";
 import { BrandName } from "@/components/BrandName";
 import { BASE_PATH, assetPath } from "@/lib/asset";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
-import { usePagePreview } from "@/components/PagePreviewProvider";
-
 export function Footer() {
   const { t } = useLocale();
   const pathname = usePathname();
-  const { openHref } = usePagePreview();
   const sectionBase = pathname === "/" ? "" : `${BASE_PATH}/`;
 
   const linkClass = "kuct-link";
 
   return (
-    <footer className="border-t border-white/40 py-10">
+    <footer className="py-10">
       <div className="mx-auto flex max-w-6xl flex-col gap-4 px-6 sm:flex-row sm:items-center sm:justify-between">
         <p className="flex items-center gap-2 text-sm font-medium text-[var(--kuct-text)]">
           <BrandName size="sm" />
@@ -28,6 +25,12 @@ export function Footer() {
           <a href={`${sectionBase}#capabilities`} className={linkClass}>
             {t.nav.services}
           </a>
+          <a href={assetPath("/custom-agent/")} className={linkClass}>
+            {t.nav.customAgentItem}
+          </a>
+          <a href={assetPath("/ai-transform/")} className={linkClass}>
+            {t.nav.aiTransform}
+          </a>
           <a href={`${sectionBase}#process`} className={linkClass}>
             {t.nav.process}
           </a>
@@ -37,11 +40,7 @@ export function Footer() {
           <a href={assetPath("/news/")} className={linkClass}>
             {t.nav.news}
           </a>
-          <a
-            href={assetPath("/careers/")}
-            className={linkClass}
-            onClick={(event) => openHref(assetPath("/careers/"), event)}
-          >
+          <a href={assetPath("/careers/")} className={linkClass}>
             {t.nav.careers}
           </a>
           <a href={`${sectionBase}#contact`} className={linkClass}>

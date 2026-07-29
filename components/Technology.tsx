@@ -1,7 +1,10 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AccentText } from "@/components/BrandName";
+import { Reveal } from "@/components/Reveal";
+import { assetPath } from "@/lib/asset";
+import { getAiTransformCopy } from "@/lib/i18n/ai-transform-copy";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
 
 /** Demo series for Activity bars (px within h-14 / 56px track). */
@@ -163,6 +166,27 @@ function dataArcPath(x1: number, y1: number, x2: number, y2: number): string {
   const cx = mx + (dx / len) * bulge;
   const cy = my + (dy / len) * bulge;
   return `M${x1} ${y1} Q${cx} ${cy} ${x2} ${y2}`;
+}
+
+function useDesktopLg() {
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 1024px)");
+    const sync = () => setIsDesktop(mq.matches);
+    sync();
+    mq.addEventListener("change", sync);
+    return () => mq.removeEventListener("change", sync);
+  }, []);
+
+  return isDesktop;
+}
+
+/** Skip mounting the animated globe below lg — heavy SVG/CSS lags on mobile/tablet. */
+function DesktopNeuralSphere() {
+  const isDesktop = useDesktopLg();
+  if (!isDesktop) return null;
+  return <NeuralSphere />;
 }
 
 function NeuralSphere() {
@@ -472,13 +496,13 @@ function TechnologyDashboard({
         </span>
       </div>
 
-      <div className="relative min-h-[16.5rem] sm:min-h-[18rem]">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <NeuralSphere />
+      <div className="relative min-h-[16.5rem] touch-pan-y sm:min-h-[18rem]">
+        <div className="pointer-events-none absolute inset-0 hidden items-center justify-center lg:flex">
+          <DesktopNeuralSphere />
         </div>
 
         {/* Activity bars — top left */}
-        <div className="animate-kuct-soft-float absolute left-0 top-1 w-[42%] max-w-[9.5rem] rounded-2xl bg-white/75 p-3 shadow-[0_0.75rem_1.5rem_rgba(139,92,246,0.14)] ring-1 ring-white/80 backdrop-blur-md">
+        <div className="animate-kuct-soft-float pointer-events-none absolute left-0 top-1 w-[42%] max-w-[9.5rem] rounded-2xl bg-white/75 p-3 shadow-[0_0.75rem_1.5rem_rgba(139,92,246,0.14)] ring-1 ring-white/80 backdrop-blur-md">
           <p className="text-[0.65rem] font-semibold tracking-[0.12em] text-[var(--kuct-muted)] uppercase">
             {widgets.activity}
           </p>
@@ -494,7 +518,7 @@ function TechnologyDashboard({
         </div>
 
         {/* Big metric — top right */}
-        <div className="animate-kuct-soft-float-alt absolute right-0 top-0 rounded-2xl bg-white/80 px-4 py-3 text-center shadow-[0_0.75rem_1.5rem_rgba(139,92,246,0.16)] ring-1 ring-white/80 backdrop-blur-md [animation-delay:0.4s]">
+        <div className="animate-kuct-soft-float-alt pointer-events-none absolute right-0 top-0 rounded-2xl bg-white/80 px-4 py-3 text-center shadow-[0_0.75rem_1.5rem_rgba(139,92,246,0.16)] ring-1 ring-white/80 backdrop-blur-md [animation-delay:0.4s]">
           <p className="font-display text-3xl font-semibold leading-none text-[var(--kuct-accent)]">
             26
           </p>
@@ -504,7 +528,7 @@ function TechnologyDashboard({
         </div>
 
         {/* Mini sparkline — bottom left */}
-        <div className="animate-kuct-soft-float absolute bottom-2 left-0 w-[46%] max-w-[10rem] rounded-2xl bg-white/75 p-3 shadow-[0_0.75rem_1.5rem_rgba(139,92,246,0.14)] ring-1 ring-white/80 backdrop-blur-md [animation-delay:0.7s]">
+        <div className="animate-kuct-soft-float pointer-events-none absolute bottom-2 left-0 w-[46%] max-w-[10rem] rounded-2xl bg-white/75 p-3 shadow-[0_0.75rem_1.5rem_rgba(139,92,246,0.14)] ring-1 ring-white/80 backdrop-blur-md [animation-delay:0.7s]">
           <p className="text-[0.65rem] font-semibold tracking-[0.12em] text-[var(--kuct-muted)] uppercase">
             {widgets.pulse}
           </p>
@@ -525,7 +549,7 @@ function TechnologyDashboard({
         </div>
 
         {/* Status chips — bottom right */}
-        <div className="animate-kuct-soft-float-alt absolute bottom-3 right-0 flex flex-col gap-1.5 [animation-delay:1s]">
+        <div className="animate-kuct-soft-float-alt pointer-events-none absolute bottom-3 right-0 flex flex-col gap-1.5 [animation-delay:1s]">
           {["API", "CI", "AI"].map((label) => (
             <span
               key={label}
@@ -542,40 +566,41 @@ function TechnologyDashboard({
 }
 
 export function Technology() {
-  const { t } = useLocale();
+  const { t, locale } = useLocale();
   const tech = t.technology;
+  const ai = getAiTransformCopy(locale);
 
   return (
     <section
       id="technology"
-      className="relative scroll-mt-20 overflow-hidden border-t border-white/40 py-24"
+      className="relative scroll-mt-20 overflow-hidden py-24"
     >
       <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 lg:grid-cols-[0.95fr_1.05fr] lg:gap-14">
-        <div className="animate-kuct-fade max-w-xl">
+        <Reveal className="max-w-xl" variant="left">
           <p className="text-xs font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase">
-            {tech.eyebrow}
+            {ai.eyebrow}
           </p>
           <h2 className="mt-4 font-display text-3xl font-semibold leading-tight tracking-tight text-[var(--kuct-text)] sm:text-4xl">
-            <AccentText>{tech.title}</AccentText>
+            <AccentText>{ai.headline}</AccentText>
           </h2>
           <p className="mt-5 max-w-md text-sm leading-relaxed text-[var(--kuct-muted)] sm:text-base">
-            {tech.support}
+            {ai.support}
           </p>
           <a
-            href="#stack"
+            href={assetPath("/ai-transform/")}
             className="kuct-btn-primary mt-8 inline-flex items-center rounded-full px-7 py-3 text-sm font-semibold"
           >
             {tech.cta}
           </a>
-        </div>
+        </Reveal>
 
-        <div className="animate-kuct-fade [animation-delay:100ms]">
+        <Reveal variant="right" delay={100}>
           <TechnologyDashboard
             tabs={tech.tabs}
             live={tech.live}
             widgets={tech.widgets}
           />
-        </div>
+        </Reveal>
       </div>
     </section>
   );

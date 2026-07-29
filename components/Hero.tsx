@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Logo } from "@/components/Logo";
 import { AccentText, BrandText } from "@/components/BrandName";
 import { useQuote } from "@/components/QuoteProvider";
+import { assetPath } from "@/lib/asset";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
 
 function IconWeb() {
@@ -75,33 +76,33 @@ function GlassPanels() {
       label: v.web,
       icon: <IconWeb />,
       className:
-        "kuct-glass-panel animate-kuct-float absolute left-[6%] top-[10%] flex h-[72%] w-[38%] -rotate-[10deg] flex-col items-center justify-center gap-3 rounded-[1.75rem] p-4 text-center",
+        "kuct-glass-panel kuct-hero-panel absolute left-[6%] top-[10%] flex h-[72%] w-[38%] -rotate-[10deg] flex-col items-center justify-center gap-3 rounded-[1.75rem] p-4 text-center",
     },
     {
       key: "automation",
       label: v.automation,
       icon: <IconAutomation />,
       className:
-        "kuct-glass-panel animate-kuct-float-delay absolute left-[31%] top-[2%] z-10 flex h-[82%] w-[40%] rotate-[6deg] flex-col items-center justify-center gap-3 rounded-[1.75rem] p-4 text-center",
+        "kuct-glass-panel kuct-hero-panel kuct-hero-panel--mid absolute left-[31%] top-[2%] z-10 flex h-[82%] w-[40%] rotate-[6deg] flex-col items-center justify-center gap-3 rounded-[1.75rem] p-4 text-center",
     },
     {
       key: "ai",
       label: v.ai,
       icon: <IconAi />,
       className:
-        "kuct-glass-panel animate-kuct-float absolute right-[4%] top-[14%] flex h-[68%] w-[36%] rotate-[14deg] flex-col items-center justify-center gap-3 rounded-[1.75rem] p-4 text-center [animation-delay:1.4s]",
+        "kuct-glass-panel kuct-hero-panel kuct-hero-panel--late absolute right-[4%] top-[14%] flex h-[68%] w-[36%] rotate-[14deg] flex-col items-center justify-center gap-3 rounded-[1.75rem] p-4 text-center",
     },
   ] as const;
 
   return (
     <div
-      className="relative mx-auto h-[280px] w-full max-w-md sm:h-[340px] lg:mx-0 lg:h-[420px] lg:max-w-none"
+      className="pointer-events-none relative mx-auto h-[280px] w-full max-w-md touch-pan-y sm:h-[340px] lg:mx-0 lg:h-[420px] lg:max-w-none"
       aria-hidden
     >
       <div className="kuct-glow-orb animate-kuct-glow absolute inset-0 rounded-full blur-2xl" />
       {panels.map((panel) => (
         <div key={panel.key} className={panel.className}>
-          <div className="grid size-12 place-items-center rounded-2xl bg-white/55 text-[var(--kuct-accent)] shadow-sm ring-1 ring-white/70">
+          <div className="grid size-12 place-items-center rounded-2xl bg-[rgba(20,16,40,0.8)] text-[var(--kuct-accent)] shadow-[0_0_16px_var(--kuct-accent),0_0_40px_rgb(var(--kuct-accent-rgb)/0.4)] ring-1 ring-[var(--kuct-accent)]">
             {panel.icon}
           </div>
           <p className="font-display text-[11px] font-bold tracking-[0.06em] text-[var(--kuct-text)] uppercase sm:text-xs">
@@ -110,6 +111,8 @@ function GlassPanels() {
           <div className="mt-1 h-1 w-10 rounded-full bg-[var(--kuct-accent)]/35" />
         </div>
       ))}
+      {/* Mirror reflection */}
+      <div className="kuct-hero-reflection absolute inset-x-0 top-full h-[45%]" />
     </div>
   );
 }
@@ -128,8 +131,13 @@ export function Hero() {
           <p className="inline-flex rounded-full border border-white/60 bg-white/40 px-3 py-1 text-xs font-semibold tracking-[0.18em] text-[var(--kuct-accent)] uppercase shadow-sm backdrop-blur-md">
             {t.hero.eyebrow}
           </p>
-          <div className="mt-6 text-[var(--kuct-text)]">
-            <Logo className="h-14 w-auto sm:h-16 md:h-20" />
+          <div className="mt-6 min-w-0 text-[var(--kuct-text)]">
+            <Logo
+              imageClassName="h-12 w-auto sm:h-14 md:h-16"
+              showWordmark
+              wordmarkClassName="font-display text-xl font-bold leading-none tracking-tight text-[var(--kuct-text)] sm:text-2xl md:text-3xl"
+              wordmarkTaglineClassName="text-[10px] font-medium tracking-[0.34em] text-[var(--kuct-muted)] uppercase sm:text-xs"
+            />
           </div>
           <h1 className="mt-6 max-w-xl font-display text-3xl font-semibold leading-[1.15] tracking-tight text-[var(--kuct-text)] sm:text-4xl lg:text-5xl">
             <AccentText>{t.hero.headline}</AccentText>
@@ -157,10 +165,10 @@ export function Hero() {
           <GlassPanels />
           {/* Companion only — sits beside panels, below brand column visual weight */}
           <Image
-            src="/mascot/dolphin-eco.png"
+            src={assetPath("/mascot/dolphin-eco.png")}
             alt=""
-            width={678}
-            height={977}
+            width={824}
+            height={1024}
             aria-hidden
             className="kuct-mascot-float pointer-events-none absolute -bottom-2 right-0 z-[1] h-40 w-auto max-w-[42%] object-contain drop-shadow-[0_12px_24px_rgba(var(--kuct-accent-rgb),0.22)] select-none sm:right-2 sm:h-48 lg:-bottom-4 lg:-right-2 lg:h-56"
           />

@@ -22,7 +22,7 @@ import {
 } from "@/lib/quote-estimator";
 
 const fieldClass =
-  "mt-1 w-full rounded-2xl border border-white/70 bg-white/50 px-4 py-2.5 text-[var(--kuct-text)] outline-none backdrop-blur-md kuct-field focus:border-[var(--kuct-accent)]";
+  "mt-1 w-full rounded-2xl border border-[var(--kuct-border)] bg-[rgba(12,10,24,0.8)] px-4 py-2.5 text-[var(--kuct-text)] outline-none backdrop-blur-md kuct-field focus:border-[var(--kuct-accent)]";
 
 type FormValues = {
   name: string;
@@ -47,8 +47,8 @@ function ChoiceButton({
       onClick={onClick}
       className={
         active
-          ? "rounded-xl border border-[var(--kuct-accent)] bg-[var(--kuct-accent)]/10 px-3 py-2.5 text-left text-sm font-semibold text-[var(--kuct-text)] shadow-sm"
-          : "rounded-xl border border-white/70 bg-white/45 px-3 py-2.5 text-left text-sm font-medium text-[var(--kuct-muted)] transition duration-300 hover:border-[var(--kuct-accent)]/30 hover:bg-white/70"
+          ? "rounded-xl border border-[var(--kuct-accent)] bg-[rgba(var(--kuct-accent-rgb),0.15)] px-3 py-2.5 text-left text-sm font-semibold text-[var(--kuct-text)] shadow-sm"
+          : "rounded-xl border border-[var(--kuct-border)] bg-[rgba(12,10,24,0.6)] px-3 py-2.5 text-left text-sm font-medium text-[var(--kuct-muted)] transition duration-300 hover:border-[var(--kuct-accent)]/50 hover:bg-[rgba(var(--kuct-accent-rgb),0.1)]"
       }
     >
       <span className="block">{label}</span>
@@ -169,9 +169,9 @@ export function QuoteEstimatorModal({
         role="dialog"
         aria-modal="true"
         aria-labelledby="kuct-quote-title"
-        className="relative z-10 flex max-h-[min(92svh,56rem)] w-full max-w-3xl flex-col overflow-hidden rounded-[1.5rem] border border-white/70 bg-[var(--kuct-bg)] shadow-[0_1.5rem_4rem_rgba(30,27,46,0.35)]"
+        className="relative z-10 flex max-h-[min(92svh,56rem)] w-full max-w-3xl flex-col overflow-hidden rounded-[1.5rem] border border-[var(--kuct-border)] bg-[var(--kuct-bg)] shadow-[0_1.5rem_4rem_rgba(0,0,0,0.6)]"
       >
-        <div className="flex shrink-0 items-start justify-between gap-3 border-b border-white/50 bg-white/55 px-4 py-3 backdrop-blur-xl sm:px-5">
+        <div className="flex shrink-0 items-start justify-between gap-3 border-b border-[var(--kuct-border)] bg-[rgba(8,8,18,0.9)] px-4 py-3 backdrop-blur-xl sm:px-5">
           <div className="min-w-0">
             <h2
               id="kuct-quote-title"
@@ -193,7 +193,7 @@ export function QuoteEstimatorModal({
         </div>
 
         <div className="min-h-0 flex-1 overflow-y-auto px-4 py-5 sm:px-5">
-          <div className="sticky top-0 z-[1] mb-6 rounded-2xl border border-[var(--kuct-accent)]/25 bg-gradient-to-r from-[#faf5ff] via-white/90 to-[#ede9fe] px-4 py-3 shadow-sm">
+          <div className="sticky top-0 z-[1] mb-6 rounded-2xl border border-[var(--kuct-accent)]/25 bg-[rgba(var(--kuct-accent-rgb),0.08)] px-4 py-3 shadow-sm backdrop-blur-md">
             <p className="text-xs font-semibold tracking-[0.14em] text-[var(--kuct-accent)] uppercase">
               {q.estimateLabel}
             </p>
@@ -340,7 +340,7 @@ export function QuoteEstimatorModal({
 
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className="mt-8 space-y-4 border-t border-white/50 pt-6"
+            className="mt-8 space-y-4 border-t border-[var(--kuct-border)] pt-6"
             noValidate
           >
             <h3 className="font-display text-base font-semibold text-[var(--kuct-text)]">
