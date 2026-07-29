@@ -165,6 +165,7 @@ export type Dictionary = {
     role: string;
     name: string;
     description: string;
+    stack: string[];
   };
   contact: {
     eyebrow: string;

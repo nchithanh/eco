@@ -395,7 +395,16 @@ const vi: Dictionary = {
     role: "Co-founder",
     name: "Nguyễn Chí Thành",
     description:
-      "7 năm làm sản phẩm và hệ thống — xây dựng, vận hành production, ứng phó sự cố, observability (Prometheus/Grafana), chuyển monolith→microservices, và workflow AI-agent có human-in-the-loop. Stack quen thuộc: NestJS, Golang, TypeScript, Docker, GitLab CI/CD, MySQL, Redis. Dolphin Kick đưa kinh nghiệm vận hành thật vào web & app cho SMB — giao tiếp thẳng, báo giá hợp lý.",
+      "7 năm product & systems — production ops, incident response, observability. Đưa kinh nghiệm vận hành thật vào web & app SMB: thẳng thắn, phạm vi rõ.",
+    stack: [
+      "NestJS",
+      "Golang",
+      "TypeScript",
+      "Docker",
+      "GitLab CI/CD",
+      "MySQL",
+      "Redis",
+    ],
   },
   contact: {
     eyebrow: "Liên hệ",
@@ -856,7 +865,16 @@ const en: Dictionary = {
     role: "Co-founder",
     name: "Nguyễn Chí Thành",
     description:
-      "7 years building products and systems — production operations, incident response, observability (Prometheus/Grafana), monolith→microservices, and AI-agent human-in-the-loop workflows. Stack: NestJS, Golang, TypeScript, Docker, GitLab CI/CD, MySQL, Redis. Dolphin Kick brings real ops experience to SMB web & apps — straight talk, fair pricing.",
+      "7 years in product & systems — production ops, incident response, observability. Real ops experience for SMB web & apps: straight talk, clear scope.",
+    stack: [
+      "NestJS",
+      "Golang",
+      "TypeScript",
+      "Docker",
+      "GitLab CI/CD",
+      "MySQL",
+      "Redis",
+    ],
   },
   contact: {
     eyebrow: "Contact",
@@ -1317,7 +1335,16 @@ const de: Dictionary = {
     role: "Co-founder",
     name: "Nguyễn Chí Thành",
     description:
-      "7 Jahre Produkte und Systeme bauen und betreiben — Production-Betrieb, Incident Response, Observability (Prometheus/Grafana), Monolith→Microservices und AI-Agent-Workflows mit Human-in-the-Loop. Stack: NestJS, Golang, TypeScript, Docker, GitLab CI/CD, MySQL, Redis. Dolphin Kick bringt echte Ops-Erfahrung in SMB Web & Apps — klare Kommunikation, faire Preise.",
+      "7 Jahre Product & Systems — Production-Ops, Incident Response, Observability. Echte Ops-Erfahrung für SMB Web & Apps: klar, fair im Scope.",
+    stack: [
+      "NestJS",
+      "Golang",
+      "TypeScript",
+      "Docker",
+      "GitLab CI/CD",
+      "MySQL",
+      "Redis",
+    ],
   },
   contact: {
     eyebrow: "Kontakt",
@@ -1778,7 +1805,16 @@ const ja: Dictionary = {
     role: "Co-founder",
     name: "Nguyễn Chí Thành",
     description:
-      "プロダクトとシステムの構築・運用で7年 — 本番運用、インシデント対応、Observability（Prometheus/Grafana）、モノリス→マイクロサービス、Human-in-the-Loop の AIエージェント連携。Stack: NestJS、Golang、TypeScript、Docker、GitLab CI/CD、MySQL、Redis。Dolphin Kickは現場の運用経験を SMB 向け Web & App に活かし、率直なコミュニケーションと妥当な価格で届けます。",
+      "7年のプロダクト＆システム — production ops、障害対応、Observability。SMB向けWeb/Appに実運用経験を：率直、スコープ明確。",
+    stack: [
+      "NestJS",
+      "Golang",
+      "TypeScript",
+      "Docker",
+      "GitLab CI/CD",
+      "MySQL",
+      "Redis",
+    ],
   },
   contact: {
     eyebrow: "お問い合わせ",
@@ -2239,7 +2275,16 @@ const zh: Dictionary = {
     role: "Co-founder",
     name: "Nguyễn Chí Thành",
     description:
-      "7 年做产品与系统——构建、生产运维、故障响应、可观测性（Prometheus/Grafana）、单体→微服务，以及有人工把关的 AI Agent 工作流。技术栈：NestJS、Golang、TypeScript、Docker、GitLab CI/CD、MySQL、Redis。Dolphin Kick 把真实运维经验带入 SMB 的 Web 与 App——直率沟通、合理报价。",
+      "7 年产品与系统——生产运维、应急响应、可观测性。把真实运维经验带入 SMB 站点与应用：直说、范围清晰。",
+    stack: [
+      "NestJS",
+      "Golang",
+      "TypeScript",
+      "Docker",
+      "GitLab CI/CD",
+      "MySQL",
+      "Redis",
+    ],
   },
   contact: {
     eyebrow: "联系",

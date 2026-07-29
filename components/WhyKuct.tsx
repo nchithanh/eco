@@ -108,7 +108,7 @@ export function WhyKuct() {
           <h2 className="mt-4 max-w-3xl font-display text-3xl font-semibold leading-[1.12] tracking-tight sm:text-[2.15rem] lg:text-[2.35rem] lg:leading-[1.1]">
             <AccentText>{title}</AccentText>
           </h2>
-          <p className="mt-5 max-w-[40ch] text-base leading-[1.7] text-[var(--kuct-muted)]">
+          <p className="mt-5 max-w-[68ch] text-base leading-[1.7] text-[var(--kuct-muted)] sm:whitespace-nowrap">
             {support}
           </p>
         </Reveal>
