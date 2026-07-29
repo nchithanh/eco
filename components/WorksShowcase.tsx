@@ -88,7 +88,6 @@ export function WorksShowcase() {
     const dx = event.clientX - start.x;
     const dy = event.clientY - start.y;
     if (Math.abs(dx) < 10 && Math.abs(dy) < 10) return;
-    // Lock axis early so vertical page scroll is never treated as pagination
     pointerAxis.current = Math.abs(dx) > Math.abs(dy) ? "x" : "y";
   };
 
@@ -111,41 +110,37 @@ export function WorksShowcase() {
   };
 
   return (
-    <section
-      id="works"
-      className="scroll-mt-20 py-24"
-    >
+    <section id="works" className="scroll-mt-20 py-24">
       <div className="mx-auto max-w-6xl px-6">
         <Reveal>
-          <p className="text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
+          <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
             {w.eyebrow}
           </p>
-          <h2 className="mt-3 max-w-2xl font-display text-3xl font-semibold sm:text-4xl">
+          <h2 className="mt-4 max-w-3xl font-display text-3xl font-semibold leading-[1.12] tracking-tight sm:text-[2.15rem] lg:text-[2.35rem] lg:leading-[1.1]">
             <AccentText>{w.title}</AccentText>
           </h2>
-          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-[var(--kuct-muted)] sm:text-base">
+          <p className="mt-5 max-w-[40ch] text-base leading-[1.7] text-[var(--kuct-muted)]">
             {w.support}
           </p>
           <a
             href="#contact"
-            className="kuct-btn-primary mt-6 inline-flex items-center rounded-full px-7 py-3 text-sm font-semibold"
+            className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--kuct-accent)] transition hover:text-[var(--kuct-text)]"
           >
             {w.cta}
+            <span aria-hidden>→</span>
           </a>
         </Reveal>
 
         <div
-          className="relative mt-12 touch-pan-y"
+          className="relative mt-12 touch-pan-y sm:mt-14"
           onPointerDown={onPointerDown}
           onPointerMove={onPointerMove}
           onPointerUp={onPointerUp}
           onPointerCancel={onPointerCancel}
         >
           <ul
-            className={`grid gap-5 ${
-              pageSize === 1
-                ? "grid-cols-1"
-                : "sm:grid-cols-2 lg:grid-cols-3"
+            className={`m-0 grid list-none gap-5 p-0 ${
+              pageSize === 1 ? "grid-cols-1" : "sm:grid-cols-2 lg:grid-cols-3"
             }`}
           >
             {visible.map((item, index) => {
@@ -153,7 +148,7 @@ export function WorksShowcase() {
               const href = slug ? assetPath(`/works/${slug}/`) : "#contact";
 
               return (
-                <Reveal as="li" key={item.id} delay={index * 70}>
+                <Reveal as="li" key={item.id} delay={index * 60}>
                   <a
                     href={href}
                     onClick={(event) => {
@@ -161,9 +156,9 @@ export function WorksShowcase() {
                       event.preventDefault();
                       openWork(slug);
                     }}
-                    className="group kuct-glass kuct-card-hover flex h-full touch-pan-y flex-col overflow-hidden rounded-2xl text-left"
+                    className="group flex h-full touch-pan-y flex-col overflow-hidden rounded-2xl border border-[var(--kuct-border)] bg-[rgba(6,6,14,0.88)] text-left backdrop-blur-md transition duration-300 hover:border-[var(--kuct-accent)]/40 hover:ring-1 hover:ring-[var(--kuct-accent)]/20"
                   >
-                    <div className="relative aspect-[16/10] max-h-56 overflow-hidden">
+                    <div className="relative aspect-[16/10] overflow-hidden">
                       <LazyImage
                         src={themeAsset(
                           WORK_IMAGES[item.id] ?? WORK_IMAGES.billiard,
@@ -171,46 +166,50 @@ export function WorksShowcase() {
                         )}
                         alt={item.title}
                         fill
-                        className="object-cover transition duration-500"
+                        className="object-cover transition duration-500 group-hover:scale-[1.03]"
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                         style={{ animationDelay: `${index * 80}ms` }}
                       />
                       <div
                         aria-hidden
-                        className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#1e1b2e]/35 via-transparent to-transparent opacity-80 transition group-hover:opacity-90"
+                        className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[rgba(2,2,8,0.75)] via-transparent to-transparent"
                       />
-                      <span className="absolute left-4 top-4 rounded-full border border-white/70 bg-white/75 px-3 py-1 text-[0.65rem] font-semibold tracking-[0.12em] text-[var(--kuct-text)] uppercase shadow-sm backdrop-blur-md">
+                      <span className="absolute left-3 top-3 rounded-full border border-[var(--kuct-border)] bg-[rgba(8,8,16,0.88)] px-2.5 py-1 text-[10px] font-semibold tracking-[0.14em] text-[var(--kuct-muted)] uppercase backdrop-blur-md">
                         {item.tag}
                       </span>
                     </div>
-                    <div className="flex flex-1 flex-col p-6">
-                      <h3 className="font-display text-xl font-medium text-[var(--kuct-text)]">
+
+                    <div className="flex flex-1 flex-col p-5">
+                      <h3 className="font-display text-lg font-semibold leading-snug text-[var(--kuct-text)]">
                         {item.title}
                       </h3>
-                      <dl className="mt-3 space-y-2 text-sm leading-relaxed">
+
+                      <dl className="mt-4 flex flex-1 flex-col text-sm leading-relaxed">
                         <div>
-                          <dt className="font-semibold text-[var(--kuct-accent)]">
+                          <dt className="text-[11px] font-semibold tracking-[0.14em] text-[var(--kuct-muted)] uppercase">
                             {w.problemLabel}
                           </dt>
-                          <dd className="text-[var(--kuct-muted)]">
+                          <dd className="mt-1 line-clamp-2 text-[var(--kuct-muted)]">
                             {item.problem}
                           </dd>
                         </div>
-                        <div>
-                          <dt className="font-semibold text-[var(--kuct-accent)]">
+                        <div className="mt-3">
+                          <dt className="text-[11px] font-semibold tracking-[0.14em] text-[var(--kuct-muted)] uppercase">
                             {w.scopeLabel}
                           </dt>
-                          <dd className="text-[var(--kuct-muted)]">
+                          <dd className="mt-1 line-clamp-2 text-[var(--kuct-muted)]">
                             {item.scope}
                           </dd>
                         </div>
-                        <div>
-                          <dt className="font-semibold text-[var(--kuct-accent)]">
-                            {w.resultLabel}
-                          </dt>
-                          <dd className="text-[var(--kuct-text)]">
-                            {item.result}
-                          </dd>
+                        <div className="mt-auto pt-3">
+                          <div className="flex min-h-[4.75rem] flex-col justify-center rounded-xl border border-[var(--kuct-border)] bg-[rgba(10,10,22,0.65)] px-3 py-2.5 ring-1 ring-[var(--kuct-accent)]/15">
+                            <dt className="text-[11px] font-semibold tracking-[0.14em] text-[var(--kuct-accent)] uppercase">
+                              {w.resultLabel}
+                            </dt>
+                            <dd className="mt-1 line-clamp-2 font-medium text-[var(--kuct-text)]">
+                              {item.result}
+                            </dd>
+                          </div>
                         </div>
                       </dl>
                     </div>
@@ -226,12 +225,12 @@ export function WorksShowcase() {
                 type="button"
                 onClick={goPrev}
                 aria-label={prevPage}
-                className="grid size-10 place-items-center rounded-full border border-[var(--kuct-border)] bg-white/70 text-[var(--kuct-text)] transition hover:border-[var(--kuct-accent)]/40 hover:text-[var(--kuct-accent)]"
+                className="grid size-10 place-items-center rounded-full border border-[var(--kuct-border)] bg-[rgba(8,8,16,0.85)] text-[var(--kuct-text)] transition hover:border-[var(--kuct-accent)]/40 hover:text-[var(--kuct-accent)]"
               >
                 <span aria-hidden>←</span>
               </button>
               <p
-                className="text-sm text-[var(--kuct-muted)]"
+                className="text-sm tabular-nums text-[var(--kuct-muted)]"
                 aria-live="polite"
               >
                 {page + 1} / {pageCount}
@@ -240,7 +239,7 @@ export function WorksShowcase() {
                 type="button"
                 onClick={goNext}
                 aria-label={nextPage}
-                className="grid size-10 place-items-center rounded-full border border-[var(--kuct-border)] bg-white/70 text-[var(--kuct-text)] transition hover:border-[var(--kuct-accent)]/40 hover:text-[var(--kuct-accent)]"
+                className="grid size-10 place-items-center rounded-full border border-[var(--kuct-border)] bg-[rgba(8,8,16,0.85)] text-[var(--kuct-text)] transition hover:border-[var(--kuct-accent)]/40 hover:text-[var(--kuct-accent)]"
               >
                 <span aria-hidden>→</span>
               </button>

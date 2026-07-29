@@ -146,6 +146,12 @@ export type Dictionary = {
     titleLead: string;
     titleHighlight: string;
     support: string;
+    groups: {
+      frontend: string;
+      backend: string;
+      infra: string;
+      data: string;
+    };
     logos: string[];
   };
   why: {

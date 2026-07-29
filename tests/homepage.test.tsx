@@ -136,8 +136,10 @@ describe("Dolphin Kick homepage", () => {
         name: /確かなエンジニアリング.*モダンな技術/i,
       }),
     ).toBeInTheDocument();
-    expect(screen.getByText("React")).toBeInTheDocument();
-    expect(screen.getByText("Next.js")).toBeInTheDocument();
+    const stack = document.getElementById("stack");
+    expect(stack).toBeTruthy();
+    expect(within(stack!).getByText("React")).toBeInTheDocument();
+    expect(within(stack!).getByText("Next.js")).toBeInTheDocument();
     expect(
       screen.getByRole("heading", {
         name: /コード納品だけで終わらない、長期伴走/i,

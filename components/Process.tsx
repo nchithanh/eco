@@ -1,20 +1,8 @@
 "use client";
 
-import {
-  type CSSProperties,
-} from "react";
 import { AccentText } from "@/components/BrandName";
 import { Reveal } from "@/components/Reveal";
-import { useInView } from "@/lib/useInView";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
-
-const STEP_TONES = [
-  "var(--kuct-accent)",
-  "var(--kuct-accent-2)",
-  "var(--kuct-btn-from)",
-  "var(--kuct-accent-3)",
-  "var(--kuct-btn-to)",
-] as const;
 
 type ProcessStepData = {
   name: string;
@@ -25,101 +13,97 @@ type ProcessStepData = {
 function ProcessStep({
   step,
   index,
-  tone,
   deliverableLabel,
+  isLead,
 }: {
   step: ProcessStepData;
   index: number;
-  tone: string;
   deliverableLabel: string;
+  isLead: boolean;
 }) {
-  const { ref, inView } = useInView<HTMLLIElement>({ threshold: 0.18, rootMargin: "0px 0px -6% 0px" });
-
   return (
-    <li
-      ref={ref}
-      className={`kuct-reveal relative pl-12 sm:pl-14${inView ? " is-inview" : ""}`}
-      style={
-        {
-          "--kuct-reveal-delay": `${Math.min(index, 4) * 70}ms`,
-        } as CSSProperties
-      }
+    <Reveal
+      as="li"
+      delay={index * 50}
+      className="relative pl-12 sm:pl-14"
     >
       <span
         aria-hidden
-        className="absolute top-5 left-0 z-10 grid size-9 place-items-center rounded-full text-xs font-bold text-white shadow-[0_8px_20px_rgba(var(--kuct-accent-rgb),0.28)] sm:size-10 sm:text-sm"
-        style={{
-          background: tone,
-          boxShadow: `0 8px 22px color-mix(in srgb, ${tone} 40%, transparent)`,
-        }}
+        className={
+          isLead
+            ? "absolute top-5 left-0 z-10 grid size-9 place-items-center rounded-full border border-[var(--kuct-accent)]/50 bg-[rgba(12,8,24,0.95)] font-display text-xs font-semibold tabular-nums text-[var(--kuct-accent)] ring-1 ring-[var(--kuct-accent)]/35 sm:size-10"
+            : "absolute top-5 left-0 z-10 grid size-9 place-items-center rounded-full border border-[var(--kuct-border)] bg-[rgba(8,8,16,0.95)] font-display text-xs font-semibold tabular-nums text-[var(--kuct-accent)]/80 sm:size-10"
+        }
       >
-        {index + 1}
+        {String(index + 1).padStart(2, "0")}
       </span>
 
       <article
-        className="touch-pan-y rounded-2xl border border-white/60 bg-white/55 p-5 shadow-[0_10px_28px_rgba(var(--kuct-accent-rgb),0.08)] backdrop-blur-md transition duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 hover:border-[var(--kuct-accent)]/45 hover:shadow-[0_16px_36px_rgba(var(--kuct-accent-rgb),0.14)] sm:p-6"
-        style={{
-          borderLeftWidth: "4px",
-          borderLeftColor: tone,
-        }}
+        className={
+          isLead
+            ? "rounded-2xl border border-[var(--kuct-border)] bg-[rgba(6,6,14,0.88)] p-5 ring-1 ring-[var(--kuct-accent)]/25 backdrop-blur-md transition duration-300 hover:border-[var(--kuct-accent)]/40 sm:p-6"
+            : "rounded-2xl border border-[var(--kuct-border)] bg-[rgba(6,6,14,0.88)] p-5 backdrop-blur-md transition duration-300 hover:border-[var(--kuct-accent)]/35 sm:p-6"
+        }
       >
-        <h3 className="font-display text-lg font-semibold leading-snug text-[var(--kuct-text)] sm:text-xl">
+        <h3 className="font-display text-lg font-semibold leading-snug text-[var(--kuct-text)]">
           {step.name}
         </h3>
-        <p className="mt-2 text-sm leading-relaxed text-[var(--kuct-muted)] sm:text-base">
+        <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-[var(--kuct-muted)]">
           {step.detail}
         </p>
-        <p className="mt-3 text-sm leading-relaxed text-[var(--kuct-text)]">
-          <span className="font-semibold text-[var(--kuct-accent)]">
-            {deliverableLabel}:{" "}
-          </span>
-          {step.deliverable}
-        </p>
+
+        <dl className="mt-4 rounded-xl border border-[var(--kuct-border)] bg-[rgba(10,10,22,0.65)] px-3 py-2.5 ring-1 ring-[var(--kuct-accent)]/15">
+          <dt className="text-[11px] font-semibold tracking-[0.14em] text-[var(--kuct-accent)] uppercase">
+            {deliverableLabel}:
+          </dt>
+          <dd className="mt-1 text-sm leading-relaxed text-[var(--kuct-text)]">
+            {step.deliverable}
+          </dd>
+        </dl>
       </article>
-    </li>
+    </Reveal>
   );
 }
 
 export function Process() {
   const { t } = useLocale();
-  const { steps, deliverableLabel } = t.process;
+  const { eyebrow, title, support, steps, deliverableLabel } = t.process;
+  const lastIndex = steps.length - 1;
 
   return (
-    <section
-      id="process"
-      className="scroll-mt-20 py-24"
-    >
+    <section id="process" className="scroll-mt-20 py-24" aria-labelledby="process-heading">
       <div className="mx-auto max-w-6xl px-6">
         <Reveal className="mx-auto max-w-2xl text-center">
-          <p className="text-center text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
-            {t.process.eyebrow}
+          <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
+            {eyebrow}
           </p>
-          <h2 className="mt-3 text-center font-display text-3xl font-semibold sm:text-4xl">
-            <AccentText>{t.process.title}</AccentText>
+          <h2
+            id="process-heading"
+            className="mt-4 font-display text-3xl font-semibold leading-[1.12] tracking-tight sm:text-[2.15rem] lg:text-[2.35rem] lg:leading-[1.1]"
+          >
+            <AccentText>{title}</AccentText>
           </h2>
-          <p className="mx-auto mt-3 max-w-2xl text-center text-[var(--kuct-muted)]">
-            {t.process.support}
+          <p className="mx-auto mt-5 max-w-[40ch] text-base leading-[1.7] text-[var(--kuct-muted)]">
+            {support}
           </p>
         </Reveal>
 
-        <div className="kuct-glass mx-auto mt-14 max-w-3xl rounded-[1.75rem] p-5 sm:p-8">
-          <ol className="relative m-0 list-none space-y-5 p-0 sm:space-y-6">
-            <div
-              aria-hidden
-              className="absolute top-3 bottom-3 left-[1.15rem] w-px bg-[rgba(var(--kuct-accent-rgb),0.22)] sm:left-[1.4rem]"
-            />
+        <ol className="relative mx-auto mt-12 max-w-3xl list-none space-y-5 p-0 sm:mt-14">
+          <span
+            aria-hidden
+            className="pointer-events-none absolute top-3 bottom-3 left-[1.05rem] w-px bg-[rgba(var(--kuct-accent-rgb),0.28)] sm:left-[1.15rem]"
+          />
 
-            {steps.map((step, i) => (
-              <ProcessStep
-                key={step.name}
-                step={step}
-                index={i}
-                tone={STEP_TONES[i % STEP_TONES.length]}
-                deliverableLabel={deliverableLabel}
-              />
-            ))}
-          </ol>
-        </div>
+          {steps.map((step, index) => (
+            <ProcessStep
+              key={step.name}
+              step={step}
+              index={index}
+              deliverableLabel={deliverableLabel}
+              isLead={index === lastIndex}
+            />
+          ))}
+        </ol>
       </div>
     </section>
   );
