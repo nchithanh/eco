@@ -338,7 +338,7 @@ const vi: Dictionary = {
     titleLead: "Năng lực kỹ thuật",
     titleHighlight: "công nghệ hiện đại",
     support:
-      "Đúng stack cho đúng bài toán — frontend, backend, infra và data. Đã kiểm chứng trên dự án thật.",
+      "Đúng stack cho đúng bài toán — frontend, backend, infra và data. Kiểm chứng trên dự án thật.",
     groups: {
       frontend: "Frontend",
       backend: "Backend",
@@ -367,26 +367,26 @@ const vi: Dictionary = {
     ],
   },
   why: {
-    eyebrow: "Vì sao chọn Dolphin Kick",
+    eyebrow: "Vì sao chọn Dolphin Kich",
     title: "[[Đồng hành dài hạn]], không chỉ bàn giao code",
     support:
-      "Tư vấn theo mục tiêu kinh doanh và kết quả vận hành — hạn chế thuật ngữ khó hiểu; cam kết rõ về tiến độ, chất lượng và hỗ trợ sau ra mắt.",
+      "Timeline · scope · cam kết · hậu bàn giao — rõ ràng, không jargon.",
     reasons: [
       {
         title: "Kinh nghiệm thực chiến",
-        body: "Co-founder với 7 năm trên production — reliability, observability và bàn giao end-to-end cho web & app SMB.",
+        body: "7 năm production — reliability, observability và bàn giao end-to-end cho SMB.",
       },
       {
         title: "Giao hàng end-to-end",
-        body: "Từ discovery đến deploy — một đội chịu trách nhiệm xuyên suốt, cấu trúc sẵn để thêm trang/form/tính năng sau.",
+        body: "Discovery đến deploy — một đội chịu trách nhiệm; sẵn mở rộng sau.",
       },
       {
         title: "Quy trình minh bạch",
-        body: "Milestone cụ thể, demo định kỳ và báo giá rõ phạm vi — đo bằng đầu ra, không bằng giờ công mơ hồ.",
+        body: "Milestone, demo định kỳ, báo giá rõ phạm vi — đo bằng đầu ra.",
       },
       {
         title: "Đồng hành sau bàn giao",
-        body: "Hướng dẫn vận hành, hỗ trợ lỗi kỹ thuật theo thỏa thuận, tối ưu và mở rộng khi sản phẩm đi vào thực tế.",
+        body: "Hướng dẫn vận hành, BH lỗi kỹ thuật, tối ưu khi sản phẩm chạy thật.",
       },
     ],
   },
@@ -828,26 +828,26 @@ const en: Dictionary = {
     ],
   },
   why: {
-    eyebrow: "Why Dolphin Kick",
+    eyebrow: "Why Dolphin Kich",
     title: "[[Long-term partnership]], not just code delivery",
     support:
-      "Business-goal and operating-outcome language over jargon — plus clear commitments on timeline, quality, and post-launch support.",
+      "Clear timeline, scope, commitments — and support after handover. No jargon fog.",
     reasons: [
       {
         title: "Battle-tested experience",
-        body: "Co-founder with 7 years of experience — production reliability, observability, and end-to-end delivery for SMB web & apps.",
+        body: "7 years in production — reliability, observability, end-to-end SMB delivery.",
       },
       {
         title: "End-to-end delivery",
-        body: "From discovery to deploy — one team accountable throughout, structured so you can add pages/forms/features later.",
+        body: "Discovery to deploy — one accountable team; structured to extend later.",
       },
       {
         title: "Transparent process",
-        body: "Concrete milestones, regular demos, and clear scoped quotes — measured by deliverables, not vague man-hours.",
+        body: "Milestones, regular demos, scoped quotes — measured by deliverables.",
       },
       {
         title: "Support after handover",
-        body: "Ops walkthroughs, agreed technical-fix support, optimization, and growth when the product hits reality.",
+        body: "Ops walkthroughs, bug warranty by agreement, optimize when reality hits.",
       },
     ],
   },
@@ -1289,26 +1289,26 @@ const de: Dictionary = {
     ],
   },
   why: {
-    eyebrow: "Warum Dolphin Kick",
+    eyebrow: "Warum Dolphin Kich",
     title: "[[Langfristige Partnerschaft]], nicht nur Code-Übergabe",
     support:
-      "Sprache der Geschäftsziele und Betriebsergebnisse statt Jargon — plus klare Zusagen zu Zeitplan, Qualität und Support nach dem Launch.",
+      "Klarer Zeitplan, Scope, Zusagen — und Support nach der Übergabe.",
     reasons: [
       {
         title: "Praxisnahe Erfahrung",
-        body: "Co-founder mit 7 Jahren Erfahrung — Production-Reliability, Observability und End-to-End-Lieferung für SMB Web & Apps.",
+        body: "7 Jahre Production — Reliability, Observability, End-to-End für SMB.",
       },
       {
         title: "End-to-End-Lieferung",
-        body: "Von Discovery bis Deploy — ein Team trägt die Verantwortung; Struktur bleibt erweiterbar für Seiten/Formulare/Features.",
+        body: "Discovery bis Deploy — ein verantwortliches Team; später erweiterbar.",
       },
       {
         title: "Transparenter Prozess",
-        body: "Konkrete Meilensteine, regelmäßige Demos und klare Scope-Angebote — gemessen an Deliverables, nicht an vagen Mannstunden.",
+        body: "Meilensteine, Demos, klare Scope-Angebote — gemessen an Deliverables.",
       },
       {
-        title: "Begleitung nach der Übergabe",
-        body: "Einweisung, vereinbarter Support bei Technikfehlern, Optimierung und Erweiterung im Alltag.",
+        title: "Support nach Übergabe",
+        body: "Ops-Walkthroughs, Bug-Garantie laut Vereinbarung, Optimierung im Betrieb.",
       },
     ],
   },
@@ -1750,26 +1750,26 @@ const ja: Dictionary = {
     ],
   },
   why: {
-    eyebrow: "Dolphin Kickを選ぶ理由",
+    eyebrow: "Dolphin Kichを選ぶ理由",
     title: "コード納品だけで終わらない、[[長期伴走]]",
     support:
-      "専門用語を抑え、事業目標と運用成果の言葉で相談します。スケジュール・品質・リリース後サポートへの明確なコミットメント付きです。",
+      "スケジュール・スコープ・コミットメント・引き渡し後サポートを明確に。",
     reasons: [
       {
         title: "実務経験",
-        body: "Co-founderとして7年の経験 — 本番の信頼性・Observability・SMB向けWeb/Appのエンドツーエンド納品。",
+        body: "本番7年 — 信頼性・Observability・SMB向けエンドツーエンド納品。",
       },
       {
         title: "エンドツーエンド納品",
-        body: "ディスカバリーからデプロイまで一貫して責任を持ち、後からページ/フォーム/機能を足しやすい構造で届けます。",
+        body: "ディスカバリーからデプロイまで — 一貫責任。後から拡張可能。",
       },
       {
         title: "透明なプロセス",
-        body: "具体的なマイルストーン、定期デモ、範囲の明確な見積もり — 曖昧な工数ではなく成果物で測ります。",
+        body: "マイルストーン、定期デモ、明確な見積もり — 成果物で測る。",
       },
       {
         title: "引き渡し後の伴走",
-        body: "運用ガイド、合意した技術不具合サポート、最適化と拡張まで本番後も継続支援します。",
+        body: "運用ガイド、合意の不具合保証、実運用での最適化。",
       },
     ],
   },
@@ -2211,25 +2211,26 @@ const zh: Dictionary = {
     ],
   },
   why: {
-    eyebrow: "为什么选择 Dolphin Kick",
+    eyebrow: "为什么选择 Dolphin Kich",
     title: "不止交付代码，[[长期陪伴]]",
-    support: "用业务目标与运营结果说话、少用黑话——并对进度、质量与上线后支持给出明确承诺。",
+    support:
+      "进度、范围、承诺与交付后支持——说清楚，少黑话。",
     reasons: [
       {
         title: "实战经验",
-        body: "联合创始人，7 年经验——生产可靠性、可观测性，以及面向 SMB 的 Web/App 端到端交付。",
+        body: "7 年生产经验——可靠性、可观测性与 SMB 端到端交付。",
       },
       {
         title: "端到端交付",
-        body: "从发现到部署一以贯之负责，结构便于日后加页面/表单/功能。",
+        body: "从调研到部署——一队负责；结构便于后续扩展。",
       },
       {
-        title: "透明流程",
-        body: "具体里程碑、定期演示与范围清晰的报价——用交付物衡量，而非模糊工时。",
+        title: "流程透明",
+        body: "里程碑、定期演示、清晰范围报价——用交付物衡量。",
       },
       {
-        title: "交接后陪伴",
-        body: "运营指引、约定范围内的技术故障支持，以及上线后的优化与扩展。",
+        title: "交付后陪跑",
+        body: "运营指南、约定缺陷质保，上线后继续优化。",
       },
     ],
   },

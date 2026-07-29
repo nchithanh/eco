@@ -6,45 +6,43 @@ import { assetPath } from "@/lib/asset";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
 import { TECH_NAME_TO_SLUG } from "@/lib/tech-stack";
 
-const STACK_GROUPS = [
-  {
-    key: "frontend" as const,
-    names: [
-      "React",
-      "Next.js",
-      "TypeScript",
-      "Tailwind",
-      "Flutter",
-      "React Native",
-    ],
-    emphasize: true,
-  },
-  {
-    key: "backend" as const,
-    names: ["Node.js", "NestJS", "Express", "Strapi", "PostgreSQL"],
-    emphasize: true,
-  },
-  {
-    key: "infra" as const,
-    names: ["Docker", "AWS", "Kubernetes", "Terraform"],
-    emphasize: false,
-  },
-  {
-    key: "data" as const,
-    names: ["Redis", "Elasticsearch", "Grafana"],
-    emphasize: false,
-  },
-] as const;
+const LOGO_COLORS: Record<string, string> = {
+  React: "#61DAFB",
+  "Next.js": "#111111",
+  TypeScript: "#3178C6",
+  Tailwind: "#06B6D4",
+  "Node.js": "#339933",
+  Flutter: "#02569B",
+  "React Native": "#61DAFB",
+  PostgreSQL: "#4169E1",
+  Docker: "#2496ED",
+  NestJS: "#E0234E",
+  Express: "#444444",
+  Strapi: "#4945FF",
+  AWS: "#FF9900",
+  Kubernetes: "#326CE5",
+  Grafana: "#F46800",
+  Elasticsearch: "#005571",
+  Redis: "#DC382D",
+  Terraform: "#7B42BC",
+};
 
 export function TechStack() {
   const { t } = useLocale();
   const { openTech } = usePagePreview();
-  const { eyebrow, titleLead, titleHighlight, support, logos, groups } = t.stack;
-  const logoSet = new Set(logos);
+  const { eyebrow, titleLead, titleHighlight, support, logos } = t.stack;
 
   return (
-    <section id="stack" className="relative scroll-mt-20 py-24">
-      <div className="relative mx-auto max-w-6xl px-6">
+    <section
+      id="stack"
+      className="relative scroll-mt-20 overflow-hidden py-24"
+    >
+      <div
+        aria-hidden
+        className="kuct-tech-ribbon pointer-events-none absolute left-1/2 top-1/2 h-[220px] w-[120%] max-w-5xl -translate-x-1/2 -translate-y-1/2 rounded-full opacity-90"
+      />
+
+      <div className="relative mx-auto max-w-5xl px-6 text-left">
         <Reveal>
           <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
             {eyebrow}
@@ -57,53 +55,42 @@ export function TechStack() {
             </span>
           </h2>
 
-          <p className="mt-5 max-w-[40ch] text-base leading-[1.7] text-[var(--kuct-muted)]">
+          <p className="mt-5 max-w-[52ch] text-base leading-[1.7] text-[var(--kuct-muted)]">
             {support}
           </p>
         </Reveal>
 
-        <div className="mt-12 space-y-8 sm:mt-14">
-          {STACK_GROUPS.map((group, groupIndex) => {
-            const items = group.names.filter((name) => logoSet.has(name));
-            if (items.length === 0) return null;
+        <ul className="mt-14 grid grid-cols-2 gap-x-4 gap-y-4 sm:flex sm:flex-wrap sm:items-center sm:justify-center sm:gap-x-10 sm:gap-y-6">
+          {logos.map((name, index) => {
+            const slug = TECH_NAME_TO_SLUG[name];
+            if (!slug) return null;
+            const href = assetPath(`/tech/${slug}/`);
 
             return (
-              <Reveal key={group.key} delay={groupIndex * 60}>
-                <p className="mb-3 text-[11px] font-semibold tracking-[0.16em] text-[var(--kuct-muted)] uppercase">
-                  {groups[group.key]}
-                </p>
-                <ul className="m-0 flex list-none flex-wrap gap-2.5 p-0 sm:gap-3">
-                  {items.map((name) => {
-                    const slug = TECH_NAME_TO_SLUG[name];
-                    if (!slug) return null;
-                    const href = assetPath(`/tech/${slug}/`);
-
-                    return (
-                      <li key={name}>
-                        <a
-                          href={href}
-                          title={name}
-                          aria-label={name}
-                          onClick={(event) => {
-                            event.preventDefault();
-                            openTech(slug);
-                          }}
-                          className={
-                            group.emphasize
-                              ? "inline-flex items-center rounded-full border border-[var(--kuct-border)] bg-[rgba(6,6,14,0.88)] px-3.5 py-2 text-sm font-semibold text-[var(--kuct-text)] backdrop-blur-md transition duration-300 hover:border-[var(--kuct-accent)]/45 hover:text-[var(--kuct-accent)]"
-                              : "inline-flex items-center rounded-full border border-[var(--kuct-border)] bg-[rgba(6,6,14,0.72)] px-3.5 py-2 text-sm font-medium text-[var(--kuct-muted)] backdrop-blur-md transition duration-300 hover:border-[var(--kuct-accent)]/35 hover:text-[var(--kuct-text)]"
-                          }
-                        >
-                          {name}
-                        </a>
-                      </li>
-                    );
-                  })}
-                </ul>
+              <Reveal as="li" key={name} delay={index * 40} variant="scale">
+                <a
+                  href={href}
+                  title={name}
+                  aria-label={name}
+                  onClick={(event) => {
+                    event.preventDefault();
+                    openTech(slug);
+                  }}
+                  className="group flex touch-pan-y items-center gap-2 text-base font-semibold text-[var(--kuct-text)]/80 transition duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:text-[var(--kuct-text)]"
+                >
+                  <span
+                    aria-hidden
+                    className="grid size-8 shrink-0 place-items-center rounded-lg bg-white/70 text-[0.625rem] font-bold shadow-sm ring-1 ring-[var(--kuct-accent)]/15 backdrop-blur-sm transition duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:shadow-md group-hover:ring-[var(--kuct-accent)]/40"
+                    style={{ color: LOGO_COLORS[name] ?? "var(--kuct-accent)" }}
+                  >
+                    {name.slice(0, 2).toUpperCase()}
+                  </span>
+                  <span className="min-w-0">{name}</span>
+                </a>
               </Reveal>
             );
           })}
-        </div>
+        </ul>
       </div>
     </section>
   );
