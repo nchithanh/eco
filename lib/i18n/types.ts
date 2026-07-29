@@ -43,6 +43,7 @@ export type Dictionary = {
     eyebrow: string;
     headline: string;
     support: string;
+    trustLine: string;
     ctaPrimary: string;
     ctaSecondary: string;
     visual: {
@@ -64,6 +65,9 @@ export type Dictionary = {
     support: string;
     wheelTagline: string;
     filterAll: string;
+    filterBuild: string;
+    filterConnect: string;
+    filterAi: string;
     learnMore: string;
     prevPage: string;
     nextPage: string;
@@ -85,6 +89,8 @@ export type Dictionary = {
     eyebrow: string;
     title: string;
     support: string;
+    groupOwn: string;
+    groupRun: string;
     items: { title: string; body: string }[];
   };
   ops: {
@@ -94,6 +100,7 @@ export type Dictionary = {
     cta: string;
     before: string;
     after: string;
+    loopHint: string;
     steps: { name: string; detail: string }[];
     chips: string[];
   };
@@ -139,6 +146,12 @@ export type Dictionary = {
     titleLead: string;
     titleHighlight: string;
     support: string;
+    groups: {
+      frontend: string;
+      backend: string;
+      infra: string;
+      data: string;
+    };
     logos: string[];
   };
   why: {
@@ -152,11 +165,13 @@ export type Dictionary = {
     role: string;
     name: string;
     description: string;
+    stack: string[];
   };
   contact: {
     eyebrow: string;
     title: string;
     support: string;
+    nextHint: string;
     ctaZalo: string;
     ctaEmail: string;
     name: string;
@@ -272,6 +287,10 @@ export type Dictionary = {
   };
   footer: {
     disclaimer: string;
+    groupExplore: string;
+    groupStudio: string;
+    groupUpdates: string;
+    groupConnect: string;
   };
   loader: {
     aria: string;

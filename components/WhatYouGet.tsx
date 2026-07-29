@@ -1,130 +1,100 @@
 "use client";
 
-import {
-  type CSSProperties,
-} from "react";
 import { AccentText } from "@/components/BrandName";
 import { Reveal } from "@/components/Reveal";
-import { useInView } from "@/lib/useInView";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
-
-const ROW_TONES = [
-  "var(--kuct-accent)",
-  "var(--kuct-accent-2)",
-  "var(--kuct-btn-from)",
-  "var(--kuct-accent-3)",
-  "var(--kuct-btn-to)",
-  "var(--kuct-accent)",
-] as const;
-
-function DeliverableNode({
-  title,
-  body,
-  index,
-  tone,
-}: {
-  title: string;
-  body: string;
-  index: number;
-  tone: string;
-}) {
-  const { ref, inView } = useInView<HTMLLIElement>({ threshold: 0.12, rootMargin: "0px 0px -4% 0px" });
-  const col = index % 3;
-
-  return (
-    <li
-      ref={ref}
-      className={`kuct-reveal relative flex h-full min-w-0 flex-col items-center${inView ? " is-inview" : ""}`}
-      style={
-        {
-          "--kuct-reveal-delay": `${Math.min(index, 5) * 70}ms`,
-        } as CSSProperties
-      }
-    >
-      {/* Horizontal connectors — only when 3-col tree is active (md+) */}
-      {col !== 0 ? (
-        <span
-          aria-hidden
-          className="pointer-events-none absolute top-5 right-1/2 left-0 hidden h-px bg-[rgba(var(--kuct-accent-rgb),0.32)] md:block"
-        />
-      ) : null}
-      {col !== 2 ? (
-        <span
-          aria-hidden
-          className="pointer-events-none absolute top-5 right-0 left-1/2 hidden h-px bg-[rgba(var(--kuct-accent-rgb),0.32)] md:block"
-        />
-      ) : null}
-
-      <span
-        aria-hidden
-        className="relative z-10 grid size-10 shrink-0 place-items-center rounded-full text-sm font-bold text-white"
-        style={{
-          background: tone,
-          boxShadow: `0 8px 22px color-mix(in srgb, ${tone} 40%, transparent)`,
-        }}
-      >
-        {index + 1}
-      </span>
-
-      <span
-        aria-hidden
-        className="h-4 w-px shrink-0 bg-[rgba(var(--kuct-accent-rgb),0.28)] sm:h-5 md:h-6"
-      />
-
-      <article
-        className="flex w-full flex-1 flex-col touch-pan-y rounded-2xl border border-white/60 bg-white/55 p-4 text-left shadow-[0_10px_28px_rgba(var(--kuct-accent-rgb),0.08)] backdrop-blur-md transition duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 hover:border-[var(--kuct-accent)]/45 hover:shadow-[0_16px_36px_rgba(var(--kuct-accent-rgb),0.14)] sm:p-5"
-        style={{
-          borderTopWidth: "3px",
-          borderTopColor: tone,
-        }}
-      >
-        <h3 className="font-display text-base font-semibold leading-snug text-[var(--kuct-text)] sm:text-lg">
-          {title}
-        </h3>
-        <p className="mt-2 text-sm leading-relaxed text-[var(--kuct-muted)]">
-          {body}
-        </p>
-      </article>
-    </li>
-  );
-}
 
 export function WhatYouGet() {
   const { t } = useLocale();
-  const { eyebrow, title, support, items } = t.whatYouGet;
+  const { eyebrow, title, support, groupOwn, groupRun, items } = t.whatYouGet;
+
+  const own = items.slice(0, 3);
+  const run = items.slice(3, 6);
 
   return (
-    <section
-      id="what-you-get"
-      className="scroll-mt-20 py-24"
-    >
+    <section id="what-you-get" className="scroll-mt-20 py-24">
       <div className="mx-auto max-w-6xl px-6">
-        <Reveal className="mx-auto max-w-2xl text-center">
-          <p className="text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
+        <Reveal>
+          <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
             {eyebrow}
           </p>
-          <h2 className="mt-3 text-center font-display text-3xl font-semibold sm:text-4xl">
+          <h2 className="mt-4 max-w-3xl font-display text-3xl font-semibold leading-[1.12] tracking-tight sm:text-[2.15rem] lg:text-[2.35rem] lg:leading-[1.1]">
             <AccentText>{title}</AccentText>
           </h2>
-          <p className="mx-auto mt-3 max-w-2xl text-center text-[var(--kuct-muted)]">
+          <p className="mt-5 max-w-[40ch] text-base leading-[1.7] text-[var(--kuct-muted)]">
             {support}
           </p>
         </Reveal>
 
-        <div className="kuct-glass mx-auto mt-10 overflow-hidden rounded-[1.75rem] p-4 sm:mt-14 sm:p-6 md:p-8">
-          <ol className="m-0 grid list-none grid-cols-1 gap-6 p-0 sm:grid-cols-2 sm:gap-x-5 sm:gap-y-8 md:grid-cols-3 md:gap-x-4 md:gap-y-10">
-            {items.map((item, index) => (
-              <DeliverableNode
-                key={item.title}
-                title={item.title}
-                body={item.body}
-                index={index}
-                tone={ROW_TONES[index % ROW_TONES.length]}
-              />
-            ))}
-          </ol>
+        <div className="mt-12 space-y-8">
+          <DeliverableGroup
+            label={groupOwn}
+            items={own}
+            indexOffset={0}
+            leadIndexes={[1]}
+          />
+          <DeliverableGroup
+            label={groupRun}
+            items={run}
+            indexOffset={3}
+            leadIndexes={[5]}
+          />
         </div>
       </div>
     </section>
+  );
+}
+
+function DeliverableGroup({
+  label,
+  items,
+  indexOffset,
+  leadIndexes,
+}: {
+  label: string;
+  items: { title: string; body: string }[];
+  indexOffset: number;
+  leadIndexes: number[];
+}) {
+  return (
+    <div>
+      <p className="mb-4 text-[11px] font-semibold tracking-[0.18em] text-[var(--kuct-muted)] uppercase">
+        {label}
+      </p>
+      <ol className="m-0 grid list-none grid-cols-1 gap-5 p-0 sm:grid-cols-2 lg:grid-cols-3">
+        {items.map((item, i) => {
+          const index = indexOffset + i;
+          const isLead = leadIndexes.includes(index);
+
+          return (
+            <Reveal
+              as="li"
+              key={item.title}
+              delay={index * 45}
+              className={
+                isLead
+                  ? "flex gap-3.5 rounded-2xl border border-[var(--kuct-border)] bg-[rgba(6,6,14,0.88)] p-5 ring-1 ring-[var(--kuct-accent)]/30 backdrop-blur-md transition duration-300 hover:border-[var(--kuct-accent)]/40 sm:gap-4"
+                  : "flex gap-3.5 rounded-2xl border border-[var(--kuct-border)] bg-[rgba(6,6,14,0.88)] p-5 backdrop-blur-md transition duration-300 hover:border-[var(--kuct-accent)]/35 sm:gap-4"
+              }
+            >
+              <span
+                aria-hidden
+                className="mt-0.5 shrink-0 font-display text-xs font-semibold tabular-nums tracking-wide text-[var(--kuct-accent)]/80"
+              >
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <div className="min-w-0">
+                <h3 className="font-display text-lg font-semibold leading-snug text-[var(--kuct-text)]">
+                  {item.title}
+                </h3>
+                <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-[var(--kuct-muted)]">
+                  {item.body}
+                </p>
+              </div>
+            </Reveal>
+          );
+        })}
+      </ol>
+    </div>
   );
 }

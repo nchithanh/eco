@@ -136,8 +136,10 @@ describe("Dolphin Kick homepage", () => {
         name: /確かなエンジニアリング.*モダンな技術/i,
       }),
     ).toBeInTheDocument();
-    expect(screen.getByText("React")).toBeInTheDocument();
-    expect(screen.getByText("Next.js")).toBeInTheDocument();
+    const stack = document.getElementById("stack");
+    expect(stack).toBeTruthy();
+    expect(within(stack!).getByText("React")).toBeInTheDocument();
+    expect(within(stack!).getByText("Next.js")).toBeInTheDocument();
     expect(
       screen.getByRole("heading", {
         name: /コード納品だけで終わらない、長期伴走/i,
@@ -160,58 +162,26 @@ describe("Dolphin Kick homepage", () => {
       ),
     ).toBeInTheDocument();
     const newsList = newsSection!.querySelector("ul");
-    expect(newsList).toHaveClass("md:grid-cols-2");
+    expect(newsList).toHaveClass("md:grid-cols-3");
     const newsItems = within(newsSection!).getAllByRole("listitem");
-    expect(newsItems).toHaveLength(8);
+    expect(newsItems).toHaveLength(6);
     expect(newsItems[0]).toHaveClass("h-full", "flex", "flex-col");
     expect(newsItems[0].querySelectorAll("img")).toHaveLength(1);
     expect(newsItems[1].querySelectorAll("img")).toHaveLength(1);
-    expect(newsItems[2].querySelectorAll("img")).toHaveLength(0);
+    expect(newsItems[2].querySelectorAll("img")).toHaveLength(1);
     expect(newsItems[3].querySelectorAll("img")).toHaveLength(0);
     expect(newsItems[4].querySelectorAll("img")).toHaveLength(0);
     expect(newsItems[5].querySelectorAll("img")).toHaveLength(0);
-    expect(newsItems[6].querySelectorAll("img")).toHaveLength(0);
-    expect(newsItems[7].querySelectorAll("img")).toHaveLength(0);
     expect(
-      within(newsItems[0]).getByText(
-        /V1 はクリーンルーム再実装ではありません/,
-      ),
+      within(newsItems[0]).getByRole("heading", {
+        name: /全部書き直さずに MVP から V1 へ/i,
+      }),
     ).toBeInTheDocument();
     expect(
-      within(newsItems[1]).getByText(
-        /並列テーマファイルはすぐ負債になります/,
-      ),
+      within(newsItems[1]).getByRole("heading", {
+        name: /デザイントークンとテーマ/i,
+      }),
     ).toBeInTheDocument();
-    expect(
-      within(newsItems[2]).queryByText(
-        /4ロケールはすぐ内容がずれます/,
-      ),
-    ).not.toBeInTheDocument();
-    expect(
-      within(newsItems[3]).queryByText(
-        /失敗の多くはフォーム・ロケール・CTA/,
-      ),
-    ).not.toBeInTheDocument();
-    expect(
-      within(newsItems[4]).queryByText(
-        /初日からの CMS は必須ではありません/,
-      ),
-    ).not.toBeInTheDocument();
-    expect(
-      within(newsItems[5]).queryByText(
-        /ヒーロー・フォント・トラッキングで肥大化しがち/,
-      ),
-    ).not.toBeInTheDocument();
-    expect(
-      within(newsItems[6]).queryByText(
-        /株式・コミュニティ系は助言と誤解されやすい/,
-      ),
-    ).not.toBeInTheDocument();
-    expect(
-      within(newsItems[7]).queryByText(
-        /手戻りはコード不足より曖昧さから来ることが多い/,
-      ),
-    ).not.toBeInTheDocument();
     expect(
       within(newsSection!).queryByRole("link", { name: /続きを読む/i }),
     ).not.toBeInTheDocument();
@@ -232,7 +202,7 @@ describe("Dolphin Kick homepage", () => {
     ).toHaveAttribute("href", "mailto:nchithanh9999@gmail.com");
   });
 
-  it("paginates homepage news eight items at a time", async () => {
+  it("paginates homepage news six items at a time", async () => {
     const user = userEvent.setup();
     renderHome();
 
@@ -243,13 +213,13 @@ describe("Dolphin Kick homepage", () => {
         name: /全部書き直さずに MVP から V1 へ/i,
       }),
     ).toBeInTheDocument();
-    expect(within(newsSection!).getByText("1 / 4")).toBeInTheDocument();
+    expect(within(newsSection!).getByText("1 / 5")).toBeInTheDocument();
 
     await user.click(
       within(newsSection!).getByRole("button", { name: /次のページ/i }),
     );
 
-    expect(within(newsSection!).getByText("2 / 4")).toBeInTheDocument();
+    expect(within(newsSection!).getByText("2 / 5")).toBeInTheDocument();
     expect(
       within(newsSection!).getByRole("heading", {
         name: /口頭の「だいたいX」より見積を書く理由/i,
@@ -261,15 +231,13 @@ describe("Dolphin Kick homepage", () => {
       }),
     ).not.toBeInTheDocument();
     const pageTwoItems = within(newsSection!).getAllByRole("listitem");
-    expect(pageTwoItems).toHaveLength(8);
+    expect(pageTwoItems).toHaveLength(6);
     expect(pageTwoItems[0].querySelectorAll("img")).toHaveLength(1);
     expect(pageTwoItems[1].querySelectorAll("img")).toHaveLength(1);
-    expect(pageTwoItems[2].querySelectorAll("img")).toHaveLength(0);
+    expect(pageTwoItems[2].querySelectorAll("img")).toHaveLength(1);
     expect(pageTwoItems[3].querySelectorAll("img")).toHaveLength(0);
     expect(pageTwoItems[4].querySelectorAll("img")).toHaveLength(0);
     expect(pageTwoItems[5].querySelectorAll("img")).toHaveLength(0);
-    expect(pageTwoItems[6].querySelectorAll("img")).toHaveLength(0);
-    expect(pageTwoItems[7].querySelectorAll("img")).toHaveLength(0);
     expect(
       within(newsSection!).queryByRole("link", { name: /続きを読む/i }),
     ).not.toBeInTheDocument();

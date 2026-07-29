@@ -44,18 +44,18 @@ export function TechStack() {
 
       <div className="relative mx-auto max-w-5xl px-6 text-left">
         <Reveal>
-          <p className="text-xs font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase">
+          <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
             {eyebrow}
           </p>
 
-          <h2 className="mt-4 font-display text-3xl font-semibold leading-tight tracking-tight text-[var(--kuct-text)] sm:text-4xl md:text-5xl">
+          <h2 className="mt-4 max-w-3xl font-display text-3xl font-semibold leading-[1.12] tracking-tight text-[var(--kuct-text)] sm:text-[2.15rem] lg:text-[2.35rem] lg:leading-[1.1]">
             <span className="block">{titleLead}</span>
-            <span className="font-serif-accent mt-1 block whitespace-nowrap text-[1.08em] font-normal">
+            <span className="font-serif-accent mt-2 block text-[1.15rem] font-normal text-[var(--kuct-accent)] sm:text-[1.35rem]">
               {titleHighlight}
             </span>
           </h2>
 
-          <p className="mt-5 max-w-2xl text-sm leading-relaxed text-[var(--kuct-muted)] sm:text-base">
+          <p className="mt-5 max-w-[52ch] text-base leading-[1.7] text-[var(--kuct-muted)]">
             {support}
           </p>
         </Reveal>

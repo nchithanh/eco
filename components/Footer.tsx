@@ -4,53 +4,81 @@ import { usePathname } from "next/navigation";
 import { BrandName } from "@/components/BrandName";
 import { BASE_PATH, assetPath } from "@/lib/asset";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
+
 export function Footer() {
   const { t } = useLocale();
   const pathname = usePathname();
   const sectionBase = pathname === "/" ? "" : `${BASE_PATH}/`;
+  const f = t.footer;
 
-  const linkClass = "kuct-link";
+  const groups = [
+    {
+      label: f.groupExplore,
+      links: [
+        { href: `${sectionBase}#capabilities`, label: t.nav.services },
+        { href: assetPath("/custom-agent/"), label: t.nav.customAgentItem },
+        { href: assetPath("/ai-transform/"), label: t.nav.aiTransform },
+      ],
+    },
+    {
+      label: f.groupStudio,
+      links: [
+        { href: `${sectionBase}#process`, label: t.nav.process },
+        { href: `${sectionBase}#technology`, label: t.nav.stack },
+      ],
+    },
+    {
+      label: f.groupUpdates,
+      links: [
+        { href: assetPath("/news/"), label: t.nav.news },
+        { href: assetPath("/careers/"), label: t.nav.careers },
+      ],
+    },
+    {
+      label: f.groupConnect,
+      links: [{ href: `${sectionBase}#contact`, label: t.nav.contact }],
+    },
+  ] as const;
 
   return (
-    <footer className="py-10">
-      <div className="mx-auto flex max-w-6xl flex-col gap-4 px-6 sm:flex-row sm:items-center sm:justify-between">
-        <p className="flex items-center gap-2 text-sm font-medium text-[var(--kuct-text)]">
-          <BrandName size="sm" />
-          <span className="text-[var(--kuct-muted)]">· © 2026</span>
+    <footer className="border-t border-[var(--kuct-border)] py-12 sm:py-14">
+      <div className="mx-auto max-w-6xl px-6">
+        <div className="flex flex-col gap-10 lg:flex-row lg:justify-between lg:gap-14">
+          <p className="flex shrink-0 items-center gap-2 text-sm font-medium text-[var(--kuct-text)]">
+            <BrandName size="sm" />
+            <span className="text-xs text-[var(--kuct-muted)]">· © 2026</span>
+          </p>
+
+          <nav
+            className="grid flex-1 grid-cols-2 gap-8 sm:grid-cols-4 sm:gap-6"
+            aria-label="Footer"
+          >
+            {groups.map((group) => (
+              <div key={group.label}>
+                <p className="text-[11px] font-semibold tracking-[0.16em] text-[var(--kuct-muted)] uppercase">
+                  {group.label}
+                </p>
+                <ul className="mt-3 flex list-none flex-col gap-2 p-0">
+                  {group.links.map((link) => (
+                    <li key={link.href + link.label}>
+                      <a
+                        href={link.href}
+                        className="text-sm leading-relaxed text-[var(--kuct-muted)] transition hover:text-[var(--kuct-accent)]"
+                      >
+                        {link.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </nav>
+        </div>
+
+        <p className="mt-10 max-w-3xl text-xs leading-relaxed text-[var(--kuct-muted)]/80">
+          {f.disclaimer}
         </p>
-        <nav
-          className="flex flex-wrap gap-4 text-sm text-[var(--kuct-muted)]"
-          aria-label="Footer"
-        >
-          <a href={`${sectionBase}#capabilities`} className={linkClass}>
-            {t.nav.services}
-          </a>
-          <a href={assetPath("/custom-agent/")} className={linkClass}>
-            {t.nav.customAgentItem}
-          </a>
-          <a href={assetPath("/ai-transform/")} className={linkClass}>
-            {t.nav.aiTransform}
-          </a>
-          <a href={`${sectionBase}#process`} className={linkClass}>
-            {t.nav.process}
-          </a>
-          <a href={`${sectionBase}#technology`} className={linkClass}>
-            {t.nav.stack}
-          </a>
-          <a href={assetPath("/news/")} className={linkClass}>
-            {t.nav.news}
-          </a>
-          <a href={assetPath("/careers/")} className={linkClass}>
-            {t.nav.careers}
-          </a>
-          <a href={`${sectionBase}#contact`} className={linkClass}>
-            {t.nav.contact}
-          </a>
-        </nav>
       </div>
-      <p className="mx-auto mt-6 max-w-6xl px-6 text-xs text-[var(--kuct-muted)]">
-        {t.footer.disclaimer}
-      </p>
     </footer>
   );
 }

@@ -33,7 +33,8 @@ const vi: Dictionary = {
     eyebrow: "Studio",
     headline: "Từ bài toán [[kinh doanh]] đến [[hệ thống]] dễ vận hành",
     support:
-      "Bạn nói mục tiêu — bán hàng, nhận lead, đặt lịch hay vận hành nội bộ. Dolphin Kick chốt phạm vi rõ, giao đúng milestone, bàn giao source + hướng dẫn để đội bạn tự chạy. Không bán giờ công hay danh sách công nghệ; đo bằng kết quả vận hành. 7 năm production: giao tiếp thẳng, không phóng scope.",
+      "Bạn nói mục tiêu. Dolphin Kich chốt scope, ship theo milestone, bàn giao source + hướng dẫn để đội bạn tự chạy.",
+    trustLine: "Phạm vi rõ · Milestone đúng hạn · Source + hướng dẫn vận hành",
     ctaPrimary: "Nhận báo giá",
     ctaSecondary: "Xem dịch vụ",
     visual: {
@@ -45,24 +46,27 @@ const vi: Dictionary = {
   trust: {
     aria: "Đầu ra bàn giao",
     eyebrow: "Bàn giao",
-    title: "Đầu ra bạn nhận khi xong dự án",
+    title: "Đầu ra bạn nhận khi [[xong dự án]]",
     support:
-      "Không chỉ “website chạy được” — bạn nắm source, domain/hosting, hướng dẫn vận hành và bảo hành lỗi kỹ thuật trong phạm vi đã nghiệm thu.",
+      "Source · admin · domain · guide · bảo hành — quyền sở hữu và vận hành, không chỉ URL live.",
     items: [
-      { value: "Source", label: "Bạn sở hữu mã nguồn / repo theo thỏa thuận — không bị khóa vendor" },
-      { value: "CMS / Admin", label: "Truy cập quản trị nội dung hoặc panel vận hành (nếu có trong scope)" },
-      { value: "Domain / Hosting", label: "Hướng dẫn gắn domain/hosting, biến môi trường và checklist deploy" },
-      { value: "Hướng dẫn", label: "Tài liệu / walkthrough để đội bạn vận hành độc lập" },
-      { value: "BH 3–6 tháng", label: "Bảo hành lỗi kỹ thuật theo thỏa thuận, trong phạm vi đã nghiệm thu — không gồm tính năng mới" },
+      { value: "Source", label: "Bạn sở hữu mã nguồn / repo theo thỏa thuận — không khóa vendor." },
+      { value: "CMS / Admin", label: "Truy cập quản trị nội dung hoặc panel vận hành (nếu trong scope)." },
+      { value: "Domain / Hosting", label: "Hướng dẫn gắn domain/hosting, env và checklist deploy." },
+      { value: "Hướng dẫn", label: "Docs / walkthrough để đội bạn vận hành độc lập." },
+      { value: "BH 3–6 tháng", label: "Bảo hành lỗi kỹ thuật trong phạm vi đã nghiệm thu — không gồm tính năng mới." },
     ],
   },
   capabilities: {
     eyebrow: "Dịch vụ",
     title: "Giải pháp gắn [[kết quả vận hành]]",
     support:
-      "Kết quả đo được — không phải kịch bản giờ công. Bạn nói mục tiêu kinh doanh; chúng tôi đề xuất cách làm, cắt thừa, giao đúng milestone. Website & mobile, backend, UI/UX, tích hợp tới agent nghiệp vụ — một vòng dịch vụ để SMB đi từ ý tưởng đến hệ thống ổn định, dễ mở rộng.",
+      "Bạn nói mục tiêu kinh doanh — chúng tôi đề xuất cách làm, cắt thừa, giao đúng milestone. Từ website & app đến agent nghiệp vụ.",
     wheelTagline: "Full lineup — một vòng dịch vụ",
     filterAll: "Tất cả",
+    filterBuild: "Build",
+    filterConnect: "Connect",
+    filterAi: "AI",
     learnMore: "Tìm hiểu thêm",
     prevPage: "Trang trước",
     nextPage: "Trang sau",
@@ -122,7 +126,7 @@ const vi: Dictionary = {
     eyebrow: "Kết quả vận hành",
     title: "Sau bàn giao, bạn [[chạy được những việc này]]",
     support:
-      "Gắn mục tiêu kinh doanh — lead, đặt lịch, nội dung, thanh toán, vận hành — không phải catalog tính năng.",
+      "Sau bàn giao — lead, lịch, nội dung, thanh toán và vận hành chạy được; không phải catalog tính năng.",
     items: [
       {
         title: "Thu lead và chuyển đổi rõ",
@@ -151,50 +155,52 @@ const vi: Dictionary = {
     ],
   },
   whatYouGet: {
-    eyebrow: "Đầu ra hợp tác",
+    eyebrow: "Bàn giao dự án",
     title: "Mỗi dự án [[kết thúc bằng đầu ra rõ]]",
     support:
-      "Phạm vi, source, nền tảng mở rộng và bảo hành — đội bạn vận hành độc lập, không bị khóa vendor.",
+      "Bàn giao rõ — tài liệu, quyền sở hữu, vận hành độc lập; không khóa vendor.",
+    groupOwn: "Own — sở hữu & nền tảng",
+    groupRun: "Run — vận hành & bảo hành",
     items: [
       {
-        title: "Phạm vi và milestone đã chốt",
-        body: "Báo giá theo đầu ra thống nhất — demo định kỳ để chỉnh sớm, không giờ công mơ hồ.",
+        title: "Phạm vi & milestone đã chốt",
+        body: "Báo giá theo đầu ra — demo định kỳ để chỉnh sớm, không giờ công mơ hồ.",
       },
       {
-        title: "Source và quyền vận hành thuộc bạn",
-        body: "Mã nguồn / repo theo thỏa thuận — bạn nắm quyền chạy tiếp, không bị khóa nhà thầu.",
+        title: "Source & quyền vận hành",
+        body: "Repo theo thỏa thuận — bạn nắm quyền chạy tiếp, không bị khóa nhà thầu.",
       },
       {
-        title: "Cấu trúc sẵn để mở rộng sau",
-        body: "Thêm trang, form hay tính năng theo milestone — không phải dựng lại từ đầu.",
+        title: "Cấu trúc sẵn mở rộng",
+        body: "Thêm trang, form hay tính năng theo milestone — không dựng lại từ đầu.",
       },
       {
-        title: "SEO on-page và hiệu năng nền",
-        body: "Responsive, heading/meta rõ, tốc độ hợp lý cho SMB — nền để tối ưu tiếp, không hứa xếp hạng ảo.",
+        title: "SEO on-page & hiệu năng",
+        body: "Responsive, heading/meta rõ, tốc độ hợp lý SMB — nền để tối ưu tiếp.",
       },
       {
-        title: "Hướng dẫn vận hành ngắn",
-        body: "Docs / walkthrough để đội bạn tự chạy nội dung và checklist deploy cơ bản.",
+        title: "Hướng dẫn vận hành",
+        body: "Docs / walkthrough để đội bạn tự chạy nội dung và checklist deploy.",
       },
       {
-        title: "Bảo hành lỗi kỹ thuật 3–6 tháng",
-        body: "Trong phạm vi đã nghiệm thu theo thỏa thuận — tính năng mới là hạng mục riêng, báo giá trước.",
+        title: "Bảo hành kỹ thuật 3–6 tháng",
+        body: "Trong phạm vi đã nghiệm thu — tính năng mới là hạng mục riêng, báo giá trước.",
       },
     ],
   },
   ops: {
     eyebrow: "Tự động hóa vận hành",
-    title: "Một [[lifecycle]] điều hành — không còn gom tin từ mười nơi",
+    title: "Một [[lifecycle]] điều hành — thôi đuổi tin qua mười tool",
     support:
-      "Trước: tin rải trên Slack, Jira, docs — lãnh đạo phải tự ghép. Sau: một vòng Collect → Normalize → Run → Govern chạy định kỳ, toàn cảnh trên một luồng.",
+      "Tín hiệu vào một vòng — Collect → Improve. Toàn cảnh trên một luồng, không chase cập nhật.",
     cta: "Trao đổi về tự động hóa",
-    before: "Trước: nhảy qua lại giữa Slack / Jira / docs để “biết đang gì”.",
-    after:
-      "Sau: tín hiệu được thu → chuẩn hóa → chạy chu kỳ → điều hành từ một console.",
+    before: "Trước: nhảy Slack / Jira / docs để biết đang gì.",
+    after: "Sau: một console, một vòng vận hành.",
+    loopHint: "Vòng lặp lại Collect",
     steps: [
       {
         name: "Collect",
-        detail: "Thu thập tín hiệu từ Slack, Jira, docs và công cụ nội bộ.",
+        detail: "Thu tín hiệu từ Slack, Jira, docs và công cụ nội bộ.",
       },
       {
         name: "Normalize",
@@ -202,20 +208,28 @@ const vi: Dictionary = {
       },
       {
         name: "Run",
-        detail: "Lặp chu kỳ định kỳ — báo cáo, nhắc việc, escalate đúng lúc.",
+        detail: "Chu kỳ định kỳ — báo cáo, nhắc việc, escalate đúng lúc.",
+      },
+      {
+        name: "Observe",
+        detail: "Theo dõi tín hiệu vận hành — thấy lệch trước khi trễ.",
       },
       {
         name: "Govern",
-        detail: "Điều hành từ một bảng điều khiển — không phải tự đi gom tin.",
+        detail: "Điều hành từ một console — không tự đi gom tin.",
+      },
+      {
+        name: "Improve",
+        detail: "Chỉnh quy tắc và chu kỳ theo bằng chứng vừa quan sát.",
       },
     ],
-    chips: ["Slack", "Jira", "Docs", "Lifecycle"],
+    chips: ["Slack", "Jira", "Docs"],
   },
   works: {
-    eyebrow: "Dự án SMB",
+    eyebrow: "Dự án đã ship",
     title: "Website personal & [[business nhỏ]] đã làm",
     support:
-      "Mỗi case: bài toán → phạm vi → kết quả vận hành đo được — không chỉ ảnh đẹp.",
+      "Mỗi case: bài toán → phạm vi → kết quả đo được — không chỉ ảnh đẹp.",
     cta: "Muốn làm website tương tự?",
     problemLabel: "Bài toán",
     scopeLabel: "Phạm vi",
@@ -225,33 +239,33 @@ const vi: Dictionary = {
         id: "billiard",
         title: "Quản lý cửa hàng bida",
         tag: "Website · Đặt bàn",
-        problem: "Ghi sổ/Excel: khó biết bàn trống, dễ sai doanh thu ca.",
+        problem: "Sổ/Excel: khó biết bàn trống, dễ sai doanh thu ca.",
         scope: "Bản đồ bàn, timer, dịch vụ kèm, tóm tắt ca trên web/ops.",
-        result: "Giảm sót giờ; nhân viên onboard nhanh; chủ xem ca mọi lúc.",
+        result: "Ít sót giờ hơn; onboard nhanh; chủ xem ca mọi lúc.",
       },
       {
         id: "badminton",
         title: "Website sân cầu lông",
         tag: "Booking",
-        problem: "Khách gọi hỏi lịch trống; admin khó chốt slot trùng.",
-        scope: "Giới thiệu sân, lịch trống, luồng đặt sân rõ ràng.",
-        result: "Giảm cuộc gọi hỏi lịch; tăng giữ chỗ đúng slot.",
+        problem: "Khách gọi hỏi lịch trống; admin dễ chốt slot trùng.",
+        scope: "Giới thiệu sân, lịch trống, luồng đặt sân rõ.",
+        result: "Giảm gọi hỏi lịch; tăng giữ chỗ đúng slot.",
       },
       {
         id: "tickets",
         title: "Booking vé & convert",
         tag: "Convert",
-        problem: "Khách xem sự kiện nhưng rớt giữa chừng trước khi đặt.",
+        problem: "Khách xem sự kiện nhưng rớt trước khi đặt xong.",
         scope: "Luồng xem → chọn → thanh toán/giữ chỗ tối ưu convert.",
-        result: "Rút ngắn bước đặt; tăng tỷ lệ hoàn tất booking.",
+        result: "Ít bước đặt hơn; tăng tỷ lệ hoàn tất booking.",
       },
       {
         id: "beauty",
         title: "Booking làm đẹp",
         tag: "Beauty",
-        problem: "Sót lịch, double-book, khách khó tự giữ chỗ ngoài giờ.",
+        problem: "Sót lịch, double-book; khó tự giữ chỗ ngoài giờ.",
         scope: "Đặt lịch theo slot nail/makeup/dịch vụ + xác nhận.",
-        result: "Ít sót lịch hơn; tăng giữ chỗ ngoài giờ hành chính.",
+        result: "Ít sót lịch; tăng giữ chỗ ngoài giờ hành chính.",
       },
       {
         id: "cafe",
@@ -259,7 +273,7 @@ const vi: Dictionary = {
         tag: "QR · Order",
         problem: "Giờ cao điểm gọi món chậm, dễ sai vì ghi tay.",
         scope: "Menu QR theo bàn, giỏ món, đẩy order tới quầy/bếp.",
-        result: "Gọi món nhanh hơn; giảm sai món; nhân viên ít chạy sổ.",
+        result: "Gọi món nhanh hơn; ít sai món; nhân viên ít chạy sổ.",
       },
       {
         id: "clinic",
@@ -267,7 +281,7 @@ const vi: Dictionary = {
         tag: "Clinic",
         problem: "Bệnh nhân gọi hỏi lịch; dễ trùng slot, quên nhắc tái khám.",
         scope: "Lịch theo bác sĩ/slot + xác nhận và nhắc lịch.",
-        result: "Giảm cuộc gọi hỏi lịch; ít trùng slot hơn.",
+        result: "Giảm gọi hỏi lịch; ít trùng slot hơn.",
       },
     ],
   },
@@ -275,33 +289,33 @@ const vi: Dictionary = {
     eyebrow: "Phương pháp",
     title: "Quy trình [[bàn giao]] 5 bước",
     support:
-      "Mỗi bước có đầu ra rõ — từ tóm tắt bài toán đến source + bảo hành. Bắt đầu từ mục tiêu thực tế (bán hàng, lead, đặt lịch, vận hành nội bộ) rồi mới chốt UI, tính năng, tiến độ và chi phí.",
+      "Từ discovery đến handover — mỗi bước có đầu ra rõ, không nhảy cóc.",
     deliverableLabel: "Đầu ra",
     steps: [
       {
         name: "Lắng nghe & Khảo sát",
-        detail: "Làm rõ website/app phục vụ bán hàng, giới thiệu, nhận liên hệ hay quản lý nội bộ — và ràng buộc ngân sách/thời gian.",
+        detail: "Làm rõ mục tiêu site/app và ràng buộc ngân sách/thời gian.",
         deliverable: "Tóm tắt bài toán, mục tiêu và ràng buộc đã thống nhất.",
       },
       {
         name: "Lập kế hoạch & Báo giá",
-        detail: "Bóc tách tính năng, nội dung, milestone, chi phí và đúng những gì bạn nhận khi bàn giao.",
+        detail: "Bóc tách tính năng, milestone, chi phí và những gì bàn giao.",
         deliverable: "Đề xuất phạm vi, timeline và báo giá rõ ràng.",
       },
       {
         name: "Phát triển theo sprint",
-        detail: "Triển khai UI, tính năng, responsive và kết nối cần thiết — demo định kỳ để chỉnh sớm.",
+        detail: "UI, tính năng, responsive và tích hợp — demo định kỳ để chỉnh sớm.",
         deliverable: "Bản build/demo theo sprint để review sớm.",
       },
       {
         name: "Kiểm thử & UAT",
-        detail: "Kiểm soát chất lượng và nghiệm thu cùng bạn trước khi lên production.",
+        detail: "Kiểm soát chất lượng và nghiệm thu cùng bạn trước production.",
         deliverable: "Checklist nghiệm thu và danh sách lỗi đã xử lý.",
       },
       {
         name: "Bàn giao & Đồng hành",
-        detail: "Deploy, hướng dẫn vận hành, tài liệu — hỗ trợ lỗi kỹ thuật khi hệ thống đi vào dùng thật.",
-        deliverable: "Source, domain/hosting & env, admin (nếu có), hướng dẫn và BH kỹ thuật theo thỏa thuận.",
+        detail: "Deploy, hướng dẫn vận hành, tài liệu — hỗ trợ lỗi kỹ thuật khi live.",
+        deliverable: "Source, domain/hosting & env, admin (nếu có), hướng dẫn và BH kỹ thuật.",
       },
     ],
   },
@@ -324,7 +338,13 @@ const vi: Dictionary = {
     titleLead: "Năng lực kỹ thuật",
     titleHighlight: "công nghệ hiện đại",
     support:
-      "Chọn đúng stack cho từng bài toán — frontend, mobile, backend đến hạ tầng vận hành. Bộ công cụ đã được kiểm chứng qua dự án thực tế.",
+      "Đúng stack cho đúng bài toán — frontend, backend, infra và data. Kiểm chứng trên dự án thật.",
+    groups: {
+      frontend: "Frontend",
+      backend: "Backend",
+      infra: "Infra / Ops",
+      data: "Data / Tools",
+    },
     logos: [
       "React",
       "Next.js",
@@ -347,26 +367,26 @@ const vi: Dictionary = {
     ],
   },
   why: {
-    eyebrow: "Vì sao chọn Dolphin Kick",
+    eyebrow: "Vì sao chọn Dolphin Kich",
     title: "[[Đồng hành dài hạn]], không chỉ bàn giao code",
     support:
-      "Tư vấn theo mục tiêu kinh doanh và kết quả vận hành — hạn chế thuật ngữ khó hiểu; cam kết rõ về tiến độ, chất lượng và hỗ trợ sau ra mắt.",
+      "Timeline · scope · cam kết · hậu bàn giao — rõ ràng, không jargon.",
     reasons: [
       {
         title: "Kinh nghiệm thực chiến",
-        body: "Co-founder với 7 năm trên production — reliability, observability và bàn giao end-to-end cho web & app SMB.",
+        body: "7 năm production — reliability, observability và bàn giao end-to-end cho SMB.",
       },
       {
         title: "Giao hàng end-to-end",
-        body: "Từ discovery đến deploy — một đội chịu trách nhiệm xuyên suốt, cấu trúc sẵn để thêm trang/form/tính năng sau.",
+        body: "Discovery đến deploy — một đội chịu trách nhiệm; sẵn mở rộng sau.",
       },
       {
         title: "Quy trình minh bạch",
-        body: "Milestone cụ thể, demo định kỳ và báo giá rõ phạm vi — đo bằng đầu ra, không bằng giờ công mơ hồ.",
+        body: "Milestone, demo định kỳ, báo giá rõ phạm vi — đo bằng đầu ra.",
       },
       {
         title: "Đồng hành sau bàn giao",
-        body: "Hướng dẫn vận hành, hỗ trợ lỗi kỹ thuật theo thỏa thuận, tối ưu và mở rộng khi sản phẩm đi vào thực tế.",
+        body: "Hướng dẫn vận hành, BH lỗi kỹ thuật, tối ưu khi sản phẩm chạy thật.",
       },
     ],
   },
@@ -375,13 +395,23 @@ const vi: Dictionary = {
     role: "Co-founder",
     name: "Nguyễn Chí Thành",
     description:
-      "7 năm làm sản phẩm và hệ thống — xây dựng, vận hành production, ứng phó sự cố, observability (Prometheus/Grafana), chuyển monolith→microservices, và workflow AI-agent có human-in-the-loop. Stack quen thuộc: NestJS, Golang, TypeScript, Docker, GitLab CI/CD, MySQL, Redis. Dolphin Kick đưa kinh nghiệm vận hành thật vào web & app cho SMB — giao tiếp thẳng, báo giá hợp lý.",
+      "7 năm product & systems — production ops, incident response, observability. Đưa kinh nghiệm vận hành thật vào web & app SMB: thẳng thắn, phạm vi rõ.",
+    stack: [
+      "NestJS",
+      "Golang",
+      "TypeScript",
+      "Docker",
+      "GitLab CI/CD",
+      "MySQL",
+      "Redis",
+    ],
   },
   contact: {
     eyebrow: "Liên hệ",
     title: "Sẵn sàng [[khởi động]] dự án?",
     support:
-      "Chat Zalo để trao đổi nhanh, hoặc gửi form / email với mục tiêu và mẫu tham khảo. Dolphin Kick đề xuất hướng triển khai và báo giá theo phạm vi — không cần biết kỹ thuật. Xem FAQ phía trên nếu muốn rõ timeline, bảo hành và MVP trước.",
+      "Chat Zalo nhanh hoặc gửi email brief — scope và bước tiếp theo, không cần biết kỹ thuật.",
+    nextHint: "Phản hồi với hướng triển khai + phạm vi ước tính.",
     ctaZalo: "Chat Zalo",
     ctaEmail: "Gửi email",
     name: "Tên",
@@ -404,6 +434,10 @@ const vi: Dictionary = {
   footer: {
     disclaimer:
       "Nội dung liên quan chứng khoán chỉ mang tính chia sẻ cộng đồng — không phải tư vấn đầu tư có giấy phép và không cam kết lợi nhuận.",
+    groupExplore: "Explore",
+    groupStudio: "Studio",
+    groupUpdates: "Updates",
+    groupConnect: "Connect",
   },
   loader: {
     aria: "Đang khởi động hệ thống agent",
@@ -474,7 +508,8 @@ const en: Dictionary = {
     eyebrow: "Studio",
     headline: "From [[business problems]] to [[systems]] you can run",
     support:
-      "Tell us the goal — sell, capture leads, take bookings, or run internal ops. Dolphin Kick locks a clear scope, ships by milestone, and hands over source plus a walkthrough so your team can operate. We don't sell man-hours or a tech laundry list; we measure by operating results. 7 years in production: straight talk, no inflated scope.",
+      "Tell us the goal. Dolphin Kich locks scope, ships by milestone, and hands over source plus a walkthrough so your team can run it.",
+    trustLine: "Clear scope · On-time milestones · Source + ops walkthrough",
     ctaPrimary: "Get a quote",
     ctaSecondary: "View services",
     visual: {
@@ -486,24 +521,27 @@ const en: Dictionary = {
   trust: {
     aria: "Handover deliverables",
     eyebrow: "Handover",
-    title: "What you receive when the project ships",
+    title: "What you receive when the [[project ships]]",
     support:
-      "Not just a live site — you own the source, get domain/hosting guidance, an ops walkthrough, and technical-fix warranty within the accepted scope.",
+      "Source · admin · domain · guide · warranty — ownership and ops, not just a live URL.",
     items: [
-      { value: "Source", label: "You own the source / repo per agreement — no vendor lock-in" },
-      { value: "CMS / Admin", label: "Content or ops admin access when included in scope" },
-      { value: "Domain / Hosting", label: "Guidance to attach domain/hosting, env vars, and a deploy checklist" },
-      { value: "Guide", label: "Docs / walkthrough so your team can operate independently" },
-      { value: "Warranty 3–6 mo", label: "Technical-fix warranty by agreement, within accepted scope — not new features" },
+      { value: "Source", label: "You own the source / repo per agreement — no vendor lock-in." },
+      { value: "CMS / Admin", label: "Content or ops admin access when included in scope." },
+      { value: "Domain / Hosting", label: "Guidance to attach domain/hosting, env vars, and a deploy checklist." },
+      { value: "Guide", label: "Docs / walkthrough so your team can operate independently." },
+      { value: "Warranty 3–6 mo", label: "Technical-bug warranty within accepted scope — not new features." },
     ],
   },
   capabilities: {
     eyebrow: "Services",
     title: "Solutions tied to [[operating outcomes]]",
     support:
-      "Measurable results — not man-hour theater. Tell us the business goal; we propose the approach, cut waste, and ship milestones. From websites and mobile to backend, UI/UX, integrations, and business agents — one service ring so SMBs go from idea to a stable, extensible system.",
+      "Tell us the business goal — we propose the approach, cut waste, and ship milestones. From websites and apps to business agents.",
     wheelTagline: "Full lineup — one service ring",
     filterAll: "All",
+    filterBuild: "Build",
+    filterConnect: "Connect",
+    filterAi: "AI",
     learnMore: "Learn more",
     prevPage: "Previous page",
     nextPage: "Next page",
@@ -563,7 +601,7 @@ const en: Dictionary = {
     eyebrow: "Operating outcomes",
     title: "After handover, you can [[run these jobs]]",
     support:
-      "Tied to business goals — leads, bookings, content, payments, ops — not a feature catalog.",
+      "After handover — leads, bookings, content, payments, and ops you can run; not a feature catalog.",
     items: [
       {
         title: "Capture leads and convert clearly",
@@ -595,31 +633,33 @@ const en: Dictionary = {
     eyebrow: "Engagement outputs",
     title: "Every project [[ends with clear deliverables]]",
     support:
-      "Scope, source, an extensible base, and warranty — your team runs independently, without vendor lock-in.",
+      "Clear handover — docs, ownership, and independent ops; no vendor lock-in.",
+    groupOwn: "Own — ownership & foundation",
+    groupRun: "Run — operations & warranty",
     items: [
       {
-        title: "Locked scope and milestones",
-        body: "Quotes tied to agreed outputs — periodic demos to course-correct early, not vague hours.",
+        title: "Locked scope & milestones",
+        body: "Quotes tied to agreed outputs — periodic demos to course-correct early.",
       },
       {
-        title: "Source and operating rights you keep",
-        body: "Source / repo per agreement — you keep the right to run it, no contractor lock-in.",
+        title: "Source & operating rights",
+        body: "Source / repo per agreement — you keep the right to run it onward.",
       },
       {
-        title: "Structure ready to extend later",
+        title: "Structure ready to extend",
         body: "Add pages, forms, or features by milestone — without rebuilding from scratch.",
       },
       {
-        title: "On-page SEO and performance baseline",
-        body: "Responsive, clear heading/meta, sensible SMB speed — a base to improve on, not fake ranking promises.",
+        title: "On-page SEO & performance",
+        body: "Responsive, clear heading/meta, sensible SMB speed — a base to improve on.",
       },
       {
-        title: "Short ops walkthrough",
+        title: "Ops walkthrough",
         body: "Docs / walkthrough so your team can run content and a basic deploy checklist.",
       },
       {
-        title: "3–6 month technical-fix warranty",
-        body: "Within accepted scope by agreement — new features are a separate line item, quoted first.",
+        title: "3–6 month bug warranty",
+        body: "Within accepted scope — new features are a separate line item, quoted first.",
       },
     ],
   },
@@ -627,11 +667,11 @@ const en: Dictionary = {
     eyebrow: "Ops automation",
     title: "One operating [[lifecycle]] — stop chasing updates across tools",
     support:
-      "Before: signals scattered across Slack, Jira, docs — leadership stitches them by hand. After: one Collect → Normalize → Run → Govern loop, the whole picture in a single flow.",
+      "Signals into one loop — Collect through Improve. The whole picture in a single flow.",
     cta: "Talk automation",
-    before: "Before: hopping Slack / Jira / docs just to know what’s going on.",
-    after:
-      "After: signals collected → normalized → cycled → governed from one console.",
+    before: "Before: hopping Slack / Jira / docs to know what’s on.",
+    after: "After: one console, one operating loop.",
+    loopHint: "Loops back to Collect",
     steps: [
       {
         name: "Collect",
@@ -643,20 +683,28 @@ const en: Dictionary = {
       },
       {
         name: "Run",
-        detail: "Run recurring cycles — reports, nudges, escalation on time.",
+        detail: "Recurring cycles — reports, nudges, escalation on time.",
+      },
+      {
+        name: "Observe",
+        detail: "Watch operating signals — spot drift before it slips.",
       },
       {
         name: "Govern",
         detail: "Steer from one console — no more manual info hunting.",
       },
+      {
+        name: "Improve",
+        detail: "Tune rules and cadence from what you just observed.",
+      },
     ],
-    chips: ["Slack", "Jira", "Docs", "Lifecycle"],
+    chips: ["Slack", "Jira", "Docs"],
   },
   works: {
-    eyebrow: "SMB work",
+    eyebrow: "Sites shipped",
     title: "Personal & [[small-business]] sites we've shipped",
     support:
-      "Each case: problem → scope → measurable operating result — not just pretty shots.",
+      "Each case: problem → scope → measurable result — not just pretty shots.",
     cta: "Want a site like these?",
     problemLabel: "Problem",
     scopeLabel: "Scope",
@@ -664,11 +712,11 @@ const en: Dictionary = {
     items: [
       {
         id: "billiard",
-        title: "Billiard shop management",
+        title: "Billiard shop ops",
         tag: "Website · Booking",
-        problem: "Paper/Excel tracking: hard to see free tables, shift revenue errors.",
+        problem: "Paper/Excel: hard to see free tables; shift revenue slips.",
         scope: "Table map, timers, add-ons, shift summary on web/ops.",
-        result: "Fewer missed sessions; faster staff onboarding; live shift view.",
+        result: "Fewer missed sessions; faster onboarding; live shift view.",
       },
       {
         id: "badminton",
@@ -676,13 +724,13 @@ const en: Dictionary = {
         tag: "Booking",
         problem: "Customers call for availability; admins clash on slots.",
         scope: "Court intro, availability, clear booking flow.",
-        result: "Fewer availability calls; more confirmed holds on the right slot.",
+        result: "Fewer availability calls; more holds on the right slot.",
       },
       {
         id: "tickets",
         title: "Ticket booking & convert",
         tag: "Convert",
-        problem: "Visitors browse events but drop before completing a booking.",
+        problem: "Visitors browse events but drop before booking completes.",
         scope: "Browse → select → pay/hold flow tuned for conversion.",
         result: "Fewer steps to book; higher completed-booking rate.",
       },
@@ -690,7 +738,7 @@ const en: Dictionary = {
         id: "beauty",
         title: "Beauty booking",
         tag: "Beauty",
-        problem: "Missed appointments, double-books, hard to self-book after hours.",
+        problem: "Missed appointments, double-books; hard to self-book after hours.",
         scope: "Slot booking for nail/makeup/services with confirmation.",
         result: "Fewer missed appointments; more after-hours holds.",
       },
@@ -704,7 +752,7 @@ const en: Dictionary = {
       },
       {
         id: "clinic",
-        title: "Clinic appointment booking",
+        title: "Clinic appointments",
         tag: "Clinic",
         problem: "Patients call for slots; easy double-books and missed reminders.",
         scope: "Doctor/slot calendar with confirm and reminders.",
@@ -716,22 +764,22 @@ const en: Dictionary = {
     eyebrow: "Method",
     title: "A 5-step [[delivery]] process",
     support:
-      "Every step has a clear deliverable — from problem summary to source + warranty. We start from the real goal (sell, leads, bookings, internal ops), then lock UI, features, timeline, and cost.",
+      "Discovery to handover — clear output each step, no skipped stages.",
     deliverableLabel: "Deliverable",
     steps: [
       {
         name: "Listen & discover",
-        detail: "Clarify whether the site/app is to sell, introduce services, capture contacts, or manage ops — plus budget/time constraints.",
+        detail: "Clarify site/app goals plus budget and time constraints.",
         deliverable: "Aligned problem summary, goals, and constraints.",
       },
       {
         name: "Plan & quote",
-        detail: "Break down features, content, milestones, cost, and exactly what you receive at handover.",
+        detail: "Break down features, milestones, cost, and handover outputs.",
         deliverable: "Scoped proposal, timeline, and clear quote.",
       },
       {
         name: "Sprint development",
-        detail: "Ship UI, features, responsive behavior, and needed integrations — with regular demos for early course-correction.",
+        detail: "Ship UI, features, responsive, integrations — demos to course-correct early.",
         deliverable: "Sprint builds/demos for early review.",
       },
       {
@@ -741,8 +789,8 @@ const en: Dictionary = {
       },
       {
         name: "Handover & partnership",
-        detail: "Deploy, ops walkthrough, docs — plus technical-fix support once you're live.",
-        deliverable: "Source, domain/hosting & env, admin (if any), guide, and agreed technical warranty.",
+        detail: "Deploy, ops walkthrough, docs — plus technical-fix support once live.",
+        deliverable: "Source, domain/hosting & env, admin (if any), guide, and agreed warranty.",
       },
     ],
   },
@@ -765,7 +813,13 @@ const en: Dictionary = {
     titleLead: "Engineering strength",
     titleHighlight: "modern technology",
     support:
-      "The right stack for each problem — frontend, mobile, backend, and ops. Tooling proven on real projects.",
+      "The right stack for the right problem — frontend, backend, infra, and data. Proven on real projects.",
+    groups: {
+      frontend: "Frontend",
+      backend: "Backend",
+      infra: "Infra / Ops",
+      data: "Data / Tools",
+    },
     logos: [
       "React",
       "Next.js",
@@ -788,26 +842,26 @@ const en: Dictionary = {
     ],
   },
   why: {
-    eyebrow: "Why Dolphin Kick",
+    eyebrow: "Why Dolphin Kich",
     title: "[[Long-term partnership]], not just code delivery",
     support:
-      "Business-goal and operating-outcome language over jargon — plus clear commitments on timeline, quality, and post-launch support.",
+      "Clear timeline, scope, commitments — and support after handover. No jargon fog.",
     reasons: [
       {
         title: "Battle-tested experience",
-        body: "Co-founder with 7 years of experience — production reliability, observability, and end-to-end delivery for SMB web & apps.",
+        body: "7 years in production — reliability, observability, end-to-end SMB delivery.",
       },
       {
         title: "End-to-end delivery",
-        body: "From discovery to deploy — one team accountable throughout, structured so you can add pages/forms/features later.",
+        body: "Discovery to deploy — one accountable team; structured to extend later.",
       },
       {
         title: "Transparent process",
-        body: "Concrete milestones, regular demos, and clear scoped quotes — measured by deliverables, not vague man-hours.",
+        body: "Milestones, regular demos, scoped quotes — measured by deliverables.",
       },
       {
         title: "Support after handover",
-        body: "Ops walkthroughs, agreed technical-fix support, optimization, and growth when the product hits reality.",
+        body: "Ops walkthroughs, bug warranty by agreement, optimize when reality hits.",
       },
     ],
   },
@@ -816,13 +870,23 @@ const en: Dictionary = {
     role: "Co-founder",
     name: "Nguyễn Chí Thành",
     description:
-      "7 years building products and systems — production operations, incident response, observability (Prometheus/Grafana), monolith→microservices, and AI-agent human-in-the-loop workflows. Stack: NestJS, Golang, TypeScript, Docker, GitLab CI/CD, MySQL, Redis. Dolphin Kick brings real ops experience to SMB web & apps — straight talk, fair pricing.",
+      "7 years in product & systems — production ops, incident response, observability. Real ops experience for SMB web & apps: straight talk, clear scope.",
+    stack: [
+      "NestJS",
+      "Golang",
+      "TypeScript",
+      "Docker",
+      "GitLab CI/CD",
+      "MySQL",
+      "Redis",
+    ],
   },
   contact: {
     eyebrow: "Contact",
     title: "Ready to [[start]] a project?",
     support:
-      "Chat on Zalo for a quick exchange, or send the form / email with goals and a reference sample. Dolphin Kick proposes an approach and a scoped quote — no technical background required. See the FAQ above for timeline, warranty, and MVP staging.",
+      "Chat on Zalo or email a short brief — scope and next step, no technical background needed.",
+    nextHint: "You’ll get an approach and estimated scope back.",
     ctaZalo: "Chat on Zalo",
     ctaEmail: "Send email",
     name: "Name",
@@ -845,6 +909,10 @@ const en: Dictionary = {
   footer: {
     disclaimer:
       "Stock-related content is community sharing only — not licensed investment advice and no profit guarantees.",
+    groupExplore: "Explore",
+    groupStudio: "Studio",
+    groupUpdates: "Updates",
+    groupConnect: "Connect",
   },
   loader: {
     aria: "Booting agent system",
@@ -915,7 +983,8 @@ const de: Dictionary = {
     eyebrow: "Studio",
     headline: "Vom [[Geschäftsproblem]] zum [[betreibbaren System]]",
     support:
-      "Nennen Sie das Ziel — verkaufen, Leads, Buchungen oder interne Ops. Dolphin Kick fixiert klaren Scope, liefert per Meilenstein und übergibt Source plus Einweisung. Keine Mannstunden-Theater und keine Tech-Liste; Maßstab sind Betriebsergebnisse. 7 Jahre Production: klare Sprache, kein aufgeblähter Scope.",
+      "Nennen Sie das Ziel. Dolphin Kich fixiert den Scope, liefert per Meilenstein und übergibt Source plus Einweisung.",
+    trustLine: "Klarer Scope · Meilensteine · Source + Betriebsanleitung",
     ctaPrimary: "Angebot anfordern",
     ctaSecondary: "Leistungen ansehen",
     visual: {
@@ -927,24 +996,27 @@ const de: Dictionary = {
   trust: {
     aria: "Übergabe-Ergebnisse",
     eyebrow: "Übergabe",
-    title: "Was Sie bei Projektabschluss erhalten",
+    title: "Was Sie bei [[Projektabschluss]] erhalten",
     support:
-      "Nicht nur eine live Website — Sie besitzen den Source, bekommen Domain/Hosting-Guidance, Betriebsanleitung und technische Fehlergarantie im abgenommenen Scope.",
+      "Source · Admin · Domain · Guide · Garantie — Eigentum und Betrieb, nicht nur eine Live-URL.",
     items: [
-      { value: "Source", label: "Sie besitzen Quellcode / Repo laut Vereinbarung — kein Vendor-Lock-in" },
-      { value: "CMS / Admin", label: "Content- oder Ops-Admin-Zugang, wenn im Scope enthalten" },
-      { value: "Domain / Hosting", label: "Anleitung zu Domain/Hosting, Env-Variablen und Deploy-Checkliste" },
-      { value: "Anleitung", label: "Doku / Walkthrough, damit Ihr Team selbstständig arbeiten kann" },
-      { value: "Garantie 3–6 Mon.", label: "Technische Fehlergarantie laut Vereinbarung, im abgenommenen Scope — keine neuen Features" },
+      { value: "Source", label: "Sie besitzen Quellcode / Repo laut Vereinbarung — kein Vendor-Lock-in." },
+      { value: "CMS / Admin", label: "Content- oder Ops-Admin-Zugang, wenn im Scope enthalten." },
+      { value: "Domain / Hosting", label: "Anleitung zu Domain/Hosting, Env-Variablen und Deploy-Checkliste." },
+      { value: "Anleitung", label: "Doku / Walkthrough, damit Ihr Team selbstständig arbeiten kann." },
+      { value: "Garantie 3–6 Mon.", label: "Technische Fehlergarantie im abgenommenen Scope — keine neuen Features." },
     ],
   },
   capabilities: {
     eyebrow: "Leistungen",
     title: "Lösungen mit [[Betriebs-Outcomes]]",
     support:
-      "Messbare Ergebnisse — kein Mannstunden-Theater. Nennen Sie das Geschäftsziel; wir schlagen den Weg vor, streichen Überflüssiges, liefern Meilensteine. Von Website & Mobile über Backend, UI/UX und Integrationen bis zu Business-Agents — ein Service-Ring für stabile, erweiterbare Systeme.",
+      "Nennen Sie das Geschäftsziel — wir schlagen den Weg vor, streichen Überflüssiges, liefern Meilensteine. Von Website & App bis zu Business-Agents.",
     wheelTagline: "Full lineup — ein Service-Ring",
     filterAll: "Alle",
+    filterBuild: "Build",
+    filterConnect: "Connect",
+    filterAi: "AI",
     learnMore: "Mehr erfahren",
     prevPage: "Vorherige Seite",
     nextPage: "Nächste Seite",
@@ -1004,7 +1076,7 @@ const de: Dictionary = {
     eyebrow: "Betriebsergebnisse",
     title: "Nach der Übergabe [[laufen diese Aufgaben]]",
     support:
-      "An Geschäftsziele gekoppelt — Leads, Termine, Inhalte, Zahlungen, Ops — kein Feature-Katalog.",
+      "Nach der Übergabe — Leads, Termine, Inhalte, Zahlungen und Ops, die laufen; kein Feature-Katalog.",
     items: [
       {
         title: "Leads klar erfassen und konvertieren",
@@ -1033,34 +1105,36 @@ const de: Dictionary = {
     ],
   },
   whatYouGet: {
-    eyebrow: "Kooperations-Outputs",
+    eyebrow: "Engagement-Outputs",
     title: "Jedes Projekt [[endet mit klaren Deliverables]]",
     support:
-      "Scope, Source, erweiterbare Basis und Garantie — Ihr Team läuft selbstständig, ohne Vendor-Lock-in.",
+      "Klare Übergabe — Docs, Eigentum, unabhängiger Betrieb; kein Vendor-Lock-in.",
+    groupOwn: "Own — Eigentum & Fundament",
+    groupRun: "Run — Betrieb & Garantie",
     items: [
       {
-        title: "Festgeschriebener Scope und Meilensteine",
-        body: "Angebote an vereinbarte Outputs — Demos zur frühen Kurskorrektur, keine vagen Stunden.",
+        title: "Scope & Meilensteine fest",
+        body: "Angebote an vereinbarte Outputs — Demos zur frühen Kurskorrektur.",
       },
       {
-        title: "Source und Betriebsrechte bei Ihnen",
-        body: "Source / Repo laut Vereinbarung — Sie behalten das Recht zum Weiterbetrieb, kein Contractor-Lock-in.",
+        title: "Source & Betriebsrechte",
+        body: "Source / Repo laut Vereinbarung — Sie behalten das Recht zum Weiterbetrieb.",
       },
       {
-        title: "Struktur für spätere Erweiterung",
-        body: "Seiten, Formulare oder Features per Meilenstein ergänzen — ohne Neubau von null.",
+        title: "Struktur für Erweiterung",
+        body: "Seiten, Formulare oder Features per Meilenstein — ohne Neubau von null.",
       },
       {
-        title: "On-Page-SEO und Performance-Basis",
-        body: "Responsiv, klare Heading/Meta, sinnvolle SMB-Speed — Basis zum Nachziehen, keine Fake-Rankings.",
+        title: "On-Page-SEO & Performance",
+        body: "Responsiv, klare Heading/Meta, sinnvolle SMB-Speed — Basis zum Nachziehen.",
       },
       {
-        title: "Kurzer Ops-Walkthrough",
-        body: "Docs / Walkthrough, damit Ihr Team Inhalte und eine Basis-Deploy-Checkliste selbst fährt.",
+        title: "Ops-Walkthrough",
+        body: "Docs / Walkthrough für Inhalte und eine Basis-Deploy-Checkliste.",
       },
       {
         title: "3–6 Monate Bug-Garantie",
-        body: "Im abgenommenen Scope laut Vereinbarung — neue Features sind eigene Position, vorher angeboten.",
+        body: "Im abgenommenen Scope — neue Features separat, vorher angeboten.",
       },
     ],
   },
@@ -1068,11 +1142,11 @@ const de: Dictionary = {
     eyebrow: "Ops-Automatisierung",
     title: "Ein Operating-[[Lifecycle]] — Schluss mit Tool-Hopping",
     support:
-      "Vorher: Signale verstreut in Slack, Jira, Docs — Führung puzzelt manuell. Nachher: ein Collect → Normalize → Run → Govern-Zyklus, Gesamtbild in einem Fluss.",
+      "Signale in eine Schleife — Collect bis Improve. Gesamtbild in einem Fluss.",
     cta: "Über Automatisierung sprechen",
-    before: "Vorher: zwischen Slack / Jira / Docs springen, um den Stand zu kennen.",
-    after:
-      "Nachher: Signale sammeln → normalisieren → Zyklus → steuern aus einer Konsole.",
+    before: "Vorher: Slack / Jira / Docs springen für den Stand.",
+    after: "Nachher: eine Konsole, ein Operating-Loop.",
+    loopHint: "Zurück zu Collect",
     steps: [
       {
         name: "Collect",
@@ -1087,17 +1161,25 @@ const de: Dictionary = {
         detail: "Wiederkehrende Zyklen — Reports, Nudges, Eskalation zur rechten Zeit.",
       },
       {
+        name: "Observe",
+        detail: "Betriebssignale beobachten — Drift sehen, bevor es rutscht.",
+      },
+      {
         name: "Govern",
         detail: "Steuern aus einer Konsole — ohne manuelles Informationssammeln.",
       },
+      {
+        name: "Improve",
+        detail: "Regeln und Takt aus dem Beobachteten nachschärfen.",
+      },
     ],
-    chips: ["Slack", "Jira", "Docs", "Lifecycle"],
+    chips: ["Slack", "Jira", "Docs"],
   },
   works: {
-    eyebrow: "SMB-Projekte",
+    eyebrow: "Gelieferte Sites",
     title: "Personal- & [[kleine Business]]-Websites",
     support:
-      "Jeder Case: Problem → Scope → messbares Betriebsergebnis — nicht nur schöne Screenshots.",
+      "Jeder Case: Problem → Scope → messbares Ergebnis — nicht nur schöne Screenshots.",
     cta: "Ähnliche Website bauen?",
     problemLabel: "Problem",
     scopeLabel: "Scope",
@@ -1105,9 +1187,9 @@ const de: Dictionary = {
     items: [
       {
         id: "billiard",
-        title: "Billard-Shop-Verwaltung",
+        title: "Billard-Shop-Ops",
         tag: "Website · Booking",
-        problem: "Papier/Excel: freie Tische unklar, Schichtumsatz fehleranfällig.",
+        problem: "Papier/Excel: freie Tische unklar; Schichtumsatz rutscht.",
         scope: "Tischkarte, Timer, Zusatzleistungen, Schichtübersicht.",
         result: "Weniger verpasste Sessions; schnelleres Onboarding; Live-Schichtblick.",
       },
@@ -1131,7 +1213,7 @@ const de: Dictionary = {
         id: "beauty",
         title: "Beauty-Booking",
         tag: "Beauty",
-        problem: "Verpasste Termine, Doppelbuchungen, schwer nach Feierabend buchen.",
+        problem: "Verpasste Termine, Doppelbuchungen; schwer nach Feierabend buchen.",
         scope: "Slot-Buchung für Nail/Makeup/Services mit Bestätigung.",
         result: "Weniger verpasste Termine; mehr Holds außerhalb der Bürozeit.",
       },
@@ -1145,7 +1227,7 @@ const de: Dictionary = {
       },
       {
         id: "clinic",
-        title: "Klinik-Terminbuchung",
+        title: "Klinik-Termine",
         tag: "Clinic",
         problem: "Patienten rufen wegen Slots an; Doppelbuchungen und Reminder-Lücken.",
         scope: "Arzt/Slot-Kalender mit Bestätigung und Erinnerungen.",
@@ -1157,22 +1239,22 @@ const de: Dictionary = {
     eyebrow: "Methode",
     title: "5-Schritte-[[Übergabeprozess]]",
     support:
-      "Jeder Schritt hat ein klares Deliverable — von der Problemzusammenfassung bis Source + Garantie. Wir starten vom realen Ziel (Verkauf, Leads, Buchungen, interne Ops), dann UI, Features, Zeitplan und Kosten.",
+      "Von Discovery bis Übergabe — jeder Schritt mit klarem Output, keine Sprünge.",
     deliverableLabel: "Deliverable",
     steps: [
       {
         name: "Zuhören & Analyse",
-        detail: "Klären, ob Website/App zum Verkaufen, Vorstellen, Lead-Erfassen oder für interne Verwaltung dient — plus Budget-/Zeitrahmen.",
+        detail: "Ziele der Website/App klären plus Budget- und Zeitrahmen.",
         deliverable: "Abgestimmte Problem-/Ziel-/Rahmen-Zusammenfassung.",
       },
       {
         name: "Planung & Angebot",
-        detail: "Features, Inhalte, Meilensteine, Kosten und Übergabe-Lieferumfang aufschlüsseln.",
+        detail: "Features, Meilensteine, Kosten und Übergabe-Lieferumfang aufschlüsseln.",
         deliverable: "Scope-Vorschlag, Zeitplan und klares Angebot.",
       },
       {
         name: "Sprint-Entwicklung",
-        detail: "UI, Features, Responsive und nötige Anbindungen — mit regelmäßigen Demos zur frühen Korrektur.",
+        detail: "UI, Features, Responsive, Anbindungen — Demos zur frühen Korrektur.",
         deliverable: "Sprint-Builds/Demos zur frühen Review.",
       },
       {
@@ -1183,7 +1265,7 @@ const de: Dictionary = {
       {
         name: "Übergabe & Begleitung",
         detail: "Deploy, Nutzungswalkthrough, Doku — plus Support bei Technikfehlern im Betrieb.",
-        deliverable: "Source, Domain/Hosting & Env, Admin (falls vorhanden), Anleitung und vereinbarte Technikgarantie.",
+        deliverable: "Source, Domain/Hosting & Env, Admin (falls vorhanden), Anleitung und Technikgarantie.",
       },
     ],
   },
@@ -1206,7 +1288,13 @@ const de: Dictionary = {
     titleLead: "Technische Stärke",
     titleHighlight: "moderne Technologie",
     support:
-      "Der passende Stack für jedes Problem — Frontend, Mobile, Backend und Betrieb. In realen Projekten erprobt.",
+      "Der passende Stack für das Problem — Frontend, Backend, Infra und Data. In realen Projekten erprobt.",
+    groups: {
+      frontend: "Frontend",
+      backend: "Backend",
+      infra: "Infra / Ops",
+      data: "Data / Tools",
+    },
     logos: [
       "React",
       "Next.js",
@@ -1229,26 +1317,26 @@ const de: Dictionary = {
     ],
   },
   why: {
-    eyebrow: "Warum Dolphin Kick",
+    eyebrow: "Warum Dolphin Kich",
     title: "[[Langfristige Partnerschaft]], nicht nur Code-Übergabe",
     support:
-      "Sprache der Geschäftsziele und Betriebsergebnisse statt Jargon — plus klare Zusagen zu Zeitplan, Qualität und Support nach dem Launch.",
+      "Klarer Zeitplan, Scope, Zusagen — und Support nach der Übergabe.",
     reasons: [
       {
         title: "Praxisnahe Erfahrung",
-        body: "Co-founder mit 7 Jahren Erfahrung — Production-Reliability, Observability und End-to-End-Lieferung für SMB Web & Apps.",
+        body: "7 Jahre Production — Reliability, Observability, End-to-End für SMB.",
       },
       {
         title: "End-to-End-Lieferung",
-        body: "Von Discovery bis Deploy — ein Team trägt die Verantwortung; Struktur bleibt erweiterbar für Seiten/Formulare/Features.",
+        body: "Discovery bis Deploy — ein verantwortliches Team; später erweiterbar.",
       },
       {
         title: "Transparenter Prozess",
-        body: "Konkrete Meilensteine, regelmäßige Demos und klare Scope-Angebote — gemessen an Deliverables, nicht an vagen Mannstunden.",
+        body: "Meilensteine, Demos, klare Scope-Angebote — gemessen an Deliverables.",
       },
       {
-        title: "Begleitung nach der Übergabe",
-        body: "Einweisung, vereinbarter Support bei Technikfehlern, Optimierung und Erweiterung im Alltag.",
+        title: "Support nach Übergabe",
+        body: "Ops-Walkthroughs, Bug-Garantie laut Vereinbarung, Optimierung im Betrieb.",
       },
     ],
   },
@@ -1257,13 +1345,23 @@ const de: Dictionary = {
     role: "Co-founder",
     name: "Nguyễn Chí Thành",
     description:
-      "7 Jahre Produkte und Systeme bauen und betreiben — Production-Betrieb, Incident Response, Observability (Prometheus/Grafana), Monolith→Microservices und AI-Agent-Workflows mit Human-in-the-Loop. Stack: NestJS, Golang, TypeScript, Docker, GitLab CI/CD, MySQL, Redis. Dolphin Kick bringt echte Ops-Erfahrung in SMB Web & Apps — klare Kommunikation, faire Preise.",
+      "7 Jahre Product & Systems — Production-Ops, Incident Response, Observability. Echte Ops-Erfahrung für SMB Web & Apps: klar, fair im Scope.",
+    stack: [
+      "NestJS",
+      "Golang",
+      "TypeScript",
+      "Docker",
+      "GitLab CI/CD",
+      "MySQL",
+      "Redis",
+    ],
   },
   contact: {
     eyebrow: "Kontakt",
     title: "Bereit, ein [[Projekt]] zu starten?",
     support:
-      "Schneller Austausch per Zalo-Chat, oder Formular / E-Mail mit Ziel und Referenzbeispiel. Dolphin Kick schlägt Vorgehen und Scope-Angebot vor — Technikkenntnisse sind nicht nötig. FAQ oben zu Timeline, Garantie und MVP-Stufen.",
+      "Zalo-Chat oder kurze E-Mail mit Brief — Scope und nächster Schritt, ohne Technikkenntnisse.",
+    nextHint: "Antwort mit Vorgehen und geschätztem Scope.",
     ctaZalo: "Zalo-Chat",
     ctaEmail: "E-Mail senden",
     name: "Name",
@@ -1286,6 +1384,10 @@ const de: Dictionary = {
   footer: {
     disclaimer:
       "Inhalte zu Aktien dienen nur dem Community-Austausch — keine lizenzierte Anlageberatung und keine Gewinngarantie.",
+    groupExplore: "Entdecken",
+    groupStudio: "Studio",
+    groupUpdates: "Updates",
+    groupConnect: "Kontakt",
   },
   loader: {
     aria: "Agent-System wird gestartet",
@@ -1356,7 +1458,8 @@ const ja: Dictionary = {
     eyebrow: "Studio",
     headline: "事業の[[課題]]から、[[運用しやすいシステム]]へ",
     support:
-      "販売・リード獲得・予約・社内運用など、ゴールを教えてください。Dolphin Kickはスコープを明確にし、マイルストーンで届け、ソースと操作ガイドを引き渡します。工数売りや技術カタログではなく、運用成果で測ります。本番7年：率直な対話、スコープ水増しなし。",
+      "ゴールを教えてください。Dolphin Kichはスコープを明確にし、マイルストーンで届け、ソースと操作ガイドを引き渡します。",
+    trustLine: "明確なスコープ · マイルストーン · ソース＋運用ガイド",
     ctaPrimary: "見積もりを依頼",
     ctaSecondary: "サービスを見る",
     visual: {
@@ -1368,24 +1471,27 @@ const ja: Dictionary = {
   trust: {
     aria: "引き渡し成果物",
     eyebrow: "引き渡し",
-    title: "プロジェクト完了時に受け取るもの",
+    title: "プロジェクト完了時に[[受け取るもの]]",
     support:
-      "公開サイトだけでなく、ソース所有、ドメイン/ホスティング案内、運用ガイド、検収済み範囲の技術不具合保証まで。",
+      "Source · Admin · Domain · Guide · 保証 — 所有権と運用。公開URLだけではありません。",
     items: [
-      { value: "Source", label: "合意に基づきソース / リポジトリを所有 — ベンダーロックなし" },
-      { value: "CMS / Admin", label: "スコープに含まれる場合の管理画面アクセス" },
-      { value: "Domain / Hosting", label: "ドメイン/ホスティング接続、環境変数、デプロイチェックリストの案内" },
-      { value: "ガイド", label: "チームが自走できるドキュメント / ウォークスルー" },
-      { value: "保証 3–6ヶ月", label: "合意に基づく技術不具合保証（検収済み範囲内）— 新機能は含みません" },
+      { value: "Source", label: "合意に基づきソース / リポジトリを所有 — ベンダーロックなし。" },
+      { value: "CMS / Admin", label: "スコープに含まれる場合の管理画面アクセス。" },
+      { value: "Domain / Hosting", label: "ドメイン/ホスティング接続、環境変数、デプロイチェックリストの案内。" },
+      { value: "ガイド", label: "チームが自走できるドキュメント / ウォークスルー。" },
+      { value: "保証 3–6ヶ月", label: "検収済み範囲内の技術不具合保証 — 新機能は含みません。" },
     ],
   },
   capabilities: {
     eyebrow: "サービス",
     title: "[[運用成果]]に結びつけるソリューション",
     support:
-      "測定可能な成果 — 工数の芝居ではありません。事業ゴールを教えてください。優先順位をつけ、無駄を削り、マイルストーンで届けます。Web／モバイル、バックエンド、UI/UX、外部連携、業務エージェントまで — 後から拡張しやすい安定システムへ。",
+      "事業ゴールを教えてください — 優先順位をつけ、無駄を削り、マイルストーンで届けます。Web／アプリから業務エージェントまで。",
     wheelTagline: "Full lineup — サービス一覧",
     filterAll: "すべて",
+    filterBuild: "Build",
+    filterConnect: "Connect",
+    filterAi: "AI",
     learnMore: "詳しく見る",
     prevPage: "前のページ",
     nextPage: "次のページ",
@@ -1445,7 +1551,7 @@ const ja: Dictionary = {
     eyebrow: "運用成果",
     title: "引き渡し後に[[回せる仕事]]",
     support:
-      "ビジネス目標に紐づく — リード、予約、コンテンツ、決済、運用。機能カタログではありません。",
+      "引き渡し後 — リード・予約・コンテンツ・決済・運用が回る。機能カタログではありません。",
     items: [
       {
         title: "リード獲得と転換をはっきり",
@@ -1474,34 +1580,36 @@ const ja: Dictionary = {
     ],
   },
   whatYouGet: {
-    eyebrow: "協業の成果物",
+    eyebrow: "Engagement outputs",
     title: "プロジェクトは[[明確な成果物で終わる]]",
     support:
-      "スコープ、ソース、拡張可能な基盤、保証 — チームが自立運用し、ベンダーロックを避けます。",
+      "明確な引き渡し — ドキュメント、所有権、自立運用。ベンダーロックなし。",
+    groupOwn: "Own — 所有と基盤",
+    groupRun: "Run — 運用と保証",
     items: [
       {
         title: "確定したスコープとマイルストーン",
-        body: "合意した成果物に紐づく見積もり — 定期デモで早期修正、曖昧な工数ではありません。",
+        body: "合意した成果物に紐づく見積もり — 定期デモで早期修正。",
       },
       {
-        title: "ソースと運用権はあなた側",
-        body: "契約どおりのソース／リポジトリ — 運用を続ける権利はあなた、請負ロックなし。",
+        title: "ソースと運用権",
+        body: "契約どおりのソース／リポジトリ — 運用を続ける権利はあなた側。",
       },
       {
         title: "後から足せる構造",
         body: "ページ・フォーム・機能をマイルストーンで追加 — ゼロからの作り直しを避けます。",
       },
       {
-        title: "オンページSEOと性能の土台",
-        body: "レスポンシブ、見出し／メタ明確、SMB向けの妥当な速度 — 誇張した順位約束はしません。",
+        title: "オンページSEOと性能",
+        body: "レスポンシブ、見出し／メタ明確、SMB向けの妥当な速度 — 改善の土台。",
       },
       {
-        title: "短い運用ウォークスルー",
+        title: "運用ウォークスルー",
         body: "ドキュメント／ウォークスルーで、コンテンツ運用と基本デプロイを自走。",
       },
       {
         title: "技術不具合保証 3〜6か月",
-        body: "検収範囲内（契約どおり）— 新機能は別項目として、先に見積もります。",
+        body: "検収範囲内 — 新機能は別項目として、先に見積もります。",
       },
     ],
   },
@@ -1509,10 +1617,11 @@ const ja: Dictionary = {
     eyebrow: "業務自動化",
     title: "ひとつの運用[[ライフサイクル]] — ツール横断の追いかけをやめる",
     support:
-      "以前: Slack / Jira / Docs に情報が散らばり、経営が手作業でつなぐ。以後: Collect → Normalize → Run → Govern の循環で全体を一望。",
+      "シグナルを一つのループへ — Collect から Improve。全体を一望。",
     cta: "自動化について相談する",
-    before: "以前: 状況把握のため Slack / Jira / Docs を行き来する。",
-    after: "以後: 収集 → 正規化 → 周期実行 → ひとつのコンソールで統制",
+    before: "以前: Slack / Jira / Docs を行き来して状況把握。",
+    after: "以後: ひとつのコンソール、ひとつの運用ループ。",
+    loopHint: "Collect へ戻る",
     steps: [
       {
         name: "Collect",
@@ -1527,17 +1636,25 @@ const ja: Dictionary = {
         detail: "定周期で回す — レポート、リマインド、適切なエスカレーション。",
       },
       {
+        name: "Observe",
+        detail: "運用シグナルを見る — 遅れる前にズレを捉える。",
+      },
+      {
         name: "Govern",
         detail: "ひとつのコンソールから指揮 — 手作業の情報収集は不要。",
       },
+      {
+        name: "Improve",
+        detail: "観察した根拠でルールと周期を調整する。",
+      },
     ],
-    chips: ["Slack", "Jira", "Docs", "Lifecycle"],
+    chips: ["Slack", "Jira", "Docs"],
   },
   works: {
-    eyebrow: "SMB実績",
+    eyebrow: "納品実績",
     title: "個人・スモールビジネス向けサイト[[実績]]",
     support:
-      "各事例は課題 → 範囲 → 測定可能な運用成果で記載 — 見た目だけの紹介ではありません。",
+      "各事例は課題 → 範囲 → 測定可能な成果 — 見た目だけの紹介ではありません。",
     cta: "似たサイトを作りたい",
     problemLabel: "課題",
     scopeLabel: "範囲",
@@ -1547,9 +1664,9 @@ const ja: Dictionary = {
         id: "billiard",
         title: "ビリヤード店管理",
         tag: "Website · Booking",
-        problem: "紙/Excel管理で空き卓が分かりにくく、シフト売上がズレやすい。",
+        problem: "紙/Excelで空き卓が分かりにくく、シフト売上がズレやすい。",
         scope: "卓マップ、タイマー、付帯サービス、シフト集計のWeb/ops。",
-        result: "取りこぼし減、スタッフ習熟が早い、シフト状況をいつでも確認。",
+        result: "取りこぼし減、習熟が早い、シフト状況をいつでも確認。",
       },
       {
         id: "badminton",
@@ -1597,22 +1714,22 @@ const ja: Dictionary = {
     eyebrow: "進め方",
     title: "引き渡しまでの[[5ステップ]]",
     support:
-      "各ステップに明確な成果物があります — 課題サマリーからソース + 保証まで。まず現実の目的（販売・リード・予約・社内運用）を揃え、その後 UI・機能・期間・費用を確定します。",
+      "ディスカバリーから引き渡しまで — 各ステップに明確な成果物。飛ばしなし。",
     deliverableLabel: "成果物",
     steps: [
       {
         name: "ヒアリング & 調査",
-        detail: "販売・サービス紹介・問い合わせ獲得・社内管理のどれが目的か、予算・期限の制約も含めて明確にします。",
+        detail: "サイト／アプリの目的と予算・期限の制約を明確にします。",
         deliverable: "課題・目標・制約の合意サマリー。",
       },
       {
         name: "計画 & 見積もり",
-        detail: "機能・コンテンツ・マイルストーン・費用、引き渡し時の成果物を分解します。",
+        detail: "機能・マイルストーン・費用・引き渡し成果物を分解します。",
         deliverable: "スコープ提案・スケジュール・明確な見積もり。",
       },
       {
         name: "スプリント開発",
-        detail: "UI・機能・レスポンシブ・必要な連携を実装し、定期デモで早期に軌道修正します。",
+        detail: "UI・機能・レスポンシブ・連携を実装し、定期デモで早期修正。",
         deliverable: "早期レビュー用のスプリントビルド/デモ。",
       },
       {
@@ -1622,8 +1739,8 @@ const ja: Dictionary = {
       },
       {
         name: "引き渡し & 伴走",
-        detail: "デプロイ、利用ガイド、ドキュメント — 稼働後の技術不具合サポートも含みます。",
-        deliverable: "ソース、ドメイン/ホスティング & 環境、管理画面（あれば）、ガイド、合意の技術保証。",
+        detail: "デプロイ、利用ガイド、ドキュメント — 稼働後の技術サポートも含む。",
+        deliverable: "ソース、ドメイン/ホスティング & 環境、管理画面（あれば）、ガイド、技術保証。",
       },
     ],
   },
@@ -1646,7 +1763,13 @@ const ja: Dictionary = {
     titleLead: "確かなエンジニアリング",
     titleHighlight: "モダンな技術",
     support:
-      "課題に合わせて最適なスタックを選定 — フロント、モバイル、バックエンド、インフラまで。実務で検証されたツール群です。",
+      "課題に合うスタックを選ぶ — フロント、バックエンド、インフラ、データ。実務で検証済み。",
+    groups: {
+      frontend: "Frontend",
+      backend: "Backend",
+      infra: "Infra / Ops",
+      data: "Data / Tools",
+    },
     logos: [
       "React",
       "Next.js",
@@ -1669,26 +1792,26 @@ const ja: Dictionary = {
     ],
   },
   why: {
-    eyebrow: "Dolphin Kickを選ぶ理由",
+    eyebrow: "Dolphin Kichを選ぶ理由",
     title: "コード納品だけで終わらない、[[長期伴走]]",
     support:
-      "専門用語を抑え、事業目標と運用成果の言葉で相談します。スケジュール・品質・リリース後サポートへの明確なコミットメント付きです。",
+      "スケジュール・スコープ・コミットメント・引き渡し後サポートを明確に。",
     reasons: [
       {
         title: "実務経験",
-        body: "Co-founderとして7年の経験 — 本番の信頼性・Observability・SMB向けWeb/Appのエンドツーエンド納品。",
+        body: "本番7年 — 信頼性・Observability・SMB向けエンドツーエンド納品。",
       },
       {
         title: "エンドツーエンド納品",
-        body: "ディスカバリーからデプロイまで一貫して責任を持ち、後からページ/フォーム/機能を足しやすい構造で届けます。",
+        body: "ディスカバリーからデプロイまで — 一貫責任。後から拡張可能。",
       },
       {
         title: "透明なプロセス",
-        body: "具体的なマイルストーン、定期デモ、範囲の明確な見積もり — 曖昧な工数ではなく成果物で測ります。",
+        body: "マイルストーン、定期デモ、明確な見積もり — 成果物で測る。",
       },
       {
         title: "引き渡し後の伴走",
-        body: "運用ガイド、合意した技術不具合サポート、最適化と拡張まで本番後も継続支援します。",
+        body: "運用ガイド、合意の不具合保証、実運用での最適化。",
       },
     ],
   },
@@ -1697,13 +1820,23 @@ const ja: Dictionary = {
     role: "Co-founder",
     name: "Nguyễn Chí Thành",
     description:
-      "プロダクトとシステムの構築・運用で7年 — 本番運用、インシデント対応、Observability（Prometheus/Grafana）、モノリス→マイクロサービス、Human-in-the-Loop の AIエージェント連携。Stack: NestJS、Golang、TypeScript、Docker、GitLab CI/CD、MySQL、Redis。Dolphin Kickは現場の運用経験を SMB 向け Web & App に活かし、率直なコミュニケーションと妥当な価格で届けます。",
+      "7年のプロダクト＆システム — production ops、障害対応、Observability。SMB向けWeb/Appに実運用経験を：率直、スコープ明確。",
+    stack: [
+      "NestJS",
+      "Golang",
+      "TypeScript",
+      "Docker",
+      "GitLab CI/CD",
+      "MySQL",
+      "Redis",
+    ],
   },
   contact: {
     eyebrow: "お問い合わせ",
     title: "[[プロジェクト]]を始めませんか？",
     support:
-      "Zaloで素早く相談、またはフォーム/メールで目的と参考例を送ってください。Dolphin Kickが方針と範囲付き見積もりを提案します。技術知識は不要です。期間・保証・段階的MVPは上のFAQをご覧ください。",
+      "Zaloで素早く相談、または短いメールで概要を — スコープと次の一歩。技術知識は不要です。",
+    nextHint: "方針と概算スコープで返信します。",
     ctaZalo: "Zaloで相談",
     ctaEmail: "メールを送る",
     name: "お名前",
@@ -1726,6 +1859,10 @@ const ja: Dictionary = {
   footer: {
     disclaimer:
       "証券関連の内容はコミュニティ共有であり、認可を受けた投資助言ではなく、利益を保証するものでもありません。",
+    groupExplore: "Explore",
+    groupStudio: "Studio",
+    groupUpdates: "Updates",
+    groupConnect: "Connect",
   },
   loader: {
     aria: "エージェントシステムを起動中",
@@ -1796,7 +1933,8 @@ const zh: Dictionary = {
     eyebrow: "Studio",
     headline: "从[[业务问题]]到[[可运营的系统]]",
     support:
-      "告诉我们目标——获客、销售、预约还是内部运营。Dolphin Kick 锁定清晰范围、按里程碑交付，并交接源码与操作指引，让团队能自跑。不卖工时演戏或技术清单；以运营结果衡量。7 年生产经验：直率沟通，不虚增范围。",
+      "告诉我们目标。Dolphin Kich 锁定范围、按里程碑交付，并交接源码与操作指引，让团队能自跑。",
+    trustLine: "范围清晰 · 里程碑准时 · 源码 + 运营指引",
     ctaPrimary: "获取报价",
     ctaSecondary: "查看服务",
     visual: {
@@ -1808,24 +1946,27 @@ const zh: Dictionary = {
   trust: {
     aria: "交接交付物",
     eyebrow: "交接",
-    title: "项目完成时你拿到什么",
+    title: "项目完成时你[[拿到什么]]",
     support:
-      "不只是站点能上线——你拥有源码，获得域名/主机指引、运营指南，以及验收范围内的技术故障质保。",
+      "源码 · 后台 · 域名 · 指南 · 质保——所有权与运营，不只是线上 URL。",
     items: [
-      { value: "Source", label: "按约定拥有源码 / 仓库——无厂商锁定" },
-      { value: "CMS / Admin", label: "范围包含时提供内容或运营后台访问" },
-      { value: "Domain / Hosting", label: "域名/主机接入指引、环境变量与部署清单" },
-      { value: "指南", label: "文档 / 演示，便于团队独立运维" },
-      { value: "质保 3–6 个月", label: "按约定对验收范围内技术故障质保——不含新功能" },
+      { value: "Source", label: "按约定拥有源码 / 仓库——无厂商锁定。" },
+      { value: "CMS / Admin", label: "范围包含时提供内容或运营后台访问。" },
+      { value: "Domain / Hosting", label: "域名/主机接入指引、环境变量与部署清单。" },
+      { value: "指南", label: "文档 / 演示，便于团队独立运维。" },
+      { value: "质保 3–6 个月", label: "验收范围内技术故障质保——不含新功能。" },
     ],
   },
   capabilities: {
     eyebrow: "服务",
     title: "绑定[[运营结果]]的解决方案",
     support:
-      "可衡量结果——不是工时演戏。告诉我们业务目标；我们提出做法、砍掉浪费、按里程碑交付。从网站与移动端、后端、UI/UX、第三方集成到业务 Agent——帮助中小企业走到可稳定运行、日后易扩展的系统。",
+      "告诉我们业务目标——我们提出做法、砍掉浪费、按里程碑交付。从网站与应用到业务 Agent。",
     wheelTagline: "Full lineup — 一站式服务环",
     filterAll: "全部",
+    filterBuild: "Build",
+    filterConnect: "Connect",
+    filterAi: "AI",
     learnMore: "了解更多",
     prevPage: "上一页",
     nextPage: "下一页",
@@ -1885,7 +2026,7 @@ const zh: Dictionary = {
     eyebrow: "运营成果",
     title: "交付后你能[[跑起来的业务]]",
     support:
-      "对齐业务目标——获客、预约、内容、支付、运营——不是功能目录。",
+      "交付后——获客、预约、内容、支付与运营能跑起来；不是功能目录。",
     items: [
       {
         title: "清楚获客与转化",
@@ -1914,34 +2055,36 @@ const zh: Dictionary = {
     ],
   },
   whatYouGet: {
-    eyebrow: "合作产出",
+    eyebrow: "项目交付",
     title: "每个项目都以[[清晰交付物收尾]]",
     support:
-      "范围、源码、可扩展底座与质保——团队独立运营，不被供应商锁定。",
+      "清晰交接——文档、所有权、独立运营；无供应商锁定。",
+    groupOwn: "Own — 所有权与底座",
+    groupRun: "Run — 运营与质保",
     items: [
       {
-        title: "已锁定的范围与里程碑",
-        body: "报价绑定已约定产出——定期演示便于早改，不是模糊工时。",
+        title: "范围与里程碑已锁定",
+        body: "报价绑定已约定产出——定期演示便于早改。",
       },
       {
-        title: "源码与运营权归你",
-        body: "按约定交付源码／仓库——继续运营的权利在你，不被承包商锁定。",
+        title: "源码与运营权",
+        body: "按约定交付源码／仓库——继续运营的权利在你。",
       },
       {
-        title: "结构预留后续扩展",
+        title: "结构预留扩展",
         body: "按里程碑加页面、表单或功能——不必从零重做。",
       },
       {
-        title: "页面 SEO 与性能底座",
-        body: "响应式、标题／元信息清晰、合理 SMB 速度——可继续优化，不承诺虚假排名。",
+        title: "页面 SEO 与性能",
+        body: "响应式、标题／元信息清晰、合理 SMB 速度——可继续优化。",
       },
       {
-        title: "简短运营走查",
+        title: "运营走查",
         body: "文档／走查，让团队自行管理内容与基础部署清单。",
       },
       {
         title: "技术缺陷质保 3–6 个月",
-        body: "按约定在已验收范围内——新功能单独报价，先谈再做。",
+        body: "在已验收范围内——新功能单独报价，先谈再做。",
       },
     ],
   },
@@ -1949,10 +2092,11 @@ const zh: Dictionary = {
     eyebrow: "运营自动化",
     title: "一条运营[[生命周期]]——不再跨工具追进度",
     support:
-      "之前：信号散落在 Slack、Jira、文档——管理层手工拼图。之后：Collect → Normalize → Run → Govern 循环，一条流看清全局。",
+      "信号进入一个闭环——Collect 到 Improve。一条流看清全局。",
     cta: "聊聊自动化",
-    before: "之前：在 Slack / Jira / 文档间跳转才能知道进度。",
-    after: "之后：采集 → 规范化 → 周期执行 → 从一个控制台治理",
+    before: "之前：在 Slack / Jira / 文档间跳转才知道进度。",
+    after: "之后：一个控制台，一条运营闭环。",
+    loopHint: "回到 Collect",
     steps: [
       {
         name: "Collect",
@@ -1967,17 +2111,25 @@ const zh: Dictionary = {
         detail: "按周期运行——报告、提醒、按时升级。",
       },
       {
+        name: "Observe",
+        detail: "观察运营信号——在滞后前发现偏差。",
+      },
+      {
         name: "Govern",
         detail: "从一个控制台指挥——无需手工拼信息。",
       },
+      {
+        name: "Improve",
+        detail: "根据刚观察到的证据调整规则与节奏。",
+      },
     ],
-    chips: ["Slack", "Jira", "Docs", "Lifecycle"],
+    chips: ["Slack", "Jira", "Docs"],
   },
   works: {
-    eyebrow: "SMB 案例",
+    eyebrow: "已交付案例",
     title: "个人与小企业站点[[案例]]",
     support:
-      "每个案例：问题 → 范围 → 可衡量运营结果——不只是好看截图。",
+      "每个案例：问题 → 范围 → 可衡量结果——不只是好看截图。",
     cta: "想做类似站点",
     problemLabel: "问题",
     scopeLabel: "范围",
@@ -1989,7 +2141,7 @@ const zh: Dictionary = {
         tag: "Website · 预约",
         problem: "纸笔/Excel难判断空台，班次营收易算错。",
         scope: "台位图、计时、附加服务、班次汇总的 Web/ops。",
-        result: "减少漏记；员工上手更快；老板随时看班次。",
+        result: "减少漏记；上手更快；老板随时看班次。",
       },
       {
         id: "badminton",
@@ -2037,22 +2189,22 @@ const zh: Dictionary = {
     eyebrow: "合作方式",
     title: "到交接的[[五步]]",
     support:
-      "每一步都有清晰交付物——从问题摘要到源码 + 质保。先对齐真实目标（销售、获客、预约、内部运营），再锁定界面、功能、进度与费用。",
+      "从调研到交接——每步有清晰交付物，不跳步。",
     deliverableLabel: "交付物",
     steps: [
       {
         name: "沟通与调研",
-        detail: "弄清网站/应用是为了销售、介绍服务、收集线索，还是内部管理——以及预算/时间约束。",
+        detail: "弄清站点／应用目标，以及预算与时间约束。",
         deliverable: "已对齐的问题、目标与约束摘要。",
       },
       {
         name: "计划与报价",
-        detail: "拆解功能、内容、里程碑、费用，以及交接时你会拿到什么。",
+        detail: "拆解功能、里程碑、费用与交接产出。",
         deliverable: "范围方案、时间线与清晰报价。",
       },
       {
         name: "冲刺开发",
-        detail: "落地界面、功能、响应式与必要集成，并定期演示以便尽早纠偏。",
+        detail: "落地界面、功能、响应式与集成，定期演示以便尽早纠偏。",
         deliverable: "便于早期评审的冲刺构建/演示。",
       },
       {
@@ -2086,7 +2238,13 @@ const zh: Dictionary = {
     titleLead: "扎实工程",
     titleHighlight: "现代技术栈",
     support:
-      "按问题选型——前端、移动、后端到基础设施。都是经实践验证的工具。",
+      "按问题选型——前端、后端、基础设施与数据。经实践验证。",
+    groups: {
+      frontend: "Frontend",
+      backend: "Backend",
+      infra: "Infra / Ops",
+      data: "Data / Tools",
+    },
     logos: [
       "React",
       "Next.js",
@@ -2109,25 +2267,26 @@ const zh: Dictionary = {
     ],
   },
   why: {
-    eyebrow: "为什么选择 Dolphin Kick",
+    eyebrow: "为什么选择 Dolphin Kich",
     title: "不止交付代码，[[长期陪伴]]",
-    support: "用业务目标与运营结果说话、少用黑话——并对进度、质量与上线后支持给出明确承诺。",
+    support:
+      "进度、范围、承诺与交付后支持——说清楚，少黑话。",
     reasons: [
       {
         title: "实战经验",
-        body: "联合创始人，7 年经验——生产可靠性、可观测性，以及面向 SMB 的 Web/App 端到端交付。",
+        body: "7 年生产经验——可靠性、可观测性与 SMB 端到端交付。",
       },
       {
         title: "端到端交付",
-        body: "从发现到部署一以贯之负责，结构便于日后加页面/表单/功能。",
+        body: "从调研到部署——一队负责；结构便于后续扩展。",
       },
       {
-        title: "透明流程",
-        body: "具体里程碑、定期演示与范围清晰的报价——用交付物衡量，而非模糊工时。",
+        title: "流程透明",
+        body: "里程碑、定期演示、清晰范围报价——用交付物衡量。",
       },
       {
-        title: "交接后陪伴",
-        body: "运营指引、约定范围内的技术故障支持，以及上线后的优化与扩展。",
+        title: "交付后陪跑",
+        body: "运营指南、约定缺陷质保，上线后继续优化。",
       },
     ],
   },
@@ -2136,13 +2295,23 @@ const zh: Dictionary = {
     role: "Co-founder",
     name: "Nguyễn Chí Thành",
     description:
-      "7 年做产品与系统——构建、生产运维、故障响应、可观测性（Prometheus/Grafana）、单体→微服务，以及有人工把关的 AI Agent 工作流。技术栈：NestJS、Golang、TypeScript、Docker、GitLab CI/CD、MySQL、Redis。Dolphin Kick 把真实运维经验带入 SMB 的 Web 与 App——直率沟通、合理报价。",
+      "7 年产品与系统——生产运维、应急响应、可观测性。把真实运维经验带入 SMB 站点与应用：直说、范围清晰。",
+    stack: [
+      "NestJS",
+      "Golang",
+      "TypeScript",
+      "Docker",
+      "GitLab CI/CD",
+      "MySQL",
+      "Redis",
+    ],
   },
   contact: {
     eyebrow: "联系",
     title: "[[开始]]你的项目？",
     support:
-      "用 Zalo 快速沟通，或通过表单/邮件发送目标与参考样例。Dolphin Kick 给出实现方向与按范围报价——无需技术背景。上方 FAQ 可先了解周期、质保与分阶段 MVP。",
+      "用 Zalo 快速沟通，或发邮件附简要说明——范围与下一步，无需技术背景。",
+    nextHint: "回复实现方向与估算范围。",
     ctaZalo: "Zalo 沟通",
     ctaEmail: "发送邮件",
     name: "姓名",
@@ -2165,6 +2334,10 @@ const zh: Dictionary = {
   footer: {
     disclaimer:
       "证券相关内容为社区分享，不是持牌投资建议，也不保证收益。",
+    groupExplore: "探索",
+    groupStudio: "工作室",
+    groupUpdates: "动态",
+    groupConnect: "联系",
   },
   loader: {
     aria: "正在启动 Agent 系统",

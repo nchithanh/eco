@@ -4,117 +4,79 @@ import { AccentText } from "@/components/BrandName";
 import { Reveal } from "@/components/Reveal";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
 
-/** Slack / Jira on top; Docs / Lifecycle lower sides (never above step cards). */
-const CHIP_POSITIONS = [
-  "left-[3%] top-[2%]",
-  "right-[3%] top-[3%]",
-  "left-[2%] bottom-[18%]",
-  "right-[2%] bottom-[16%]",
-] as const;
+const LEAD_STEP_INDEXES = new Set([2, 4]); // Run, Govern
 
-/**
- * Decorative card positions — zigzag L/R but strict top→bottom order 01→06.
- * Cards start below Slack/Jira chips; vertical tops increase each step.
- */
-const STEP_LAYOUT = [
-  {
-    /* 01 — uppermost left */
-    className:
-      "animate-kuct-soft-float absolute left-[6%] top-[12%] w-[40%] -rotate-[6deg]",
-  },
-  {
-    /* 02 — below 01, right */
-    className:
-      "animate-kuct-soft-float-alt absolute right-[5%] top-[22%] w-[38%] rotate-[5deg] [animation-delay:0.5s]",
-  },
-  {
-    /* 03 — below 02, left (inward) */
-    className:
-      "animate-kuct-soft-float absolute left-[10%] top-[36%] w-[42%] rotate-[2deg] [animation-delay:1s]",
-  },
-  {
-    /* 04 — below 03, right (inward) */
-    className:
-      "animate-kuct-soft-float-alt absolute right-[8%] top-[48%] w-[40%] -rotate-[3deg] [animation-delay:1.4s]",
-  },
-  {
-    /* 05 — below 04, left */
-    className:
-      "animate-kuct-soft-float absolute left-[20%] top-[62%] w-[38%] rotate-[4deg] [animation-delay:1.8s]",
-  },
-  {
-    /* 06 — lowest, right */
-    className:
-      "animate-kuct-soft-float-alt absolute right-[5%] top-[74%] w-[40%] -rotate-[2deg] [animation-delay:2.2s]",
-  },
-] as const;
-
-/** Visual-only extras (EN labels, same as Collect / Normalize / Run / Govern). */
-const VISUAL_EXTRA_STEPS = ["Observe", "Improve"] as const;
-
-/** Decorative living ops scene — animated on lg+; static layers below lg / reduced motion. */
 function OpsVisualScene({
   chips,
-  stepNames,
+  steps,
+  loopHint,
 }: {
   chips: string[];
-  stepNames: string[];
+  steps: { name: string }[];
+  loopHint: string;
 }) {
-  const visualStepNames = [...stepNames, ...VISUAL_EXTRA_STEPS];
-
   return (
     <div
-      className="relative min-h-[18rem] w-full overflow-hidden sm:min-h-[22rem] lg:min-h-[36rem]"
+      className="relative flex h-full w-full flex-col items-center justify-center overflow-hidden rounded-[1.75rem] border border-[var(--kuct-border)] bg-[rgba(6,6,14,0.88)] p-5 backdrop-blur-md sm:p-6"
       aria-hidden
     >
-      <div className="pointer-events-none absolute inset-0">
-        <div className="kuct-glow-orb animate-kuct-glow absolute inset-[10%] rounded-full blur-2xl opacity-80" />
+      <div className="pointer-events-none absolute inset-[18%] rounded-full opacity-60 blur-2xl kuct-glow-orb" />
 
-        {visualStepNames.map((name, index) => {
-          const layout = STEP_LAYOUT[index] ?? STEP_LAYOUT[0];
-          return (
-            <div key={`${name}-${index}`} className={layout.className}>
-              <div className="kuct-glass-panel rounded-2xl px-3.5 py-3 shadow-[0_1rem_2rem_rgba(139,92,246,0.14)]">
-                <div className="flex items-center gap-2">
-                  <span className="flex size-6 shrink-0 items-center justify-center rounded-lg bg-[var(--kuct-accent)]/20 text-[0.65rem] font-semibold text-[var(--kuct-accent)] ring-1 ring-white/60">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  <span className="truncate text-xs font-semibold tracking-wide text-[var(--kuct-text)]">
-                    {name}
-                  </span>
-                </div>
-                <div className="mt-2.5 space-y-1.5">
-                  <div className="h-1.5 w-full rounded-full bg-white/55" />
-                  <div className="h-1.5 w-[70%] rounded-full bg-white/40" />
-                </div>
-              </div>
-            </div>
-          );
-        })}
-      </div>
-
-      <ul className="pointer-events-none absolute inset-0 z-[2]">
-        {chips.map((chip, index) => {
-          const position = CHIP_POSITIONS[index] ?? CHIP_POSITIONS[0];
-          const motion =
-            index % 2 === 0
-              ? "animate-kuct-soft-float"
-              : "animate-kuct-soft-float-alt";
-
-          return (
-            <li
+      <div className="relative z-[1] flex w-full max-w-[17.5rem] flex-col items-center sm:max-w-[19rem]">
+        <div className="flex flex-wrap items-center justify-center gap-2">
+          {chips.map((chip) => (
+            <span
               key={chip}
-              className={`absolute ${position} ${motion}`}
-              style={{ animationDelay: `${index * 0.35}s` }}
+              className="inline-flex items-center rounded-full border border-[var(--kuct-border)] bg-[rgba(10,10,20,0.9)] px-3 py-1 text-[11px] font-semibold tracking-wide text-[var(--kuct-muted)]"
             >
-              <span className="inline-flex items-center rounded-full border border-white/70 bg-white/75 px-3 py-1.5 text-xs font-semibold tracking-wide text-[var(--kuct-text)] shadow-[0_0.75rem_1.5rem_rgba(139,92,246,0.18)] backdrop-blur-md ring-1 ring-[var(--kuct-accent)]/15">
-                <span className="mr-2 size-1.5 rounded-full bg-[var(--kuct-accent)] shadow-[0_0_0.5rem_rgba(155,126,248,0.8)]" />
-                {chip}
-              </span>
-            </li>
-          );
-        })}
-      </ul>
+              <span className="mr-2 size-1.5 rounded-full bg-[var(--kuct-accent)]/80" />
+              {chip}
+            </span>
+          ))}
+        </div>
+
+        <div className="mx-auto mt-3 mb-2 h-4 w-px bg-gradient-to-b from-[rgba(var(--kuct-accent-rgb),0.45)] to-[rgba(var(--kuct-accent-rgb),0.15)]" />
+
+        <ol className="relative m-0 w-full list-none space-y-2 p-0">
+          <span
+            className="pointer-events-none absolute top-3 bottom-3 left-[0.95rem] w-px bg-[rgba(var(--kuct-accent-rgb),0.28)] sm:left-[1.05rem]"
+          />
+
+          {steps.map((step, index) => {
+            const isLead = LEAD_STEP_INDEXES.has(index);
+
+            return (
+              <li key={`${step.name}-${index}`} className="relative flex items-center gap-2.5">
+                <span
+                  className={
+                    isLead
+                      ? "relative z-[1] grid size-8 shrink-0 place-items-center rounded-full border border-[var(--kuct-accent)]/50 bg-[rgba(12,8,24,0.95)] text-[0.65rem] font-semibold tabular-nums text-[var(--kuct-accent)] ring-1 ring-[var(--kuct-accent)]/35"
+                      : "relative z-[1] grid size-8 shrink-0 place-items-center rounded-full border border-[var(--kuct-border)] bg-[rgba(8,8,16,0.95)] text-[0.65rem] font-semibold tabular-nums text-[var(--kuct-muted)]"
+                  }
+                >
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <div
+                  className={
+                    isLead
+                      ? "min-w-0 flex-1 rounded-xl border border-[var(--kuct-border)] bg-[rgba(10,10,22,0.92)] px-3 py-2 ring-1 ring-[var(--kuct-accent)]/25"
+                      : "min-w-0 flex-1 rounded-xl border border-[var(--kuct-border)] bg-[rgba(10,10,22,0.72)] px-3 py-2"
+                  }
+                >
+                  <span className="block truncate text-sm font-semibold tracking-wide text-[var(--kuct-text)]">
+                    {step.name}
+                  </span>
+                </div>
+              </li>
+            );
+          })}
+        </ol>
+
+        <p className="mt-3 flex items-center justify-center gap-2 text-[11px] font-semibold tracking-[0.16em] text-[var(--kuct-accent)]/80 uppercase">
+          <span aria-hidden>↻</span>
+          {loopHint}
+        </p>
+      </div>
     </div>
   );
 }
@@ -126,61 +88,81 @@ export function OpsLifecycle() {
   return (
     <section id="ops" className="scroll-mt-20 py-24">
       <div className="mx-auto max-w-6xl px-6">
-        <div className="grid items-stretch gap-12 md:grid-cols-2 md:gap-14 lg:gap-16">
-          <Reveal className="max-w-xl" variant="left">
-            <p className="text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-x-14 md:gap-y-8 lg:gap-x-16">
+          <Reveal className="max-w-xl md:col-start-1 md:row-start-1">
+            <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
               {o.eyebrow}
             </p>
-            <h2 className="mt-3 font-display text-3xl font-semibold leading-tight sm:text-4xl">
+            <h2 className="mt-4 font-display text-3xl font-semibold leading-[1.12] tracking-tight sm:text-[2.15rem] lg:text-[2.35rem] lg:leading-[1.1]">
               <AccentText>{o.title}</AccentText>
             </h2>
-            <p className="mt-4 text-sm leading-relaxed text-[var(--kuct-muted)] sm:text-base">
+            <p className="mt-5 max-w-[40ch] text-base leading-[1.7] text-[var(--kuct-muted)]">
               {o.support}
             </p>
 
-            <div className="mt-6 grid gap-3 sm:grid-cols-2">
-              <p className="kuct-glass rounded-2xl border border-white/60 px-4 py-3 text-sm leading-relaxed text-[var(--kuct-muted)]">
-                {o.before}
-              </p>
-              <p className="kuct-glass rounded-2xl border border-[rgba(var(--kuct-accent-rgb),0.45)] px-4 py-3 text-sm leading-relaxed text-[var(--kuct-text)]">
-                {o.after}
-              </p>
-            </div>
+            <p className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm leading-relaxed text-[var(--kuct-muted)]">
+              <span>{o.before}</span>
+              <span aria-hidden className="text-[var(--kuct-accent)]/70">
+                →
+              </span>
+              <span className="text-[var(--kuct-text)]">{o.after}</span>
+            </p>
+          </Reveal>
 
-            <ol className="mt-8 grid gap-3" aria-label={o.eyebrow}>
-              {o.steps.map((step, index) => (
-                <li
-                  key={`${step.name}-${index}`}
-                  className="kuct-glass rounded-2xl border border-white/60 p-4"
-                >
-                  <span className="text-[0.65rem] font-semibold tracking-[0.16em] text-[var(--kuct-accent)] uppercase">
-                    {String(index + 1).padStart(2, "0")} · {step.name}
-                  </span>
-                  <p className="mt-2 text-sm leading-relaxed text-[var(--kuct-muted)]">
-                    {step.detail}
-                  </p>
-                </li>
-              ))}
+          <Reveal variant="left" className="md:col-start-1 md:row-start-2">
+            <ol className="grid gap-2.5" aria-label={o.eyebrow}>
+              {o.steps.map((step, index) => {
+                const isLead = LEAD_STEP_INDEXES.has(index);
+
+                return (
+                  <li
+                    key={`${step.name}-${index}`}
+                    className={
+                      isLead
+                        ? "flex gap-3.5 rounded-2xl border border-[var(--kuct-border)] bg-[rgba(6,6,14,0.88)] p-4 ring-1 ring-[var(--kuct-accent)]/25 backdrop-blur-md"
+                        : "flex gap-3.5 rounded-2xl border border-[var(--kuct-border)] bg-[rgba(6,6,14,0.72)] p-4 backdrop-blur-md"
+                    }
+                  >
+                    <span
+                      aria-hidden
+                      className="mt-0.5 shrink-0 font-display text-xs font-semibold tabular-nums tracking-wide text-[var(--kuct-accent)]/80"
+                    >
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <div className="min-w-0">
+                      <span className="font-display text-sm font-semibold tracking-wide text-[var(--kuct-text)]">
+                        {step.name}
+                      </span>
+                      <p className="mt-1 line-clamp-2 text-sm leading-relaxed text-[var(--kuct-muted)]">
+                        {step.detail}
+                      </p>
+                    </div>
+                  </li>
+                );
+              })}
             </ol>
-
-            <a
-              href="#contact"
-              className="kuct-btn-primary mt-8 inline-flex items-center rounded-full px-7 py-3 text-sm font-semibold"
-            >
-              {o.cta}
-            </a>
           </Reveal>
 
           <Reveal
             variant="right"
             delay={120}
-            className="relative min-h-[18rem] w-full sm:min-h-[22rem] lg:min-h-[36rem]"
+            className="relative h-full w-full md:col-start-2 md:row-start-2"
             inViewOptions={{ threshold: 0.05, rootMargin: "0px 0px -2% 0px" }}
           >
             <OpsVisualScene
               chips={o.chips}
-              stepNames={o.steps.map((s) => s.name)}
+              steps={o.steps}
+              loopHint={o.loopHint}
             />
+          </Reveal>
+
+          <Reveal className="md:col-start-1 md:row-start-3">
+            <a
+              href="#contact"
+              className="kuct-btn-primary inline-flex items-center rounded-full px-7 py-3 text-sm font-semibold"
+            >
+              {o.cta}
+            </a>
           </Reveal>
         </div>
       </div>

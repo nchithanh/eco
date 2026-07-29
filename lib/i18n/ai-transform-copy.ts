@@ -44,7 +44,7 @@ const vi: AiTransformCopy = {
   eyebrow: "Chuyển đổi AI doanh nghiệp",
   headline: "Gắn AI vào [[lõi vận hành]] — không phát tài khoản rồi chờ phép màu",
   support:
-    "Dolphin rà soát quy trình thật của bạn, chọn khâu đang ngốn người/tiền, rồi gắn agent và tự động hóa có kiểm soát. Lộ trình theo milestone đo được — bắt đầu nhỏ, nhân rộng khi đã chứng minh.",
+    "Dolphin rà soát quy trình thật, chọn khâu đang ngốn người/tiền, rồi gắn agent có kiểm soát. Lộ trình theo milestone — bắt đầu nhỏ, nhân rộng khi đã chứng minh.",
   ctaPrimary: "Nhận lộ trình sơ bộ",
   ctaSecondary: "Xem AI Agent theo yêu cầu",
   trustLine: "Quy trình trước tool · Đo bằng số · Human-in-the-loop",
@@ -174,7 +174,7 @@ const en: AiTransformCopy = {
   eyebrow: "Enterprise AI transformation",
   headline: "Put AI in the [[operating core]] — not seat licenses and wishful thinking",
   support:
-    "Dolphin reviews your real processes, picks jobs that burn people and cash, then attaches controlled agents and automation. Milestone-based roadmap — start small, scale after proof.",
+    "Dolphin reviews your real processes, picks jobs that burn people and cash, then attaches controlled agents. Milestone roadmap — start small, scale after proof.",
   ctaPrimary: "Get a rough roadmap",
   ctaSecondary: "See custom AI agents",
   trustLine: "Process before tools · Measure in numbers · Human-in-the-loop",
@@ -304,7 +304,7 @@ const de: AiTransformCopy = {
   eyebrow: "KI-Transformation",
   headline: "KI in den [[Betriebskern]] — keine Sitzlizenzen und Hoffnung",
   support:
-    "Dolphin prüft Ihre echten Prozesse, identifiziert Aufgaben, die Menschen und Budget verbrennen, und bindet kontrollierte Agents und Automatisierung an. Meilensteinbasierte Roadmap — klein starten, nach Beweis skalieren.",
+    "Dolphin prüft echte Prozesse, findet Aufgaben, die Menschen und Budget verbrennen, und bindet kontrollierte Agents an. Meilenstein-Roadmap — klein starten, nach Beweis skalieren.",
   ctaPrimary: "Grobe Roadmap anfragen",
   ctaSecondary: "Custom AI Agents ansehen",
   trustLine: "Prozess vor Tool · Messen in Zahlen · Human-in-the-Loop",
@@ -434,7 +434,7 @@ const ja: AiTransformCopy = {
   eyebrow: "企業の AI 変革",
   headline: "AI を[[業務の中核]]へ — アカウント配布で終わらせない",
   support:
-    "Dolphin が御社の実際のプロセスを精査し、人とコストを消耗している業務を特定、制御された Agent と自動化を接続します。マイルストーンベースのロードマップ — 小さく始め、実証後に拡大。",
+    "Dolphin が実際のプロセスを精査し、人とコストを消耗する業務を特定、制御された Agent を接続します。マイルストーン型ロードマップ — 小さく始め、実証後に拡大。",
   ctaPrimary: "概略ロードマップを相談",
   ctaSecondary: "カスタム AI Agent を見る",
   trustLine: "プロセス優先 · 数値で測定 · Human-in-the-Loop",
@@ -559,12 +559,15 @@ const ja: AiTransformCopy = {
 
 const zh: AiTransformCopy = {
   ...en,
-  metaTitle: "企业 AI 转型 | KU THANH",
+  metaTitle: "企业 AI 转型 | Dolphin Kich",
   eyebrow: "企业 AI 转型",
   headline: "把 AI 接到[[运营核心]] — 不是发账号碰运气",
+  support:
+    "Dolphin 梳理真实流程，锁定耗人耗钱的环节，再接入可控 Agent。按里程碑推进 — 小步验证，再扩大。",
+  trustLine: "流程先于工具 · 用数据衡量 · Human-in-the-loop",
   ctaPrimary: "获取初步路线图",
   ctaSecondary: "查看按需 AI Agent",
-  closeCta: "联系 KU THANH",
+  closeCta: "联系 Dolphin Kich",
 };
 
 export const aiTransformCopy: Record<Locale, AiTransformCopy> = {
