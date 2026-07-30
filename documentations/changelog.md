@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-07-31
+
+- Replaced favicon set from `favicon_io` pack: `app/favicon.ico` + `public/` (ico / 16 / 32, apple-touch, android-chrome 192/512), `app/icon.png`, `site.webmanifest` (Dolphin Software).
+
 ## 2026-07-30
 
 - **Fix mobile scroll:** nested-safe `lib/scroll-lock.ts` for loader/modals/chat — stops stuck `overflow: hidden` / `kuct-loading` after unlock races.

@@ -14,7 +14,7 @@
 
 - Display name: `BRAND_DISPLAY_NAME = "Dolphin Software"` in `components/Logo.tsx`
 - Logo asset: `public/brand/logo-dolphin.png`
-- Favicon / tab icon: `app/icon.png` (from brand logo) + `public/favicon.ico`
+- Favicon / tab icon: `app/favicon.ico` + `public/favicon.ico` (+ 16/32 PNG), `apple-touch-icon.png`, `android-chrome-*.png`, `app/icon.png` (512), `public/site.webmanifest`
 - Document title / OG: **Dolphin Software** (`app/layout.tsx` metadata)
 - Inline brand replacement: `BrandText` / `hasBrand` in `components/BrandName.tsx` (also recognizes legacy `Dolphin Kich`, `KU THANH`)
 - Accent titles: `AccentText` with `[[keyword]]` markers in dictionary strings
