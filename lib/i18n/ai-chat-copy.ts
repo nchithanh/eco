@@ -43,7 +43,7 @@ const vi: AiChatCopy = {
   placeholder: "Nhập tin nhắn…",
   send: "Gửi",
   greeting:
-    "Xin chào! Em là Dolphin Assist của Dolphin Kich. Anh/chị đang cần tư vấn website, app, AI Agent, hay chuyển đổi AI cho doanh nghiệp?",
+    "Xin chào! Em là Dolphin Assist của Dolphin Kick. Anh/chị đang cần tư vấn website, app, AI Agent, hay chuyển đổi AI cho doanh nghiệp?",
   suggestions: [
     "Báo giá dự án",
     "AI Agent theo yêu cầu",
@@ -103,7 +103,7 @@ const en: AiChatCopy = {
   placeholder: "Type a message…",
   send: "Send",
   greeting:
-    "Hello! I’m Dolphin Assist from Dolphin Kich. Need help with a website/app, a custom AI agent, or enterprise AI transformation?",
+    "Hello! I’m Dolphin Assist from Dolphin Kick. Need help with a website/app, a custom AI agent, or enterprise AI transformation?",
   suggestions: [
     "Project quote",
     "Custom AI agent",
@@ -164,7 +164,7 @@ const de: AiChatCopy = {
   placeholder: "Nachricht eingeben…",
   send: "Senden",
   greeting:
-    "Hallo! Ich bin Dolphin Assist von Dolphin Kich. Brauchst du Website/App, einen Custom AI Agent oder KI-Transformation?",
+    "Hallo! Ich bin Dolphin Assist von Dolphin Kick. Brauchst du Website/App, einen Custom AI Agent oder KI-Transformation?",
   suggestions: [
     "Projektangebot",
     "Custom AI Agent",
@@ -191,7 +191,7 @@ const ja: AiChatCopy = {
   placeholder: "メッセージを入力…",
   send: "送信",
   greeting:
-    "こんにちは！Dolphin Kich の Dolphin Assist です。Web/アプリ、カスタム AI Agent、企業の AI 変革のどれをご相談ですか？",
+    "こんにちは！Dolphin Kick の Dolphin Assist です。Web/アプリ、カスタム AI Agent、企業の AI 変革のどれをご相談ですか？",
   suggestions: [
     "見積もり",
     "カスタム AI Agent",
@@ -216,7 +216,7 @@ const zh: AiChatCopy = {
   placeholder: "输入消息…",
   send: "发送",
   greeting:
-    "你好！我是 Dolphin Kich 的 Dolphin Assist。你想咨询网站/应用、按需 AI Agent，还是企业 AI 转型？",
+    "你好！我是 Dolphin Kick 的 Dolphin Assist。你想咨询网站/应用、按需 AI Agent，还是企业 AI 转型？",
   suggestions: ["项目报价", "按需 AI Agent", "AI 转型", "用 Zalo 找人工"],
   escalateHint: "需要人工？点按旁边的 Zalo 按钮。",
 };

@@ -1,6 +1,6 @@
 import { assetPath } from "@/lib/asset";
 
-export const BRAND_DISPLAY_NAME = "Dolphin Kich";
+export const BRAND_DISPLAY_NAME = "Dolphin Kick";
 export const BRAND_TAGLINE = "Since 2026";
 
 type LogoProps = {
@@ -21,7 +21,7 @@ const defaultWordmarkClass =
 const defaultTaglineClass =
   "text-[9px] font-medium tracking-[0.34em] text-[var(--kuct-muted)] uppercase sm:text-[10px]";
 
-/** Dolphin Kich logo image with optional wordmark. */
+/** Dolphin Kick logo image with optional wordmark. */
 export function Logo({
   className,
   imageClassName,

@@ -1,0 +1,32 @@
+# Architecture
+
+## Stack
+
+| Layer | Detail |
+| --- | --- |
+| Next.js | 16.x (App Router) — read `node_modules/next/dist/docs/` before new APIs |
+| React | 19.x |
+| Tailwind | v4 (`app/globals.css`) |
+| Forms | react-hook-form + zod |
+| Tests | Vitest + Testing Library (`tests/`) |
+| Themes | `lib/theme.tsx` — violet default; UI switcher exposes violet + slate |
+
+## Static export
+
+`next.config.ts` enables `output: "export"` only when `GITHUB_PAGES=true`. Images are `unoptimized`. Prefer `assetPath()` for public URLs.
+
+## Top folders
+
+| Path | Role |
+| --- | --- |
+| `app/` | Routes & root layout |
+| `components/` | UI sections & shared chrome |
+| `lib/` | i18n, estimators, content data, theme, assets |
+| `public/` | Static assets (mascot, brand, about, tech, themes) |
+| `tests/` | Vitest suites |
+| `documentations/` | Canonical project docs (this tree) |
+| `.cursor/rules/` | Always-on agent rules |
+
+## Motion / mobile
+
+Under `max-width: 1023px`, CSS kill-switch disables decorative animations (see `app/globals.css`). Tailwind `hover` custom variant only applies on fine pointer + `lg+`.

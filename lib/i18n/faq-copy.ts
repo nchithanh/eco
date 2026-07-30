@@ -16,7 +16,7 @@ const vi: FaqCopy = {
   items: [
     {
       q: "Studio làm những gì?",
-      a: "Dolphin Kich giúp SMB từ bài toán kinh doanh đến hệ thống dễ vận hành — website, mobile, tự động hóa và AI. Bạn nói mục tiêu; chúng tôi đề xuất phạm vi phù hợp.",
+      a: "Dolphin Kick giúp SMB từ bài toán kinh doanh đến hệ thống dễ vận hành — website, mobile, tự động hóa và AI. Bạn nói mục tiêu; chúng tôi đề xuất phạm vi phù hợp.",
     },
     {
       q: "Không biết kỹ thuật có làm được không?",
@@ -80,7 +80,7 @@ const en: FaqCopy = {
   items: [
     {
       q: "What does the studio do?",
-      a: "Dolphin Kich helps SMBs go from business problems to operable systems — websites, mobile, automation, and AI. Tell us the goal; we propose a fitting scope.",
+      a: "Dolphin Kick helps SMBs go from business problems to operable systems — websites, mobile, automation, and AI. Tell us the goal; we propose a fitting scope.",
     },
     {
       q: "We aren't technical — can we still work together?",
@@ -144,7 +144,7 @@ const ja: FaqCopy = {
   items: [
     {
       q: "どんなサービスがありますか？",
-      a: "Dolphin Kich は事業課題から運用しやすいシステムへ — Web・モバイル・自動化・AI。ゴールを教えていただければ、範囲を提案します。",
+      a: "Dolphin Kick は事業課題から運用しやすいシステムへ — Web・モバイル・自動化・AI。ゴールを教えていただければ、範囲を提案します。",
     },
     {
       q: "技術が分からなくても大丈夫？",
@@ -208,7 +208,7 @@ const de: FaqCopy = {
   items: [
     {
       q: "Was macht das Studio?",
-      a: "Dolphin Kich hilft KMUs vom Geschäftsproblem zum betreibbaren System — Web, Mobile, Automation und AI. Ziel nennen; wir schlagen passenden Scope vor.",
+      a: "Dolphin Kick hilft KMUs vom Geschäftsproblem zum betreibbaren System — Web, Mobile, Automation und AI. Ziel nennen; wir schlagen passenden Scope vor.",
     },
     {
       q: "Wir sind nicht technisch — geht das trotzdem?",
@@ -272,7 +272,7 @@ const zh: FaqCopy = {
   items: [
     {
       q: "工作室提供哪些服务？",
-      a: "Dolphin Kich 帮助中小企业从业务问题走到可运营系统——网站、移动、自动化与 AI。告诉我们目标，我们提出合适范围。",
+      a: "Dolphin Kick 帮助中小企业从业务问题走到可运营系统——网站、移动、自动化与 AI。告诉我们目标，我们提出合适范围。",
     },
     {
       q: "不懂技术也能合作吗？",

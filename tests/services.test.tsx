@@ -120,8 +120,8 @@ describe("service detail pages", () => {
     ).toBeInTheDocument();
     expect(screen.getByText(/Bạn nhận được gì/i)).toBeInTheDocument();
     expect(
-      screen.getByRole("button", { name: /Nhận báo giá/i }),
-    ).toBeInTheDocument();
+      screen.getAllByRole("button", { name: /Nhận báo giá/i }).length,
+    ).toBeGreaterThanOrEqual(1);
   });
 
   it("renders custom-agent service detail content", () => {

@@ -5,7 +5,7 @@ import { newsByLocale, newsNavLabel } from "./news-copy";
 
 const vi: Dictionary = {
   meta: {
-    title: "KU THANH",
+    title: "Dolphin Kick",
     description:
       "Studio web & app cho SMB: từ bài toán kinh doanh đến hệ thống dễ vận hành — phạm vi rõ, kết quả đo được, đồng hành sau bàn giao.",
   },
@@ -34,7 +34,7 @@ const vi: Dictionary = {
     eyebrow: "Studio",
     headline: "Từ bài toán [[kinh doanh]] đến [[hệ thống]] dễ vận hành",
     support:
-      "Bạn nói mục tiêu. Dolphin Kich chốt scope, ship theo milestone, bàn giao source + hướng dẫn để đội bạn tự chạy.",
+      "Bạn nói mục tiêu. Dolphin Kick chốt scope, ship theo milestone, bàn giao source + hướng dẫn để đội bạn tự chạy.",
     trustLine: "Phạm vi rõ · Milestone đúng hạn · Source + hướng dẫn vận hành",
     ctaPrimary: "Nhận báo giá",
     ctaSecondary: "Xem dịch vụ",
@@ -368,7 +368,7 @@ const vi: Dictionary = {
     ],
   },
   why: {
-    eyebrow: "Vì sao chọn Dolphin Kich",
+    eyebrow: "Vì sao chọn Dolphin Kick",
     title: "[[Đồng hành dài hạn]], không chỉ bàn giao code",
     support:
       "Timeline · scope · cam kết · hậu bàn giao — rõ ràng, không jargon.",
@@ -481,7 +481,7 @@ const vi: Dictionary = {
 
 const en: Dictionary = {
   meta: {
-    title: "KU THANH",
+    title: "Dolphin Kick",
     description:
       "Web & app studio for SMBs: from business problems to systems you can run — clear scope, measurable outcomes, support after handover.",
   },
@@ -510,7 +510,7 @@ const en: Dictionary = {
     eyebrow: "Studio",
     headline: "From [[business problems]] to [[systems]] you can run",
     support:
-      "Tell us the goal. Dolphin Kich locks scope, ships by milestone, and hands over source plus a walkthrough so your team can run it.",
+      "Tell us the goal. Dolphin Kick locks scope, ships by milestone, and hands over source plus a walkthrough so your team can run it.",
     trustLine: "Clear scope · On-time milestones · Source + ops walkthrough",
     ctaPrimary: "Get a quote",
     ctaSecondary: "View services",
@@ -844,7 +844,7 @@ const en: Dictionary = {
     ],
   },
   why: {
-    eyebrow: "Why Dolphin Kich",
+    eyebrow: "Why Dolphin Kick",
     title: "[[Long-term partnership]], not just code delivery",
     support:
       "Clear timeline, scope, commitments — and support after handover. No jargon fog.",
@@ -957,7 +957,7 @@ const en: Dictionary = {
 
 const de: Dictionary = {
   meta: {
-    title: "KU THANH",
+    title: "Dolphin Kick",
     description:
       "Web- & App-Studio für KMUs: Websites, Mobile, Automation und AI — leicht bedienbar und betreibbar, klarer Scope, Support nach der Übergabe.",
   },
@@ -986,7 +986,7 @@ const de: Dictionary = {
     eyebrow: "Studio",
     headline: "Vom [[Geschäftsproblem]] zum [[betreibbaren System]]",
     support:
-      "Nennen Sie das Ziel. Dolphin Kich fixiert den Scope, liefert per Meilenstein und übergibt Source plus Einweisung.",
+      "Nennen Sie das Ziel. Dolphin Kick fixiert den Scope, liefert per Meilenstein und übergibt Source plus Einweisung.",
     trustLine: "Klarer Scope · Meilensteine · Source + Betriebsanleitung",
     ctaPrimary: "Angebot anfordern",
     ctaSecondary: "Leistungen ansehen",
@@ -1320,7 +1320,7 @@ const de: Dictionary = {
     ],
   },
   why: {
-    eyebrow: "Warum Dolphin Kich",
+    eyebrow: "Warum Dolphin Kick",
     title: "[[Langfristige Partnerschaft]], nicht nur Code-Übergabe",
     support:
       "Klarer Zeitplan, Scope, Zusagen — und Support nach der Übergabe.",
@@ -1433,7 +1433,7 @@ const de: Dictionary = {
 
 const ja: Dictionary = {
   meta: {
-    title: "KU THANH",
+    title: "Dolphin Kick",
     description:
       "SMB向けWeb & Appスタジオ。ウェブサイト、モバイル、業務自動化、AI連携 — 使いやすく運用しやすく、見積もり範囲が明確で、引き渡し後も伴走します。",
   },
@@ -1462,7 +1462,7 @@ const ja: Dictionary = {
     eyebrow: "Studio",
     headline: "事業の[[課題]]から、[[運用しやすいシステム]]へ",
     support:
-      "ゴールを教えてください。Dolphin Kichはスコープを明確にし、マイルストーンで届け、ソースと操作ガイドを引き渡します。",
+      "ゴールを教えてください。Dolphin Kickはスコープを明確にし、マイルストーンで届け、ソースと操作ガイドを引き渡します。",
     trustLine: "明確なスコープ · マイルストーン · ソース＋運用ガイド",
     ctaPrimary: "見積もりを依頼",
     ctaSecondary: "サービスを見る",
@@ -1796,7 +1796,7 @@ const ja: Dictionary = {
     ],
   },
   why: {
-    eyebrow: "Dolphin Kichを選ぶ理由",
+    eyebrow: "Dolphin Kickを選ぶ理由",
     title: "コード納品だけで終わらない、[[長期伴走]]",
     support:
       "スケジュール・スコープ・コミットメント・引き渡し後サポートを明確に。",
@@ -1909,7 +1909,7 @@ const ja: Dictionary = {
 
 const zh: Dictionary = {
   meta: {
-    title: "KU THANH",
+    title: "Dolphin Kick",
     description:
       "面向中小企业的 Web & App 工作室：网站、移动端、自动化与 AI——易用、易运营，报价范围清晰，交接后持续陪伴。",
   },
@@ -1938,7 +1938,7 @@ const zh: Dictionary = {
     eyebrow: "Studio",
     headline: "从[[业务问题]]到[[可运营的系统]]",
     support:
-      "告诉我们目标。Dolphin Kich 锁定范围、按里程碑交付，并交接源码与操作指引，让团队能自跑。",
+      "告诉我们目标。Dolphin Kick 锁定范围、按里程碑交付，并交接源码与操作指引，让团队能自跑。",
     trustLine: "范围清晰 · 里程碑准时 · 源码 + 运营指引",
     ctaPrimary: "获取报价",
     ctaSecondary: "查看服务",
@@ -2272,7 +2272,7 @@ const zh: Dictionary = {
     ],
   },
   why: {
-    eyebrow: "为什么选择 Dolphin Kich",
+    eyebrow: "为什么选择 Dolphin Kick",
     title: "不止交付代码，[[长期陪伴]]",
     support:
       "进度、范围、承诺与交付后支持——说清楚，少黑话。",

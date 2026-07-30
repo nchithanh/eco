@@ -16,7 +16,7 @@ function renderHome() {
 describe("Dolphin Kick homepage", () => {
   it("renders hero brand and primary CTA", () => {
     renderHome();
-    expect(screen.getAllByLabelText(/Dolphin Kich/i).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByLabelText(/Dolphin Kick/i).length).toBeGreaterThanOrEqual(1);
     expect(
       screen.getByRole("heading", {
         name: /事業の課題から、運用しやすいシステムへ/i,
