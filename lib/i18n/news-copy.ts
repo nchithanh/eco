@@ -8,7 +8,6 @@ export type NewsCopy = {
   homeEyebrow: string;
   homeTitle: string;
   viewAll: string;
-  homeSeeMore: string;
   filterAll: string;
   readMore: string;
   prevPage: string;
@@ -32,7 +31,6 @@ const vi: NewsCopy = {
   homeEyebrow: "Ghi chép",
   homeTitle: "Ghi chép [[mới nhất]]",
   viewAll: "Xem tất cả",
-  homeSeeMore: "Xem thêm",
   filterAll: "Tất cả",
   readMore: "Đọc tiếp",
   prevPage: "Trang trước",
@@ -62,7 +60,6 @@ const en: NewsCopy = {
   homeEyebrow: "Notes",
   homeTitle: "[[Latest]] notes",
   viewAll: "View all notes",
-  homeSeeMore: "See more",
   filterAll: "All",
   readMore: "Read more",
   prevPage: "Previous page",
@@ -92,7 +89,6 @@ const ja: NewsCopy = {
   homeEyebrow: "メモ",
   homeTitle: "[[最新]]のメモ",
   viewAll: "すべてのニュースを見る",
-  homeSeeMore: "もっと見る",
   filterAll: "すべて",
   readMore: "続きを読む",
   prevPage: "前のページ",
@@ -122,7 +118,6 @@ const de: NewsCopy = {
   homeEyebrow: "Notizen",
   homeTitle: "[[Neueste]] Notizen",
   viewAll: "Alle Notizen",
-  homeSeeMore: "Mehr anzeigen",
   filterAll: "Alle",
   readMore: "Weiterlesen",
   prevPage: "Vorherige Seite",
@@ -150,7 +145,6 @@ const zh: NewsCopy = {
   homeEyebrow: "笔记",
   homeTitle: "[[最新]]笔记",
   viewAll: "查看全部笔记",
-  homeSeeMore: "查看更多",
   filterAll: "全部",
   readMore: "阅读更多",
   prevPage: "上一页",

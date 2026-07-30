@@ -275,7 +275,6 @@ export type Dictionary = {
     homeEyebrow: string;
     homeTitle: string;
     viewAll: string;
-    homeSeeMore: string;
     filterAll: string;
     readMore: string;
     prevPage: string;
