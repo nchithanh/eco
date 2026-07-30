@@ -1,15 +1,14 @@
 import type { NextConfig } from "next";
 
 const isGithubPages = process.env.GITHUB_PAGES === "true";
-const basePath = isGithubPages ? "/eco" : "";
+/** Custom domain serves at site root (no /eco path prefix). */
+const basePath = "";
 
 const nextConfig: NextConfig = {
-  // Static export for GitHub Pages demo deploys.
+  // Static export for GitHub Pages deploys.
   ...(isGithubPages
     ? {
         output: "export" as const,
-        basePath,
-        assetPrefix: basePath,
         trailingSlash: true,
       }
     : {}),

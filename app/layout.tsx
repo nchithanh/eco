@@ -23,7 +23,7 @@ const instrumentSerif = Instrument_Serif({
 
 const isGithubPages = process.env.GITHUB_PAGES === "true";
 const siteUrl = isGithubPages
-  ? "https://nchithanh.github.io/eco"
+  ? "https://dolphin-software.io.vn"
   : "http://localhost:3000";
 
 export const metadata: Metadata = {

@@ -2,6 +2,8 @@
 
 ## 2026-07-30
 
+- **Custom domain:** `dolphin-software.io.vn` on GitHub Pages; removed `/eco` `basePath`; `public/CNAME`; site URL / metadata → custom domain.
+- Restored homepage `Technology` globe section (`#technology`) immediately after Hero.
 - **Brand rename:** display name **Dolphin Software** (was Dolphin Kick) — `Logo`, `BrandName`, metadata, i18n copy (5 locales).
 - Updated homepage section separators to soft violet top/bottom hairlines for clearer visual grouping.
 - Removed `UiGallery` showcase from homepage (component kept in repo).

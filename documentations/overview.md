@@ -6,7 +6,8 @@
 
 - Package name: `dolphin-kick`
 - Repo: `nchithanh/eco`
-- Live (GitHub Pages): https://nchithanh.github.io/eco/
+- Live: https://dolphin-software.io.vn/ (GitHub Pages + custom domain)
+- Legacy path URL redirects: https://nchithanh.github.io/eco/ → custom domain
 - Local: `npm run dev` → http://localhost:3000
 
 ## Brand
@@ -23,6 +24,7 @@
 - Workflow: `.github/workflows/deploy-pages.yml`
 - Trigger: push to `main` (or `workflow_dispatch`)
 - Build: `GITHUB_PAGES=true npm run build` → artifact `out/`
-- When Pages: `basePath` / `assetPrefix` = `/eco`, `trailingSlash: true`
-- Assets: always use `assetPath()` / `BASE_PATH` from `lib/asset.ts`
+- When Pages: `output: "export"`, `trailingSlash: true`, **no** `basePath` (custom domain at `/`)
+- `public/CNAME` → `dolphin-software.io.vn`
+- Assets: use `assetPath()` / `BASE_PATH` from `lib/asset.ts` (empty on Pages)
 - GitHub push identity: user `nchithanh` + key `~/.ssh/id_ed25519` (see `.cursor/rules/github-nchithanh.mdc`)

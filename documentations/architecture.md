@@ -13,7 +13,7 @@
 
 ## Static export
 
-`next.config.ts` enables `output: "export"` only when `GITHUB_PAGES=true`. Images are `unoptimized`. Prefer `assetPath()` for public URLs.
+`next.config.ts` enables `output: "export"` + `trailingSlash` when `GITHUB_PAGES=true`. Custom domain serves at `/` (no `basePath`). Images are `unoptimized`. Prefer `assetPath()` for public URLs.
 
 ## Top folders
 

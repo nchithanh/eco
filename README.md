@@ -26,9 +26,9 @@ Repo: [nchithanh/eco](https://github.com/nchithanh/eco)
 2. Set **Source** to **GitHub Actions**
 3. Push to `main` (or re-run the workflow)
 
-Demo URL:
+Live URL:
 
-**https://nchithanh.github.io/eco/**
+**https://dolphin-software.io.vn/**
 
 Local preview of the Pages build:
 

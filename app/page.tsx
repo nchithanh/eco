@@ -2,6 +2,7 @@
 
 import { Nav } from "@/components/Nav";
 import { Hero } from "@/components/Hero";
+import { Technology } from "@/components/Technology";
 import { TrustStrip } from "@/components/TrustStrip";
 import { PopularServices } from "@/components/PopularServices";
 import { AiEdge } from "@/components/AiEdge";
@@ -24,6 +25,7 @@ export default function Home() {
     <main>
       <Nav />
       <Hero />
+      <Technology />
       <Capabilities />
       <PopularServices />
       <WorksShowcase />
