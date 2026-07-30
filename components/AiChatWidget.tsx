@@ -15,6 +15,7 @@ import {
   matchAiChatReply,
 } from "@/lib/i18n/ai-chat-copy";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
+import { acquirePageScroll, releasePageScroll } from "@/lib/scroll-lock";
 
 const CONTACTS = {
   phone: "0779937633",
@@ -271,16 +272,8 @@ export function AiChatWidget() {
     const mq = window.matchMedia("(max-width: 639px)");
     if (!mq.matches) return;
 
-    const html = document.documentElement;
-    const body = document.body;
-    const prevHtmlOverflow = html.style.overflow;
-    const prevBodyOverflow = body.style.overflow;
-    html.style.overflow = "hidden";
-    body.style.overflow = "hidden";
-    return () => {
-      html.style.overflow = prevHtmlOverflow;
-      body.style.overflow = prevBodyOverflow;
-    };
+    acquirePageScroll();
+    return () => releasePageScroll();
   }, [open]);
 
   const dismissToast = () => {

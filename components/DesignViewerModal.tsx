@@ -5,6 +5,7 @@ import { LazyImage } from "@/components/LazyImage";
 import { assetPath } from "@/lib/asset";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
 import { getWorkDetailUi } from "@/lib/works-details";
+import { acquirePageScroll, releasePageScroll } from "@/lib/scroll-lock";
 
 export const BILLIARD_DESIGN_SRC = "/design/billiard-homepage.jpg";
 
@@ -24,11 +25,10 @@ export function DesignViewerModal({
       if (event.key === "Escape") onClose();
     };
     document.addEventListener("keydown", onKey);
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
+    acquirePageScroll();
     return () => {
       document.removeEventListener("keydown", onKey);
-      document.body.style.overflow = prev;
+      releasePageScroll();
     };
   }, [open, onClose]);
 

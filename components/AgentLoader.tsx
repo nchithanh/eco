@@ -3,6 +3,11 @@
 import { useEffect, useState } from "react";
 import { Logo } from "@/components/Logo";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
+import {
+  acquirePageScroll,
+  forceUnlockPageScroll,
+  releasePageScroll,
+} from "@/lib/scroll-lock";
 
 const MIN_DURATION_MS = 1500;
 const EXIT_MS = 420;
@@ -31,24 +36,6 @@ function isTestRuntime() {
   return typeof process !== "undefined" && process.env.NODE_ENV === "test";
 }
 
-function lockScroll() {
-  const html = document.documentElement;
-  const body = document.body;
-  html.classList.add("kuct-loading");
-  html.style.overflow = "hidden";
-  body.style.overflow = "hidden";
-}
-
-function unlockScroll() {
-  const html = document.documentElement;
-  const body = document.body;
-  html.classList.remove("kuct-loading");
-  html.style.overflow = "";
-  body.style.overflow = "";
-  html.style.touchAction = "";
-  body.style.touchAction = "";
-}
-
 export function AgentLoader({
   disabled = isTestRuntime(),
   minDurationMs = MIN_DURATION_MS,
@@ -69,8 +56,21 @@ export function AgentLoader({
     let exitTimer = 0;
     let safetyTimer = 0;
     let finished = false;
+    let holdingLock = false;
 
-    lockScroll();
+    const takeLock = () => {
+      if (holdingLock) return;
+      holdingLock = true;
+      acquirePageScroll({ loadingClass: true });
+    };
+
+    const dropLock = () => {
+      if (!holdingLock) return;
+      holdingLock = false;
+      releasePageScroll({ loadingClass: true });
+    };
+
+    takeLock();
 
     const finish = () => {
       if (finished) return;
@@ -79,7 +79,7 @@ export function AgentLoader({
       setPhase("exiting");
       exitTimer = window.setTimeout(() => {
         setPhase("done");
-        unlockScroll();
+        dropLock();
       }, EXIT_MS);
     };
 
@@ -99,18 +99,27 @@ export function AgentLoader({
     safetyTimer = window.setTimeout(() => {
       finished = true;
       setPhase("done");
-      unlockScroll();
+      dropLock();
+      // Belt-and-suspenders if nested locks / stale class remain
+      if (document.documentElement.classList.contains("kuct-loading")) {
+        forceUnlockPageScroll();
+      }
     }, duration + EXIT_MS + 800);
 
     const onPageShow = (event: PageTransitionEvent) => {
-      if (event.persisted) unlockScroll();
+      if (event.persisted) {
+        dropLock();
+        forceUnlockPageScroll();
+      }
     };
     const onVisibility = () => {
-      if (document.visibilityState === "visible") {
-        // Recover if class stuck after tab switch
-        if (document.documentElement.classList.contains("kuct-loading") && finished) {
-          unlockScroll();
-        }
+      if (document.visibilityState !== "visible") return;
+      if (
+        finished &&
+        document.documentElement.classList.contains("kuct-loading")
+      ) {
+        dropLock();
+        forceUnlockPageScroll();
       }
     };
     window.addEventListener("pageshow", onPageShow);
@@ -122,7 +131,7 @@ export function AgentLoader({
       window.clearTimeout(safetyTimer);
       window.removeEventListener("pageshow", onPageShow);
       document.removeEventListener("visibilitychange", onVisibility);
-      unlockScroll();
+      dropLock();
     };
   }, [disabled, minDurationMs]);
 

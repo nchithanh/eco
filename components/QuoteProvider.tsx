@@ -10,6 +10,7 @@ import {
   type ReactNode,
 } from "react";
 import { QuoteEstimatorModal } from "@/components/QuoteEstimatorModal";
+import { acquirePageScroll, releasePageScroll } from "@/lib/scroll-lock";
 
 type QuoteContextValue = {
   openQuote: () => void;
@@ -30,11 +31,10 @@ export function QuoteProvider({ children }: { children: ReactNode }) {
       if (event.key === "Escape") closeQuote();
     };
     document.addEventListener("keydown", onKey);
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
+    acquirePageScroll();
     return () => {
       document.removeEventListener("keydown", onKey);
-      document.body.style.overflow = prev;
+      releasePageScroll();
     };
   }, [open, closeQuote]);
 

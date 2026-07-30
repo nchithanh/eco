@@ -17,6 +17,7 @@ import { isNewsSlug, type NewsSlug } from "@/lib/news-details";
 import { isTechSlug, type TechSlug } from "@/lib/tech-stack";
 import { isWorkSlug, type WorkSlug } from "@/lib/works-details";
 import { PagePreviewModal } from "@/components/PagePreviewModal";
+import { acquirePageScroll, releasePageScroll } from "@/lib/scroll-lock";
 
 export type PreviewTarget =
   | { kind: "service"; slug: ServiceSlug; href: string }
@@ -194,11 +195,10 @@ export function PagePreviewProvider({ children }: { children: ReactNode }) {
       if (event.key === "Escape") close();
     };
     document.addEventListener("keydown", onKey);
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
+    acquirePageScroll();
     return () => {
       document.removeEventListener("keydown", onKey);
-      document.body.style.overflow = prev;
+      releasePageScroll();
     };
   }, [target, close]);
 
