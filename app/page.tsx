@@ -25,17 +25,17 @@ export default function Home() {
     <main>
       <Nav />
       <Hero />
+      <Capabilities />
       <PopularServices />
       <UiGallery />
-      <AiEdge />
-      <Capabilities />
+      <WorksShowcase />
       <SiteOutcomes />
+      <Process />
       <WhatYouGet />
       <OpsLifecycle />
-      <WorksShowcase />
-      <Process />
       <TrustStrip />
       <TechStack />
+      <AiEdge />
       <WhyKuct />
       <CoFounder />
       <HomeNews />

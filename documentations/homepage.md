@@ -4,29 +4,31 @@ Entry: `app/page.tsx`.
 
 ## Section order → component
 
-| # | Section | Component | Anchor / notes |
-| --- | --- | --- | --- |
-| — | Nav (+ announcement) | `Nav`, `AnnouncementBar` | |
-| 1 | Hero | `Hero` | `#top` — web-first copy; `aiPill`; glass panels center **Web & App** |
-| 2 | Popular services | `PopularServices` | `#popular-services` — comparison table: Landing / Business / Shop / Web App |
-| 3 | UI gallery | `UiGallery` | `#ui-gallery` — filterable layout showcase (20 previews) |
-| 4 | AI edge | `AiEdge` | `#ai-edge` — practical AI differentiator (chat, workflow, agent); links to `/ai-transform`, `/custom-agent` |
-| 5 | Capabilities | `Capabilities` | `#capabilities` |
-| 6 | Outcomes | `SiteOutcomes` | |
-| 7 | Deliverables | `WhatYouGet` | |
-| 8 | Ops lifecycle | `OpsLifecycle` | `#ops` |
-| 9 | Works | `WorksShowcase` | |
-| 10 | Process | `Process` | `#process` |
-| 11 | Handover | `TrustStrip` | |
-| 12 | Tech stack | `TechStack` | `#stack` |
-| 13 | Why us | `WhyKuct` | |
-| 14 | Co-founder | `CoFounder` | `#cofounder` |
-| 15 | Notes | `HomeNews` | |
-| 16 | FAQ | `Faq` | |
-| 17 | Contact | `ContactForm` | `#contact` |
-| 18 | Footer | `Footer` | |
+UX flow: **website / delivery first**, then **AI layer**, then **trust & contact**.
 
-`Technology` (heavy AI globe/dashboard) is **not** on the homepage; it remains available as a component for other routes if needed.
+| # | Block | Section | Component | Anchor / notes |
+| --- | --- | --- | --- | --- |
+| — | — | Nav (+ announcement) | `Nav`, `AnnouncementBar` | |
+| 1 | Web | Hero | `Hero` | `#top` — web-first copy; secondary CTA → `#capabilities` |
+| 2 | Web | Capabilities | `Capabilities` | `#capabilities` — service grid (build + integrations + AI items) |
+| 3 | Web | Popular services | `PopularServices` | `#popular-services` — package comparison table |
+| 4 | Web | UI gallery | `UiGallery` | `#ui-gallery` — layout showcase |
+| 5 | Web | Works | `WorksShowcase` | `#works` — portfolio / case studies |
+| 6 | Web | Outcomes | `SiteOutcomes` | `#outcomes` — business results |
+| 7 | Web | Process | `Process` | `#process` — 5-step delivery |
+| 8 | Web | Deliverables | `WhatYouGet` | `#what-you-get` |
+| 9 | Web | Ops lifecycle | `OpsLifecycle` | `#ops` |
+| 10 | Web | Handover | `TrustStrip` | `#handover` |
+| 11 | Web | Tech stack | `TechStack` | `#stack` |
+| 12 | AI | AI edge | `AiEdge` | `#ai-edge` — chat / workflow / agent; links to AI routes |
+| 13 | Trust | Why us | `WhyKuct` | `#why` |
+| 14 | Trust | Co-founder | `CoFounder` | `#cofounder` |
+| 15 | Trust | Notes | `HomeNews` | `#news` |
+| 16 | Trust | FAQ | `Faq` | `#faq` |
+| 17 | Trust | Contact | `ContactForm` | `#contact` |
+| 18 | — | Footer | `Footer` | |
+
+`Technology` (heavy AI globe/dashboard) is **not** on the homepage.
 
 ## Global overlays (not sections)
 
@@ -36,4 +38,4 @@ Entry: `app/page.tsx`.
 
 ## Copy source
 
-Most homepage strings: `lib/i18n/dictionaries.ts` (+ `popular-services-copy.ts`, `ui-gallery-copy.ts`, `ai-edge-copy.ts`, `faq-copy.ts`, `news-copy.ts` for featured packages / gallery / AI edge / FAQ / news blurb). Gallery preview images: external R2 URLs in `lib/ui-gallery-data.ts`.
+Most homepage strings: `lib/i18n/dictionaries.ts` (+ `popular-services-copy.ts`, `ui-gallery-copy.ts`, `ai-edge-copy.ts`, `faq-copy.ts`, `news-copy.ts`). Gallery images: `lib/ui-gallery-data.ts`.

@@ -27,32 +27,38 @@ describe("Dolphin Kick homepage", () => {
     ).toBeGreaterThanOrEqual(1);
   });
 
-  it("renders ai edge after ui gallery before capabilities", () => {
+  it("renders capabilities right after hero", () => {
     renderHome();
     const top = document.getElementById("top");
-    const popular = document.getElementById("popular-services");
-    const gallery = document.getElementById("ui-gallery");
-    const aiEdge = document.getElementById("ai-edge");
     const capabilities = document.getElementById("capabilities");
+    const aiEdge = document.getElementById("ai-edge");
     expect(top).toBeTruthy();
-    expect(popular).toBeTruthy();
-    expect(gallery).toBeTruthy();
-    expect(aiEdge).toBeTruthy();
     expect(capabilities).toBeTruthy();
+    expect(aiEdge).toBeTruthy();
     expect(
-      top!.compareDocumentPosition(popular!) &
+      top!.compareDocumentPosition(capabilities!) &
         Node.DOCUMENT_POSITION_FOLLOWING,
     ).toBeTruthy();
     expect(
-      popular!.compareDocumentPosition(gallery!) &
+      capabilities!.compareDocumentPosition(aiEdge!) &
+        Node.DOCUMENT_POSITION_FOLLOWING,
+    ).toBeTruthy();
+  });
+
+  it("renders ai edge after tech stack before why us", () => {
+    renderHome();
+    const stack = document.getElementById("stack");
+    const aiEdge = document.getElementById("ai-edge");
+    const why = document.getElementById("why");
+    expect(stack).toBeTruthy();
+    expect(aiEdge).toBeTruthy();
+    expect(why).toBeTruthy();
+    expect(
+      stack!.compareDocumentPosition(aiEdge!) &
         Node.DOCUMENT_POSITION_FOLLOWING,
     ).toBeTruthy();
     expect(
-      gallery!.compareDocumentPosition(aiEdge!) &
-        Node.DOCUMENT_POSITION_FOLLOWING,
-    ).toBeTruthy();
-    expect(
-      aiEdge!.compareDocumentPosition(capabilities!) &
+      aiEdge!.compareDocumentPosition(why!) &
         Node.DOCUMENT_POSITION_FOLLOWING,
     ).toBeTruthy();
     expect(
@@ -113,20 +119,32 @@ describe("Dolphin Kick homepage", () => {
     ).toBeInTheDocument();
   });
 
-  it("renders ui gallery with filters between popular services and ai edge", async () => {
+  it("renders web showcase block after capabilities", async () => {
     const user = userEvent.setup();
     renderHome();
+    const capabilities = document.getElementById("capabilities");
     const popular = document.getElementById("popular-services");
     const gallery = document.getElementById("ui-gallery");
-    const aiEdge = document.getElementById("ai-edge");
+    const works = document.getElementById("works");
+    const outcomes = document.getElementById("outcomes");
+    expect(capabilities).toBeTruthy();
     expect(popular).toBeTruthy();
     expect(gallery).toBeTruthy();
-    expect(aiEdge).toBeTruthy();
+    expect(works).toBeTruthy();
+    expect(outcomes).toBeTruthy();
+    expect(
+      capabilities!.compareDocumentPosition(popular!) &
+        Node.DOCUMENT_POSITION_FOLLOWING,
+    ).toBeTruthy();
     expect(
       popular!.compareDocumentPosition(gallery!) & Node.DOCUMENT_POSITION_FOLLOWING,
     ).toBeTruthy();
     expect(
-      gallery!.compareDocumentPosition(aiEdge!) &
+      gallery!.compareDocumentPosition(works!) &
+        Node.DOCUMENT_POSITION_FOLLOWING,
+    ).toBeTruthy();
+    expect(
+      works!.compareDocumentPosition(outcomes!) &
         Node.DOCUMENT_POSITION_FOLLOWING,
     ).toBeTruthy();
 
@@ -163,25 +181,38 @@ describe("Dolphin Kick homepage", () => {
     expect(screen.getByText(/引き渡し & 伴走/i)).toBeInTheDocument();
   });
 
-  it("renders site outcomes and what-you-get after capabilities", () => {
+  it("renders delivery sections after outcomes", () => {
     renderHome();
-    const capabilities = document.getElementById("capabilities");
     const outcomes = document.getElementById("outcomes");
+    const process = document.getElementById("process");
     const whatYouGet = document.getElementById("what-you-get");
     const ops = document.getElementById("ops");
-    expect(capabilities).toBeTruthy();
+    const handover = document.getElementById("handover");
+    const stack = document.getElementById("stack");
     expect(outcomes).toBeTruthy();
+    expect(process).toBeTruthy();
     expect(whatYouGet).toBeTruthy();
+    expect(ops).toBeTruthy();
+    expect(handover).toBeTruthy();
+    expect(stack).toBeTruthy();
     expect(
-      capabilities!.compareDocumentPosition(outcomes!) &
+      outcomes!.compareDocumentPosition(process!) &
         Node.DOCUMENT_POSITION_FOLLOWING,
     ).toBeTruthy();
     expect(
-      outcomes!.compareDocumentPosition(whatYouGet!) &
+      process!.compareDocumentPosition(whatYouGet!) &
         Node.DOCUMENT_POSITION_FOLLOWING,
     ).toBeTruthy();
     expect(
       whatYouGet!.compareDocumentPosition(ops!) &
+        Node.DOCUMENT_POSITION_FOLLOWING,
+    ).toBeTruthy();
+    expect(
+      ops!.compareDocumentPosition(handover!) &
+        Node.DOCUMENT_POSITION_FOLLOWING,
+    ).toBeTruthy();
+    expect(
+      handover!.compareDocumentPosition(stack!) &
         Node.DOCUMENT_POSITION_FOLLOWING,
     ).toBeTruthy();
     expect(

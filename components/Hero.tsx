@@ -163,7 +163,7 @@ export function Hero() {
               {t.hero.ctaPrimary}
             </button>
             <a
-              href="#popular-services"
+              href="#capabilities"
               className="inline-flex items-center rounded-full border border-[var(--kuct-border)] bg-transparent px-6 py-3 text-sm font-medium text-[var(--kuct-muted)] transition duration-200 hover:border-[var(--kuct-accent)]/45 hover:bg-[var(--kuct-accent)]/10 hover:text-[var(--kuct-text)]"
             >
               {t.hero.ctaSecondary}
