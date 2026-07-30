@@ -41,7 +41,7 @@ export function LanguageSwitcher() {
     <div ref={rootRef} className="relative">
       <button
         type="button"
-        className="inline-flex items-center gap-1.5 rounded-full border border-white/60 bg-white/40 px-2.5 py-1 text-xs font-semibold tracking-wide text-[var(--kuct-text)] backdrop-blur-md transition duration-300 hover:-translate-y-0.5 hover:border-[var(--kuct-accent)]/35 hover:bg-white/70 hover:shadow-[0_8px_18px_rgb(var(--kuct-accent-rgb)/0.1)]"
+        className="inline-flex items-center gap-1.5 rounded-full border border-[var(--kuct-border)] bg-[rgba(10,10,22,0.75)] px-2.5 py-1.5 text-xs font-semibold tracking-wide text-[var(--kuct-muted)] transition hover:border-[var(--kuct-accent)]/40 hover:text-[var(--kuct-text)]"
         aria-label="Language"
         aria-haspopup="listbox"
         aria-expanded={open}
@@ -60,7 +60,7 @@ export function LanguageSwitcher() {
           id={listId}
           role="listbox"
           aria-label="Language"
-          className="absolute right-0 z-50 mt-2 min-w-[11rem] overflow-hidden rounded-xl border border-white/70 bg-white/95 py-1 shadow-[0_12px_30px_rgba(139,92,246,0.14)] backdrop-blur-xl"
+          className="absolute right-0 z-50 mt-2 min-w-[11rem] overflow-hidden rounded-xl border border-[var(--kuct-border)] bg-[rgba(8,8,18,0.98)] py-1 shadow-[0_12px_30px_rgba(0,0,0,0.5)] ring-1 ring-[var(--kuct-accent)]/10 backdrop-blur-xl"
         >
           {LOCALES.map((item) => (
             <li key={item.code} role="option" aria-selected={locale === item.code}>
@@ -68,8 +68,8 @@ export function LanguageSwitcher() {
                 type="button"
                 className={
                   locale === item.code
-                    ? "kuct-menu-item flex w-full items-center gap-2.5 px-3 py-2 text-left text-xs font-semibold text-[var(--kuct-accent)]"
-                    : "kuct-menu-item flex w-full items-center gap-2.5 px-3 py-2 text-left text-xs font-semibold text-[var(--kuct-muted)]"
+                    ? "flex w-full items-center gap-2.5 px-3 py-2 text-left text-xs font-semibold text-[var(--kuct-accent)]"
+                    : "flex w-full items-center gap-2.5 px-3 py-2 text-left text-xs font-semibold text-[var(--kuct-muted)] transition hover:bg-[rgba(var(--kuct-accent-rgb),0.1)] hover:text-[var(--kuct-text)]"
                 }
                 onClick={() => choose(item.code)}
               >

@@ -8,6 +8,8 @@ vi.mock("next/navigation", () => ({
 
 beforeEach(() => {
   window.localStorage.setItem("kuct-locale", "ja");
+  document.documentElement.removeAttribute("data-locale");
+  document.documentElement.lang = "ja";
 
   if (typeof window.matchMedia !== "function") {
     Object.defineProperty(window, "matchMedia", {
@@ -30,4 +32,5 @@ beforeEach(() => {
 afterEach(() => {
   cleanup();
   window.localStorage.clear();
+  document.documentElement.removeAttribute("data-locale");
 });

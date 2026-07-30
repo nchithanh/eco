@@ -21,7 +21,7 @@
 | --- | --- |
 | `app/` | Routes & root layout |
 | `components/` | UI sections & shared chrome |
-| `lib/` | i18n, estimators, content data, theme, assets |
+| `lib/` | i18n, estimators, `pricing-fx` (locale package prices), content data, theme, assets |
 | `public/` | Static assets (mascot, brand, about, tech, themes) |
 | `tests/` | Vitest suites |
 | `documentations/` | Canonical project docs (this tree) |
@@ -30,3 +30,5 @@
 ## Motion / mobile
 
 Under `max-width: 1023px`, CSS kill-switch disables decorative animations (see `app/globals.css`). Tailwind `hover` custom variant only applies on fine pointer + `lg+`.
+
+**Scroll note:** Decorative `body::before` noise must stay at `z-index ≤ 0` (and is off on mobile). Never place full-viewport fixed layers above page content without `pointer-events: none` *and* low z-index — high z + `mix-blend-mode` can break touch scrolling.

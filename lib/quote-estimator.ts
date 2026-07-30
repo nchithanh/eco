@@ -69,7 +69,7 @@ const TIMELINE_ADD: Record<TimelineId, PriceRange> = {
   rush: { min: 1, max: 3 },
 };
 
-const CAP: Record<ProjectType, PriceRange> = {
+export const CAP: Record<ProjectType, PriceRange> = {
   web: { min: 2, max: 10 },
   ai: { min: 10, max: 30 },
   both: { min: 12, max: 38 },
