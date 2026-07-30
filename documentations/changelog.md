@@ -2,6 +2,7 @@
 
 ## 2026-07-30
 
+- Updated homepage section separators to soft violet top/bottom hairlines for clearer visual grouping.
 - Removed `UiGallery` showcase from homepage (component kept in repo).
 - Reverted homepage `HomeNews` to paginated 6-item grid (see-more tile removed).
 - **Homepage section order (UX):** web block first (Hero → Capabilities → packages → works → outcomes → process → deliverables → ops → handover → stack), then `AiEdge`, then trust/contact.

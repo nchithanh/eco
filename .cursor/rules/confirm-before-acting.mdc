@@ -1,0 +1,45 @@
+---
+description: Present plan first and wait for user "ok" before any action
+alwaysApply: true
+---
+
+# Confirm before acting
+
+Before **any** action that changes state or runs tools, present a short plan and **wait for the user to reply `ok`**.
+
+## Applies to
+
+- Editing / creating / deleting files
+- Running shell commands (install, build, git, deploy, kill process…)
+- Git commit / push / remote changes
+- Installing packages, changing config, opening external systems
+- Multi-step refactors or feature work
+
+## Does not require "ok" first
+
+- Pure Q&A / explanation with no tools
+- Reading files only when needed to answer a question (prefer stating “I’ll look at X” if non-trivial)
+
+## How to ask
+
+1. State **what** you will do (1–5 bullets).
+2. State **why** briefly if useful.
+3. End with: reply **`ok`** to proceed (or tell me what to change).
+4. **Stop.** Do not call mutating tools until the user confirms.
+
+## Confirmation phrases
+
+Treat as approval: `ok`, `OK`, `okay`, `yes`, `được`, `làm đi`, `go`.
+
+If the user changes the plan, revise the plan and wait for a new `ok`.
+
+## Example
+
+User: “đổi headline hero”
+
+Assistant:
+- Update `hero.headline` in VI/EN/JA/DE dictionaries
+- Update related homepage tests
+- (Optional) push to `main` for Pages deploy — only if you ask
+
+Reply **`ok`** to proceed.

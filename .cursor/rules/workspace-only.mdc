@@ -1,0 +1,25 @@
+---
+description: Confine all agent actions to this workspace folder only
+alwaysApply: true
+---
+
+# Workspace boundary
+
+Mọi thao tác của AI (đọc/ghi file, shell, git, setup, build, deploy helper, temp files, clone, v.v.) **chỉ được thực hiện trong folder codebase / workspace hiện tại**.
+
+## Bắt buộc
+
+- Working directory mặc định = root workspace (vd. `/home/thanhnc/projects/startup`).
+- Tạo/sửa/xóa file, `npm install`, build, git commit/branch — chỉ trong workspace.
+- Script tạm, artifact, worktree — đặt **bên trong** workspace (vd. `.tmp/`, `out/`), không dùng `/tmp` ngoài project trừ khi user yêu cầu rõ.
+
+## Cấm
+
+- Đụng file/folder ngoài workspace (home, `/tmp`, repo khác, system config toàn cục).
+- `cd` sang path ngoài workspace rồi chạy lệnh mutate.
+- Sửa `~/.ssh`, `~/.gitconfig`, global npm/Cursor settings, hay repo GitHub khác trừ khi user **chỉ định rõ path/repo**.
+- Copy/rsync/push nội dung workspace sang nơi khác (kể cả `/tmp/...`) nếu không được user yêu cầu trong plan đã `ok`.
+
+## Ngoại lệ
+
+Chỉ khi user **nói rõ** trong tin nhắn (path hoặc repo cụ thể), và đã qua rule confirm-before-acting nếu thao tác mutate.

@@ -15,7 +15,7 @@ import {
   listNews,
 } from "@/lib/news-details";
 
-const PAGE_SIZE = 6;
+const PAGE_SIZE = 9;
 const FEATURED_COUNT = 3;
 
 export function HomeNews() {

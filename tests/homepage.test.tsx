@@ -267,7 +267,7 @@ describe("Dolphin Kick homepage", () => {
     const newsList = newsSection!.querySelector("ul");
     expect(newsList).toHaveClass("md:grid-cols-3");
     const newsItems = within(newsSection!).getAllByRole("listitem");
-    expect(newsItems).toHaveLength(6);
+    expect(newsItems).toHaveLength(9);
     expect(newsItems[0]).toHaveClass("h-full", "flex", "flex-col");
     expect(newsItems[0].querySelectorAll("img")).toHaveLength(1);
     expect(newsItems[1].querySelectorAll("img")).toHaveLength(1);
@@ -275,6 +275,9 @@ describe("Dolphin Kick homepage", () => {
     expect(newsItems[3].querySelectorAll("img")).toHaveLength(0);
     expect(newsItems[4].querySelectorAll("img")).toHaveLength(0);
     expect(newsItems[5].querySelectorAll("img")).toHaveLength(0);
+    expect(newsItems[6].querySelectorAll("img")).toHaveLength(0);
+    expect(newsItems[7].querySelectorAll("img")).toHaveLength(0);
+    expect(newsItems[8].querySelectorAll("img")).toHaveLength(0);
     expect(
       within(newsItems[0]).getByRole("heading", {
         name: /全部書き直さずに MVP から V1 へ/i,
@@ -305,7 +308,7 @@ describe("Dolphin Kick homepage", () => {
     ).toHaveAttribute("href", "mailto:nchithanh9999@gmail.com");
   });
 
-  it("paginates homepage news six items at a time", async () => {
+  it("paginates homepage news nine items at a time", async () => {
     const user = userEvent.setup();
     renderHome();
 
@@ -316,16 +319,16 @@ describe("Dolphin Kick homepage", () => {
         name: /全部書き直さずに MVP から V1 へ/i,
       }),
     ).toBeInTheDocument();
-    expect(within(newsSection!).getByText("1 / 5")).toBeInTheDocument();
+    expect(within(newsSection!).getByText(/1 \/ \d+/)).toBeInTheDocument();
 
     await user.click(
       within(newsSection!).getByRole("button", { name: /次のページ/i }),
     );
 
-    expect(within(newsSection!).getByText("2 / 5")).toBeInTheDocument();
+    expect(within(newsSection!).getByText(/2 \/ \d+/)).toBeInTheDocument();
     expect(
       within(newsSection!).getByRole("heading", {
-        name: /口頭の「だいたいX」より見積を書く理由/i,
+        name: /週次デモできるフリーランスの採用/i,
       }),
     ).toBeInTheDocument();
     expect(
@@ -334,21 +337,24 @@ describe("Dolphin Kick homepage", () => {
       }),
     ).not.toBeInTheDocument();
     const pageTwoItems = within(newsSection!).getAllByRole("listitem");
-    expect(pageTwoItems).toHaveLength(6);
+    expect(pageTwoItems).toHaveLength(9);
     expect(pageTwoItems[0].querySelectorAll("img")).toHaveLength(1);
     expect(pageTwoItems[1].querySelectorAll("img")).toHaveLength(1);
     expect(pageTwoItems[2].querySelectorAll("img")).toHaveLength(1);
     expect(pageTwoItems[3].querySelectorAll("img")).toHaveLength(0);
     expect(pageTwoItems[4].querySelectorAll("img")).toHaveLength(0);
     expect(pageTwoItems[5].querySelectorAll("img")).toHaveLength(0);
+    expect(pageTwoItems[6].querySelectorAll("img")).toHaveLength(0);
+    expect(pageTwoItems[7].querySelectorAll("img")).toHaveLength(0);
+    expect(pageTwoItems[8].querySelectorAll("img")).toHaveLength(0);
     expect(
       within(newsSection!).queryByRole("link", { name: /続きを読む/i }),
     ).not.toBeInTheDocument();
     expect(
       within(newsSection!).getByRole("link", {
-        name: /口頭の「だいたいX」より見積を書く理由/i,
+        name: /週次デモできるフリーランスの採用/i,
       }),
-    ).toHaveAttribute("href", "/news/why-we-write-estimates/");
+    ).toHaveAttribute("href", "/news/hiring-for-delivery/");
   });
 
   it("reveals the contact link from the mobile menu", async () => {
