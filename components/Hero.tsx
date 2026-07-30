@@ -71,16 +71,16 @@ function GlassPanels() {
 
   const panels = [
     {
-      key: "web",
-      label: v.web,
-      icon: <IconWeb />,
+      key: "automation",
+      label: v.automation,
+      icon: <IconAutomation />,
       className:
         "kuct-glass-panel kuct-hero-panel kuct-hero-panel--side absolute left-[2%] top-[18%] z-[1] flex h-[58%] w-[32%] -rotate-[5deg] flex-col items-center justify-center gap-2 rounded-[1.5rem] p-3 text-center opacity-75",
     },
     {
-      key: "automation",
-      label: v.automation,
-      icon: <IconAutomation />,
+      key: "web",
+      label: v.web,
+      icon: <IconWeb />,
       className:
         "kuct-glass-panel kuct-hero-panel kuct-hero-panel--mid absolute left-[28%] top-[4%] z-10 flex h-[78%] w-[44%] rotate-[3deg] flex-col items-center justify-center gap-3 rounded-[1.75rem] p-5 text-center",
     },
@@ -103,7 +103,7 @@ function GlassPanels() {
         <div key={panel.key} className={panel.className}>
           <div
             className={
-              panel.key === "automation"
+              panel.key === "web"
                 ? "grid size-12 place-items-center rounded-2xl bg-[rgba(20,16,40,0.85)] text-[var(--kuct-accent)] shadow-[0_0_16px_var(--kuct-accent),0_0_36px_rgb(var(--kuct-accent-rgb)/0.35)] ring-1 ring-[var(--kuct-accent)] sm:size-14"
                 : "grid size-9 place-items-center rounded-xl bg-[rgba(20,16,40,0.75)] text-[var(--kuct-accent)] shadow-[0_0_10px_rgb(var(--kuct-accent-rgb)/0.25)] ring-1 ring-[var(--kuct-accent)]/50 sm:size-10"
             }
@@ -112,14 +112,14 @@ function GlassPanels() {
           </div>
           <p
             className={
-              panel.key === "automation"
+              panel.key === "web"
                 ? "font-display text-[11px] font-bold tracking-[0.08em] text-[var(--kuct-text)] uppercase sm:text-xs"
                 : "font-display text-[10px] font-semibold tracking-[0.06em] text-[var(--kuct-muted)] uppercase"
             }
           >
             {panel.label}
           </p>
-          {panel.key === "automation" ? (
+          {panel.key === "web" ? (
             <div className="mt-1 h-1 w-10 rounded-full bg-[var(--kuct-accent)]/40" />
           ) : null}
         </div>
@@ -140,9 +140,14 @@ export function Hero() {
     >
       <div className="relative mx-auto grid w-full max-w-6xl items-center gap-10 px-6 py-16 sm:py-20 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-14 lg:py-16">
         <div className="animate-kuct-fade relative z-10 max-w-xl">
-          <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
-            {t.hero.eyebrow}
-          </p>
+          <div className="flex flex-wrap items-center gap-3">
+            <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
+              {t.hero.eyebrow}
+            </p>
+            <span className="rounded-full border border-[var(--kuct-accent)]/35 bg-[rgba(var(--kuct-accent-rgb),0.1)] px-2.5 py-0.5 text-[10px] font-semibold tracking-wide text-[var(--kuct-accent)] uppercase">
+              {t.hero.aiPill}
+            </span>
+          </div>
           <h1 className="mt-5 max-w-[18ch] font-display text-[1.85rem] font-semibold leading-[1.12] tracking-tight text-[var(--kuct-text)] sm:max-w-[20ch] sm:text-4xl lg:text-[2.85rem] lg:leading-[1.1]">
             <AccentText>{t.hero.headline}</AccentText>
           </h1>
@@ -158,7 +163,7 @@ export function Hero() {
               {t.hero.ctaPrimary}
             </button>
             <a
-              href="#capabilities"
+              href="#popular-services"
               className="inline-flex items-center rounded-full border border-[var(--kuct-border)] bg-transparent px-6 py-3 text-sm font-medium text-[var(--kuct-muted)] transition duration-200 hover:border-[var(--kuct-accent)]/45 hover:bg-[var(--kuct-accent)]/10 hover:text-[var(--kuct-text)]"
             >
               {t.hero.ctaSecondary}

@@ -3,6 +3,8 @@ import { careersByLocale, careersNavLabel } from "./careers-copy";
 import { getFaqCopy } from "./faq-copy";
 import { newsByLocale, newsNavLabel } from "./news-copy";
 import { popularServicesByLocale } from "./popular-services-copy";
+import { aiEdgeByLocale } from "./ai-edge-copy";
+import { uiGalleryByLocale } from "./ui-gallery-copy";
 
 const vi: Dictionary = {
   meta: {
@@ -32,13 +34,14 @@ const vi: Dictionary = {
     cta: "Ứng tuyển",
   },
   hero: {
-    eyebrow: "Studio",
-    headline: "Từ bài toán [[kinh doanh]] đến [[hệ thống]] dễ vận hành",
+    eyebrow: "Web & App Studio",
+    aiPill: "Có thể gắn AI",
+    headline: "Website & web app [[chuyên nghiệp]] — scope rõ, ship được",
     support:
-      "Bạn nói mục tiêu. Dolphin Kick chốt scope, ship theo milestone, bàn giao source + hướng dẫn để đội bạn tự chạy.",
-    trustLine: "Phạm vi rõ · Milestone đúng hạn · Source + hướng dẫn vận hành",
+      "Chúng tôi làm website, landing và web app là chính. Khi cần, gắn thêm chat, automation hoặc agent — không bắt đầu từ demo AI.",
+    trustLine: "Web & app là nền · Phạm vi rõ · AI khi bạn cần",
     ctaPrimary: "Nhận báo giá",
-    ctaSecondary: "Xem dịch vụ",
+    ctaSecondary: "Xem gói dịch vụ",
     visual: {
       web: "Web & App",
       automation: "Tự động hóa",
@@ -60,6 +63,8 @@ const vi: Dictionary = {
     ],
   },
   popularServices: popularServicesByLocale.vi,
+  uiGallery: uiGalleryByLocale.vi,
+  aiEdge: aiEdgeByLocale.vi,
   capabilities: {
     eyebrow: "Dịch vụ",
     title: "Giải pháp gắn [[kết quả vận hành]]",
@@ -509,13 +514,14 @@ const en: Dictionary = {
     cta: "Apply now",
   },
   hero: {
-    eyebrow: "Studio",
-    headline: "From [[business problems]] to [[systems]] you can run",
+    eyebrow: "Web & App Studio",
+    aiPill: "AI-ready",
+    headline: "Professional [[websites]] & web apps — clear scope, shipped right",
     support:
-      "Tell us the goal. Dolphin Kick locks scope, ships by milestone, and hands over source plus a walkthrough so your team can run it.",
-    trustLine: "Clear scope · On-time milestones · Source + ops walkthrough",
+      "We build websites, landing pages, and web apps first. Add chat, automation, or agents when it helps — not AI demos upfront.",
+    trustLine: "Web & apps first · Clear scope · AI when you need it",
     ctaPrimary: "Get a quote",
-    ctaSecondary: "View services",
+    ctaSecondary: "View service packages",
     visual: {
       web: "Web & App",
       automation: "Automation",
@@ -537,6 +543,8 @@ const en: Dictionary = {
     ],
   },
   popularServices: popularServicesByLocale.en,
+  uiGallery: uiGalleryByLocale.en,
+  aiEdge: aiEdgeByLocale.en,
   capabilities: {
     eyebrow: "Services",
     title: "Solutions tied to [[operating outcomes]]",
@@ -986,13 +994,14 @@ const de: Dictionary = {
     cta: "Jetzt bewerben",
   },
   hero: {
-    eyebrow: "Studio",
-    headline: "Vom [[Geschäftsproblem]] zum [[betreibbaren System]]",
+    eyebrow: "Web & App Studio",
+    aiPill: "AI-fähig",
+    headline: "Professionelle [[Websites]] & Web-Apps — klarer Scope, sauber geliefert",
     support:
-      "Nennen Sie das Ziel. Dolphin Kick fixiert den Scope, liefert per Meilenstein und übergibt Source plus Einweisung.",
-    trustLine: "Klarer Scope · Meilensteine · Source + Betriebsanleitung",
+      "Wir bauen zuerst Websites, Landing Pages und Web-Apps. Chat, Automation oder Agents bei Bedarf — nicht mit AI-Demos starten.",
+    trustLine: "Web & Apps zuerst · Klarer Scope · AI bei Bedarf",
     ctaPrimary: "Angebot anfordern",
-    ctaSecondary: "Leistungen ansehen",
+    ctaSecondary: "Service-Pakete ansehen",
     visual: {
       web: "Web & App",
       automation: "Automation",
@@ -1014,6 +1023,8 @@ const de: Dictionary = {
     ],
   },
   popularServices: popularServicesByLocale.de,
+  uiGallery: uiGalleryByLocale.de,
+  aiEdge: aiEdgeByLocale.de,
   capabilities: {
     eyebrow: "Leistungen",
     title: "Lösungen mit [[Betriebs-Outcomes]]",
@@ -1463,13 +1474,14 @@ const ja: Dictionary = {
     cta: "応募する",
   },
   hero: {
-    eyebrow: "Studio",
-    headline: "事業の[[課題]]から、[[運用しやすいシステム]]へ",
+    eyebrow: "Web & App Studio",
+    aiPill: "AI対応可",
+    headline: "[[プロ仕様]]のWebsite & Webアプリ — 明確なスコープで届ける",
     support:
-      "ゴールを教えてください。Dolphin Kickはスコープを明確にし、マイルストーンで届け、ソースと操作ガイドを引き渡します。",
-    trustLine: "明確なスコープ · マイルストーン · ソース＋運用ガイド",
+      "Website・LP・Webアプリが中心です。必要ならチャット、自動化、エージェントを追加 — AIデモから始めません。",
+    trustLine: "Web & Appが本体 · 明確なスコープ · 必要ならAI連携",
     ctaPrimary: "見積もりを依頼",
-    ctaSecondary: "サービスを見る",
+    ctaSecondary: "サービスパッケージを見る",
     visual: {
       web: "Web & App",
       automation: "業務自動化",
@@ -1491,6 +1503,8 @@ const ja: Dictionary = {
     ],
   },
   popularServices: popularServicesByLocale.ja,
+  uiGallery: uiGalleryByLocale.ja,
+  aiEdge: aiEdgeByLocale.ja,
   capabilities: {
     eyebrow: "サービス",
     title: "[[運用成果]]に結びつけるソリューション",
@@ -1940,13 +1954,14 @@ const zh: Dictionary = {
     cta: "立即申请",
   },
   hero: {
-    eyebrow: "Studio",
-    headline: "从[[业务问题]]到[[可运营的系统]]",
+    eyebrow: "Web & App Studio",
+    aiPill: "可接入 AI",
+    headline: "[[专业级]]网站与 Web 应用 — 范围清晰，按时交付",
     support:
-      "告诉我们目标。Dolphin Kick 锁定范围、按里程碑交付，并交接源码与操作指引，让团队能自跑。",
-    trustLine: "范围清晰 · 里程碑准时 · 源码 + 运营指引",
+      "我们以网站、落地页与 Web 应用为主。需要时可叠加聊天、自动化或 Agent — 不从 AI 演示起步。",
+    trustLine: "网站为本 · 范围清晰 · 需要时再加 AI",
     ctaPrimary: "获取报价",
-    ctaSecondary: "查看服务",
+    ctaSecondary: "查看服务套餐",
     visual: {
       web: "Web & App",
       automation: "自动化",
@@ -1968,6 +1983,8 @@ const zh: Dictionary = {
     ],
   },
   popularServices: popularServicesByLocale.zh,
+  uiGallery: uiGalleryByLocale.zh,
+  aiEdge: aiEdgeByLocale.zh,
   capabilities: {
     eyebrow: "服务",
     title: "绑定[[运营结果]]的解决方案",

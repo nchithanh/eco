@@ -73,7 +73,7 @@ export function Nav() {
   const primaryLinks: NavLink[] = [
     { href: `${sectionBase}#capabilities`, label: t.nav.services },
     { href: `${sectionBase}#process`, label: t.nav.process },
-    { href: `${sectionBase}#technology`, label: t.nav.stack },
+    { href: `${sectionBase}#stack`, label: t.nav.stack },
   ];
 
   const pageLinks: NavLink[] = [

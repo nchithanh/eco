@@ -42,6 +42,7 @@ export type Dictionary = {
   };
   hero: {
     eyebrow: string;
+    aiPill: string;
     headline: string;
     support: string;
     trustLine: string;
@@ -100,6 +101,43 @@ export type Dictionary = {
       cta: string;
       detailHref: string;
     }[];
+  };
+  uiGallery: {
+    eyebrow: string;
+    title: string;
+    support: string;
+    filters: Record<
+      "all" | "landing" | "business" | "webapp" | "ecommerce" | "corporate" | "portfolio" | "startup",
+      string
+    >;
+    previewAlt: string;
+    viewSample: string;
+    ctaServices: string;
+    ctaConsult: string;
+    empty: string;
+    items: Record<
+      string,
+      {
+        label: string;
+        title: string;
+        body: string;
+        badge?: string;
+      }
+    >;
+  };
+  aiEdge: {
+    eyebrow: string;
+    badge: string;
+    title: string;
+    support: string;
+    items: {
+      id: "chat" | "workflow" | "agent";
+      tag: string;
+      title: string;
+      body: string;
+    }[];
+    ctaTransform: string;
+    ctaAgent: string;
   };
   capabilities: {
     eyebrow: string;

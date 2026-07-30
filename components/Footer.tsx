@@ -24,7 +24,7 @@ export function Footer() {
       label: f.groupStudio,
       links: [
         { href: `${sectionBase}#process`, label: t.nav.process },
-        { href: `${sectionBase}#technology`, label: t.nav.stack },
+        { href: `${sectionBase}#stack`, label: t.nav.stack },
         { href: assetPath("/about/"), label: t.nav.about },
       ],
     },

@@ -19,7 +19,7 @@ describe("Dolphin Kick homepage", () => {
     expect(screen.getAllByLabelText(/Dolphin Kick/i).length).toBeGreaterThanOrEqual(1);
     expect(
       screen.getByRole("heading", {
-        name: /事業の課題から、運用しやすいシステムへ/i,
+        name: /プロ仕様のWebsite & Webアプリ — 明確なスコープで届ける/i,
       }),
     ).toBeInTheDocument();
     expect(
@@ -27,37 +27,46 @@ describe("Dolphin Kick homepage", () => {
     ).toBeGreaterThanOrEqual(1);
   });
 
-  it("renders technology under hero before capabilities", () => {
+  it("renders ai edge after ui gallery before capabilities", () => {
     renderHome();
     const top = document.getElementById("top");
-    const technology = document.getElementById("technology");
     const popular = document.getElementById("popular-services");
+    const gallery = document.getElementById("ui-gallery");
+    const aiEdge = document.getElementById("ai-edge");
     const capabilities = document.getElementById("capabilities");
     expect(top).toBeTruthy();
-    expect(technology).toBeTruthy();
     expect(popular).toBeTruthy();
+    expect(gallery).toBeTruthy();
+    expect(aiEdge).toBeTruthy();
     expect(capabilities).toBeTruthy();
     expect(
-      top!.compareDocumentPosition(technology!) &
+      top!.compareDocumentPosition(popular!) &
         Node.DOCUMENT_POSITION_FOLLOWING,
     ).toBeTruthy();
     expect(
-      technology!.compareDocumentPosition(popular!) &
+      popular!.compareDocumentPosition(gallery!) &
         Node.DOCUMENT_POSITION_FOLLOWING,
     ).toBeTruthy();
     expect(
-      popular!.compareDocumentPosition(capabilities!) &
+      gallery!.compareDocumentPosition(aiEdge!) &
+        Node.DOCUMENT_POSITION_FOLLOWING,
+    ).toBeTruthy();
+    expect(
+      aiEdge!.compareDocumentPosition(capabilities!) &
         Node.DOCUMENT_POSITION_FOLLOWING,
     ).toBeTruthy();
     expect(
       screen.getByRole("heading", {
         level: 2,
-        name: /AI を業務の中核へ/i,
+        name: /Websiteが本体 — AIは加速レイヤー/i,
       }),
     ).toBeInTheDocument();
     expect(
-      within(technology!).getByRole("link", { name: /詳しく見る/i }),
+      within(aiEdge!).getByRole("link", { name: /企業のAI変革/i }),
     ).toHaveAttribute("href", expect.stringMatching(/\/ai-transform\/?$/));
+    expect(
+      within(aiEdge!).getByRole("link", { name: /カスタムAI Agent/i }),
+    ).toHaveAttribute("href", expect.stringMatching(/\/custom-agent\/?$/));
   });
 
   it("renders popular services comparison with landing price focus", () => {
@@ -102,6 +111,41 @@ describe("Dolphin Kick homepage", () => {
     expect(
       within(popular).getByText((content) => /^33\s*€$/.test(content.trim())),
     ).toBeInTheDocument();
+  });
+
+  it("renders ui gallery with filters between popular services and ai edge", async () => {
+    const user = userEvent.setup();
+    renderHome();
+    const popular = document.getElementById("popular-services");
+    const gallery = document.getElementById("ui-gallery");
+    const aiEdge = document.getElementById("ai-edge");
+    expect(popular).toBeTruthy();
+    expect(gallery).toBeTruthy();
+    expect(aiEdge).toBeTruthy();
+    expect(
+      popular!.compareDocumentPosition(gallery!) & Node.DOCUMENT_POSITION_FOLLOWING,
+    ).toBeTruthy();
+    expect(
+      gallery!.compareDocumentPosition(aiEdge!) &
+        Node.DOCUMENT_POSITION_FOLLOWING,
+    ).toBeTruthy();
+
+    const section = within(gallery as HTMLElement);
+    expect(
+      screen.getByRole("heading", {
+        level: 2,
+        name: /レイアウトとソリューションを探す/i,
+      }),
+    ).toBeInTheDocument();
+    expect(section.getAllByRole("tab").length).toBeGreaterThanOrEqual(8);
+    expect(section.getAllByRole("img").length).toBeGreaterThanOrEqual(20);
+
+    await user.click(section.getByRole("tab", { name: /ランディング/i }));
+    expect(section.getAllByRole("img").length).toBeGreaterThanOrEqual(3);
+    expect(section.getByRole("link", { name: /すべてのサービス/i })).toHaveAttribute(
+      "href",
+      "#capabilities",
+    );
   });
 
   it("renders capabilities and process headings", () => {
@@ -364,7 +408,7 @@ describe("Dolphin Kick homepage", () => {
 
     expect(
       screen.getByRole("heading", {
-        name: /Từ bài toán kinh doanh đến hệ thống dễ vận hành/i,
+        name: /Website & web app chuyên nghiệp — scope rõ, ship được/i,
       }),
     ).toBeInTheDocument();
     expect(
@@ -381,7 +425,7 @@ describe("Dolphin Kick homepage", () => {
 
     expect(
       screen.getByRole("heading", {
-        name: /From business problems to systems you can run/i,
+        name: /Professional websites & web apps — clear scope, shipped right/i,
       }),
     ).toBeInTheDocument();
     expect(
@@ -398,7 +442,7 @@ describe("Dolphin Kick homepage", () => {
 
     expect(
       screen.getByRole("heading", {
-        name: /Vom Geschäftsproblem zum betreibbaren System/i,
+        name: /Professionelle Websites & Web-Apps — klarer Scope, sauber geliefert/i,
       }),
     ).toBeInTheDocument();
     expect(
@@ -415,7 +459,7 @@ describe("Dolphin Kick homepage", () => {
 
     expect(
       screen.getByRole("heading", {
-        name: /从业务问题到可运营的系统/i,
+        name: /专业级网站与 Web 应用 — 范围清晰，按时交付/i,
       }),
     ).toBeInTheDocument();
     expect(
