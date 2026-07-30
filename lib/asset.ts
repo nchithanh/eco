@@ -4,6 +4,18 @@ import type { ThemeId } from "@/lib/theme";
 export const BASE_PATH =
   process.env.NEXT_PUBLIC_BASE_PATH?.replace(/\/$/, "") ?? "";
 
+/**
+ * App route for Next.js `<Link>` — omit BASE_PATH; Next.js applies basePath in production.
+ * Use `assetPath` for plain `<a href>` and static assets (`img`, `public/`).
+ */
+export function routePath(path: string): string {
+  const normalized = path.startsWith("/") ? path : `/${path}`;
+  if (BASE_PATH && normalized.startsWith(`${BASE_PATH}/`)) {
+    return normalized.slice(BASE_PATH.length) || "/";
+  }
+  return normalized;
+}
+
 /** Resolve a root-absolute public path (e.g. `/logo.svg`) for current basePath. */
 export function assetPath(path: string): string {
   const normalized = path.startsWith("/") ? path : `/${path}`;

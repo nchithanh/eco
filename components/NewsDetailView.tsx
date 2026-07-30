@@ -5,7 +5,7 @@ import { LazyImage } from "@/components/LazyImage";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { usePagePreview } from "@/components/PagePreviewProvider";
-import { assetPath, themeAsset } from "@/lib/asset";
+import { assetPath, routePath, themeAsset } from "@/lib/asset";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
 import { useTheme } from "@/lib/theme";
 import { newsCategoryChipClasses } from "@/lib/news-category-styles";
@@ -49,7 +49,7 @@ export function NewsDetailContent({
             className="flex flex-wrap items-center gap-2 text-sm text-[var(--kuct-muted)]"
           >
             <Link
-              href={assetPath("/")}
+              href={routePath("/")}
               className="kuct-link"
               onClick={() => {
                 if (embedded) close();

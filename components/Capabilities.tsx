@@ -14,7 +14,7 @@ import { AccentText } from "@/components/BrandName";
 import { LazyImage } from "@/components/LazyImage";
 import { Reveal } from "@/components/Reveal";
 import { usePagePreview } from "@/components/PagePreviewProvider";
-import { assetPath, themeAsset } from "@/lib/asset";
+import { assetPath, routePath, themeAsset } from "@/lib/asset";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
 import { isServiceSlug, type ServiceSlug } from "@/lib/i18n/service-details";
 import { useTheme } from "@/lib/theme";
@@ -215,7 +215,7 @@ export function Capabilities() {
             {visible.map((item, index) => {
               const href =
                 item.id === "custom-agent"
-                  ? assetPath("/custom-agent/")
+                  ? routePath("/custom-agent/")
                   : isServiceSlug(item.id)
                     ? `/services/${item.id}`
                     : "/#contact";
