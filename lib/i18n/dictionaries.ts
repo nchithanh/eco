@@ -5,7 +5,7 @@ import { newsByLocale, newsNavLabel } from "./news-copy";
 
 const vi: Dictionary = {
   meta: {
-    title: "KU THANH",
+    title: "Dolphin Kick",
     description:
       "Studio web & app cho SMB: từ bài toán kinh doanh đến hệ thống dễ vận hành — phạm vi rõ, kết quả đo được, đồng hành sau bàn giao.",
   },
@@ -481,7 +481,7 @@ const vi: Dictionary = {
 
 const en: Dictionary = {
   meta: {
-    title: "KU THANH",
+    title: "Dolphin Kick",
     description:
       "Web & app studio for SMBs: from business problems to systems you can run — clear scope, measurable outcomes, support after handover.",
   },
@@ -957,7 +957,7 @@ const en: Dictionary = {
 
 const de: Dictionary = {
   meta: {
-    title: "KU THANH",
+    title: "Dolphin Kick",
     description:
       "Web- & App-Studio für KMUs: Websites, Mobile, Automation und AI — leicht bedienbar und betreibbar, klarer Scope, Support nach der Übergabe.",
   },
@@ -1433,7 +1433,7 @@ const de: Dictionary = {
 
 const ja: Dictionary = {
   meta: {
-    title: "KU THANH",
+    title: "Dolphin Kick",
     description:
       "SMB向けWeb & Appスタジオ。ウェブサイト、モバイル、業務自動化、AI連携 — 使いやすく運用しやすく、見積もり範囲が明確で、引き渡し後も伴走します。",
   },
@@ -1909,7 +1909,7 @@ const ja: Dictionary = {
 
 const zh: Dictionary = {
   meta: {
-    title: "KU THANH",
+    title: "Dolphin Kick",
     description:
       "面向中小企业的 Web & App 工作室：网站、移动端、自动化与 AI——易用、易运营，报价范围清晰，交接后持续陪伴。",
   },

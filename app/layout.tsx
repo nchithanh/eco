@@ -29,22 +29,21 @@ const siteUrl = isGithubPages
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "KU THANH",
-    template: "%s | KU THANH",
+    default: "Dolphin Kick",
+    template: "%s | Dolphin Kick",
   },
   description:
-    "Dolphin Kick / KU THANH — studio làm website & mobile app, tự động hóa quy trình và tích hợp AI. Từ landing đến hệ thống vận hành.",
+    "Dolphin Kick — studio làm website & mobile app, tự động hóa quy trình và tích hợp AI. Từ landing đến hệ thống vận hành.",
   keywords: [
     "Dolphin Kick",
-    "KU THANH",
     "web studio",
     "mobile app",
     "Next.js",
     "AI agents",
     "freelance",
   ],
-  authors: [{ name: "KU THANH" }],
-  creator: "KU THANH",
+  authors: [{ name: "Dolphin Kick" }],
+  creator: "Dolphin Kick",
   robots: {
     index: true,
     follow: true,
@@ -52,21 +51,24 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  icons: {
+    icon: [{ url: "/favicon.ico" }, { url: "/icon.png", type: "image/png", sizes: "512x512" }],
+  },
   openGraph: {
     type: "website",
     locale: "ja_JP",
     alternateLocale: ["vi_VN", "en_US", "de_DE"],
     url: "/",
-    siteName: "KU THANH",
-    title: "KU THANH",
+    siteName: "Dolphin Kick",
+    title: "Dolphin Kick",
     description:
-      "Studio xây website, mobile app, tự động hóa và AI — KU THANH / Dolphin Kick.",
+      "Studio xây website, mobile app, tự động hóa và AI — Dolphin Kick.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "KU THANH",
+    title: "Dolphin Kick",
     description:
-      "Studio xây website, mobile app, tự động hóa và AI — KU THANH / Dolphin Kick.",
+      "Studio xây website, mobile app, tự động hóa và AI — Dolphin Kick.",
   },
 };
 

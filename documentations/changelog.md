@@ -2,6 +2,8 @@
 
 ## 2026-07-30
 
+- Polished service detail pages (`ServiceDetailView`): 2-col hero with primary quote CTA, indexed cards, Best for / FAQ blocks, closing CTA strip.
+- Fixed browser tab: metadata title **Dolphin Kick** (was KU THANH); added `public/favicon.ico` + refreshed `app/icon.png` from brand logo.
 - Regenerated browser tab favicon `app/icon.png` from `public/brand/logo-dolphin.png` (512×512).
 - Created `documentations/` tree + rule `.cursor/rules/update-documentations.mdc`.
 - Documented current architecture: Dolphin Kick brand, homepage section map, routes, i18n modules, Pages deploy `/eco`.

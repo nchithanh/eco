@@ -38,7 +38,7 @@ export type AiTransformCopy = {
 };
 
 const vi: AiTransformCopy = {
-  metaTitle: "Chuyển đổi AI doanh nghiệp | KU THANH",
+  metaTitle: "Chuyển đổi AI doanh nghiệp | Dolphin Kick",
   metaDescription:
     "Rà soát quy trình, gắn AI vào đúng khâu đang đốt người và tiền — lộ trình đo được, không phát tài khoản ChatGPT rồi hy vọng.",
   eyebrow: "Chuyển đổi AI doanh nghiệp",
@@ -164,11 +164,11 @@ const vi: AiTransformCopy = {
   closeTitle: "Mang [[một luồng việc thật]] tới buổi trao đổi",
   closeSupport:
     "Dolphin soi chỗ đứt đoạn và đề xuất lộ trình sơ bộ: khâu nào làm trước, đo gì, milestone nào. Không cam kết phép màu trên slide.",
-  closeCta: "Liên hệ KU THANH",
+  closeCta: "Liên hệ Dolphin Kick",
 };
 
 const en: AiTransformCopy = {
-  metaTitle: "Enterprise AI transformation | KU THANH",
+  metaTitle: "Enterprise AI transformation | Dolphin Kick",
   metaDescription:
     "Map real workflows and attach AI where people and money burn — measurable roadmap, not ChatGPT seats and hope.",
   eyebrow: "Enterprise AI transformation",
@@ -294,7 +294,7 @@ const en: AiTransformCopy = {
   closeTitle: "Bring [[one real workflow]] to the conversation",
   closeSupport:
     "Dolphin spots breaks and drafts a rough roadmap: what first, what to measure, which milestones. No magic on slides.",
-  closeCta: "Contact KU THANH",
+  closeCta: "Contact Dolphin Kick",
 };
 
 const de: AiTransformCopy = {

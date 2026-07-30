@@ -13,7 +13,8 @@
 
 - Display name: `BRAND_DISPLAY_NAME = "Dolphin Kick"` in `components/Logo.tsx`
 - Logo asset: `public/brand/logo-dolphin.png`
-- Favicon / tab icon: `app/icon.png` (generated from the brand logo; Next.js App Router file convention)
+- Favicon / tab icon: `app/icon.png` (from brand logo) + `public/favicon.ico`
+- Document title / OG: **Dolphin Kick** (`app/layout.tsx` metadata)
 - Inline brand replacement: `BrandText` / `hasBrand` in `components/BrandName.tsx` (also recognizes legacy `Dolphin Kich`, `KU THANH`)
 - Accent titles: `AccentText` with `[[keyword]]` markers in dictionary strings
 
