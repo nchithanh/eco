@@ -67,6 +67,7 @@ export function AgentLoader({
     const start = performance.now();
     let raf = 0;
     let exitTimer = 0;
+    let safetyTimer = 0;
     let finished = false;
 
     lockScroll();
@@ -94,15 +95,33 @@ export function AgentLoader({
 
     raf = requestAnimationFrame(tick);
 
+    // Hard unlock if exit animation / rAF stalls (e.g. background tab)
+    safetyTimer = window.setTimeout(() => {
+      finished = true;
+      setPhase("done");
+      unlockScroll();
+    }, duration + EXIT_MS + 800);
+
     const onPageShow = (event: PageTransitionEvent) => {
       if (event.persisted) unlockScroll();
     };
+    const onVisibility = () => {
+      if (document.visibilityState === "visible") {
+        // Recover if class stuck after tab switch
+        if (document.documentElement.classList.contains("kuct-loading") && finished) {
+          unlockScroll();
+        }
+      }
+    };
     window.addEventListener("pageshow", onPageShow);
+    document.addEventListener("visibilitychange", onVisibility);
 
     return () => {
       cancelAnimationFrame(raf);
       window.clearTimeout(exitTimer);
+      window.clearTimeout(safetyTimer);
       window.removeEventListener("pageshow", onPageShow);
+      document.removeEventListener("visibilitychange", onVisibility);
       unlockScroll();
     };
   }, [disabled, minDurationMs]);
