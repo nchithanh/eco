@@ -420,7 +420,7 @@ export function AiChatWidget() {
               onKeyDown={onKeyDown}
               placeholder={c.placeholder}
               aria-label={c.placeholder}
-              className="min-w-0 flex-1 rounded-full border border-[var(--kuct-border)] bg-[rgba(10,10,22,0.7)] px-4 py-2.5 text-sm text-[var(--kuct-text)] outline-none placeholder:text-[var(--kuct-muted)]/60 focus:border-[var(--kuct-accent)]/60"
+              className="min-w-0 flex-1 rounded-full border border-[var(--kuct-border)] bg-[rgba(10,10,22,0.7)] px-4 py-2.5 text-base text-[var(--kuct-text)] outline-none placeholder:text-[var(--kuct-muted)]/60 focus:border-[var(--kuct-accent)]/60 sm:text-sm"
             />
             <button
               type="submit"

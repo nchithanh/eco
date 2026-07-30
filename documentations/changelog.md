@@ -2,6 +2,7 @@
 
 ## 2026-07-31
 
+- Mobile chat input uses `text-base` (≥16px) to prevent iOS/Android focus zoom when the keyboard opens.
 - **Fix mobile scroll:** AgentLoader no longer sets `kuct-loading` / overflow lock; mobile `touch-action: pan-y` on html/body; PopularServices table allows vertical pan.
 - Hero mobile scroll: `overflow-hidden` → `overflow-x-clip` + `touch-pan-y` so swipes on description scroll the page.
 - Mobile nav: language switcher always visible in header next to hamburger (removed duplicate from drawer).
