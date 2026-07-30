@@ -136,10 +136,10 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative isolate flex min-h-[min(100svh,52rem)] items-center overflow-hidden lg:min-h-[calc(100svh-5.5rem)]"
+      className="relative isolate flex min-h-[min(100svh,52rem)] items-center overflow-x-clip touch-pan-y lg:min-h-[calc(100svh-5.5rem)]"
     >
       <div className="relative mx-auto grid w-full max-w-6xl items-center gap-10 px-6 py-16 sm:py-20 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-14 lg:py-16">
-        <div className="animate-kuct-fade relative z-10 max-w-xl">
+        <div className="animate-kuct-fade relative z-10 max-w-xl touch-pan-y">
           <div className="flex flex-wrap items-center gap-3">
             <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
               {t.hero.eyebrow}
@@ -151,7 +151,7 @@ export function Hero() {
           <h1 className="mt-5 max-w-[18ch] font-display text-[1.85rem] font-semibold leading-[1.12] tracking-tight text-[var(--kuct-text)] sm:max-w-[20ch] sm:text-4xl lg:text-[2.85rem] lg:leading-[1.1]">
             <AccentText>{t.hero.headline}</AccentText>
           </h1>
-          <p className="mt-6 max-w-[38ch] text-base leading-[1.7] text-[var(--kuct-muted)] sm:text-[1.0625rem] sm:leading-[1.7]">
+          <p className="mt-6 max-w-[38ch] touch-pan-y text-base leading-[1.7] text-[var(--kuct-muted)] sm:text-[1.0625rem] sm:leading-[1.7]">
             <BrandText size="sm">{t.hero.support}</BrandText>
           </p>
           <div className="mt-9 flex flex-wrap items-center gap-4">

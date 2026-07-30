@@ -214,9 +214,8 @@ export function Nav() {
           </ul>
 
           <div className="flex shrink-0 items-center gap-2 sm:gap-2.5">
-            <div className="hidden md:contents">
+            <div className="hidden md:block">
               <ThemeSwitcher />
-              <LanguageSwitcher />
             </div>
             <a
               href={contactHref}
@@ -224,6 +223,7 @@ export function Nav() {
             >
               {t.nav.contact}
             </a>
+            <LanguageSwitcher />
             <button
               type="button"
               className="grid size-9 place-items-center rounded-full border border-[var(--kuct-border)] bg-[rgba(10,10,22,0.8)] text-[var(--kuct-text)] transition hover:border-[var(--kuct-accent)]/45 hover:text-[var(--kuct-accent)] lg:hidden"
@@ -299,7 +299,6 @@ export function Nav() {
 
               <li className="flex items-center gap-2 border-t border-[var(--kuct-border)] pt-3">
                 <ThemeSwitcher />
-                <LanguageSwitcher />
               </li>
 
               <li className="pt-2">

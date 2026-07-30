@@ -2,6 +2,8 @@
 
 ## 2026-07-31
 
+- Hero mobile scroll: `overflow-hidden` → `overflow-x-clip` + `touch-pan-y` so swipes on description scroll the page.
+- Mobile nav: language switcher always visible in header next to hamburger (removed duplicate from drawer).
 - Replaced favicon set from `favicon_io` pack: `app/favicon.ico` + `public/` (ico / 16 / 32, apple-touch, android-chrome 192/512), `app/icon.png`, `site.webmanifest` (Dolphin Software).
 
 ## 2026-07-30
