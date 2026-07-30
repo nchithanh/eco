@@ -120,7 +120,7 @@ export function Nav() {
           <a
             href={homeHref}
             className="flex shrink-0 items-center text-[var(--kuct-text)] transition hover:opacity-85"
-            aria-label="Dolphin Kick"
+            aria-label="Dolphin Software"
           >
             <Logo showWordmark />
           </a>

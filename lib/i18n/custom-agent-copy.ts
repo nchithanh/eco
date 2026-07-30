@@ -38,7 +38,7 @@ export type CustomAgentCopy = {
 };
 
 const vi: CustomAgentCopy = {
-  metaTitle: "AI Agent theo yêu cầu | Dolphin Kick",
+  metaTitle: "AI Agent theo yêu cầu | Dolphin Software",
   metaDescription:
     "Đặt AI Agent gắn nghiệp vụ thật — nối CRM, Zalo, lịch — gánh một khâu tới kết quả đo được. Không chatbot kịch bản bán sẵn.",
   eyebrow: "AI Agent theo yêu cầu",
@@ -84,7 +84,7 @@ const vi: CustomAgentCopy = {
       body: "Sàng lead, nhắc lịch, soạn giấy theo mẫu — đúng chỗ agent theo yêu cầu hoàn vốn nhanh nhất.",
     },
   ],
-  processEyebrow: "Cách Dolphin Kick làm",
+  processEyebrow: "Cách Dolphin Software làm",
   processTitle: "Đi từ [[việc thật]], không gắn đại một con bot",
   processSupport: "Năm bước — mỗi bước có đầu ra rõ, đo được trước khi mở rộng.",
   processSteps: [
@@ -163,11 +163,11 @@ const vi: CustomAgentCopy = {
   closeTitle: "Khâu đang đốt người nhất — để agent [[gánh thử]]",
   closeSupport:
     "Mang đúng việc đó tới buổi trao đổi. Dolphin soi luồng, nói thẳng làm được gì trong scope, rồi chốt milestone đo được.",
-  closeCta: "Liên hệ Dolphin Kick",
+  closeCta: "Liên hệ Dolphin Software",
 };
 
 const en: CustomAgentCopy = {
-  metaTitle: "Custom AI agents | Dolphin Kick",
+  metaTitle: "Custom AI agents | Dolphin Software",
   metaDescription:
     "Commission an AI agent tied to your real process — CRM, messaging, calendar — one job through to measurable outcomes. Not an off-the-shelf scripted chatbot.",
   eyebrow: "Custom AI agents",
@@ -213,7 +213,7 @@ const en: CustomAgentCopy = {
       body: "Lead triage, reminders, template docs — where a custom agent pays back fastest.",
     },
   ],
-  processEyebrow: "How Dolphin Kick works",
+  processEyebrow: "How Dolphin Software works",
   processTitle: "Start from [[real work]], not a random bot",
   processSupport: "Five steps — each with a clear output before you expand.",
   processSteps: [
@@ -292,11 +292,11 @@ const en: CustomAgentCopy = {
   closeTitle: "The job burning people — let an agent [[try it]]",
   closeSupport:
     "Bring that exact job to the call. Dolphin maps the flow, says what fits in scope, then locks measurable milestones.",
-  closeCta: "Contact Dolphin Kick",
+  closeCta: "Contact Dolphin Software",
 };
 
 const de: CustomAgentCopy = {
-  metaTitle: "Individuelle AI-Agents | Dolphin Kick",
+  metaTitle: "Individuelle AI-Agents | Dolphin Software",
   metaDescription:
     "Beauftragen Sie einen AI-Agent, der an Ihren echten Prozess gebunden ist — CRM, Messaging, Kalender — eine Aufgabe bis zu messbaren Ergebnissen. Kein Chatbot von der Stange.",
   eyebrow: "Individuelle AI-Agents",
@@ -342,7 +342,7 @@ const de: CustomAgentCopy = {
       body: "Lead-Triage, Erinnerungen, Vorlagen-Dokumente — wo ein individueller Agent sich am schnellsten amortisiert.",
     },
   ],
-  processEyebrow: "So arbeitet Dolphin Kick",
+  processEyebrow: "So arbeitet Dolphin Software",
   processTitle: "Ausgehend von [[echter Arbeit]], kein Bot aufs Geratewohl",
   processSupport: "Fünf Schritte — jeder mit klarem Ergebnis, bevor Sie skalieren.",
   processSteps: [
@@ -421,11 +421,11 @@ const de: CustomAgentCopy = {
   closeTitle: "Die Aufgabe, die Menschen verbrennt — lassen Sie einen Agent [[es versuchen]]",
   closeSupport:
     "Bringen Sie genau diese Aufgabe zum Gespräch. Dolphin analysiert den Ablauf, sagt was im Scope passt, und legt messbare Meilensteine fest.",
-  closeCta: "Dolphin Kick kontaktieren",
+  closeCta: "Dolphin Software kontaktieren",
 };
 
 const ja: CustomAgentCopy = {
-  metaTitle: "要件対応 AI Agent | Dolphin Kick",
+  metaTitle: "要件対応 AI Agent | Dolphin Software",
   metaDescription:
     "実際の業務プロセスに結び付いた AI Agent を構築 — CRM・チャット・カレンダー連携で、測定可能な成果まで完遂。既製のスクリプト型チャットボットとは別物です。",
   eyebrow: "要件対応の AI Agent",
@@ -471,7 +471,7 @@ const ja: CustomAgentCopy = {
       body: "リード振り分け、リマインダー、テンプレート書類 — カスタム Agent が最速で投資回収できる領域です。",
     },
   ],
-  processEyebrow: "Dolphin Kick の進め方",
+  processEyebrow: "Dolphin Software の進め方",
   processTitle: "[[実際の業務]]から始める — 闇雲にボットを入れない",
   processSupport: "5つのステップ — 拡張前に各ステップで明確な成果物を出します。",
   processSteps: [
@@ -550,11 +550,11 @@ const ja: CustomAgentCopy = {
   closeTitle: "人を消耗させている業務 — Agent に[[試させてみる]]",
   closeSupport:
     "その業務をお打ち合わせにお持ちください。Dolphin がフローを分析し、スコープ内で何が可能かを伝え、測定可能なマイルストーンを設定します。",
-  closeCta: "Dolphin Kick に連絡",
+  closeCta: "Dolphin Software に連絡",
 };
 
 const zh: CustomAgentCopy = {
-  metaTitle: "按需定制 AI Agent | Dolphin Kick",
+  metaTitle: "按需定制 AI Agent | Dolphin Software",
   metaDescription:
     "打造绑定真实业务流程的 AI Agent — 对接 CRM、聊天、日历，一项任务做到可衡量的结果。不是现成脚本聊天机器人。",
   eyebrow: "按需定制 AI Agent",
@@ -600,7 +600,7 @@ const zh: CustomAgentCopy = {
       body: "线索筛选、提醒、模板文档——定制 Agent 回本最快的领域。",
     },
   ],
-  processEyebrow: "Dolphin Kick 的做法",
+  processEyebrow: "Dolphin Software 的做法",
   processTitle: "从[[真实工作]]出发，不是随便装个机器人",
   processSupport: "五个步骤——每步有明确产出，验证后再扩展。",
   processSteps: [
@@ -679,7 +679,7 @@ const zh: CustomAgentCopy = {
   closeTitle: "最消耗人力的工作——让 Agent [[试试看]]",
   closeSupport:
     "把那项工作带到沟通中。Dolphin 分析流程，坦诚说明范围内能做什么，然后锁定可衡量的里程碑。",
-  closeCta: "联系 Dolphin Kick",
+  closeCta: "联系 Dolphin Software",
 };
 
 export const customAgentCopy: Record<Locale, CustomAgentCopy> = {

@@ -12,7 +12,7 @@ function renderNews() {
   );
 }
 
-describe("Dolphin Kick news page", () => {
+describe("Dolphin Software news page", () => {
   beforeEach(() => {
     window.localStorage.setItem("kuct-locale", "vi");
   });
@@ -23,7 +23,7 @@ describe("Dolphin Kick news page", () => {
       screen.getByRole("heading", { level: 1, name: /Tin tức & ghi chép/i }),
     ).toBeInTheDocument();
     expect(
-      screen.getByText(/Bài ngắn về sản phẩm, kỹ thuật và cách làm việc/i),
+      screen.getByText(/Bài ngắn về product, engineering và cách làm việc/i),
     ).toBeInTheDocument();
     expect(
       screen.getByRole("heading", {

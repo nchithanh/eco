@@ -22,7 +22,7 @@ const vi: PopularServices = {
   priceNote: "Giá ưu đãi theo phạm vi",
   fromPrefix: "Từ",
   footerNote:
-    "Cần scope riêng, tích hợp hệ thống cũ hoặc SEO theo ngành? Dolphin Kick bóc tách hạng mục trước khi báo giá.",
+    "Cần scope riêng, tích hợp hệ thống cũ hoặc SEO theo ngành? Dolphin Software bóc tách hạng mục trước khi báo giá.",
   footerCta: "Nhắn Zalo tư vấn miễn phí",
   packages: [
     {
@@ -114,7 +114,7 @@ const en: PopularServices = {
   priceNote: "Promo by scope · approx. FX (ref. 2026-07-30)",
   fromPrefix: "From",
   footerNote:
-    "Need a custom scope, legacy integrations, or industry SEO? Dolphin Kick breaks down items before quoting.",
+    "Need a custom scope, legacy integrations, or industry SEO? Dolphin Software breaks down items before quoting.",
   footerCta: "Free Zalo consult",
   packages: [
     {
@@ -206,7 +206,7 @@ const ja: PopularServices = {
   priceNote: "スコープ別特別価格 · 概算為替（基準 2026-07-30）",
   fromPrefix: "",
   footerNote:
-    "個別スコープ、既存連携、業種SEOが必要ですか？ Dolphin Kickは見積前に項目を整理します。",
+    "個別スコープ、既存連携、業種SEOが必要ですか？ Dolphin Softwareは見積前に項目を整理します。",
   footerCta: "Zaloで無料相談",
   packages: [
     {
@@ -298,7 +298,7 @@ const de: PopularServices = {
   priceNote: "Aktionspreis je Scope · ca. FX (Stand 2026-07-30)",
   fromPrefix: "Ab",
   footerNote:
-    "Eigener Scope, Altsysteme oder Branchen-SEO? Dolphin Kick klärt Positionen vor dem Angebot.",
+    "Eigener Scope, Altsysteme oder Branchen-SEO? Dolphin Software klärt Positionen vor dem Angebot.",
   footerCta: "Kostenlose Zalo-Beratung",
   packages: [
     {
@@ -389,7 +389,7 @@ const zh: PopularServices = {
   priceNote: "按范围优惠价 · 参考汇率（2026-07-30）",
   fromPrefix: "起",
   footerNote:
-    "需要定制范围、对接旧系统或行业 SEO？Dolphin Kick 会在报价前拆清项目。",
+    "需要定制范围、对接旧系统或行业 SEO？Dolphin Software 会在报价前拆清项目。",
   footerCta: "免费 Zalo 咨询",
   packages: [
     {

@@ -628,7 +628,7 @@ const techExtras: L<TechExtras> = {
   vi: {
     react: {
       whenToUse: ["UI web/app component-based", "Đội đã quen JS/TS", "Cần ecosystem lớn"],
-      stackFit: "Thường đi với Next.js, TypeScript, Tailwind trong các dự án Dolphin Kick.",
+      stackFit: "Thường đi với Next.js, TypeScript, Tailwind trong các dự án Dolphin Software.",
     },
     nextjs: {
       whenToUse: ["Marketing site + app cùng codebase", "SEO / SSR quan trọng", "Full-stack React"],
@@ -676,7 +676,7 @@ const techExtras: L<TechExtras> = {
     },
     aws: {
       whenToUse: ["Cần cloud managed", "Scale theo traffic", "Nhiều dịch vụ (compute/DB/storage)"],
-      stackFit: "Nền deploy production và managed data cho sản phẩm Dolphin Kick.",
+      stackFit: "Nền deploy production và managed data cho sản phẩm Dolphin Software.",
     },
     kubernetes: {
       whenToUse: ["Nhiều service container", "Cần rollout/rollback chuẩn", "GitOps / platform team"],
@@ -702,7 +702,7 @@ const techExtras: L<TechExtras> = {
   en: {
     react: {
       whenToUse: ["Component-based web/app UI", "JS/TS-friendly teams", "Large ecosystem needed"],
-      stackFit: "Pairs with Next.js, TypeScript, and Tailwind on Dolphin Kick projects.",
+      stackFit: "Pairs with Next.js, TypeScript, and Tailwind on Dolphin Software projects.",
     },
     nextjs: {
       whenToUse: ["Marketing + app in one codebase", "SEO / SSR matters", "Full-stack React"],
@@ -750,7 +750,7 @@ const techExtras: L<TechExtras> = {
     },
     aws: {
       whenToUse: ["Need managed cloud", "Scale with traffic", "Compute/DB/storage building blocks"],
-      stackFit: "Production deploy and managed data foundation for Dolphin Kick products.",
+      stackFit: "Production deploy and managed data foundation for Dolphin Software products.",
     },
     kubernetes: {
       whenToUse: ["Many containerized services", "Standard rollouts/rollbacks", "GitOps / platform teams"],
@@ -776,7 +776,7 @@ const techExtras: L<TechExtras> = {
   ja: {
     react: {
       whenToUse: ["コンポーネント UI", "JS/TS チーム", "大きなエコシステム"],
-      stackFit: "Dolphin Kick では Next.js / TypeScript / Tailwind と併用が多いです。",
+      stackFit: "Dolphin Software では Next.js / TypeScript / Tailwind と併用が多いです。",
     },
     nextjs: {
       whenToUse: ["マーケとアプリを一体で", "SEO / SSR が重要", "フルスタック React"],
@@ -824,7 +824,7 @@ const techExtras: L<TechExtras> = {
     },
     aws: {
       whenToUse: ["Need managed cloud", "Scale with traffic", "Compute/DB/storage building blocks"],
-      stackFit: "Production deploy and managed data foundation for Dolphin Kick products.",
+      stackFit: "Production deploy and managed data foundation for Dolphin Software products.",
     },
     kubernetes: {
       whenToUse: ["Many containerized services", "Standard rollouts/rollbacks", "GitOps / platform teams"],
@@ -850,7 +850,7 @@ const techExtras: L<TechExtras> = {
   de: {
     react: {
       whenToUse: ["Komponenten-UI", "JS/TS-Teams", "Großes Ökosystem"],
-      stackFit: "Oft mit Next.js, TypeScript und Tailwind bei Dolphin Kick.",
+      stackFit: "Oft mit Next.js, TypeScript und Tailwind bei Dolphin Software.",
     },
     nextjs: {
       whenToUse: ["Marketing + App in einem Codebase", "SEO / SSR wichtig", "Full-Stack React"],
@@ -898,7 +898,7 @@ const techExtras: L<TechExtras> = {
     },
     aws: {
       whenToUse: ["Need managed cloud", "Scale with traffic", "Compute/DB/storage building blocks"],
-      stackFit: "Production deploy and managed data foundation for Dolphin Kick products.",
+      stackFit: "Production deploy and managed data foundation for Dolphin Software products.",
     },
     kubernetes: {
       whenToUse: ["Many containerized services", "Standard rollouts/rollbacks", "GitOps / platform teams"],
@@ -925,7 +925,7 @@ const techExtras: L<TechExtras> = {
   zh: {
     react: {
       whenToUse: ["Component-based web/app UI", "JS/TS-friendly teams", "Large ecosystem needed"],
-      stackFit: "Pairs with Next.js, TypeScript, and Tailwind on Dolphin Kick projects.",
+      stackFit: "Pairs with Next.js, TypeScript, and Tailwind on Dolphin Software projects.",
     },
     nextjs: {
       whenToUse: ["Marketing + app in one codebase", "SEO / SSR matters", "Full-stack React"],
@@ -973,7 +973,7 @@ const techExtras: L<TechExtras> = {
     },
     aws: {
       whenToUse: ["Need managed cloud", "Scale with traffic", "Compute/DB/storage building blocks"],
-      stackFit: "Production deploy and managed data foundation for Dolphin Kick products.",
+      stackFit: "Production deploy and managed data foundation for Dolphin Software products.",
     },
     kubernetes: {
       whenToUse: ["Many containerized services", "Standard rollouts/rollbacks", "GitOps / platform teams"],

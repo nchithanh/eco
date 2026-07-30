@@ -1,4 +1,4 @@
-# Documentations — Dolphin Kick
+# Documentations — Dolphin Software
 
 Canonical project docs for AI agents and humans. Update these when code changes (see `.cursor/rules/update-documentations.mdc`).
 

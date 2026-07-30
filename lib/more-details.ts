@@ -80,7 +80,7 @@ const copyByLocale: Record<Locale, Record<MoreSlug, MoreCopy>> = {
       title: "Kiến trúc & hỗ trợ hệ thống",
       tag: "Ops",
       intro:
-        "Khi hệ thống đang chạy nhưng chậm, lỗi, khó mở rộng hoặc thiếu người vận hành — Dolphin Kick audit nhanh, đề xuất hướng khắc phục và hỗ trợ remote theo phiên.",
+        "Khi hệ thống đang chạy nhưng chậm, lỗi, khó mở rộng hoặc thiếu người vận hành — Dolphin Software audit nhanh, đề xuất hướng khắc phục và hỗ trợ remote theo phiên.",
       highlights: [
         "Audit kiến trúc / hiệu năng / điểm nghẽn",
         "Phương án khắc phục theo mức ưu tiên (P0–P2)",
@@ -95,7 +95,7 @@ const copyByLocale: Record<Locale, Record<MoreSlug, MoreCopy>> = {
       ],
       notes: [
         "Phù hợp khi đã có hệ thống — không thay discovery sản phẩm mới.",
-        "Có thể kết hợp với đội nội bộ của bạn; Dolphin Kick không “chiếm” repo nếu bạn không muốn.",
+        "Có thể kết hợp với đội nội bộ của bạn; Dolphin Software không “chiếm” repo nếu bạn không muốn.",
       ],
     },
     stock: {
@@ -127,7 +127,7 @@ const copyByLocale: Record<Locale, Record<MoreSlug, MoreCopy>> = {
       title: "Architecture & system support",
       tag: "Ops",
       intro:
-        "When a live system is slow, failing, hard to scale, or short on operators — Dolphin Kick runs a focused audit, proposes fixes, and can support remotely by session.",
+        "When a live system is slow, failing, hard to scale, or short on operators — Dolphin Software runs a focused audit, proposes fixes, and can support remotely by session.",
       highlights: [
         "Architecture / performance / bottleneck audit",
         "Remediation plan by priority (P0–P2)",
@@ -174,7 +174,7 @@ const copyByLocale: Record<Locale, Record<MoreSlug, MoreCopy>> = {
       title: "アーキテクチャ & システム支援",
       tag: "Ops",
       intro:
-        "稼働中のシステムが遅い・不安定・拡張しづらい・運用人材が足りないとき、Dolphin Kick が短時間で監査し、改善案を出し、リモート支援も可能です。",
+        "稼働中のシステムが遅い・不安定・拡張しづらい・運用人材が足りないとき、Dolphin Software が短時間で監査し、改善案を出し、リモート支援も可能です。",
       highlights: [
         "アーキテクチャ / 性能 / ボトルネック監査",
         "優先度付きの改善案（P0–P2）",
@@ -221,7 +221,7 @@ const copyByLocale: Record<Locale, Record<MoreSlug, MoreCopy>> = {
       title: "Architektur- & Systemsupport",
       tag: "Ops",
       intro:
-        "Wenn ein laufendes System langsam, fehleranfällig, schwer skalierbar oder ohne Ops-Kapazität ist — Dolphin Kick auditiert fokussiert, schlägt Fixes vor und unterstützt remote nach Session.",
+        "Wenn ein laufendes System langsam, fehleranfällig, schwer skalierbar oder ohne Ops-Kapazität ist — Dolphin Software auditiert fokussiert, schlägt Fixes vor und unterstützt remote nach Session.",
       highlights: [
         "Architektur- / Performance- / Bottleneck-Audit",
         "Remediation nach Priorität (P0–P2)",
@@ -270,7 +270,7 @@ const copyByLocale: Record<Locale, Record<MoreSlug, MoreCopy>> = {
       title: "架构与系统支持",
       tag: "Ops",
       intro:
-        "When a live system is slow, failing, hard to scale, or short on operators — Dolphin Kick runs a focused audit, proposes fixes, and can support remotely by session.",
+        "When a live system is slow, failing, hard to scale, or short on operators — Dolphin Software runs a focused audit, proposes fixes, and can support remotely by session.",
       highlights: [
         "Architecture / performance / bottleneck audit",
         "Remediation plan by priority (P0–P2)",

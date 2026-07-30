@@ -8,7 +8,7 @@ import { uiGalleryByLocale } from "./ui-gallery-copy";
 
 const vi: Dictionary = {
   meta: {
-    title: "Dolphin Kick",
+    title: "Dolphin Software",
     description:
       "Studio web & app cho SMB: từ bài toán kinh doanh đến hệ thống dễ vận hành — phạm vi rõ, kết quả đo được, đồng hành sau bàn giao.",
   },
@@ -30,7 +30,7 @@ const vi: Dictionary = {
   },
   banner: {
     aria: "Thông báo",
-    text: "Dolphin Kick đang tuyển freelancer — Sales ưu tiên gấp, hoa hồng 50% deal. Ứng tuyển ngay!",
+    text: "Dolphin Software đang tuyển freelancer — Sales ưu tiên gấp, hoa hồng 50% deal. Ứng tuyển ngay!",
     cta: "Ứng tuyển",
   },
   hero: {
@@ -375,7 +375,7 @@ const vi: Dictionary = {
     ],
   },
   why: {
-    eyebrow: "Vì sao chọn Dolphin Kick",
+    eyebrow: "Vì sao chọn Dolphin Software",
     title: "[[Đồng hành dài hạn]], không chỉ bàn giao code",
     support:
       "Timeline · scope · cam kết · hậu bàn giao — rõ ràng, không jargon.",
@@ -427,7 +427,7 @@ const vi: Dictionary = {
     message: "Mô tả ngắn dự án",
     submit: "Gửi yêu cầu",
     sent: "Đã mở ứng dụng email của bạn (hoặc sao chép nội dung nếu trình duyệt chặn mailto).",
-    mailSubject: "Dolphin Kick — yêu cầu từ",
+    mailSubject: "Dolphin Software — yêu cầu từ",
     mailBodyName: "Tên",
     mailBodyContact: "Liên hệ",
     errors: {
@@ -488,7 +488,7 @@ const vi: Dictionary = {
 
 const en: Dictionary = {
   meta: {
-    title: "Dolphin Kick",
+    title: "Dolphin Software",
     description:
       "Web & app studio for SMBs: from business problems to systems you can run — clear scope, measurable outcomes, support after handover.",
   },
@@ -510,7 +510,7 @@ const en: Dictionary = {
   },
   banner: {
     aria: "Announcement",
-    text: "Dolphin Kick is hiring freelancers — Sales is urgent priority, 50% deal commission. Apply today!",
+    text: "Dolphin Software is hiring freelancers — Sales is urgent priority, 50% deal commission. Apply today!",
     cta: "Apply now",
   },
   hero: {
@@ -855,7 +855,7 @@ const en: Dictionary = {
     ],
   },
   why: {
-    eyebrow: "Why Dolphin Kick",
+    eyebrow: "Why Dolphin Software",
     title: "[[Long-term partnership]], not just code delivery",
     support:
       "Clear timeline, scope, commitments — and support after handover. No jargon fog.",
@@ -907,7 +907,7 @@ const en: Dictionary = {
     message: "Short project description",
     submit: "Send request",
     sent: "Opened your email app (or copy the content if the browser blocked mailto).",
-    mailSubject: "Dolphin Kick — request from",
+    mailSubject: "Dolphin Software — request from",
     mailBodyName: "Name",
     mailBodyContact: "Contact",
     errors: {
@@ -968,7 +968,7 @@ const en: Dictionary = {
 
 const de: Dictionary = {
   meta: {
-    title: "Dolphin Kick",
+    title: "Dolphin Software",
     description:
       "Web- & App-Studio für KMUs: Websites, Mobile, Automation und AI — leicht bedienbar und betreibbar, klarer Scope, Support nach der Übergabe.",
   },
@@ -990,7 +990,7 @@ const de: Dictionary = {
   },
   banner: {
     aria: "Ankündigung",
-    text: "Dolphin Kick sucht Freelancer — Sales mit Priorität, 50% Deal-Provision. Jetzt bewerben!",
+    text: "Dolphin Software sucht Freelancer — Sales mit Priorität, 50% Deal-Provision. Jetzt bewerben!",
     cta: "Jetzt bewerben",
   },
   hero: {
@@ -1335,7 +1335,7 @@ const de: Dictionary = {
     ],
   },
   why: {
-    eyebrow: "Warum Dolphin Kick",
+    eyebrow: "Warum Dolphin Software",
     title: "[[Langfristige Partnerschaft]], nicht nur Code-Übergabe",
     support:
       "Klarer Zeitplan, Scope, Zusagen — und Support nach der Übergabe.",
@@ -1387,7 +1387,7 @@ const de: Dictionary = {
     message: "Kurze Projektbeschreibung",
     submit: "Anfrage senden",
     sent: "E-Mail-App geöffnet (oder Inhalt kopieren, falls der Browser mailto blockiert).",
-    mailSubject: "Dolphin Kick — Anfrage von",
+    mailSubject: "Dolphin Software — Anfrage von",
     mailBodyName: "Name",
     mailBodyContact: "Kontakt",
     errors: {
@@ -1448,7 +1448,7 @@ const de: Dictionary = {
 
 const ja: Dictionary = {
   meta: {
-    title: "Dolphin Kick",
+    title: "Dolphin Software",
     description:
       "SMB向けWeb & Appスタジオ。ウェブサイト、モバイル、業務自動化、AI連携 — 使いやすく運用しやすく、見積もり範囲が明確で、引き渡し後も伴走します。",
   },
@@ -1470,7 +1470,7 @@ const ja: Dictionary = {
   },
   banner: {
     aria: "お知らせ",
-    text: "Dolphin Kickはフリーランス募集中 — Salesは急募、案件手数料50%。今すぐ応募！",
+    text: "Dolphin Softwareはフリーランス募集中 — Salesは急募、案件手数料50%。今すぐ応募！",
     cta: "応募する",
   },
   hero: {
@@ -1815,7 +1815,7 @@ const ja: Dictionary = {
     ],
   },
   why: {
-    eyebrow: "Dolphin Kickを選ぶ理由",
+    eyebrow: "Dolphin Softwareを選ぶ理由",
     title: "コード納品だけで終わらない、[[長期伴走]]",
     support:
       "スケジュール・スコープ・コミットメント・引き渡し後サポートを明確に。",
@@ -1867,7 +1867,7 @@ const ja: Dictionary = {
     message: "プロジェクトの概要",
     submit: "送信する",
     sent: "メールアプリを開きました（ブラウザがmailtoをブロックした場合は内容をコピーしてください）。",
-    mailSubject: "Dolphin Kick — お問い合わせ",
+    mailSubject: "Dolphin Software — お問い合わせ",
     mailBodyName: "お名前",
     mailBodyContact: "連絡先",
     errors: {
@@ -1928,7 +1928,7 @@ const ja: Dictionary = {
 
 const zh: Dictionary = {
   meta: {
-    title: "Dolphin Kick",
+    title: "Dolphin Software",
     description:
       "面向中小企业的 Web & App 工作室：网站、移动端、自动化与 AI——易用、易运营，报价范围清晰，交接后持续陪伴。",
   },
@@ -1950,7 +1950,7 @@ const zh: Dictionary = {
   },
   banner: {
     aria: "公告",
-    text: "Dolphin Kick 正在招募自由职业者 — Sales 优先急招，成交抽成 50%。立即申请！",
+    text: "Dolphin Software 正在招募自由职业者 — Sales 优先急招，成交抽成 50%。立即申请！",
     cta: "立即申请",
   },
   hero: {
@@ -2295,7 +2295,7 @@ const zh: Dictionary = {
     ],
   },
   why: {
-    eyebrow: "为什么选择 Dolphin Kick",
+    eyebrow: "为什么选择 Dolphin Software",
     title: "不止交付代码，[[长期陪伴]]",
     support:
       "进度、范围、承诺与交付后支持——说清楚，少黑话。",
@@ -2347,7 +2347,7 @@ const zh: Dictionary = {
     message: "项目概要",
     submit: "发送",
     sent: "已打开邮件应用（若浏览器拦截 mailto，请复制内容）。",
-    mailSubject: "Dolphin Kick — 联系",
+    mailSubject: "Dolphin Software — 联系",
     mailBodyName: "姓名",
     mailBodyContact: "联系方式",
     errors: {

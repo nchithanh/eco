@@ -1,6 +1,6 @@
-# Dolphin Kick
+# Dolphin Software
 
-Vietnamese marketing site for Dolphin Kick, a web and mobile app studio.
+Vietnamese marketing site for Dolphin Software, a web and mobile app studio.
 
 ## Development
 

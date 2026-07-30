@@ -21,9 +21,9 @@ export type NewsCopy = {
 
 const vi: NewsCopy = {
   meta: {
-    title: "Dolphin Kick — Tin tức & ghi chép",
+    title: "Dolphin Software — Tin tức & ghi chép",
     description:
-      "Ghi chép thực tế về web, app, UX, quy trình và case từ studio Dolphin Kick.",
+      "Ghi chép thực tế về web, app, UX, quy trình và case từ studio Dolphin Software.",
   },
   title: "Tin tức & ghi chép",
   blurb:
@@ -50,9 +50,9 @@ const vi: NewsCopy = {
 
 const en: NewsCopy = {
   meta: {
-    title: "Dolphin Kick — News & notes",
+    title: "Dolphin Software — News & notes",
     description:
-      "Practical notes on web, apps, UX, process, and cases from Dolphin Kick.",
+      "Practical notes on web, apps, UX, process, and cases from Dolphin Software.",
   },
   title: "News & notes",
   blurb:
@@ -79,9 +79,9 @@ const en: NewsCopy = {
 
 const ja: NewsCopy = {
   meta: {
-    title: "Dolphin Kick — ニュース＆メモ",
+    title: "Dolphin Software — ニュース＆メモ",
     description:
-      "Dolphin Kick による Web / アプリ / UX / プロセス / ケースの実践メモ。",
+      "Dolphin Software による Web / アプリ / UX / プロセス / ケースの実践メモ。",
   },
   title: "ニュース＆メモ",
   blurb:
@@ -108,9 +108,9 @@ const ja: NewsCopy = {
 
 const de: NewsCopy = {
   meta: {
-    title: "Dolphin Kick — News & Notizen",
+    title: "Dolphin Software — News & Notizen",
     description:
-      "Praxisnahe Notizen zu Web, Apps, UX, Prozess und Cases von Dolphin Kick.",
+      "Praxisnahe Notizen zu Web, Apps, UX, Prozess und Cases von Dolphin Software.",
   },
   title: "News & Notizen",
   blurb:
@@ -137,8 +137,8 @@ const de: NewsCopy = {
 
 const zh: NewsCopy = {
   meta: {
-    title: "Dolphin Kick — 新闻与笔记",
-    description: "来自 Dolphin Kick 的 Web、应用、UX、流程与案例实践笔记。",
+    title: "Dolphin Software — 新闻与笔记",
+    description: "来自 Dolphin Software 的 Web、应用、UX、流程与案例实践笔记。",
   },
   title: "新闻与笔记",
   blurb: "产品、工程与工作方式的短文——不是新闻稿。",

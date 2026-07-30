@@ -7,7 +7,7 @@ import { useLocale } from "@/lib/i18n/LocaleProvider";
 
 const BANNER_FALLBACK = {
   aria: "Announcement",
-  text: "Dolphin Kick is hiring freelancers — Sales is urgent priority, 50% deal commission. Apply today!",
+  text: "Dolphin Software is hiring freelancers — Sales is urgent priority, 50% deal commission. Apply today!",
   cta: "Apply now",
 } as const;
 

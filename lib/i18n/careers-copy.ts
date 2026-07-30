@@ -4,13 +4,13 @@ type CareersCopy = Dictionary["careers"];
 
 const vi: CareersCopy = {
   meta: {
-    title: "Dolphin Kick — Tuyển dụng freelancer",
+    title: "Dolphin Software — Tuyển dụng freelancer",
     description:
-      "Cộng tác freelance với Dolphin Kick — web, mobile, backend, UI/UX. ~1000 USD/tháng tương đương, linh hoạt theo giờ.",
+      "Cộng tác freelance với Dolphin Software — web, mobile, backend, UI/UX. ~1000 USD/tháng tương đương, linh hoạt theo giờ.",
   },
   hero: {
     eyebrow: "Careers",
-    headline: "Freelance cùng Dolphin Kick",
+    headline: "Freelance cùng Dolphin Software",
     support:
       "Cần đồng đội linh hoạt theo dự án — không phải full-time. Mức ~1000 USD/tháng tương đương full capacity, thanh toán theo giờ thỏa thuận.",
   },
@@ -37,7 +37,7 @@ const vi: CareersCopy = {
       id: "sales",
       title: "Sales / Business Development",
       summary:
-        "Tìm và chốt deal web/app cho Dolphin Kick — freelance, hoa hồng theo deal.",
+        "Tìm và chốt deal web/app cho Dolphin Software — freelance, hoa hồng theo deal.",
       bullets: [
         "Tự săn lead / network khách hàng SME & startup",
         "Hiểu dịch vụ web, app, backend đủ để tư vấn sơ bộ",
@@ -52,7 +52,7 @@ const vi: CareersCopy = {
       id: "ai-engineer",
       title: "AI Engineer",
       summary:
-        "Xây AI agent, pipeline LLM và tooling cho sản phẩm Dolphin Kick — freelance, remote-friendly.",
+        "Xây AI agent, pipeline LLM và tooling cho sản phẩm Dolphin Software — freelance, remote-friendly.",
       bullets: [
         "Kinh nghiệm LLM APIs, RAG và agent workflow",
         "Node.js/Python và tích hợp API vững",
@@ -65,7 +65,7 @@ const vi: CareersCopy = {
       id: "intern-fullstack",
       title: "Intern Fullstack",
       summary:
-        "Thực tập fullstack trên hệ thống AI content & Vibe Coding của Dolphin Kick.",
+        "Thực tập fullstack trên hệ thống AI content & Vibe Coding của Dolphin Software.",
       bullets: [
         "React/Next.js hoặc Node.js cơ bản, ham học và chủ động",
         "Làm task thật trên nền tảng AI content nội bộ",
@@ -141,7 +141,7 @@ const vi: CareersCopy = {
   apply: {
     eyebrow: "Apply",
     title: "Gửi hồ sơ freelance",
-    support: "Điền form — Dolphin Kick sẽ mở email để bạn gửi kèm portfolio.",
+    support: "Điền form — Dolphin Software sẽ mở email để bạn gửi kèm portfolio.",
     name: "Tên",
     contact: "Email hoặc Zalo",
     portfolio: "Link portfolio / GitHub",
@@ -149,7 +149,7 @@ const vi: CareersCopy = {
     message: "Giới thiệu ngắn + availability",
     submit: "Gửi ứng tuyển",
     sent: "Đã mở ứng dụng email của bạn (hoặc sao chép nội dung nếu trình duyệt chặn mailto).",
-    mailSubject: "Dolphin Kick Careers —",
+    mailSubject: "Dolphin Software Careers —",
     mailBodyName: "Tên",
     mailBodyContact: "Liên hệ",
     mailBodyPortfolio: "Portfolio",
@@ -166,13 +166,13 @@ const vi: CareersCopy = {
 
 const en: CareersCopy = {
   meta: {
-    title: "Dolphin Kick — Freelance careers",
+    title: "Dolphin Software — Freelance careers",
     description:
-      "Freelance with Dolphin Kick — web, mobile, backend, UI/UX. ~USD 1,000/mo equivalent, hourly flexible.",
+      "Freelance with Dolphin Software — web, mobile, backend, UI/UX. ~USD 1,000/mo equivalent, hourly flexible.",
   },
   hero: {
     eyebrow: "Careers",
-    headline: "Freelance with Dolphin Kick",
+    headline: "Freelance with Dolphin Software",
     support:
       "We need flexible teammates per project — not full-time. About USD 1,000/mo full-capacity equivalent, paid hourly by agreement.",
   },
@@ -199,7 +199,7 @@ const en: CareersCopy = {
       id: "sales",
       title: "Sales / Business Development",
       summary:
-        "Source and close web/app deals for Dolphin Kick — freelance, commission per deal.",
+        "Source and close web/app deals for Dolphin Software — freelance, commission per deal.",
       bullets: [
         "Hunt leads / network with SME & startup clients",
         "Enough product literacy to pitch web, app, backend",
@@ -214,7 +214,7 @@ const en: CareersCopy = {
       id: "ai-engineer",
       title: "AI Engineer",
       summary:
-        "Build AI agents, LLM pipelines, and tooling for Dolphin Kick products — freelance, remote-friendly.",
+        "Build AI agents, LLM pipelines, and tooling for Dolphin Software products — freelance, remote-friendly.",
       bullets: [
         "Hands-on with LLM APIs, RAG, and agent workflows",
         "Solid Node.js/Python and API integration",
@@ -227,7 +227,7 @@ const en: CareersCopy = {
       id: "intern-fullstack",
       title: "Intern Fullstack",
       summary:
-        "Fullstack internship on Dolphin Kick's AI content system and Vibe Coding platform.",
+        "Fullstack internship on Dolphin Software's AI content system and Vibe Coding platform.",
       bullets: [
         "Basic React/Next.js or Node.js; eager to learn",
         "Real tasks on the in-house AI content platform",
@@ -303,7 +303,7 @@ const en: CareersCopy = {
   apply: {
     eyebrow: "Apply",
     title: "Send your freelance profile",
-    support: "Fill the form — Dolphin Kick will open email so you can send your portfolio.",
+    support: "Fill the form — Dolphin Software will open email so you can send your portfolio.",
     name: "Name",
     contact: "Email or Zalo",
     portfolio: "Portfolio / GitHub link",
@@ -311,7 +311,7 @@ const en: CareersCopy = {
     message: "Short intro + availability",
     submit: "Submit application",
     sent: "Opened your email app (or copy the content if the browser blocked mailto).",
-    mailSubject: "Dolphin Kick Careers —",
+    mailSubject: "Dolphin Software Careers —",
     mailBodyName: "Name",
     mailBodyContact: "Contact",
     mailBodyPortfolio: "Portfolio",
@@ -328,13 +328,13 @@ const en: CareersCopy = {
 
 const ja: CareersCopy = {
   meta: {
-    title: "Dolphin Kick — フリーランス採用",
+    title: "Dolphin Software — フリーランス採用",
     description:
-      "Dolphin Kickとのフリーランス協業 — Web、モバイル、バックエンド、UI/UX。約1,000 USD/月相当、時間単価で柔軟。",
+      "Dolphin Softwareとのフリーランス協業 — Web、モバイル、バックエンド、UI/UX。約1,000 USD/月相当、時間単価で柔軟。",
   },
   hero: {
     eyebrow: "Careers",
-    headline: "Dolphin Kickとフリーランスで働く",
+    headline: "Dolphin Softwareとフリーランスで働く",
     support:
       "プロジェクト単位で柔軟に動ける仲間を募集 — 正社員ではありません。フル稼働換算で約1,000 USD/月、時間単価で合意します。",
   },
@@ -361,7 +361,7 @@ const ja: CareersCopy = {
       id: "sales",
       title: "Sales / Business Development",
       summary:
-        "Dolphin KickのWeb/App案件を開拓・成約 — フリーランス、案件ごとのコミッション。",
+        "Dolphin SoftwareのWeb/App案件を開拓・成約 — フリーランス、案件ごとのコミッション。",
       bullets: [
         "SME・スタートアップ向けリード獲得 / ネットワーク",
         "Web・App・バックエンドを説明できる程度の理解",
@@ -376,7 +376,7 @@ const ja: CareersCopy = {
       id: "ai-engineer",
       title: "AI Engineer",
       summary:
-        "Dolphin Kick 製品向けの AI Agent、LLM パイプライン、ツーリングを構築 — フリーランス、リモート可。",
+        "Dolphin Software 製品向けの AI Agent、LLM パイプライン、ツーリングを構築 — フリーランス、リモート可。",
       bullets: [
         "LLM API、RAG、Agent ワークフローの実務経験",
         "Node.js/Python と API 連携が堅実",
@@ -389,7 +389,7 @@ const ja: CareersCopy = {
       id: "intern-fullstack",
       title: "Intern Fullstack",
       summary:
-        "Dolphin Kick の AI コンテンツ基盤と Vibe Coding 上でのフルスタックインターン。",
+        "Dolphin Software の AI コンテンツ基盤と Vibe Coding 上でのフルスタックインターン。",
       bullets: [
         "React/Next.js または Node.js の基礎、学習意欲",
         "社内 AI コンテンツ基盤の実タスク",
@@ -473,7 +473,7 @@ const ja: CareersCopy = {
     message: "短い自己紹介 + 稼働可能時間",
     submit: "応募を送信",
     sent: "メールアプリを開きました（ブラウザがmailtoをブロックした場合は内容をコピーしてください）。",
-    mailSubject: "Dolphin Kick Careers —",
+    mailSubject: "Dolphin Software Careers —",
     mailBodyName: "お名前",
     mailBodyContact: "連絡先",
     mailBodyPortfolio: "ポートフォリオ",
@@ -490,13 +490,13 @@ const ja: CareersCopy = {
 
 const de: CareersCopy = {
   meta: {
-    title: "Dolphin Kick — Freelance Karriere",
+    title: "Dolphin Software — Freelance Karriere",
     description:
-      "Freelance mit Dolphin Kick — Web, Mobile, Backend, UI/UX. ~1.000 USD/Monat Äquivalent, stundenweise flexibel.",
+      "Freelance mit Dolphin Software — Web, Mobile, Backend, UI/UX. ~1.000 USD/Monat Äquivalent, stundenweise flexibel.",
   },
   hero: {
     eyebrow: "Careers",
-    headline: "Freelance mit Dolphin Kick",
+    headline: "Freelance mit Dolphin Software",
     support:
       "Wir suchen flexible Mitstreiter pro Projekt — kein Fulltime. Etwa 1.000 USD/Monat Vollzeit-Äquivalent, stundenweise nach Vereinbarung.",
   },
@@ -523,7 +523,7 @@ const de: CareersCopy = {
       id: "sales",
       title: "Sales / Business Development",
       summary:
-        "Web-/App-Deals für Dolphin Kick akquirieren und abschließen — Freelance, Provision pro Deal.",
+        "Web-/App-Deals für Dolphin Software akquirieren und abschließen — Freelance, Provision pro Deal.",
       bullets: [
         "Leads jagen / Netzwerk zu SME- & Startup-Kunden",
         "Genug Produktverständnis für Web, App, Backend",
@@ -551,7 +551,7 @@ const de: CareersCopy = {
       id: "intern-fullstack",
       title: "Intern Fullstack",
       summary:
-        "Fullstack-Praktikum auf Dolphin Kicks AI-Content-System und Vibe-Coding-Plattform.",
+        "Fullstack-Praktikum auf dem AI-Content-System und der Vibe-Coding-Plattform von Dolphin Software.",
       bullets: [
         "Grundlagen React/Next.js oder Node.js, lernbereit",
         "Echte Tasks auf der internen AI-Content-Plattform",
@@ -627,7 +627,7 @@ const de: CareersCopy = {
   apply: {
     eyebrow: "Apply",
     title: "Freelance-Profil senden",
-    support: "Formular ausfüllen — Dolphin Kick öffnet die E-Mail, damit Sie Ihr Portfolio mitschicken.",
+    support: "Formular ausfüllen — Dolphin Software öffnet die E-Mail, damit Sie Ihr Portfolio mitschicken.",
     name: "Name",
     contact: "E-Mail oder Zalo",
     portfolio: "Portfolio- / GitHub-Link",
@@ -635,7 +635,7 @@ const de: CareersCopy = {
     message: "Kurze Vorstellung + Verfügbarkeit",
     submit: "Bewerbung senden",
     sent: "E-Mail-App geöffnet (oder Inhalt kopieren, falls der Browser mailto blockiert).",
-    mailSubject: "Dolphin Kick Careers —",
+    mailSubject: "Dolphin Software Careers —",
     mailBodyName: "Name",
     mailBodyContact: "Kontakt",
     mailBodyPortfolio: "Portfolio",
@@ -652,13 +652,13 @@ const de: CareersCopy = {
 
 const zh: CareersCopy = {
   meta: {
-    title: "Dolphin Kick — 自由职业招聘",
+    title: "Dolphin Software — 自由职业招聘",
     description:
-      "与 Dolphin Kick 自由协作 — Web、移动、后端、UI/UX。约 1000 美元/月等价，按小时灵活结算。",
+      "与 Dolphin Software 自由协作 — Web、移动、后端、UI/UX。约 1000 美元/月等价，按小时灵活结算。",
   },
   hero: {
     eyebrow: "Careers",
-    headline: "与 Dolphin Kick 自由协作",
+    headline: "与 Dolphin Software 自由协作",
     support:
       "按项目寻找灵活搭档 — 非全职。全量约合 1000 美元/月，按协商小时结算。",
   },
@@ -683,7 +683,7 @@ const zh: CareersCopy = {
     {
       id: "sales",
       title: "Sales / Business Development",
-      summary: "为 Dolphin Kick 开拓并成交 Web/App 项目 — 自由协作，按单抽成。",
+      summary: "为 Dolphin Software 开拓并成交 Web/App 项目 — 自由协作，按单抽成。",
       bullets: [
         "自主获客 / 连接中小企业与创业客户网络",
         "具备足够的 Web、App、后端理解以便初步顾问",
@@ -698,7 +698,7 @@ const zh: CareersCopy = {
       id: "ai-engineer",
       title: "AI Engineer",
       summary:
-        "为 Dolphin Kick 产品构建 AI Agent、LLM 流水线与工具 — 自由协作，支持远程。",
+        "为 Dolphin Software 产品构建 AI Agent、LLM 流水线与工具 — 自由协作，支持远程。",
       bullets: [
         "熟悉 LLM API、RAG 与 Agent 工作流",
         "扎实的 Node.js/Python 与 API 集成",
@@ -711,7 +711,7 @@ const zh: CareersCopy = {
       id: "intern-fullstack",
       title: "Intern Fullstack",
       summary:
-        "在 Dolphin Kick 的 AI 内容系统与 Vibe Coding 平台上进行全栈实习。",
+        "在 Dolphin Software 的 AI 内容系统与 Vibe Coding 平台上进行全栈实习。",
       bullets: [
         "具备 React/Next.js 或 Node.js 基础，学习主动",
         "在内部 AI 内容平台承担真实任务",
@@ -794,7 +794,7 @@ const zh: CareersCopy = {
     message: "简短自我介绍 + 可工作时间",
     submit: "发送申请",
     sent: "已打开邮件应用（若浏览器拦截 mailto，请复制内容）。",
-    mailSubject: "Dolphin Kick Careers —",
+    mailSubject: "Dolphin Software Careers —",
     mailBodyName: "姓名",
     mailBodyContact: "联系方式",
     mailBodyPortfolio: "作品集",

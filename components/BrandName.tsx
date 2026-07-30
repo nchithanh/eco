@@ -89,7 +89,7 @@ type BrandTextProps = {
   onDark?: boolean;
 };
 
-const BRAND_SPLIT = /(Dolphin Kick|Dolphin Kich|KU THANH)/g;
+const BRAND_SPLIT = /(Dolphin Software|Dolphin Kick|Dolphin Kich|KU THANH)/g;
 
 /** Replaces brand phrases in a string with the logo-style BrandName. */
 export function BrandText({
@@ -104,26 +104,16 @@ export function BrandText({
     <span className={className}>
       {parts.map((part, index) => {
         if (
+          part === "Dolphin Software" ||
           part === "Dolphin Kick" ||
           part === "Dolphin Kich" ||
           part === "KU THANH"
         ) {
           return (
-            <span key={`brand-${index}`}>
-              {"\u00A0"}
-              <BrandWord size={size} onDark={onDark} />
-            </span>
+            <BrandWord key={`brand-${index}`} size={size} onDark={onDark} />
           );
         }
-        // Trim trailing space before brand — BrandName supplies its own.
-        const next = parts[index + 1];
-        const cleaned =
-          next === "Dolphin Kick" ||
-          next === "Dolphin Kich" ||
-          next === "KU THANH"
-            ? part.replace(/\s+$/, "")
-            : part;
-        return cleaned ? <span key={`text-${index}`}>{cleaned}</span> : null;
+        return part || null;
       })}
     </span>
   );
@@ -131,6 +121,7 @@ export function BrandText({
 
 export function hasBrand(text: string): boolean {
   return (
+    text.includes("Dolphin Software") ||
     text.includes("Dolphin Kick") ||
     text.includes("Dolphin Kich") ||
     text.includes("KU THANH")

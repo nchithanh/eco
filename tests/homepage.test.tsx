@@ -13,10 +13,10 @@ function renderHome() {
   );
 }
 
-describe("Dolphin Kick homepage", () => {
+describe("Dolphin Software homepage", () => {
   it("renders hero brand and primary CTA", () => {
     renderHome();
-    expect(screen.getAllByLabelText(/Dolphin Kick/i).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByLabelText(/Dolphin Software/i).length).toBeGreaterThanOrEqual(1);
     expect(
       screen.getByRole("heading", {
         name: /プロ仕様のWebsite & Webアプリ — 明確なスコープで届ける/i,

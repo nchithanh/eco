@@ -12,14 +12,14 @@ function renderCareers() {
   );
 }
 
-describe("Dolphin Kick careers page", () => {
+describe("Dolphin Software careers page", () => {
   beforeEach(() => {
     window.localStorage.setItem("kuct-locale", "vi");
   });
   it("renders freelance hero and open roles including sales", () => {
     renderCareers();
     expect(
-      screen.getByRole("heading", { name: /Freelance cùng\s*KU\s*THANH/i }),
+      screen.getByRole("heading", { name: /Freelance cùng Dolphin Software/i }),
     ).toBeInTheDocument();
     expect(
       screen.getByRole("heading", {
@@ -65,7 +65,7 @@ describe("Dolphin Kick careers page", () => {
     await user.click(screen.getByRole("button", { name: /^Language$/i }));
     await user.click(screen.getByRole("button", { name: /English/i }));
     expect(
-      screen.getByRole("heading", { name: /Freelance with\s*KU\s*THANH/i }),
+      screen.getByRole("heading", { name: /Freelance with Dolphin Software/i }),
     ).toBeInTheDocument();
   });
 });

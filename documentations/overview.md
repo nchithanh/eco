@@ -2,7 +2,7 @@
 
 ## Product
 
-**Dolphin Kick** — marketing site for a web / mobile / AI studio (also referenced as **KU THANH** in some SEO metadata).
+**Dolphin Software** — marketing site for a web / mobile / AI studio (legacy aliases: Dolphin Kick, KU THANH in `BrandText`).
 
 - Package name: `dolphin-kick`
 - Repo: `nchithanh/eco`
@@ -11,10 +11,10 @@
 
 ## Brand
 
-- Display name: `BRAND_DISPLAY_NAME = "Dolphin Kick"` in `components/Logo.tsx`
+- Display name: `BRAND_DISPLAY_NAME = "Dolphin Software"` in `components/Logo.tsx`
 - Logo asset: `public/brand/logo-dolphin.png`
 - Favicon / tab icon: `app/icon.png` (from brand logo) + `public/favicon.ico`
-- Document title / OG: **Dolphin Kick** (`app/layout.tsx` metadata)
+- Document title / OG: **Dolphin Software** (`app/layout.tsx` metadata)
 - Inline brand replacement: `BrandText` / `hasBrand` in `components/BrandName.tsx` (also recognizes legacy `Dolphin Kich`, `KU THANH`)
 - Accent titles: `AccentText` with `[[keyword]]` markers in dictionary strings
 

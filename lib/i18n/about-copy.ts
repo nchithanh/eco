@@ -31,7 +31,7 @@ export type AboutCopy = {
 
 const vi: AboutCopy = {
   eyebrow: "Studio",
-  title: "Dolphin Kick",
+  title: "Dolphin Software",
   motto: "Từ bài toán khó đến [[hệ thống chạy thật]] — không gì là không thể.",
   support:
     "Chúng tôi biến mục tiêu kinh doanh thành web, app và workflow AI có thể vận hành. Scope rõ, milestone đúng hạn, bàn giao source + hướng dẫn — đội bạn tự chạy được.",
@@ -54,7 +54,7 @@ const vi: AboutCopy = {
     },
   ],
   buildEyebrow: "Năng lực",
-  buildTitle: "Dolphin Kick làm gì",
+  buildTitle: "Dolphin Software làm gì",
   buildSupport:
     "Năng lực được tôi luyện từ sản phẩm edtech & SaaS thật — production, incident, scale — rồi đưa vào cách studio ship cho SMB.",
   buildItems: [
@@ -102,7 +102,7 @@ const vi: AboutCopy = {
   founderRole: "Co-founder · Product Backend / Tech Lead",
   founderName: "Nguyễn Chí Thành",
   founderBody:
-    "5+ năm backend trên sản phẩm live (Marathon, Myspa, Splus). Dẫn team, xử lý incident, thiết kế hệ thống — mang tư duy production vào từng dự án Dolphin Kick.",
+    "5+ năm backend trên sản phẩm live (Marathon, Myspa, Splus). Dẫn team, xử lý incident, thiết kế hệ thống — mang tư duy production vào từng dự án Dolphin Software.",
   founderStack: [
     "Golang",
     "NestJS",
@@ -116,12 +116,12 @@ const vi: AboutCopy = {
   ctaEyebrow: "Bắt đầu",
   ctaTitle: "Sẵn sàng biến bài toán thành hệ thống?",
   ctaSupport:
-    "Nói mục tiêu — bán hàng, lead, đặt lịch hay ops nội bộ. Dolphin Kick chốt scope và ship đến khi đội bạn tự chạy.",
+    "Nói mục tiêu — bán hàng, lead, đặt lịch hay ops nội bộ. Dolphin Software chốt scope và ship đến khi đội bạn tự chạy.",
 };
 
 const en: AboutCopy = {
   eyebrow: "Studio",
-  title: "Dolphin Kick",
+  title: "Dolphin Software",
   motto: "From hard problems to [[systems that run]] — nothing is impossible.",
   support:
     "We turn business goals into web, apps, and AI workflows you can operate. Clear scope, on-time milestones, source + walkthrough — so your team can run it.",
@@ -144,7 +144,7 @@ const en: AboutCopy = {
     },
   ],
   buildEyebrow: "Capabilities",
-  buildTitle: "What Dolphin Kick builds",
+  buildTitle: "What Dolphin Software builds",
   buildSupport:
     "Strength forged on real edtech & SaaS products — production, incidents, scale — then applied to how we ship for SMBs.",
   buildItems: [
@@ -192,7 +192,7 @@ const en: AboutCopy = {
   founderRole: "Co-founder · Product Backend / Tech Lead",
   founderName: "Nguyen Chi Thanh",
   founderBody:
-    "5+ years backend on live products (Marathon, Myspa, Splus). Team lead, incident response, system design — production thinking in every Dolphin Kick project.",
+    "5+ years backend on live products (Marathon, Myspa, Splus). Team lead, incident response, system design — production thinking in every Dolphin Software project.",
   founderStack: [
     "Golang",
     "NestJS",
@@ -206,12 +206,12 @@ const en: AboutCopy = {
   ctaEyebrow: "Start",
   ctaTitle: "Ready to turn the problem into a system?",
   ctaSupport:
-    "Tell us the goal — sell, capture leads, take bookings, or run internal ops. Dolphin Kick locks scope and ships until your team can run it.",
+    "Tell us the goal — sell, capture leads, take bookings, or run internal ops. Dolphin Software locks scope and ships until your team can run it.",
 };
 
 const de: AboutCopy = {
   eyebrow: "Studio",
-  title: "Dolphin Kick",
+  title: "Dolphin Software",
   motto: "Von harten Problemen zu [[laufenden Systemen]] — nichts ist unmöglich.",
   support:
     "Wir machen aus Geschäftszielen Web, Apps und KI-Workflows, die Sie betreiben können. Klarer Scope, Meilensteine, Source + Einweisung.",
@@ -234,7 +234,7 @@ const de: AboutCopy = {
     },
   ],
   buildEyebrow: "Fähigkeiten",
-  buildTitle: "Was Dolphin Kick baut",
+  buildTitle: "Was Dolphin Software baut",
   buildSupport:
     "Stärke aus echten EdTech- & SaaS-Produkten — Production, Incidents, Skalierung — angewendet auf Studio-Deliveries für KMUs.",
   buildItems: [
@@ -296,12 +296,12 @@ const de: AboutCopy = {
   ctaEyebrow: "Start",
   ctaTitle: "Bereit, das Problem zum System zu machen?",
   ctaSupport:
-    "Nennen Sie das Ziel — verkaufen, Leads, Buchungen oder interne Ops. Dolphin Kick fixiert Scope und liefert, bis Ihr Team selbst fahren kann.",
+    "Nennen Sie das Ziel — verkaufen, Leads, Buchungen oder interne Ops. Dolphin Software fixiert Scope und liefert, bis Ihr Team selbst fahren kann.",
 };
 
 const ja: AboutCopy = {
   eyebrow: "Studio",
-  title: "Dolphin Kick",
+  title: "Dolphin Software",
   motto: "難しい課題から[[動くシステム]]へ — 不可能はない。",
   support:
     "ビジネス目標を、運用できる Web・アプリ・AI ワークフローに変えます。スコープ明確、マイルストーン、ソース＋ガイド付き。",
@@ -324,7 +324,7 @@ const ja: AboutCopy = {
     },
   ],
   buildEyebrow: "できること",
-  buildTitle: "Dolphin Kick がつくるもの",
+  buildTitle: "Dolphin Software がつくるもの",
   buildSupport:
     "EdTech や SaaS のリアルな本番・障害・スケール経験で鍛え抜かれた開発力を、SMB 向けの納品に活かします。",
   buildItems: [
@@ -386,12 +386,12 @@ const ja: AboutCopy = {
   ctaEyebrow: "スタート",
   ctaTitle: "課題をシステムに変える準備はできましたか？",
   ctaSupport:
-    "ゴールを教えてください。Dolphin Kick がスコープを固め、チームが自走できるまで届けます。",
+    "ゴールを教えてください。Dolphin Software がスコープを固め、チームが自走できるまで届けます。",
 };
 
 const zh: AboutCopy = {
   eyebrow: "Studio",
-  title: "Dolphin Kick",
+  title: "Dolphin Software",
   motto: "从难题到[[可运行的系统]] — 没有什么不可能。",
   support:
     "我们把业务目标变成可运营的网站、应用与 AI 工作流。范围清晰、里程碑准时、源码 + 指引——让团队能自跑。",
@@ -414,7 +414,7 @@ const zh: AboutCopy = {
     },
   ],
   buildEyebrow: "能力",
-  buildTitle: "Dolphin Kick 做什么",
+  buildTitle: "Dolphin Software 做什么",
   buildSupport:
     "能力经过真实 EdTech 与 SaaS 产品（生产环境、事故响应、高并发扩容）的淬炼，再运用于 SMB 交付。",
   buildItems: [
@@ -462,7 +462,7 @@ const zh: AboutCopy = {
   founderRole: "Co-founder · Product Backend / Tech Lead",
   founderName: "Nguyen Chi Thanh",
   founderBody:
-    "5+ 年线上产品后端（Marathon、Myspa、Splus）。带队、事故响应、系统设计——把生产思维带进每个 Dolphin Kick 项目。",
+    "5+ 年线上产品后端（Marathon、Myspa、Splus）。带队、事故响应、系统设计——把生产思维带进每个 Dolphin Software 项目。",
   founderStack: [
     "Golang",
     "NestJS",
@@ -476,7 +476,7 @@ const zh: AboutCopy = {
   ctaEyebrow: "开始",
   ctaTitle: "准备好把问题变成系统了吗？",
   ctaSupport:
-    "告诉我们目标——获客、销售、预约或内部运营。Dolphin Kick 锁定范围并交付，直到团队能自跑。",
+    "告诉我们目标——获客、销售、预约或内部运营。Dolphin Software 锁定范围并交付，直到团队能自跑。",
 };
 
 export const aboutCopy: Record<Locale, AboutCopy> = { vi, en, de, ja, zh };

@@ -29,21 +29,21 @@ const siteUrl = isGithubPages
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Dolphin Kick",
-    template: "%s | Dolphin Kick",
+    default: "Dolphin Software",
+    template: "%s | Dolphin Software",
   },
   description:
-    "Dolphin Kick — studio làm website & mobile app, tự động hóa quy trình và tích hợp AI. Từ landing đến hệ thống vận hành.",
+    "Dolphin Software — studio làm website & mobile app, tự động hóa quy trình và tích hợp AI. Từ landing đến hệ thống vận hành.",
   keywords: [
-    "Dolphin Kick",
+    "Dolphin Software",
     "web studio",
     "mobile app",
     "Next.js",
     "AI agents",
     "freelance",
   ],
-  authors: [{ name: "Dolphin Kick" }],
-  creator: "Dolphin Kick",
+  authors: [{ name: "Dolphin Software" }],
+  creator: "Dolphin Software",
   robots: {
     index: true,
     follow: true,
@@ -59,16 +59,16 @@ export const metadata: Metadata = {
     locale: "ja_JP",
     alternateLocale: ["vi_VN", "en_US", "de_DE"],
     url: "/",
-    siteName: "Dolphin Kick",
-    title: "Dolphin Kick",
+    siteName: "Dolphin Software",
+    title: "Dolphin Software",
     description:
-      "Studio xây website, mobile app, tự động hóa và AI — Dolphin Kick.",
+      "Studio xây website, mobile app, tự động hóa và AI — Dolphin Software.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Dolphin Kick",
+    title: "Dolphin Software",
     description:
-      "Studio xây website, mobile app, tự động hóa và AI — Dolphin Kick.",
+      "Studio xây website, mobile app, tự động hóa và AI — Dolphin Software.",
   },
 };
 
