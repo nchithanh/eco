@@ -19,7 +19,7 @@ export type QuoteCopy = {
   scopeGroup: string;
   optionsGroup: string;
   projectType: string;
-  projectTypes: Record<ProjectType, { label: string; hint: string }>;
+  projectTypes: Record<ProjectType, { label: string }>;
   scale: string;
   scales: Record<ScaleId, string>;
   pages: string;
@@ -60,9 +60,9 @@ const vi: QuoteCopy = {
   optionsGroup: "Tùy chọn",
   projectType: "Loại dự án",
   projectTypes: {
-    web: { label: "Website", hint: "~2–10 triệu" },
-    ai: { label: "AI / Agent", hint: "~10–30 triệu" },
-    both: { label: "Website + AI", hint: "Kết hợp cả hai" },
+    web: { label: "Website" },
+    ai: { label: "AI / Agent" },
+    both: { label: "Website + AI" },
   },
   scale: "Quy mô",
   scales: {
@@ -134,9 +134,9 @@ const en: QuoteCopy = {
   optionsGroup: "Options",
   projectType: "Project type",
   projectTypes: {
-    web: { label: "Website", hint: "~2–10M VND" },
-    ai: { label: "AI / Agent", hint: "~10–30M VND" },
-    both: { label: "Website + AI", hint: "Combined scope" },
+    web: { label: "Website" },
+    ai: { label: "AI / Agent" },
+    both: { label: "Website + AI" },
   },
   scale: "Scale",
   scales: {
@@ -208,9 +208,9 @@ const ja: QuoteCopy = {
   optionsGroup: "オプション",
   projectType: "プロジェクト種別",
   projectTypes: {
-    web: { label: "Website", hint: "~200万〜1,000万 VND" },
-    ai: { label: "AI / Agent", hint: "~1,000万〜3,000万 VND" },
-    both: { label: "Website + AI", hint: "両方を含む" },
+    web: { label: "Website" },
+    ai: { label: "AI / Agent" },
+    both: { label: "Website + AI" },
   },
   scale: "規模",
   scales: {
@@ -282,9 +282,9 @@ const de: QuoteCopy = {
   optionsGroup: "Optionen",
   projectType: "Projekttyp",
   projectTypes: {
-    web: { label: "Website", hint: "~2–10 Mio. VND" },
-    ai: { label: "AI / Agent", hint: "~10–30 Mio. VND" },
-    both: { label: "Website + AI", hint: "Kombinierter Scope" },
+    web: { label: "Website" },
+    ai: { label: "AI / Agent" },
+    both: { label: "Website + AI" },
   },
   scale: "Umfang",
   scales: {
@@ -356,9 +356,9 @@ const zh: QuoteCopy = {
   optionsGroup: "选项",
   projectType: "项目类型",
   projectTypes: {
-    web: { label: "网站", hint: "~2–10 百万越南盾" },
-    ai: { label: "AI / Agent", hint: "~10–30 百万越南盾" },
-    both: { label: "网站 + AI", hint: "合并范围" },
+    web: { label: "网站" },
+    ai: { label: "AI / Agent" },
+    both: { label: "网站 + AI" },
   },
   scale: "规模",
   scales: {

@@ -60,6 +60,47 @@ export type Dictionary = {
     support: string;
     items: { value: string; label: string }[];
   };
+  popularServices: {
+    eyebrow: string;
+    title: string;
+    support: string;
+    categoryLabel: string;
+    rowLabels: {
+      price: string;
+      timeline: string;
+      fit: string;
+      ui: string;
+      seo: string;
+      admin: string;
+      measure: string;
+      warranty: string;
+      highlight: string;
+    };
+    priceNote: string;
+    fromPrefix: string;
+    footerNote: string;
+    footerCta: string;
+    packages: {
+      id: "landing" | "business" | "shop" | "webapp";
+      title: string;
+      badge: string;
+      /** Soft column highlight (recommended package) */
+      featured?: boolean;
+      /** Emphasize sale price visually (Landing) */
+      priceFocus?: boolean;
+      saveBadge?: string;
+      timeline: string;
+      fit: string;
+      ui: string;
+      seo: string;
+      admin: string;
+      measure: string;
+      warranty: string;
+      highlight: string;
+      cta: string;
+      detailHref: string;
+    }[];
+  };
   capabilities: {
     eyebrow: string;
     title: string;

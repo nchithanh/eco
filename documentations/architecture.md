@@ -21,7 +21,7 @@
 | --- | --- |
 | `app/` | Routes & root layout |
 | `components/` | UI sections & shared chrome |
-| `lib/` | i18n, estimators, content data, theme, assets |
+| `lib/` | i18n, estimators, `pricing-fx` (locale package prices), content data, theme, assets |
 | `public/` | Static assets (mascot, brand, about, tech, themes) |
 | `tests/` | Vitest suites |
 | `documentations/` | Canonical project docs (this tree) |

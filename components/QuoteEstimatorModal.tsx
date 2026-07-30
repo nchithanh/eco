@@ -8,8 +8,8 @@ import { getQuoteCopy } from "@/lib/i18n/quote-copy";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
 import {
   DEFAULT_QUOTE_SELECTION,
+  CAP,
   estimateQuote,
-  formatMillionVnd,
   toggleInList,
   type AiFeatureId,
   type DesignId,
@@ -20,6 +20,10 @@ import {
   type ScaleId,
   type TimelineId,
 } from "@/lib/quote-estimator";
+import {
+  formatQuoteEstimateRange,
+  formatQuoteHintRange,
+} from "@/lib/pricing-fx";
 
 const fieldClass =
   "mt-1.5 w-full rounded-xl border border-[var(--kuct-border)] bg-[rgba(10,10,22,0.72)] px-4 py-2.5 text-sm text-[var(--kuct-text)] outline-none transition focus:border-[var(--kuct-accent)]/60";
@@ -127,16 +131,7 @@ export function QuoteEstimatorModal({
   const showAi =
     selection.projectType === "ai" || selection.projectType === "both";
 
-  const intlLocale =
-    locale === "vi"
-      ? "vi-VN"
-      : locale === "ja"
-        ? "ja-JP"
-        : locale === "de"
-          ? "de-DE"
-          : "en-US";
-
-  const estimateText = `${formatMillionVnd(range.min, intlLocale)} – ${formatMillionVnd(range.max, intlLocale)} ${q.estimateUnit}`;
+  const estimateText = formatQuoteEstimateRange(locale, range);
 
   const choiceSummary = () => {
     const lines = [
@@ -249,7 +244,7 @@ export function QuoteEstimatorModal({
                           key={id}
                           active={selection.projectType === id}
                           label={q.projectTypes[id].label}
-                          hint={q.projectTypes[id].hint}
+                          hint={formatQuoteHintRange(locale, CAP[id])}
                           onClick={() =>
                             setSelection((s) => ({
                               ...s,

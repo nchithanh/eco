@@ -2,6 +2,7 @@ import type { Dictionary, Locale } from "./types";
 import { careersByLocale, careersNavLabel } from "./careers-copy";
 import { getFaqCopy } from "./faq-copy";
 import { newsByLocale, newsNavLabel } from "./news-copy";
+import { popularServicesByLocale } from "./popular-services-copy";
 
 const vi: Dictionary = {
   meta: {
@@ -58,6 +59,7 @@ const vi: Dictionary = {
       { value: "BH 3–6 tháng", label: "Bảo hành lỗi kỹ thuật trong phạm vi đã nghiệm thu — không gồm tính năng mới." },
     ],
   },
+  popularServices: popularServicesByLocale.vi,
   capabilities: {
     eyebrow: "Dịch vụ",
     title: "Giải pháp gắn [[kết quả vận hành]]",
@@ -534,6 +536,7 @@ const en: Dictionary = {
       { value: "Warranty 3–6 mo", label: "Technical-bug warranty within accepted scope — not new features." },
     ],
   },
+  popularServices: popularServicesByLocale.en,
   capabilities: {
     eyebrow: "Services",
     title: "Solutions tied to [[operating outcomes]]",
@@ -1010,6 +1013,7 @@ const de: Dictionary = {
       { value: "Garantie 3–6 Mon.", label: "Technische Fehlergarantie im abgenommenen Scope — keine neuen Features." },
     ],
   },
+  popularServices: popularServicesByLocale.de,
   capabilities: {
     eyebrow: "Leistungen",
     title: "Lösungen mit [[Betriebs-Outcomes]]",
@@ -1486,6 +1490,7 @@ const ja: Dictionary = {
       { value: "保証 3–6ヶ月", label: "検収済み範囲内の技術不具合保証 — 新機能は含みません。" },
     ],
   },
+  popularServices: popularServicesByLocale.ja,
   capabilities: {
     eyebrow: "サービス",
     title: "[[運用成果]]に結びつけるソリューション",
@@ -1962,6 +1967,7 @@ const zh: Dictionary = {
       { value: "质保 3–6 个月", label: "验收范围内技术故障质保——不含新功能。" },
     ],
   },
+  popularServices: popularServicesByLocale.zh,
   capabilities: {
     eyebrow: "服务",
     title: "绑定[[运营结果]]的解决方案",

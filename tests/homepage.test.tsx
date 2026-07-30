@@ -23,24 +23,30 @@ describe("Dolphin Kick homepage", () => {
       }),
     ).toBeInTheDocument();
     expect(
-      screen.getByRole("button", { name: /見積もりを依頼/i }),
-    ).toBeInTheDocument();
+      screen.getAllByRole("button", { name: /見積もりを依頼/i }).length,
+    ).toBeGreaterThanOrEqual(1);
   });
 
   it("renders technology under hero before capabilities", () => {
     renderHome();
     const top = document.getElementById("top");
     const technology = document.getElementById("technology");
+    const popular = document.getElementById("popular-services");
     const capabilities = document.getElementById("capabilities");
     expect(top).toBeTruthy();
     expect(technology).toBeTruthy();
+    expect(popular).toBeTruthy();
     expect(capabilities).toBeTruthy();
     expect(
       top!.compareDocumentPosition(technology!) &
         Node.DOCUMENT_POSITION_FOLLOWING,
     ).toBeTruthy();
     expect(
-      technology!.compareDocumentPosition(capabilities!) &
+      technology!.compareDocumentPosition(popular!) &
+        Node.DOCUMENT_POSITION_FOLLOWING,
+    ).toBeTruthy();
+    expect(
+      popular!.compareDocumentPosition(capabilities!) &
         Node.DOCUMENT_POSITION_FOLLOWING,
     ).toBeTruthy();
     expect(
@@ -52,6 +58,50 @@ describe("Dolphin Kick homepage", () => {
     expect(
       within(technology!).getByRole("link", { name: /詳しく見る/i }),
     ).toHaveAttribute("href", expect.stringMatching(/\/ai-transform\/?$/));
+  });
+
+  it("renders popular services comparison with landing price focus", () => {
+    renderHome();
+    const popular = document.getElementById("popular-services");
+    expect(popular).toBeTruthy();
+    expect(
+      screen.getByRole("heading", {
+        level: 2,
+        name: /人気のサービス/i,
+      }),
+    ).toBeInTheDocument();
+    const section = within(popular as HTMLElement);
+    expect(section.getByRole("heading", { name: /ランディングページ/i })).toBeInTheDocument();
+    expect(section.getByRole("heading", { name: /企業サイト/i })).toBeInTheDocument();
+    expect(section.getByRole("heading", { name: /ECサイト/i })).toBeInTheDocument();
+    expect(section.getByRole("heading", { name: /カスタムWebアプリ/i })).toBeInTheDocument();
+    expect(section.getByText("￥6,200")).toBeInTheDocument();
+    expect(section.getByRole("button", { name: /LP見積もり/i })).toBeInTheDocument();
+    expect(section.getByRole("link", { name: /Zaloで無料相談/i })).toHaveAttribute(
+      "href",
+      "https://zalo.me/0779937633",
+    );
+  });
+
+  it("converts popular service prices when switching language", async () => {
+    const user = userEvent.setup();
+    renderHome();
+    const popular = document.getElementById("popular-services") as HTMLElement;
+    expect(within(popular).getByText("￥6,200")).toBeInTheDocument();
+
+    await user.click(screen.getByRole("button", { name: /^Language$/i }));
+    await user.click(screen.getByRole("button", { name: /English/i }));
+    expect(within(popular).getByText("$38")).toBeInTheDocument();
+
+    await user.click(screen.getByRole("button", { name: /^Language$/i }));
+    await user.click(screen.getByRole("button", { name: /Tiếng Việt/i }));
+    expect(within(popular).getByText("1.000.000đ")).toBeInTheDocument();
+
+    await user.click(screen.getByRole("button", { name: /^Language$/i }));
+    await user.click(screen.getByRole("button", { name: /Deutsch/i }));
+    expect(
+      within(popular).getByText((content) => /^33\s*€$/.test(content.trim())),
+    ).toBeInTheDocument();
   });
 
   it("renders capabilities and process headings", () => {
@@ -318,8 +368,8 @@ describe("Dolphin Kick homepage", () => {
       }),
     ).toBeInTheDocument();
     expect(
-      screen.getByRole("button", { name: /Nhận báo giá/i }),
-    ).toBeInTheDocument();
+      screen.getAllByRole("button", { name: /Nhận báo giá/i }).length,
+    ).toBeGreaterThanOrEqual(1);
   });
 
   it("switches language to English", async () => {
@@ -335,8 +385,8 @@ describe("Dolphin Kick homepage", () => {
       }),
     ).toBeInTheDocument();
     expect(
-      screen.getByRole("button", { name: /Get a quote/i }),
-    ).toBeInTheDocument();
+      screen.getAllByRole("button", { name: /Get a quote/i }).length,
+    ).toBeGreaterThanOrEqual(1);
   });
 
   it("switches language to German", async () => {
@@ -352,8 +402,8 @@ describe("Dolphin Kick homepage", () => {
       }),
     ).toBeInTheDocument();
     expect(
-      screen.getByRole("button", { name: /Angebot anfordern/i }),
-    ).toBeInTheDocument();
+      screen.getAllByRole("button", { name: /Angebot anfordern/i }).length,
+    ).toBeGreaterThanOrEqual(1);
   });
 
   it("switches language to Chinese", async () => {
@@ -369,7 +419,7 @@ describe("Dolphin Kick homepage", () => {
       }),
     ).toBeInTheDocument();
     expect(
-      screen.getByRole("button", { name: /获取报价/i }),
-    ).toBeInTheDocument();
+      screen.getAllByRole("button", { name: /获取报价/i }).length,
+    ).toBeGreaterThanOrEqual(1);
   });
 });
