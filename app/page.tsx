@@ -4,7 +4,6 @@ import { Nav } from "@/components/Nav";
 import { Hero } from "@/components/Hero";
 import { TrustStrip } from "@/components/TrustStrip";
 import { PopularServices } from "@/components/PopularServices";
-import { UiGallery } from "@/components/UiGallery";
 import { AiEdge } from "@/components/AiEdge";
 import { Capabilities } from "@/components/Capabilities";
 import { SiteOutcomes } from "@/components/SiteOutcomes";
@@ -27,7 +26,6 @@ export default function Home() {
       <Hero />
       <Capabilities />
       <PopularServices />
-      <UiGallery />
       <WorksShowcase />
       <SiteOutcomes />
       <Process />

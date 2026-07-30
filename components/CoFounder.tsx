@@ -17,10 +17,10 @@ export function CoFounder() {
           <Reveal className="relative mx-auto w-full max-w-[180px]" variant="left">
             <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-[var(--kuct-border)] ring-1 ring-[var(--kuct-accent)]/25">
               <LazyImage
-                src={assetPath("/avatar.png")}
+                src={assetPath("/about/founder.png")}
                 alt={`${c.name} — ${c.role}`}
                 fill
-                className="object-cover object-center"
+                className="object-cover object-top"
                 sizes="180px"
                 watermark={false}
               />

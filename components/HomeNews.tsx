@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useMemo } from "react";
 import { AccentText } from "@/components/BrandName";
 import { LazyImage } from "@/components/LazyImage";
 import { Reveal } from "@/components/Reveal";
@@ -15,39 +15,19 @@ import {
   listNews,
 } from "@/lib/news-details";
 
-const PAGE_SIZE = 6;
 const FEATURED_COUNT = 3;
+const HOME_NEWS_COUNT = 5;
 
 export function HomeNews() {
   const { locale, t } = useLocale();
   const { theme } = useTheme();
   const { openHref } = usePagePreview();
   const n = t.news;
-  const [page, setPage] = useState(0);
 
-  const items = useMemo(() => listNews(locale), [locale]);
-  const pageCount = Math.max(1, Math.ceil(items.length / PAGE_SIZE));
-
-  useEffect(() => {
-    setPage(0);
-  }, [locale]);
-
-  useEffect(() => {
-    setPage((current) => Math.min(current, pageCount - 1));
-  }, [pageCount]);
-
-  const visible = useMemo(() => {
-    const start = page * PAGE_SIZE;
-    return items.slice(start, start + PAGE_SIZE);
-  }, [items, page]);
-
-  const goPrev = useCallback(() => {
-    setPage((current) => (current - 1 + pageCount) % pageCount);
-  }, [pageCount]);
-
-  const goNext = useCallback(() => {
-    setPage((current) => (current + 1) % pageCount);
-  }, [pageCount]);
+  const visible = useMemo(
+    () => listNews(locale).slice(0, HOME_NEWS_COUNT),
+    [locale],
+  );
 
   const viewAllHref = assetPath("/news/");
 
@@ -134,34 +114,24 @@ export function HomeNews() {
               </Reveal>
             );
           })}
-        </ul>
 
-        {pageCount > 1 ? (
-          <div className="mt-8 flex items-center justify-center gap-4">
-            <button
-              type="button"
-              onClick={goPrev}
-              aria-label={n.prevPage}
-              className="grid size-10 place-items-center rounded-full border border-[var(--kuct-border)] bg-[rgba(8,8,16,0.85)] text-[var(--kuct-text)] transition hover:border-[var(--kuct-accent)]/40 hover:text-[var(--kuct-accent)]"
+          <Reveal as="li" delay={visible.length * 45}>
+            <a
+              href={viewAllHref}
+              className="group flex h-full min-h-[10.5rem] flex-col items-center justify-center gap-2 rounded-2xl border border-dashed border-[var(--kuct-border)] bg-[rgba(6,6,14,0.55)] p-6 text-center backdrop-blur-md transition duration-300 hover:border-[var(--kuct-accent)]/45 hover:bg-[rgba(var(--kuct-accent-rgb),0.08)]"
             >
-              <span aria-hidden>←</span>
-            </button>
-            <p
-              className="text-sm tabular-nums text-[var(--kuct-muted)]"
-              aria-live="polite"
-            >
-              {page + 1} / {pageCount}
-            </p>
-            <button
-              type="button"
-              onClick={goNext}
-              aria-label={n.nextPage}
-              className="grid size-10 place-items-center rounded-full border border-[var(--kuct-border)] bg-[rgba(8,8,16,0.85)] text-[var(--kuct-text)] transition hover:border-[var(--kuct-accent)]/40 hover:text-[var(--kuct-accent)]"
-            >
-              <span aria-hidden>→</span>
-            </button>
-          </div>
-        ) : null}
+              <span className="font-display text-base font-semibold text-[var(--kuct-text)] transition group-hover:text-[var(--kuct-accent)] sm:text-lg">
+                {n.homeSeeMore}
+              </span>
+              <span
+                className="text-sm text-[var(--kuct-muted)] transition group-hover:text-[var(--kuct-accent)]"
+                aria-hidden
+              >
+                →
+              </span>
+            </a>
+          </Reveal>
+        </ul>
       </div>
     </section>
   );

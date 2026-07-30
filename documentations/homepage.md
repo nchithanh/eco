@@ -10,32 +10,31 @@ UX flow: **website / delivery first**, then **AI layer**, then **trust & contact
 | --- | --- | --- | --- | --- |
 | — | — | Nav (+ announcement) | `Nav`, `AnnouncementBar` | |
 | 1 | Web | Hero | `Hero` | `#top` — web-first copy; secondary CTA → `#capabilities` |
-| 2 | Web | Capabilities | `Capabilities` | `#capabilities` — service grid (build + integrations + AI items) |
+| 2 | Web | Capabilities | `Capabilities` | `#capabilities` — service grid |
 | 3 | Web | Popular services | `PopularServices` | `#popular-services` — package comparison table |
-| 4 | Web | UI gallery | `UiGallery` | `#ui-gallery` — layout showcase |
-| 5 | Web | Works | `WorksShowcase` | `#works` — portfolio / case studies |
-| 6 | Web | Outcomes | `SiteOutcomes` | `#outcomes` — business results |
-| 7 | Web | Process | `Process` | `#process` — 5-step delivery |
-| 8 | Web | Deliverables | `WhatYouGet` | `#what-you-get` |
-| 9 | Web | Ops lifecycle | `OpsLifecycle` | `#ops` |
-| 10 | Web | Handover | `TrustStrip` | `#handover` |
-| 11 | Web | Tech stack | `TechStack` | `#stack` |
-| 12 | AI | AI edge | `AiEdge` | `#ai-edge` — chat / workflow / agent; links to AI routes |
-| 13 | Trust | Why us | `WhyKuct` | `#why` |
-| 14 | Trust | Co-founder | `CoFounder` | `#cofounder` |
-| 15 | Trust | Notes | `HomeNews` | `#news` |
-| 16 | Trust | FAQ | `Faq` | `#faq` |
-| 17 | Trust | Contact | `ContactForm` | `#contact` |
-| 18 | — | Footer | `Footer` | |
+| 4 | Web | Works | `WorksShowcase` | `#works` — portfolio / case studies |
+| 5 | Web | Outcomes | `SiteOutcomes` | `#outcomes` |
+| 6 | Web | Process | `Process` | `#process` |
+| 7 | Web | Deliverables | `WhatYouGet` | `#what-you-get` |
+| 8 | Web | Ops lifecycle | `OpsLifecycle` | `#ops` |
+| 9 | Web | Handover | `TrustStrip` | `#handover` |
+| 10 | Web | Tech stack | `TechStack` | `#stack` |
+| 11 | AI | AI edge | `AiEdge` | `#ai-edge` |
+| 12 | Trust | Why us | `WhyKuct` | `#why` |
+| 13 | Trust | Co-founder | `CoFounder` | `#cofounder` |
+| 14 | Trust | Notes | `HomeNews` | `#news` |
+| 15 | Trust | FAQ | `Faq` | `#faq` |
+| 16 | Trust | Contact | `ContactForm` | `#contact` |
+| 17 | — | Footer | `Footer` | |
 
-`Technology` (heavy AI globe/dashboard) is **not** on the homepage.
+`UiGallery` / `#ui-gallery` is **not** on the homepage (component + copy remain in repo if reused later).
 
 ## Global overlays (not sections)
 
 - `AiChatWidget` — floating assist / contact FABs
-- `QuoteEstimatorModal` via `QuoteProvider` — reference quote wizard
-- `CookieConsent`, `PagePreviewModal`, `DesignViewerModal` as wired in providers
+- `QuoteEstimatorModal` via `QuoteProvider`
+- `CookieConsent`, `PagePreviewModal`, `DesignViewerModal`
 
 ## Copy source
 
-Most homepage strings: `lib/i18n/dictionaries.ts` (+ `popular-services-copy.ts`, `ui-gallery-copy.ts`, `ai-edge-copy.ts`, `faq-copy.ts`, `news-copy.ts`). Gallery images: `lib/ui-gallery-data.ts`.
+Most homepage strings: `lib/i18n/dictionaries.ts` (+ `popular-services-copy.ts`, `ai-edge-copy.ts`, `faq-copy.ts`, `news-copy.ts`).

@@ -119,17 +119,15 @@ describe("Dolphin Kick homepage", () => {
     ).toBeInTheDocument();
   });
 
-  it("renders web showcase block after capabilities", async () => {
-    const user = userEvent.setup();
+  it("renders web block after capabilities without ui gallery", () => {
     renderHome();
     const capabilities = document.getElementById("capabilities");
     const popular = document.getElementById("popular-services");
-    const gallery = document.getElementById("ui-gallery");
     const works = document.getElementById("works");
     const outcomes = document.getElementById("outcomes");
+    expect(document.getElementById("ui-gallery")).toBeNull();
     expect(capabilities).toBeTruthy();
     expect(popular).toBeTruthy();
-    expect(gallery).toBeTruthy();
     expect(works).toBeTruthy();
     expect(outcomes).toBeTruthy();
     expect(
@@ -137,33 +135,13 @@ describe("Dolphin Kick homepage", () => {
         Node.DOCUMENT_POSITION_FOLLOWING,
     ).toBeTruthy();
     expect(
-      popular!.compareDocumentPosition(gallery!) & Node.DOCUMENT_POSITION_FOLLOWING,
-    ).toBeTruthy();
-    expect(
-      gallery!.compareDocumentPosition(works!) &
+      popular!.compareDocumentPosition(works!) &
         Node.DOCUMENT_POSITION_FOLLOWING,
     ).toBeTruthy();
     expect(
       works!.compareDocumentPosition(outcomes!) &
         Node.DOCUMENT_POSITION_FOLLOWING,
     ).toBeTruthy();
-
-    const section = within(gallery as HTMLElement);
-    expect(
-      screen.getByRole("heading", {
-        level: 2,
-        name: /レイアウトとソリューションを探す/i,
-      }),
-    ).toBeInTheDocument();
-    expect(section.getAllByRole("tab").length).toBeGreaterThanOrEqual(8);
-    expect(section.getAllByRole("img").length).toBeGreaterThanOrEqual(20);
-
-    await user.click(section.getByRole("tab", { name: /ランディング/i }));
-    expect(section.getAllByRole("img").length).toBeGreaterThanOrEqual(3);
-    expect(section.getByRole("link", { name: /すべてのサービス/i })).toHaveAttribute(
-      "href",
-      "#capabilities",
-    );
   });
 
   it("renders capabilities and process headings", () => {
@@ -298,6 +276,14 @@ describe("Dolphin Kick homepage", () => {
     expect(newsItems[4].querySelectorAll("img")).toHaveLength(0);
     expect(newsItems[5].querySelectorAll("img")).toHaveLength(0);
     expect(
+      within(newsItems[4]).getByRole("heading", {
+        name: /SMB が本当に CMS を必要にするとき/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      within(newsItems[5]).getByRole("link", { name: /もっと見る/i }),
+    ).toHaveAttribute("href", "/news/");
+    expect(
       within(newsItems[0]).getByRole("heading", {
         name: /全部書き直さずに MVP から V1 へ/i,
       }),
@@ -327,8 +313,7 @@ describe("Dolphin Kick homepage", () => {
     ).toHaveAttribute("href", "mailto:nchithanh9999@gmail.com");
   });
 
-  it("paginates homepage news six items at a time", async () => {
-    const user = userEvent.setup();
+  it("shows homepage news grid with see more card and no pagination", () => {
     renderHome();
 
     const newsSection = document.getElementById("news");
@@ -338,39 +323,19 @@ describe("Dolphin Kick homepage", () => {
         name: /全部書き直さずに MVP から V1 へ/i,
       }),
     ).toBeInTheDocument();
-    expect(within(newsSection!).getByText("1 / 5")).toBeInTheDocument();
-
-    await user.click(
-      within(newsSection!).getByRole("button", { name: /次のページ/i }),
-    );
-
-    expect(within(newsSection!).getByText("2 / 5")).toBeInTheDocument();
     expect(
       within(newsSection!).getByRole("heading", {
-        name: /口頭の「だいたいX」より見積を書く理由/i,
+        name: /SMB が本当に CMS を必要にするとき/i,
       }),
     ).toBeInTheDocument();
+    expect(within(newsSection!).queryByText(/1 \/ 5/)).not.toBeInTheDocument();
     expect(
-      within(newsSection!).queryByRole("heading", {
-        name: /全部書き直さずに MVP から V1 へ/i,
-      }),
-    ).not.toBeInTheDocument();
-    const pageTwoItems = within(newsSection!).getAllByRole("listitem");
-    expect(pageTwoItems).toHaveLength(6);
-    expect(pageTwoItems[0].querySelectorAll("img")).toHaveLength(1);
-    expect(pageTwoItems[1].querySelectorAll("img")).toHaveLength(1);
-    expect(pageTwoItems[2].querySelectorAll("img")).toHaveLength(1);
-    expect(pageTwoItems[3].querySelectorAll("img")).toHaveLength(0);
-    expect(pageTwoItems[4].querySelectorAll("img")).toHaveLength(0);
-    expect(pageTwoItems[5].querySelectorAll("img")).toHaveLength(0);
-    expect(
-      within(newsSection!).queryByRole("link", { name: /続きを読む/i }),
+      within(newsSection!).queryByRole("button", { name: /次のページ/i }),
     ).not.toBeInTheDocument();
     expect(
-      within(newsSection!).getByRole("link", {
-        name: /口頭の「だいたいX」より見積を書く理由/i,
-      }),
-    ).toHaveAttribute("href", "/news/why-we-write-estimates/");
+      within(newsSection!).getByRole("link", { name: /もっと見る/i }),
+    ).toHaveAttribute("href", "/news/");
+    expect(within(newsSection!).getAllByRole("listitem")).toHaveLength(6);
   });
 
   it("reveals the contact link from the mobile menu", async () => {

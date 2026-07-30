@@ -55,7 +55,7 @@ export function UiGallery() {
 
         <Reveal delay={60} className="mt-10">
           <div
-            className="flex gap-2 overflow-x-auto pb-1 [-ms-overflow-style:none] [scrollbar-width:thin]"
+            className="flex flex-wrap gap-2"
             role="tablist"
             aria-label={copy.eyebrow}
           >
@@ -70,8 +70,8 @@ export function UiGallery() {
                   onClick={() => setActive(id)}
                   className={
                     selected
-                      ? "shrink-0 rounded-full border border-[var(--kuct-accent)]/45 bg-[rgba(var(--kuct-accent-rgb),0.14)] px-4 py-2 text-sm font-semibold text-[var(--kuct-text)] shadow-[0_0_20px_rgb(var(--kuct-accent-rgb)/0.12)]"
-                      : "shrink-0 rounded-full border border-[var(--kuct-border)] bg-[rgba(10,10,22,0.72)] px-4 py-2 text-sm font-medium text-[var(--kuct-muted)] transition hover:border-[var(--kuct-accent)]/35 hover:text-[var(--kuct-text)]"
+                      ? "rounded-full border border-[var(--kuct-accent)]/45 bg-[rgba(var(--kuct-accent-rgb),0.14)] px-3 py-1.5 text-xs font-semibold text-[var(--kuct-text)] shadow-[0_0_20px_rgb(var(--kuct-accent-rgb)/0.12)] sm:px-4 sm:py-2 sm:text-sm"
+                      : "rounded-full border border-[var(--kuct-border)] bg-[rgba(10,10,22,0.72)] px-3 py-1.5 text-xs font-medium text-[var(--kuct-muted)] transition hover:border-[var(--kuct-accent)]/35 hover:text-[var(--kuct-text)] sm:px-4 sm:py-2 sm:text-sm"
                   }
                 >
                   {copy.filters[id]}
