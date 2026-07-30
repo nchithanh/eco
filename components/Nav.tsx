@@ -70,7 +70,7 @@ export function Nav() {
           <a
             href={homeHref}
             className="flex min-w-0 max-w-[min(100%,10rem)] shrink items-center text-[var(--kuct-text)] transition duration-200 hover:opacity-75 sm:max-w-[12rem] lg:max-w-none"
-            aria-label="Dolphin Kich"
+            aria-label="Dolphin Kick"
           >
             <Logo showWordmark />
           </a>

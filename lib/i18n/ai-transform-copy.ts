@@ -298,7 +298,7 @@ const en: AiTransformCopy = {
 };
 
 const de: AiTransformCopy = {
-  metaTitle: "KI-Transformation für Unternehmen | Dolphin Kich",
+  metaTitle: "KI-Transformation für Unternehmen | Dolphin Kick",
   metaDescription:
     "Echte Workflows analysieren und KI dort anbinden, wo Menschen und Geld verbrennen — messbare Roadmap statt ChatGPT-Lizenzen und Hoffnung.",
   eyebrow: "KI-Transformation",
@@ -319,7 +319,7 @@ const de: AiTransformCopy = {
     "Fixkosten steigen; Durchsatz und Qualität bleiben oft gleich",
     "Leicht zu vertrauen oder falsch zu nutzen — Fehler zeigen sich erst beim Kunden",
   ],
-  customTitle: "KI-Transformation à la Dolphin Kich",
+  customTitle: "KI-Transformation à la Dolphin Kick",
   customItems: [
     "Prozess neu zeichnen: welche Schritte menschlich, welche maschinell",
     "KI/Agents an repetitive Aufgaben anbinden — bestehende Systeme verbinden",
@@ -344,7 +344,7 @@ const de: AiTransformCopy = {
       body: "Sie können weder eingesparte Stunden noch reduzierte Fehler benennen — nur eine steigende KI-Rechnung.",
     },
   ],
-  processEyebrow: "So arbeitet Dolphin Kich",
+  processEyebrow: "So arbeitet Dolphin Kick",
   processTitle: "Eine [[messbare]] Roadmap — kein Sprung ins Ungewisse",
   processSupport:
     "Fünf Schritte mit klaren Ergebnissen pro Phase; Erweiterung erst nach Beweis.",
@@ -424,11 +424,11 @@ const de: AiTransformCopy = {
   closeTitle: "Bringen Sie [[einen echten Workflow]] ins Gespräch",
   closeSupport:
     "Dolphin findet Bruchstellen und entwirft eine grobe Roadmap: was zuerst, was messen, welche Meilensteine. Keine Magie auf Folien.",
-  closeCta: "Dolphin Kich kontaktieren",
+  closeCta: "Dolphin Kick kontaktieren",
 };
 
 const ja: AiTransformCopy = {
-  metaTitle: "企業の AI 変革 | Dolphin Kich",
+  metaTitle: "企業の AI 変革 | Dolphin Kick",
   metaDescription:
     "実際のワークフローを分析し、人件費・コストが燃えている箇所に AI を接続 — 測定可能なロードマップ。ChatGPT アカウント配布と祈りではありません。",
   eyebrow: "企業の AI 変革",
@@ -449,7 +449,7 @@ const ja: AiTransformCopy = {
     "固定費は上がるが、処理量と品質は据え置きのことが多い",
     "過信や誤用が起きやすい — エラーは顧客に届いてから発覚",
   ],
-  customTitle: "Dolphin Kich 式 AI 変革",
+  customTitle: "Dolphin Kick 式 AI 変革",
   customItems: [
     "プロセスを再設計：どのステップが人、どのステップが機械",
     "AI/Agent を反復業務に接続 — 既存システムを活用",
@@ -474,7 +474,7 @@ const ja: AiTransformCopy = {
       body: "削減した工数もミスも数値化できない — 見えるのは増え続ける AI の請求書だけ。",
     },
   ],
-  processEyebrow: "Dolphin Kich の進め方",
+  processEyebrow: "Dolphin Kick の進め方",
   processTitle: "[[測定可能な]]ロードマップ — 飛躍的な賭けではなく",
   processSupport:
     "5つのステップ、各段階で明確な成果物；実証後にのみ拡大。",
@@ -554,12 +554,12 @@ const ja: AiTransformCopy = {
   closeTitle: "[[1つの実際のワークフロー]]を会話に持ってきてください",
   closeSupport:
     "Dolphin が断絶を見つけ、概略ロードマップを作成：何から、何を測定し、どのマイルストーンか。スライドの魔法ではありません。",
-  closeCta: "Dolphin Kich に連絡",
+  closeCta: "Dolphin Kick に連絡",
 };
 
 const zh: AiTransformCopy = {
   ...en,
-  metaTitle: "企业 AI 转型 | Dolphin Kich",
+  metaTitle: "企业 AI 转型 | Dolphin Kick",
   eyebrow: "企业 AI 转型",
   headline: "把 AI 接到[[运营核心]] — 不是发账号碰运气",
   support:
@@ -567,7 +567,7 @@ const zh: AiTransformCopy = {
   trustLine: "流程先于工具 · 用数据衡量 · Human-in-the-loop",
   ctaPrimary: "获取初步路线图",
   ctaSecondary: "查看按需 AI Agent",
-  closeCta: "联系 Dolphin Kich",
+  closeCta: "联系 Dolphin Kick",
 };
 
 export const aiTransformCopy: Record<Locale, AiTransformCopy> = {

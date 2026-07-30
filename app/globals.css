@@ -943,7 +943,14 @@ html[data-theme="black"] .kuct-glass-panel {
 }
 
 .animate-kuct-fade {
-  animation: kuct-fade-in 0.9s ease-out both;
+  /* Motion only on desktop — see max-width kill-switch below */
+  animation: none;
+}
+
+@media (min-width: 1024px) {
+  .animate-kuct-fade {
+    animation: kuct-fade-in 0.9s ease-out both;
+  }
 }
 
 /* Scroll-triggered reveal — desktop only (IntersectionObserver toggles .is-inview) */
@@ -995,11 +1002,21 @@ html[data-theme="black"] .kuct-glass-panel {
 }
 
 .animate-kuct-float {
-  animation: kuct-float 7s ease-in-out infinite;
+  animation: none;
 }
 
 .animate-kuct-float-delay {
-  animation: kuct-float-delay 8.5s ease-in-out infinite;
+  animation: none;
+}
+
+@media (min-width: 1024px) {
+  .animate-kuct-float {
+    animation: kuct-float 7s ease-in-out infinite;
+  }
+
+  .animate-kuct-float-delay {
+    animation: kuct-float-delay 8.5s ease-in-out infinite;
+  }
 }
 
 /* Hero decorative panels: static on mobile/tablet (avoids scroll jank) */
@@ -1054,11 +1071,21 @@ html[data-theme="black"] .kuct-glass-panel {
 }
 
 .animate-kuct-avatar-ring {
-  animation: kuct-avatar-ring 4.5s ease-in-out infinite;
+  animation: none;
 }
 
 .animate-kuct-glow {
-  animation: kuct-glow-pulse 4s ease-in-out infinite;
+  animation: none;
+}
+
+@media (min-width: 1024px) {
+  .animate-kuct-avatar-ring {
+    animation: kuct-avatar-ring 4.5s ease-in-out infinite;
+  }
+
+  .animate-kuct-glow {
+    animation: kuct-glow-pulse 4s ease-in-out infinite;
+  }
 }
 
 /* Soft desk-card float for Contact visual (lg+ only; no rotate so wrappers keep tilt) */
@@ -1782,7 +1809,8 @@ html[data-theme="black"] .kuct-loader-progress {
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
+/* No motion on mobile/tablet, or when user prefers reduced motion */
+@media (max-width: 1023px), (prefers-reduced-motion: reduce) {
   .animate-kuct-fade,
   .animate-kuct-float,
   .animate-kuct-float-delay,
@@ -1799,6 +1827,9 @@ html[data-theme="black"] .kuct-loader-progress {
   .kuct-loader-core,
   .kuct-loader-node,
   .kuct-contact-fab__item,
+  .kuct-ai-chat__channel,
+  .kuct-ai-chat__toast,
+  .kuct-ai-chat__panel,
   .kuct-ai-chat__avatar-wrap--pulse .kuct-ai-chat__avatar,
   .kuct-ai-chat__avatar-wrap--pulse::before,
   .kuct-ai-chat__avatar-wrap--pulse::after,
@@ -1817,7 +1848,7 @@ html[data-theme="black"] .kuct-loader-progress {
   .kuct-node,
   .kuct-data-line,
   .kuct-satellite {
-    animation: none;
+    animation: none !important;
   }
 
   .kuct-globe-tilt {

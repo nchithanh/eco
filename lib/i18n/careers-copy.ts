@@ -52,7 +52,7 @@ const vi: CareersCopy = {
       id: "ai-engineer",
       title: "AI Engineer",
       summary:
-        "Xây AI agent, pipeline LLM và tooling cho sản phẩm Dolphin Kich — freelance, remote-friendly.",
+        "Xây AI agent, pipeline LLM và tooling cho sản phẩm Dolphin Kick — freelance, remote-friendly.",
       bullets: [
         "Kinh nghiệm LLM APIs, RAG và agent workflow",
         "Node.js/Python và tích hợp API vững",
@@ -65,7 +65,7 @@ const vi: CareersCopy = {
       id: "intern-fullstack",
       title: "Intern Fullstack",
       summary:
-        "Thực tập fullstack trên hệ thống AI content & Vibe Coding của Dolphin Kich.",
+        "Thực tập fullstack trên hệ thống AI content & Vibe Coding của Dolphin Kick.",
       bullets: [
         "React/Next.js hoặc Node.js cơ bản, ham học và chủ động",
         "Làm task thật trên nền tảng AI content nội bộ",
@@ -214,7 +214,7 @@ const en: CareersCopy = {
       id: "ai-engineer",
       title: "AI Engineer",
       summary:
-        "Build AI agents, LLM pipelines, and tooling for Dolphin Kich products — freelance, remote-friendly.",
+        "Build AI agents, LLM pipelines, and tooling for Dolphin Kick products — freelance, remote-friendly.",
       bullets: [
         "Hands-on with LLM APIs, RAG, and agent workflows",
         "Solid Node.js/Python and API integration",
@@ -227,7 +227,7 @@ const en: CareersCopy = {
       id: "intern-fullstack",
       title: "Intern Fullstack",
       summary:
-        "Fullstack internship on Dolphin Kich's AI content system and Vibe Coding platform.",
+        "Fullstack internship on Dolphin Kick's AI content system and Vibe Coding platform.",
       bullets: [
         "Basic React/Next.js or Node.js; eager to learn",
         "Real tasks on the in-house AI content platform",
@@ -376,7 +376,7 @@ const ja: CareersCopy = {
       id: "ai-engineer",
       title: "AI Engineer",
       summary:
-        "Dolphin Kich 製品向けの AI Agent、LLM パイプライン、ツーリングを構築 — フリーランス、リモート可。",
+        "Dolphin Kick 製品向けの AI Agent、LLM パイプライン、ツーリングを構築 — フリーランス、リモート可。",
       bullets: [
         "LLM API、RAG、Agent ワークフローの実務経験",
         "Node.js/Python と API 連携が堅実",
@@ -389,7 +389,7 @@ const ja: CareersCopy = {
       id: "intern-fullstack",
       title: "Intern Fullstack",
       summary:
-        "Dolphin Kich の AI コンテンツ基盤と Vibe Coding 上でのフルスタックインターン。",
+        "Dolphin Kick の AI コンテンツ基盤と Vibe Coding 上でのフルスタックインターン。",
       bullets: [
         "React/Next.js または Node.js の基礎、学習意欲",
         "社内 AI コンテンツ基盤の実タスク",
@@ -538,7 +538,7 @@ const de: CareersCopy = {
       id: "ai-engineer",
       title: "AI Engineer",
       summary:
-        "AI Agents, LLM-Pipelines und Tooling für Dolphin-Kich-Produkte — Freelance, remote-freundlich.",
+        "AI Agents, LLM-Pipelines und Tooling für Dolphin-Kick-Produkte — Freelance, remote-freundlich.",
       bullets: [
         "Praxis mit LLM-APIs, RAG und Agent-Workflows",
         "Solides Node.js/Python und API-Integration",
@@ -551,7 +551,7 @@ const de: CareersCopy = {
       id: "intern-fullstack",
       title: "Intern Fullstack",
       summary:
-        "Fullstack-Praktikum auf Dolphin Kichs AI-Content-System und Vibe-Coding-Plattform.",
+        "Fullstack-Praktikum auf Dolphin Kicks AI-Content-System und Vibe-Coding-Plattform.",
       bullets: [
         "Grundlagen React/Next.js oder Node.js, lernbereit",
         "Echte Tasks auf der internen AI-Content-Plattform",
@@ -698,7 +698,7 @@ const zh: CareersCopy = {
       id: "ai-engineer",
       title: "AI Engineer",
       summary:
-        "为 Dolphin Kich 产品构建 AI Agent、LLM 流水线与工具 — 自由协作，支持远程。",
+        "为 Dolphin Kick 产品构建 AI Agent、LLM 流水线与工具 — 自由协作，支持远程。",
       bullets: [
         "熟悉 LLM API、RAG 与 Agent 工作流",
         "扎实的 Node.js/Python 与 API 集成",
@@ -711,7 +711,7 @@ const zh: CareersCopy = {
       id: "intern-fullstack",
       title: "Intern Fullstack",
       summary:
-        "在 Dolphin Kich 的 AI 内容系统与 Vibe Coding 平台上进行全栈实习。",
+        "在 Dolphin Kick 的 AI 内容系统与 Vibe Coding 平台上进行全栈实习。",
       bullets: [
         "具备 React/Next.js 或 Node.js 基础，学习主动",
         "在内部 AI 内容平台承担真实任务",
