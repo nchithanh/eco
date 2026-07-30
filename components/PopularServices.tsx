@@ -89,7 +89,7 @@ export function PopularServices() {
         </Reveal>
 
         <Reveal delay={80} className="mt-12">
-          <div className="overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:thin]">
+          <div className="overflow-x-auto touch-[pan-x_pan-y] pb-2 [-ms-overflow-style:none] [scrollbar-width:thin]">
             <div className="min-w-[56rem] overflow-hidden rounded-2xl border border-[var(--kuct-border)] bg-[rgba(6,6,14,0.92)] shadow-[0_24px_60px_rgba(0,0,0,0.35)] backdrop-blur-md">
               <div
                 className="grid"

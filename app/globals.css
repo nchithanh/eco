@@ -252,12 +252,19 @@ html::-webkit-scrollbar-thumb:hover {
   background: var(--kuct-accent);
 }
 
-/* Lock page scroll while the agent loading overlay is visible */
+/* Legacy class — no longer applied by AgentLoader (kept so old caches don't
+   permanently block touch). Prefer overlays with pointer-events instead. */
 html.kuct-loading,
 html.kuct-loading body {
   overflow: hidden !important;
   overscroll-behavior: none;
-  touch-action: none;
+}
+
+@media (max-width: 1023px) {
+  html,
+  body {
+    touch-action: pan-y;
+  }
 }
 
 .kuct-img-watermark {

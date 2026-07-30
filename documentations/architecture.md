@@ -31,4 +31,4 @@
 
 Under `max-width: 1023px`, CSS kill-switch disables decorative animations (see `app/globals.css`). Tailwind `hover` custom variant only applies on fine pointer + `lg+`.
 
-**Scroll note:** Decorative `body::before` noise must stay at `z-index ≤ 0` (and is off on mobile). Never place full-viewport fixed layers above page content without `pointer-events: none` *and* low z-index — high z + `mix-blend-mode` can break touch scrolling. Page overlays must use `lib/scroll-lock.ts` (`acquirePageScroll` / `releasePageScroll`) — do not save/restore `body.style.overflow` manually (nested locks race and stick `overflow: hidden` on mobile).
+**Scroll note:** Decorative `body::before` noise must stay at `z-index ≤ 0` (and is off on mobile). Never place full-viewport fixed layers above page content without `pointer-events: none` *and* low z-index — high z + `mix-blend-mode` can break touch scrolling. Modal/chat overlays use `lib/scroll-lock.ts`. **Do not** scroll-lock the splash `AgentLoader` — the overlay already covers the viewport; locking caused stuck `touch-action` / `overflow` on mobile.

@@ -3,11 +3,6 @@
 import { useEffect, useState } from "react";
 import { Logo } from "@/components/Logo";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
-import {
-  acquirePageScroll,
-  forceUnlockPageScroll,
-  releasePageScroll,
-} from "@/lib/scroll-lock";
 
 const MIN_DURATION_MS = 1500;
 const EXIT_MS = 420;
@@ -49,6 +44,13 @@ export function AgentLoader({
   useEffect(() => {
     if (disabled) return;
 
+    // Clear any legacy stuck lock from older builds (overflow / kuct-loading).
+    document.documentElement.classList.remove("kuct-loading");
+    document.documentElement.style.overflow = "";
+    document.body.style.overflow = "";
+    document.documentElement.style.touchAction = "";
+    document.body.style.touchAction = "";
+
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const duration = reduced ? Math.min(450, minDurationMs) : minDurationMs;
     const start = performance.now();
@@ -56,21 +58,6 @@ export function AgentLoader({
     let exitTimer = 0;
     let safetyTimer = 0;
     let finished = false;
-    let holdingLock = false;
-
-    const takeLock = () => {
-      if (holdingLock) return;
-      holdingLock = true;
-      acquirePageScroll({ loadingClass: true });
-    };
-
-    const dropLock = () => {
-      if (!holdingLock) return;
-      holdingLock = false;
-      releasePageScroll({ loadingClass: true });
-    };
-
-    takeLock();
 
     const finish = () => {
       if (finished) return;
@@ -79,7 +66,6 @@ export function AgentLoader({
       setPhase("exiting");
       exitTimer = window.setTimeout(() => {
         setPhase("done");
-        dropLock();
       }, EXIT_MS);
     };
 
@@ -95,43 +81,15 @@ export function AgentLoader({
 
     raf = requestAnimationFrame(tick);
 
-    // Hard unlock if exit animation / rAF stalls (e.g. background tab)
     safetyTimer = window.setTimeout(() => {
       finished = true;
       setPhase("done");
-      dropLock();
-      // Belt-and-suspenders if nested locks / stale class remain
-      if (document.documentElement.classList.contains("kuct-loading")) {
-        forceUnlockPageScroll();
-      }
     }, duration + EXIT_MS + 800);
-
-    const onPageShow = (event: PageTransitionEvent) => {
-      if (event.persisted) {
-        dropLock();
-        forceUnlockPageScroll();
-      }
-    };
-    const onVisibility = () => {
-      if (document.visibilityState !== "visible") return;
-      if (
-        finished &&
-        document.documentElement.classList.contains("kuct-loading")
-      ) {
-        dropLock();
-        forceUnlockPageScroll();
-      }
-    };
-    window.addEventListener("pageshow", onPageShow);
-    document.addEventListener("visibilitychange", onVisibility);
 
     return () => {
       cancelAnimationFrame(raf);
       window.clearTimeout(exitTimer);
       window.clearTimeout(safetyTimer);
-      window.removeEventListener("pageshow", onPageShow);
-      document.removeEventListener("visibilitychange", onVisibility);
-      dropLock();
     };
   }, [disabled, minDurationMs]);
 

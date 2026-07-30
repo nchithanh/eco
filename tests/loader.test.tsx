@@ -2,7 +2,6 @@ import { act, render, screen } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { AgentLoader } from "@/components/AgentLoader";
 import { LocaleProvider } from "@/lib/i18n/LocaleProvider";
-import { resetPageScrollLockForTests } from "@/lib/scroll-lock";
 
 function renderLoader(minDurationMs = 1500) {
   return render(
@@ -32,7 +31,9 @@ describe("AgentLoader", () => {
 
   afterEach(() => {
     vi.useRealTimers();
-    resetPageScrollLockForTests();
+    document.documentElement.classList.remove("kuct-loading");
+    document.body.style.overflow = "";
+    document.documentElement.style.overflow = "";
   });
 
   it("shows agent constellation and status", () => {
@@ -45,6 +46,15 @@ describe("AgentLoader", () => {
     expect(screen.getByText("Plan")).toBeInTheDocument();
     expect(screen.getByText("Build")).toBeInTheDocument();
     expect(screen.getByText("Ship")).toBeInTheDocument();
+  });
+
+  it("does not lock page scroll while running", () => {
+    vi.useFakeTimers({ toFake: ["setTimeout", "requestAnimationFrame"] });
+    renderLoader(1500);
+    expect(document.documentElement.classList.contains("kuct-loading")).toBe(
+      false,
+    );
+    expect(document.body.style.overflow).toBe("");
   });
 
   it("stays for min duration then unmounts", async () => {
@@ -68,9 +78,5 @@ describe("AgentLoader", () => {
       await vi.advanceTimersByTimeAsync(500);
     });
     expect(screen.queryByRole("status")).not.toBeInTheDocument();
-    expect(document.documentElement.classList.contains("kuct-loading")).toBe(
-      false,
-    );
-    expect(document.body.style.overflow).toBe("");
   });
 });
