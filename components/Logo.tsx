@@ -13,7 +13,7 @@ type LogoProps = {
   wordmarkTaglineClassName?: string;
 };
 
-const LOGO_SRC = "/brand/logo-dolphin.png";
+const LOGO_SRC = "/brand/logo-dolphin.webp";
 
 const defaultImageClass = "h-9 w-auto sm:h-10";
 const defaultWordmarkClass =

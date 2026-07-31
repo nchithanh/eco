@@ -13,7 +13,46 @@
 
 ## Static export
 
-`next.config.ts` enables `output: "export"` + `trailingSlash` when `GITHUB_PAGES=true`. Custom domain serves at `/` (no `basePath`). Images are `unoptimized`. Prefer `assetPath()` for public URLs.
+`next.config.ts` enables `output: "export"` + `trailingSlash` when `GITHUB_PAGES=true`. Custom domain serves at `/` (no `basePath`). Images are `unoptimized` — prefer compressed **WebP** under `public/` for mascots/brand. Prefer `assetPath()` for public URLs.
+
+GitHub Pages serves via Fastly with short `Cache-Control: max-age=600` and **no custom headers** — hashed `/_next/static/*` cannot get immutable TTL from origin alone.
+
+## CDN — Cloudflare (optional, recommended)
+
+Put **Cloudflare Free** in front of Pages for edge cache, Brotli/HTTP3, and longer TTL on static assets. Domain stays `dolphin-software.io.vn`; origin remains GitHub Pages.
+
+### DNS (Cloudflare, Proxied / orange cloud)
+
+| Type | Name | Content | Proxy |
+| --- | --- | --- | --- |
+| A | `@` | `185.199.108.153` | Proxied |
+| A | `@` | `185.199.109.153` | Proxied |
+| A | `@` | `185.199.110.153` | Proxied |
+| A | `@` | `185.199.111.153` | Proxied |
+| CNAME | `www` | `nchithanh.github.io` | Proxied |
+
+At Mat Bao: set nameservers to the two Cloudflare NS (replace `ns1/ns2.matbao.vn`). Wait until zone is **Active**.
+
+### SSL / performance
+
+- SSL/TLS mode: **Full** (not Flexible); Always Use HTTPS
+- Enable Brotli, HTTP/3 when available
+
+### Cache Rules (examples)
+
+1. URI Path starts with `/_next/static` → Eligible for cache, long Edge TTL (e.g. 1 month)
+2. Images (`/mascot`, `/brand`, `/capabilities`, `*.png|jpg|webp|ico`) → long Edge TTL
+3. HTML / other → shorter Edge TTL (15–60 min) so deploys show up without waiting forever
+
+After a large deploy: Caching → **Purge Everything** (or purge `/` + critical URLs).
+
+### Verify
+
+```bash
+curl -sI https://dolphin-software.io.vn/ | rg -i 'cf-ray|cf-cache|server|age'
+```
+
+Expect `cf-ray` and later `cf-cache-status: HIT` on static paths. Keep GitHub Pages custom domain + Enforce HTTPS unchanged.
 
 ## Top folders
 

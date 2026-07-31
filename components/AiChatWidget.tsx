@@ -23,7 +23,7 @@ const CONTACTS = {
   email: "nchithanh9999@gmail.com",
 } as const;
 
-const CHAT_AVATAR = "/mascot/dolphin-chat.png";
+const CHAT_AVATAR = "/mascot/dolphin-chat.webp";
 
 const TOAST_INITIAL_DELAY_MS = 800;
 const TOAST_ROTATE_MS = 5000;
@@ -354,6 +354,8 @@ export function AiChatWidget() {
                 alt=""
                 width={40}
                 height={40}
+                loading="lazy"
+                decoding="async"
                 className="size-10 rounded-full object-cover"
               />
               <span
@@ -455,6 +457,8 @@ export function AiChatWidget() {
                     alt=""
                     width={28}
                     height={28}
+                    loading="lazy"
+                    decoding="async"
                   />
                 </span>
                 <span className="relative flex min-w-0 flex-1 items-center gap-1.5">
@@ -534,6 +538,8 @@ export function AiChatWidget() {
                   alt=""
                   width={56}
                   height={56}
+                  loading="lazy"
+                  decoding="async"
                   className="size-full object-contain object-center"
                 />
               )}

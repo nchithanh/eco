@@ -18,10 +18,10 @@ function ContactVisualScene() {
       aria-hidden
     >
       <Image
-        src={assetPath("/brand/logo-dolphin.png")}
+        src={assetPath("/mascot/dolphin-contact.webp")}
         alt=""
-        width={519}
-        height={519}
+        width={800}
+        height={994}
         className="kuct-mascot-float relative z-[1] h-auto max-h-48 w-auto max-w-[min(14rem,55%)] object-contain drop-shadow-[0_12px_28px_rgba(var(--kuct-accent-rgb),0.18)] select-none"
         sizes="(min-width: 1024px) 12rem, 0px"
       />

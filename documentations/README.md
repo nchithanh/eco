@@ -5,7 +5,7 @@ Canonical project docs for AI agents and humans. Update these when code changes 
 | Doc | Contents |
 | --- | --- |
 | [overview.md](./overview.md) | Product, brand, deploy URL |
-| [architecture.md](./architecture.md) | Stack, folders, static export |
+| [architecture.md](./architecture.md) | Stack, folders, static export, Cloudflare CDN checklist |
 | [homepage.md](./homepage.md) | Homepage section order & components |
 | [pages.md](./pages.md) | Routes beyond home |
 | [i18n.md](./i18n.md) | Locales & copy modules |

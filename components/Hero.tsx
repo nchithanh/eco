@@ -176,10 +176,10 @@ export function Hero() {
         <div className="animate-kuct-fade relative z-0 [animation-delay:120ms]">
           <GlassPanels />
           <Image
-            src={assetPath("/mascot/dolphin-eco.png")}
+            src={assetPath("/mascot/dolphin-eco.webp")}
             alt=""
-            width={824}
-            height={1024}
+            width={800}
+            height={994}
             aria-hidden
             priority
             className="kuct-mascot-float pointer-events-none absolute -right-3 -bottom-2 z-20 h-40 w-auto max-w-[42%] object-contain drop-shadow-[0_16px_32px_rgba(var(--kuct-accent-rgb),0.22)] select-none sm:-right-4 sm:h-48 sm:max-w-[40%] lg:-right-10 lg:-bottom-3 lg:h-52 lg:max-w-[42%]"

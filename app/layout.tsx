@@ -6,12 +6,16 @@ import "./globals.css";
 const quicksand = Quicksand({
   subsets: ["latin", "latin-ext", "vietnamese"],
   variable: "--font-quicksand",
+  display: "swap",
 });
 
+/** JP face — not preloaded; only needed when locale is ja (see CSS below). */
 const notoSansJp = Noto_Sans_JP({
   subsets: ["latin"],
   variable: "--font-jp",
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "700"],
+  preload: false,
+  display: "swap",
 });
 
 const instrumentSerif = Instrument_Serif({
@@ -19,6 +23,8 @@ const instrumentSerif = Instrument_Serif({
   variable: "--font-serif",
   weight: "400",
   style: ["normal", "italic"],
+  preload: false,
+  display: "swap",
 });
 
 const isGithubPages = process.env.GITHUB_PAGES === "true";

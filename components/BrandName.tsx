@@ -9,7 +9,7 @@ type BrandNameProps = {
   onDark?: boolean;
 };
 
-const LOGO_SRC = "/brand/logo-dolphin.png";
+const LOGO_SRC = "/brand/logo-dolphin.webp";
 
 const sizeClass = {
   xs: {
