@@ -16,6 +16,7 @@ export function Footer() {
       label: f.groupExplore,
       links: [
         { href: `${sectionBase}#capabilities`, label: t.nav.services },
+        { href: assetPath("/agent-dolphin/"), label: t.nav.agentDolphin },
         { href: assetPath("/custom-agent/"), label: t.nav.customAgentItem },
         { href: assetPath("/ai-transform/"), label: t.nav.aiTransform },
       ],

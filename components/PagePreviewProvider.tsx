@@ -25,6 +25,7 @@ export type PreviewTarget =
   | { kind: "work"; slug: WorkSlug; href: string }
   | { kind: "more"; slug: MoreSlug; href: string }
   | { kind: "custom-agent"; href: string }
+  | { kind: "agent-dolphin"; href: string }
   | { kind: "ai-transform"; href: string }
   | { kind: "news"; href: string }
   | { kind: "news-detail"; slug: NewsSlug; href: string };
@@ -58,6 +59,13 @@ function resolveTarget(href: string): PreviewTarget | null {
   const path = normalizePath(href);
   const base = assetPath("").replace(/\/$/, "");
   const stripped = base && path.startsWith(base) ? path.slice(base.length) || "/" : path;
+
+  if (
+    stripped === "/agent-dolphin" ||
+    stripped.endsWith("/agent-dolphin")
+  ) {
+    return { kind: "agent-dolphin", href: assetPath("/agent-dolphin/") };
+  }
 
   if (
     stripped === "/custom-agent" ||

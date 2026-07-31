@@ -10,6 +10,6 @@ Canonical project docs for AI agents and humans. Update these when code changes 
 | [pages.md](./pages.md) | Routes beyond home |
 | [i18n.md](./i18n.md) | Locales & copy modules |
 | [conventions.md](./conventions.md) | Agent rules & coding notes |
-| [changelog.md](./changelog.md) | Notable doc/code sync log |
+| [agent-dolphin-canva-prompts.md](./agent-dolphin-canva-prompts.md) | Canva AI image prompts for Agent Dolphin page |
 
 Legacy notes may still exist under `docs/` — prefer **this folder** going forward.

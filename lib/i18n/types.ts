@@ -32,6 +32,7 @@ export type Dictionary = {
     about: string;
     customAgent: string;
     customAgentItem: string;
+    agentDolphin: string;
     aiTransform: string;
     contact: string;
   };
