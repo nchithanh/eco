@@ -15,6 +15,7 @@ type PageMetaInput = {
   description: string;
   path: string;
   image?: string;
+  imageAlt?: string;
   type?: "website" | "article";
   noIndex?: boolean;
 };
@@ -25,6 +26,7 @@ export function buildPageMetadata({
   description,
   path,
   image = OG_IMAGE_PATH,
+  imageAlt = "Dolphin Software",
   type = "website",
   noIndex = false,
 }: PageMetaInput): Metadata {
@@ -53,7 +55,7 @@ export function buildPageMetadata({
           url: imageUrl,
           width: 1200,
           height: 630,
-          alt: "Dolphin Software",
+          alt: imageAlt,
         },
       ],
     },

@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { AgentDolphinPage } from "@/components/AgentDolphinContent";
 import { getAgentDolphinCopy } from "@/lib/i18n/agent-dolphin-copy";
 import { assetPath } from "@/lib/asset";
-import { buildPageMetadata, SEO_LOCALE } from "@/lib/seo";
+import { buildPageMetadata } from "@/lib/seo";
 
-const c = getAgentDolphinCopy(SEO_LOCALE);
+const c = getAgentDolphinCopy("vi");
 const canonical = "/dolphin-care/";
 const redirectTo = assetPath(canonical);
 
@@ -14,6 +14,9 @@ export const metadata: Metadata = {
     title: c.metaTitle,
     description: c.metaDescription,
     path: canonical,
+    image: "/og-dolphin-care.png",
+    imageAlt: "Dolphin Care — AI chăm sóc khách trên website",
+    noIndex: true,
   }),
   title: { absolute: c.metaTitle },
   robots: { index: false, follow: true },

@@ -2,6 +2,7 @@
 
 ## 2026-07-31
 
+- Dolphin Care OG banner: `public/og-dolphin-care.png` + VI `og:title`/`og:image` on `/dolphin-care/`.
 - Dolphin Care route: `/dolphin-care/` (legacy `/agent-dolphin/` noindex + client redirect).
 - Rename product display **Agent Dolphin → Dolphin Care** (nav, copy, meta, docs).
 - Nav: **Dịch vụ** dropdown (thiết kế website, landing, app, backend, UI/UX); removed Process/Tech; `/services/web/` adds pricing table + Sites shipped; cofounder role → **Nhà sáng lập** / Founder.

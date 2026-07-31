@@ -5,18 +5,21 @@ import { getAgentDolphinCopy } from "@/lib/i18n/agent-dolphin-copy";
 import {
   buildPageMetadata,
   faqPageJsonLd,
-  SEO_LOCALE,
   serviceJsonLd,
 } from "@/lib/seo";
 
-const c = getAgentDolphinCopy(SEO_LOCALE);
+/** VI meta for social share (FB/Zalo posts are VN-first). */
+const c = getAgentDolphinCopy("vi");
 const path = "/dolphin-care/";
+const ogImage = "/og-dolphin-care.png";
 
 export const metadata: Metadata = {
   ...buildPageMetadata({
     title: c.metaTitle,
     description: c.metaDescription,
     path,
+    image: ogImage,
+    imageAlt: "Dolphin Care — AI chăm sóc khách trên website",
   }),
   title: { absolute: c.metaTitle },
 };
