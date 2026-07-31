@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Quicksand, Noto_Sans_JP, Instrument_Serif } from "next/font/google";
 import { AppProviders } from "@/components/AppProviders";
+import { JsonLd } from "@/components/JsonLd";
+import { organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 import "./globals.css";
 
 const quicksand = Quicksand({
@@ -42,20 +44,20 @@ export const metadata: Metadata = {
     "Dolphin Software — studio làm website & mobile app, tự động hóa quy trình và tích hợp AI. Từ landing đến hệ thống vận hành.",
   keywords: [
     "Dolphin Software",
-    "web studio",
+    "làm website",
+    "thiết kế web",
     "mobile app",
     "Next.js",
     "AI agents",
-    "freelance",
+    "Agent Dolphin",
+    "chuyển đổi AI doanh nghiệp",
+    "web studio",
   ],
   authors: [{ name: "Dolphin Software" }],
   creator: "Dolphin Software",
   robots: {
     index: true,
     follow: true,
-  },
-  alternates: {
-    canonical: "/",
   },
   icons: {
     icon: [
@@ -82,18 +84,27 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "ja_JP",
-    alternateLocale: ["vi_VN", "en_US", "de_DE"],
+    alternateLocale: ["vi_VN", "en_US", "de_DE", "zh_CN"],
     url: "/",
     siteName: "Dolphin Software",
     title: "Dolphin Software",
     description:
       "Studio xây website, mobile app, tự động hóa và AI — Dolphin Software.",
+    images: [
+      {
+        url: "/og-default.png",
+        width: 1200,
+        height: 630,
+        alt: "Dolphin Software",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Dolphin Software",
     description:
       "Studio xây website, mobile app, tự động hóa và AI — Dolphin Software.",
+    images: ["/og-default.png"],
   },
 };
 
@@ -121,6 +132,7 @@ export default function RootLayout({
       <body
         className={`${quicksand.variable} ${notoSansJp.variable} ${instrumentSerif.variable} antialiased`}
       >
+        <JsonLd data={[organizationJsonLd(), websiteJsonLd()]} />
         <AppProviders>{children}</AppProviders>
       </body>
     </html>

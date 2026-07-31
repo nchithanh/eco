@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { NewsDetailView } from "@/components/NewsDetailView";
-import { assetPath } from "@/lib/asset";
 import { getNewsDetail, NEWS_SLUGS, isNewsSlug } from "@/lib/news-details";
-import { DEFAULT_LOCALE } from "@/lib/i18n/types";
+import { buildPageMetadata, OG_IMAGE_PATH, SEO_LOCALE } from "@/lib/seo";
 
 export function generateStaticParams() {
   return NEWS_SLUGS.map((slug) => ({ slug }));
@@ -19,29 +18,22 @@ export async function generateMetadata({
     return { title: "News" };
   }
 
-  const article = getNewsDetail(DEFAULT_LOCALE, slug);
-  const title = article.title;
-  const description = article.excerpt;
-  const image = assetPath(article.image);
+  const article = getNewsDetail(SEO_LOCALE, slug);
   const path = `/news/${slug}/`;
+  const base = buildPageMetadata({
+    title: article.title,
+    description: article.excerpt,
+    path,
+    image: article.image || OG_IMAGE_PATH,
+    type: "article",
+  });
 
   return {
-    title,
-    description,
-    alternates: { canonical: path },
+    ...base,
     openGraph: {
+      ...base.openGraph,
       type: "article",
-      title,
-      description,
-      url: path,
       publishedTime: article.date,
-      images: image ? [{ url: image }] : undefined,
-    },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description,
-      images: image ? [image] : undefined,
     },
   };
 }

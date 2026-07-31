@@ -11,6 +11,18 @@
 | Tests | Vitest + Testing Library (`tests/`) |
 | Themes | `lib/theme.tsx` — violet default; UI switcher exposes violet + slate |
 
+## SEO (static export)
+
+- `public/robots.txt` → allows `/`, points to sitemap
+- `public/sitemap.xml` → static URL list (regenerate when adding routes)
+- `public/og-default.png` → default Open Graph / Twitter image (1200×630)
+- Per-page metadata via `lib/seo.ts` `buildPageMetadata` + `generateMetadata` / `export const metadata`
+- Root layout: **no** site-wide canonical `/` (each page sets its own)
+- JSON-LD: Organization + WebSite in `app/layout.tsx`; Service + FAQPage on Agent Dolphin / Custom Agent / AI Transform
+- `/services/custom-agent/` is `noindex` with canonical to `/custom-agent/` to avoid duplicates
+
+After deploy: submit `https://dolphin-software.io.vn/sitemap.xml` in Google Search Console.
+
 ## Static export
 
 `next.config.ts` enables `output: "export"` + `trailingSlash` when `GITHUB_PAGES=true`. Custom domain serves at `/` (no `basePath`). Images are `unoptimized` — prefer compressed **WebP** under `public/` for mascots/brand. Prefer `assetPath()` for public URLs.

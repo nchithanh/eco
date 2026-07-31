@@ -2,6 +2,7 @@
 
 ## 2026-07-31
 
+- **SEO (P0/P1):** `public/robots.txt` + `public/sitemap.xml` (69 URLs); per-route metadata + correct canonicals; `public/og-default.png`; JSON-LD Organization/WebSite (+ Service/FAQ on agent pages); `/services/custom-agent/` noindex → prefer `/custom-agent/`. Helpers in `lib/seo.ts`.
 - Detail pages: add desktop-only Reveal scroll motion (custom-agent, ai-transform, works/tech/more/news details, careers).
 - `/agent-dolphin` how-section: `embed.jpg` → CSS browser + chat widget mock (`EmbedSiteMock`); copy `embedMock` in `agent-dolphin-copy.ts`.
 - `/agent-dolphin` hero: 2-column layout (copy left, 3 toast chat cards + typewriter right); typewriter/`Reveal` desktop-only (`lg` / `useDesktopMotion`); copy `heroCards` in `agent-dolphin-copy.ts`.
