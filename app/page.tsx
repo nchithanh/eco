@@ -2,6 +2,7 @@
 
 import { Nav } from "@/components/Nav";
 import { Hero } from "@/components/Hero";
+import { AgentDolphinHome } from "@/components/AgentDolphinHome";
 import { Technology } from "@/components/Technology";
 import { TrustStrip } from "@/components/TrustStrip";
 import { PopularServices } from "@/components/PopularServices";
@@ -25,6 +26,7 @@ export default function Home() {
     <main>
       <Nav />
       <Hero />
+      <AgentDolphinHome />
       <Technology />
       <Capabilities />
       <PopularServices />

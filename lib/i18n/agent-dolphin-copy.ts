@@ -9,6 +9,9 @@ export type AgentDolphinCopy = {
   ctaPrimary: string;
   ctaSecondary: string;
   trustLine: string;
+  heroAgentName: string;
+  heroJustNow: string;
+  heroCards: [string, string, string];
   compareEyebrow: string;
   compareTitle: string;
   compareSupport: string;
@@ -24,6 +27,13 @@ export type AgentDolphinCopy = {
   howTitle: string;
   howSupport: string;
   howSteps: { title: string; body: string }[];
+  embedMock: {
+    url: string;
+    agentName: string;
+    userMsg: string;
+    agentLines: [string, string, string];
+    inputPlaceholder: string;
+  };
   faqEyebrow: string;
   faqTitle: string;
   faqItems: { q: string; a: string }[];
@@ -44,6 +54,13 @@ const vi: AgentDolphinCopy = {
   ctaPrimary: "Trao đổi triển khai",
   ctaSecondary: "Xem AI Agent khác",
   trustLine: "LLM · Business context · Client context · Giọng điệu thương hiệu",
+  heroAgentName: "Agent Dolphin",
+  heroJustNow: "bây giờ",
+  heroCards: [
+    "Chào anh/chị! Em kiểm tra đơn #123456 — đang đóng gói, dự kiến giao ngày mai ạ.",
+    "Anh/chị muốn đổi size M navy không? Còn hàng và giữ được đến 18h hôm nay.",
+    "Em đã ghi địa chỉ Quận 1. Có gì cần thêm cứ nhắn — em hỗ trợ liền.",
+  ],
   compareEyebrow: "Khác biệt",
   compareTitle: "Chatbox truyền thống vs [[Agent Dolphin]]",
   compareSupport:
@@ -101,6 +118,17 @@ const vi: AgentDolphinCopy = {
       body: "Xem hội thoại thật, chỉnh prompt/context theo chỗ khách hay hỏi — agent càng dùng càng khớp.",
     },
   ],
+  embedMock: {
+    url: "yourstore.com",
+    agentName: "Agent Dolphin",
+    userMsg: "Đơn #123456 giao khi nào?",
+    agentLines: [
+      "Đang đóng gói",
+      "Giao ngày mai",
+      "Giữ size M nếu cần đổi",
+    ],
+    inputPlaceholder: "Nhập tin nhắn…",
+  },
   faqEyebrow: "FAQ",
   faqTitle: "Câu hỏi thường gặp",
   faqItems: [
@@ -139,6 +167,13 @@ const en: AgentDolphinCopy = {
   ctaPrimary: "Talk implementation",
   ctaSecondary: "See other AI agents",
   trustLine: "LLM · Business context · Client context · Brand voice",
+  heroAgentName: "Agent Dolphin",
+  heroJustNow: "now",
+  heroCards: [
+    "Hi! I checked order #123456 — packing now, delivery expected tomorrow.",
+    "Want to switch to size M navy? It’s in stock and I can hold it until 6pm.",
+    "Got your District 1 address. Anything else — just message me anytime.",
+  ],
   compareEyebrow: "Difference",
   compareTitle: "Traditional chatbox vs [[Agent Dolphin]]",
   compareSupport:
@@ -196,6 +231,17 @@ const en: AgentDolphinCopy = {
       body: "Review real chats, tune prompts/context where guests get stuck — better with use.",
     },
   ],
+  embedMock: {
+    url: "yourstore.com",
+    agentName: "Agent Dolphin",
+    userMsg: "When does order #123456 arrive?",
+    agentLines: [
+      "Packing now",
+      "Delivery tomorrow",
+      "Hold size M if you swap",
+    ],
+    inputPlaceholder: "Type a message…",
+  },
   faqEyebrow: "FAQ",
   faqTitle: "Common questions",
   faqItems: [
@@ -234,6 +280,13 @@ const ja: AgentDolphinCopy = {
   ctaPrimary: "導入を相談",
   ctaSecondary: "他の AI Agent を見る",
   trustLine: "LLM · 業務コンテキスト · 顧客コンテキスト · ブランドトーン",
+  heroAgentName: "Agent Dolphin",
+  heroJustNow: "たった今",
+  heroCards: [
+    "こんにちは！注文 #123456 を確認しました — 梱包中で、明日のお届け予定です。",
+    "ネイビーのMに変更しますか？在庫あり、本日18時までお取り置きできます。",
+    "1区のご住所を控えました。ほかに必要ならすぐサポートします。",
+  ],
   compareEyebrow: "違い",
   compareTitle: "従来チャット vs [[Agent Dolphin]]",
   compareSupport:
@@ -291,6 +344,17 @@ const ja: AgentDolphinCopy = {
       body: "実会話を見てプロンプト/知識を調整 — 使うほどフィット。",
     },
   ],
+  embedMock: {
+    url: "yourstore.com",
+    agentName: "Agent Dolphin",
+    userMsg: "注文 #123456 はいつ届きますか？",
+    agentLines: [
+      "梱包中です",
+      "明日のお届け",
+      "サイズMをお取り置き可",
+    ],
+    inputPlaceholder: "メッセージを入力…",
+  },
   faqEyebrow: "FAQ",
   faqTitle: "よくある質問",
   faqItems: [
@@ -329,6 +393,13 @@ const de: AgentDolphinCopy = {
   ctaPrimary: "Umsetzung besprechen",
   ctaSecondary: "Andere AI Agents",
   trustLine: "LLM · Business-Kontext · Kundenkontext · Markenstimme",
+  heroAgentName: "Agent Dolphin",
+  heroJustNow: "jetzt",
+  heroCards: [
+    "Hallo! Bestellung #123456 geprüft — wird gepackt, Lieferung morgen erwartet.",
+    "Auf Größe M Navy wechseln? Auf Lager — ich halte sie bis 18 Uhr.",
+    "Adresse in District 1 notiert. Noch Fragen — einfach schreiben.",
+  ],
   compareEyebrow: "Unterschied",
   compareTitle: "Klassische Chatbox vs [[Agent Dolphin]]",
   compareSupport:
@@ -386,6 +457,17 @@ const de: AgentDolphinCopy = {
       body: "Echte Chats prüfen, Prompts/Kontext nachschärfen.",
     },
   ],
+  embedMock: {
+    url: "yourstore.com",
+    agentName: "Agent Dolphin",
+    userMsg: "Wann kommt Bestellung #123456?",
+    agentLines: [
+      "Wird gepackt",
+      "Lieferung morgen",
+      "Größe M reservierbar",
+    ],
+    inputPlaceholder: "Nachricht eingeben…",
+  },
   faqEyebrow: "FAQ",
   faqTitle: "Häufige Fragen",
   faqItems: [
@@ -424,6 +506,13 @@ const zh: AgentDolphinCopy = {
   ctaPrimary: "咨询落地",
   ctaSecondary: "查看其他 AI Agent",
   trustLine: "LLM · 业务上下文 · 客户上下文 · 品牌语气",
+  heroAgentName: "Agent Dolphin",
+  heroJustNow: "刚刚",
+  heroCards: [
+    "您好！已查订单 #123456 — 正在打包，预计明天送达。",
+    "要换成海军蓝 M 码吗？有货，可留至今晚 18:00。",
+    "已记下 1 区地址。还有需要随时找我。",
+  ],
   compareEyebrow: "区别",
   compareTitle: "传统聊天框 vs [[Agent Dolphin]]",
   compareSupport: "同在网站一角 — 一边生硬回复，一边理解业务与情绪。",
@@ -479,6 +568,17 @@ const zh: AgentDolphinCopy = {
       body: "看真实对话，按卡点调整提示词/知识 — 越用越贴。",
     },
   ],
+  embedMock: {
+    url: "yourstore.com",
+    agentName: "Agent Dolphin",
+    userMsg: "订单 #123456 什么时候到？",
+    agentLines: [
+      "正在打包",
+      "预计明天送达",
+      "可预留 M 码",
+    ],
+    inputPlaceholder: "输入消息…",
+  },
   faqEyebrow: "FAQ",
   faqTitle: "常见问题",
   faqItems: [
@@ -516,4 +616,143 @@ export const agentDolphinByLocale: Record<Locale, AgentDolphinCopy> = {
 
 export function getAgentDolphinCopy(locale: Locale): AgentDolphinCopy {
   return agentDolphinByLocale[locale] ?? agentDolphinByLocale.en;
+}
+
+/** Homepage teaser (chat-style demo under Hero). */
+export type AgentDolphinHomeCopy = {
+  eyebrow: string;
+  title: string;
+  support: string;
+  cta: string;
+  agentName: string;
+  online: string;
+  messages: { role: "user" | "assistant"; text: string }[];
+  inputPlaceholder: string;
+};
+
+const homeVi: AgentDolphinHomeCopy = {
+  eyebrow: "Agent Dolphin",
+  title: "Support trên site như [[nhân viên]] — không chatbot cứng",
+  support:
+    "LLM + context nghiệp vụ + context khách. Trả lời đúng việc, đúng người, đúng giọng thương hiệu.",
+  cta: "Xem Agent Dolphin",
+  agentName: "Agent Dolphin",
+  online: "Đang trực tuyến",
+  messages: [
+    { role: "user", text: "Còn size M màu navy không ạ?" },
+    {
+      role: "assistant",
+      text: "Còn ạ — size M navy đang sẵn. Anh/chị muốn giao trong ngày hay lấy tại cửa?",
+    },
+    { role: "user", text: "Giao trong ngày được không, mình ở Quận 1" },
+    {
+      role: "assistant",
+      text: "Quận 1 giao trong ngày đến 18h. Em giữ size M navy giúp — gửi địa chỉ giúp em nhé?",
+    },
+  ],
+  inputPlaceholder: "Nhập tin nhắn…",
+};
+
+const homeEn: AgentDolphinHomeCopy = {
+  eyebrow: "Agent Dolphin",
+  title: "On-site support like a [[teammate]] — not a stiff chatbot",
+  support:
+    "LLM + business context + visitor context. Replies that fit the task, the person, and your brand voice.",
+  cta: "Explore Agent Dolphin",
+  agentName: "Agent Dolphin",
+  online: "Online now",
+  messages: [
+    { role: "user", text: "Do you still have size M in navy?" },
+    {
+      role: "assistant",
+      text: "Yes — size M navy is in stock. Same-day delivery or pickup at the store?",
+    },
+    { role: "user", text: "Same-day works — I'm in District 1" },
+    {
+      role: "assistant",
+      text: "District 1 same-day until 6pm. I'll hold size M navy — share your address and I'll arrange it?",
+    },
+  ],
+  inputPlaceholder: "Type a message…",
+};
+
+const homeJa: AgentDolphinHomeCopy = {
+  eyebrow: "Agent Dolphin",
+  title: "サイト上のサポートを[[スタッフ]]のように — 硬いチャットボットではない",
+  support:
+    "LLM + 業務コンテキスト + 来訪者コンテキスト。用件・相手・ブランドの声に合う返答。",
+  cta: "Agent Dolphinを見る",
+  agentName: "Agent Dolphin",
+  online: "オンライン",
+  messages: [
+    { role: "user", text: "ネイビーのMサイズはまだありますか？" },
+    {
+      role: "assistant",
+      text: "はい、ネイビーのMは在庫があります。当日配送と店舗受取、どちらがよいですか？",
+    },
+    { role: "user", text: "当日配送で、1区にいます" },
+    {
+      role: "assistant",
+      text: "1区は18時まで当日配送できます。ネイビーのMをお取り置きしますので、ご住所を教えてください。",
+    },
+  ],
+  inputPlaceholder: "メッセージを入力…",
+};
+
+const homeDe: AgentDolphinHomeCopy = {
+  eyebrow: "Agent Dolphin",
+  title: "Support auf der Site wie ein [[Mitarbeiter]] — kein steifer Chatbot",
+  support:
+    "LLM + Business-Kontext + Besucher-Kontext. Antworten passend zu Aufgabe, Person und Markenton.",
+  cta: "Agent Dolphin ansehen",
+  agentName: "Agent Dolphin",
+  online: "Online",
+  messages: [
+    { role: "user", text: "Haben Sie Größe M in Navy noch?" },
+    {
+      role: "assistant",
+      text: "Ja — Größe M Navy ist verfügbar. Lieferung am selben Tag oder Abholung im Store?",
+    },
+    { role: "user", text: "Gleicher Tag bitte — ich bin in District 1" },
+    {
+      role: "assistant",
+      text: "District 1: Same-Day bis 18 Uhr. Ich halte Größe M Navy — Adresse schicken, dann richte ich es ein?",
+    },
+  ],
+  inputPlaceholder: "Nachricht eingeben…",
+};
+
+const homeZh: AgentDolphinHomeCopy = {
+  eyebrow: "Agent Dolphin",
+  title: "站点支持像[[员工]]一样 — 不是生硬聊天机器人",
+  support:
+    "LLM + 业务上下文 + 访客上下文。回复贴合事项、对象与品牌语气。",
+  cta: "了解 Agent Dolphin",
+  agentName: "Agent Dolphin",
+  online: "在线",
+  messages: [
+    { role: "user", text: "还有海军蓝 M 码吗？" },
+    {
+      role: "assistant",
+      text: "有的——海军蓝 M 码有货。当天配送还是门店自取？",
+    },
+    { role: "user", text: "当天配送，我在 1 区" },
+    {
+      role: "assistant",
+      text: "1 区当天配送截止 18:00。我帮您留海军蓝 M 码——发一下地址，我来安排？",
+    },
+  ],
+  inputPlaceholder: "输入消息…",
+};
+
+export const agentDolphinHomeByLocale: Record<Locale, AgentDolphinHomeCopy> = {
+  vi: homeVi,
+  en: homeEn,
+  ja: homeJa,
+  de: homeDe,
+  zh: homeZh,
+};
+
+export function getAgentDolphinHomeCopy(locale: Locale): AgentDolphinHomeCopy {
+  return agentDolphinHomeByLocale[locale] ?? agentDolphinHomeByLocale.en;
 }

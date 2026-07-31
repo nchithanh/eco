@@ -27,18 +27,29 @@ describe("Dolphin Software homepage", () => {
     ).toBeGreaterThanOrEqual(1);
   });
 
-  it("renders capabilities right after hero", () => {
+  it("renders agent dolphin chat teaser right after hero", () => {
     renderHome();
     const top = document.getElementById("top");
+    const agentDolphin = document.getElementById("agent-dolphin");
+    const technology = document.getElementById("technology");
     const capabilities = document.getElementById("capabilities");
     const aiEdge = document.getElementById("ai-edge");
     expect(top).toBeTruthy();
+    expect(agentDolphin).toBeTruthy();
+    expect(technology).toBeTruthy();
     expect(capabilities).toBeTruthy();
     expect(aiEdge).toBeTruthy();
     expect(
-      top!.compareDocumentPosition(capabilities!) &
+      top!.compareDocumentPosition(agentDolphin!) &
         Node.DOCUMENT_POSITION_FOLLOWING,
     ).toBeTruthy();
+    expect(
+      agentDolphin!.compareDocumentPosition(technology!) &
+        Node.DOCUMENT_POSITION_FOLLOWING,
+    ).toBeTruthy();
+    expect(
+      within(agentDolphin!).getByRole("link", { name: /Agent Dolphinを見る/i }),
+    ).toHaveAttribute("href", expect.stringMatching(/\/agent-dolphin\/?$/));
     expect(
       capabilities!.compareDocumentPosition(aiEdge!) &
         Node.DOCUMENT_POSITION_FOLLOWING,

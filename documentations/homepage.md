@@ -10,23 +10,24 @@ UX flow: **website / delivery first**, then **AI layer**, then **trust & contact
 | --- | --- | --- | --- | --- |
 | — | — | Nav (+ announcement) | `Nav`, `AnnouncementBar` | |
 | 1 | Web | Hero | `Hero` | `#top` — web-first copy; secondary CTA → `#capabilities` |
-| 2 | AI | Technology (globe) | `Technology` | `#technology` — animated globe + AI transform CTA |
-| 3 | Web | Capabilities | `Capabilities` | `#capabilities` — service grid |
-| 4 | Web | Popular services | `PopularServices` | `#popular-services` — package comparison table |
-| 5 | Web | Works | `WorksShowcase` | `#works` — portfolio / case studies |
-| 6 | Web | Outcomes | `SiteOutcomes` | `#outcomes` |
-| 7 | Web | Process | `Process` | `#process` |
-| 8 | Web | Deliverables | `WhatYouGet` | `#what-you-get` |
-| 9 | Web | Ops lifecycle | `OpsLifecycle` | `#ops` |
-| 10 | Web | Handover | `TrustStrip` | `#handover` |
-| 11 | Web | Tech stack | `TechStack` | `#stack` |
-| 12 | AI | AI edge | `AiEdge` | `#ai-edge` |
-| 13 | Trust | Why us | `WhyKuct` | `#why` |
-| 14 | Trust | Co-founder | `CoFounder` | `#cofounder` |
-| 15 | Trust | Notes | `HomeNews` | `#news` |
-| 16 | Trust | FAQ | `Faq` | `#faq` |
-| 17 | Trust | Contact | `ContactForm` | `#contact` |
-| 18 | — | Footer | `Footer` | |
+| 2 | AI | Agent Dolphin | `AgentDolphinHome` | `#agent-dolphin` — chat-style teaser → `/agent-dolphin/` |
+| 3 | AI | Technology (globe) | `Technology` | `#technology` — animated globe + AI transform CTA |
+| 4 | Web | Capabilities | `Capabilities` | `#capabilities` — service grid |
+| 5 | Web | Popular services | `PopularServices` | `#popular-services` — package comparison table |
+| 6 | Web | Works | `WorksShowcase` | `#works` — portfolio / case studies |
+| 7 | Web | Outcomes | `SiteOutcomes` | `#outcomes` |
+| 8 | Web | Process | `Process` | `#process` |
+| 9 | Web | Deliverables | `WhatYouGet` | `#what-you-get` |
+| 10 | Web | Ops lifecycle | `OpsLifecycle` | `#ops` |
+| 11 | Web | Handover | `TrustStrip` | `#handover` |
+| 12 | Web | Tech stack | `TechStack` | `#stack` |
+| 13 | AI | AI edge | `AiEdge` | `#ai-edge` |
+| 14 | Trust | Why us | `WhyKuct` | `#why` |
+| 15 | Trust | Co-founder | `CoFounder` | `#cofounder` |
+| 16 | Trust | Notes | `HomeNews` | `#news` |
+| 17 | Trust | FAQ | `Faq` | `#faq` |
+| 18 | Trust | Contact | `ContactForm` | `#contact` |
+| 19 | — | Footer | `Footer` | |
 
 `UiGallery` / `#ui-gallery` is **not** on the homepage (component + copy remain in repo if reused later).
 
@@ -38,4 +39,4 @@ UX flow: **website / delivery first**, then **AI layer**, then **trust & contact
 
 ## Copy source
 
-Most homepage strings: `lib/i18n/dictionaries.ts` (+ `popular-services-copy.ts`, `ai-edge-copy.ts`, `faq-copy.ts`, `news-copy.ts`).
+Most homepage strings: `lib/i18n/dictionaries.ts` (+ `popular-services-copy.ts`, `ai-edge-copy.ts`, `agent-dolphin-copy.ts` home teaser, `faq-copy.ts`, `news-copy.ts`).

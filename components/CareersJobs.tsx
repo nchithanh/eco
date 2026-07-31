@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { BrandText } from "@/components/BrandName";
+import { Reveal } from "@/components/Reveal";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
 import type { JobId } from "@/lib/careers-schema";
 import {
@@ -94,16 +95,18 @@ export function CareersJobs({ onApply }: Props) {
       className="scroll-mt-20 border-b border-[var(--kuct-border)] py-24"
     >
       <div className="mx-auto max-w-6xl px-6">
-        <p className="text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
-          {c.roles.eyebrow}
-        </p>
-        <h2 className="mt-3 font-display text-3xl font-semibold sm:text-4xl">
-          {c.roles.title}
-        </h2>
-        <p className="mt-3 max-w-xl text-[var(--kuct-muted)]">{c.roles.support}</p>
+        <Reveal>
+          <p className="text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
+            {c.roles.eyebrow}
+          </p>
+          <h2 className="mt-3 font-display text-3xl font-semibold sm:text-4xl">
+            {c.roles.title}
+          </h2>
+          <p className="mt-3 max-w-xl text-[var(--kuct-muted)]">{c.roles.support}</p>
+        </Reveal>
 
         <ul className="mt-12 grid gap-6 md:grid-cols-2">
-          {jobs.map((job) => {
+          {jobs.map((job, index) => {
             const closedByPolicy = JOB_HIRING[job.id].kind === "closed";
             const accepting = closedByPolicy
               ? false
@@ -114,8 +117,10 @@ export function CareersJobs({ onApply }: Props) {
             const closed = !accepting;
 
             return (
-              <li
+              <Reveal
                 key={job.id}
+                as="li"
+                delay={40 + (index % 2) * 40}
                 className={
                   job.priority && !closed
                     ? "kuct-card-hover relative flex flex-col rounded-2xl border-2 border-rose-400/70 bg-gradient-to-br from-[rgba(80,12,32,0.82)] via-[rgba(34,16,40,0.78)] to-[rgba(26,18,42,0.72)] p-6 shadow-[0_14px_36px_rgba(244,63,94,0.18)] backdrop-blur-md hover:border-rose-400/85 hover:shadow-[0_20px_44px_rgba(244,63,94,0.24)]"
@@ -175,7 +180,7 @@ export function CareersJobs({ onApply }: Props) {
                 >
                   {closed ? c.hiring.closed : c.applyCta}
                 </button>
-              </li>
+              </Reveal>
             );
           })}
         </ul>

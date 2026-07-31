@@ -9,6 +9,7 @@ import {
   type JobId,
 } from "@/lib/careers-schema";
 import { BrandText } from "@/components/BrandName";
+import { Reveal } from "@/components/Reveal";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
 import { isJobAcceptingApplications, JOB_HIRING, sortJobsByDisplayOrder } from "@/lib/careers-jobs";
 
@@ -86,20 +87,23 @@ function CareersApplyFormInner({ initialRole }: Props) {
   return (
     <section id="apply" className="scroll-mt-20 py-24">
       <div className="mx-auto max-w-6xl px-6">
-        <p className="text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
-          {a.eyebrow}
-        </p>
-        <h2 className="mt-3 font-display text-3xl font-semibold sm:text-4xl">
-          {a.title}
-        </h2>
-        <p className="mt-3 max-w-xl text-[var(--kuct-muted)]">
-          <BrandText size="sm">{a.support}</BrandText>
-        </p>
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          className="mt-10 max-w-xl space-y-5"
-          noValidate
-        >
+        <Reveal>
+          <p className="text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
+            {a.eyebrow}
+          </p>
+          <h2 className="mt-3 font-display text-3xl font-semibold sm:text-4xl">
+            {a.title}
+          </h2>
+          <p className="mt-3 max-w-xl text-[var(--kuct-muted)]">
+            <BrandText size="sm">{a.support}</BrandText>
+          </p>
+        </Reveal>
+        <Reveal delay={60}>
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="mt-10 max-w-xl space-y-5"
+            noValidate
+          >
           <div>
             <label
               htmlFor="careers-name"
@@ -204,7 +208,8 @@ function CareersApplyFormInner({ initialRole }: Props) {
           {sent && (
             <p className="text-sm text-[var(--kuct-accent)]">{a.sent}</p>
           )}
-        </form>
+          </form>
+        </Reveal>
       </div>
     </section>
   );
