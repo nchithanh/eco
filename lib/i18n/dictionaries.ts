@@ -18,6 +18,12 @@ const vi: Dictionary = {
     openMenu: "Mở menu",
     closeMenu: "Đóng menu",
     services: "Dịch vụ",
+    web: "Làm website",
+    serviceWeb: "Thiết kế website",
+    serviceLanding: "Landing page",
+    serviceMobile: "App mobile",
+    serviceBackend: "Backend & tích hợp",
+    serviceDesign: "UI/UX",
     process: "Quy trình",
     stack: "Công nghệ",
     news: newsNavLabel.vi,
@@ -39,7 +45,7 @@ const vi: Dictionary = {
     aiPill: "Có thể gắn AI",
     headline: "Website & web app [[chuyên nghiệp]] — scope rõ, ship được",
     support:
-      "Chúng tôi làm website, landing và web app là chính. Khi cần, gắn thêm chat, automation hoặc agent — không bắt đầu từ demo AI.",
+      "Chúng tôi làm website, landing và web app là chính. Khi cần, gắn thêm chat, automation hoặc agent.",
     trustLine: "Web & app là nền · Phạm vi rõ · AI khi bạn cần",
     ctaPrimary: "Nhận báo giá",
     ctaSecondary: "Xem gói dịch vụ",
@@ -83,7 +89,7 @@ const vi: Dictionary = {
       {
         id: "web",
         category: "Website",
-        title: "Phát triển website theo yêu cầu",
+        title: "Thiết kế & làm website theo yêu cầu",
         body: "Landing, corporate hay CMS giúp khách hiểu và hành động — form/CTA rõ, SEO on-page, responsive; cấu trúc sẵn để mở rộng sau.",
         tags: ["Next.js", "React", "CMS"],
       },
@@ -235,7 +241,7 @@ const vi: Dictionary = {
     chips: ["Slack", "Jira", "Docs"],
   },
   works: {
-    eyebrow: "Dự án đã ship",
+    eyebrow: "Sites shipped",
     title: "Website personal & [[business nhỏ]] đã làm",
     support:
       "Mỗi case: bài toán → phạm vi → kết quả đo được — không chỉ ảnh đẹp.",
@@ -401,7 +407,7 @@ const vi: Dictionary = {
   },
   cofounder: {
     eyebrow: "Đội ngũ",
-    role: "Co-founder",
+    role: "Nhà sáng lập",
     name: "Nguyễn Chí Thành",
     description:
       "7 năm product & systems — production ops, incident response, observability. Đưa kinh nghiệm vận hành thật vào web & app SMB: thẳng thắn, phạm vi rõ.",
@@ -499,6 +505,12 @@ const en: Dictionary = {
     openMenu: "Open menu",
     closeMenu: "Close menu",
     services: "Services",
+    web: "Websites",
+    serviceWeb: "Website design",
+    serviceLanding: "Landing page",
+    serviceMobile: "Mobile app",
+    serviceBackend: "Backend & integrations",
+    serviceDesign: "UI/UX",
     process: "Process",
     stack: "Tech",
     news: newsNavLabel.en,
@@ -520,7 +532,7 @@ const en: Dictionary = {
     aiPill: "AI-ready",
     headline: "Professional [[websites]] & web apps — clear scope, shipped right",
     support:
-      "We build websites, landing pages, and web apps first. Add chat, automation, or agents when it helps — not AI demos upfront.",
+      "We build websites, landing pages, and web apps first. Add chat, automation, or agents when it helps.",
     trustLine: "Web & apps first · Clear scope · AI when you need it",
     ctaPrimary: "Get a quote",
     ctaSecondary: "View service packages",
@@ -564,7 +576,7 @@ const en: Dictionary = {
       {
         id: "web",
         category: "Website",
-        title: "Custom website development",
+        title: "Website design & development",
         body: "Landings, corporate, or CMS that help visitors understand and act — clear forms/CTAs, on-page SEO, responsive; structured to extend later.",
         tags: ["Next.js", "React", "CMS"],
       },
@@ -882,7 +894,7 @@ const en: Dictionary = {
   },
   cofounder: {
     eyebrow: "Team",
-    role: "Co-founder",
+    role: "Founder",
     name: "Nguyễn Chí Thành",
     description:
       "7 years in product & systems — production ops, incident response, observability. Real ops experience for SMB web & apps: straight talk, clear scope.",
@@ -980,6 +992,12 @@ const de: Dictionary = {
     openMenu: "Menü öffnen",
     closeMenu: "Menü schließen",
     services: "Leistungen",
+    web: "Websites",
+    serviceWeb: "Website-Design",
+    serviceLanding: "Landingpage",
+    serviceMobile: "Mobile App",
+    serviceBackend: "Backend & Integrationen",
+    serviceDesign: "UI/UX",
     process: "Ablauf",
     stack: "Technik",
     news: newsNavLabel.de,
@@ -1001,7 +1019,7 @@ const de: Dictionary = {
     aiPill: "AI-fähig",
     headline: "Professionelle [[Websites]] & Web-Apps — klarer Scope, sauber geliefert",
     support:
-      "Wir bauen zuerst Websites, Landing Pages und Web-Apps. Chat, Automation oder Agents bei Bedarf — nicht mit AI-Demos starten.",
+      "Wir bauen zuerst Websites, Landing Pages und Web-Apps. Chat, Automation oder Agents bei Bedarf.",
     trustLine: "Web & Apps zuerst · Klarer Scope · AI bei Bedarf",
     ctaPrimary: "Angebot anfordern",
     ctaSecondary: "Service-Pakete ansehen",
@@ -1045,7 +1063,7 @@ const de: Dictionary = {
       {
         id: "web",
         category: "Website",
-        title: "Individuelle Website-Entwicklung",
+        title: "Website-Design & Entwicklung",
         body: "Landings, Corporate oder CMS, die Besucher verstehen und handeln lassen — klare Formulare/CTAs, On-Page-SEO, responsive; erweiterbar gebaut.",
         tags: ["Next.js", "React", "CMS"],
       },
@@ -1363,7 +1381,7 @@ const de: Dictionary = {
   },
   cofounder: {
     eyebrow: "Team",
-    role: "Co-founder",
+    role: "Founder",
     name: "Nguyễn Chí Thành",
     description:
       "7 Jahre Product & Systems — Production-Ops, Incident Response, Observability. Echte Ops-Erfahrung für SMB Web & Apps: klar, fair im Scope.",
@@ -1461,6 +1479,12 @@ const ja: Dictionary = {
     openMenu: "メニューを開く",
     closeMenu: "メニューを閉じる",
     services: "サービス",
+    web: "Web制作",
+    serviceWeb: "Webサイト制作",
+    serviceLanding: "ランディングページ",
+    serviceMobile: "モバイルアプリ",
+    serviceBackend: "Backend & 連携",
+    serviceDesign: "UI/UX",
     process: "プロセス",
     stack: "技術",
     news: newsNavLabel.ja,
@@ -1482,7 +1506,7 @@ const ja: Dictionary = {
     aiPill: "AI対応可",
     headline: "[[プロ仕様]]のWebsite & Webアプリ — 明確なスコープで届ける",
     support:
-      "Website・LP・Webアプリが中心です。必要ならチャット、自動化、エージェントを追加 — AIデモから始めません。",
+      "Website・LP・Webアプリが中心です。必要ならチャット、自動化、エージェントを追加します。",
     trustLine: "Web & Appが本体 · 明確なスコープ · 必要ならAI連携",
     ctaPrimary: "見積もりを依頼",
     ctaSecondary: "サービスパッケージを見る",
@@ -1526,7 +1550,7 @@ const ja: Dictionary = {
       {
         id: "web",
         category: "Website",
-        title: "オーダーメイドWebサイト開発",
+        title: "Webサイト制作・デザイン",
         body: "訪問者が理解し行動できるLP・コーポレート・CMS — 明確なフォーム/CTA、オンページSEO、レスポンシブ。後から拡張しやすい構造。",
         tags: ["Next.js", "React", "CMS"],
       },
@@ -1844,7 +1868,7 @@ const ja: Dictionary = {
   },
   cofounder: {
     eyebrow: "チーム",
-    role: "Co-founder",
+    role: "Founder",
     name: "Nguyễn Chí Thành",
     description:
       "7年のプロダクト＆システム — production ops、障害対応、Observability。SMB向けWeb/Appに実運用経験を：率直、スコープ明確。",
@@ -1942,6 +1966,12 @@ const zh: Dictionary = {
     openMenu: "打开菜单",
     closeMenu: "关闭菜单",
     services: "服务",
+    web: "做网站",
+    serviceWeb: "网站设计",
+    serviceLanding: "落地页",
+    serviceMobile: "移动应用",
+    serviceBackend: "后端与集成",
+    serviceDesign: "UI/UX",
     process: "流程",
     stack: "技术",
     news: newsNavLabel.zh,
@@ -1963,7 +1993,7 @@ const zh: Dictionary = {
     aiPill: "可接入 AI",
     headline: "[[专业级]]网站与 Web 应用 — 范围清晰，按时交付",
     support:
-      "我们以网站、落地页与 Web 应用为主。需要时可叠加聊天、自动化或 Agent — 不从 AI 演示起步。",
+      "我们以网站、落地页与 Web 应用为主。需要时可叠加聊天、自动化或 Agent。",
     trustLine: "网站为本 · 范围清晰 · 需要时再加 AI",
     ctaPrimary: "获取报价",
     ctaSecondary: "查看服务套餐",
@@ -2007,7 +2037,7 @@ const zh: Dictionary = {
       {
         id: "web",
         category: "Website",
-        title: "定制网站开发",
+        title: "网站设计与定制开发",
         body: "落地页、企业站或 CMS，帮助访客理解并行动——清晰表单/CTA、站内 SEO、响应式；结构便于日后扩展。",
         tags: ["Next.js", "React", "CMS"],
       },
@@ -2325,7 +2355,7 @@ const zh: Dictionary = {
   },
   cofounder: {
     eyebrow: "团队",
-    role: "Co-founder",
+    role: "Founder",
     name: "Nguyễn Chí Thành",
     description:
       "7 年产品与系统——生产运维、应急响应、可观测性。把真实运维经验带入 SMB 站点与应用：直说、范围清晰。",

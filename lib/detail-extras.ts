@@ -35,20 +35,29 @@ type L<T> = Record<Locale, Record<string, T>>;
 const serviceExtras: L<ServiceExtras> = {
   vi: {
     web: {
-      audience: "SME, startup và đội marketing cần site rõ phạm vi, ra mắt nhanh.",
+      audience:
+        "SME, startup và đội marketing cần làm website / thiết kế web rõ phạm vi, ra mắt nhanh, dễ nhận báo giá.",
       useCases: [
         "Landing campaign / ra mắt sản phẩm",
-        "Corporate site đa trang + blog/CMS",
+        "Website doanh nghiệp & bán hàng + blog/CMS",
         "Site đa ngôn ngữ VI/EN/JA",
       ],
       faq: [
         {
-          q: "Mất bao lâu cho một landing?",
-          a: "Thường 1–3 tuần tùy nội dung và vòng review thiết kế.",
+          q: "Báo giá website tính như thế nào?",
+          a: "Theo phạm vi: số trang, thiết kế mới hay template, CMS, tích hợp form/thanh toán. Gói tham khảo trên trang chủ; báo giá chính xác sau khi nói rõ mục tiêu.",
+        },
+        {
+          q: "Làm website mất bao lâu?",
+          a: "Landing thường 1–3 tuần; corporate / bán hàng vài tuần đến vài tháng tùy nội dung và vòng review.",
         },
         {
           q: "Có kèm CMS không?",
-          a: "Có thể gắn headless CMS (vd. Strapi) để team tự cập nhật.",
+          a: "Có thể gắn headless CMS (vd. Strapi) để team tự cập nhật bài viết và trang.",
+        },
+        {
+          q: "Website có chuẩn SEO không?",
+          a: "Có SEO kỹ thuật cơ bản (title/meta, tốc độ, mobile, sitemap/robots). Content từ khóa và backlink là phần tiếp theo nếu bạn muốn đẩy organic.",
         },
       ],
     },
@@ -167,20 +176,29 @@ const serviceExtras: L<ServiceExtras> = {
   },
   en: {
     web: {
-      audience: "SMEs, startups, and marketing teams who need scoped sites that ship fast.",
+      audience:
+        "SMEs, startups, and marketing teams who need scoped websites that ship fast and are easy to quote.",
       useCases: [
         "Campaign / product launch landing",
-        "Multi-page corporate site + CMS",
+        "Business & commerce site + CMS",
         "Multi-language VI/EN/JA sites",
       ],
       faq: [
         {
-          q: "How long for a landing?",
-          a: "Usually 1–3 weeks depending on content and design reviews.",
+          q: "How is website pricing calculated?",
+          a: "By scope: page count, custom vs template design, CMS, forms/payments. See homepage packages for ranges; exact quote after goals are clear.",
+        },
+        {
+          q: "How long does a website take?",
+          a: "Landings usually 1–3 weeks; multi-page business sites a few weeks to a few months depending on content and reviews.",
         },
         {
           q: "Can we get a CMS?",
-          a: "Yes — headless CMS (e.g. Strapi) so your team can update content.",
+          a: "Yes — headless CMS (e.g. Strapi) so your team can update pages and posts.",
+        },
+        {
+          q: "Is SEO included?",
+          a: "Technical SEO basics (meta, performance, mobile, sitemap/robots). Keyword content and links are a follow-on if you want organic growth.",
         },
       ],
     },
@@ -299,15 +317,29 @@ const serviceExtras: L<ServiceExtras> = {
   },
   ja: {
     web: {
-      audience: "スコープが明確で早く公開したい SME・スタートアップ・マーケチーム向け。",
+      audience: "スコープが明確で早く公開・見積もりしやすい SME・スタートアップ・マーケチーム向け。",
       useCases: [
         "キャンペーン / ローンチ用 LP",
-        "多ページのコーポレート + CMS",
+        "企業・販促サイト + CMS",
         "VI/EN/JA 多言語サイト",
       ],
       faq: [
-        { q: "LP の期間は？", a: "内容とデザインレビュー次第で通常 1〜3 週間。" },
-        { q: "CMS は付けられますか？", a: "ヘッドレス CMS（例: Strapi）で更新可能にできます。" },
+        {
+          q: "料金の決まり方は？",
+          a: "ページ数、デザイン新規/テンプレ、CMS、フォーム/決済などで決まります。ホームのパッケージが目安。目標が固まれば正式見積もりします。",
+        },
+        {
+          q: "制作期間は？",
+          a: "LPは通常1〜3週間。複数ページの企業サイトは内容とレビュー次第で数週間〜数ヶ月。",
+        },
+        {
+          q: "CMSは付けられますか？",
+          a: "ヘッドレスCMS（例: Strapi）で自社更新可能にできます。",
+        },
+        {
+          q: "SEOは含まれますか？",
+          a: "技術SEOの基礎（meta、速度、モバイル、sitemap/robots）。キーワード記事や被リンクは別フェーズです。",
+        },
       ],
     },
     mobile: {
@@ -395,15 +427,30 @@ const serviceExtras: L<ServiceExtras> = {
   },
   de: {
     web: {
-      audience: "KMUs, Startups und Marketing-Teams mit klarem Scope und schnellem Launch.",
+      audience:
+        "KMUs, Startups und Marketing-Teams mit klarem Scope, schnellem Launch und transparentem Angebot.",
       useCases: [
         "Campaign- / Launch-Landing",
-        "Mehrseitige Corporate-Site + CMS",
+        "Business- & Handels-Site + CMS",
         "Mehrsprachige VI/EN/JA-Sites",
       ],
       faq: [
-        { q: "Dauer für ein Landing?", a: "Meist 1–3 Wochen je nach Content und Reviews." },
-        { q: "CMS möglich?", a: "Ja — Headless-CMS (z. B. Strapi) für eigene Updates." },
+        {
+          q: "Wie wird der Website-Preis berechnet?",
+          a: "Nach Scope: Seitenzahl, Custom- vs. Template-Design, CMS, Formulare/Zahlungen. Homepage-Pakete als Orientierung; genaues Angebot nach Zielklärung.",
+        },
+        {
+          q: "Wie lange dauert eine Website?",
+          a: "Landings meist 1–3 Wochen; mehrseitige Business-Sites Wochen bis Monate je nach Content und Reviews.",
+        },
+        {
+          q: "CMS möglich?",
+          a: "Ja — Headless-CMS (z. B. Strapi) für eigene Updates.",
+        },
+        {
+          q: "Ist SEO enthalten?",
+          a: "Technische SEO-Basics (Meta, Performance, Mobile, Sitemap/Robots). Keyword-Content und Links sind ein Folgeschritt.",
+        },
       ],
     },
     mobile: {
@@ -492,20 +539,29 @@ const serviceExtras: L<ServiceExtras> = {
 
   zh: {
     web: {
-      audience: "SMEs, startups, and marketing teams who need scoped sites that ship fast.",
+      audience:
+        "需要范围清晰、上线快、报价明确的网站的中小企业、创业团队与市场部门。",
       useCases: [
-        "Campaign / product launch landing",
-        "Multi-page corporate site + CMS",
-        "Multi-language VI/EN/JA sites",
+        "活动 / 产品发布落地页",
+        "企业与销售站 + CMS",
+        "VI/EN/JA 多语言站点",
       ],
       faq: [
         {
-          q: "How long for a landing?",
-          a: "Usually 1–3 weeks depending on content and design reviews.",
+          q: "网站报价如何计算？",
+          a: "按范围：页数、定制或模板设计、CMS、表单/支付。首页套餐仅供参考；目标明确后给出正式报价。",
         },
         {
-          q: "Can we get a CMS?",
-          a: "Yes — headless CMS (e.g. Strapi) so your team can update content.",
+          q: "做网站要多久？",
+          a: "落地页通常 1–3 周；多页企业站视内容与评审，数周到数月。",
+        },
+        {
+          q: "可以带 CMS 吗？",
+          a: "可以接入无头 CMS（如 Strapi），方便团队自行更新。",
+        },
+        {
+          q: "包含 SEO 吗？",
+          a: "含技术 SEO 基础（meta、性能、移动端、sitemap/robots）。关键词内容与外链属后续阶段。",
         },
       ],
     },

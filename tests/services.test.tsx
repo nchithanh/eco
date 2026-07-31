@@ -38,7 +38,7 @@ describe("service detail pages", () => {
     const section = within(capabilities as HTMLElement);
 
     expect(
-      section.getByRole("link", { name: /Phát triển website theo yêu cầu/i }),
+      section.getByRole("link", { name: /Thiết kế & làm website theo yêu cầu/i }),
     ).toHaveAttribute("href", "/services/web");
     expect(
       section.getByRole("link", { name: /Phát triển mobile app/i }),
@@ -115,7 +115,7 @@ describe("service detail pages", () => {
 
     expect(
       screen.getByRole("heading", {
-        name: /Phát triển website theo yêu cầu/i,
+        name: /Thiết kế & làm website theo yêu cầu/i,
       }),
     ).toBeInTheDocument();
     expect(screen.getByText(/Bạn nhận được gì/i)).toBeInTheDocument();

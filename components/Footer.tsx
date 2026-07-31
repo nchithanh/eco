@@ -15,7 +15,8 @@ export function Footer() {
     {
       label: f.groupExplore,
       links: [
-        { href: `${sectionBase}#capabilities`, label: t.nav.services },
+        { href: assetPath("/services/web/"), label: t.nav.serviceWeb },
+        { href: assetPath("/services/mobile/"), label: t.nav.serviceMobile },
         { href: assetPath("/agent-dolphin/"), label: t.nav.agentDolphin },
         { href: assetPath("/custom-agent/"), label: t.nav.customAgentItem },
         { href: assetPath("/ai-transform/"), label: t.nav.aiTransform },
@@ -24,8 +25,8 @@ export function Footer() {
     {
       label: f.groupStudio,
       links: [
-        { href: `${sectionBase}#process`, label: t.nav.process },
-        { href: `${sectionBase}#stack`, label: t.nav.stack },
+        { href: assetPath("/services/design/"), label: t.nav.serviceDesign },
+        { href: assetPath("/services/backend/"), label: t.nav.serviceBackend },
         { href: assetPath("/about/"), label: t.nav.about },
       ],
     },

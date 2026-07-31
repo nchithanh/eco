@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CustomAgentPage } from "@/components/CustomAgentContent";
+import { JsonLd } from "@/components/JsonLd";
 import { ServiceDetailView } from "@/components/ServiceDetailView";
 import {
   SERVICE_SLUGS,
@@ -8,7 +9,13 @@ import {
   isServiceSlug,
 } from "@/lib/i18n/service-details";
 import { getCustomAgentCopy } from "@/lib/i18n/custom-agent-copy";
-import { buildPageMetadata, SEO_LOCALE } from "@/lib/seo";
+import { getServiceExtras } from "@/lib/detail-extras";
+import {
+  buildPageMetadata,
+  faqPageJsonLd,
+  SEO_LOCALE,
+  serviceJsonLd,
+} from "@/lib/seo";
 
 export function generateStaticParams() {
   return SERVICE_SLUGS.map((slug) => ({ slug }));
@@ -38,13 +45,20 @@ export async function generateMetadata({
     };
   }
 
-  const detail = getServiceDetail(SEO_LOCALE, slug);
+  // Web is ICP #1 (VI keywords) — bake VI meta for Google even if UI default locale is JA.
+  const metaLocale = slug === "web" ? "vi" : SEO_LOCALE;
+  const detail = getServiceDetail(metaLocale, slug);
   const path = `/services/${slug}/`;
-  return buildPageMetadata({
-    title: detail.title,
-    description: detail.intro,
-    path,
-  });
+  const title = detail.metaTitle ?? detail.title;
+  const description = detail.metaDescription ?? detail.intro;
+  return {
+    ...buildPageMetadata({
+      title,
+      description,
+      path,
+    }),
+    ...(detail.metaTitle ? { title: { absolute: detail.metaTitle } } : {}),
+  };
 }
 
 export default async function ServicePage({
@@ -61,5 +75,24 @@ export default async function ServicePage({
     return <CustomAgentPage />;
   }
 
-  return <ServiceDetailView slug={slug} />;
+  const metaLocale = slug === "web" ? "vi" : SEO_LOCALE;
+  const detail = getServiceDetail(metaLocale, slug);
+  const extras = getServiceExtras(metaLocale, slug);
+  const path = `/services/${slug}/`;
+
+  return (
+    <>
+      <JsonLd
+        data={[
+          serviceJsonLd({
+            name: detail.title,
+            description: detail.metaDescription ?? detail.intro,
+            path,
+          }),
+          faqPageJsonLd(extras.faq),
+        ]}
+      />
+      <ServiceDetailView slug={slug} />
+    </>
+  );
 }

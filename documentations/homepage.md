@@ -23,7 +23,7 @@ UX flow: **website / delivery first**, then **AI layer**, then **trust & contact
 | 12 | Web | Tech stack | `TechStack` | `#stack` |
 | 13 | AI | AI edge | `AiEdge` | `#ai-edge` |
 | 14 | Trust | Why us | `WhyKuct` | `#why` |
-| 15 | Trust | Co-founder | `CoFounder` | `#cofounder` |
+| 15 | Trust | Nhà sáng lập | `CoFounder` | `#cofounder` — role label “Nhà sáng lập” / Founder |
 | 16 | Trust | Notes | `HomeNews` | `#news` |
 | 17 | Trust | FAQ | `Faq` | `#faq` |
 | 18 | Trust | Contact | `ContactForm` | `#contact` |

@@ -2,6 +2,10 @@
 
 ## 2026-07-31
 
+- Nav: **Dịch vụ** dropdown (thiết kế website, landing, app, backend, UI/UX); removed Process/Tech; `/services/web/` adds pricing table + Sites shipped; cofounder role → **Nhà sáng lập** / Founder.
+- **Web SEO landing:** `/services/web/` — VI meta title/description, expanded FAQ + Service/FAQ JSON-LD; nav/footer **Làm website** → `/services/web/` (was only `#capabilities`); CTA “Xem gói giá” → `#popular-services`.
+- SEO keyword sheet: `seo-keywords.md` (P1 web / P2 ngành / P3 AI, ~55 cụm + gợi ý bài 4 tuần); linked from growth §4 & §12 B (keyword sheet done).
+- Growth plan checklist followable: `growth-reach-users.md` §12 (A→G) — web-first; GSC/CF done; next = Zalo/FB posts + 1 bài `/news/`.
 - **SEO (P0/P1):** `public/robots.txt` + `public/sitemap.xml` (69 URLs); per-route metadata + correct canonicals; `public/og-default.png`; JSON-LD Organization/WebSite (+ Service/FAQ on agent pages); `/services/custom-agent/` noindex → prefer `/custom-agent/`. Helpers in `lib/seo.ts`.
 - Detail pages: add desktop-only Reveal scroll motion (custom-agent, ai-transform, works/tech/more/news details, careers).
 - `/agent-dolphin` how-section: `embed.jpg` → CSS browser + chat widget mock (`EmbedSiteMock`); copy `embedMock` in `agent-dolphin-copy.ts`.

@@ -99,7 +99,7 @@ const vi: AboutCopy = {
   ],
   founderEyebrow: "Đội ngũ",
   founderTitle: "Người đứng sau studio",
-  founderRole: "Co-founder · Product Backend / Tech Lead",
+  founderRole: "Nhà sáng lập · Product Backend / Tech Lead",
   founderName: "Nguyễn Chí Thành",
   founderBody:
     "5+ năm backend trên sản phẩm live (Marathon, Myspa, Splus). Dẫn team, xử lý incident, thiết kế hệ thống — mang tư duy production vào từng dự án Dolphin Software.",
@@ -189,7 +189,7 @@ const en: AboutCopy = {
   ],
   founderEyebrow: "Team",
   founderTitle: "Behind the studio",
-  founderRole: "Co-founder · Product Backend / Tech Lead",
+  founderRole: "Founder · Product Backend / Tech Lead",
   founderName: "Nguyen Chi Thanh",
   founderBody:
     "5+ years backend on live products (Marathon, Myspa, Splus). Team lead, incident response, system design — production thinking in every Dolphin Software project.",
@@ -279,7 +279,7 @@ const de: AboutCopy = {
   ],
   founderEyebrow: "Team",
   founderTitle: "Hinter dem Studio",
-  founderRole: "Co-founder · Product Backend / Tech Lead",
+  founderRole: "Founder · Product Backend / Tech Lead",
   founderName: "Nguyen Chi Thanh",
   founderBody:
     "5+ Jahre Backend auf Live-Produkten (Marathon, Myspa, Splus). Team Lead, Incidents, Systemdesign — Production-Denken in jedem Dolphin-Kick-Projekt.",
@@ -369,7 +369,7 @@ const ja: AboutCopy = {
   ],
   founderEyebrow: "チーム",
   founderTitle: "スタジオの裏側",
-  founderRole: "Co-founder · Product Backend / Tech Lead",
+  founderRole: "Founder · Product Backend / Tech Lead",
   founderName: "Nguyen Chi Thanh",
   founderBody:
     "ライブプロダクトで5年以上のバックエンド（Marathon, Myspa, Splus）。チームリード、インシデント、設計 — 本番視点を各プロジェクトへ。",
@@ -459,7 +459,7 @@ const zh: AboutCopy = {
   ],
   founderEyebrow: "团队",
   founderTitle: "工作室背后",
-  founderRole: "Co-founder · Product Backend / Tech Lead",
+  founderRole: "Founder · Product Backend / Tech Lead",
   founderName: "Nguyen Chi Thanh",
   founderBody:
     "5+ 年线上产品后端（Marathon、Myspa、Splus）。带队、事故响应、系统设计——把生产思维带进每个 Dolphin Software 项目。",

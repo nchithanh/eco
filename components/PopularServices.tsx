@@ -57,7 +57,13 @@ function BoltIcon() {
   );
 }
 
-export function PopularServices() {
+export function PopularServices({
+  embedded = false,
+  sectionId = "popular-services",
+}: {
+  embedded?: boolean;
+  sectionId?: string;
+}) {
   const { locale, t } = useLocale();
   const { openQuote } = useQuote();
   const {
@@ -74,8 +80,14 @@ export function PopularServices() {
   } = t.popularServices;
 
   return (
-    <section id="popular-services" className="scroll-mt-20 py-24">
-      <div className="mx-auto max-w-6xl px-6">
+    <section
+      id={sectionId}
+      className={
+        embedded
+          ? "scroll-mt-20 border-t border-[var(--kuct-border)] py-14 sm:py-16"
+          : "scroll-mt-20 py-24"
+      }
+    >      <div className="mx-auto max-w-6xl px-6">
         <Reveal>
           <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
             {eyebrow}

@@ -18,6 +18,9 @@ export function isServiceSlug(value: string): value is ServiceSlug {
 export type ServiceDetail = {
   title: string;
   intro: string;
+  /** Optional SEO title (browser tab / Google). Falls back to title. */
+  metaTitle?: string;
+  metaDescription?: string;
   highlights: string[];
   process: string[];
   deliverables: string[];
@@ -29,6 +32,7 @@ export type ServiceDetailUi = {
   processTitle: string;
   deliverablesTitle: string;
   cta: string;
+  packagesCta: string;
   notFound: string;
 };
 
@@ -39,6 +43,7 @@ const ui: Record<Locale, ServiceDetailUi> = {
     processTitle: "Cách chúng tôi làm",
     deliverablesTitle: "Bàn giao",
     cta: "Nhận báo giá",
+    packagesCta: "Xem gói giá",
     notFound: "Không tìm thấy dịch vụ này.",
   },
   en: {
@@ -47,6 +52,7 @@ const ui: Record<Locale, ServiceDetailUi> = {
     processTitle: "How we work",
     deliverablesTitle: "Deliverables",
     cta: "Get a quote",
+    packagesCta: "See packages",
     notFound: "This service was not found.",
   },
   ja: {
@@ -55,6 +61,7 @@ const ui: Record<Locale, ServiceDetailUi> = {
     processTitle: "進め方",
     deliverablesTitle: "納品物",
     cta: "見積もりを依頼",
+    packagesCta: "料金パッケージを見る",
     notFound: "このサービスは見つかりませんでした。",
   },
   de: {
@@ -63,6 +70,7 @@ const ui: Record<Locale, ServiceDetailUi> = {
     processTitle: "So arbeiten wir",
     deliverablesTitle: "Lieferumfang",
     cta: "Angebot anfordern",
+    packagesCta: "Pakete ansehen",
     notFound: "Dieser Service wurde nicht gefunden.",
   },
   zh: {
@@ -71,18 +79,22 @@ const ui: Record<Locale, ServiceDetailUi> = {
     processTitle: "我们如何做",
     deliverablesTitle: "交付物",
     cta: "获取报价",
+    packagesCta: "查看套餐",
     notFound: "未找到该服务。",
   },
 };
 
 const vi: Record<ServiceSlug, ServiceDetail> = {
   web: {
-    title: "Phát triển website theo yêu cầu",
+    title: "Thiết kế & làm website theo yêu cầu",
+    metaTitle: "Thiết kế website theo yêu cầu | Dolphin Software",
+    metaDescription:
+      "Làm website, landing page và corporate site cho SMB — phạm vi rõ, báo giá minh bạch, SEO kỹ thuật cơ bản. Nhận báo giá nhanh qua Zalo hoặc form.",
     intro:
-      "Từ landing nhanh đến corporate site và CMS — chúng tôi xây web rõ ràng về phạm vi, tốc độ ra mắt và khả năng mở rộng nội dung.",
+      "Cần làm website hoặc thiết kế web cho doanh nghiệp? Chúng tôi xây landing, site bán hàng và corporate — phạm vi rõ, timeline rõ, dễ nhận báo giá và mở rộng sau.",
     highlights: [
       "Landing / marketing site tối ưu chuyển đổi",
-      "Corporate site đa ngôn ngữ khi cần",
+      "Website doanh nghiệp & bán hàng đa trang",
       "CMS (Strapi / headless) để team tự cập nhật",
       "SEO kỹ thuật cơ bản và performance tốt",
     ],
@@ -235,12 +247,15 @@ const vi: Record<ServiceSlug, ServiceDetail> = {
 
 const en: Record<ServiceSlug, ServiceDetail> = {
   web: {
-    title: "Custom website development",
+    title: "Website design & development",
+    metaTitle: "Website design & development | Dolphin Software",
+    metaDescription:
+      "Custom websites, landing pages, and corporate sites for SMBs — clear scope, honest quotes, solid technical SEO. Get a quote via form or chat.",
     intro:
-      "From fast landings to corporate sites and CMS — clear scope, ship speed, and content that your team can own.",
+      "Need a business website or landing page? We build marketing sites, shop fronts, and corporate sites — clear scope, clear timeline, easy to quote and extend later.",
     highlights: [
       "Conversion-minded landing / marketing sites",
-      "Corporate sites with optional multi-language",
+      "Business & commerce multi-page sites",
       "CMS (Strapi / headless) for self-serve updates",
       "Solid technical SEO and performance baselines",
     ],
@@ -393,12 +408,15 @@ const en: Record<ServiceSlug, ServiceDetail> = {
 
 const ja: Record<ServiceSlug, ServiceDetail> = {
   web: {
-    title: "オーダーメイドWebサイト開発",
+    title: "Webサイト制作・デザイン",
+    metaTitle: "Webサイト制作・デザイン | Dolphin Software",
+    metaDescription:
+      "SMB向けのWebサイト・LP・コーポレート制作。範囲が明確で見積もりしやすく、技術SEOの基礎も。フォームまたはチャットで見積もり。",
     intro:
-      "ランディングからコーポレート、CMSまで — 範囲・リリース速度・運用しやすさを明確にして作ります。",
+      "企業サイトやLPが必要ですか？ランディング、販促サイト、コーポレートを — 範囲・スケジュールを明確にし、見積もりしやすく、後から拡張できる形で作ります。",
     highlights: [
       "コンバージョンを意識したLP / マーケサイト",
-      "必要に応じて多言語コーポレート",
+      "企業・販促向けの多ページサイト",
       "CMS（Strapi / headless）で自社更新",
       "基本的な技術SEOとパフォーマンス",
     ],
@@ -551,12 +569,15 @@ const ja: Record<ServiceSlug, ServiceDetail> = {
 
 const de: Record<ServiceSlug, ServiceDetail> = {
   web: {
-    title: "Individuelle Website-Entwicklung",
+    title: "Website-Design & Entwicklung",
+    metaTitle: "Website-Design & Entwicklung | Dolphin Software",
+    metaDescription:
+      "Websites, Landings und Corporate Sites für KMUs — klarer Scope, transparente Angebote, solide technische SEO. Angebot per Formular oder Chat.",
     intro:
-      "Von schnellen Landings bis Corporate Sites und CMS — klarer Scope, Liefergeschwindigkeit und Inhalte, die Ihr Team selbst pflegen kann.",
+      "Brauchen Sie eine Unternehmenswebsite oder Landingpage? Wir bauen Marketing-Sites, Verkaufsfronten und Corporate Sites — klarer Scope, klarer Zeitplan, leicht anzubieten und später erweiterbar.",
     highlights: [
       "Conversion-orientierte Landing- / Marketing-Sites",
-      "Corporate Sites optional mehrsprachig",
+      "Business- & Handels-Sites mit mehreren Seiten",
       "CMS (Strapi / headless) für Eigenpflege",
       "Solide technische SEO- und Performance-Basis",
     ],

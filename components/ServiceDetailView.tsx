@@ -5,7 +5,9 @@ import { LazyImage } from "@/components/LazyImage";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { AccentText, BrandText } from "@/components/BrandName";
+import { PopularServices } from "@/components/PopularServices";
 import { Reveal } from "@/components/Reveal";
+import { SitesShipped } from "@/components/SitesShipped";
 import { usePagePreview } from "@/components/PagePreviewProvider";
 import { useQuote } from "@/components/QuoteProvider";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
@@ -101,6 +103,14 @@ export function ServiceDetailContent({
                 >
                   {ui.cta}
                 </button>
+                {slug === "web" ? (
+                  <a
+                    href="#web-pricing"
+                    className="inline-flex items-center rounded-full border border-[var(--kuct-border)] bg-[rgba(10,10,22,0.55)] px-6 py-3.5 text-sm font-semibold text-[var(--kuct-muted)] transition hover:border-[var(--kuct-accent)]/40 hover:text-[var(--kuct-text)]"
+                  >
+                    {ui.packagesCta}
+                  </a>
+                ) : null}
               </div>
             </Reveal>
 
@@ -206,6 +216,13 @@ export function ServiceDetailContent({
           </Reveal>
         </div>
       </section>
+
+      {slug === "web" ? (
+        <>
+          <PopularServices embedded sectionId="web-pricing" />
+          <SitesShipped embedded={embedded} />
+        </>
+      ) : null}
     </div>
   );
 }

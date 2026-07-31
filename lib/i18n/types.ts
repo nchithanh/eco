@@ -25,6 +25,12 @@ export type Dictionary = {
     openMenu: string;
     closeMenu: string;
     services: string;
+    web: string;
+    serviceWeb: string;
+    serviceLanding: string;
+    serviceMobile: string;
+    serviceBackend: string;
+    serviceDesign: string;
     process: string;
     stack: string;
     news: string;
