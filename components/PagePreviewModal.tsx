@@ -156,7 +156,7 @@ export function PagePreviewModal({
                 <NewsContent embedded />
               ) : target.kind === "news-detail" ? (
                 <NewsDetailContent slug={target.slug} embedded />
-              ) : target.kind === "agent-dolphin" ? (
+              ) : target.kind === "dolphin-care" ? (
                 <AgentDolphinContent embedded />
               ) : target.kind === "custom-agent" ? (
                 <CustomAgentContent embedded />

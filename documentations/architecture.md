@@ -18,7 +18,7 @@
 - `public/og-default.png` → default Open Graph / Twitter image (1200×630)
 - Per-page metadata via `lib/seo.ts` `buildPageMetadata` + `generateMetadata` / `export const metadata`
 - Root layout: **no** site-wide canonical `/` (each page sets its own)
-- JSON-LD: Organization + WebSite in `app/layout.tsx`; Service + FAQPage on Agent Dolphin / Custom Agent / AI Transform
+- JSON-LD: Organization + WebSite in `app/layout.tsx`; Service + FAQPage on Dolphin Care / Custom Agent / AI Transform
 - `/services/custom-agent/` is `noindex` with canonical to `/custom-agent/` to avoid duplicates
 
 After deploy: submit `https://dolphin-software.io.vn/sitemap.xml` in Google Search Console.

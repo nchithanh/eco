@@ -4,7 +4,8 @@
 | --- | --- | --- |
 | `/about/` | `app/about/page.tsx` | `AboutContent` — studio intro; founder photo `public/about/founder.png`; copy `lib/i18n/about-copy.ts` |
 | `/careers/` | `app/careers/page.tsx` | `CareersContent` + jobs in `lib/careers-jobs.ts` / `careers-copy.ts` |
-| `/agent-dolphin/` | `app/agent-dolphin/page.tsx` | `AgentDolphinContent` + `agent-dolphin-copy.ts` — website support agent (LLM + business + client context) |
+| `/dolphin-care/` | `app/dolphin-care/page.tsx` | **Dolphin Care** — `AgentDolphinContent` + `agent-dolphin-copy.ts` |
+| `/agent-dolphin/` | `app/agent-dolphin/page.tsx` | Legacy redirect (noindex) → `/dolphin-care/` |
 | `/custom-agent/` | `app/custom-agent/page.tsx` | `CustomAgentContent` + `custom-agent-copy.ts` |
 | `/ai-transform/` | `app/ai-transform/page.tsx` | `AiTransformContent` + `ai-transform-copy.ts` |
 | `/news/` | `app/news/page.tsx` | `NewsContent` |

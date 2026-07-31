@@ -1,4 +1,4 @@
-# Canva AI — Agent Dolphin detail page images
+# Canva AI — Dolphin Care detail page images
 
 Global style for every prompt:
 
@@ -13,6 +13,6 @@ Soft lavender/violet studio light (#8b5cf6 accent), clean modern SaaS product ph
 | 3 | `public/services/agent-dolphin/compare.jpg` | 16:9 | Split-composition marketing concept, soft studio light: LEFT cold grey robotic chatbot bubbles and stiff UI; RIGHT warm violet-lit assistant with soft dolphin glow helping a relieved customer, emotional human-like care vs mechanical replies, clean SaaS style, 16:9, no text, no watermark, no logos |
 | 4 | `public/services/agent-dolphin/context.jpg` | 1:1 | Abstract soft 3D visualization, three glowing glass layers merging: AI language model core, business knowledge dashboard (products, policies), and customer profile cards with history, connected by gentle violet light paths, calm professional mood, lavender haze, square 1:1, no readable text, no logos, no watermark |
 | 5 | `public/services/agent-dolphin/care.jpg` | 16:9 | Lifestyle product scene, soft lavender light, support desk with screen showing caring chat replies and a dolphin AI companion icon, sense of a professional employee with empathy, warm ambient fill, premium brand photography, 16:9, no text overlays, no watermark |
-| 6 | `public/services/agent-dolphin/embed.jpg` | 16:9 | Browser window mockup of an e-commerce or service website, bottom-right Agent Dolphin chat widget open, soft violet accents matching a dark elegant UI, customer asking for help, assistant responding helpfully, clean desk background blurred, 16:9, no real brand logos, no watermark, no readable text |
+| 6 | `public/services/agent-dolphin/embed.jpg` | 16:9 | Browser window mockup of an e-commerce or service website, bottom-right Dolphin Care chat widget open, soft violet accents matching a dark elegant UI, customer asking for help, assistant responding helpfully, clean desk background blurred, 16:9, no real brand logos, no watermark, no readable text |
 
 Export JPEG ~85–90 quality, 1600–2400px wide. Drop into the paths above then ask the agent to wire images into the page.

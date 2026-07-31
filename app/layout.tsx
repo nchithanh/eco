@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     "mobile app",
     "Next.js",
     "AI agents",
-    "Agent Dolphin",
+    "Dolphin Care",
     "chuyển đổi AI doanh nghiệp",
     "web studio",
   ],

@@ -131,7 +131,7 @@ export function AgentDolphinHome() {
   }, [motion, inView, c.messages]);
 
   return (
-    <section id="agent-dolphin" className="scroll-mt-20 py-20 sm:py-24">
+    <section id="dolphin-care" className="scroll-mt-20 py-20 sm:py-24">
       <div className="mx-auto grid max-w-6xl items-center gap-10 px-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,22.5rem)] lg:gap-14">
         <Reveal>
           <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
@@ -144,7 +144,7 @@ export function AgentDolphinHome() {
             {c.support}
           </p>
           <Link
-            href={routePath("/agent-dolphin/")}
+            href={routePath("/dolphin-care/")}
             className="kuct-btn-primary mt-8 inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold"
           >
             {c.cta}

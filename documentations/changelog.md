@@ -2,6 +2,8 @@
 
 ## 2026-07-31
 
+- Dolphin Care route: `/dolphin-care/` (legacy `/agent-dolphin/` noindex + client redirect).
+- Rename product display **Agent Dolphin → Dolphin Care** (nav, copy, meta, docs).
 - Nav: **Dịch vụ** dropdown (thiết kế website, landing, app, backend, UI/UX); removed Process/Tech; `/services/web/` adds pricing table + Sites shipped; cofounder role → **Nhà sáng lập** / Founder.
 - **Web SEO landing:** `/services/web/` — VI meta title/description, expanded FAQ + Service/FAQ JSON-LD; nav/footer **Làm website** → `/services/web/` (was only `#capabilities`); CTA “Xem gói giá” → `#popular-services`.
 - SEO keyword sheet: `seo-keywords.md` (P1 web / P2 ngành / P3 AI, ~55 cụm + gợi ý bài 4 tuần); linked from growth §4 & §12 B (keyword sheet done).
@@ -11,7 +13,7 @@
 - `/agent-dolphin` how-section: `embed.jpg` → CSS browser + chat widget mock (`EmbedSiteMock`); copy `embedMock` in `agent-dolphin-copy.ts`.
 - `/agent-dolphin` hero: 2-column layout (copy left, 3 toast chat cards + typewriter right); typewriter/`Reveal` desktop-only (`lg` / `useDesktopMotion`); copy `heroCards` in `agent-dolphin-copy.ts`.
 - Homepage `#agent-dolphin` chat-style teaser (`AgentDolphinHome`) under Hero — chat demo typewriter desktop-only → `/agent-dolphin/`.
-- **Agent Dolphin** service page `/agent-dolphin/` — nav/footer under AI Agent; copy `agent-dolphin-copy.ts` (5 locales); Canva images under `public/services/agent-dolphin/` + `capabilities/agent-dolphin.jpg`; prompts in `agent-dolphin-canva-prompts.md`.
+- **Dolphin Care** service page `/agent-dolphin/` — nav/footer under AI Agent; copy `agent-dolphin-copy.ts` (5 locales); Canva images under `public/services/agent-dolphin/` + `capabilities/agent-dolphin.jpg`; prompts in `agent-dolphin-canva-prompts.md`.
 - **Perf (assets):** mascot/logo → WebP (eco ~58KB, chat ~14KB, logo ~14KB); contact panel uses contact mascot WebP. Fonts: Quicksand preloads only; Noto JP + Instrument Serif `preload: false`, JP weights cut to 400/700.
 - Documented optional **Cloudflare Free** proxy in front of GitHub Pages (DNS, SSL Full, cache rules, purge) in `architecture.md` / `overview.md`.
 - Mobile chat input uses `text-base` (≥16px) to prevent iOS/Android focus zoom when the keyboard opens.

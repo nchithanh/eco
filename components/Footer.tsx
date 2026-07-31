@@ -17,7 +17,7 @@ export function Footer() {
       links: [
         { href: assetPath("/services/web/"), label: t.nav.serviceWeb },
         { href: assetPath("/services/mobile/"), label: t.nav.serviceMobile },
-        { href: assetPath("/agent-dolphin/"), label: t.nav.agentDolphin },
+        { href: assetPath("/dolphin-care/"), label: t.nav.agentDolphin },
         { href: assetPath("/custom-agent/"), label: t.nav.customAgentItem },
         { href: assetPath("/ai-transform/"), label: t.nav.aiTransform },
       ],

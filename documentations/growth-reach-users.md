@@ -7,7 +7,7 @@ Brand: **Dolphin Software** (không dùng “Dolphin Kich” khi giao tiếp ngo
 **Thứ tự tiếp cận (quyết định sản phẩm):**
 
 1. **Chính:** user cần **làm website** (và app khi fit)
-2. **Sau / upsell:** **Agent Dolphin** (AI hỗ trợ khách trên site) và AI khác
+2. **Sau / upsell:** **Dolphin Care** (AI hỗ trợ khách trên site) và AI khác
 
 **Follow việc cần làm:** [§12 Checklist theo dõi](#12-checklist-theo-dõi-follow-cái-này) — tick theo giai đoạn A→G. 
 
@@ -31,12 +31,12 @@ Hai tầng mục tiêu (đừng lẫn):
 
 **ICP chính:** chủ shop, spa, nha khoa / phòng khám, quán, giáo dục nhỏ, SMB cần **website** (landing, doanh nghiệp, booking…).
 
-**ICP phụ / upsell:** cùng khách trên (hoặc khách đã có web) cần **chăm sóc khách trên site** → Agent Dolphin.
+**ICP phụ / upsell:** cùng khách trên (hoặc khách đã có web) cần **chăm sóc khách trên site** → Dolphin Care.
 
 **USP khi outreach (thứ tự nói):**
 
 1. Làm website rõ scope, milestone, bàn giao — đo được.
-2. *Tuỳ chọn:* gắn Agent Dolphin để hỗ trợ khách 24/7 (không chatbot cứng).
+2. *Tuỳ chọn:* gắn Dolphin Care để hỗ trợ khách 24/7 (không chatbot cứng).
 
 **Không** mở đầu hội thoại bằng “AI Agent” với đa số SMB VN — họ đang tìm **làm website / báo giá web**.
 
@@ -46,14 +46,14 @@ Flow chính:
 Cần làm website
   → Xem dịch vụ / works / báo giá
   → Quote / Zalo
-  → (Upsell) Agent Dolphin trên site mới hoặc site sẵn
+  → (Upsell) Dolphin Care trên site mới hoặc site sẵn
 ```
 
 Flow phụ (khi khách hỏi chatbot / CSKH):
 
 ```text
 AI hỗ trợ khách trên website
-  → Agent Dolphin
+  → Dolphin Care
   → Demo / case
   → Báo giá gắn kèm hoặc riêng
 ```
@@ -66,8 +66,8 @@ Custom Agent & AI Transform: ICP B2B / nâng cao — không phải hook outreach
 
 ## 2. Đã có trên site (nền kỹ thuật)
 
-- Marketing site đa ngữ, Pages + domain; hero/web-first + section Agent Dolphin.
-- Trang dịch vụ / works / ghi chép (`/news/`) / Agent Dolphin / Custom Agent / AI Transform.
+- Marketing site đa ngữ, Pages + domain; hero/web-first + section Dolphin Care.
+- Trang dịch vụ / works / ghi chép (`/news/`) / Dolphin Care / Custom Agent / AI Transform.
 - SEO technical: `robots.txt`, `sitemap.xml`, metadata + canonical, OG, JSON-LD.
 
 Chi tiết: [architecture.md](./architecture.md) (SEO), [pages.md](./pages.md), [homepage.md](./homepage.md).
@@ -128,13 +128,13 @@ Nhóm theo intent — **web trước, AI sau**. Sheet chi tiết (cột intent /
 - website phòng khám / nha khoa / spa  
 - website bất động sản / giáo dục / bán lẻ / quán cafe
 
-### P3 — AI / chatbot (upsell Agent Dolphin)
+### P3 — AI / chatbot (upsell Dolphin Care)
 
 - AI chatbot, chatbot website  
 - AI chăm sóc khách hàng  
 - AI Agent (luôn kèm giải thích lợi ích)
 
-Mỗi cụm: volume (bổ sung từ GSC), intent, URL đích (`/services/web/`, `/news/`, landing ngành; `/agent-dolphin/` chỉ P3).
+Mỗi cụm: volume (bổ sung từ GSC), intent, URL đích (`/services/web/`, `/news/`, landing ngành; `/dolphin-care/` chỉ P3).
 
 ---
 
@@ -181,7 +181,7 @@ Nhịp: 3–5 touchpoint / tuần. Không ads lớn khi chưa biết kênh ra le
 | 2    | Làm landing page cần những gì?                     | P1 web        |
 | 2    | Website phòng khám / spa — nên có gì?              | P2 ngành      |
 | 3    | Website chuẩn SEO cho SMB                          | P1/P2         |
-| 3    | (Phụ) AI hỗ trợ khách trên website — Agent Dolphin | P3 upsell     |
+| 3    | (Phụ) AI hỗ trợ khách trên website — Dolphin Care | P3 upsell     |
 | 4    | Case study **làm website** (template dưới)         | Bán hàng      |
 | 4    | Share works + CTA báo giá                          | Internal link |
 
@@ -193,7 +193,7 @@ Nhịp: 3–5 touchpoint / tuần. Không ads lớn khi chưa biết kênh ra le
 ```text
 Khách hàng: [Spa / quán / phòng khám / …]
 Vấn đề: [vd. chưa có web / web cũ không ra lead / đặt lịch rối]
-Giải pháp: Website (scope rõ) ± Agent Dolphin nếu có
+Giải pháp: Website (scope rõ) ± Dolphin Care nếu có
 Kết quả: [Lead / đặt lịch / thời gian ship / …]
 CTA: Nhận báo giá website / Zalo
 ```
@@ -206,8 +206,8 @@ Case Agent-only chỉ khi đủ số liệu; không để Agent thay toàn bộ 
 Homepage (#capabilities / báo giá) → **/services/web/** (nav “Làm website”) → Quote / Zalo
 Blog “làm website” → /services/web/ → Quote
 Works → Quote
-(Phụ) Blog AI/chatbot → /agent-dolphin/ → Quote
-Landing ngành → service web → (upsell) Agent Dolphin
+(Phụ) Blog AI/chatbot → /dolphin-care/ → Quote
+Landing ngành → service web → (upsell) Dolphin Care
 ```
 
 ---
@@ -221,7 +221,7 @@ Landing ngành → service web → (upsell) Agent Dolphin
 | ---------------------------------------- | --------------- | --------------------------- |
 | PDF checklist / **báo giá website 2026** | Email hoặc Zalo | Follow-up báo giá web       |
 | Audit website miễn phí (slot giới hạn)   | Form ngắn       | Call / Zalo                 |
-| (Phụ) Demo Agent Dolphin 15 phút         | Lịch            | Upsell sau hoặc kèm gói web |
+| (Phụ) Demo Dolphin Care 15 phút         | Lịch            | Upsell sau hoặc kèm gói web |
 
 
 Nurture: checklist web → 2–4 tin giá trị → gợi ý báo giá website (không đẩy Agent trước).
@@ -233,9 +233,9 @@ Nurture: checklist web → 2–4 tin giá trị → gợi ý báo giá website (
 ## 8. Chuyển đổi trên site
 
 - **CTA chính:** báo giá website / Zalo.  
-- **CTA phụ:** Agent Dolphin / AI (nav, teaser dưới hero — upsell).  
+- **CTA phụ:** Dolphin Care / AI (nav, teaser dưới hero — upsell).  
 - Luồng chính: capabilities / popular services / works → quote.  
-- Luồng phụ: teaser Agent → `/agent-dolphin/` → quote.
+- Luồng phụ: teaser Agent → `/dolphin-care/` → quote.
 
 ---
 
@@ -244,7 +244,7 @@ Nurture: checklist web → 2–4 tin giá trị → gợi ý báo giá website (
 ## 9. Sản phẩm & magnet
 
 - Magnet outreach: **website rõ scope** + works.  
-- Agent Dolphin: demo/GIF khi khách hỏi CSKH hoặc upsell sau kickoff web.  
+- Dolphin Care: demo/GIF khi khách hỏi CSKH hoặc upsell sau kickoff web.  
 - Pilot: ưu tiên **dự án web** có review; Agent pilot riêng nếu có.  
 - Landing ngành: trang **website theo ngành** trước; gắn block Agent sau.
 
@@ -326,7 +326,7 @@ Tick `[x]` khi xong. Làm **theo thứ tự trong mỗi giai đoạn**; đừng 
 - [ ] Lead magnet v1: PDF checklist hoặc “báo giá website 2026”  
 - [ ] Chỗ để lại Zalo/email trên site hoặc form gắn magnet  
 - [ ] CTA chính trên social/site luôn = **báo giá website**  
-- [ ] (Phụ) 1 post hoặc 1 block Agent Dolphin / tháng — upsell, không thay hook chính  
+- [ ] (Phụ) 1 post hoặc 1 block Dolphin Care / tháng — upsell, không thay hook chính  
 
 ---
 
@@ -343,7 +343,7 @@ Tick `[x]` khi xong. Làm **theo thứ tự trong mỗi giai đoạn**; đừng 
 
 
 
-### F. Agent Dolphin (chỉ khi fit)
+### F. Dolphin Care (chỉ khi fit)
 
 - [ ] Có ít nhất vài lead/web ổn định hoặc khách hỏi CSKH/chatbot  
 - [ ] 1 nội dung / demo Agent (GIF hoặc bài P3)  

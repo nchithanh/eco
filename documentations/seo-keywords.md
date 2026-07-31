@@ -102,19 +102,19 @@ Liên quan: [growth-reach-users.md](./growth-reach-users.md) §4 & §12 B.
 
 ---
 
-## P3 — AI / chatbot (upsell Agent Dolphin — làm sau)
+## P3 — AI / chatbot (upsell Dolphin Care — làm sau)
 
 | # | Cụm từ khóa | Intent | URL đích gợi ý | Done |
 | --- | --- | --- | --- | --- |
-| 49 | chatbot website | comm | `/agent-dolphin/` | [ ] |
-| 50 | AI chatbot | info/comm | `/agent-dolphin/` | [ ] |
-| 51 | AI chăm sóc khách hàng | info/comm | `/agent-dolphin/` | [ ] |
-| 52 | chatbot chăm sóc khách | comm | `/agent-dolphin/` | [ ] |
-| 53 | AI hỗ trợ khách trên website | info | `/agent-dolphin/` | [ ] |
-| 54 | AI Agent | info | `/agent-dolphin/` + giải thích lợi ích | [ ] |
-| 55 | chatbot không theo kịch bản | info | `/agent-dolphin/` | [ ] |
+| 49 | chatbot website | comm | `/dolphin-care/` | [ ] |
+| 50 | AI chatbot | info/comm | `/dolphin-care/` | [ ] |
+| 51 | AI chăm sóc khách hàng | info/comm | `/dolphin-care/` | [ ] |
+| 52 | chatbot chăm sóc khách | comm | `/dolphin-care/` | [ ] |
+| 53 | AI hỗ trợ khách trên website | info | `/dolphin-care/` | [ ] |
+| 54 | AI Agent | info | `/dolphin-care/` + giải thích lợi ích | [ ] |
+| 55 | chatbot không theo kịch bản | info | `/dolphin-care/` | [ ] |
 
-Title/meta: nói **lợi ích** (“AI hỗ trợ khách 24/7”), brand **Agent Dolphin** trong nội dung.
+Title/meta: nói **lợi ích** (“AI hỗ trợ khách 24/7”), brand **Dolphin Care** trong nội dung.
 
 ---
 

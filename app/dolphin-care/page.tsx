@@ -1,31 +1,38 @@
 import type { Metadata } from "next";
 import { AgentDolphinPage } from "@/components/AgentDolphinContent";
+import { JsonLd } from "@/components/JsonLd";
 import { getAgentDolphinCopy } from "@/lib/i18n/agent-dolphin-copy";
-import { assetPath } from "@/lib/asset";
-import { buildPageMetadata, SEO_LOCALE } from "@/lib/seo";
+import {
+  buildPageMetadata,
+  faqPageJsonLd,
+  SEO_LOCALE,
+  serviceJsonLd,
+} from "@/lib/seo";
 
 const c = getAgentDolphinCopy(SEO_LOCALE);
-const canonical = "/dolphin-care/";
-const redirectTo = assetPath(canonical);
+const path = "/dolphin-care/";
 
-/** Legacy slug — keep for bookmarks; prefer /dolphin-care/. */
 export const metadata: Metadata = {
   ...buildPageMetadata({
     title: c.metaTitle,
     description: c.metaDescription,
-    path: canonical,
+    path,
   }),
   title: { absolute: c.metaTitle },
-  robots: { index: false, follow: true },
 };
 
 export default function Page() {
   return (
     <>
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `location.replace(${JSON.stringify(redirectTo)});`,
-        }}
+      <JsonLd
+        data={[
+          serviceJsonLd({
+            name: "Dolphin Care",
+            description: c.metaDescription,
+            path,
+          }),
+          faqPageJsonLd(c.faqItems),
+        ]}
       />
       <AgentDolphinPage />
     </>

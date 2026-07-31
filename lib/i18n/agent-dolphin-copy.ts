@@ -44,17 +44,17 @@ export type AgentDolphinCopy = {
 };
 
 const vi: AgentDolphinCopy = {
-  metaTitle: "Agent Dolphin | Support website thông minh | Dolphin Software",
+  metaTitle: "Dolphin Care | Support website thông minh | Dolphin Software",
   metaDescription:
-    "Agent Dolphin gắn trên website — hỗ trợ khách bằng LLM + context nghiệp vụ + context khách hàng, chăm sóc như nhân viên chuyên nghiệp có cảm xúc.",
-  eyebrow: "Agent Dolphin",
+    "Dolphin Care gắn trên website — hỗ trợ khách bằng LLM + context nghiệp vụ + context khách hàng, chăm sóc như nhân viên chuyên nghiệp có cảm xúc.",
+  eyebrow: "Dolphin Care",
   headline: "Support website như [[nhân viên]] — không chatbot máy móc",
   support:
-    "Agent Dolphin đảm nhiệm chăm sóc khách trên website của bạn. Khác chatbox trả lời theo kịch bản: kết hợp mô hình LLM với context doanh nghiệp và context từng khách để tư vấn, lắng nghe và xử lý đúng ngữ cảnh.",
+    "Dolphin Care đảm nhiệm chăm sóc khách trên website của bạn. Khác chatbox trả lời theo kịch bản: kết hợp mô hình LLM với context doanh nghiệp và context từng khách để tư vấn, lắng nghe và xử lý đúng ngữ cảnh.",
   ctaPrimary: "Trao đổi triển khai",
   ctaSecondary: "Xem AI Agent khác",
   trustLine: "LLM · Business context · Client context · Giọng điệu thương hiệu",
-  heroAgentName: "Agent Dolphin",
+  heroAgentName: "Dolphin Care",
   heroJustNow: "bây giờ",
   heroCards: [
     "Chào anh/chị! Em kiểm tra đơn #123456 — đang đóng gói, dự kiến giao ngày mai ạ.",
@@ -62,7 +62,7 @@ const vi: AgentDolphinCopy = {
     "Em đã ghi địa chỉ Quận 1. Có gì cần thêm cứ nhắn — em hỗ trợ liền.",
   ],
   compareEyebrow: "Khác biệt",
-  compareTitle: "Chatbox truyền thống vs [[Agent Dolphin]]",
+  compareTitle: "Chatbox truyền thống vs [[Dolphin Care]]",
   compareSupport:
     "Cùng nằm góc website — một bên trả lời cứng, một bên hiểu việc và cảm xúc khách.",
   oldTitle: "Chatbox / FAQ bot thông thường",
@@ -72,7 +72,7 @@ const vi: AgentDolphinCopy = {
     "Không nhớ lịch sử khách — mỗi lần hỏi như người lạ",
     "Giọng điệu máy móc — khó tạo tin tưởng hay giữ chân",
   ],
-  newTitle: "Agent Dolphin",
+  newTitle: "Dolphin Care",
   newItems: [
     "LLM linh hoạt trong phạm vi bạn cho phép — không chỉ nút bấm FAQ",
     "Nạp context business: giá, dịch vụ, quy trình, cách xưng hô",
@@ -98,7 +98,7 @@ const vi: AgentDolphinCopy = {
     },
   ],
   howEyebrow: "Cách triển khai",
-  howTitle: "Gắn Agent Dolphin lên [[website]] của bạn",
+  howTitle: "Gắn Dolphin Care lên [[website]] của bạn",
   howSupport: "Bốn bước — từ hiểu brand đến widget live trên site.",
   howSteps: [
     {
@@ -120,7 +120,7 @@ const vi: AgentDolphinCopy = {
   ],
   embedMock: {
     url: "yourstore.com",
-    agentName: "Agent Dolphin",
+    agentName: "Dolphin Care",
     userMsg: "Đơn #123456 giao khi nào?",
     agentLines: [
       "Đang đóng gói",
@@ -133,8 +133,8 @@ const vi: AgentDolphinCopy = {
   faqTitle: "Câu hỏi thường gặp",
   faqItems: [
     {
-      q: "Agent Dolphin khác chatbot có sẵn thế nào?",
-      a: "Chatbot sẵn thường chạy script. Agent Dolphin dùng LLM kèm knowledge và ngữ cảnh khách của bạn — trả lời linh hoạt hơn nhưng vẫn trong guardrail.",
+      q: "Dolphin Care khác chatbot có sẵn thế nào?",
+      a: "Chatbot sẵn thường chạy script. Dolphin Care dùng LLM kèm knowledge và ngữ cảnh khách của bạn — trả lời linh hoạt hơn nhưng vẫn trong guardrail.",
     },
     {
       q: "Có thay hoàn toàn nhân viên support không?",
@@ -152,22 +152,22 @@ const vi: AgentDolphinCopy = {
   closeEyebrow: "Bắt đầu",
   closeTitle: "Để website [[tự chăm]] khách chuyên nghiệp hơn",
   closeSupport:
-    "Gửi link site và mô tả loại khách bạn nhận — Dolphin Software đề xuất phạm vi Agent Dolphin và cách gắn.",
-  closeCta: "Nhận tư vấn Agent Dolphin",
+    "Gửi link site và mô tả loại khách bạn nhận — Dolphin Software đề xuất phạm vi Dolphin Care và cách gắn.",
+  closeCta: "Nhận tư vấn Dolphin Care",
 };
 
 const en: AgentDolphinCopy = {
-  metaTitle: "Agent Dolphin | Smart website support | Dolphin Software",
+  metaTitle: "Dolphin Care | Smart website support | Dolphin Software",
   metaDescription:
-    "Agent Dolphin on your website — customer care with an LLM plus business and customer context, like a professional staff member with empathy.",
-  eyebrow: "Agent Dolphin",
+    "Dolphin Care on your website — customer care with an LLM plus business and customer context, like a professional staff member with empathy.",
+  eyebrow: "Dolphin Care",
   headline: "Website support like a [[teammate]] — not a scripted bot",
   support:
-    "Agent Dolphin handles customer care on your site. Unlike mechanical chatboxes, it combines an LLM with your business context and each visitor’s context to listen, advise, and respond in the right tone.",
+    "Dolphin Care handles customer care on your site. Unlike mechanical chatboxes, it combines an LLM with your business context and each visitor’s context to listen, advise, and respond in the right tone.",
   ctaPrimary: "Talk implementation",
   ctaSecondary: "See other AI agents",
   trustLine: "LLM · Business context · Client context · Brand voice",
-  heroAgentName: "Agent Dolphin",
+  heroAgentName: "Dolphin Care",
   heroJustNow: "now",
   heroCards: [
     "Hi! I checked order #123456 — packing now, delivery expected tomorrow.",
@@ -175,7 +175,7 @@ const en: AgentDolphinCopy = {
     "Got your District 1 address. Anything else — just message me anytime.",
   ],
   compareEyebrow: "Difference",
-  compareTitle: "Traditional chatbox vs [[Agent Dolphin]]",
+  compareTitle: "Traditional chatbox vs [[Dolphin Care]]",
   compareSupport:
     "Same corner of the site — one replies rigidly, the other understands the job and the customer’s mood.",
   oldTitle: "Typical FAQ / script chatbox",
@@ -185,7 +185,7 @@ const en: AgentDolphinCopy = {
     "No memory of the visitor — every chat starts cold",
     "Robotic tone — hard to build trust or keep people engaged",
   ],
-  newTitle: "Agent Dolphin",
+  newTitle: "Dolphin Care",
   newItems: [
     "Flexible LLM replies inside your allowed scope — not FAQ buttons only",
     "Business context: pricing, services, process, how you address guests",
@@ -211,7 +211,7 @@ const en: AgentDolphinCopy = {
     },
   ],
   howEyebrow: "How we ship it",
-  howTitle: "Put Agent Dolphin on [[your website]]",
+  howTitle: "Put Dolphin Care on [[your website]]",
   howSupport: "Four steps — from brand voice to a live site widget.",
   howSteps: [
     {
@@ -233,7 +233,7 @@ const en: AgentDolphinCopy = {
   ],
   embedMock: {
     url: "yourstore.com",
-    agentName: "Agent Dolphin",
+    agentName: "Dolphin Care",
     userMsg: "When does order #123456 arrive?",
     agentLines: [
       "Packing now",
@@ -246,8 +246,8 @@ const en: AgentDolphinCopy = {
   faqTitle: "Common questions",
   faqItems: [
     {
-      q: "How is Agent Dolphin different from an off-the-shelf chatbot?",
-      a: "Shelf bots often run scripts. Agent Dolphin uses an LLM with your knowledge and visitor context — more flexible, still inside guardrails.",
+      q: "How is Dolphin Care different from an off-the-shelf chatbot?",
+      a: "Shelf bots often run scripts. Dolphin Care uses an LLM with your knowledge and visitor context — more flexible, still inside guardrails.",
     },
     {
       q: "Does it replace support staff?",
@@ -265,22 +265,22 @@ const en: AgentDolphinCopy = {
   closeEyebrow: "Get started",
   closeTitle: "Let your site [[care for guests]] more professionally",
   closeSupport:
-    "Send your site URL and who you serve — we’ll propose Agent Dolphin scope and how to embed it.",
-  closeCta: "Get Agent Dolphin advice",
+    "Send your site URL and who you serve — we’ll propose Dolphin Care scope and how to embed it.",
+  closeCta: "Get Dolphin Care advice",
 };
 
 const ja: AgentDolphinCopy = {
-  metaTitle: "Agent Dolphin | サイトのスマートサポート | Dolphin Software",
+  metaTitle: "Dolphin Care | サイトのスマートサポート | Dolphin Software",
   metaDescription:
-    "Agent Dolphin はサイト上の顧客対応を担当。LLM に業務コンテキストと顧客コンテキストを組み合わせ、感情のあるプロのスタッフのようにサポートします。",
-  eyebrow: "Agent Dolphin",
+    "Dolphin Care はサイト上の顧客対応を担当。LLM に業務コンテキストと顧客コンテキストを組み合わせ、感情のあるプロのスタッフのようにサポートします。",
+  eyebrow: "Dolphin Care",
   headline: "機械的なチャットではなく、[[スタッフ]]のようなサイトサポート",
   support:
-    "Agent Dolphin がサイトのカスタマーケアを担います。定型ボットと違い、LLM に御社の業務知識と来訪者の文脈を載せて、適切に聞き・案内・対応します。",
+    "Dolphin Care がサイトのカスタマーケアを担います。定型ボットと違い、LLM に御社の業務知識と来訪者の文脈を載せて、適切に聞き・案内・対応します。",
   ctaPrimary: "導入を相談",
   ctaSecondary: "他の AI Agent を見る",
   trustLine: "LLM · 業務コンテキスト · 顧客コンテキスト · ブランドトーン",
-  heroAgentName: "Agent Dolphin",
+  heroAgentName: "Dolphin Care",
   heroJustNow: "たった今",
   heroCards: [
     "こんにちは！注文 #123456 を確認しました — 梱包中で、明日のお届け予定です。",
@@ -288,7 +288,7 @@ const ja: AgentDolphinCopy = {
     "1区のご住所を控えました。ほかに必要ならすぐサポートします。",
   ],
   compareEyebrow: "違い",
-  compareTitle: "従来チャット vs [[Agent Dolphin]]",
+  compareTitle: "従来チャット vs [[Dolphin Care]]",
   compareSupport:
     "同じウィジェット位置でも、硬い返答と、仕事と気持ちを理解する対応は別物です。",
   oldTitle: "一般的な FAQ / スクリプトボット",
@@ -298,7 +298,7 @@ const ja: AgentDolphinCopy = {
     "来訪者の履歴なし — 毎回初対面",
     "機械的な口調 — 信頼や継続が難しい",
   ],
-  newTitle: "Agent Dolphin",
+  newTitle: "Dolphin Care",
   newItems: [
     "許可範囲内で柔軟な LLM 応答 — FAQ ボタンだけではない",
     "業務コンテキスト：料金、サービス、手順、呼び方",
@@ -324,7 +324,7 @@ const ja: AgentDolphinCopy = {
     },
   ],
   howEyebrow: "進め方",
-  howTitle: "Agent Dolphin を[[サイト]]に載せる",
+  howTitle: "Dolphin Care を[[サイト]]に載せる",
   howSupport: "4ステップ — ブランド理解からライブウィジェットまで。",
   howSteps: [
     {
@@ -346,7 +346,7 @@ const ja: AgentDolphinCopy = {
   ],
   embedMock: {
     url: "yourstore.com",
-    agentName: "Agent Dolphin",
+    agentName: "Dolphin Care",
     userMsg: "注文 #123456 はいつ届きますか？",
     agentLines: [
       "梱包中です",
@@ -360,7 +360,7 @@ const ja: AgentDolphinCopy = {
   faqItems: [
     {
       q: "既製チャットボットとの違いは？",
-      a: "既製品は台本が多いです。Agent Dolphin は LLM に御社知識と来訪文脈を載せ、ガードレール内で柔軟に答えます。",
+      a: "既製品は台本が多いです。Dolphin Care は LLM に御社知識と来訪文脈を載せ、ガードレール内で柔軟に答えます。",
     },
     {
       q: "サポート担当を置き換えますか？",
@@ -378,22 +378,22 @@ const ja: AgentDolphinCopy = {
   closeEyebrow: "はじめの一歩",
   closeTitle: "サイトがより[[プロらしく]]お客様をケア",
   closeSupport:
-    "サイトURLと想定顧客を送ってください。Agent Dolphin の範囲と埋め方をご提案します。",
-  closeCta: "Agent Dolphin を相談",
+    "サイトURLと想定顧客を送ってください。Dolphin Care の範囲と埋め方をご提案します。",
+  closeCta: "Dolphin Care を相談",
 };
 
 const de: AgentDolphinCopy = {
-  metaTitle: "Agent Dolphin | Cleverer Website-Support | Dolphin Software",
+  metaTitle: "Dolphin Care | Cleverer Website-Support | Dolphin Software",
   metaDescription:
-    "Agent Dolphin auf Ihrer Website — Kundenservice mit LLM plus Business- und Kundenkontext, wie ein empathischer Mitarbeiter.",
-  eyebrow: "Agent Dolphin",
+    "Dolphin Care auf Ihrer Website — Kundenservice mit LLM plus Business- und Kundenkontext, wie ein empathischer Mitarbeiter.",
+  eyebrow: "Dolphin Care",
   headline: "Website-Support wie ein [[Teammitglied]] — kein Skript-Bot",
   support:
-    "Agent Dolphin übernimmt die Kundenbetreuung auf Ihrer Site. Anders als starre Chatboxen kombiniert er ein LLM mit Ihrem Business-Kontext und dem Kontext jedes Besuchers.",
+    "Dolphin Care übernimmt die Kundenbetreuung auf Ihrer Site. Anders als starre Chatboxen kombiniert er ein LLM mit Ihrem Business-Kontext und dem Kontext jedes Besuchers.",
   ctaPrimary: "Umsetzung besprechen",
   ctaSecondary: "Andere AI Agents",
   trustLine: "LLM · Business-Kontext · Kundenkontext · Markenstimme",
-  heroAgentName: "Agent Dolphin",
+  heroAgentName: "Dolphin Care",
   heroJustNow: "jetzt",
   heroCards: [
     "Hallo! Bestellung #123456 geprüft — wird gepackt, Lieferung morgen erwartet.",
@@ -401,7 +401,7 @@ const de: AgentDolphinCopy = {
     "Adresse in District 1 notiert. Noch Fragen — einfach schreiben.",
   ],
   compareEyebrow: "Unterschied",
-  compareTitle: "Klassische Chatbox vs [[Agent Dolphin]]",
+  compareTitle: "Klassische Chatbox vs [[Dolphin Care]]",
   compareSupport:
     "Gleiche Ecke der Website — eine antwortet starr, die andere versteht Aufgabe und Stimmung.",
   oldTitle: "Typische FAQ-/Skript-Chatbox",
@@ -411,7 +411,7 @@ const de: AgentDolphinCopy = {
     "Kein Besuchergedächtnis — jedes Chat kalt",
     "Roboter-Ton — wenig Vertrauen",
   ],
-  newTitle: "Agent Dolphin",
+  newTitle: "Dolphin Care",
   newItems: [
     "Flexibles LLM im erlaubten Scope — nicht nur FAQ-Buttons",
     "Business-Kontext: Preise, Services, Prozess, Ansprache",
@@ -437,7 +437,7 @@ const de: AgentDolphinCopy = {
     },
   ],
   howEyebrow: "Ablauf",
-  howTitle: "Agent Dolphin auf [[Ihrer Website]]",
+  howTitle: "Dolphin Care auf [[Ihrer Website]]",
   howSupport: "Vier Schritte — von der Markenstimme zum Live-Widget.",
   howSteps: [
     {
@@ -459,7 +459,7 @@ const de: AgentDolphinCopy = {
   ],
   embedMock: {
     url: "yourstore.com",
-    agentName: "Agent Dolphin",
+    agentName: "Dolphin Care",
     userMsg: "Wann kommt Bestellung #123456?",
     agentLines: [
       "Wird gepackt",
@@ -473,7 +473,7 @@ const de: AgentDolphinCopy = {
   faqItems: [
     {
       q: "Unterschied zu Fertig-Chatbots?",
-      a: "Fertige Bots oft skriptbasiert. Agent Dolphin nutzt LLM mit Ihrem Wissen und Besucherkontext — flexibel, aber mit Guardrails.",
+      a: "Fertige Bots oft skriptbasiert. Dolphin Care nutzt LLM mit Ihrem Wissen und Besucherkontext — flexibel, aber mit Guardrails.",
     },
     {
       q: "Ersetzt es Support-Personal?",
@@ -491,22 +491,22 @@ const de: AgentDolphinCopy = {
   closeEyebrow: "Start",
   closeTitle: "Lassen Sie die Site [[professioneller]] betreuen",
   closeSupport:
-    "Senden Sie URL und Zielkunden — wir schlagen Scope und Embed für Agent Dolphin vor.",
-  closeCta: "Agent Dolphin beraten lassen",
+    "Senden Sie URL und Zielkunden — wir schlagen Scope und Embed für Dolphin Care vor.",
+  closeCta: "Dolphin Care beraten lassen",
 };
 
 const zh: AgentDolphinCopy = {
-  metaTitle: "Agent Dolphin | 智能网站客服 | Dolphin Software",
+  metaTitle: "Dolphin Care | 智能网站客服 | Dolphin Software",
   metaDescription:
-    "Agent Dolphin 部署在您的网站 — 用 LLM + 业务上下文 + 客户上下文提供有温度的专业客服，而非机械话术机器人。",
-  eyebrow: "Agent Dolphin",
+    "Dolphin Care 部署在您的网站 — 用 LLM + 业务上下文 + 客户上下文提供有温度的专业客服，而非机械话术机器人。",
+  eyebrow: "Dolphin Care",
   headline: "像[[同事]]一样做客服 — 不是机械聊天框",
   support:
-    "Agent Dolphin 负责网站上的客户关怀。不同于按剧本回答的聊天框：结合大模型、您的业务知识与每位访客的上下文，倾听、建议并以合适语气回应。",
+    "Dolphin Care 负责网站上的客户关怀。不同于按剧本回答的聊天框：结合大模型、您的业务知识与每位访客的上下文，倾听、建议并以合适语气回应。",
   ctaPrimary: "咨询落地",
   ctaSecondary: "查看其他 AI Agent",
   trustLine: "LLM · 业务上下文 · 客户上下文 · 品牌语气",
-  heroAgentName: "Agent Dolphin",
+  heroAgentName: "Dolphin Care",
   heroJustNow: "刚刚",
   heroCards: [
     "您好！已查订单 #123456 — 正在打包，预计明天送达。",
@@ -514,7 +514,7 @@ const zh: AgentDolphinCopy = {
     "已记下 1 区地址。还有需要随时找我。",
   ],
   compareEyebrow: "区别",
-  compareTitle: "传统聊天框 vs [[Agent Dolphin]]",
+  compareTitle: "传统聊天框 vs [[Dolphin Care]]",
   compareSupport: "同在网站一角 — 一边生硬回复，一边理解业务与情绪。",
   oldTitle: "常见 FAQ / 脚本机器人",
   oldItems: [
@@ -523,7 +523,7 @@ const zh: AgentDolphinCopy = {
     "不记得访客 — 每次都像陌生人",
     "机械语气 — 难建立信任",
   ],
-  newTitle: "Agent Dolphin",
+  newTitle: "Dolphin Care",
   newItems: [
     "在允许范围内灵活用 LLM — 不只是 FAQ 按钮",
     "业务上下文：价格、服务、流程、称呼方式",
@@ -548,7 +548,7 @@ const zh: AgentDolphinCopy = {
     },
   ],
   howEyebrow: "如何上线",
-  howTitle: "把 Agent Dolphin 接到[[您的网站]]",
+  howTitle: "把 Dolphin Care 接到[[您的网站]]",
   howSupport: "四步 — 从品牌语气到线上小组件。",
   howSteps: [
     {
@@ -570,7 +570,7 @@ const zh: AgentDolphinCopy = {
   ],
   embedMock: {
     url: "yourstore.com",
-    agentName: "Agent Dolphin",
+    agentName: "Dolphin Care",
     userMsg: "订单 #123456 什么时候到？",
     agentLines: [
       "正在打包",
@@ -584,7 +584,7 @@ const zh: AgentDolphinCopy = {
   faqItems: [
     {
       q: "和成品聊天机器人有何不同？",
-      a: "成品多靠脚本。Agent Dolphin 用 LLM 加载您的知识与访客上下文 — 更灵活，仍有护栏。",
+      a: "成品多靠脚本。Dolphin Care 用 LLM 加载您的知识与访客上下文 — 更灵活，仍有护栏。",
     },
     {
       q: "会完全取代客服人员吗？",
@@ -602,8 +602,8 @@ const zh: AgentDolphinCopy = {
   closeEyebrow: "开始",
   closeTitle: "让网站更[[专业地]]照顾访客",
   closeSupport:
-    "发来网站链接与客群说明 — 我们给出 Agent Dolphin 范围与嵌入方式。",
-  closeCta: "咨询 Agent Dolphin",
+    "发来网站链接与客群说明 — 我们给出 Dolphin Care 范围与嵌入方式。",
+  closeCta: "咨询 Dolphin Care",
 };
 
 export const agentDolphinByLocale: Record<Locale, AgentDolphinCopy> = {
@@ -631,12 +631,12 @@ export type AgentDolphinHomeCopy = {
 };
 
 const homeVi: AgentDolphinHomeCopy = {
-  eyebrow: "Agent Dolphin",
+  eyebrow: "Dolphin Care",
   title: "Support trên site như [[nhân viên]] — không chatbot cứng",
   support:
     "LLM + context nghiệp vụ + context khách. Trả lời đúng việc, đúng người, đúng giọng thương hiệu.",
-  cta: "Xem Agent Dolphin",
-  agentName: "Agent Dolphin",
+  cta: "Xem Dolphin Care",
+  agentName: "Dolphin Care",
   online: "Đang trực tuyến",
   messages: [
     { role: "user", text: "Còn size M màu navy không ạ?" },
@@ -654,12 +654,12 @@ const homeVi: AgentDolphinHomeCopy = {
 };
 
 const homeEn: AgentDolphinHomeCopy = {
-  eyebrow: "Agent Dolphin",
+  eyebrow: "Dolphin Care",
   title: "On-site support like a [[teammate]] — not a stiff chatbot",
   support:
     "LLM + business context + visitor context. Replies that fit the task, the person, and your brand voice.",
-  cta: "Explore Agent Dolphin",
-  agentName: "Agent Dolphin",
+  cta: "Explore Dolphin Care",
+  agentName: "Dolphin Care",
   online: "Online now",
   messages: [
     { role: "user", text: "Do you still have size M in navy?" },
@@ -677,12 +677,12 @@ const homeEn: AgentDolphinHomeCopy = {
 };
 
 const homeJa: AgentDolphinHomeCopy = {
-  eyebrow: "Agent Dolphin",
+  eyebrow: "Dolphin Care",
   title: "サイト上のサポートを[[スタッフ]]のように — 硬いチャットボットではない",
   support:
     "LLM + 業務コンテキスト + 来訪者コンテキスト。用件・相手・ブランドの声に合う返答。",
-  cta: "Agent Dolphinを見る",
-  agentName: "Agent Dolphin",
+  cta: "Dolphin Careを見る",
+  agentName: "Dolphin Care",
   online: "オンライン",
   messages: [
     { role: "user", text: "ネイビーのMサイズはまだありますか？" },
@@ -700,12 +700,12 @@ const homeJa: AgentDolphinHomeCopy = {
 };
 
 const homeDe: AgentDolphinHomeCopy = {
-  eyebrow: "Agent Dolphin",
+  eyebrow: "Dolphin Care",
   title: "Support auf der Site wie ein [[Mitarbeiter]] — kein steifer Chatbot",
   support:
     "LLM + Business-Kontext + Besucher-Kontext. Antworten passend zu Aufgabe, Person und Markenton.",
-  cta: "Agent Dolphin ansehen",
-  agentName: "Agent Dolphin",
+  cta: "Dolphin Care ansehen",
+  agentName: "Dolphin Care",
   online: "Online",
   messages: [
     { role: "user", text: "Haben Sie Größe M in Navy noch?" },
@@ -723,12 +723,12 @@ const homeDe: AgentDolphinHomeCopy = {
 };
 
 const homeZh: AgentDolphinHomeCopy = {
-  eyebrow: "Agent Dolphin",
+  eyebrow: "Dolphin Care",
   title: "站点支持像[[员工]]一样 — 不是生硬聊天机器人",
   support:
     "LLM + 业务上下文 + 访客上下文。回复贴合事项、对象与品牌语气。",
-  cta: "了解 Agent Dolphin",
-  agentName: "Agent Dolphin",
+  cta: "了解 Dolphin Care",
+  agentName: "Dolphin Care",
   online: "在线",
   messages: [
     { role: "user", text: "还有海军蓝 M 码吗？" },

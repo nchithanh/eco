@@ -10,7 +10,7 @@ UX flow: **website / delivery first**, then **AI layer**, then **trust & contact
 | --- | --- | --- | --- | --- |
 | — | — | Nav (+ announcement) | `Nav`, `AnnouncementBar` | |
 | 1 | Web | Hero | `Hero` | `#top` — web-first copy; secondary CTA → `#capabilities` |
-| 2 | AI | Agent Dolphin | `AgentDolphinHome` | `#agent-dolphin` — chat-style teaser → `/agent-dolphin/` |
+| 2 | AI | Dolphin Care | `AgentDolphinHome` | `#dolphin-care` — chat-style teaser → `/dolphin-care/` |
 | 3 | AI | Technology (globe) | `Technology` | `#technology` — animated globe + AI transform CTA |
 | 4 | Web | Capabilities | `Capabilities` | `#capabilities` — service grid |
 | 5 | Web | Popular services | `PopularServices` | `#popular-services` — package comparison table |
