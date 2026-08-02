@@ -1,0 +1,47 @@
+{
+  "meta": {
+    "kind": "homepage-section",
+    "locale": "vi",
+    "brand": "Dolphin Software",
+    "updated": "2026-08-02",
+    "productRoute": "/",
+    "id": "stats",
+    "anchor": "#stats",
+    "component": "SiteOutcomes",
+    "schemaPath": "/schema/homepage/stats/",
+    "rawPath": "/schema/homepage/stats.json",
+    "copyKey": "siteOutcomes"
+  },
+  "content": {
+    "eyebrow": "Outcomes",
+    "title": "Doanh nghiệp chọn Dolphin để [[chạy được việc thật]]",
+    "support": "Chúng tôi không đo bằng số lượng website đã làm. Điều quan trọng là sau khi bàn giao, hệ thống có thật sự giúp doanh nghiệp vận hành tốt hơn không.",
+    "painLead": "Đây là những thay đổi doanh nghiệp thường muốn đạt được.",
+    "items": [
+      {
+        "title": "Thu lead và chuyển đổi rõ",
+        "body": "Khách biết cần làm gì tiếp theo, để lại thông tin nhanh hơn và bạn không bỏ lỡ cơ hội."
+      },
+      {
+        "title": "Đặt lịch và xử lý yêu cầu tự động",
+        "body": "Từ đặt lịch, xác nhận đến nhắc hẹn — giảm thao tác tay và hạn chế bỏ sót."
+      },
+      {
+        "title": "Website tạo niềm tin ngay lần đầu",
+        "body": "Giao diện rõ, tốc độ nhanh, nội dung đúng trọng tâm để khách yên tâm liên hệ."
+      },
+      {
+        "title": "Tự chủ khi cần sửa website",
+        "body": "Đổi nội dung, hình ảnh hay bảng giá ngay khi cần, không phải chờ lập trình viên."
+      },
+      {
+        "title": "Kết nối công cụ bạn đang dùng",
+        "body": "Tích hợp MoMo, VNPay, Zalo OA, CRM hay hệ thống nội bộ để dữ liệu không rời rạc."
+      },
+      {
+        "title": "Không đứng lại khi một người nghỉ",
+        "body": "AI và quy trình giúp trả lời khách, xử lý yêu cầu và lưu thông tin nhất quán."
+      }
+    ]
+  }
+}

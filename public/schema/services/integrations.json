@@ -1,0 +1,32 @@
+{
+  "meta": {
+    "kind": "service",
+    "id": "integrations",
+    "locale": "vi",
+    "brand": "Dolphin Software",
+    "schemaPath": "/schema/services/integrations/",
+    "rawPath": "/schema/services/integrations.json",
+    "updated": "2026-08-02"
+  },
+  "pillar": "Modernize",
+  "productRoute": "/services/integrations/",
+  "title": "Tích hợp dịch vụ bên thứ ba",
+  "intro": "Gắn thanh toán MoMo / ZaloPay / VNPay, Zalo OA, SMS, email và các API khác vào hệ thống hiện có — an toàn, rõ luồng, dễ vận hành.",
+  "highlights": [
+    "Thanh toán: MoMo, ZaloPay, VNPay, Stripe…",
+    "Zalo OA / Messaging / webhook realtime",
+    "SMS, email, eKYC, logistics tùy nhu cầu",
+    "Retry, idempotency, logging và đối soát"
+  ],
+  "process": [
+    "Audit hệ thống hiện tại và chọn cổng phù hợp",
+    "Thiết kế luồng thanh toán / callback / hoàn tiền",
+    "Implement + sandbox test với đối tác",
+    "Go-live, monitoring và bàn giao ops"
+  ],
+  "deliverables": [
+    "Module tích hợp chạy trên staging/production",
+    "Tài liệu luồng + env / credential checklist",
+    "Runbook xử lý lỗi thanh toán / webhook"
+  ]
+}

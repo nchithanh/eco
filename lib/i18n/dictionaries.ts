@@ -1,3 +1,4 @@
+import { applyHomepageLang } from "./homepage_lang";
 import type { Dictionary, Locale } from "./types";
 import { careersByLocale, careersNavLabel } from "./careers-copy";
 import { getFaqCopy } from "./faq-copy";
@@ -41,14 +42,13 @@ const vi: Dictionary = {
     cta: "Ứng tuyển",
   },
   hero: {
-    eyebrow: "Web & App Studio",
-    aiPill: "AI tăng hiệu suất",
-    headline: "Để anh chị [[bớt lo]] chuyện website",
-    subhead:
-      "Làm web rõ ý, dễ chạy — rồi dùng AI để tối ưu vận hành, tăng hiệu suất",
+    eyebrow: "Dolphin Software",
+    aiPill: "",
+    headline: "Đừng để công nghệ trở thành [[gánh nặng]] cho doanh nghiệp",
+    subhead: "Xây website · nâng cấp hệ thống cũ · AI đúng chỗ cần",
     support:
-      "Anh chị nói muốn gì; mình đề xuất cách làm và báo giá rõ. Website là nền; AI giúp bớt việc tay, chạy việc nhanh hơn.",
-    trustLine: "Dễ hiểu · Báo giá rõ · AI để vận hành nhẹ hơn",
+      "Chúng tôi giúp doanh nghiệp xây dựng website, nâng cấp hệ thống cũ và ứng dụng AI vào đúng nơi cần thiết — để tiết kiệm thời gian và nâng cao hiệu quả.",
+    trustLine: "Hiểu vấn đề · Báo giá rõ · Không bán thừa",
     ctaPrimary: "Nhận báo giá",
     ctaSecondary: "Xem dịch vụ website",
     visual: {
@@ -563,20 +563,19 @@ const en: Dictionary = {
     cta: "Apply now",
   },
   hero: {
-    eyebrow: "Web & App Studio",
-    aiPill: "AI for efficiency",
-    headline: "So you can [[worry less]] about your website",
-    subhead:
-      "A clear site you can run — then use AI to streamline ops and boost efficiency",
+    eyebrow: "Dolphin Software",
+    aiPill: "",
+    headline: "Don't let technology become a [[burden]] on your business",
+    subhead: "Build websites · modernize legacy systems · AI where it helps",
     support:
-      "Tell us what you need; we'll suggest an approach and a clear quote. The website is the foundation; AI helps cut manual work and move faster.",
-    trustLine: "Plain language · Clear quotes · AI to lighten ops",
+      "We help businesses build websites, upgrade existing systems, and apply AI only where it matters — to save time and raise efficiency.",
+    trustLine: "Understand first · Clear quotes · No upsell you don't need",
     ctaPrimary: "Get a quote",
     ctaSecondary: "See website services",
     visual: {
       web: "Web & App",
       automation: "Automation",
-      ai: "AI Integrate",
+      ai: "AI integration",
     },
   },
   trust: {
@@ -1085,14 +1084,13 @@ const de: Dictionary = {
     cta: "Jetzt bewerben",
   },
   hero: {
-    eyebrow: "Web & App Studio",
-    aiPill: "AI für Effizienz",
-    headline: "Damit Sie sich um die Website [[weniger sorgen]]",
-    subhead:
-      "Eine klare Website, die läuft — dann AI für schlankere Abläufe und mehr Effizienz",
+    eyebrow: "Dolphin Software",
+    aiPill: "",
+    headline: "Lassen Sie Technologie nicht zur [[Last]] für Ihr Unternehmen werden",
+    subhead: "Websites bauen · Altsysteme modernisieren · AI dort, wo sie hilft",
     support:
-      "Sagen Sie uns, was Sie brauchen; wir schlagen den Weg vor und geben ein klares Angebot. Die Website ist die Basis; AI reduziert Handarbeit und beschleunigt den Betrieb.",
-    trustLine: "Verständlich · Klares Angebot · AI für leichtere Ops",
+      "Wir helfen Unternehmen, Websites zu bauen, bestehende Systeme zu modernisieren und AI nur dort einzusetzen, wo sie Zeit spart und Effizienz steigert.",
+    trustLine: "Problem zuerst · Klares Angebot · Kein unnötiger Upsell",
     ctaPrimary: "Angebot anfordern",
     ctaSecondary: "Website-Services ansehen",
     visual: {
@@ -1607,14 +1605,13 @@ const ja: Dictionary = {
     cta: "応募する",
   },
   hero: {
-    eyebrow: "Web & App Studio",
-    aiPill: "AIで効率アップ",
-    headline: "ウェブサイトの心配を[[少し減らす]]ために",
-    subhead:
-      "わかりやすく回るWebを先に — その後AIで運用を最適化し、効率を上げる",
+    eyebrow: "Dolphin Software",
+    aiPill: "",
+    headline: "テクノロジーを事業の[[負担]]にしない",
+    subhead: "Web構築 · 既存システムの刷新 · 必要な場所だけのAI",
     support:
-      "やりたいことを教えてください。方針と見積もりをはっきりお伝えします。Webが土台、AIは手作業を減らし、仕事を速くします。",
-    trustLine: "わかりやすい · 見積もり明確 · AIで運用を軽く",
+      "ウェブサイトの構築、既存システムのアップグレード、そして本当に必要なところへのAI適用で、時間を節約し効率を高めます。",
+    trustLine: "課題を理解 · 見積もり明確 · 不要な提案はしない",
     ctaPrimary: "見積もりを依頼",
     ctaSecondary: "Webサービスを見る",
     visual: {
@@ -2129,14 +2126,13 @@ const zh: Dictionary = {
     cta: "立即申请",
   },
   hero: {
-    eyebrow: "Web & App Studio",
-    aiPill: "AI 提升效率",
-    headline: "让您[[少操心]]网站的事",
-    subhead:
-      "先做好清晰、好运营的网站 — 再用 AI 优化运营、提升效率",
+    eyebrow: "Dolphin Software",
+    aiPill: "",
+    headline: "别让技术成为企业的[[负担]]",
+    subhead: "建站 · 升级旧系统 · AI 用在真正需要的地方",
     support:
-      "您说想要什么；我们给出做法和清楚报价。网站是基础；AI 帮您少做手工、把事情跑得更快。",
-    trustLine: "好懂 · 报价清楚 · AI 减轻运营负担",
+      "我们帮助企业建设网站、升级现有系统，并只在真正需要的地方应用 AI——节省时间、提升效率。",
+    trustLine: "先理解问题 · 报价清楚 · 不卖多余的东西",
     ctaPrimary: "获取报价",
     ctaSecondary: "查看网站服务",
     visual: {
@@ -2620,8 +2616,9 @@ export const dictionaries: Record<Locale, Dictionary> = { vi, en, ja, de, zh };
 
 export function getDictionary(locale: Locale): Dictionary {
   const dict = dictionaries[locale] ?? dictionaries.vi;
-  return {
+  const withBanner = {
     ...dict,
     banner: dict.banner ?? dictionaries.vi.banner,
   };
+  return applyHomepageLang(locale, withBanner);
 }

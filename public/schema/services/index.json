@@ -1,0 +1,73 @@
+{
+  "meta": {
+    "kind": "services-index",
+    "schemaPath": "/schema/services/",
+    "rawPath": "/schema/services/index.json",
+    "brand": "Dolphin Software",
+    "updated": "2026-08-02"
+  },
+  "umbrella": [
+    "Build",
+    "Modernize",
+    "Automate",
+    "Care"
+  ],
+  "items": [
+    {
+      "id": "web",
+      "title": "Thiết kế & làm website theo yêu cầu",
+      "pillar": "Build",
+      "productRoute": "/services/web/",
+      "schemaPath": "/schema/services/web/",
+      "rawPath": "/schema/services/web.json"
+    },
+    {
+      "id": "mobile",
+      "title": "Phát triển mobile app",
+      "pillar": "Build",
+      "productRoute": "/services/mobile/",
+      "schemaPath": "/schema/services/mobile/",
+      "rawPath": "/schema/services/mobile.json"
+    },
+    {
+      "id": "backend",
+      "title": "Backend & tích hợp hệ thống",
+      "pillar": "Build",
+      "productRoute": "/services/backend/",
+      "schemaPath": "/schema/services/backend/",
+      "rawPath": "/schema/services/backend.json"
+    },
+    {
+      "id": "design",
+      "title": "UI/UX & bàn giao",
+      "pillar": "Build",
+      "productRoute": "/services/design/",
+      "schemaPath": "/schema/services/design/",
+      "rawPath": "/schema/services/design.json"
+    },
+    {
+      "id": "integrations",
+      "title": "Tích hợp dịch vụ bên thứ ba",
+      "pillar": "Modernize",
+      "productRoute": "/services/integrations/",
+      "schemaPath": "/schema/services/integrations/",
+      "rawPath": "/schema/services/integrations.json"
+    },
+    {
+      "id": "agents",
+      "title": "Hệ sinh thái agent cho business",
+      "pillar": "Automate",
+      "productRoute": "/services/agents/",
+      "schemaPath": "/schema/services/agents/",
+      "rawPath": "/schema/services/agents.json"
+    },
+    {
+      "id": "custom-agent",
+      "title": "AI Agent theo yêu cầu",
+      "pillar": "Automate",
+      "productRoute": "/custom-agent/",
+      "schemaPath": "/schema/services/custom-agent/",
+      "rawPath": "/schema/services/custom-agent.json"
+    }
+  ]
+}

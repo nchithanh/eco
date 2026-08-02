@@ -67,6 +67,10 @@ const OFFER_ICONS: Record<string, ReactNode> = {
   business: <IconBusiness />,
   shop: <IconShop />,
   webapp: <IconWebApp />,
+  build: <IconLanding />,
+  modernize: <IconBusiness />,
+  automate: <IconWebApp />,
+  care: <IconShop />,
 };
 
 export function Capabilities() {
@@ -111,7 +115,7 @@ export function Capabilities() {
                 <p className="mt-2 line-clamp-2 flex-1 text-sm leading-relaxed text-[var(--kuct-muted)]">
                   {offer.body}
                 </p>
-                <p className="mt-4 text-[11px] font-medium tracking-wide text-[var(--kuct-muted)]">
+                <p className="mt-4 text-[11px] font-medium tracking-wide text-[var(--kuct-accent)]/90">
                   {offer.meta}
                 </p>
                 <span className="mt-3 inline-flex w-fit items-center gap-1 text-sm font-semibold text-[var(--kuct-accent)] transition group-hover:gap-1.5">
@@ -127,7 +131,7 @@ export function Capabilities() {
           <Reveal delay={200} className="mt-6 flex flex-wrap gap-2 sm:mt-7">
             {c.moreServices.map((item) => (
               <Link
-                key={item.href}
+                key={`${item.label}-${item.href}`}
                 href={item.href}
                 onClick={(event) => onNav(item.href, event)}
                 className="rounded-full border border-[var(--kuct-border)] px-3 py-1.5 text-xs font-medium text-[var(--kuct-muted)] transition hover:border-[var(--kuct-accent)]/45 hover:text-[var(--kuct-text)]"
@@ -147,7 +151,7 @@ export function Capabilities() {
             {c.ctaPrimary}
           </button>
           <a
-            href="#popular-services"
+            href={c.ctaSecondaryHref ?? "#popular-services"}
             className="inline-flex w-full items-center justify-center rounded-full border border-[var(--kuct-border)] px-6 py-3 text-sm font-medium text-[var(--kuct-muted)] transition duration-200 hover:border-[var(--kuct-accent)]/45 hover:bg-[var(--kuct-accent)]/10 hover:text-[var(--kuct-text)] sm:w-auto"
           >
             {c.ctaSecondary}

@@ -1,0 +1,34 @@
+{
+  "meta": {
+    "kind": "service",
+    "id": "web",
+    "locale": "vi",
+    "brand": "Dolphin Software",
+    "schemaPath": "/schema/services/web/",
+    "rawPath": "/schema/services/web.json",
+    "updated": "2026-08-02"
+  },
+  "pillar": "Build",
+  "productRoute": "/services/web/",
+  "title": "Thiết kế & làm website theo yêu cầu",
+  "metaTitle": "Thiết kế website theo yêu cầu | Dolphin Software",
+  "metaDescription": "Làm website, landing page và corporate site cho SMB — phạm vi rõ, báo giá minh bạch, SEO kỹ thuật cơ bản. Nhận báo giá nhanh qua Zalo hoặc form.",
+  "intro": "Cần làm website hoặc thiết kế web cho doanh nghiệp? Chúng tôi xây landing, site bán hàng và corporate — phạm vi rõ, timeline rõ, dễ nhận báo giá và mở rộng sau.",
+  "highlights": [
+    "Landing / marketing site tối ưu chuyển đổi",
+    "Website doanh nghiệp & bán hàng đa trang",
+    "CMS (Strapi / headless) để team tự cập nhật",
+    "SEO kỹ thuật cơ bản và performance tốt"
+  ],
+  "process": [
+    "Khảo sát mục tiêu, sitemap và nội dung",
+    "Thiết kế UI + review vòng ngắn",
+    "Implement Next.js / React theo milestone",
+    "QA, bàn giao và hướng dẫn vận hành"
+  ],
+  "deliverables": [
+    "Source code + deploy production",
+    "Tài liệu cấu trúc nội dung / CMS",
+    "Checklist launch và hỗ trợ hậu kỳ ngắn"
+  ]
+}

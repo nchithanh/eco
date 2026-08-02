@@ -12,63 +12,60 @@ export type FaqCopy = {
 const vi: FaqCopy = {
   eyebrow: "FAQ",
   title: "Câu hỏi [[thường gặp]]",
-  support: "Timeline · báo giá · bảo hành · bảo mật — trước khi bắt đầu.",
+  support:
+    "Timeline · báo giá · bảo hành · bảo mật — những điều bạn cần biết trước khi bắt đầu.",
   items: [
     {
       q: "Studio làm những gì?",
-      a: "Dolphin Software giúp SMB từ bài toán kinh doanh đến hệ thống dễ vận hành — website, mobile, tự động hóa và AI. Bạn nói mục tiêu; chúng tôi đề xuất phạm vi phù hợp.",
+      a: "Dolphin Software giúp SMB đi từ bài toán kinh doanh đến hệ thống dễ vận hành — website, phần mềm, tự động hóa và AI. Bạn nói mục tiêu, chúng tôi đề xuất phạm vi phù hợp.",
     },
     {
       q: "Không biết kỹ thuật có làm được không?",
-      a: "Có. Đa số khách không code. Gửi ý tưởng hoặc mô tả ngắn — tư vấn bằng ngôn ngữ kinh doanh, làm trọn gói và bàn giao kèm hướng dẫn vận hành.",
+      a: "Được. Đa số khách không code. Bạn gửi ý tưởng hoặc mô tả ngắn, chúng tôi tư vấn bằng ngôn ngữ kinh doanh, làm trọn gói và bàn giao kèm hướng dẫn vận hành.",
     },
     {
       q: "Quy trình làm việc thế nào?",
       a: "Làm rõ mục tiêu → chốt phạm vi & báo giá → sprint có đầu ra → nghiệm thu → bàn giao & hỗ trợ. Bạn luôn biết bước tiếp theo.",
     },
     {
-      q: "Báo giá và quy trình nhận quote?",
-      a: "Gửi mô tả qua Contact, “Nhận báo giá” hoặc Zalo. Chúng tôi phản hồi phạm vi ước tính và bước tiếp — không phí ẩn ngoài scope đã thống nhất.",
+      q: "Nhận báo giá ra sao?",
+      a: "Gửi mô tả qua Contact, nút “Nhận báo giá” hoặc Zalo. Chúng tôi phản hồi phạm vi ước tính và bước tiếp theo — không phí ẩn ngoài scope đã thống nhất.",
     },
     {
       q: "Timeline thường bao lâu?",
-      a: "Landing: ~2–4 tuần. Site nhiều trang: vài tuần đến ~1–2 tháng. App/workflow: milestone 4–12 tuần tùy scope. Ngày cụ thể gắn trong báo giá sau khi chốt.",
+      a: "Landing: ~3–5 ngày. Business website: ~7–14 ngày. Shop / e-commerce: ~3–4 tuần. App / workflow: theo scope. Ngày cụ thể được gắn trong báo giá sau khi chốt.",
     },
     {
       q: "Website có tối ưu SEO / mobile không?",
-      a: "Mặc định responsive, heading/meta rõ và SEO on-page cơ bản. SEO nội dung dài hạn hoặc Ads lớn có thể thỏa thuận thêm.",
+      a: "Mặc định responsive, heading / meta rõ và SEO on-page cơ bản. SEO nội dung dài hạn hoặc Ads quy mô lớn có thể thỏa thuận thêm.",
     },
     {
       q: "Làm remote được không?",
-      a: "Có — chat/call, demo định kỳ và tài liệu bàn giao rõ. Phục vụ khách toàn quốc.",
+      a: "Được — chat / call, demo định kỳ và tài liệu bàn giao rõ. Chúng tôi phục vụ khách toàn quốc.",
     },
     {
       q: "Bảo trì sau bàn giao khác gì tính năng mới?",
-      a: "Sau bàn giao: hướng dẫn vận hành + BH lỗi kỹ thuật (thường 3–6 tháng) trong phạm vi đã nghiệm thu. Tính năng mới là hạng mục riêng, báo giá trước.",
+      a: "Sau bàn giao: hướng dẫn vận hành và bảo hành lỗi kỹ thuật (thường 3–6 tháng) trong phạm vi đã nghiệm thu. Tính năng mới là hạng mục riêng, báo giá trước.",
     },
     {
       q: "Bảo mật và dữ liệu thế nào?",
-      a: "HTTPS, phân quyền, env vars, không commit secret. Dữ liệu thuộc bạn. Audit / SSO / compliance nâng cao thỏa thuận thêm trong scope.",
-    },
-    {
-      q: "Về nội dung chứng khoán trên site?",
-      a: "Chỉ chia sẻ cộng đồng — không phải tư vấn đầu tư có giấy phép và không cam kết lợi nhuận.",
-    },
-    {
-      q: "Làm sao bắt đầu?",
-      a: "Nhấn “Nhận báo giá”, chat Zalo, hoặc gửi form Contact với mục tiêu, deadline và ngân sách ước lượng nếu có.",
-    },
-    {
-      q: "Phạm vi có bị phình giữa chừng không?",
-      a: "Scope chốt ở bước báo giá. Yêu cầu ngoài phạm vi được ghi nhận, ước lượng lại và chỉ làm khi bạn đồng ý.",
+      a: "HTTPS, phân quyền, env vars, không commit secret. Dữ liệu thuộc về bạn. Audit / SSO / compliance nâng cao thỏa thuận thêm trong scope.",
     },
     {
       q: "Có làm MVP theo giai đoạn không?",
-      a: "Có. Ưu tiên MVP đủ chạy, rồi mở rộng theo milestone — kiểm chứng sớm và kiểm soát ngân sách.",
+      a: "Có. Chúng tôi ưu tiên MVP đủ chạy rồi mở rộng theo milestone — kiểm chứng sớm và kiểm soát ngân sách.",
     },
     {
       q: "AI agent khác chatbot marketing thế nào?",
-      a: "Chatbot marketing trả lời FAQ/script. Agent gắn quy trình nghiệp vụ, tool/MCP và ngữ cảnh nội bộ — hỗ trợ vận hành, không chỉ chat bán hàng.",
+      a: "Chatbot marketing trả lời FAQ theo kịch bản. Agent gắn với quy trình nghiệp vụ, tool và ngữ cảnh nội bộ — hỗ trợ vận hành, không chỉ chat bán hàng.",
+    },
+    {
+      q: "Phạm vi có bị phình giữa chừng không?",
+      a: "Scope được chốt ở bước báo giá. Yêu cầu ngoài phạm vi sẽ được ghi nhận, ước lượng lại và chỉ làm khi bạn đồng ý.",
+    },
+    {
+      q: "Làm sao để bắt đầu?",
+      a: "Nhấn “Nhận báo giá”, chat Zalo hoặc gửi form Contact với mục tiêu, deadline và ngân sách ước lượng nếu có.",
     },
   ],
 };

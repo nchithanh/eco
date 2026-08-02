@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "kind": "homepage-section",
+    "locale": "vi",
+    "brand": "Dolphin Software",
+    "updated": "2026-08-02",
+    "productRoute": "/",
+    "id": "hero",
+    "anchor": "#top",
+    "component": "Hero",
+    "schemaPath": "/schema/homepage/hero/",
+    "rawPath": "/schema/homepage/hero.json"
+  },
+  "content": {
+    "eyebrow": "Dolphin Software",
+    "aiPill": "",
+    "headline": "Đừng để công nghệ trở thành [[gánh nặng]] cho doanh nghiệp",
+    "subhead": "Xây website · nâng cấp hệ thống cũ · AI đúng chỗ cần",
+    "support": "Không phải lúc nào cũng cần làm lại từ đầu. Chúng tôi giúp bạn chọn đúng phần cần xây, cần nâng cấp hay cần tự động hóa — để website và hệ thống thật sự hỗ trợ bán hàng, vận hành và chăm sóc khách.",
+    "trustLine": "Hiểu vấn đề · Báo giá rõ · Không bán thừa",
+    "ctaPrimary": "Nhận báo giá",
+    "ctaSecondary": "Xem dịch vụ website",
+    "visual": {
+      "web": "Web & App",
+      "automation": "Tự động hóa",
+      "ai": "Tích hợp AI"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "meta": {
+    "kind": "service",
+    "id": "backend",
+    "locale": "vi",
+    "brand": "Dolphin Software",
+    "schemaPath": "/schema/services/backend/",
+    "rawPath": "/schema/services/backend.json",
+    "updated": "2026-08-02"
+  },
+  "pillar": "Build",
+  "productRoute": "/services/backend/",
+  "title": "Backend & tích hợp hệ thống",
+  "intro": "API, auth, thanh toán và kết nối dịch vụ bên thứ ba — nền tảng vững để web/app scale mà không “vá” lung tung.",
+  "highlights": [
+    "REST / API rõ contract và error handling",
+    "Auth (JWT / session) và phân quyền",
+    "Tích hợp payment, email, storage, webhook",
+    "PostgreSQL + logging / monitoring cơ bản"
+  ],
+  "process": [
+    "Phân tích domain và biên hệ thống",
+    "Thiết kế API + data model",
+    "Implement theo module / sprint",
+    "Test tích hợp, tài liệu và bàn giao ops"
+  ],
+  "deliverables": [
+    "Service backend deploy được",
+    "OpenAPI / tài liệu endpoint",
+    "Env sample + runbook ngắn"
+  ]
+}

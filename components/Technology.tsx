@@ -588,23 +588,38 @@ export function Technology() {
 
         <Reveal className="max-w-lg lg:justify-self-end" variant="right">
           <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
-            {ai.eyebrow}
+            {tech.eyebrow}
           </p>
           <h2 className="mt-4 max-w-[16ch] font-display text-3xl font-semibold leading-[1.12] tracking-tight text-[var(--kuct-text)] sm:max-w-[18ch] sm:text-[2.15rem] lg:text-[2.35rem] lg:leading-[1.1]">
-            <AccentText>{ai.headline}</AccentText>
+            <AccentText>{tech.title}</AccentText>
           </h2>
-          <p className="mt-5 max-w-[36ch] text-base leading-[1.7] text-[var(--kuct-muted)]">
-            {ai.support}
+          <p className="mt-5 max-w-[42ch] text-base leading-[1.7] text-[var(--kuct-muted)]">
+            {tech.support}
           </p>
+          {tech.principles && tech.principles.length > 0 ? (
+            <ul className="mt-6 list-none space-y-4 p-0">
+              {tech.principles.map((p) => (
+                <li key={p.title}>
+                  <p className="font-display text-sm font-semibold text-[var(--kuct-text)]">
+                    {p.title}
+                  </p>
+                  <p className="mt-1 text-sm leading-relaxed text-[var(--kuct-muted)]">
+                    {p.body}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p className="mt-4 max-w-md text-xs leading-relaxed tracking-wide text-[var(--kuct-muted)]/90">
+              {ai.trustLine}
+            </p>
+          )}
           <a
             href={assetPath("/ai-transform/")}
             className="kuct-btn-primary mt-8 inline-flex items-center rounded-full px-8 py-3.5 text-sm font-semibold shadow-[0_12px_32px_rgb(var(--kuct-accent-rgb)/0.38)]"
           >
             {tech.cta}
           </a>
-          <p className="mt-4 max-w-md text-xs leading-relaxed tracking-wide text-[var(--kuct-muted)]/90">
-            {ai.trustLine}
-          </p>
         </Reveal>
       </div>
     </section>

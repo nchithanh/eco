@@ -1,5 +1,27 @@
 # Changelog
 
+## 2026-08-02
+
+- Homepage VI rewrite (full section copy): hero→contact; Technology = AI Philosophy + principles; FAQ 13 Q; Care/home + contact afterSubmit; schema `/schema/homepage/*` synced.
+- Schema homepage: `/schema/homepage/` list + `/schema/homepage/[slug]/` JSON (VI SoT); sync rule updated.
+- Agent rule: `schema-json-sync.mdc` — khi chỉnh content/product truth, cập nhật `public/schema/` liên quan trong cùng task.
+- Schema tree: `/schema/` (list index) → `/schema/company/`, `/schema/services/[slug]/`, `/schema/agents/[slug]/` (+ raw JSON under `public/schema/`); `/company_value/` redirects to company overview.
+- Agent rule: `reply-vietnamese.mdc` — chat replies always Vietnamese (product copy still follows locale).
+- Homepage story reorder: Hero → Outcomes → Why → How we help → Projects → Care → Ops AI → Process → Fit → Solutions → FAQ → CTA. VI chrome renames + `FitSection` + contact “Có bài toán?”; Solutions moved near end.
+- Brand chrome eyebrows (VI homepage): keep English — `Outcomes`, `How we help`, `Why Dolphin`, `Projects`, `Ops AI`, `Fit`, `Solutions` (BrandText / display name always EN).
+- Dolphin Care `#dolphin-care` (VI): pain heading Option 1; outcome benefits; situations + industries; pipeline “không phải chatbot”; CTA demo.
+- Featured projects `#works` (VI): Option 1 heading; case titles/problem/scope/result + Before→After + industry chips; CTA “bài toán tương tự”.
+- Why Dolphin `#why` (VI): operating principles eyebrow; 6 cards (không vội code → đơn giản → modernize → cam kết → AI đúng chỗ → đồng hành).
+- What we do `#capabilities` (VI): Option A heading, owner-voice cards + “khi nào dùng”, industry tags → `#works`, CTA tư vấn / `#process`.
+- Stats `#stats` (VI): keep “chạy được việc thật”; support + `painLead` + 6 outcome cards (owner voice) in `homepage_lang_vi`.
+- Revert homepage VI UX-writer rewrite — restore prior `homepage_lang_vi` (schema order unchanged).
+- Homepage schema reorder: Hero → Stats → What we do → Why → Solutions → Projects → Care → AI Transform → Process → FAQ → CTA. Dropped from home: stack/ops/handover/news/cofounder/what-you-get. VI copy via `homepage_lang_vi.ts` (+ merge in `homepage_lang.ts`); other langs TODO.
+- Hero copy: “Đừng để công nghệ thành gánh nặng…” + Build/Modernize/AI đúng chỗ (5 locales); hide empty `aiPill`; widen H1 measure.
+- Knowledge SoT upgrade: `company.md`, `company-opinion.md`, `company-values.md`; rewrite `services` / pains / Care / AI; positioning **Build · Modernize · Automate · Care**; `knowledge/README.md` index; brand-voice + agent-ops wired.
+- Content Agent pack: rules `content-*`, `.cursor/knowledge/`, `examples/`, `prompts/` (blog/social/pipeline).
+- Agents router: `.cursor/agents/` (content, seo, frontend, reviewer, tester, devops).
+- Agent ops setup: `dolphin-core` + modes `news` / `social`; skills `lang` / `seo`; docs `agent-ops`, `brand-voice`, `geo-japan`, `social-playbook`. `documentations/` = canonical full context.
+
 ## 2026-08-01
 
 - Homepage `#dolphin-care`: align container to main page gutters (`max-w-6xl px-6`) like Hero/Capabilities.

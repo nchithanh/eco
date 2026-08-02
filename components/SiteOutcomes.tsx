@@ -6,10 +6,10 @@ import { useLocale } from "@/lib/i18n/LocaleProvider";
 
 export function SiteOutcomes() {
   const { t } = useLocale();
-  const { eyebrow, title, support, items } = t.siteOutcomes;
+  const { eyebrow, title, support, painLead, items } = t.siteOutcomes;
 
   return (
-    <section id="outcomes" className="scroll-mt-20 py-24">
+    <section id="stats" className="scroll-mt-20 py-24">
       <div className="mx-auto max-w-6xl px-6">
         <Reveal>
           <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
@@ -18,12 +18,20 @@ export function SiteOutcomes() {
           <h2 className="mt-4 max-w-3xl font-display text-3xl font-semibold leading-[1.12] tracking-tight sm:text-[2.15rem] lg:text-[2.35rem] lg:leading-[1.1]">
             <AccentText>{title}</AccentText>
           </h2>
-          <p className="mt-5 max-w-[40ch] text-base leading-[1.7] text-[var(--kuct-muted)]">
+          <p className="mt-5 max-w-[48ch] text-base leading-[1.7] text-[var(--kuct-muted)]">
             {support}
           </p>
         </Reveal>
 
-        <ol className="mt-12 grid list-none grid-cols-1 gap-5 p-0 sm:grid-cols-2 lg:grid-cols-3">
+        {painLead ? (
+          <Reveal className="mt-10">
+            <p className="max-w-[40ch] text-base font-medium leading-snug text-[var(--kuct-text)] sm:text-lg">
+              {painLead}
+            </p>
+          </Reveal>
+        ) : null}
+
+        <ol className="mt-8 grid list-none grid-cols-1 gap-5 p-0 sm:mt-10 sm:grid-cols-2 lg:grid-cols-3">
           {items.map((item, index) => {
             const isLead = index === 0 || index === items.length - 1;
 
@@ -48,7 +56,7 @@ export function SiteOutcomes() {
                   <h3 className="font-display text-lg font-semibold leading-snug text-[var(--kuct-text)]">
                     {item.title}
                   </h3>
-                  <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-[var(--kuct-muted)]">
+                  <p className="mt-2 text-sm leading-relaxed text-[var(--kuct-muted)]">
                     {item.body}
                   </p>
                 </div>

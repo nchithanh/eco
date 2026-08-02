@@ -83,6 +83,7 @@ export default async function ServicePage({
   return (
     <>
       <JsonLd
+        id={`service-${slug}-jsonld`}
         data={[
           serviceJsonLd({
             name: detail.title,

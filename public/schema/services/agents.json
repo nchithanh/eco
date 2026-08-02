@@ -1,0 +1,36 @@
+{
+  "meta": {
+    "kind": "service",
+    "id": "agents",
+    "locale": "vi",
+    "brand": "Dolphin Software",
+    "schemaPath": "/schema/services/agents/",
+    "rawPath": "/schema/services/agents.json",
+    "updated": "2026-08-02"
+  },
+  "pillar": "Automate",
+  "productRoute": "/services/agents/",
+  "title": "Hệ sinh thái agent cho business",
+  "intro": "Xây context theo nghiệp vụ doanh nghiệp, gắn MCP và tool nội bộ — để team vibe coding / AI workflow nhanh hơn, đúng domain hơn.",
+  "highlights": [
+    "Business context / knowledge base cho agent",
+    "Tích hợp MCP servers và tool nội bộ",
+    "Workflow agent hỗ trợ coding, CS, ops",
+    "Guardrails: quyền truy cập, audit, prompt policy"
+  ],
+  "process": [
+    "Map nghiệp vụ, nguồn dữ liệu và use-case agent",
+    "Thiết kế context layer + MCP / tool connectors",
+    "Prototype agent workflow và đánh giá chất lượng",
+    "Hardening, tài liệu và bàn giao vận hành"
+  ],
+  "deliverables": [
+    "Agent / MCP stack chạy được theo môi trường",
+    "Context pack theo business + guideline dùng",
+    "Checklist bảo mật và mở rộng tool mới"
+  ],
+  "relatedAgents": [
+    "/schema/agents/dolphin-care/",
+    "/schema/agents/custom-agent/"
+  ]
+}

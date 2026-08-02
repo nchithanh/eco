@@ -1,0 +1,303 @@
+{
+  "meta": {
+    "brand": "Dolphin Software",
+    "site": "https://dolphin-software.io.vn/",
+    "source": ".cursor/knowledge/",
+    "updated": "2026-08-02",
+    "note": "Company knowledge pack as JSON — SoT for agents; missing facts stay TODO in source markdown.",
+    "schemaId": "company",
+    "schemaPath": "/schema/company/",
+    "rawPath": "/schema/company.json",
+    "kind": "overview",
+    "related": {
+      "servicesIndex": "/schema/services/",
+      "agentsIndex": "/schema/agents/"
+    }
+  },
+  "company": {
+    "whatWeAre": [
+      "Dolphin Software là studio phát triển phần mềm và AI cho doanh nghiệp vừa và nhỏ (SMB).",
+      "Chúng tôi không chỉ làm website.",
+      "Mục tiêu: giúp doanh nghiệp vận hành hiệu quả hơn bằng công nghệ."
+    ],
+    "displayBrand": "Dolphin Software",
+    "whatWeDo": [
+      "Thiết kế website theo yêu cầu",
+      "Phát triển phần mềm theo yêu cầu",
+      "Nâng cấp và bảo trì hệ thống hiện có",
+      "AI hóa quy trình làm việc",
+      "Xây dựng AI Agent theo từng nghiệp vụ",
+      "Dolphin Care (AI chăm sóc khách trên website)"
+    ],
+    "positioning": {
+      "Build": "Xây website và phần mềm theo nhu cầu",
+      "Modernize": "Nâng cấp, mở rộng, tối ưu hệ thống hiện có",
+      "Automate": "AI hóa quy trình lặp lại, giảm việc tay",
+      "Care": "Dolphin Care — chăm sóc khách trên website"
+    },
+    "outreachNote": "Cold outreach / social ưu tiên Build (website) trước Care/AI."
+  },
+  "opinion": {
+    "beliefs": [
+      "Không phải doanh nghiệp nào cũng cần AI.",
+      "Không phải lúc nào cũng cần làm lại website.",
+      "Không phải phần mềm cũ là phần mềm tệ."
+    ],
+    "howWeDecide": [
+      "Hiểu vấn đề.",
+      "Sau đó mới chọn giải pháp."
+    ],
+    "note": "Đôi khi giải pháp tốt nhất chỉ là thay đổi một quy trình nhỏ.",
+    "messaging": [
+      "Đừng mở mọi bài bằng “AI Agent” / “AI sẽ đổi mọi thứ”.",
+      "Đừng giả định khách phải rebuild từ đầu.",
+      "Đề xuất Care / Automate chỉ khi khớp pain (ngoài giờ, hỏi lặp, thiếu người chăm).",
+      "Build (website rõ) thường là bước nền trước khi bán AI."
+    ]
+  },
+  "values": {
+    "beliefs": [
+      "Website chỉ là công cụ.",
+      "AI chỉ là công cụ.",
+      "Điều quan trọng nhất là doanh nghiệp vận hành tốt hơn."
+    ],
+    "principles": [
+      "Không bán những thứ khách không cần.",
+      "Giải pháp đơn giản luôn tốt hơn giải pháp phức tạp."
+    ],
+    "forAgents": "When drafting: benefit = vận hành / bán hàng / chăm sóc tốt hơn — không khoe stack vì stack."
+  },
+  "customerPain": {
+    "websiteAndLead": [
+      "Website đẹp nhưng không tạo ra khách hàng",
+      "Website không có người chăm sóc",
+      "Khách để lại thông tin nhưng không ai gọi",
+      "Form rối, không biết bấm gì"
+    ],
+    "responseAndCare": [
+      "Khách nhắn ngoài giờ",
+      "Doanh nghiệp phải trả lời cùng một câu hỏi hàng trăm lần",
+      "Mất lead vì phản hồi chậm",
+      "Chủ shop tự trả lời Messenger mỗi tối"
+    ],
+    "legacyAndOps": [
+      "Phần mềm cũ chạy chậm",
+      "Không có tài liệu",
+      "Không ai dám sửa",
+      "Dữ liệu nằm ở nhiều nơi",
+      "Quy trình phụ thuộc quá nhiều vào con người"
+    ],
+    "deliveryAnxiety": [
+      "Làm web kéo dài vì scope mơ hồ",
+      "Sợ vendor lock / không nhận source"
+    ],
+    "aiMisconception": [
+      "Nhiều người nghĩ họ “cần AI”, thực ra cần quy trình chăm sóc + website rõ trước",
+      "Chatbot kịch bản làm khách giận vì trả lời lệch"
+    ]
+  },
+  "services": {
+    "umbrella": [
+      "Build",
+      "Modernize",
+      "Automate",
+      "Care"
+    ],
+    "buildWebsite": {
+      "summary": "Thiết kế website theo yêu cầu — không template đại trà; hỗ trợ bán hàng và chăm sóc khách.",
+      "offers": [
+        "Landing",
+        "Business site",
+        "Shop",
+        "Custom web app"
+      ],
+      "routes": [
+        "/services/web/"
+      ]
+    },
+    "buildCustomSoftware": {
+      "summary": "Phần mềm / web app theo nghiệp vụ (booking, portal, ops) khi scope rõ.",
+      "routes": [
+        "/services/web/",
+        "/services/backend/",
+        "/services/mobile/",
+        "/services/design/",
+        "/services/integrations/"
+      ]
+    },
+    "modernize": {
+      "summary": "Ưu tiên phân tích, tối ưu, bổ sung tính năng, hiện đại hóa — tận dụng hệ thống hiện có trước khi làm mới.",
+      "focus": [
+        "phân tích hệ thống",
+        "tối ưu hiệu năng",
+        "bổ sung tính năng",
+        "hiện đại hóa công nghệ",
+        "giảm chi phí bảo trì"
+      ]
+    },
+    "automate": {
+      "summary": "AI không thay người — tự động hóa việc lặp khi có giá trị thực.",
+      "examples": [
+        "trả lời khách hàng",
+        "phân loại yêu cầu",
+        "nhập dữ liệu",
+        "tìm kiếm thông tin nội bộ",
+        "hỗ trợ nhân viên"
+      ],
+      "routes": [
+        "/ai-transform/",
+        "/custom-agent/",
+        "/services/agents/"
+      ]
+    },
+    "care": {
+      "summary": "Dolphin Care — AI chăm sóc khách trên website; không phải chatbot kịch bản cứng.",
+      "route": "/dolphin-care/"
+    },
+    "routeMap": {
+      "web": "/services/web/",
+      "mobile": "/services/mobile/",
+      "backend": "/services/backend/",
+      "design": "/services/design/",
+      "integrations": "/services/integrations/",
+      "agents": "/services/agents/",
+      "customAgent": "/custom-agent/",
+      "aiTransform": "/ai-transform/",
+      "dolphinCare": "/dolphin-care/"
+    },
+    "hiringNote": "Mobile & Design closed; Marketing/Growth open — xem careers."
+  },
+  "website": {
+    "pillar": "Build",
+    "offers": [
+      {
+        "id": "landing",
+        "name": "Landing page",
+        "use": "campaign / service intro / lead",
+        "typicalTimeline": "thường ~3–5 ngày"
+      },
+      {
+        "id": "business",
+        "name": "Business website",
+        "use": "multi-page, CMS cơ bản",
+        "typicalTimeline": "~7–14 ngày"
+      },
+      {
+        "id": "shop",
+        "name": "Shop / e-commerce",
+        "use": "catalog, cart, payments",
+        "typicalTimeline": "~3–4 tuần"
+      },
+      {
+        "id": "webapp",
+        "name": "Custom web app",
+        "use": "booking, portals, ops (scoped)",
+        "typicalTimeline": "theo scope"
+      }
+    ],
+    "promise": [
+      "Dựa trên nhu cầu / quy trình kinh doanh — không template đại trà",
+      "Hỗ trợ bán hàng + chăm sóc, không chỉ brochure",
+      "Scope, milestones, handover (source, docs, warranty) — không chỉ URL live"
+    ],
+    "pricingNote": "VND amounts: lib/i18n/popular-services-copy.ts / lib/pricing-fx.ts — không hardcode số cũ.",
+    "cta": "Zalo / quote / contact"
+  },
+  "dolphinCare": {
+    "displayName": "Dolphin Care",
+    "formerName": "Agent Dolphin",
+    "route": "/dolphin-care/",
+    "pillar": "Care",
+    "whatItIs": "AI Agent chăm sóc khách hàng trên website — khác chatbot kịch bản cứng.",
+    "capabilities": [
+      "hiểu ngữ cảnh hội thoại (khi knowledge + context được nạp)",
+      "trả lời tự nhiên hơn bot cũ",
+      "ghi nhận / dẫn thông tin khách",
+      "hỗ trợ tư vấn sản phẩm trong phạm vi kiến thức",
+      "hỗ trợ ngoài giờ — giảm bỏ lỡ lead"
+    ],
+    "whatItIsNot": [
+      "Không thay cả công ty / đội sales",
+      "Không bắt buộc với mọi dự án web — upsell / optional",
+      "Cold outreach vẫn mở bằng website (Build), không Care"
+    ],
+    "messaging": "Ưu tiên “chăm sóc / ngoài giờ / bớt hỏi lặp” hơn buzzword “AI Agent”.",
+    "copySource": "lib/i18n/agent-dolphin-copy.ts"
+  },
+  "ai": {
+    "pillars": [
+      "Automate",
+      "Care"
+    ],
+    "positioning": [
+      "Website (Build) là nền",
+      "AI là lớp gia tốc / vận hành khi đúng pain",
+      "Không phải DN nào cũng cần AI"
+    ],
+    "products": [
+      {
+        "name": "Dolphin Care",
+        "path": "/dolphin-care/"
+      },
+      {
+        "name": "Custom AI Agent",
+        "path": "/custom-agent/"
+      },
+      {
+        "name": "AI transform",
+        "path": "/ai-transform/"
+      }
+    ],
+    "homepageAnchors": [
+      "#dolphin-care",
+      "#ai-edge",
+      "#technology"
+    ],
+    "guardrails": [
+      "Cold copy: tối ưu vận hành / tăng hiệu suất / bớt việc lặp — không mở bằng “AI Agent”",
+      "Không AGI, không “thay cả business”, không guarantee doanh thu",
+      "Chỉ đề xuất khi có giá trị thực tế"
+    ]
+  },
+  "faq": {
+    "note": "FAQ dài: lib/i18n/faq-copy.ts và FAQ theo trang. Dưới đây là neo ngắn.",
+    "themes": [
+      {
+        "id": "scopePrice",
+        "answer": "Packages trên site là mốc bắt đầu; custom scope → quote / Zalo."
+      },
+      {
+        "id": "handover",
+        "answer": "Source, docs, admin, warranty theo thỏa thuận."
+      },
+      {
+        "id": "ai",
+        "answer": "AI optional; website first."
+      },
+      {
+        "id": "timeline",
+        "answer": "Landing vài ngày; business ~1–2 tuần; shop/app lâu hơn — xác nhận trong popular-services copy."
+      }
+    ]
+  },
+  "caseStudies": {
+    "portfolioAnchors": [
+      "#works",
+      "/works/[slug]/"
+    ],
+    "knownSlugsHint": [
+      "billiard",
+      "badminton",
+      "tickets",
+      "beauty",
+      "cafe",
+      "clinic"
+    ],
+    "rules": [
+      "Chỉ mô tả case có trong lib/works-details / works pages",
+      "Không bịa metrics trừ khi đã ghi trong source",
+      "Prefer: khách (khái quát) → vấn đề → cách làm → kết quả"
+    ],
+    "source": "lib/works-details.ts"
+  }
+}

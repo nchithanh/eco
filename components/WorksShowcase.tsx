@@ -119,16 +119,35 @@ export function WorksShowcase() {
           <h2 className="mt-4 max-w-3xl font-display text-3xl font-semibold leading-[1.12] tracking-tight sm:text-[2.15rem] lg:text-[2.35rem] lg:leading-[1.1]">
             <AccentText>{w.title}</AccentText>
           </h2>
-          <p className="mt-5 max-w-[40ch] text-base leading-[1.7] text-[var(--kuct-muted)]">
+          <p className="mt-5 max-w-[48ch] text-base leading-[1.7] text-[var(--kuct-muted)]">
             {w.support}
           </p>
-          <a
-            href="#contact"
-            className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--kuct-accent)] transition hover:text-[var(--kuct-text)]"
-          >
-            {w.cta}
-            <span aria-hidden>→</span>
-          </a>
+          {w.industries && w.industries.length > 0 ? (
+            <ul className="mt-5 flex list-none flex-wrap gap-2 p-0">
+              {w.industries.map((industry) => (
+                <li
+                  key={industry}
+                  className="rounded-full border border-[var(--kuct-border)] px-3 py-1 text-xs font-medium text-[var(--kuct-muted)]"
+                >
+                  {industry}
+                </li>
+              ))}
+            </ul>
+          ) : null}
+          <div className="mt-5">
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--kuct-accent)] transition hover:text-[var(--kuct-text)]"
+            >
+              {w.cta}
+              <span aria-hidden>→</span>
+            </a>
+            {w.ctaHint ? (
+              <p className="mt-1.5 max-w-[42ch] text-sm leading-relaxed text-[var(--kuct-muted)]">
+                {w.ctaHint}
+              </p>
+            ) : null}
+          </div>
         </Reveal>
 
         <div
@@ -184,12 +203,30 @@ export function WorksShowcase() {
                         {item.title}
                       </h3>
 
+                      {item.before && item.after ? (
+                        <p className="mt-3 text-xs leading-relaxed text-[var(--kuct-muted)]">
+                          <span className="font-semibold text-[var(--kuct-text)]/80">
+                            {w.beforeLabel ?? "Before"}
+                          </span>
+                          {": "}
+                          {item.before}
+                          <span className="mx-1.5 text-[var(--kuct-accent)]/70" aria-hidden>
+                            →
+                          </span>
+                          <span className="font-semibold text-[var(--kuct-text)]/80">
+                            {w.afterLabel ?? "After"}
+                          </span>
+                          {": "}
+                          {item.after}
+                        </p>
+                      ) : null}
+
                       <dl className="mt-4 flex flex-1 flex-col text-sm leading-relaxed">
                         <div>
                           <dt className="text-[11px] font-semibold tracking-[0.14em] text-[var(--kuct-muted)] uppercase">
                             {w.problemLabel}
                           </dt>
-                          <dd className="mt-1 line-clamp-2 text-[var(--kuct-muted)]">
+                          <dd className="mt-1 text-[var(--kuct-muted)]">
                             {item.problem}
                           </dd>
                         </div>
@@ -197,7 +234,7 @@ export function WorksShowcase() {
                           <dt className="text-[11px] font-semibold tracking-[0.14em] text-[var(--kuct-muted)] uppercase">
                             {w.scopeLabel}
                           </dt>
-                          <dd className="mt-1 line-clamp-2 text-[var(--kuct-muted)]">
+                          <dd className="mt-1 text-[var(--kuct-muted)]">
                             {item.scope}
                           </dd>
                         </div>
@@ -206,7 +243,7 @@ export function WorksShowcase() {
                             <dt className="text-[11px] font-semibold tracking-[0.14em] text-[var(--kuct-accent)] uppercase">
                               {w.resultLabel}
                             </dt>
-                            <dd className="mt-1 line-clamp-2 font-medium text-[var(--kuct-text)]">
+                            <dd className="mt-1 whitespace-pre-line font-medium text-[var(--kuct-text)]">
                               {item.result}
                             </dd>
                           </div>

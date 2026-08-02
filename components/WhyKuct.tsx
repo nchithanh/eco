@@ -1,6 +1,6 @@
 "use client";
 
-import { AccentText, BrandText } from "@/components/BrandName";
+import { AccentText, BrandText, hasBrand } from "@/components/BrandName";
 import { Reveal } from "@/components/Reveal";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
 
@@ -103,19 +103,23 @@ export function WhyKuct() {
       <div className="relative mx-auto max-w-6xl px-6">
         <Reveal>
           <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
-            <BrandText size="xs">{eyebrow}</BrandText>
+            {hasBrand(eyebrow) ? (
+              <BrandText size="xs">{eyebrow}</BrandText>
+            ) : (
+              eyebrow
+            )}
           </p>
           <h2 className="mt-4 max-w-3xl font-display text-3xl font-semibold leading-[1.12] tracking-tight sm:text-[2.15rem] lg:text-[2.35rem] lg:leading-[1.1]">
             <AccentText>{title}</AccentText>
           </h2>
-          <p className="mt-5 max-w-[68ch] text-base leading-[1.7] text-[var(--kuct-muted)] sm:whitespace-nowrap">
+          <p className="mt-5 max-w-[52ch] text-base leading-[1.7] text-[var(--kuct-muted)]">
             {support}
           </p>
         </Reveal>
 
         <ul className="mt-12 grid list-none grid-cols-1 gap-5 p-0 sm:mt-14 sm:grid-cols-2">
           {reasons.map((reason, index) => {
-            const artId = REASON_IDS[index] ?? "experience";
+            const artId = REASON_IDS[index % REASON_IDS.length] ?? "experience";
             const isLead = index === 0 || index === lastIndex;
 
             return (
@@ -133,7 +137,7 @@ export function WhyKuct() {
                   <h3 className="font-display text-lg font-semibold leading-snug text-[var(--kuct-text)]">
                     {reason.title}
                   </h3>
-                  <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-[var(--kuct-muted)]">
+                  <p className="mt-2 text-sm leading-relaxed text-[var(--kuct-muted)]">
                     {reason.body}
                   </p>
                 </div>

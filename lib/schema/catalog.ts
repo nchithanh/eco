@@ -1,0 +1,116 @@
+import company from "../../public/schema/company.json";
+import servicesIndex from "../../public/schema/services/index.json";
+import web from "../../public/schema/services/web.json";
+import mobile from "../../public/schema/services/mobile.json";
+import backend from "../../public/schema/services/backend.json";
+import design from "../../public/schema/services/design.json";
+import integrations from "../../public/schema/services/integrations.json";
+import agentsService from "../../public/schema/services/agents.json";
+import customAgentService from "../../public/schema/services/custom-agent.json";
+import agentsIndex from "../../public/schema/agents/index.json";
+import dolphinCare from "../../public/schema/agents/dolphin-care.json";
+import customAgent from "../../public/schema/agents/custom-agent.json";
+import aiTransform from "../../public/schema/agents/ai-transform.json";
+import homepageIndex from "../../public/schema/homepage/index.json";
+import homepageHero from "../../public/schema/homepage/hero.json";
+import homepageStats from "../../public/schema/homepage/stats.json";
+import homepageWhy from "../../public/schema/homepage/why.json";
+import homepageCapabilities from "../../public/schema/homepage/capabilities.json";
+import homepageWorks from "../../public/schema/homepage/works.json";
+import homepageDolphinCare from "../../public/schema/homepage/dolphin-care.json";
+import homepageTechnology from "../../public/schema/homepage/technology.json";
+import homepageAiEdge from "../../public/schema/homepage/ai-edge.json";
+import homepageProcess from "../../public/schema/homepage/process.json";
+import homepageFit from "../../public/schema/homepage/fit.json";
+import homepagePopular from "../../public/schema/homepage/popular-services.json";
+import homepageFaq from "../../public/schema/homepage/faq.json";
+import homepageContact from "../../public/schema/homepage/contact.json";
+
+export const SCHEMA_SERVICE_SLUGS = [
+  "web",
+  "mobile",
+  "backend",
+  "design",
+  "integrations",
+  "agents",
+  "custom-agent",
+] as const;
+
+export type SchemaServiceSlug = (typeof SCHEMA_SERVICE_SLUGS)[number];
+
+export const SCHEMA_AGENT_SLUGS = [
+  "dolphin-care",
+  "custom-agent",
+  "ai-transform",
+] as const;
+
+export type SchemaAgentSlug = (typeof SCHEMA_AGENT_SLUGS)[number];
+
+export const SCHEMA_HOMEPAGE_SLUGS = [
+  "hero",
+  "stats",
+  "why",
+  "capabilities",
+  "works",
+  "dolphin-care",
+  "technology",
+  "ai-edge",
+  "process",
+  "fit",
+  "popular-services",
+  "faq",
+  "contact",
+] as const;
+
+export type SchemaHomepageSlug = (typeof SCHEMA_HOMEPAGE_SLUGS)[number];
+
+export function isSchemaServiceSlug(value: string): value is SchemaServiceSlug {
+  return (SCHEMA_SERVICE_SLUGS as readonly string[]).includes(value);
+}
+
+export function isSchemaAgentSlug(value: string): value is SchemaAgentSlug {
+  return (SCHEMA_AGENT_SLUGS as readonly string[]).includes(value);
+}
+
+export function isSchemaHomepageSlug(
+  value: string,
+): value is SchemaHomepageSlug {
+  return (SCHEMA_HOMEPAGE_SLUGS as readonly string[]).includes(value);
+}
+
+export const schemaCompany = company;
+export const schemaServicesIndex = servicesIndex;
+export const schemaAgentsIndex = agentsIndex;
+export const schemaHomepageIndex = homepageIndex;
+
+export const schemaServicesBySlug: Record<SchemaServiceSlug, object> = {
+  web,
+  mobile,
+  backend,
+  design,
+  integrations,
+  agents: agentsService,
+  "custom-agent": customAgentService,
+};
+
+export const schemaAgentsBySlug: Record<SchemaAgentSlug, object> = {
+  "dolphin-care": dolphinCare,
+  "custom-agent": customAgent,
+  "ai-transform": aiTransform,
+};
+
+export const schemaHomepageBySlug: Record<SchemaHomepageSlug, object> = {
+  hero: homepageHero,
+  stats: homepageStats,
+  why: homepageWhy,
+  capabilities: homepageCapabilities,
+  works: homepageWorks,
+  "dolphin-care": homepageDolphinCare,
+  technology: homepageTechnology,
+  "ai-edge": homepageAiEdge,
+  process: homepageProcess,
+  fit: homepageFit,
+  "popular-services": homepagePopular,
+  faq: homepageFaq,
+  contact: homepageContact,
+};

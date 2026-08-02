@@ -1,0 +1,27 @@
+{
+  "meta": {
+    "kind": "homepage-section",
+    "locale": "vi",
+    "brand": "Dolphin Software",
+    "updated": "2026-08-02",
+    "productRoute": "/",
+    "id": "popular-services",
+    "anchor": "#popular-services",
+    "component": "PopularServices",
+    "schemaPath": "/schema/homepage/popular-services/",
+    "rawPath": "/schema/homepage/popular-services.json",
+    "copyKey": "popularServicesChrome"
+  },
+  "content": {
+    "eyebrow": "Solutions",
+    "title": "Gói giải pháp [[bắt đầu nhanh]]",
+    "support": "Đây là mốc giá tham khảo để bắt đầu, không phải sản phẩm đóng hộp. Website là nền; Care / AI thêm khi cần. Scope cuối cùng chốt qua báo giá sau khi hiểu bài toán của bạn.",
+    "packagesNote": "Package rows/pricing: lib/i18n/popular-services-copy.ts + pricing-fx",
+    "packageIds": [
+      "landing",
+      "business",
+      "shop",
+      "webapp"
+    ]
+  }
+}

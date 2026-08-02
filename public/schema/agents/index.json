@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "kind": "agents-index",
+    "schemaPath": "/schema/agents/",
+    "rawPath": "/schema/agents/index.json",
+    "brand": "Dolphin Software",
+    "updated": "2026-08-02"
+  },
+  "items": [
+    {
+      "id": "dolphin-care",
+      "title": "Dolphin Care",
+      "pillar": "Care",
+      "productRoute": "/dolphin-care/",
+      "schemaPath": "/schema/agents/dolphin-care/",
+      "rawPath": "/schema/agents/dolphin-care.json"
+    },
+    {
+      "id": "custom-agent",
+      "title": "AI Agent theo yêu cầu",
+      "pillar": "Automate",
+      "productRoute": "/custom-agent/",
+      "schemaPath": "/schema/agents/custom-agent/",
+      "rawPath": "/schema/agents/custom-agent.json"
+    },
+    {
+      "id": "ai-transform",
+      "title": "Chuyển đổi AI doanh nghiệp",
+      "pillar": "Automate",
+      "productRoute": "/ai-transform/",
+      "schemaPath": "/schema/agents/ai-transform/",
+      "rawPath": "/schema/agents/ai-transform.json"
+    }
+  ]
+}

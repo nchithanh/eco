@@ -1,0 +1,40 @@
+---
+description: MODE news — write or edit Dolphin /news/ blog posts; load SEO + growth context from documentations/.
+alwaysApply: false
+---
+
+# Mode: news
+
+Use when the user asks to write, edit, plan, or localize a **blog / news** article for this site (`/news/`, `lib/news-details.ts`, `lib/i18n/news-copy.ts`).
+
+## Before drafting (required reads)
+
+1. Persona: `.cursor/agents/content.md` (+ `.cursor/agents/seo.md`); prompt `.cursor/prompts/create-blog.md` / `pipeline.md`
+2. Content rules: `content-brand`, `content-writing`, `content-forbidden`, `content-seo`
+3. Knowledge: `.cursor/knowledge/` (topic files that match the brief)
+4. Tone: `.cursor/examples/blog/`
+5. `documentations/agent-ops.md` (checklist)
+6. `documentations/seo-keywords.md` — P1/P2 keyword (P3 AI only if user asks upsell)
+7. `documentations/growth-reach-users.md` — ICP web-first, CTA → Zalo / quote / relevant URL
+8. `documentations/brand-voice.md`
+9. Existing article shape: `lib/news-details.ts` (+ locale copy)
+
+Also apply skills when relevant:
+
+- **seo** — title, slug, excerpt, internal links
+- **lang** — target locale(s); JA → also `documentations/geo-japan.md`
+
+## Workflow
+
+1. Short plan (keyword, slug, locale, outline) → wait for **`ok`**
+2. Implement only news-related files unless user asks otherwise
+3. Update `documentations/changelog.md` if the change is non-trivial
+4. Do not invent case metrics or customer names
+
+## Output shape (draft)
+
+- Title + slug suggestion  
+- Excerpt (1–2 sentences)  
+- Body sections (short paragraphs)  
+- Primary keyword + 1–2 internal links (e.g. `/services/web/`, `/#popular-services`)  
+- Optional JA summary if locale is vi/en and user cares about Japan  

@@ -1,0 +1,33 @@
+{
+  "meta": {
+    "kind": "service",
+    "id": "design",
+    "locale": "vi",
+    "brand": "Dolphin Software",
+    "schemaPath": "/schema/services/design/",
+    "rawPath": "/schema/services/design.json",
+    "updated": "2026-08-02"
+  },
+  "pillar": "Build",
+  "productRoute": "/services/design/",
+  "title": "UI/UX & bàn giao",
+  "intro": "Thiết kế giao diện và design system — để sản phẩm đẹp, nhất quán và đội engineering triển khai nhanh, ít đoán mò.",
+  "highlights": [
+    "Research nhanh + user flow",
+    "UI high-fidelity trên Figma",
+    "Design system / component library",
+    "Handover sạch: spacing, states, assets"
+  ],
+  "process": [
+    "Workshop yêu cầu và đối tượng dùng",
+    "Wireframe → UI polish theo vòng feedback",
+    "Chuẩn hóa token và component",
+    "Handover + hỗ trợ trong giai đoạn build"
+  ],
+  "deliverables": [
+    "File Figma có tổ chức",
+    "Specs / redlines cho key screens",
+    "Export icon/assets và guideline ngắn"
+  ],
+  "hiringNote": "Design hiring currently closed — see /careers/."
+}

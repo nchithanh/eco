@@ -1,0 +1,34 @@
+{
+  "meta": {
+    "kind": "homepage-section",
+    "locale": "vi",
+    "brand": "Dolphin Software",
+    "updated": "2026-08-02",
+    "productRoute": "/",
+    "id": "fit",
+    "anchor": "#fit",
+    "component": "FitSection",
+    "schemaPath": "/schema/homepage/fit/",
+    "rawPath": "/schema/homepage/fit.json",
+    "copyKey": "fit"
+  },
+  "content": {
+    "eyebrow": "Fit",
+    "title": "Dolphin có [[phù hợp]] với bạn?",
+    "support": "Chúng tôi làm tốt nhất với doanh nghiệp có bài toán vận hành cụ thể. Vài trường hợp dưới đây giúp bạn tự cân nhắc trước khi liên hệ.",
+    "noTitle": "Có thể chưa phải lúc, nếu…",
+    "noItems": [
+      "Bạn chỉ cần một landing page đẹp trong vài ngày và chưa quan tâm chuyển đổi hay vận hành sau đó.",
+      "Bạn muốn “làm AI” theo xu hướng nhưng chưa có quy trình hay dữ liệu để gắn vào.",
+      "Bạn cần agency quy mô lớn với nhiều vòng pitch trước khi bắt tay làm.",
+      "Bạn muốn thay toàn bộ hệ thống chỉ vì thích công nghệ mới, dù cái cũ vẫn chạy ổn."
+    ],
+    "yesTitle": "Rất hợp, nếu…",
+    "yesItems": [
+      "Bạn có bài toán rõ: lead, đặt lịch, vận hành, hoặc hệ thống cũ đang cản việc.",
+      "Bạn muốn bắt đầu đúng chỗ — Build / Modernize / Automate / Care — không mua thừa.",
+      "Bạn cần đối tác nói thẳng phạm vi, báo giá và bàn giao để bạn tự vận hành được.",
+      "Bạn sẵn sàng đồng hành sau go-live khi doanh nghiệp phát triển thêm."
+    ]
+  }
+}

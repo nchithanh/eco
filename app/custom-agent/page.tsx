@@ -25,6 +25,7 @@ export default function Page() {
   return (
     <>
       <JsonLd
+        id="custom-agent-jsonld"
         data={[
           serviceJsonLd({
             name: c.eyebrow || "Custom AI Agent",

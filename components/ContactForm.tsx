@@ -47,6 +47,26 @@ export function ContactForm() {
             <p className="mt-5 max-w-[42ch] text-base leading-[1.7] text-[var(--kuct-muted)]">
               <BrandText size="sm">{c.support}</BrandText>
             </p>
+            {c.afterSubmitTitle && c.afterSubmitItems?.length ? (
+              <div className="mt-6 max-w-[42ch]">
+                <p className="text-sm font-semibold text-[var(--kuct-text)]">
+                  {c.afterSubmitTitle}
+                </p>
+                <ul className="mt-3 list-none space-y-2 p-0">
+                  {c.afterSubmitItems.map((item) => (
+                    <li
+                      key={item}
+                      className="flex gap-2 text-sm leading-relaxed text-[var(--kuct-muted)]"
+                    >
+                      <span className="shrink-0 text-[var(--kuct-accent)]" aria-hidden>
+                        ✓
+                      </span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
             <div className="mt-8 flex flex-wrap gap-3 sm:gap-4">
               <a
                 href="https://zalo.me/0779937633"

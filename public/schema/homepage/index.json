@@ -1,0 +1,110 @@
+{
+  "meta": {
+    "kind": "homepage-index",
+    "schemaPath": "/schema/homepage/",
+    "rawPath": "/schema/homepage/index.json",
+    "brand": "Dolphin Software",
+    "locale": "vi",
+    "updated": "2026-08-02",
+    "story": "Hero → Outcomes → Why → How we help → Projects → Care → Ops AI → Process → Fit → Solutions → FAQ → CTA",
+    "copySources": [
+      "lib/i18n/homepage_lang_vi.ts",
+      "lib/i18n/agent-dolphin-copy.ts (home)",
+      "lib/i18n/popular-services-copy.ts",
+      "lib/i18n/faq-copy.ts / homepage_lang_vi.faq"
+    ]
+  },
+  "order": [
+    {
+      "id": "hero",
+      "anchor": "#top",
+      "component": "Hero",
+      "schemaPath": "/schema/homepage/hero/",
+      "rawPath": "/schema/homepage/hero.json"
+    },
+    {
+      "id": "stats",
+      "anchor": "#stats",
+      "component": "SiteOutcomes",
+      "schemaPath": "/schema/homepage/stats/",
+      "rawPath": "/schema/homepage/stats.json"
+    },
+    {
+      "id": "why",
+      "anchor": "#why",
+      "component": "WhyKuct",
+      "schemaPath": "/schema/homepage/why/",
+      "rawPath": "/schema/homepage/why.json"
+    },
+    {
+      "id": "capabilities",
+      "anchor": "#capabilities",
+      "component": "Capabilities",
+      "schemaPath": "/schema/homepage/capabilities/",
+      "rawPath": "/schema/homepage/capabilities.json"
+    },
+    {
+      "id": "works",
+      "anchor": "#works",
+      "component": "WorksShowcase",
+      "schemaPath": "/schema/homepage/works/",
+      "rawPath": "/schema/homepage/works.json"
+    },
+    {
+      "id": "dolphin-care",
+      "anchor": "#dolphin-care",
+      "component": "AgentDolphinHome",
+      "schemaPath": "/schema/homepage/dolphin-care/",
+      "rawPath": "/schema/homepage/dolphin-care.json"
+    },
+    {
+      "id": "technology",
+      "anchor": "#technology",
+      "component": "Technology",
+      "schemaPath": "/schema/homepage/technology/",
+      "rawPath": "/schema/homepage/technology.json"
+    },
+    {
+      "id": "ai-edge",
+      "anchor": "#ai-edge",
+      "component": "AiEdge",
+      "schemaPath": "/schema/homepage/ai-edge/",
+      "rawPath": "/schema/homepage/ai-edge.json"
+    },
+    {
+      "id": "process",
+      "anchor": "#process",
+      "component": "Process",
+      "schemaPath": "/schema/homepage/process/",
+      "rawPath": "/schema/homepage/process.json"
+    },
+    {
+      "id": "fit",
+      "anchor": "#fit",
+      "component": "FitSection",
+      "schemaPath": "/schema/homepage/fit/",
+      "rawPath": "/schema/homepage/fit.json"
+    },
+    {
+      "id": "popular-services",
+      "anchor": "#popular-services",
+      "component": "PopularServices",
+      "schemaPath": "/schema/homepage/popular-services/",
+      "rawPath": "/schema/homepage/popular-services.json"
+    },
+    {
+      "id": "faq",
+      "anchor": "#faq",
+      "component": "Faq",
+      "schemaPath": "/schema/homepage/faq/",
+      "rawPath": "/schema/homepage/faq.json"
+    },
+    {
+      "id": "contact",
+      "anchor": "#contact",
+      "component": "ContactForm",
+      "schemaPath": "/schema/homepage/contact/",
+      "rawPath": "/schema/homepage/contact.json"
+    }
+  ]
+}

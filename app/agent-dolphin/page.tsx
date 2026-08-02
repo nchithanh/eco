@@ -1,5 +1,5 @@
+import { permanentRedirect } from "next/navigation";
 import type { Metadata } from "next";
-import { AgentDolphinPage } from "@/components/AgentDolphinContent";
 import { getAgentDolphinCopy } from "@/lib/i18n/agent-dolphin-copy";
 import { assetPath } from "@/lib/asset";
 import { buildPageMetadata } from "@/lib/seo";
@@ -23,14 +23,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return (
-    <>
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `location.replace(${JSON.stringify(redirectTo)});`,
-        }}
-      />
-      <AgentDolphinPage />
-    </>
-  );
+  permanentRedirect(redirectTo);
 }

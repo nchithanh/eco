@@ -1,0 +1,60 @@
+{
+  "meta": {
+    "kind": "agent",
+    "id": "ai-transform",
+    "locale": "vi",
+    "brand": "Dolphin Software",
+    "schemaPath": "/schema/agents/ai-transform/",
+    "rawPath": "/schema/agents/ai-transform.json",
+    "updated": "2026-08-02"
+  },
+  "pillar": "Automate",
+  "displayName": "Chuyển đổi AI doanh nghiệp",
+  "productRoute": "/ai-transform/",
+  "metaTitle": "Chuyển đổi AI doanh nghiệp | Dolphin Software",
+  "metaDescription": "Rà soát quy trình, gắn AI vào đúng khâu đang đốt người và tiền — lộ trình đo được, không phát tài khoản ChatGPT rồi hy vọng.",
+  "summary": "Lộ trình gắn AI vào lõi vận hành — quy trình trước tool, đo bằng số.",
+  "headline": "Gắn AI vào lõi vận hành — không phát tài khoản rồi chờ phép màu",
+  "support": "Rà soát quy trình thật, chọn khâu đang ngốn người/tiền, gắn agent có kiểm soát theo milestone.",
+  "whenItems": [
+    {
+      "title": "Tool rời, dữ liệu không nối",
+      "body": "Chatbot / CRM / Excel tách — chép tay."
+    },
+    {
+      "title": "Có AI mà việc vẫn ứ",
+      "body": "Tài khoản đã mua nhưng lead/lịch vẫn thủ công."
+    },
+    {
+      "title": "Không đo được ROI",
+      "body": "Không biết giờ tiết kiệm / sai sót giảm."
+    }
+  ],
+  "processSteps": [
+    {
+      "title": "Soi toàn cảnh vận hành",
+      "body": "Map luồng; chỉ khâu đốt người và đứt dữ liệu."
+    },
+    {
+      "title": "Chọn 1–2 khâu ưu tiên",
+      "body": "Lặp, quy tắc rõ, hoàn vốn nhanh."
+    },
+    {
+      "title": "Thiết kế người–máy + nối hệ thống",
+      "body": "Ai duyệt gì; nối CRM/Zalo/lịch trong scope."
+    },
+    {
+      "title": "Pilot trên việc thật",
+      "body": "Đo số trước khi nhân bản."
+    },
+    {
+      "title": "Nhân rộng có kiểm soát",
+      "body": "Bàn giao vận hành và checklist mở rộng."
+    }
+  ],
+  "relatedAgents": [
+    "/schema/agents/custom-agent/",
+    "/schema/agents/dolphin-care/"
+  ],
+  "copySource": "lib/i18n/ai-transform-copy.ts"
+}

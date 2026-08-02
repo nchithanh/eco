@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Quicksand, Noto_Sans_JP, Instrument_Serif } from "next/font/google";
 import { AppProviders } from "@/components/AppProviders";
 import { JsonLd } from "@/components/JsonLd";
@@ -114,7 +115,9 @@ export default function RootLayout({
   return (
     <html lang="ja" suppressHydrationWarning>
       <head>
-        <script
+        <Script
+          id="kuct-theme-boot"
+          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html: `(function(){try{var t=localStorage.getItem("kuct-theme");var ok=["violet","slate"];if(t&&ok.indexOf(t)>=0)document.documentElement.setAttribute("data-theme",t);else document.documentElement.setAttribute("data-theme","violet");}catch(e){document.documentElement.setAttribute("data-theme","violet");}})();`,
           }}
@@ -123,7 +126,9 @@ export default function RootLayout({
           Resolve locale before first paint (stored → navigator → ja) and hide
           SSR chrome until LocaleProvider applies the same locale — prevents ja flash.
         */}
-        <script
+        <Script
+          id="kuct-locale-boot"
+          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html: `(function(){var d=document.documentElement;try{d.setAttribute("data-locale-pending","");var s=document.createElement("style");s.id="kuct-locale-boot";s.textContent="html[data-locale-pending],html[data-locale-pending] body{visibility:hidden!important}";document.head.appendChild(s);var ok=["vi","en","ja","de","zh"];var locale=null;try{var stored=localStorage.getItem("kuct-locale");if(stored&&ok.indexOf(stored)>=0)locale=stored;}catch(e){}if(!locale){var langs=(navigator.languages&&navigator.languages.length)?navigator.languages:[navigator.language];for(var i=0;i<langs.length;i++){var p=String(langs[i]||"").toLowerCase().split("-")[0];if(ok.indexOf(p)>=0){locale=p;break;}}}if(!locale)locale="ja";d.lang=locale;d.setAttribute("data-locale",locale);}catch(e){d.lang="ja";d.setAttribute("data-locale","ja");d.removeAttribute("data-locale-pending");var b=document.getElementById("kuct-locale-boot");if(b)b.remove();}})();`,
           }}
@@ -132,7 +137,7 @@ export default function RootLayout({
       <body
         className={`${quicksand.variable} ${notoSansJp.variable} ${instrumentSerif.variable} antialiased`}
       >
-        <JsonLd data={[organizationJsonLd(), websiteJsonLd()]} />
+        <JsonLd id="site-jsonld" data={[organizationJsonLd(), websiteJsonLd()]} />
         <AppProviders>{children}</AppProviders>
       </body>
     </html>

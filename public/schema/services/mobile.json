@@ -1,0 +1,33 @@
+{
+  "meta": {
+    "kind": "service",
+    "id": "mobile",
+    "locale": "vi",
+    "brand": "Dolphin Software",
+    "schemaPath": "/schema/services/mobile/",
+    "rawPath": "/schema/services/mobile.json",
+    "updated": "2026-08-02"
+  },
+  "pillar": "Build",
+  "productRoute": "/services/mobile/",
+  "title": "Phát triển mobile app",
+  "intro": "App iOS / Android hoặc cross-platform — ưu tiên trải nghiệm người dùng, ổn định release và tích hợp API rõ ràng.",
+  "highlights": [
+    "Flutter hoặc React Native theo stack đội ngũ",
+    "Navigation, auth và offline-friendly khi cần",
+    "Tích hợp API / thanh toán / push notification",
+    "Build pipeline và checklist store release"
+  ],
+  "process": [
+    "Định nghĩa user flow và MVP scope",
+    "UI kit mobile + prototype chính",
+    "Sprint phát triển với demo định kỳ",
+    "Test thiết bị, UAT và hỗ trợ submit store"
+  ],
+  "deliverables": [
+    "App builds (TestFlight / internal track)",
+    "Source + hướng dẫn chạy local",
+    "Tài liệu API integration phía app"
+  ],
+  "hiringNote": "Mobile hiring currently closed — see /careers/."
+}

@@ -1,0 +1,128 @@
+{
+  "meta": {
+    "kind": "homepage-section",
+    "locale": "vi",
+    "brand": "Dolphin Software",
+    "updated": "2026-08-02",
+    "productRoute": "/",
+    "id": "capabilities",
+    "anchor": "#capabilities",
+    "component": "Capabilities",
+    "schemaPath": "/schema/homepage/capabilities/",
+    "rawPath": "/schema/homepage/capabilities.json",
+    "copyKey": "capabilities"
+  },
+  "content": {
+    "eyebrow": "How we help",
+    "title": "Chúng tôi giúp doanh nghiệp [[như thế nào]]",
+    "support": "Không phải doanh nghiệp nào cũng cần website mới hay AI ngay. Chúng tôi bắt đầu bằng bài toán, rồi mới chọn giải pháp.",
+    "ctaPrimary": "Nhận tư vấn miễn phí",
+    "ctaSecondary": "Xem cách chúng tôi làm việc",
+    "ctaSecondaryHref": "#process",
+    "learnMore": "Xem thêm",
+    "prevPage": "Trang trước",
+    "nextPage": "Trang sau",
+    "offers": [
+      {
+        "id": "build",
+        "title": "Build",
+        "body": "Website và phần mềm được thiết kế để hỗ trợ bán hàng, vận hành và chăm sóc khách — nhiều hơn một brochure online.",
+        "meta": "Khi cần xây mới",
+        "href": "/services/web"
+      },
+      {
+        "id": "modernize",
+        "title": "Modernize",
+        "body": "Không phải hệ thống cũ nào cũng cần thay. Phân tích trước, nâng cấp khi thật sự cần.",
+        "meta": "Khi hệ thống cũ vẫn còn giá trị",
+        "href": "/services/web"
+      },
+      {
+        "id": "automate",
+        "title": "Automate",
+        "body": "Để AI trả lời khách, xử lý yêu cầu, nhập liệu và hỗ trợ nhân viên, giúp đội tập trung vào việc quan trọng.",
+        "meta": "Khi đội mất quá nhiều giờ cho việc lặp",
+        "href": "/ai-transform"
+      },
+      {
+        "id": "care",
+        "title": "Care",
+        "body": "Dolphin Care trả lời câu hỏi phổ biến, thu thông tin và hỗ trợ khách kể cả khi bạn đã đóng cửa.",
+        "meta": "Khi muốn chăm khách cả ngoài giờ",
+        "href": "/dolphin-care"
+      }
+    ],
+    "moreServices": [
+      {
+        "label": "Spa",
+        "href": "#works"
+      },
+      {
+        "label": "Nhà hàng",
+        "href": "#works"
+      },
+      {
+        "label": "Phòng khám",
+        "href": "#works"
+      },
+      {
+        "label": "Giáo dục",
+        "href": "#works"
+      },
+      {
+        "label": "Bất động sản",
+        "href": "#works"
+      },
+      {
+        "label": "SME",
+        "href": "#works"
+      }
+    ],
+    "items": [
+      {
+        "id": "web",
+        "category": "Build",
+        "title": "Khi cần xây mới",
+        "body": "Website và phần mềm hỗ trợ bán hàng, vận hành và chăm sóc khách.",
+        "tags": [
+          "Bán hàng",
+          "Vận hành",
+          "Chăm khách"
+        ]
+      },
+      {
+        "id": "modernize",
+        "category": "Modernize",
+        "title": "Khi hệ thống cũ vẫn còn giá trị",
+        "body": "Phân tích trước, nâng cấp khi thật sự cần.",
+        "tags": [
+          "Nâng cấp",
+          "Giữ vốn",
+          "Ổn định"
+        ]
+      },
+      {
+        "id": "automate",
+        "category": "Automate",
+        "title": "Khi đội mất giờ cho việc lặp",
+        "body": "AI trả lời khách, xử lý yêu cầu, nhập liệu — đội tập trung việc quan trọng.",
+        "tags": [
+          "Trả lời",
+          "Nhập liệu",
+          "Đỡ tay"
+        ]
+      },
+      {
+        "id": "care",
+        "category": "Care",
+        "title": "Khi muốn chăm khách ngoài giờ",
+        "body": "Trả lời FAQ, thu thông tin — kể cả khi đã đóng cửa.",
+        "tags": [
+          "Ngoài giờ",
+          "Lead",
+          "Website"
+        ]
+      }
+    ]
+  }
+}

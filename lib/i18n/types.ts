@@ -153,6 +153,8 @@ export type Dictionary = {
     support: string;
     ctaPrimary: string;
     ctaSecondary: string;
+    /** Defaults to `#popular-services` when omitted */
+    ctaSecondaryHref?: string;
     learnMore: string;
     prevPage: string;
     nextPage: string;
@@ -176,6 +178,8 @@ export type Dictionary = {
     eyebrow: string;
     title: string;
     support: string;
+    /** Optional line before cards — owner pain framing (VI homepage) */
+    painLead?: string;
     items: { title: string; body: string }[];
   };
   whatYouGet: {
@@ -202,9 +206,15 @@ export type Dictionary = {
     title: string;
     support: string;
     cta: string;
+    /** Optional line under CTA (owner invite) */
+    ctaHint?: string;
+    /** Industry chips — “họ từng làm ngành mình” */
+    industries?: string[];
     problemLabel: string;
     scopeLabel: string;
     resultLabel: string;
+    beforeLabel?: string;
+    afterLabel?: string;
     items: {
       id: string;
       title: string;
@@ -212,6 +222,8 @@ export type Dictionary = {
       problem: string;
       scope: string;
       result: string;
+      before?: string;
+      after?: string;
     }[];
   };
   process: {
@@ -233,6 +245,8 @@ export type Dictionary = {
       pulse: string;
       nodes: string;
     };
+    /** Optional AI philosophy principles (VI homepage). */
+    principles?: { title: string; body: string }[];
   };
   stack: {
     eyebrow: string;
@@ -253,6 +267,16 @@ export type Dictionary = {
     support: string;
     reasons: { title: string; body: string }[];
   };
+  /** Optional homepage “fit / not a fit” block (VI via homepage_lang). */
+  fit?: {
+    eyebrow: string;
+    title: string;
+    support: string;
+    noTitle: string;
+    noItems: string[];
+    yesTitle: string;
+    yesItems: string[];
+  };
   cofounder: {
     eyebrow: string;
     role: string;
@@ -265,6 +289,9 @@ export type Dictionary = {
     title: string;
     support: string;
     nextHint: string;
+    /** Optional “what you get after contact” list (VI homepage). */
+    afterSubmitTitle?: string;
+    afterSubmitItems?: string[];
     ctaZalo: string;
     ctaEmail: string;
     name: string;

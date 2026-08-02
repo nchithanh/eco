@@ -144,17 +144,19 @@ export function Hero() {
             <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
               {t.hero.eyebrow}
             </p>
-            <span className="rounded-full border border-[var(--kuct-accent)]/35 bg-[rgba(var(--kuct-accent-rgb),0.1)] px-2.5 py-0.5 text-[10px] font-semibold tracking-wide text-[var(--kuct-accent)] uppercase">
-              {t.hero.aiPill}
-            </span>
+            {t.hero.aiPill ? (
+              <span className="rounded-full border border-[var(--kuct-accent)]/35 bg-[rgba(var(--kuct-accent-rgb),0.1)] px-2.5 py-0.5 text-[10px] font-semibold tracking-wide text-[var(--kuct-accent)] uppercase">
+                {t.hero.aiPill}
+              </span>
+            ) : null}
           </div>
-          <h1 className="mt-5 max-w-[18ch] font-display text-[1.85rem] font-semibold leading-[1.12] tracking-tight text-[var(--kuct-text)] sm:max-w-[20ch] sm:text-4xl lg:text-[2.85rem] lg:leading-[1.1]">
+          <h1 className="mt-5 max-w-[28ch] font-display text-[1.85rem] font-semibold leading-[1.12] tracking-tight text-[var(--kuct-text)] sm:max-w-[32ch] sm:text-4xl lg:max-w-[30ch] lg:text-[2.85rem] lg:leading-[1.1]">
             <AccentText>{t.hero.headline}</AccentText>
           </h1>
-          <p className="mt-4 max-w-[42ch] font-display text-base font-semibold leading-snug tracking-tight text-[var(--kuct-text)] sm:text-lg lg:text-xl lg:leading-snug">
+          <p className="mt-4 max-w-[44ch] font-display text-base font-semibold leading-snug tracking-tight text-[var(--kuct-text)] sm:text-lg lg:text-xl lg:leading-snug">
             <AccentText>{t.hero.subhead}</AccentText>
           </p>
-          <p className="mt-5 max-w-[38ch] touch-pan-y text-base leading-[1.7] text-[var(--kuct-muted)] sm:text-[1.0625rem] sm:leading-[1.7]">
+          <p className="mt-5 max-w-[42ch] touch-pan-y text-base leading-[1.7] text-[var(--kuct-muted)] sm:text-[1.0625rem] sm:leading-[1.7]">
             <BrandText size="sm">{t.hero.support}</BrandText>
           </p>
           <div className="mt-9 flex flex-wrap items-center gap-4">

@@ -1,42 +1,59 @@
 # Homepage
 
-Entry: `app/page.tsx`.
+Entry: `app/page.tsx` → `components/HomePage.tsx`.
 
-## Section order → component
+## Schema (section order)
 
-Story flow: **overview (Hero)** → **intro Website** → **intro Agent** → **descriptive sections** → trust & contact.
+Outcome-first story: trust → principles → how we help → proof → Care / Ops AI → process → fit → packages → FAQ → CTA.
 
-| # | Block | Section | Component | Anchor / notes |
-| --- | --- | --- | --- | --- |
-| — | — | Nav (+ announcement) | `Nav`, `AnnouncementBar` | |
-| 1 | Overview | Hero | `Hero` | `#top` — benefit overview; secondary CTA → `#capabilities` |
-| 2 | Intro | Website / services | `Capabilities` | `#capabilities` — 4 offer cards (landing/business/shop/webapp) + more-service tags + CTA (quote / `#popular-services`); no filter/carousel images |
-| 3 | Intro | Dolphin Care | `AgentDolphinHome` | `#dolphin-care` — 2-col (copy+benefits+CTA left, 1 long chat demo right) → `/dolphin-care/` |
-| 4 | Detail | Popular services | `PopularServices` | `#popular-services` — package comparison table |
-| 5 | Detail | Works | `WorksShowcase` | `#works` |
-| 6 | Detail | Outcomes | `SiteOutcomes` | `#outcomes` |
-| 7 | Detail | Process | `Process` | `#process` |
-| 8 | Detail | Deliverables | `WhatYouGet` | `#what-you-get` |
-| 9 | Detail | Handover | `TrustStrip` | `#handover` |
-| 10 | Detail | Tech stack | `TechStack` | `#stack` |
-| 11 | Detail | Technology (globe) | `Technology` | `#technology` → `/ai-transform/` |
-| 12 | Detail | AI edge | `AiEdge` | `#ai-edge` |
-| 13 | Detail | Ops lifecycle | `OpsLifecycle` | `#ops` |
-| 14 | Trust | Why us | `WhyKuct` | `#why` |
-| 15 | Trust | Nhà sáng lập | `CoFounder` | `#cofounder` |
-| 16 | Trust | Notes | `HomeNews` | `#news` — 1 featured + 4 secondary (compact); reading time; view all → `/news/` |
-| 17 | Trust | FAQ | `Faq` | `#faq` |
-| 18 | Trust | Contact | `ContactForm` | `#contact` |
-| 19 | — | Footer | `Footer` | |
+```
+Hero
+├── Outcomes                    → SiteOutcomes `#stats`
+├── Why Dolphin (principles)    → WhyKuct `#why`
+├── How we help                 → Capabilities `#capabilities` (Build·Modernize·Automate·Care)
+├── Projects                    → WorksShowcase `#works`
+├── Dolphin Care                → AgentDolphinHome `#dolphin-care`
+├── Ops AI                      → Technology `#technology` + AiEdge `#ai-edge`
+├── Process                     → Process `#process`
+├── Fit                         → FitSection `#fit` (VI overlay; optional)
+├── Solutions                   → PopularServices `#popular-services`
+├── FAQ                         → Faq `#faq`
+└── CTA                         → ContactForm `#contact`
+```
 
-`UiGallery` / `#ui-gallery` is **not** on the homepage (component + copy remain in repo if reused later).
+| # | Schema | Component | Anchor |
+| --- | --- | --- | --- |
+| — | Nav | `Nav` | |
+| 1 | Hero | `Hero` | `#top` |
+| 2 | Outcomes | `SiteOutcomes` | `#stats` |
+| 3 | Why Dolphin | `WhyKuct` | `#why` |
+| 4 | How we help | `Capabilities` | `#capabilities` |
+| 5 | Projects | `WorksShowcase` | `#works` |
+| 6 | Dolphin Care | `AgentDolphinHome` | `#dolphin-care` |
+| 7 | Ops AI | `Technology`, `AiEdge` | `#technology` (AI Philosophy + principles VI), `#ai-edge` |
+| 8 | Process | `Process` | `#process` |
+| 9 | Fit | `FitSection` | `#fit` (VI via `homepage_lang_vi`; hidden if `t.fit` missing) |
+| 10 | Solutions | `PopularServices` | `#popular-services` |
+| 11 | FAQ | `Faq` | `#faq` |
+| 12 | CTA | `ContactForm` | `#contact` |
+| — | Footer | `Footer` | |
 
-## Global overlays (not sections)
+**Deferred:** Testimonials. **Not on homepage:** WhatYouGet, TrustStrip, TechStack, OpsLifecycle, CoFounder, HomeNews, UiGallery.
 
-- `AiChatWidget` — floating assist / contact FABs
-- `QuoteEstimatorModal` via `QuoteProvider`
-- `CookieConsent`, `PagePreviewModal`, `DesignViewerModal`
+## Brand chrome (VI)
 
-## Copy source
+Eyebrows stay English (`Outcomes`, `Why Dolphin`, `How we help`, `Projects`, `Ops AI`, `Fit`, `Solutions`, `Next step`). Display name always **Dolphin Software**. Titles/support/body in VI via `homepage_lang_vi.ts`.
 
-Most homepage strings: `lib/i18n/dictionaries.ts` (+ `popular-services-copy.ts`, `ai-edge-copy.ts`, `agent-dolphin-copy.ts` home teaser, `faq-copy.ts`, `news-copy.ts`).
+## Homepage locale files
+
+| File | Role |
+| --- | --- |
+| `lib/i18n/homepage_lang_vi.ts` | VI homepage SoT (sections + `fit` + contact chrome) |
+| `lib/i18n/homepage_lang.ts` | Registers overlays; merge in `getDictionary` |
+| `homepage_lang_en.ts` etc. | **TODO** — add when localizing other langs |
+
+Non-VI locales still use `dictionaries.ts` (+ popular-services / ai-edge modules) until their `homepage_lang_*` exists. `FitSection` only renders when `dict.fit` is set.
+
+## Global overlays
+
+- `AiChatWidget`, `QuoteEstimatorModal`, `CookieConsent`, `PagePreviewModal`, `DesignViewerModal`

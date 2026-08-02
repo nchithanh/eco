@@ -1,0 +1,105 @@
+{
+  "meta": {
+    "kind": "homepage-section",
+    "locale": "vi",
+    "brand": "Dolphin Software",
+    "updated": "2026-08-02",
+    "productRoute": "/",
+    "id": "dolphin-care",
+    "anchor": "#dolphin-care",
+    "component": "AgentDolphinHome",
+    "schemaPath": "/schema/homepage/dolphin-care/",
+    "rawPath": "/schema/homepage/dolphin-care.json",
+    "copySource": "agent-dolphin-copy homeVi"
+  },
+  "content": {
+    "eyebrow": "Dolphin Care",
+    "title": "Đừng để khách phải [[chờ đến giờ làm việc]]",
+    "support": "Khách hỏi ngoài giờ, hỏi đi hỏi lại cùng một câu, hoặc rời đi vì không ai trả lời kịp. Dolphin Care giúp doanh nghiệp không bỏ lỡ những cơ hội đó.",
+    "cta": "Xem Dolphin Care hoạt động",
+    "ctaSecondary": "Đặt lịch demo",
+    "trustMicro": "Không làm thay nhân viên — bổ sung lớp chăm sóc đầu tiên trên website.",
+    "benefits": [
+      {
+        "title": "Khách không phải chờ phản hồi",
+        "body": "Trả lời những câu hỏi phổ biến ngay khi khách vào website."
+      },
+      {
+        "title": "Nhân viên bớt việc lặp",
+        "body": "Tự ghi nhận thông tin, trả lời câu hỏi quen thuộc và chuyển tiếp khi cần."
+      },
+      {
+        "title": "Không bỏ lỡ khách ngoài giờ",
+        "body": "Hỗ trợ cả ngoài giờ làm việc để khách luôn nhận được phản hồi đầu tiên."
+      }
+    ],
+    "situationsLabel": "Dolphin Care làm được gì?",
+    "situations": [
+      "Khách hỏi giá",
+      "Khách hỏi còn lịch không",
+      "Khách hỏi địa chỉ",
+      "Khách hỏi dịch vụ",
+      "Khách muốn để lại SĐT",
+      "Khách muốn gặp nhân viên"
+    ],
+    "industriesLabel": "Phù hợp cho",
+    "industries": [
+      "Spa",
+      "Phòng khám",
+      "Nhà hàng",
+      "Giáo dục",
+      "Showroom",
+      "Bất động sản"
+    ],
+    "pipelineLabel": "Cách hoạt động (không phải chatbot cứng)",
+    "pipeline": [
+      "Hiểu ngữ cảnh",
+      "Thu thông tin",
+      "Đặt lịch",
+      "Gửi Zalo / CRM",
+      "Thông báo nhân viên",
+      "Theo dõi khách"
+    ],
+    "agentName": "Dolphin Care",
+    "online": "Đang trực tuyến",
+    "card": {
+      "context": "Spa · Đặt lịch",
+      "messages": [
+        {
+          "role": "user",
+          "text": "Chiều mai còn slot massage không?"
+        },
+        {
+          "role": "assistant",
+          "text": "Còn 15:00 và 17:30. Anh/chị muốn 60 hay 90 phút?"
+        },
+        {
+          "role": "user",
+          "text": "60 phút lúc 15:00 giúp em."
+        },
+        {
+          "role": "assistant",
+          "text": "Em giữ slot 15:00 — 60 phút. Cho em tên và SĐT để xác nhận ạ?"
+        },
+        {
+          "role": "user",
+          "text": "Minh, 0901 234 567."
+        },
+        {
+          "role": "assistant",
+          "text": "Đã ghi lead Minh · 15:00 mai. Em gửi Zalo nhắc trước 2 tiếng và báo nhân viên trên CRM nhé."
+        },
+        {
+          "role": "user",
+          "text": "Ok em, cảm ơn nhiều."
+        },
+        {
+          "role": "assistant",
+          "text": "Dạ — nhân viên đã được thông báo. Em sẵn sàng hỗ trợ nếu anh/chị cần đổi giờ."
+        }
+      ]
+    },
+    "productRoute": "/dolphin-care/",
+    "schemaAgent": "/schema/agents/dolphin-care/"
+  }
+}

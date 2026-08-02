@@ -1,0 +1,43 @@
+{
+  "meta": {
+    "kind": "homepage-section",
+    "locale": "vi",
+    "brand": "Dolphin Software",
+    "updated": "2026-08-02",
+    "productRoute": "/",
+    "id": "ai-edge",
+    "anchor": "#ai-edge",
+    "component": "AiEdge",
+    "schemaPath": "/schema/homepage/ai-edge/",
+    "rawPath": "/schema/homepage/ai-edge.json",
+    "copyKey": "aiEdge"
+  },
+  "content": {
+    "eyebrow": "Ops AI",
+    "badge": "Automate",
+    "title": "AI cho [[quy trình vận hành]]",
+    "support": "Đây là những nơi AI mang lại giá trị rõ nhất cho SMB — gắn vào website và hệ thống bạn đã có.",
+    "items": [
+      {
+        "id": "chat",
+        "tag": "On-site",
+        "title": "AI chat & FAQ trên site",
+        "body": "Trả lời câu hỏi thường gặp và thu lead, gắn thẳng vào website hiện tại."
+      },
+      {
+        "id": "workflow",
+        "tag": "Automation",
+        "title": "Workflow & form thông minh",
+        "body": "Tự động hóa đặt lịch, báo giá và phân luồng lead, giảm thao tác tay."
+      },
+      {
+        "id": "agent",
+        "tag": "Integration",
+        "title": "Agent nối CRM / Zalo",
+        "body": "Agent theo nghiệp vụ, nối hệ thống đang chạy và đo được kết quả."
+      }
+    ],
+    "ctaTransform": "Chuyển đổi AI doanh nghiệp",
+    "ctaAgent": "AI Agent theo yêu cầu"
+  }
+}

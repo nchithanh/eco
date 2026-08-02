@@ -1,0 +1,46 @@
+{
+  "meta": {
+    "kind": "homepage-section",
+    "locale": "vi",
+    "brand": "Dolphin Software",
+    "updated": "2026-08-02",
+    "productRoute": "/",
+    "id": "why",
+    "anchor": "#why",
+    "component": "WhyKuct",
+    "schemaPath": "/schema/homepage/why/",
+    "rawPath": "/schema/homepage/why.json",
+    "copyKey": "why"
+  },
+  "content": {
+    "eyebrow": "Why Dolphin",
+    "title": "Nguyên tắc chúng tôi [[luôn giữ]]",
+    "support": "Chúng tôi bắt đầu bằng việc hiểu vấn đề, rồi mới đề xuất giải pháp phù hợp — không phải giải pháp đắt nhất.",
+    "reasons": [
+      {
+        "title": "Không vội viết code",
+        "body": "Có bài toán chỉ cần đổi một quy trình nhỏ, thay vì xây lại toàn bộ."
+      },
+      {
+        "title": "Đơn giản trước",
+        "body": "Không phải dự án nào cũng cần làm mới. Quan trọng là cách giải hiệu quả nhất."
+      },
+      {
+        "title": "Modernize trước khi rebuild",
+        "body": "Tận dụng phần đang chạy tốt, chỉ nâng cấp phần thật sự cần."
+      },
+      {
+        "title": "Làm đúng điều đã thống nhất",
+        "body": "Phạm vi rõ, tiến độ minh bạch, bàn giao đầy đủ để bạn chủ động vận hành."
+      },
+      {
+        "title": "AI / Care đúng chỗ",
+        "body": "Chỉ dùng AI khi giảm được việc lặp hoặc cải thiện trải nghiệm khách — không chạy theo xu hướng."
+      },
+      {
+        "title": "Đồng hành sau bàn giao",
+        "body": "Bàn giao không phải điểm kết. Doanh nghiệp lớn lên, hệ thống cũng cần lớn theo."
+      }
+    ]
+  }
+}

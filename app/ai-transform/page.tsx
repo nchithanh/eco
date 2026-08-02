@@ -25,6 +25,7 @@ export default function Page() {
   return (
     <>
       <JsonLd
+        id="ai-transform-jsonld"
         data={[
           serviceJsonLd({
             name: c.eyebrow || "AI Transformation",

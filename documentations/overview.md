@@ -2,7 +2,9 @@
 
 ## Product
 
-**Dolphin Software** — marketing site for a web / mobile / AI studio (legacy aliases: Dolphin Kick, KU THANH in `BrandText`).
+**Dolphin Software** — marketing site for a web / software / AI studio for SMB (legacy aliases: Dolphin Kick, KU THANH in `BrandText`).
+
+Company knowledge (agents): `.cursor/knowledge/company.md` — outcomes **Build · Modernize · Automate · Care**.
 
 - Package name: `dolphin-kick`
 - Repo: `nchithanh/eco`

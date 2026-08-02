@@ -2,6 +2,15 @@
 
 | Route | Page file | Main content |
 | --- | --- | --- |
+| `/schema/` | `app/schema/page.tsx` | List clickable → company / homepage / services / agents (+ slug chips); `noindex` |
+| `/schema/company/` | `app/schema/company/page.tsx` | Overview JSON (`public/schema/company.json`); `noindex` |
+| `/schema/homepage/` | `app/schema/homepage/page.tsx` | List section homepage; overview raw `homepage/overview.json` |
+| `/schema/homepage/[slug]/` | `app/schema/homepage/[slug]/page.tsx` | JSON từng section (hero, stats, why, …) |
+| `/schema/services/` | `app/schema/services/page.tsx` | Services index JSON |
+| `/schema/services/[slug]/` | `app/schema/services/[slug]/page.tsx` | Per-service JSON (`web`, `mobile`, `backend`, `design`, `integrations`, `agents`, `custom-agent`) |
+| `/schema/agents/` | `app/schema/agents/page.tsx` | Agents index JSON |
+| `/schema/agents/[slug]/` | `app/schema/agents/[slug]/page.tsx` | Agent product JSON (`dolphin-care`, `custom-agent`, `ai-transform`) |
+| `/company_value/` | `app/company_value/page.tsx` | Legacy redirect → `/schema/company/` |
 | `/about/` | `app/about/page.tsx` | `AboutContent` — studio intro; founder photo `public/about/founder.png`; copy `lib/i18n/about-copy.ts` |
 | `/careers/` | `app/careers/page.tsx` | `CareersContent` + jobs in `lib/careers-jobs.ts` / `careers-copy.ts` — Mobile/Design closed; Marketing/Growth open |
 | `/dolphin-care/` | `app/dolphin-care/page.tsx` | **Dolphin Care** — `AgentDolphinContent` + `agent-dolphin-copy.ts`; OG `public/og-dolphin-care.png` (VI social meta) |

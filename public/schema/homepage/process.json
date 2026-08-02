@@ -1,0 +1,48 @@
+{
+  "meta": {
+    "kind": "homepage-section",
+    "locale": "vi",
+    "brand": "Dolphin Software",
+    "updated": "2026-08-02",
+    "productRoute": "/",
+    "id": "process",
+    "anchor": "#process",
+    "component": "Process",
+    "schemaPath": "/schema/homepage/process/",
+    "rawPath": "/schema/homepage/process.json",
+    "copyKey": "process"
+  },
+  "content": {
+    "eyebrow": "Process",
+    "title": "Cách chúng tôi [[làm việc]]",
+    "support": "Từ lúc nghe bài toán đến khi bàn giao, mỗi bước đều có đầu ra rõ — bạn luôn biết mình đang ở đâu và điều gì tới tiếp theo.",
+    "deliverableLabel": "Đầu ra",
+    "steps": [
+      {
+        "name": "Lắng nghe & hiểu vấn đề",
+        "detail": "Chúng tôi muốn hiểu doanh nghiệp bạn trước khi bàn giải pháp. Làm rõ mục tiêu và ràng buộc ngân sách / thời gian.",
+        "deliverable": "Tóm tắt bài toán, mục tiêu và ràng buộc đã thống nhất."
+      },
+      {
+        "name": "Đề xuất & báo giá rõ",
+        "detail": "Chọn Build / Modernize / Automate / Care phù hợp, kèm phạm vi và mốc rõ ràng.",
+        "deliverable": "Đề xuất phạm vi, timeline và báo giá."
+      },
+      {
+        "name": "Thiết kế & xây theo sprint",
+        "detail": "UI, tính năng và tích hợp, có demo định kỳ để bạn góp ý sớm thay vì chờ đến cuối.",
+        "deliverable": "Bản build / demo theo sprint để review."
+      },
+      {
+        "name": "Kiểm thử & nghiệm thu",
+        "detail": "Kiểm soát chất lượng và nghiệm thu cùng bạn trước khi lên production.",
+        "deliverable": "Checklist nghiệm thu và danh sách lỗi đã xử lý."
+      },
+      {
+        "name": "Bàn giao & đồng hành",
+        "detail": "Deploy, hướng dẫn vận hành và hỗ trợ khi hệ thống chạy thật. Chúng tôi vẫn ở đây sau go-live.",
+        "deliverable": "Source, domain/hosting & env, admin (nếu có), hướng dẫn và bảo hành kỹ thuật."
+      }
+    ]
+  }
+}

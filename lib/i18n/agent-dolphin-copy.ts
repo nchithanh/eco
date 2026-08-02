@@ -629,6 +629,11 @@ export type AgentDolphinHomeCard = {
   messages: AgentDolphinHomeMessage[];
 };
 
+export type AgentDolphinHomeBenefit = {
+  title: string;
+  body: string;
+};
+
 export type AgentDolphinHomeCopy = {
   eyebrow: string;
   title: string;
@@ -636,7 +641,17 @@ export type AgentDolphinHomeCopy = {
   cta: string;
   ctaSecondary: string;
   trustMicro: string;
-  benefits: [string, string, string];
+  benefits: [
+    AgentDolphinHomeBenefit,
+    AgentDolphinHomeBenefit,
+    AgentDolphinHomeBenefit,
+  ];
+  situationsLabel?: string;
+  situations?: string[];
+  industriesLabel?: string;
+  industries?: string[];
+  pipelineLabel?: string;
+  pipeline?: string[];
   agentName: string;
   online: string;
   card: AgentDolphinHomeCard;
@@ -645,16 +660,53 @@ export type AgentDolphinHomeCopy = {
 
 const homeVi: AgentDolphinHomeCopy = {
   eyebrow: "Dolphin Care",
-  title: "AI giúp anh chị [[vận hành nhẹ hơn]], tăng hiệu suất",
+  title: "Đừng để khách phải [[chờ đến giờ làm việc]]",
   support:
-    "Gắn trên website — trả lời đúng việc, đúng giọng; bớt hỏi đi hỏi lại.",
-  cta: "Xem Dolphin Care",
-  ctaSecondary: "Nhận báo giá",
-  trustMicro: "Gắn trên site mới hoặc site sẵn",
+    "Khách hỏi ngoài giờ, hỏi đi hỏi lại cùng một câu, hoặc rời đi vì không ai trả lời kịp. Dolphin Care giúp doanh nghiệp không bỏ lỡ những cơ hội đó.",
+  cta: "Xem Dolphin Care hoạt động",
+  ctaSecondary: "Đặt lịch demo",
+  trustMicro:
+    "Không làm thay nhân viên — bổ sung lớp chăm sóc đầu tiên trên website.",
   benefits: [
-    "Trả lời đúng việc",
-    "Bớt việc tay",
-    "Tăng hiệu suất chăm khách",
+    {
+      title: "Khách không phải chờ phản hồi",
+      body: "Trả lời những câu hỏi phổ biến ngay khi khách vào website.",
+    },
+    {
+      title: "Nhân viên bớt việc lặp",
+      body: "Tự ghi nhận thông tin, trả lời câu hỏi quen thuộc và chuyển tiếp khi cần.",
+    },
+    {
+      title: "Không bỏ lỡ khách ngoài giờ",
+      body: "Hỗ trợ cả ngoài giờ làm việc để khách luôn nhận được phản hồi đầu tiên.",
+    },
+  ],
+  situationsLabel: "Dolphin Care làm được gì?",
+  situations: [
+    "Khách hỏi giá",
+    "Khách hỏi còn lịch không",
+    "Khách hỏi địa chỉ",
+    "Khách hỏi dịch vụ",
+    "Khách muốn để lại SĐT",
+    "Khách muốn gặp nhân viên",
+  ],
+  industriesLabel: "Phù hợp cho",
+  industries: [
+    "Spa",
+    "Phòng khám",
+    "Nhà hàng",
+    "Giáo dục",
+    "Showroom",
+    "Bất động sản",
+  ],
+  pipelineLabel: "Cách hoạt động (không phải chatbot cứng)",
+  pipeline: [
+    "Hiểu ngữ cảnh",
+    "Thu thông tin",
+    "Đặt lịch",
+    "Gửi Zalo / CRM",
+    "Thông báo nhân viên",
+    "Theo dõi khách",
   ],
   agentName: "Dolphin Care",
   online: "Đang trực tuyến",
@@ -666,20 +718,20 @@ const homeVi: AgentDolphinHomeCopy = {
         role: "assistant",
         text: "Còn 15:00 và 17:30. Anh/chị muốn 60 hay 90 phút?",
       },
-      { role: "user", text: "60 phút lúc 15:00 giúp em" },
+      { role: "user", text: "60 phút lúc 15:00 giúp em." },
       {
         role: "assistant",
         text: "Em giữ slot 15:00 — 60 phút. Cho em tên và SĐT để xác nhận ạ?",
       },
-      { role: "user", text: "Minh, 0901 234 567" },
+      { role: "user", text: "Minh, 0901 234 567." },
       {
         role: "assistant",
-        text: "Đã ghi nhận Minh · 15:00 mai. Em gửi Zalo nhắc trước 2 tiếng nhé.",
+        text: "Đã ghi lead Minh · 15:00 mai. Em gửi Zalo nhắc trước 2 tiếng và báo nhân viên trên CRM nhé.",
       },
-      { role: "user", text: "Ok em, cảm ơn nhiều" },
+      { role: "user", text: "Ok em, cảm ơn nhiều." },
       {
         role: "assistant",
-        text: "Dạ em sẵn sàng hỗ trợ thêm nếu anh/chị cần đổi giờ.",
+        text: "Dạ — nhân viên đã được thông báo. Em sẵn sàng hỗ trợ nếu anh/chị cần đổi giờ.",
       },
     ],
   },
@@ -695,9 +747,18 @@ const homeEn: AgentDolphinHomeCopy = {
   ctaSecondary: "Get a quote",
   trustMicro: "Add to a new site or one you already run",
   benefits: [
-    "Answers that fit the job",
-    "Less manual back-and-forth",
-    "Higher customer-care efficiency",
+    {
+      title: "Answers that fit the job",
+      body: "Common questions get a first reply as soon as someone lands on your site.",
+    },
+    {
+      title: "Less manual back-and-forth",
+      body: "Capture details, answer repeats, and hand off when a human should step in.",
+    },
+    {
+      title: "Fewer missed after-hours leads",
+      body: "Visitors still get a first response outside business hours.",
+    },
   ],
   agentName: "Dolphin Care",
   online: "Online now",
@@ -717,12 +778,12 @@ const homeEn: AgentDolphinHomeCopy = {
       { role: "user", text: "Minh, 0901 234 567" },
       {
         role: "assistant",
-        text: "Booked for Minh at 3:00 tomorrow. I’ll Zalo-remind you 2 hours before.",
+        text: "Booked for Minh at 3:00 tomorrow. I’ll Zalo-remind you 2 hours before and notify staff in CRM.",
       },
       { role: "user", text: "Perfect, thanks" },
       {
         role: "assistant",
-        text: "Happy to help if you need to reschedule.",
+        text: "Happy to help if you need to reschedule — your team has been notified.",
       },
     ],
   },
@@ -738,9 +799,18 @@ const homeJa: AgentDolphinHomeCopy = {
   ctaSecondary: "見積もりを依頼",
   trustMicro: "新規サイトにも、既存サイトにも追加できます",
   benefits: [
-    "用件に合う返答",
-    "手作業のやりとりを削減",
-    "顧客対応の効率アップ",
+    {
+      title: "用件に合う返答",
+      body: "サイトに来た瞬間からよくある質問に答えます。",
+    },
+    {
+      title: "手作業のやりとりを削減",
+      body: "情報を受け取り、繰り返しに答え、必要なら人へ引き継ぎます。",
+    },
+    {
+      title: "営業時間外の取りこぼしを減らす",
+      body: "時間外でも最初の返信を届けます。",
+    },
   ],
   agentName: "Dolphin Care",
   online: "オンライン",
@@ -760,12 +830,12 @@ const homeJa: AgentDolphinHomeCopy = {
       { role: "user", text: "ミン、0901 234 567" },
       {
         role: "assistant",
-        text: "ミン様・明日15:00で登録しました。2時間前にZaloでリマインドしますね。",
+        text: "ミン様・明日15:00で登録しました。2時間前にZaloでリマインドし、スタッフにもCRMで共有しますね。",
       },
       { role: "user", text: "ありがとうございます" },
       {
         role: "assistant",
-        text: "時間変更が必要ならいつでもご連絡ください。",
+        text: "時間変更が必要ならいつでもご連絡ください。スタッフにも通知済みです。",
       },
     ],
   },
@@ -781,9 +851,18 @@ const homeDe: AgentDolphinHomeCopy = {
   ctaSecondary: "Angebot anfordern",
   trustMicro: "Für neue Sites oder bestehende Sites",
   benefits: [
-    "Passende Antworten",
-    "Weniger manuelle Rückfragen",
-    "Effizientere Kundenbetreuung",
+    {
+      title: "Passende Antworten",
+      body: "Häufige Fragen bekommen sofort eine erste Antwort auf der Website.",
+    },
+    {
+      title: "Weniger manuelle Rückfragen",
+      body: "Daten erfassen, Wiederholungen beantworten, bei Bedarf an Menschen übergeben.",
+    },
+    {
+      title: "Weniger verpasste Anfragen außerhalb der Öffnungszeiten",
+      body: "Besucher erhalten auch nach Feierabend eine erste Antwort.",
+    },
   ],
   agentName: "Dolphin Care",
   online: "Online",
@@ -803,12 +882,12 @@ const homeDe: AgentDolphinHomeCopy = {
       { role: "user", text: "Minh, 0901 234 567" },
       {
         role: "assistant",
-        text: "Notiert: Minh · morgen 15:00. Ich erinnere per Zalo 2 Stunden vorher.",
+        text: "Notiert: Minh · morgen 15:00. Ich erinnere per Zalo 2 Stunden vorher und informiere das Team im CRM.",
       },
       { role: "user", text: "Super, danke" },
       {
         role: "assistant",
-        text: "Gern — bei Terminänderung einfach melden.",
+        text: "Gern — bei Terminänderung einfach melden. Ihr Team wurde benachrichtigt.",
       },
     ],
   },
@@ -822,7 +901,20 @@ const homeZh: AgentDolphinHomeCopy = {
   cta: "了解 Dolphin Care",
   ctaSecondary: "获取报价",
   trustMicro: "可挂到新站或现有站点",
-  benefits: ["回复贴合事项", "少手工来回", "提升客服效率"],
+  benefits: [
+    {
+      title: "回复贴合事项",
+      body: "访客一进站就能先得到常见问题的答复。",
+    },
+    {
+      title: "少手工来回",
+      body: "记录信息、回答重复问题，必要时转给人工。",
+    },
+    {
+      title: "少漏掉非营业时间的客户",
+      body: "下班后访客仍能收到第一句回复。",
+    },
+  ],
   agentName: "Dolphin Care",
   online: "在线",
   card: {
@@ -841,12 +933,12 @@ const homeZh: AgentDolphinHomeCopy = {
       { role: "user", text: "Minh，0901 234 567" },
       {
         role: "assistant",
-        text: "已登记 Minh · 明天 15:00。会提前 2 小时用 Zalo 提醒。",
+        text: "已登记 Minh · 明天 15:00。会提前 2 小时用 Zalo 提醒，并通知员工到 CRM。",
       },
       { role: "user", text: "好的，谢谢" },
       {
         role: "assistant",
-        text: "需要改时间随时找我。",
+        text: "需要改时间随时找我——员工已收到通知。",
       },
     ],
   },

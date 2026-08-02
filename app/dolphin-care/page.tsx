@@ -28,6 +28,7 @@ export default function Page() {
   return (
     <>
       <JsonLd
+        id="dolphin-care-jsonld"
         data={[
           serviceJsonLd({
             name: "Dolphin Care",

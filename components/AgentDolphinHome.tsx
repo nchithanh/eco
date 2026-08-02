@@ -300,21 +300,62 @@ export function AgentDolphinHome() {
 
           <Reveal delay={60}>
             <ul className="mt-8 grid gap-3 sm:mt-9">
-              {c.benefits.map((label, index) => (
+              {c.benefits.map((benefit, index) => (
                 <li
-                  key={label}
-                  className="flex items-center gap-3 rounded-2xl border border-[var(--kuct-border)] bg-[rgba(8,8,14,0.45)] px-4 py-3"
+                  key={benefit.title}
+                  className="flex items-start gap-3 rounded-2xl border border-[var(--kuct-border)] bg-[rgba(8,8,14,0.45)] px-4 py-3"
                 >
-                  <span className="grid size-9 shrink-0 place-items-center rounded-xl bg-[rgba(var(--kuct-accent-rgb),0.1)] text-[var(--kuct-accent)] ring-1 ring-[var(--kuct-accent)]/25">
+                  <span className="mt-0.5 grid size-9 shrink-0 place-items-center rounded-xl bg-[rgba(var(--kuct-accent-rgb),0.1)] text-[var(--kuct-accent)] ring-1 ring-[var(--kuct-accent)]/25">
                     {BENEFIT_ICONS[index] ?? BENEFIT_ICONS[0]}
                   </span>
-                  <span className="text-sm font-semibold leading-snug text-[var(--kuct-text)]">
-                    {label}
-                  </span>
+                  <div className="min-w-0">
+                    <p className="text-sm font-semibold leading-snug text-[var(--kuct-text)]">
+                      {benefit.title}
+                    </p>
+                    <p className="mt-1 text-sm leading-relaxed text-[var(--kuct-muted)]">
+                      {benefit.body}
+                    </p>
+                  </div>
                 </li>
               ))}
             </ul>
           </Reveal>
+
+          {c.situations && c.situations.length > 0 ? (
+            <Reveal delay={90} className="mt-7">
+              <p className="text-[11px] font-semibold tracking-[0.14em] text-[var(--kuct-muted)] uppercase">
+                {c.situationsLabel}
+              </p>
+              <ul className="mt-3 flex list-none flex-wrap gap-2 p-0">
+                {c.situations.map((item) => (
+                  <li
+                    key={item}
+                    className="rounded-full border border-[var(--kuct-border)] bg-[rgba(8,8,14,0.35)] px-3 py-1.5 text-xs font-medium text-[var(--kuct-text)]"
+                  >
+                    ✓ {item}
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
+          ) : null}
+
+          {c.industries && c.industries.length > 0 ? (
+            <Reveal delay={110} className="mt-6">
+              <p className="text-[11px] font-semibold tracking-[0.14em] text-[var(--kuct-muted)] uppercase">
+                {c.industriesLabel}
+              </p>
+              <ul className="mt-3 flex list-none flex-wrap gap-2 p-0">
+                {c.industries.map((item) => (
+                  <li
+                    key={item}
+                    className="rounded-full border border-[var(--kuct-border)] px-3 py-1 text-xs font-medium text-[var(--kuct-muted)]"
+                  >
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
+          ) : null}
 
           <Reveal delay={140} className="mt-8 sm:mt-9">
             <div className="flex flex-wrap items-center gap-3 sm:gap-4">
@@ -344,6 +385,16 @@ export function AgentDolphinHome() {
             inputPlaceholder={c.inputPlaceholder}
             animate={motion}
           />
+          {c.pipeline && c.pipeline.length > 0 ? (
+            <div className="mt-4 rounded-2xl border border-[var(--kuct-border)] bg-[rgba(8,8,14,0.45)] px-4 py-3.5">
+              <p className="text-[11px] font-semibold tracking-[0.14em] text-[var(--kuct-accent)] uppercase">
+                {c.pipelineLabel}
+              </p>
+              <p className="mt-2 text-sm leading-relaxed text-[var(--kuct-muted)]">
+                {c.pipeline.join(" → ")}
+              </p>
+            </div>
+          ) : null}
         </Reveal>
       </div>
     </section>

@@ -1,0 +1,66 @@
+{
+  "meta": {
+    "kind": "agent",
+    "id": "dolphin-care",
+    "locale": "vi",
+    "brand": "Dolphin Software",
+    "schemaPath": "/schema/agents/dolphin-care/",
+    "rawPath": "/schema/agents/dolphin-care.json",
+    "updated": "2026-08-02"
+  },
+  "pillar": "Care",
+  "displayName": "Dolphin Care",
+  "formerName": "Agent Dolphin",
+  "productRoute": "/dolphin-care/",
+  "metaTitle": "Dolphin Care | Support website thông minh | Dolphin Software",
+  "metaDescription": "Dolphin Care gắn trên website — hỗ trợ khách bằng LLM + context nghiệp vụ + context khách hàng, chăm sóc như nhân viên chuyên nghiệp có cảm xúc.",
+  "summary": "AI Agent chăm sóc khách trên website — khác chatbot kịch bản cứng.",
+  "headline": "Support website như nhân viên — không chatbot máy móc",
+  "support": "Dolphin Care đảm nhiệm chăm sóc khách trên website. Kết hợp LLM với context doanh nghiệp và context từng khách.",
+  "capabilities": [
+    "hiểu ngữ cảnh hội thoại (khi knowledge + context được nạp)",
+    "trả lời tự nhiên hơn bot cũ",
+    "ghi nhận / dẫn thông tin khách",
+    "hỗ trợ tư vấn sản phẩm trong phạm vi kiến thức",
+    "hỗ trợ ngoài giờ — giảm bỏ lỡ lead"
+  ],
+  "whatItIsNot": [
+    "Không thay cả công ty / đội sales",
+    "Không bắt buộc với mọi dự án web — upsell / optional",
+    "Cold outreach vẫn mở bằng website (Build), không Care"
+  ],
+  "pillars": [
+    {
+      "title": "Mô hình LLM",
+      "body": "Hiểu ngôn ngữ tự nhiên, hỏi lại khi thiếu thông tin."
+    },
+    {
+      "title": "Context doanh nghiệp",
+      "body": "Dịch vụ, bảng giá, chính sách, giọng thương hiệu."
+    },
+    {
+      "title": "Context khách hàng",
+      "body": "Phiên chat, hành vi, thông tin đã chia sẻ."
+    }
+  ],
+  "howSteps": [
+    {
+      "title": "Thu thập nghiệp vụ & giọng điệu",
+      "body": "Workshop ngắn: dịch vụ, ngoại lệ, escalate."
+    },
+    {
+      "title": "Nạp knowledge + guardrail",
+      "body": "FAQ/policy vào kho context; chốt phạm vi tự trả lời."
+    },
+    {
+      "title": "Gắn widget & kênh",
+      "body": "Nhúng website; tùy chọn Zalo/CRM."
+    },
+    {
+      "title": "Theo dõi & tinh chỉnh",
+      "body": "Xem hội thoại thật, chỉnh prompt/context."
+    }
+  ],
+  "messaging": "Ưu tiên “chăm sóc / ngoài giờ / bớt hỏi lặp” hơn buzzword “AI Agent”.",
+  "copySource": "lib/i18n/agent-dolphin-copy.ts"
+}
