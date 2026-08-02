@@ -2,6 +2,7 @@
 
 ## 2026-08-03
 
+- Desktop motion amp (CSS only): stronger Reveal travel/duration, Hero panel side float + mascot bob; Hero copy no entrance fade (LCP/SEO-safe); still gated below `lg` + `prefers-reduced-motion`.
 - `/careers/` VI SEO/AEO/GEO rewriter (Jasper): meta “tuyển dụng freelance IT”; mô hình freelance; roles open/closed tách block; how-to-apply; FAQ 6 Q (+ `/services/web/`, `/about/`); bake VI meta; FAQPage + JobPosting JSON-LD.
 - `/about/` VI SEO/AEO/GEO rewriter (Jasper): meta “Dolphin Software là gì? / công ty thiết kế web”; entity-led sections; founder Nguyễn Chí Thanh 7+ năm; FAQ 6 Q; FAQPage + Person JSON-LD; internal links; schema `company.json` founder + about FAQ.
 - `/dolphin-care/` VI SEO/AEO/GEO rewriter (Jasper): meta keyword “AI chăm sóc khách hàng trên website”; hero/compare/pillars/how entity-led; FAQ 6 Q (+ Zalo, báo giá; internal links `/custom-agent/`, `/services/web/`); schema `public/schema/agents/dolphin-care.json`.

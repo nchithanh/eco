@@ -139,7 +139,7 @@ export function Hero() {
       className="relative isolate flex min-h-[min(100svh,52rem)] items-center overflow-x-clip touch-pan-y lg:min-h-[calc(100svh-5.5rem)]"
     >
       <div className="relative mx-auto grid w-full max-w-6xl items-center gap-10 px-6 py-16 sm:py-20 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-14 lg:py-16">
-        <div className="animate-kuct-fade relative z-10 max-w-xl touch-pan-y">
+        <div className="relative z-10 max-w-xl touch-pan-y">
           <div className="flex flex-wrap items-center gap-3">
             <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
               {t.hero.eyebrow}

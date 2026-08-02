@@ -885,7 +885,7 @@ html[data-theme="black"] .kuct-glass-panel {
 @keyframes kuct-fade-in {
   from {
     opacity: 0;
-    transform: translateY(16px);
+    transform: translateY(22px);
   }
   to {
     opacity: 1;
@@ -899,7 +899,7 @@ html[data-theme="black"] .kuct-glass-panel {
     transform: translateY(0) rotate(-8deg);
   }
   50% {
-    transform: translateY(-14px) rotate(-6deg);
+    transform: translateY(-18px) rotate(-5deg);
   }
 }
 
@@ -909,7 +909,37 @@ html[data-theme="black"] .kuct-glass-panel {
     transform: translateY(0) rotate(12deg);
   }
   50% {
-    transform: translateY(-10px) rotate(14deg);
+    transform: translateY(-14px) rotate(15deg);
+  }
+}
+
+@keyframes kuct-float-mid {
+  0%,
+  100% {
+    transform: translateY(0) rotate(3deg);
+  }
+  50% {
+    transform: translateY(-14px) rotate(4deg);
+  }
+}
+
+@keyframes kuct-float-side-left {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-5deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(-5deg);
+  }
+}
+
+@keyframes kuct-float-side-right {
+  0%,
+  100% {
+    transform: translateY(0) rotate(5deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(5deg);
   }
 }
 
@@ -958,7 +988,7 @@ html[data-theme="black"] .kuct-glass-panel {
 
 @media (min-width: 1024px) {
   .animate-kuct-fade {
-    animation: kuct-fade-in 0.9s ease-out both;
+    animation: kuct-fade-in 1s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
 }
 
@@ -971,10 +1001,10 @@ html[data-theme="black"] .kuct-glass-panel {
 @media (min-width: 1024px) {
   .kuct-reveal {
     opacity: 0;
-    transform: translateY(14px);
+    transform: translateY(24px);
     transition:
-      opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
-      transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+      opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
     transition-delay: var(--kuct-reveal-delay, 0ms);
     will-change: opacity, transform;
   }
@@ -986,7 +1016,7 @@ html[data-theme="black"] .kuct-glass-panel {
   }
 
   .kuct-reveal-left {
-    transform: translateX(-20px);
+    transform: translateX(-28px);
   }
 
   .kuct-reveal-left.is-inview {
@@ -994,7 +1024,7 @@ html[data-theme="black"] .kuct-glass-panel {
   }
 
   .kuct-reveal-right {
-    transform: translateX(20px);
+    transform: translateX(28px);
   }
 
   .kuct-reveal-right.is-inview {
@@ -1002,7 +1032,7 @@ html[data-theme="black"] .kuct-glass-panel {
   }
 
   .kuct-reveal-scale {
-    transform: scale(0.96);
+    transform: scale(0.94);
   }
 
   .kuct-reveal-scale.is-inview {
@@ -1020,11 +1050,11 @@ html[data-theme="black"] .kuct-glass-panel {
 
 @media (min-width: 1024px) {
   .animate-kuct-float {
-    animation: kuct-float 7s ease-in-out infinite;
+    animation: kuct-float 6s ease-in-out infinite;
   }
 
   .animate-kuct-float-delay {
-    animation: kuct-float-delay 8.5s ease-in-out infinite;
+    animation: kuct-float-delay 7.5s ease-in-out infinite;
   }
 }
 
@@ -1061,11 +1091,15 @@ html[data-theme="black"] .kuct-glass-panel {
 
 @media (min-width: 1024px) {
   .kuct-hero-panel--mid {
-    animation: kuct-float-delay 9s ease-in-out infinite;
+    animation: kuct-float-mid 7.5s ease-in-out infinite;
   }
 
-  .kuct-hero-panel--side {
-    animation: none;
+  .kuct-hero-panel--side:not(.kuct-hero-panel--late) {
+    animation: kuct-float-side-left 6.5s ease-in-out infinite;
+  }
+
+  .kuct-hero-panel--late {
+    animation: kuct-float-side-right 8s ease-in-out 0.4s infinite;
   }
 }
 
@@ -1599,14 +1633,14 @@ html[data-theme="black"] .kuct-loader-progress {
   }
 }
 
-/* Dolphin mascot — desktop-only subtle motion (3 intentional loops) */
+/* Dolphin mascot — desktop-only motion (3 intentional loops) */
 @keyframes kuct-mascot-bob {
   0%,
   100% {
-    transform: translateY(0) rotate(-2deg);
+    transform: translateY(0) rotate(-3deg);
   }
   50% {
-    transform: translateY(-8px) rotate(2deg);
+    transform: translateY(-14px) rotate(3deg);
   }
 }
 
@@ -1616,7 +1650,7 @@ html[data-theme="black"] .kuct-loader-progress {
     transform: rotate(0deg);
   }
   50% {
-    transform: rotate(12deg);
+    transform: rotate(16deg);
   }
 }
 
@@ -1626,10 +1660,10 @@ html[data-theme="black"] .kuct-loader-progress {
     transform: rotate(0deg);
   }
   40% {
-    transform: rotate(-10deg);
+    transform: rotate(-14deg);
   }
   70% {
-    transform: rotate(6deg);
+    transform: rotate(8deg);
   }
 }
 
@@ -1640,15 +1674,15 @@ html[data-theme="black"] .kuct-loader-progress {
 
 @media (min-width: 1024px) {
   .kuct-mascot-float {
-    animation: kuct-mascot-bob 5.5s ease-in-out infinite;
+    animation: kuct-mascot-bob 4.5s ease-in-out infinite;
   }
 
   .kuct-mascot-float .kuct-mascot-flipper {
-    animation: kuct-mascot-flipper 2.8s ease-in-out infinite;
+    animation: kuct-mascot-flipper 2.4s ease-in-out infinite;
   }
 
   .kuct-mascot-float .kuct-mascot-tail {
-    animation: kuct-mascot-tail 3.2s ease-in-out infinite;
+    animation: kuct-mascot-tail 2.8s ease-in-out infinite;
   }
 }
 
