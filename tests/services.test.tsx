@@ -2,6 +2,7 @@ import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { ServiceDetailView } from "@/components/ServiceDetailView";
+import { Capabilities } from "@/components/Capabilities";
 import { CustomAgentContent } from "@/components/CustomAgentContent";
 import { AiTransformContent } from "@/components/AiTransformContent";
 import { AppProviders } from "@/components/AppProviders";
@@ -25,11 +26,10 @@ describe("service detail pages", () => {
     );
   });
 
-  it("capabilities cards link to service detail routes", async () => {
-    const user = userEvent.setup();
+  it("capabilities offer cards link to web services and more tags", () => {
     const { container } = render(
       <AppProviders>
-        <Home />
+        <Capabilities />
       </AppProviders>,
     );
 
@@ -38,32 +38,47 @@ describe("service detail pages", () => {
     const section = within(capabilities as HTMLElement);
 
     expect(
-      section.getByRole("link", { name: /Thiết kế & làm website theo yêu cầu/i }),
+      section.getByRole("heading", {
+        level: 2,
+        name: /Làm website cho anh chị rõ ràng, dễ chạy/i,
+      }),
+    ).toBeInTheDocument();
+    expect(section.getByRole("link", { name: /Landing Page/i })).toHaveAttribute(
+      "href",
+      "/services/web",
+    );
+    expect(
+      section.getByRole("link", { name: /Website doanh nghiệp/i }),
     ).toHaveAttribute("href", "/services/web");
     expect(
-      section.getByRole("link", { name: /Phát triển mobile app/i }),
-    ).toHaveAttribute("href", "/services/mobile");
+      section.getByRole("link", { name: /Website bán hàng/i }),
+    ).toHaveAttribute("href", "/services/web");
+    expect(section.getByRole("link", { name: /Web app/i })).toHaveAttribute(
+      "href",
+      "/services/web",
+    );
+    expect(section.getByRole("link", { name: /Mobile app/i })).toHaveAttribute(
+      "href",
+      "/services/mobile",
+    );
+    expect(section.getByRole("link", { name: /Backend/i })).toHaveAttribute(
+      "href",
+      "/services/backend",
+    );
+    expect(section.getByRole("link", { name: /UI\/UX/i })).toHaveAttribute(
+      "href",
+      "/services/design",
+    );
     expect(
-      section.getByRole("link", { name: /Backend & tích hợp hệ thống/i }),
-    ).toHaveAttribute("href", "/services/backend");
-
-    await user.click(section.getByRole("button", { name: /Trang sau/i }));
-
-    expect(
-      section.getByRole("link", { name: /UI\/UX & bàn giao/i }),
-    ).toHaveAttribute("href", "/services/design");
-    expect(
-      section.getByRole("link", { name: /Tích hợp dịch vụ bên thứ ba/i }),
+      section.getByRole("link", { name: /Tích hợp thanh toán/i }),
     ).toHaveAttribute("href", "/services/integrations");
     expect(
-      section.getByRole("link", { name: /Hệ sinh thái agent cho business/i }),
-    ).toHaveAttribute("href", "/services/agents");
-
-    await user.click(section.getByRole("button", { name: /Trang sau/i }));
-
-    expect(
-      section.getByRole("link", { name: /AI Agent theo yêu cầu/i }),
-    ).toHaveAttribute("href", expect.stringMatching(/\/custom-agent\/?$/));
+      section.getByRole("button", { name: /Nhận báo giá/i }),
+    ).toBeInTheDocument();
+    expect(section.getByRole("link", { name: /Xem gói giá/i })).toHaveAttribute(
+      "href",
+      "#popular-services",
+    );
   });
 
   it("works showcase paginates like capabilities", async () => {

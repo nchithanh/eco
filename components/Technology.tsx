@@ -577,8 +577,16 @@ export function Technology() {
       id="technology"
       className="relative scroll-mt-20 overflow-hidden py-24"
     >
-      <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:gap-20">
-        <Reveal className="max-w-lg" variant="left">
+      <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 lg:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)] lg:gap-20">
+        <Reveal variant="left" delay={100}>
+          <TechnologyDashboard
+            tabs={tech.tabs}
+            live={tech.live}
+            widgets={tech.widgets}
+          />
+        </Reveal>
+
+        <Reveal className="max-w-lg lg:justify-self-end" variant="right">
           <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
             {ai.eyebrow}
           </p>
@@ -597,14 +605,6 @@ export function Technology() {
           <p className="mt-4 max-w-md text-xs leading-relaxed tracking-wide text-[var(--kuct-muted)]/90">
             {ai.trustLine}
           </p>
-        </Reveal>
-
-        <Reveal variant="right" delay={100}>
-          <TechnologyDashboard
-            tabs={tech.tabs}
-            live={tech.live}
-            widgets={tech.widgets}
-          />
         </Reveal>
       </div>
     </section>

@@ -4,27 +4,27 @@ Entry: `app/page.tsx`.
 
 ## Section order → component
 
-UX flow: **website / delivery first**, then **AI layer**, then **trust & contact**.
+Story flow: **overview (Hero)** → **intro Website** → **intro Agent** → **descriptive sections** → trust & contact.
 
 | # | Block | Section | Component | Anchor / notes |
 | --- | --- | --- | --- | --- |
 | — | — | Nav (+ announcement) | `Nav`, `AnnouncementBar` | |
-| 1 | Web | Hero | `Hero` | `#top` — web-first copy; secondary CTA → `#capabilities` |
-| 2 | AI | Dolphin Care | `AgentDolphinHome` | `#dolphin-care` — chat-style teaser → `/dolphin-care/` |
-| 3 | AI | Technology (globe) | `Technology` | `#technology` — animated globe + AI transform CTA |
-| 4 | Web | Capabilities | `Capabilities` | `#capabilities` — service grid |
-| 5 | Web | Popular services | `PopularServices` | `#popular-services` — package comparison table |
-| 6 | Web | Works | `WorksShowcase` | `#works` — portfolio / case studies |
-| 7 | Web | Outcomes | `SiteOutcomes` | `#outcomes` |
-| 8 | Web | Process | `Process` | `#process` |
-| 9 | Web | Deliverables | `WhatYouGet` | `#what-you-get` |
-| 10 | Web | Ops lifecycle | `OpsLifecycle` | `#ops` |
-| 11 | Web | Handover | `TrustStrip` | `#handover` |
-| 12 | Web | Tech stack | `TechStack` | `#stack` |
-| 13 | AI | AI edge | `AiEdge` | `#ai-edge` |
+| 1 | Overview | Hero | `Hero` | `#top` — benefit overview; secondary CTA → `#capabilities` |
+| 2 | Intro | Website / services | `Capabilities` | `#capabilities` — 4 offer cards (landing/business/shop/webapp) + more-service tags + CTA (quote / `#popular-services`); no filter/carousel images |
+| 3 | Intro | Dolphin Care | `AgentDolphinHome` | `#dolphin-care` — 2-col (copy+benefits+CTA left, 1 long chat demo right) → `/dolphin-care/` |
+| 4 | Detail | Popular services | `PopularServices` | `#popular-services` — package comparison table |
+| 5 | Detail | Works | `WorksShowcase` | `#works` |
+| 6 | Detail | Outcomes | `SiteOutcomes` | `#outcomes` |
+| 7 | Detail | Process | `Process` | `#process` |
+| 8 | Detail | Deliverables | `WhatYouGet` | `#what-you-get` |
+| 9 | Detail | Handover | `TrustStrip` | `#handover` |
+| 10 | Detail | Tech stack | `TechStack` | `#stack` |
+| 11 | Detail | Technology (globe) | `Technology` | `#technology` → `/ai-transform/` |
+| 12 | Detail | AI edge | `AiEdge` | `#ai-edge` |
+| 13 | Detail | Ops lifecycle | `OpsLifecycle` | `#ops` |
 | 14 | Trust | Why us | `WhyKuct` | `#why` |
-| 15 | Trust | Nhà sáng lập | `CoFounder` | `#cofounder` — role label “Nhà sáng lập” / Founder |
-| 16 | Trust | Notes | `HomeNews` | `#news` |
+| 15 | Trust | Nhà sáng lập | `CoFounder` | `#cofounder` |
+| 16 | Trust | Notes | `HomeNews` | `#news` — 1 featured + 4 secondary (compact); reading time; view all → `/news/` |
 | 17 | Trust | FAQ | `Faq` | `#faq` |
 | 18 | Trust | Contact | `ContactForm` | `#contact` |
 | 19 | — | Footer | `Footer` | |

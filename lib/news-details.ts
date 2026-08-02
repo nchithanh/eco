@@ -1709,6 +1709,14 @@ export function listNews(locale: Locale): NewsListItem[] {
     .sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : 0));
 }
 
+/** Rough reading time from article copy (~450 chars / min). */
+export function estimateNewsReadMinutes(locale: Locale, slug: NewsSlug): number {
+  const copy = copyByLocale[locale][slug];
+  const text = [copy.excerpt, ...copy.body].join("");
+  const chars = text.replace(/\s+/g, "").length;
+  return Math.max(1, Math.round(chars / 450));
+}
+
 export function getRelatedNews(
   locale: Locale,
   slug: NewsSlug,

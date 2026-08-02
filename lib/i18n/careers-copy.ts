@@ -6,7 +6,7 @@ const vi: CareersCopy = {
   meta: {
     title: "Dolphin Software — Tuyển dụng freelancer",
     description:
-      "Cộng tác freelance với Dolphin Software — web, mobile, backend, UI/UX. ~1000 USD/tháng tương đương, linh hoạt theo giờ.",
+      "Cộng tác freelance với Dolphin Software — web, backend, AI, marketing. ~1000 USD/tháng tương đương, linh hoạt theo giờ.",
   },
   hero: {
     eyebrow: "Careers",
@@ -47,6 +47,21 @@ const vi: CareersCopy = {
       tags: ["Sales", "BD", "Commission"],
       comp: "Hoa hồng 50% deal · không lương cứng",
       priority: "Ưu tiên · Gấp",
+    },
+    {
+      id: "marketing",
+      title: "Marketing / Growth",
+      summary:
+        "Tăng traffic & lead cho Dolphin Software — content SEO, social (FB/Zalo), đo được kết quả.",
+      bullets: [
+        "Viết / biên tập bài ngắn (/news/) theo keyword web-first",
+        "SEO cơ bản và theo dõi Search Console",
+        "Đăng & nurture FB/Zalo (hoặc ads nhẹ) đúng ICP làm website",
+        "Báo cáo tuần gọn: traffic → lead",
+      ],
+      tags: ["Marketing", "SEO", "Growth"],
+      comp: "Freelance · theo deliverable / giờ",
+      priority: "Ưu tiên",
     },
     {
       id: "ai-engineer",
@@ -168,7 +183,7 @@ const en: CareersCopy = {
   meta: {
     title: "Dolphin Software — Freelance careers",
     description:
-      "Freelance with Dolphin Software — web, mobile, backend, UI/UX. ~USD 1,000/mo equivalent, hourly flexible.",
+      "Freelance with Dolphin Software — web, backend, AI, marketing. ~USD 1,000/mo equivalent, hourly flexible.",
   },
   hero: {
     eyebrow: "Careers",
@@ -209,6 +224,21 @@ const en: CareersCopy = {
       tags: ["Sales", "BD", "Commission"],
       comp: "50% deal commission · no base salary",
       priority: "Priority · Urgent",
+    },
+    {
+      id: "marketing",
+      title: "Marketing / Growth",
+      summary:
+        "Grow traffic and leads for Dolphin Software — SEO content, social (FB/Zalo), measurable results.",
+      bullets: [
+        "Write / edit short /news/ posts aligned to web-first keywords",
+        "Basic SEO and Search Console follow-up",
+        "Post and nurture on FB/Zalo (or light ads) for website ICP",
+        "Weekly report: traffic → leads, kept short",
+      ],
+      tags: ["Marketing", "SEO", "Growth"],
+      comp: "Freelance · by deliverable / hour",
+      priority: "Priority",
     },
     {
       id: "ai-engineer",
@@ -373,6 +403,21 @@ const ja: CareersCopy = {
       priority: "優先 · 急募",
     },
     {
+      id: "marketing",
+      title: "Marketing / Growth",
+      summary:
+        "Dolphin Software のトラフィックとリードを伸ばす — SEOコンテンツ、SNS（FB/Zalo）、成果を測る。",
+      bullets: [
+        "Webファーストのキーワードに沿った /news/ 短文の執筆・編集",
+        "基本SEOと Search Console のフォロー",
+        "ウェブサイトICP向けに FB/Zalo（または軽めの広告）で発信・育成",
+        "週次レポート：トラフィック → リードを簡潔に",
+      ],
+      tags: ["Marketing", "SEO", "Growth"],
+      comp: "フリーランス · 成果物 / 時間単価",
+      priority: "優先",
+    },
+    {
       id: "ai-engineer",
       title: "AI Engineer",
       summary:
@@ -535,6 +580,21 @@ const de: CareersCopy = {
       priority: "Priorität · Dringend",
     },
     {
+      id: "marketing",
+      title: "Marketing / Growth",
+      summary:
+        "Traffic und Leads für Dolphin Software steigern — SEO-Content, Social (FB/Zalo), messbare Ergebnisse.",
+      bullets: [
+        "Kurze /news/-Beiträge zu Web-first-Keywords schreiben/editieren",
+        "Grundlegendes SEO und Search-Console-Follow-up",
+        "FB/Zalo (oder leichte Ads) für Website-ICP posten und pflegen",
+        "Wochenreport: Traffic → Leads, knapp gehalten",
+      ],
+      tags: ["Marketing", "SEO", "Growth"],
+      comp: "Freelance · nach Deliverable / Stunde",
+      priority: "Priorität",
+    },
+    {
       id: "ai-engineer",
       title: "AI Engineer",
       summary:
@@ -693,6 +753,21 @@ const zh: CareersCopy = {
       tags: ["Sales", "BD", "Commission"],
       comp: "成交抽成 50% · 无底薪",
       priority: "优先 · 急招",
+    },
+    {
+      id: "marketing",
+      title: "Marketing / Growth",
+      summary:
+        "为 Dolphin Software 提升流量与线索 — SEO 内容、社交（FB/Zalo），结果可衡量。",
+      bullets: [
+        "按 web-first 关键词撰写/编辑短文（/news/）",
+        "基础 SEO 并跟进 Search Console",
+        "面向「做网站」ICP 在 FB/Zalo（或轻度广告）发帖与培育",
+        "周报简洁：流量 → 线索",
+      ],
+      tags: ["Marketing", "SEO", "Growth"],
+      comp: "自由协作 · 按交付物 / 小时",
+      priority: "优先",
     },
     {
       id: "ai-engineer",

@@ -1,5 +1,22 @@
 # Changelog
 
+## 2026-08-01
+
+- Homepage `#dolphin-care`: align container to main page gutters (`max-w-6xl px-6`) like Hero/Capabilities.
+- Homepage `#dolphin-care`: full-width to page edges (`max-w-none`, light `px-4`/`lg:px-6`) — left/right flush, not narrowed.
+- Homepage `#dolphin-care`: narrower again (`max-w-4xl` + `px-8`/`lg:px-12`) for clearer margin from page edges.
+- Homepage `#dolphin-care`: narrower container (`max-w-5xl` + more horizontal padding) for more side breathing room.
+- Careers: close Mobile (+ Design already closed); open **Marketing / Growth** (`marketing`) — content SEO + social traffic; 5 locales.
+- Homepage `#news`: secondary column 4 compact cards (no excerpt) to reduce empty space next to featured.
+- Homepage `#news` redesign: editorial layout — 1 featured article (image + excerpt + read CTA) + 3 secondary compact cards; reading time via `estimateNewsReadMinutes`; removed homepage pagination.
+- Homepage `#dolphin-care`: 2-column layout (content left, one longer spa booking chat card right); typewriter on desktop; dual CTA kept.- Homepage `#capabilities` redesign: premium offer cards (icon + title + body + meta) + secondary service tags + CTA group; removed filter chips, image carousel, pagination. Copy web-intro oriented (5 locales).
+- Homepage story order: Hero (overview) → Capabilities (website intro) → Dolphin Care (agent intro) → descriptive sections (packages → works → outcomes → process → deliverables → handover → stack → Technology → AI edge → ops) → trust/contact.
+- Hero copy: warmer benefit tone + AI as ops efficiency; new `subhead`; secondary CTA → `#capabilities` (5 locales).
+- Homepage: remove soft violet hairline borders between `main > section`s.
+- Homepage `#dolphin-care`: intro on top + 3 context chat cards (shop / spa / cafe); typewriter on middle card (desktop).
+- Homepage: hide `#capabilities` (`Capabilities` commented out); hero secondary CTA → `#popular-services`.
+- Homepage `#technology`: swap columns — dashboard left, copy/CTA right.
+
 ## 2026-07-31
 
 - Dolphin Care OG banner: `public/og-dolphin-care.png` + VI `og:title`/`og:image` on `/dolphin-care/`.

@@ -26,18 +26,18 @@ export function HomePage() {
     <main>
       <Nav />
       <Hero />
-      <AgentDolphinHome />
-      <Technology />
       <Capabilities />
+      <AgentDolphinHome />
       <PopularServices />
       <WorksShowcase />
       <SiteOutcomes />
       <Process />
       <WhatYouGet />
-      <OpsLifecycle />
       <TrustStrip />
       <TechStack />
+      <Technology />
       <AiEdge />
+      <OpsLifecycle />
       <WhyKuct />
       <CoFounder />
       <HomeNews />

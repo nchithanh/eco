@@ -10,6 +10,7 @@ export type NewsCopy = {
   viewAll: string;
   filterAll: string;
   readMore: string;
+  readMinutes: string;
   prevPage: string;
   nextPage: string;
   relatedTitle: string;
@@ -33,6 +34,7 @@ const vi: NewsCopy = {
   viewAll: "Xem tất cả",
   filterAll: "Tất cả",
   readMore: "Đọc tiếp",
+  readMinutes: "{n} phút đọc",
   prevPage: "Trang trước",
   nextPage: "Trang sau",
   relatedTitle: "Bài liên quan",
@@ -62,6 +64,7 @@ const en: NewsCopy = {
   viewAll: "View all notes",
   filterAll: "All",
   readMore: "Read more",
+  readMinutes: "{n} min read",
   prevPage: "Previous page",
   nextPage: "Next page",
   relatedTitle: "Related",
@@ -91,6 +94,7 @@ const ja: NewsCopy = {
   viewAll: "すべてのニュースを見る",
   filterAll: "すべて",
   readMore: "続きを読む",
+  readMinutes: "約{n}分",
   prevPage: "前のページ",
   nextPage: "次のページ",
   relatedTitle: "関連記事",
@@ -120,6 +124,7 @@ const de: NewsCopy = {
   viewAll: "Alle Notizen",
   filterAll: "Alle",
   readMore: "Weiterlesen",
+  readMinutes: "{n} Min. Lesezeit",
   prevPage: "Vorherige Seite",
   nextPage: "Nächste Seite",
   relatedTitle: "Verwandt",
@@ -147,6 +152,7 @@ const zh: NewsCopy = {
   viewAll: "查看全部笔记",
   filterAll: "全部",
   readMore: "阅读更多",
+  readMinutes: "{n} 分钟阅读",
   prevPage: "上一页",
   nextPage: "下一页",
   relatedTitle: "相关文章",

@@ -151,7 +151,10 @@ export function Hero() {
           <h1 className="mt-5 max-w-[18ch] font-display text-[1.85rem] font-semibold leading-[1.12] tracking-tight text-[var(--kuct-text)] sm:max-w-[20ch] sm:text-4xl lg:text-[2.85rem] lg:leading-[1.1]">
             <AccentText>{t.hero.headline}</AccentText>
           </h1>
-          <p className="mt-6 max-w-[38ch] touch-pan-y text-base leading-[1.7] text-[var(--kuct-muted)] sm:text-[1.0625rem] sm:leading-[1.7]">
+          <p className="mt-4 max-w-[42ch] font-display text-base font-semibold leading-snug tracking-tight text-[var(--kuct-text)] sm:text-lg lg:text-xl lg:leading-snug">
+            <AccentText>{t.hero.subhead}</AccentText>
+          </p>
+          <p className="mt-5 max-w-[38ch] touch-pan-y text-base leading-[1.7] text-[var(--kuct-muted)] sm:text-[1.0625rem] sm:leading-[1.7]">
             <BrandText size="sm">{t.hero.support}</BrandText>
           </p>
           <div className="mt-9 flex flex-wrap items-center gap-4">

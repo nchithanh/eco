@@ -618,130 +618,238 @@ export function getAgentDolphinCopy(locale: Locale): AgentDolphinCopy {
   return agentDolphinByLocale[locale] ?? agentDolphinByLocale.en;
 }
 
-/** Homepage teaser (chat-style demo under Hero). */
+/** Homepage teaser (chat-style demos under Hero). */
+export type AgentDolphinHomeMessage = {
+  role: "user" | "assistant";
+  text: string;
+};
+
+export type AgentDolphinHomeCard = {
+  context: string;
+  messages: AgentDolphinHomeMessage[];
+};
+
 export type AgentDolphinHomeCopy = {
   eyebrow: string;
   title: string;
   support: string;
   cta: string;
+  ctaSecondary: string;
+  trustMicro: string;
+  benefits: [string, string, string];
   agentName: string;
   online: string;
-  messages: { role: "user" | "assistant"; text: string }[];
+  card: AgentDolphinHomeCard;
   inputPlaceholder: string;
 };
 
 const homeVi: AgentDolphinHomeCopy = {
   eyebrow: "Dolphin Care",
-  title: "Support trên site như [[nhân viên]] — không chatbot cứng",
+  title: "AI giúp anh chị [[vận hành nhẹ hơn]], tăng hiệu suất",
   support:
-    "LLM + context nghiệp vụ + context khách. Trả lời đúng việc, đúng người, đúng giọng thương hiệu.",
+    "Gắn trên website — trả lời đúng việc, đúng giọng; bớt hỏi đi hỏi lại.",
   cta: "Xem Dolphin Care",
+  ctaSecondary: "Nhận báo giá",
+  trustMicro: "Gắn trên site mới hoặc site sẵn",
+  benefits: [
+    "Trả lời đúng việc",
+    "Bớt việc tay",
+    "Tăng hiệu suất chăm khách",
+  ],
   agentName: "Dolphin Care",
   online: "Đang trực tuyến",
-  messages: [
-    { role: "user", text: "Còn size M màu navy không ạ?" },
-    {
-      role: "assistant",
-      text: "Còn ạ — size M navy đang sẵn. Anh/chị muốn giao trong ngày hay lấy tại cửa?",
-    },
-    { role: "user", text: "Giao trong ngày được không, mình ở Quận 1" },
-    {
-      role: "assistant",
-      text: "Quận 1 giao trong ngày đến 18h. Em giữ size M navy giúp — gửi địa chỉ giúp em nhé?",
-    },
-  ],
+  card: {
+    context: "Spa · Đặt lịch",
+    messages: [
+      { role: "user", text: "Chiều mai còn slot massage không?" },
+      {
+        role: "assistant",
+        text: "Còn 15:00 và 17:30. Anh/chị muốn 60 hay 90 phút?",
+      },
+      { role: "user", text: "60 phút lúc 15:00 giúp em" },
+      {
+        role: "assistant",
+        text: "Em giữ slot 15:00 — 60 phút. Cho em tên và SĐT để xác nhận ạ?",
+      },
+      { role: "user", text: "Minh, 0901 234 567" },
+      {
+        role: "assistant",
+        text: "Đã ghi nhận Minh · 15:00 mai. Em gửi Zalo nhắc trước 2 tiếng nhé.",
+      },
+      { role: "user", text: "Ok em, cảm ơn nhiều" },
+      {
+        role: "assistant",
+        text: "Dạ em sẵn sàng hỗ trợ thêm nếu anh/chị cần đổi giờ.",
+      },
+    ],
+  },
   inputPlaceholder: "Nhập tin nhắn…",
 };
 
 const homeEn: AgentDolphinHomeCopy = {
   eyebrow: "Dolphin Care",
-  title: "On-site support like a [[teammate]] — not a stiff chatbot",
+  title: "AI that [[lightens operations]] and lifts efficiency",
   support:
-    "LLM + business context + visitor context. Replies that fit the task, the person, and your brand voice.",
+    "On your website — answers that fit the job and your tone; fewer repeat questions.",
   cta: "Explore Dolphin Care",
+  ctaSecondary: "Get a quote",
+  trustMicro: "Add to a new site or one you already run",
+  benefits: [
+    "Answers that fit the job",
+    "Less manual back-and-forth",
+    "Higher customer-care efficiency",
+  ],
   agentName: "Dolphin Care",
   online: "Online now",
-  messages: [
-    { role: "user", text: "Do you still have size M in navy?" },
-    {
-      role: "assistant",
-      text: "Yes — size M navy is in stock. Same-day delivery or pickup at the store?",
-    },
-    { role: "user", text: "Same-day works — I'm in District 1" },
-    {
-      role: "assistant",
-      text: "District 1 same-day until 6pm. I'll hold size M navy — share your address and I'll arrange it?",
-    },
-  ],
+  card: {
+    context: "Spa · Booking",
+    messages: [
+      { role: "user", text: "Any massage slots tomorrow afternoon?" },
+      {
+        role: "assistant",
+        text: "Yes — 3:00 and 5:30 pm. 60 or 90 minutes?",
+      },
+      { role: "user", text: "60 minutes at 3:00 please" },
+      {
+        role: "assistant",
+        text: "Holding 3:00 — 60 minutes. Name and phone to confirm?",
+      },
+      { role: "user", text: "Minh, 0901 234 567" },
+      {
+        role: "assistant",
+        text: "Booked for Minh at 3:00 tomorrow. I’ll Zalo-remind you 2 hours before.",
+      },
+      { role: "user", text: "Perfect, thanks" },
+      {
+        role: "assistant",
+        text: "Happy to help if you need to reschedule.",
+      },
+    ],
+  },
   inputPlaceholder: "Type a message…",
 };
 
 const homeJa: AgentDolphinHomeCopy = {
   eyebrow: "Dolphin Care",
-  title: "サイト上のサポートを[[スタッフ]]のように — 硬いチャットボットではない",
+  title: "AIで[[運用を軽く]]し、効率を上げる",
   support:
-    "LLM + 業務コンテキスト + 来訪者コンテキスト。用件・相手・ブランドの声に合う返答。",
+    "Webサイトに載せて、用件とトーンに合う返答 — 同じ質問の繰り返しを減らします。",
   cta: "Dolphin Careを見る",
+  ctaSecondary: "見積もりを依頼",
+  trustMicro: "新規サイトにも、既存サイトにも追加できます",
+  benefits: [
+    "用件に合う返答",
+    "手作業のやりとりを削減",
+    "顧客対応の効率アップ",
+  ],
   agentName: "Dolphin Care",
   online: "オンライン",
-  messages: [
-    { role: "user", text: "ネイビーのMサイズはまだありますか？" },
-    {
-      role: "assistant",
-      text: "はい、ネイビーのMは在庫があります。当日配送と店舗受取、どちらがよいですか？",
-    },
-    { role: "user", text: "当日配送で、1区にいます" },
-    {
-      role: "assistant",
-      text: "1区は18時まで当日配送できます。ネイビーのMをお取り置きしますので、ご住所を教えてください。",
-    },
-  ],
+  card: {
+    context: "Spa · 予約",
+    messages: [
+      { role: "user", text: "明日の午後にマッサージ空いてますか？" },
+      {
+        role: "assistant",
+        text: "15:00と17:30が空いています。60分と90分、どちらにしますか？",
+      },
+      { role: "user", text: "15:00の60分でお願いします" },
+      {
+        role: "assistant",
+        text: "15:00・60分で確保しました。お名前と電話番号をいただけますか？",
+      },
+      { role: "user", text: "ミン、0901 234 567" },
+      {
+        role: "assistant",
+        text: "ミン様・明日15:00で登録しました。2時間前にZaloでリマインドしますね。",
+      },
+      { role: "user", text: "ありがとうございます" },
+      {
+        role: "assistant",
+        text: "時間変更が必要ならいつでもご連絡ください。",
+      },
+    ],
+  },
   inputPlaceholder: "メッセージを入力…",
 };
 
 const homeDe: AgentDolphinHomeCopy = {
   eyebrow: "Dolphin Care",
-  title: "Support auf der Site wie ein [[Mitarbeiter]] — kein steifer Chatbot",
+  title: "AI, die [[Abläufe erleichtert]] und Effizienz steigert",
   support:
-    "LLM + Business-Kontext + Besucher-Kontext. Antworten passend zu Aufgabe, Person und Markenton.",
+    "Auf Ihrer Website — Antworten passend zur Aufgabe und zum Ton; weniger Wiederholungsfragen.",
   cta: "Dolphin Care ansehen",
+  ctaSecondary: "Angebot anfordern",
+  trustMicro: "Für neue Sites oder bestehende Sites",
+  benefits: [
+    "Passende Antworten",
+    "Weniger manuelle Rückfragen",
+    "Effizientere Kundenbetreuung",
+  ],
   agentName: "Dolphin Care",
   online: "Online",
-  messages: [
-    { role: "user", text: "Haben Sie Größe M in Navy noch?" },
-    {
-      role: "assistant",
-      text: "Ja — Größe M Navy ist verfügbar. Lieferung am selben Tag oder Abholung im Store?",
-    },
-    { role: "user", text: "Gleicher Tag bitte — ich bin in District 1" },
-    {
-      role: "assistant",
-      text: "District 1: Same-Day bis 18 Uhr. Ich halte Größe M Navy — Adresse schicken, dann richte ich es ein?",
-    },
-  ],
+  card: {
+    context: "Spa · Termin",
+    messages: [
+      { role: "user", text: "Massage-Slots morgen Nachmittag?" },
+      {
+        role: "assistant",
+        text: "Ja — 15:00 und 17:30. 60 oder 90 Minuten?",
+      },
+      { role: "user", text: "60 Minuten um 15:00 bitte" },
+      {
+        role: "assistant",
+        text: "15:00 — 60 Minuten reserviert. Name und Telefon zur Bestätigung?",
+      },
+      { role: "user", text: "Minh, 0901 234 567" },
+      {
+        role: "assistant",
+        text: "Notiert: Minh · morgen 15:00. Ich erinnere per Zalo 2 Stunden vorher.",
+      },
+      { role: "user", text: "Super, danke" },
+      {
+        role: "assistant",
+        text: "Gern — bei Terminänderung einfach melden.",
+      },
+    ],
+  },
   inputPlaceholder: "Nachricht eingeben…",
 };
 
 const homeZh: AgentDolphinHomeCopy = {
   eyebrow: "Dolphin Care",
-  title: "站点支持像[[员工]]一样 — 不是生硬聊天机器人",
-  support:
-    "LLM + 业务上下文 + 访客上下文。回复贴合事项、对象与品牌语气。",
+  title: "用 AI [[减轻运营负担]]、提升效率",
+  support: "挂在网站上——按事项与语气回复，少重复问答。",
   cta: "了解 Dolphin Care",
+  ctaSecondary: "获取报价",
+  trustMicro: "可挂到新站或现有站点",
+  benefits: ["回复贴合事项", "少手工来回", "提升客服效率"],
   agentName: "Dolphin Care",
   online: "在线",
-  messages: [
-    { role: "user", text: "还有海军蓝 M 码吗？" },
-    {
-      role: "assistant",
-      text: "有的——海军蓝 M 码有货。当天配送还是门店自取？",
-    },
-    { role: "user", text: "当天配送，我在 1 区" },
-    {
-      role: "assistant",
-      text: "1 区当天配送截止 18:00。我帮您留海军蓝 M 码——发一下地址，我来安排？",
-    },
-  ],
+  card: {
+    context: "Spa · 预约",
+    messages: [
+      { role: "user", text: "明天下午还有按摩档期吗？" },
+      {
+        role: "assistant",
+        text: "还有 15:00 和 17:30。60 还是 90 分钟？",
+      },
+      { role: "user", text: "15:00 的 60 分钟" },
+      {
+        role: "assistant",
+        text: "已保留 15:00 · 60 分钟。请留下姓名和电话确认？",
+      },
+      { role: "user", text: "Minh，0901 234 567" },
+      {
+        role: "assistant",
+        text: "已登记 Minh · 明天 15:00。会提前 2 小时用 Zalo 提醒。",
+      },
+      { role: "user", text: "好的，谢谢" },
+      {
+        role: "assistant",
+        text: "需要改时间随时找我。",
+      },
+    ],
+  },
   inputPlaceholder: "输入消息…",
 };
 

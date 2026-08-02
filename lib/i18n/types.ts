@@ -51,6 +51,7 @@ export type Dictionary = {
     eyebrow: string;
     aiPill: string;
     headline: string;
+    subhead: string;
     support: string;
     trustLine: string;
     ctaPrimary: string;
@@ -150,14 +151,19 @@ export type Dictionary = {
     eyebrow: string;
     title: string;
     support: string;
-    wheelTagline: string;
-    filterAll: string;
-    filterBuild: string;
-    filterConnect: string;
-    filterAi: string;
+    ctaPrimary: string;
+    ctaSecondary: string;
     learnMore: string;
     prevPage: string;
     nextPage: string;
+    offers: {
+      id: string;
+      title: string;
+      body: string;
+      meta: string;
+      href: string;
+    }[];
+    moreServices: { label: string; href: string }[];
     items: {
       id: string;
       category: string;
@@ -284,6 +290,7 @@ export type Dictionary = {
     viewAll: string;
     filterAll: string;
     readMore: string;
+    readMinutes: string;
     prevPage: string;
     nextPage: string;
     relatedTitle: string;
@@ -329,6 +336,7 @@ export type Dictionary = {
         | "backend"
         | "design"
         | "sales"
+        | "marketing"
         | "ai-engineer"
         | "intern-fullstack"
         | "fresher-tester";

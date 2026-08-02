@@ -1,317 +1,158 @@
 "use client";
 
 import Link from "next/link";
-import {
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-  type MouseEvent,
-  type PointerEvent as ReactPointerEvent,
-} from "react";
+import type { MouseEvent, ReactNode } from "react";
 import { AccentText } from "@/components/BrandName";
-import { LazyImage } from "@/components/LazyImage";
 import { Reveal } from "@/components/Reveal";
 import { usePagePreview } from "@/components/PagePreviewProvider";
-import { assetPath, routePath, themeAsset } from "@/lib/asset";
+import { useQuote } from "@/components/QuoteProvider";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
-import { isServiceSlug, type ServiceSlug } from "@/lib/i18n/service-details";
-import { useTheme } from "@/lib/theme";
 
-const CAPABILITY_IMAGES: Record<ServiceSlug, string> = {
-  web: "/capabilities/web.jpg",
-  mobile: "/capabilities/mobile.jpg",
-  backend: "/capabilities/backend.jpg",
-  design: "/capabilities/design.jpg",
-  integrations: "/capabilities/integrations.jpg",
-  agents: "/capabilities/agents.jpg",
-  "custom-agent": "/capabilities/custom-agent.jpg",
-};
-
-const DESKTOP_MQ = "(min-width: 640px)";
-const SWIPE_THRESHOLD = 48;
-
-type CapabilityGroup = "all" | "build" | "connect" | "ai";
-
-const GROUP_IDS: Record<Exclude<CapabilityGroup, "all">, readonly string[]> = {
-  build: ["web", "mobile", "backend", "design"],
-  connect: ["integrations"],
-  ai: ["agents", "custom-agent"],
-};
-
-function groupOf(id: string): Exclude<CapabilityGroup, "all"> | null {
-  if (GROUP_IDS.build.includes(id)) return "build";
-  if (GROUP_IDS.connect.includes(id)) return "connect";
-  if (GROUP_IDS.ai.includes(id)) return "ai";
-  return null;
+function IconLanding() {
+  return (
+    <svg viewBox="0 0 24 24" className="size-5" fill="none" aria-hidden>
+      <rect x="4" y="4" width="16" height="16" rx="2.5" stroke="currentColor" strokeWidth="1.6" />
+      <path d="M4 9h16M8 13h5M8 16h8" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+    </svg>
+  );
 }
+
+function IconBusiness() {
+  return (
+    <svg viewBox="0 0 24 24" className="size-5" fill="none" aria-hidden>
+      <path
+        d="M4 19V9.5L12 5l8 4.5V19"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinejoin="round"
+      />
+      <path d="M9 19v-5h6v5" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function IconShop() {
+  return (
+    <svg viewBox="0 0 24 24" className="size-5" fill="none" aria-hidden>
+      <path
+        d="M5 9h14l-1.2 9.2a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8L5 9z"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M8 9V7.5A4 4 0 0 1 12 3.5 4 4 0 0 1 16 7.5V9"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+function IconWebApp() {
+  return (
+    <svg viewBox="0 0 24 24" className="size-5" fill="none" aria-hidden>
+      <rect x="3" y="5" width="18" height="14" rx="2.5" stroke="currentColor" strokeWidth="1.6" />
+      <path d="M3 9h18" stroke="currentColor" strokeWidth="1.6" />
+      <circle cx="6.2" cy="7" r="0.7" fill="currentColor" />
+      <circle cx="8.4" cy="7" r="0.7" fill="currentColor" />
+      <rect x="7" y="12" width="5" height="3.5" rx="0.8" fill="currentColor" opacity="0.45" />
+    </svg>
+  );
+}
+
+const OFFER_ICONS: Record<string, ReactNode> = {
+  landing: <IconLanding />,
+  business: <IconBusiness />,
+  shop: <IconShop />,
+  webapp: <IconWebApp />,
+};
 
 export function Capabilities() {
   const { t } = useLocale();
-  const { theme } = useTheme();
   const { openHref } = usePagePreview();
-  const {
-    items,
-    filterAll,
-    filterBuild,
-    filterConnect,
-    filterAi,
-    learnMore,
-    prevPage,
-    nextPage,
-  } = t.capabilities;
-
-  const [active, setActive] = useState<CapabilityGroup>("all");
-  const [page, setPage] = useState(0);
-  const [pageSize, setPageSize] = useState(3);
-  const pointerStart = useRef<{ x: number; y: number } | null>(null);
-  const pointerAxis = useRef<"none" | "x" | "y">("none");
-
-  useEffect(() => {
-    if (typeof window.matchMedia !== "function") {
-      setPageSize(3);
-      return;
-    }
-    const mq = window.matchMedia(DESKTOP_MQ);
-    const sync = () => setPageSize(mq.matches ? 3 : 1);
-    sync();
-    mq.addEventListener("change", sync);
-    return () => mq.removeEventListener("change", sync);
-  }, []);
-
-  const filters = useMemo(
-    () =>
-      [
-        { id: "all" as const, label: filterAll },
-        { id: "build" as const, label: filterBuild },
-        { id: "connect" as const, label: filterConnect },
-        { id: "ai" as const, label: filterAi },
-      ] as const,
-    [filterAll, filterBuild, filterConnect, filterAi],
-  );
-
-  const filtered = useMemo(() => {
-    if (active === "all") return items;
-    const ids = GROUP_IDS[active];
-    return items.filter((item) => ids.includes(item.id));
-  }, [active, items]);
-
-  const pageCount = Math.max(1, Math.ceil(filtered.length / pageSize));
-
-  useEffect(() => {
-    setPage(0);
-  }, [active, pageSize]);
-
-  useEffect(() => {
-    setPage((current) => Math.min(current, pageCount - 1));
-  }, [pageCount]);
-
-  const visible = useMemo(() => {
-    const start = page * pageSize;
-    return filtered.slice(start, start + pageSize);
-  }, [filtered, page, pageSize]);
-
-  const goPrev = useCallback(() => {
-    setPage((current) => (current - 1 + pageCount) % pageCount);
-  }, [pageCount]);
-
-  const goNext = useCallback(() => {
-    setPage((current) => (current + 1) % pageCount);
-  }, [pageCount]);
+  const { openQuote } = useQuote();
+  const c = t.capabilities;
 
   const onNav = (href: string, event: MouseEvent<HTMLElement>) => {
     openHref(href, event);
   };
 
-  const onPointerDown = (event: ReactPointerEvent<HTMLDivElement>) => {
-    if (event.pointerType === "mouse" && event.button !== 0) return;
-    pointerStart.current = { x: event.clientX, y: event.clientY };
-    pointerAxis.current = "none";
-  };
-
-  const onPointerMove = (event: ReactPointerEvent<HTMLDivElement>) => {
-    const start = pointerStart.current;
-    if (!start || pointerAxis.current !== "none") return;
-    const dx = event.clientX - start.x;
-    const dy = event.clientY - start.y;
-    if (Math.abs(dx) < 10 && Math.abs(dy) < 10) return;
-    pointerAxis.current = Math.abs(dx) > Math.abs(dy) ? "x" : "y";
-  };
-
-  const onPointerUp = (event: ReactPointerEvent<HTMLDivElement>) => {
-    const start = pointerStart.current;
-    const axis = pointerAxis.current;
-    pointerStart.current = null;
-    pointerAxis.current = "none";
-    if (start == null || pageCount <= 1 || axis === "y") return;
-    const dx = event.clientX - start.x;
-    const dy = event.clientY - start.y;
-    if (Math.abs(dx) < SWIPE_THRESHOLD || Math.abs(dx) <= Math.abs(dy)) return;
-    if (dx < 0) goNext();
-    else goPrev();
-  };
-
-  const onPointerCancel = () => {
-    pointerStart.current = null;
-    pointerAxis.current = "none";
-  };
-
   return (
-    <section id="capabilities" className="scroll-mt-20 py-24">
+    <section id="capabilities" className="scroll-mt-20 py-20 sm:py-24">
       <div className="mx-auto max-w-6xl px-6">
-        <Reveal>
+        <Reveal className="max-w-2xl">
           <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
-            {t.capabilities.eyebrow}
+            {c.eyebrow}
           </p>
-          <h2 className="mt-4 whitespace-nowrap font-display text-2xl font-semibold leading-[1.15] tracking-tight text-[var(--kuct-text)] sm:text-3xl lg:text-[2.35rem] lg:leading-[1.1]">
-            <AccentText>{t.capabilities.title}</AccentText>
+          <h2 className="mt-4 font-display text-3xl font-semibold leading-[1.12] tracking-tight text-[var(--kuct-text)] sm:text-[2.15rem] lg:text-[2.35rem] lg:leading-[1.1]">
+            <AccentText>{c.title}</AccentText>
           </h2>
-          <p className="mt-5 max-w-2xl line-clamp-2 text-base leading-[1.7] text-[var(--kuct-muted)]">
-            {t.capabilities.support}
+          <p className="mt-5 max-w-[46ch] text-base leading-[1.7] text-[var(--kuct-muted)]">
+            {c.support}
           </p>
         </Reveal>
 
-        <Reveal delay={80}>
-          <div
-            className="mt-9 flex flex-wrap gap-2"
-            role="tablist"
-            aria-label={t.capabilities.eyebrow}
+        <ul className="mt-10 grid gap-4 sm:mt-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
+          {c.offers.map((offer, index) => (
+            <Reveal as="li" key={offer.id} delay={index * 60} className="h-full">
+              <Link
+                href={offer.href}
+                onClick={(event) => onNav(offer.href, event)}
+                className="group kuct-glass flex h-full flex-col rounded-2xl border border-[var(--kuct-border)] p-5 shadow-[0_12px_40px_rgba(0,0,0,0.4)] transition duration-200 hover:border-[var(--kuct-accent)]/45 hover:bg-[rgba(var(--kuct-accent-rgb),0.04)]"
+              >
+                <div className="grid size-10 place-items-center rounded-xl bg-[rgba(var(--kuct-accent-rgb),0.1)] text-[var(--kuct-accent)] ring-1 ring-[var(--kuct-accent)]/25">
+                  {OFFER_ICONS[offer.id] ?? <IconLanding />}
+                </div>
+                <h3 className="mt-4 font-display text-[0.95rem] font-semibold leading-snug text-[var(--kuct-text)] transition group-hover:text-[var(--kuct-accent)] sm:text-base">
+                  {offer.title}
+                </h3>
+                <p className="mt-2 line-clamp-2 flex-1 text-sm leading-relaxed text-[var(--kuct-muted)]">
+                  {offer.body}
+                </p>
+                <p className="mt-4 text-[11px] font-medium tracking-wide text-[var(--kuct-muted)]">
+                  {offer.meta}
+                </p>
+                <span className="mt-3 inline-flex w-fit items-center gap-1 text-sm font-semibold text-[var(--kuct-accent)] transition group-hover:gap-1.5">
+                  {c.learnMore}
+                  <span aria-hidden>→</span>
+                </span>
+              </Link>
+            </Reveal>
+          ))}
+        </ul>
+
+        {c.moreServices.length > 0 ? (
+          <Reveal delay={200} className="mt-6 flex flex-wrap gap-2 sm:mt-7">
+            {c.moreServices.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={(event) => onNav(item.href, event)}
+                className="rounded-full border border-[var(--kuct-border)] px-3 py-1.5 text-xs font-medium text-[var(--kuct-muted)] transition hover:border-[var(--kuct-accent)]/45 hover:text-[var(--kuct-text)]"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </Reveal>
+        ) : null}
+
+        <Reveal delay={240} className="mt-8 flex flex-wrap items-center gap-3 sm:mt-9 sm:gap-4">
+          <button
+            type="button"
+            onClick={openQuote}
+            className="kuct-btn-primary inline-flex w-full items-center justify-center rounded-full px-7 py-3.5 text-sm font-semibold sm:w-auto"
           >
-            {filters.map((filter) => {
-              const isActive = active === filter.id;
-              return (
-                <button
-                  key={filter.id}
-                  type="button"
-                  role="tab"
-                  aria-selected={isActive}
-                  onClick={() => setActive(filter.id)}
-                  className={
-                    isActive
-                      ? "rounded-full bg-[var(--kuct-accent)] px-4 py-2 text-sm font-semibold text-white shadow-[0_8px_20px_rgb(var(--kuct-accent-rgb)/0.3)] transition duration-200"
-                      : "kuct-chip rounded-full border border-[var(--kuct-border)] bg-transparent px-4 py-2 text-sm font-medium text-[var(--kuct-muted)] hover:border-[var(--kuct-accent)] hover:text-[var(--kuct-accent-3)]"
-                  }
-                >
-                  {filter.label}
-                </button>
-              );
-            })}
-          </div>
+            {c.ctaPrimary}
+          </button>
+          <a
+            href="#popular-services"
+            className="inline-flex w-full items-center justify-center rounded-full border border-[var(--kuct-border)] px-6 py-3 text-sm font-medium text-[var(--kuct-muted)] transition duration-200 hover:border-[var(--kuct-accent)]/45 hover:bg-[var(--kuct-accent)]/10 hover:text-[var(--kuct-text)] sm:w-auto"
+          >
+            {c.ctaSecondary}
+          </a>
         </Reveal>
-
-        <div
-          className="relative mt-9 touch-pan-y"
-          onPointerDown={onPointerDown}
-          onPointerMove={onPointerMove}
-          onPointerUp={onPointerUp}
-          onPointerCancel={onPointerCancel}
-        >
-          <ul
-            className={`grid gap-5 ${
-              pageSize === 1 ? "grid-cols-1" : "sm:grid-cols-2 lg:grid-cols-3"
-            }`}
-          >
-            {visible.map((item, index) => {
-              const href =
-                item.id === "custom-agent"
-                  ? routePath("/custom-agent/")
-                  : isServiceSlug(item.id)
-                    ? `/services/${item.id}`
-                    : "/#contact";
-              const image = isServiceSlug(item.id)
-                ? themeAsset(CAPABILITY_IMAGES[item.id], theme)
-                : undefined;
-              const isAiLead = groupOf(item.id) === "ai";
-
-              return (
-                <Reveal as="li" key={item.id} delay={index * 60}>
-                  <Link
-                    href={href}
-                    onClick={(event) => onNav(href, event)}
-                    className={
-                      isAiLead
-                        ? "group kuct-glass kuct-card-hover flex h-full touch-pan-y flex-col overflow-hidden rounded-2xl text-left ring-1 ring-[var(--kuct-accent)]/35"
-                        : "group kuct-glass kuct-card-hover flex h-full touch-pan-y flex-col overflow-hidden rounded-2xl text-left"
-                    }
-                  >
-                    <div className="relative aspect-[16/10] overflow-hidden">
-                      {image ? (
-                        <LazyImage
-                          src={image}
-                          alt=""
-                          fill
-                          className="object-cover transition duration-500"
-                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                        />
-                      ) : (
-                        <div
-                          aria-hidden
-                          className="absolute inset-0 bg-gradient-to-br from-[var(--kuct-card-from)] to-[var(--kuct-card-to)]"
-                        />
-                      )}
-                      <div
-                        aria-hidden
-                        className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[rgba(4,4,12,0.55)] via-transparent to-transparent"
-                      />
-                      <span className="absolute left-3 top-3 rounded-full border border-[var(--kuct-border)] bg-[rgba(6,6,14,0.88)] px-2.5 py-1 text-[0.65rem] font-semibold tracking-[0.1em] text-[var(--kuct-muted)] uppercase backdrop-blur-md">
-                        {item.category}
-                      </span>
-                    </div>
-                    <div className="flex flex-1 flex-col p-5">
-                      <h3 className="font-display text-lg font-semibold leading-snug text-[var(--kuct-text)] transition group-hover:text-[var(--kuct-accent)] sm:text-xl">
-                        {item.title}
-                      </h3>
-                      <p className="mt-2 line-clamp-2 flex-1 text-sm leading-relaxed text-[var(--kuct-muted)]">
-                        {item.body}
-                      </p>
-                      {item.tags.length > 0 ? (
-                        <ul className="mt-3 flex flex-wrap gap-1.5">
-                          {item.tags.slice(0, 3).map((tag) => (
-                            <li
-                              key={tag}
-                              className="rounded-full border border-[var(--kuct-border)] px-2 py-0.5 text-[0.65rem] font-medium text-[var(--kuct-muted)]"
-                            >
-                              {tag}
-                            </li>
-                          ))}
-                        </ul>
-                      ) : null}
-                      <span className="mt-4 inline-flex w-fit items-center gap-1 text-sm font-semibold text-[var(--kuct-accent)] transition group-hover:gap-1.5">
-                        {learnMore}
-                        <span aria-hidden>→</span>
-                      </span>
-                    </div>
-                  </Link>
-                </Reveal>
-              );
-            })}
-          </ul>
-
-          {pageCount > 1 ? (
-            <div className="mt-8 flex items-center justify-center gap-4">
-              <button
-                type="button"
-                onClick={goPrev}
-                aria-label={prevPage}
-                className="grid size-10 place-items-center rounded-full border border-[var(--kuct-border)] bg-[rgba(8,8,16,0.85)] text-[var(--kuct-text)] transition hover:border-[var(--kuct-accent)]/40 hover:text-[var(--kuct-accent)]"
-              >
-                <span aria-hidden>←</span>
-              </button>
-              <p className="text-sm text-[var(--kuct-muted)]" aria-live="polite">
-                {page + 1} / {pageCount}
-              </p>
-              <button
-                type="button"
-                onClick={goNext}
-                aria-label={nextPage}
-                className="grid size-10 place-items-center rounded-full border border-[var(--kuct-border)] bg-[rgba(8,8,16,0.85)] text-[var(--kuct-text)] transition hover:border-[var(--kuct-accent)]/40 hover:text-[var(--kuct-accent)]"
-              >
-                <span aria-hidden>→</span>
-              </button>
-            </div>
-          ) : null}
-        </div>
       </div>
     </section>
   );

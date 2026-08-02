@@ -42,6 +42,10 @@ describe("Dolphin Software careers page", () => {
     expect(
       screen.getByRole("heading", { name: /Sales \/ Business Development/i }),
     ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: /Marketing \/ Growth/i }),
+    ).toBeInTheDocument();
+    expect(screen.getAllByText(/^Đã đóng$/i).length).toBeGreaterThanOrEqual(2);
     expect(screen.getAllByText(/^Freelance$/i).length).toBeGreaterThanOrEqual(5);
     expect(screen.getAllByText(/\$1,000/i).length).toBeGreaterThanOrEqual(1);
     expect(

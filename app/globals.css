@@ -828,20 +828,6 @@ html[data-theme="violet"] .kuct-banner {
   );
 }
 
-/* Soft violet section framing with no doubled separators */
-main > section {
-  border-top: 1px solid color-mix(in srgb, var(--kuct-accent) 20%, transparent);
-  border-bottom: 1px solid color-mix(in srgb, var(--kuct-accent) 20%, transparent);
-}
-
-main > section + section {
-  border-top: 0;
-}
-
-main > section + footer {
-  border-top: 1px solid color-mix(in srgb, var(--kuct-accent) 20%, transparent);
-}
-
 /* Radial accent glow (Hero GlassPanels, OpsLifecycle) */
 .kuct-glow-orb {
   background: radial-gradient(

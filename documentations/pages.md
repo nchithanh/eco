@@ -3,7 +3,7 @@
 | Route | Page file | Main content |
 | --- | --- | --- |
 | `/about/` | `app/about/page.tsx` | `AboutContent` — studio intro; founder photo `public/about/founder.png`; copy `lib/i18n/about-copy.ts` |
-| `/careers/` | `app/careers/page.tsx` | `CareersContent` + jobs in `lib/careers-jobs.ts` / `careers-copy.ts` |
+| `/careers/` | `app/careers/page.tsx` | `CareersContent` + jobs in `lib/careers-jobs.ts` / `careers-copy.ts` — Mobile/Design closed; Marketing/Growth open |
 | `/dolphin-care/` | `app/dolphin-care/page.tsx` | **Dolphin Care** — `AgentDolphinContent` + `agent-dolphin-copy.ts`; OG `public/og-dolphin-care.png` (VI social meta) |
 | `/agent-dolphin/` | `app/agent-dolphin/page.tsx` | Legacy redirect (noindex) → `/dolphin-care/` |
 | `/custom-agent/` | `app/custom-agent/page.tsx` | `CustomAgentContent` + `custom-agent-copy.ts` |

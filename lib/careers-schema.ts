@@ -6,6 +6,7 @@ export const JOB_IDS = [
   "backend",
   "design",
   "sales",
+  "marketing",
   "ai-engineer",
   "intern-fullstack",
   "fresher-tester",

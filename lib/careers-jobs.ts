@@ -9,17 +9,17 @@ type JobHiringMeta =
   | { kind: "open"; durationDays?: undefined };
 
 /**
- * Frontend / UI closed.
- * Mobile: 45 days from anchor → deadline 2026-08-08 00:00+07
+ * Frontend / UI / Mobile closed.
  * Backend: 50 days from anchor → deadline 2026-08-13 00:00+07
- * Sales: open (no timed window)
+ * Sales / Marketing / AI / Intern / Tester: open (no timed window)
  */
 export const JOB_HIRING: Record<JobId, JobHiringMeta> = {
   frontend: { kind: "closed" },
   design: { kind: "closed" },
-  mobile: { kind: "open", durationDays: 45 },
+  mobile: { kind: "closed" },
   backend: { kind: "open", durationDays: 50 },
   sales: { kind: "open" },
+  marketing: { kind: "open" },
   "ai-engineer": { kind: "open" },
   "intern-fullstack": { kind: "open" },
   "fresher-tester": { kind: "open" },
@@ -28,12 +28,13 @@ export const JOB_HIRING: Record<JobId, JobHiringMeta> = {
 /** Display / form order: open & priority first, closed last. */
 export const JOB_DISPLAY_ORDER: JobId[] = [
   "sales",
+  "marketing",
   "ai-engineer",
   "intern-fullstack",
   "fresher-tester",
-  "mobile",
   "backend",
   "frontend",
+  "mobile",
   "design",
 ];
 

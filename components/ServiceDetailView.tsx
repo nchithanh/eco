@@ -61,7 +61,7 @@ export function ServiceDetailContent({
         <div className="relative mx-auto max-w-6xl px-6">
           {!embedded ? (
             <Link
-              href="/#capabilities"
+              href="/#popular-services"
               className="inline-flex text-sm font-medium text-[var(--kuct-muted)] transition hover:text-[var(--kuct-accent)]"
             >
               {ui.back}

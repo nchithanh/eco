@@ -19,7 +19,7 @@ describe("Dolphin Software homepage", () => {
     expect(screen.getAllByLabelText(/Dolphin Software/i).length).toBeGreaterThanOrEqual(1);
     expect(
       screen.getByRole("heading", {
-        name: /プロ仕様のWebsite & Webアプリ — 明確なスコープで届ける/i,
+        name: /ウェブサイトの心配を少し減らすために/i,
       }),
     ).toBeInTheDocument();
     expect(
@@ -27,49 +27,81 @@ describe("Dolphin Software homepage", () => {
     ).toBeGreaterThanOrEqual(1);
   });
 
-  it("renders dolphin care chat teaser right after hero", () => {
+  it("renders overview then website intro then agent then detail", () => {
     renderHome();
     const top = document.getElementById("top");
-    const agentDolphin = document.getElementById("dolphin-care");
-    const technology = document.getElementById("technology");
     const capabilities = document.getElementById("capabilities");
+    const agentDolphin = document.getElementById("dolphin-care");
+    const popular = document.getElementById("popular-services");
+    const stack = document.getElementById("stack");
+    const technology = document.getElementById("technology");
     const aiEdge = document.getElementById("ai-edge");
+    const ops = document.getElementById("ops");
     expect(top).toBeTruthy();
-    expect(agentDolphin).toBeTruthy();
-    expect(technology).toBeTruthy();
     expect(capabilities).toBeTruthy();
+    expect(agentDolphin).toBeTruthy();
+    expect(popular).toBeTruthy();
+    expect(stack).toBeTruthy();
+    expect(technology).toBeTruthy();
     expect(aiEdge).toBeTruthy();
+    expect(ops).toBeTruthy();
     expect(
-      top!.compareDocumentPosition(agentDolphin!) &
+      top!.compareDocumentPosition(capabilities!) &
         Node.DOCUMENT_POSITION_FOLLOWING,
     ).toBeTruthy();
     expect(
-      agentDolphin!.compareDocumentPosition(technology!) &
+      capabilities!.compareDocumentPosition(agentDolphin!) &
+        Node.DOCUMENT_POSITION_FOLLOWING,
+    ).toBeTruthy();
+    expect(
+      agentDolphin!.compareDocumentPosition(popular!) &
+        Node.DOCUMENT_POSITION_FOLLOWING,
+    ).toBeTruthy();
+    expect(
+      stack!.compareDocumentPosition(technology!) &
+        Node.DOCUMENT_POSITION_FOLLOWING,
+    ).toBeTruthy();
+    expect(
+      technology!.compareDocumentPosition(aiEdge!) &
+        Node.DOCUMENT_POSITION_FOLLOWING,
+    ).toBeTruthy();
+    expect(
+      aiEdge!.compareDocumentPosition(ops!) &
         Node.DOCUMENT_POSITION_FOLLOWING,
     ).toBeTruthy();
     expect(
       within(agentDolphin!).getByRole("link", { name: /Dolphin Careを見る/i }),
     ).toHaveAttribute("href", expect.stringMatching(/\/dolphin-care\/?$/));
     expect(
-      capabilities!.compareDocumentPosition(aiEdge!) &
-        Node.DOCUMENT_POSITION_FOLLOWING,
-    ).toBeTruthy();
+      within(agentDolphin!).getByRole("button", { name: /見積もりを依頼/i }),
+    ).toBeInTheDocument();
+    expect(within(agentDolphin!).getByText(/用件に合う返答/i)).toBeInTheDocument();
+    expect(within(agentDolphin!).getByText(/Spa · 予約/i)).toBeInTheDocument();
+    expect(
+      screen.getByRole("link", { name: /Webサービスを見る/i }),
+    ).toHaveAttribute("href", "#capabilities");
   });
 
-  it("renders ai edge after tech stack before why us", () => {
+  it("renders ai edge after technology before ops and why us", () => {
     renderHome();
     const stack = document.getElementById("stack");
     const aiEdge = document.getElementById("ai-edge");
+    const ops = document.getElementById("ops");
     const why = document.getElementById("why");
     expect(stack).toBeTruthy();
     expect(aiEdge).toBeTruthy();
+    expect(ops).toBeTruthy();
     expect(why).toBeTruthy();
     expect(
       stack!.compareDocumentPosition(aiEdge!) &
         Node.DOCUMENT_POSITION_FOLLOWING,
     ).toBeTruthy();
     expect(
-      aiEdge!.compareDocumentPosition(why!) &
+      aiEdge!.compareDocumentPosition(ops!) &
+        Node.DOCUMENT_POSITION_FOLLOWING,
+    ).toBeTruthy();
+    expect(
+      ops!.compareDocumentPosition(why!) &
         Node.DOCUMENT_POSITION_FOLLOWING,
     ).toBeTruthy();
     expect(
@@ -130,19 +162,21 @@ describe("Dolphin Software homepage", () => {
     ).toBeInTheDocument();
   });
 
-  it("renders web block after capabilities without ui gallery", () => {
+  it("renders detail web block after agent intro without ui gallery", () => {
     renderHome();
-    const capabilities = document.getElementById("capabilities");
+    const agentDolphin = document.getElementById("dolphin-care");
     const popular = document.getElementById("popular-services");
     const works = document.getElementById("works");
     const outcomes = document.getElementById("outcomes");
+    const capabilities = document.getElementById("capabilities");
     expect(document.getElementById("ui-gallery")).toBeNull();
     expect(capabilities).toBeTruthy();
+    expect(agentDolphin).toBeTruthy();
     expect(popular).toBeTruthy();
     expect(works).toBeTruthy();
     expect(outcomes).toBeTruthy();
     expect(
-      capabilities!.compareDocumentPosition(popular!) &
+      agentDolphin!.compareDocumentPosition(popular!) &
         Node.DOCUMENT_POSITION_FOLLOWING,
     ).toBeTruthy();
     expect(
@@ -155,14 +189,8 @@ describe("Dolphin Software homepage", () => {
     ).toBeTruthy();
   });
 
-  it("renders capabilities and process headings", () => {
+  it("renders process headings", () => {
     renderHome();
-    expect(
-      screen.getByRole("heading", {
-        level: 2,
-        name: /運用成果に結びつけるソリューション/i,
-      }),
-    ).toBeInTheDocument();
     expect(
       screen.getByRole("heading", { name: /引き渡しまでの5ステップ/i }),
     ).toBeInTheDocument();
@@ -175,15 +203,15 @@ describe("Dolphin Software homepage", () => {
     const outcomes = document.getElementById("outcomes");
     const process = document.getElementById("process");
     const whatYouGet = document.getElementById("what-you-get");
-    const ops = document.getElementById("ops");
     const handover = document.getElementById("handover");
     const stack = document.getElementById("stack");
+    const ops = document.getElementById("ops");
     expect(outcomes).toBeTruthy();
     expect(process).toBeTruthy();
     expect(whatYouGet).toBeTruthy();
-    expect(ops).toBeTruthy();
     expect(handover).toBeTruthy();
     expect(stack).toBeTruthy();
+    expect(ops).toBeTruthy();
     expect(
       outcomes!.compareDocumentPosition(process!) &
         Node.DOCUMENT_POSITION_FOLLOWING,
@@ -193,15 +221,15 @@ describe("Dolphin Software homepage", () => {
         Node.DOCUMENT_POSITION_FOLLOWING,
     ).toBeTruthy();
     expect(
-      whatYouGet!.compareDocumentPosition(ops!) &
-        Node.DOCUMENT_POSITION_FOLLOWING,
-    ).toBeTruthy();
-    expect(
-      ops!.compareDocumentPosition(handover!) &
+      whatYouGet!.compareDocumentPosition(handover!) &
         Node.DOCUMENT_POSITION_FOLLOWING,
     ).toBeTruthy();
     expect(
       handover!.compareDocumentPosition(stack!) &
+        Node.DOCUMENT_POSITION_FOLLOWING,
+    ).toBeTruthy();
+    expect(
+      stack!.compareDocumentPosition(ops!) &
         Node.DOCUMENT_POSITION_FOLLOWING,
     ).toBeTruthy();
     expect(
@@ -275,36 +303,23 @@ describe("Dolphin Software homepage", () => {
         /プロダクト・技術・進め方の短い記事です/,
       ),
     ).toBeInTheDocument();
-    const newsList = newsSection!.querySelector("ul");
-    expect(newsList).toHaveClass("md:grid-cols-3");
-    const newsItems = within(newsSection!).getAllByRole("listitem");
-    expect(newsItems).toHaveLength(9);
-    expect(newsItems[0]).toHaveClass("h-full", "flex", "flex-col");
-    expect(newsItems[0].querySelectorAll("img")).toHaveLength(1);
-    expect(newsItems[1].querySelectorAll("img")).toHaveLength(1);
-    expect(newsItems[2].querySelectorAll("img")).toHaveLength(1);
-    expect(newsItems[3].querySelectorAll("img")).toHaveLength(0);
-    expect(newsItems[4].querySelectorAll("img")).toHaveLength(0);
-    expect(newsItems[5].querySelectorAll("img")).toHaveLength(0);
-    expect(newsItems[6].querySelectorAll("img")).toHaveLength(0);
-    expect(newsItems[7].querySelectorAll("img")).toHaveLength(0);
-    expect(newsItems[8].querySelectorAll("img")).toHaveLength(0);
+    const secondaryList = newsSection!.querySelector("ul");
+    expect(secondaryList).toBeTruthy();
+    const secondaryItems = within(newsSection!).getAllByRole("listitem");
+    expect(secondaryItems).toHaveLength(4);
+    expect(newsSection!.querySelectorAll("img")).toHaveLength(1);
     expect(
-      within(newsItems[0]).getByRole("heading", {
+      within(newsSection!).getByRole("heading", {
         name: /全部書き直さずに MVP から V1 へ/i,
       }),
     ).toBeInTheDocument();
     expect(
-      within(newsItems[1]).getByRole("heading", {
-        name: /デザイントークンとテーマ/i,
-      }),
-    ).toBeInTheDocument();
-    expect(
-      within(newsSection!).queryByRole("link", { name: /続きを読む/i }),
-    ).not.toBeInTheDocument();
-    const titleLink = within(newsSection!).getByRole("link", {
+      within(newsSection!).getByRole("link", { name: /続きを読む/i }),
+    ).toHaveAttribute("href", "/news/from-mvp-to-v1/");
+    expect(within(newsSection!).getAllByText(/約\d+分/).length).toBeGreaterThanOrEqual(1);
+    const titleLink = within(newsSection!).getAllByRole("link", {
       name: /全部書き直さずに MVP から V1 へ/i,
-    });
+    })[0];
     expect(titleLink).toHaveAttribute("href", "/news/from-mvp-to-v1/");
     expect(document.getElementById("contact")).toBeTruthy();
     const contact = within(document.getElementById("contact")!);
@@ -319,8 +334,7 @@ describe("Dolphin Software homepage", () => {
     ).toHaveAttribute("href", "mailto:nchithanh9999@gmail.com");
   });
 
-  it("paginates homepage news nine items at a time", async () => {
-    const user = userEvent.setup();
+  it("shows one featured news article and three secondary notes", () => {
     renderHome();
 
     const newsSection = document.getElementById("news");
@@ -330,42 +344,14 @@ describe("Dolphin Software homepage", () => {
         name: /全部書き直さずに MVP から V1 へ/i,
       }),
     ).toBeInTheDocument();
-    expect(within(newsSection!).getByText(/1 \/ \d+/)).toBeInTheDocument();
-
-    await user.click(
-      within(newsSection!).getByRole("button", { name: /次のページ/i }),
-    );
-
-    expect(within(newsSection!).getByText(/2 \/ \d+/)).toBeInTheDocument();
+    expect(within(newsSection!).queryByText(/1 \/ \d+/)).not.toBeInTheDocument();
     expect(
-      within(newsSection!).getByRole("heading", {
-        name: /週次デモできるフリーランスの採用/i,
-      }),
-    ).toBeInTheDocument();
-    expect(
-      within(newsSection!).queryByRole("heading", {
-        name: /全部書き直さずに MVP から V1 へ/i,
-      }),
+      within(newsSection!).queryByRole("button", { name: /次のページ/i }),
     ).not.toBeInTheDocument();
-    const pageTwoItems = within(newsSection!).getAllByRole("listitem");
-    expect(pageTwoItems).toHaveLength(9);
-    expect(pageTwoItems[0].querySelectorAll("img")).toHaveLength(1);
-    expect(pageTwoItems[1].querySelectorAll("img")).toHaveLength(1);
-    expect(pageTwoItems[2].querySelectorAll("img")).toHaveLength(1);
-    expect(pageTwoItems[3].querySelectorAll("img")).toHaveLength(0);
-    expect(pageTwoItems[4].querySelectorAll("img")).toHaveLength(0);
-    expect(pageTwoItems[5].querySelectorAll("img")).toHaveLength(0);
-    expect(pageTwoItems[6].querySelectorAll("img")).toHaveLength(0);
-    expect(pageTwoItems[7].querySelectorAll("img")).toHaveLength(0);
-    expect(pageTwoItems[8].querySelectorAll("img")).toHaveLength(0);
-    expect(
-      within(newsSection!).queryByRole("link", { name: /続きを読む/i }),
-    ).not.toBeInTheDocument();
-    expect(
-      within(newsSection!).getByRole("link", {
-        name: /週次デモできるフリーランスの採用/i,
-      }),
-    ).toHaveAttribute("href", "/news/hiring-for-delivery/");
+    const secondaryItems = within(newsSection!).getAllByRole("listitem");
+    expect(secondaryItems).toHaveLength(4);    expect(
+      within(newsSection!).getByRole("link", { name: /続きを読む/i }),
+    ).toHaveAttribute("href", "/news/from-mvp-to-v1/");
   });
 
   it("reveals the contact link from the mobile menu", async () => {
@@ -434,7 +420,7 @@ describe("Dolphin Software homepage", () => {
 
     expect(
       screen.getByRole("heading", {
-        name: /Website & web app chuyên nghiệp — scope rõ, ship được/i,
+        name: /Để anh chị bớt lo chuyện website/i,
       }),
     ).toBeInTheDocument();
     expect(
@@ -451,7 +437,7 @@ describe("Dolphin Software homepage", () => {
 
     expect(
       screen.getByRole("heading", {
-        name: /Professional websites & web apps — clear scope, shipped right/i,
+        name: /So you can worry less about your website/i,
       }),
     ).toBeInTheDocument();
     expect(
@@ -468,7 +454,7 @@ describe("Dolphin Software homepage", () => {
 
     expect(
       screen.getByRole("heading", {
-        name: /Professionelle Websites & Web-Apps — klarer Scope, sauber geliefert/i,
+        name: /Damit Sie sich um die Website weniger sorgen/i,
       }),
     ).toBeInTheDocument();
     expect(
@@ -485,7 +471,7 @@ describe("Dolphin Software homepage", () => {
 
     expect(
       screen.getByRole("heading", {
-        name: /专业级网站与 Web 应用 — 范围清晰，按时交付/i,
+        name: /让您少操心网站的事/i,
       }),
     ).toBeInTheDocument();
     expect(
