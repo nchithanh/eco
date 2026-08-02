@@ -340,10 +340,31 @@ export type Dictionary = {
       headline: string;
       support: string;
     };
+    model: {
+      eyebrow: string;
+      title: string;
+      support: string;
+      bullets: string[];
+    };
     roles: {
       eyebrow: string;
       title: string;
       support: string;
+    };
+    closedRoles: {
+      title: string;
+      support: string;
+    };
+    howToApply: {
+      eyebrow: string;
+      title: string;
+      support: string;
+      steps: string[];
+    };
+    faq: {
+      eyebrow: string;
+      title: string;
+      items: { q: string; a: string }[];
     };
     engagement: string;
     comp: string;

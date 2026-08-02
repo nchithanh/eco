@@ -136,3 +136,55 @@ export function faqPageJsonLd(items: { q: string; a: string }[]) {
     })),
   };
 }
+
+export function personJsonLd(input: {
+  name: string;
+  jobTitle: string;
+  description: string;
+  imagePath?: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: input.name,
+    jobTitle: input.jobTitle,
+    description: input.description,
+    worksFor: {
+      "@type": "Organization",
+      name: "Dolphin Software",
+      url: SITE_URL,
+    },
+    ...(input.imagePath
+      ? { image: absoluteUrl(input.imagePath) }
+      : {}),
+  };
+}
+
+export function jobPostingJsonLd(input: {
+  title: string;
+  description: string;
+  path?: string;
+  employmentType?: string;
+  datePosted?: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "JobPosting",
+    title: input.title,
+    description: input.description,
+    datePosted: input.datePosted ?? "2026-08-03",
+    employmentType: input.employmentType ?? "CONTRACTOR",
+    hiringOrganization: {
+      "@type": "Organization",
+      name: "Dolphin Software",
+      sameAs: SITE_URL,
+      logo: absoluteUrl("/brand/logo-dolphin.webp"),
+    },
+    jobLocationType: "TELECOMMUTE",
+    applicantLocationRequirements: {
+      "@type": "Country",
+      name: "VN",
+    },
+    url: absoluteUrl(input.path ?? "/careers/"),
+  };
+}

@@ -6,61 +6,83 @@
     "brand": "Dolphin Software",
     "schemaPath": "/schema/agents/dolphin-care/",
     "rawPath": "/schema/agents/dolphin-care.json",
-    "updated": "2026-08-02"
+    "updated": "2026-08-03"
   },
   "pillar": "Care",
   "displayName": "Dolphin Care",
   "formerName": "Agent Dolphin",
   "productRoute": "/dolphin-care/",
-  "metaTitle": "Dolphin Care | Support website thông minh | Dolphin Software",
-  "metaDescription": "Dolphin Care gắn trên website — hỗ trợ khách bằng LLM + context nghiệp vụ + context khách hàng, chăm sóc như nhân viên chuyên nghiệp có cảm xúc.",
-  "summary": "AI Agent chăm sóc khách trên website — khác chatbot kịch bản cứng.",
-  "headline": "Support website như nhân viên — không chatbot máy móc",
-  "support": "Dolphin Care đảm nhiệm chăm sóc khách trên website. Kết hợp LLM với context doanh nghiệp và context từng khách.",
-  "capabilities": [
-    "hiểu ngữ cảnh hội thoại (khi knowledge + context được nạp)",
-    "trả lời tự nhiên hơn bot cũ",
-    "ghi nhận / dẫn thông tin khách",
-    "hỗ trợ tư vấn sản phẩm trong phạm vi kiến thức",
-    "hỗ trợ ngoài giờ — giảm bỏ lỡ lead"
-  ],
-  "whatItIsNot": [
-    "Không thay cả công ty / đội sales",
-    "Không bắt buộc với mọi dự án web — upsell / optional",
-    "Cold outreach vẫn mở bằng website (Build), không Care"
-  ],
+  "metaTitle": "Dolphin Care — AI chăm sóc khách hàng trên website",
+  "metaDescription": "Dolphin Care là giải pháp AI chăm sóc khách hàng trên website cho SMB Việt Nam — kết hợp LLM, nghiệp vụ doanh nghiệp và ngữ cảnh khách hàng để trả lời đúng việc, đúng giọng thương hiệu. Tích hợp được vào website hiện có.",
+  "summary": "AI chăm sóc khách hàng trên website — không phải chatbot kịch bản; LLM + nghiệp vụ + ngữ cảnh khách.",
+  "headline": "AI chăm sóc khách hàng trên website, hoạt động như một thành viên nhóm",
+  "support": "Dolphin Care là công cụ AI chăm sóc khách hàng trên website do Dolphin Software phát triển. Không phải chatbot theo kịch bản — kết hợp LLM với nghiệp vụ doanh nghiệp và ngữ cảnh từng khách truy cập. Phù hợp SMB Việt Nam; tích hợp website đang chạy hoặc mới.",
+  "trustLine": "LLM · Nghiệp vụ doanh nghiệp · Ngữ cảnh khách hàng · Giọng thương hiệu",
+  "compare": {
+    "title": "Chatbot AI cho doanh nghiệp: Dolphin Care khác chatbot thông thường ở điểm nào?",
+    "support": "Không chạy theo kịch bản cố định — kết hợp LLM với dữ liệu nghiệp vụ và ngữ cảnh phiên truy cập.",
+    "oldTitle": "Chatbot FAQ / kịch bản thông thường",
+    "newTitle": "Dolphin Care — AI chăm sóc khách hàng trên website"
+  },
   "pillars": [
     {
-      "title": "Mô hình LLM",
-      "body": "Hiểu ngôn ngữ tự nhiên, hỏi lại khi thiếu thông tin."
+      "title": "01 — LLM (Mô hình ngôn ngữ lớn)",
+      "body": "Ngôn ngữ tự nhiên, đặt câu hỏi làm rõ khi cần, diễn đạt trôi chảy — không phải copy-paste kịch bản."
     },
     {
-      "title": "Context doanh nghiệp",
-      "body": "Dịch vụ, bảng giá, chính sách, giọng thương hiệu."
+      "title": "02 — Business context (Nghiệp vụ doanh nghiệp)",
+      "body": "Kiến thức của shop/studio bạn: dịch vụ, báo giá, chính sách, FAQ nội bộ, giọng điệu thương hiệu."
     },
     {
-      "title": "Context khách hàng",
-      "body": "Phiên chat, hành vi, thông tin đã chia sẻ."
+      "title": "03 — Customer context (Ngữ cảnh khách hàng)",
+      "body": "Phiên truy cập hiện tại và các tín hiệu đã biết (form điền, trang đã xem, lịch sử nếu có) để trả lời cá nhân hóa."
     }
   ],
   "howSteps": [
     {
-      "title": "Thu thập nghiệp vụ & giọng điệu",
-      "body": "Workshop ngắn: dịch vụ, ngoại lệ, escalate."
+      "title": "Bước 1 — Thu thập nghiệp vụ và giọng điệu",
+      "body": "Workshop ngắn: các dịch vụ, trường hợp ngoại lệ, cách xưng hô với khách, những gì cần leo thang lên người thật."
     },
     {
-      "title": "Nạp knowledge + guardrail",
-      "body": "FAQ/policy vào kho context; chốt phạm vi tự trả lời."
+      "title": "Bước 2 — Nạp knowledge base và thiết lập guardrails",
+      "body": "Tài liệu, FAQ, chính sách được nạp vào context store; xác định phạm vi những gì agent được phép tự trả lời."
     },
     {
-      "title": "Gắn widget & kênh",
-      "body": "Nhúng website; tùy chọn Zalo/CRM."
+      "title": "Bước 3 — Nhúng widget và kết nối kênh",
+      "body": "Nhúng vào website (tùy chọn tích hợp Zalo/CRM). Đồng bộ lead/ticket khi cần chuyển sang người thật."
     },
     {
-      "title": "Theo dõi & tinh chỉnh",
-      "body": "Xem hội thoại thật, chỉnh prompt/context."
+      "title": "Bước 4 — Theo dõi và tinh chỉnh",
+      "body": "Xem lại chat thực tế, điều chỉnh prompt/context ở những điểm khách bị tắc — càng dùng càng tốt hơn."
     }
   ],
-  "messaging": "Ưu tiên “chăm sóc / ngoài giờ / bớt hỏi lặp” hơn buzzword “AI Agent”.",
+  "faq": [
+    {
+      "q": "Dolphin Care là gì và khác chatbot thông thường thế nào?",
+      "a": "Dolphin Care là giải pháp AI chăm sóc khách hàng trên website do Dolphin Software phát triển, dành cho SMB Việt Nam. Khác với chatbot chạy script, Dolphin Care dùng LLM kết hợp với nghiệp vụ doanh nghiệp và ngữ cảnh khách truy cập — trả lời linh hoạt hơn, nhưng vẫn trong phạm vi kiểm soát. Cần agent gắn sâu quy trình nội bộ? Xem thêm /custom-agent/."
+    },
+    {
+      "q": "Dolphin Care có thay thế nhân viên hỗ trợ không?",
+      "a": "Không bắt buộc. Dolphin Care xử lý các câu hỏi lặp lại và hỗ trợ ngoài giờ làm việc. Các trường hợp nhạy cảm hoặc ngoài phạm vi sẽ được chuyển tiếp cho người thật — kèm log đầy đủ."
+    },
+    {
+      "q": "Website có cần do Dolphin Software xây dựng mới tích hợp được không?",
+      "a": "Không. Dolphin Care có thể nhúng vào website đang chạy nếu cho phép widget/API. Các website mới do Dolphin Software xây dựng sẽ được tích hợp agent sẵn khi bàn giao. Xem dịch vụ web tại /services/web/."
+    },
+    {
+      "q": "Dữ liệu khách hàng có được bảo mật không?",
+      "a": "Có. Phạm vi lưu trữ và kênh dữ liệu được xác định cụ thể trong hợp đồng. Chỉ context liên quan đến hỗ trợ mới được nạp vào — không phải toàn bộ dữ liệu kinh doanh."
+    },
+    {
+      "q": "Dolphin Care có hỗ trợ tích hợp Zalo không?",
+      "a": "Có. Dolphin Care hỗ trợ tích hợp tùy chọn với Zalo và CRM, giúp đồng bộ lead và ticket khi cần chuyển tiếp sang nhân viên hỗ trợ thực tế."
+    },
+    {
+      "q": "Chi phí triển khai Dolphin Care như thế nào?",
+      "a": "Dolphin Software báo giá minh bạch theo phạm vi dự án — không phát sinh phí ẩn, không bán thêm dịch vụ không cần thiết. Gửi URL website và mô tả đối tượng khách hàng để nhận đề xuất phù hợp."
+    }
+  ],
+  "positioningNote": "báo giá minh bạch, không bán thêm dịch vụ không cần thiết, hỗ trợ sau bàn giao",
+  "messaging": "Ưu tiên “AI chăm sóc khách hàng trên website / ngoài giờ / bớt hỏi lặp” hơn buzzword “AI Agent”.",
   "copySource": "lib/i18n/agent-dolphin-copy.ts"
 }

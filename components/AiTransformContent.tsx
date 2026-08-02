@@ -30,18 +30,18 @@ export function AiTransformContent({ embedded = false }: { embedded?: boolean })
         }
       >
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[rgba(var(--kuct-accent-rgb),0.08)] via-transparent to-[rgba(var(--kuct-accent-rgb),0.05)]" />
-        <div className="relative mx-auto max-w-6xl px-6 text-center">
-          <Reveal>
+        <div className="relative mx-auto max-w-6xl px-6 text-left">
+          <Reveal className="max-w-5xl">
             <p className="text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
               {c.eyebrow}
             </p>
-            <h1 className="mx-auto mt-4 max-w-3xl font-display text-3xl font-semibold tracking-tight text-[var(--kuct-text)] sm:text-5xl">
+            <h1 className="mt-4 max-w-[48rem] font-display text-3xl font-semibold tracking-tight text-[var(--kuct-text)] sm:text-5xl">
               <AccentText>{c.headline}</AccentText>
             </h1>
-            <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-[var(--kuct-muted)] sm:text-lg">
+            <p className="mt-5 max-w-[78ch] text-base leading-relaxed text-[var(--kuct-muted)] sm:text-lg lg:max-w-4xl">
               {c.support}
             </p>
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+            <div className="mt-8 flex flex-wrap items-center justify-start gap-3">
               <button
                 type="button"
                 onClick={openQuote}

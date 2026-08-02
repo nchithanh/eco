@@ -59,6 +59,22 @@
         {
           "from": "bot",
           "text": "Đang giữ slot 3:00 — 60 phút. Cho mình xin tên và số điện thoại nhé."
+        },
+        {
+          "from": "user",
+          "text": "Lan, 0901 234 567"
+        },
+        {
+          "from": "bot",
+          "text": "Đã ghi nhận chị Lan — 15:00 mai, massage 60 phút. Em gửi xác nhận Zalo và báo nhân viên trên CRM ngay ạ."
+        },
+        {
+          "from": "user",
+          "text": "Ok cảm ơn"
+        },
+        {
+          "from": "bot",
+          "text": "Đã gửi Zalo rồi. Trước giờ hẹn 2 tiếng em nhắc lại — cần đổi lịch cứ nhắn nhé."
         }
       ]
     }

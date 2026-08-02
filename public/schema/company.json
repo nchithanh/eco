@@ -3,7 +3,7 @@
     "brand": "Dolphin Software",
     "site": "https://dolphin-software.io.vn/",
     "source": ".cursor/knowledge/",
-    "updated": "2026-08-02",
+    "updated": "2026-08-03",
     "note": "Company knowledge pack as JSON — SoT for agents; missing facts stay TODO in source markdown.",
     "schemaId": "company",
     "schemaPath": "/schema/company/",
@@ -260,7 +260,7 @@
     ]
   },
   "faq": {
-    "note": "FAQ dài: lib/i18n/faq-copy.ts và FAQ theo trang. Dưới đây là neo ngắn.",
+    "note": "FAQ dài: lib/i18n/faq-copy.ts và FAQ theo trang. Dưới đây là neo ngắn + About page FAQ (Jasper).",
     "themes": [
       {
         "id": "scopePrice",
@@ -278,7 +278,45 @@
         "id": "timeline",
         "answer": "Landing vài ngày; business ~1–2 tuần; shop/app lâu hơn — xác nhận trong popular-services copy."
       }
-    ]
+    ],
+    "aboutPage": {
+      "productRoute": "/about/",
+      "copySource": "lib/i18n/about-copy.ts",
+      "items": [
+        {
+          "q": "Dolphin Software là công ty gì?",
+          "a": "Dolphin Software là studio phát triển phần mềm tại Việt Nam, chuyên xây dựng website theo yêu cầu, ứng dụng di động, hệ thống backend, và AI automation cho doanh nghiệp vừa và nhỏ. Dolphin Software bàn giao mã nguồn đầy đủ và hỗ trợ vận hành sau khi go-live."
+        },
+        {
+          "q": "Doanh nghiệp không có đội kỹ thuật có làm việc với Dolphin Software được không?",
+          "a": "Được. Phần lớn khách hàng của Dolphin Software không có background kỹ thuật. Chỉ cần mô tả mục tiêu kinh doanh — Dolphin Software sẽ xác định scope bằng ngôn ngữ vận hành, thực thi end-to-end, và bàn giao kèm hướng dẫn để đội ngũ bạn tự vận hành được."
+        },
+        {
+          "q": "Dolphin Software có khóa vendor sau khi bàn giao không?",
+          "a": "Không. Dolphin Software bàn giao toàn bộ mã nguồn, tài liệu kỹ thuật, và hướng dẫn vận hành. Bạn sở hữu hoàn toàn sản phẩm — không phụ thuộc vào Dolphin Software để duy trì hệ thống."
+        },
+        {
+          "q": "Báo giá của Dolphin Software hoạt động như thế nào?",
+          "a": "Gửi brief ngắn qua form liên hệ, nút “Nhận báo giá”, hoặc Zalo. Dolphin Software phản hồi với scope ước tính và bước tiếp theo — không có phí phát sinh ngoài scope đã chốt."
+        },
+        {
+          "q": "Dolphin Software có hỗ trợ sau khi bàn giao không?",
+          "a": "Có. Sau khi go-live, Dolphin Software cung cấp hướng dẫn vận hành và bảo hành lỗi kỹ thuật trong phạm vi scope đã ký kết (thường 3–6 tháng). Tính năng mới được báo giá riêng trước khi thực hiện."
+        },
+        {
+          "q": "Dolphin Software có kinh nghiệm tích hợp Zalo và các hệ thống CRM không?",
+          "a": "Có. Dolphin Software đã ship tích hợp production thực tế với Zalo ZNS, HubSpot, Mailgun, và nhiều nền tảng khác — không dừng ở proof-of-concept."
+        }
+      ]
+    }
+  },
+  "founder": {
+    "name": "Nguyễn Chí Thanh",
+    "role": "Founder · Product Backend / Tech Lead",
+    "experienceYears": "7+",
+    "products": ["Marathon", "Myspa", "Splus"],
+    "stack": ["Golang", "NestJS", "Laravel", "TypeScript", "Docker", "Redis", "MySQL", "Grafana"],
+    "aboutRoute": "/about/"
   },
   "caseStudies": {
     "portfolioAnchors": [

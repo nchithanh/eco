@@ -1,6 +1,7 @@
 "use client";
 
 import { AccentText, BrandName } from "@/components/BrandName";
+import { FaqAnswerText } from "@/components/FaqAnswerText";
 import { LazyImage } from "@/components/LazyImage";
 import { Reveal } from "@/components/Reveal";
 import { useQuote } from "@/components/QuoteProvider";
@@ -18,20 +19,20 @@ export function AboutContent() {
       <section className="relative isolate overflow-hidden border-b border-[var(--kuct-border)] py-20 sm:py-24">
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[rgba(var(--kuct-accent-rgb),0.1)] via-transparent to-[rgba(var(--kuct-accent-rgb),0.04)]" />
         <div className="relative mx-auto max-w-6xl px-6">
-          <Reveal className="mx-auto max-w-3xl text-center">
+          <Reveal className="max-w-5xl text-left">
             <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
               {a.eyebrow}
             </p>
             <h1 className="mt-4 font-display text-4xl font-semibold leading-[1.08] tracking-tight text-[var(--kuct-text)] sm:text-5xl lg:text-[3.25rem]">
               <BrandName size="md" />
             </h1>
-            <p className="mx-auto mt-6 max-w-[34ch] font-display text-xl font-semibold leading-snug tracking-tight text-[var(--kuct-text)] sm:text-2xl sm:max-w-[40ch]">
+            <p className="mt-6 max-w-[60ch] font-display text-xl font-semibold leading-snug tracking-tight text-[var(--kuct-text)] sm:max-w-none sm:text-2xl lg:max-w-[48rem]">
               <AccentText>{a.motto}</AccentText>
             </p>
-            <p className="mx-auto mt-5 max-w-[48ch] text-base leading-[1.7] text-[var(--kuct-muted)]">
+            <p className="mt-5 max-w-[70ch] text-base leading-[1.7] text-[var(--kuct-muted)] sm:max-w-[78ch] lg:max-w-4xl">
               {a.support}
             </p>
-            <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
+            <div className="mt-9 flex flex-wrap items-center justify-start gap-3">
               <button
                 type="button"
                 onClick={openQuote}
@@ -59,6 +60,9 @@ export function AboutContent() {
             <h2 className="mt-4 font-display text-3xl font-semibold leading-[1.12] tracking-tight sm:text-[2.15rem]">
               <AccentText>{a.mindsetTitle}</AccentText>
             </h2>
+            <p className="mt-5 max-w-[48ch] text-base leading-[1.7] text-[var(--kuct-muted)]">
+              {a.mindsetSupport}
+            </p>
           </Reveal>
           <div className="mt-12 grid gap-4 md:grid-cols-3">
             {a.mindset.map((item, index) => (
@@ -71,9 +75,9 @@ export function AboutContent() {
                     : "rounded-2xl border border-[var(--kuct-border)] bg-[rgba(6,6,14,0.72)] p-5 backdrop-blur-md sm:p-6"
                 }
               >
-                <p className="font-display text-sm font-semibold tracking-wide text-[var(--kuct-text)]">
+                <h3 className="font-display text-sm font-semibold tracking-wide text-[var(--kuct-text)]">
                   {item.title}
-                </p>
+                </h3>
                 <p className="mt-2 text-sm leading-relaxed text-[var(--kuct-muted)]">
                   {item.body}
                 </p>
@@ -110,9 +114,18 @@ export function AboutContent() {
                 <p className="text-[11px] font-semibold tabular-nums tracking-wide text-[var(--kuct-accent)]/80">
                   {String(index + 1).padStart(2, "0")}
                 </p>
-                <p className="mt-2 font-display text-sm font-semibold tracking-wide text-[var(--kuct-text)]">
-                  {item.title}
-                </p>
+                <h3 className="mt-2 font-display text-sm font-semibold tracking-wide text-[var(--kuct-text)]">
+                  {item.href ? (
+                    <a
+                      href={assetPath(item.href)}
+                      className="transition hover:text-[var(--kuct-accent)]"
+                    >
+                      {item.title}
+                    </a>
+                  ) : (
+                    item.title
+                  )}
+                </h3>
                 <p className="mt-2 text-sm leading-relaxed text-[var(--kuct-muted)]">
                   {item.body}
                 </p>
@@ -142,9 +155,9 @@ export function AboutContent() {
                 delay={index * 50}
                 className="rounded-2xl border border-[var(--kuct-border)] bg-[rgba(6,6,14,0.72)] p-5 backdrop-blur-md sm:p-6"
               >
-                <p className="font-display text-sm font-semibold tracking-wide text-[var(--kuct-text)]">
+                <h3 className="font-display text-sm font-semibold tracking-wide text-[var(--kuct-text)]">
                   {item.title}
-                </p>
+                </h3>
                 <p className="mt-2 text-sm leading-relaxed text-[var(--kuct-muted)]">
                   {item.body}
                 </p>
@@ -197,6 +210,38 @@ export function AboutContent() {
               </ul>
             </div>
           </Reveal>
+        </div>
+      </section>
+
+      <section
+        id="about-faq"
+        className="scroll-mt-20 border-t border-[var(--kuct-border)] py-24"
+      >
+        <div className="mx-auto max-w-6xl px-6">
+          <Reveal className="max-w-2xl">
+            <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
+              {a.faqEyebrow}
+            </p>
+            <h2 className="mt-4 font-display text-3xl font-semibold leading-[1.12] tracking-tight sm:text-[2.15rem]">
+              <AccentText>{a.faqTitle}</AccentText>
+            </h2>
+          </Reveal>
+          <ul className="mt-10 list-none space-y-3 p-0">
+            {a.faqItems.map((item, index) => (
+              <li key={item.q}>
+                <Reveal delay={index * 40}>
+                  <div className="rounded-2xl border border-[var(--kuct-border)] bg-[rgba(6,6,14,0.72)] px-4 py-4 backdrop-blur-md sm:px-5 sm:py-5">
+                    <h3 className="text-sm font-semibold text-[var(--kuct-text)]">
+                      {item.q}
+                    </h3>
+                    <p className="mt-2 text-sm leading-[1.7] text-[var(--kuct-muted)]">
+                      <FaqAnswerText text={item.a} />
+                    </p>
+                  </div>
+                </Reveal>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 

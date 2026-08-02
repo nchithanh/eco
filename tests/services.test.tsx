@@ -5,6 +5,9 @@ import { ServiceDetailView } from "@/components/ServiceDetailView";
 import { Capabilities } from "@/components/Capabilities";
 import { CustomAgentContent } from "@/components/CustomAgentContent";
 import { AiTransformContent } from "@/components/AiTransformContent";
+import { AgentDolphinPage } from "@/components/AgentDolphinContent";
+import { AboutContent } from "@/components/AboutContent";
+import { CareersContent } from "@/components/CareersContent";
 import { AppProviders } from "@/components/AppProviders";
 import Home from "@/app/page";
 
@@ -121,6 +124,70 @@ describe("service detail pages", () => {
     ).toBeInTheDocument();
     expect(
       screen.getByText(/8 đến 14 tuần/i),
+    ).toBeInTheDocument();
+  });
+
+  it("renders dolphin-care landing content", () => {
+    render(
+      <AppProviders>
+        <AgentDolphinPage />
+      </AppProviders>,
+    );
+
+    expect(
+      screen.getByRole("heading", {
+        level: 1,
+        name: /AI chăm sóc khách hàng trên/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(/Dolphin Care có hỗ trợ tích hợp Zalo không/i),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(/Chi phí triển khai Dolphin Care như thế nào/i),
+    ).toBeInTheDocument();
+  });
+
+  it("renders about page VI SEO content", () => {
+    render(
+      <AppProviders>
+        <AboutContent />
+      </AppProviders>,
+    );
+
+    expect(
+      screen.getByRole("heading", {
+        name: /Dolphin Software tiếp cận dự án như thế nào/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(/Dolphin Software là công ty gì/i),
+    ).toBeInTheDocument();
+    expect(
+      screen.getAllByText(/Nguyễn Chí Thanh/i).length,
+    ).toBeGreaterThanOrEqual(1);
+    expect(
+      screen.getByRole("link", { name: /01 · Web & App/i }),
+    ).toHaveAttribute("href", expect.stringMatching(/\/services\/web\/?/));
+  });
+
+  it("renders careers page VI SEO content", () => {
+    render(
+      <AppProviders>
+        <CareersContent />
+      </AppProviders>,
+    );
+
+    expect(
+      screen.getByRole("heading", {
+        name: /Mô hình freelance tại Dolphin Software là gì/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(/Dolphin Software tuyển freelance hay nhân viên chính thức/i),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: /Đã đóng tuyển/i }),
     ).toBeInTheDocument();
   });
 

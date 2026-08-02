@@ -25,22 +25,23 @@ function NavItemLink({
   label,
   active,
   onClick,
+  className,
 }: {
   href: string;
   label: string;
   active?: boolean;
   onClick?: () => void;
+  className?: string;
 }) {
+  const tone = active
+    ? "text-sm font-semibold text-[var(--kuct-text)] transition hover:text-[var(--kuct-accent)]"
+    : "text-sm font-medium text-[var(--kuct-muted)] transition hover:text-[var(--kuct-text)]";
   return (
     <a
       href={href}
       onClick={onClick}
       aria-current={active ? "page" : undefined}
-      className={
-        active
-          ? "text-sm font-semibold text-[var(--kuct-text)] transition hover:text-[var(--kuct-accent)]"
-          : "text-sm font-medium text-[var(--kuct-muted)] transition hover:text-[var(--kuct-text)]"
-      }
+      className={className ? `${tone} ${className}` : tone}
     >
       {label}
     </a>
@@ -318,8 +319,8 @@ export function Nav() {
             aria-label={t.nav.ariaMobile}
             className="border-t border-[var(--kuct-border)] bg-[rgba(4,4,12,0.96)] px-6 py-4 backdrop-blur-xl lg:hidden"
           >
-            <ul className="mx-auto flex max-w-6xl flex-col gap-1">
-              <li className="pt-1">
+            <ul className="mx-auto flex max-w-6xl flex-col">
+              <li>
                 <button
                   type="button"
                   className={
@@ -336,13 +337,14 @@ export function Nav() {
                   </span>
                 </button>
                 {servicesOpenMobile ? (
-                  <ul className="mb-2 space-y-1 border-l border-[var(--kuct-border)] pl-3">
+                  <ul className="mb-1 space-y-0 border-l border-[var(--kuct-border)] pl-3">
                     {serviceItems.map((item) => (
                       <li key={item.href + item.label}>
                         <NavItemLink
                           href={item.href}
                           label={item.label}
                           active={isPageActive(item.href)}
+                          className="block w-full py-1.5"
                           onClick={() => {
                             setIsMenuOpen(false);
                             setServicesOpenMobile(false);
@@ -354,7 +356,7 @@ export function Nav() {
                 ) : null}
               </li>
 
-              <li className="pt-1">
+              <li>
                 <button
                   type="button"
                   className={
@@ -371,13 +373,14 @@ export function Nav() {
                   </span>
                 </button>
                 {agentOpenMobile ? (
-                  <ul className="mb-2 space-y-1 border-l border-[var(--kuct-border)] pl-3">
+                  <ul className="mb-1 space-y-0 border-l border-[var(--kuct-border)] pl-3">
                     {agentItems.map((item) => (
                       <li key={item.href}>
                         <NavItemLink
                           href={item.href}
                           label={item.label}
                           active={isPageActive(item.href)}
+                          className="block w-full py-1.5"
                           onClick={() => {
                             setIsMenuOpen(false);
                             setAgentOpenMobile(false);
@@ -395,6 +398,7 @@ export function Nav() {
                     href={link.href}
                     label={link.label}
                     active={isPageActive(link.href)}
+                    className="block w-full py-2"
                     onClick={() => setIsMenuOpen(false)}
                   />
                 </li>

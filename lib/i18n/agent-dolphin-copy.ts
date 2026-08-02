@@ -44,16 +44,18 @@ export type AgentDolphinCopy = {
 };
 
 const vi: AgentDolphinCopy = {
-  metaTitle: "Dolphin Care | Support website thông minh | Dolphin Software",
+  metaTitle: "Dolphin Care — AI chăm sóc khách hàng trên website",
   metaDescription:
-    "Dolphin Care gắn trên website — hỗ trợ khách bằng LLM + context nghiệp vụ + context khách hàng, chăm sóc như nhân viên chuyên nghiệp có cảm xúc.",
+    "Dolphin Care là giải pháp AI chăm sóc khách hàng trên website cho SMB Việt Nam — kết hợp LLM, nghiệp vụ doanh nghiệp và ngữ cảnh khách hàng để trả lời đúng việc, đúng giọng thương hiệu. Tích hợp được vào website hiện có.",
   eyebrow: "Dolphin Care",
-  headline: "Support website như [[nhân viên]] — không chatbot máy móc",
+  headline:
+    "AI chăm sóc khách hàng trên [[website]], hoạt động như một thành viên nhóm",
   support:
-    "Dolphin Care đảm nhiệm chăm sóc khách trên website của bạn. Khác chatbox trả lời theo kịch bản: kết hợp mô hình LLM với context doanh nghiệp và context từng khách để tư vấn, lắng nghe và xử lý đúng ngữ cảnh.",
-  ctaPrimary: "Trao đổi triển khai",
-  ctaSecondary: "Xem AI Agent khác",
-  trustLine: "LLM · Business context · Client context · Giọng điệu thương hiệu",
+    "Dolphin Care là công cụ AI chăm sóc khách hàng trên website do Dolphin Software phát triển. Không phải chatbot theo kịch bản — Dolphin Care kết hợp mô hình ngôn ngữ lớn (LLM) với nghiệp vụ doanh nghiệp và ngữ cảnh từng khách truy cập để lắng nghe, tư vấn và phản hồi đúng giọng điệu thương hiệu. Phù hợp SMB Việt Nam muốn nâng hỗ trợ trên website mà không mở rộng đội ngũ; tích hợp được vào website đang chạy hoặc mới — không bắt buộc do Dolphin Software xây.",
+  ctaPrimary: "Trao đổi về tích hợp",
+  ctaSecondary: "Xem các AI agent khác",
+  trustLine:
+    "LLM · Nghiệp vụ doanh nghiệp · Ngữ cảnh khách hàng · Giọng thương hiệu",
   heroAgentName: "Dolphin Care",
   heroJustNow: "bây giờ",
   heroCards: [
@@ -62,60 +64,62 @@ const vi: AgentDolphinCopy = {
     "Em đã ghi địa chỉ Quận 1. Có gì cần thêm cứ nhắn — em hỗ trợ liền.",
   ],
   compareEyebrow: "Khác biệt",
-  compareTitle: "Chatbox truyền thống vs [[Dolphin Care]]",
+  compareTitle:
+    "Chatbot AI cho doanh nghiệp: Dolphin Care khác [[chatbot]] thông thường ở điểm nào?",
   compareSupport:
-    "Cùng nằm góc website — một bên trả lời cứng, một bên hiểu việc và cảm xúc khách.",
-  oldTitle: "Chatbox / FAQ bot thông thường",
+    "Dolphin Care khác chatbot thông thường vì không chạy theo kịch bản cố định. Thay vào đó, nó kết hợp LLM với dữ liệu nghiệp vụ thực tế và ngữ cảnh từng phiên truy cập để trả lời linh hoạt, đúng việc, đúng người. Cùng một góc nhỏ trên website — nhưng một bên trả lời cứng nhắc, bên kia hiểu được công việc và tâm lý khách hàng.",
+  oldTitle: "Chatbot FAQ / kịch bản thông thường",
   oldItems: [
-    "Trả lời theo script — câu ngoài kịch bản dễ tắc hoặc lan man",
-    "Không biết sản phẩm, chính sách, tồn kho hay ưu đãi của bạn",
-    "Không nhớ lịch sử khách — mỗi lần hỏi như người lạ",
-    "Giọng điệu máy móc — khó tạo tin tưởng hay giữ chân",
+    "Câu trả lời bị giới hạn bởi script — câu hỏi ngoài kịch bản thì tắc hoặc lan man",
+    "Không biết gì về sản phẩm, chính sách, tồn kho hay ưu đãi của bạn",
+    "Không nhớ khách truy cập — mỗi cuộc chat đều bắt đầu từ đầu",
+    "Giọng điệu máy móc — khó xây dựng niềm tin hay giữ chân khách",
   ],
-  newTitle: "Dolphin Care",
+  newTitle: "Dolphin Care — AI chăm sóc khách hàng trên website",
   newItems: [
-    "LLM linh hoạt trong phạm vi bạn cho phép — không chỉ nút bấm FAQ",
-    "Nạp context business: giá, dịch vụ, quy trình, cách xưng hô",
-    "Dùng context khách: phiên chat, hành vi, thông tin đã chia sẻ",
-    "Chăm sóc gần nhân viên thật — lịch sự, đồng cảm, đúng brand",
+    "Phản hồi linh hoạt bằng LLM trong phạm vi được phép — không chỉ là nút FAQ",
+    "Business context: giá dịch vụ, quy trình, chính sách, cách doanh nghiệp xưng hô với khách",
+    "Client context: phiên truy cập hiện tại, hành vi, thông tin khách đã chia sẻ trước đó",
+    "Chăm sóc gần với một thành viên thực sự — lịch sự, đồng cảm, đúng thương hiệu",
   ],
-  pillarsEyebrow: "Ba lớp ngữ cảnh",
-  pillarsTitle: "Não AI + [[nghiệp vụ]] + [[khách hàng]]",
+  pillarsEyebrow: "Ba lớp thông tin",
+  pillarsTitle: "Cơ chế hoạt động của [[Dolphin Care]]",
   pillarsSupport:
-    "Ba nguồn thông tin chạy cùng lúc — agent trả lời đúng việc, đúng người, đúng giọng.",
+    "Dolphin Care hoạt động dựa trên ba nguồn thông tin đồng thời — giúp agent trả lời đúng nghiệp vụ, đúng đối tượng, đúng giọng điệu.",
   pillars: [
     {
-      title: "Mô hình LLM",
-      body: "Hiểu ngôn ngữ tự nhiên, hỏi lại khi thiếu thông tin, diễn đạt mượt — không copy-paste câu cứng.",
+      title: "01 — LLM (Mô hình ngôn ngữ lớn)",
+      body: "Ngôn ngữ tự nhiên, đặt câu hỏi làm rõ khi cần, diễn đạt trôi chảy — không phải copy-paste kịch bản.",
     },
     {
-      title: "Context doanh nghiệp",
-      body: "Kiến thức cửa hàng/studio của bạn: dịch vụ, bảng giá, chính sách, FAQ nội bộ, giọng thương hiệu.",
+      title: "02 — Business context (Nghiệp vụ doanh nghiệp)",
+      body: "Kiến thức của shop/studio bạn: dịch vụ, báo giá, chính sách, FAQ nội bộ, giọng điệu thương hiệu.",
     },
     {
-      title: "Context khách hàng",
-      body: "Phiên hiện tại và dấu vết đã có (form, trang đang xem, lịch sử nếu có) để cá nhân hóa câu trả lời.",
+      title: "03 — Customer context (Ngữ cảnh khách hàng)",
+      body: "Phiên truy cập hiện tại và các tín hiệu đã biết (form điền, trang đã xem, lịch sử nếu có) để trả lời cá nhân hóa.",
     },
   ],
-  howEyebrow: "Cách triển khai",
-  howTitle: "Gắn Dolphin Care lên [[website]] của bạn",
-  howSupport: "Bốn bước — từ hiểu brand đến widget live trên site.",
+  howEyebrow: "Tích hợp AI cho website",
+  howTitle: "Quy trình triển khai [[Dolphin Care]]",
+  howSupport:
+    "Bốn bước từ lúc xác định giọng thương hiệu đến khi widget lên sóng trên website thực tế.",
   howSteps: [
     {
-      title: "Thu thập nghiệp vụ & giọng điệu",
-      body: "Workshop ngắn: dịch vụ, ngoại lệ, cách xưng hô, câu cần escalate cho người.",
+      title: "Bước 1 — Thu thập nghiệp vụ và giọng điệu",
+      body: "Workshop ngắn: các dịch vụ, trường hợp ngoại lệ, cách xưng hô với khách, những gì cần leo thang lên người thật.",
     },
     {
-      title: "Nạp knowledge + guardrail",
-      body: "Đưa tài liệu/FAQ/policy vào kho context; chốt phạm vi agent được tự trả lời.",
+      title: "Bước 2 — Nạp knowledge base và thiết lập guardrails",
+      body: "Tài liệu, FAQ, chính sách được nạp vào context store; xác định phạm vi những gì agent được phép tự trả lời.",
     },
     {
-      title: "Gắn widget & kênh",
-      body: "Nhúng lên website (và tùy chọn Zalo/CRM). Đồng bộ lead / ticket khi cần người xử lý.",
+      title: "Bước 3 — Nhúng widget và kết nối kênh",
+      body: "Nhúng vào website (tùy chọn tích hợp Zalo/CRM). Đồng bộ lead/ticket khi cần chuyển sang người thật.",
     },
     {
-      title: "Theo dõi & tinh chỉnh",
-      body: "Xem hội thoại thật, chỉnh prompt/context theo chỗ khách hay hỏi — agent càng dùng càng khớp.",
+      title: "Bước 4 — Theo dõi và tinh chỉnh",
+      body: "Xem lại chat thực tế, điều chỉnh prompt/context ở những điểm khách bị tắc — càng dùng càng tốt hơn.",
     },
   ],
   embedMock: {
@@ -130,29 +134,37 @@ const vi: AgentDolphinCopy = {
     inputPlaceholder: "Nhập tin nhắn…",
   },
   faqEyebrow: "FAQ",
-  faqTitle: "Câu hỏi thường gặp",
+  faqTitle: "Câu hỏi thường gặp về Dolphin Care",
   faqItems: [
     {
-      q: "Dolphin Care khác chatbot có sẵn thế nào?",
-      a: "Chatbot sẵn thường chạy script. Dolphin Care dùng LLM kèm knowledge và ngữ cảnh khách của bạn — trả lời linh hoạt hơn nhưng vẫn trong guardrail.",
+      q: "Dolphin Care là gì và khác chatbot thông thường thế nào?",
+      a: "Dolphin Care là giải pháp AI chăm sóc khách hàng trên website do Dolphin Software phát triển, dành cho SMB Việt Nam. Khác với chatbot chạy script, Dolphin Care dùng LLM kết hợp với nghiệp vụ doanh nghiệp và ngữ cảnh khách truy cập — trả lời linh hoạt hơn, nhưng vẫn trong phạm vi kiểm soát. Cần agent gắn sâu quy trình nội bộ? Xem thêm /custom-agent/.",
     },
     {
-      q: "Có thay hoàn toàn nhân viên support không?",
-      a: "Không bắt buộc. Agent xử lý phần lặp và ngoài giờ; việc nhạy cảm hoặc ngoài scope escalate cho người — có log để kiểm soát.",
+      q: "Dolphin Care có thay thế nhân viên hỗ trợ không?",
+      a: "Không bắt buộc. Dolphin Care xử lý các câu hỏi lặp lại và hỗ trợ ngoài giờ làm việc. Các trường hợp nhạy cảm hoặc ngoài phạm vi sẽ được chuyển tiếp cho người thật — kèm log đầy đủ.",
     },
     {
-      q: "Cần website do Dolphin Software làm không?",
-      a: "Không. Có thể gắn lên site hiện có nếu cho phép nhúng widget / API. Làm web mới với Dolphin thì gắn sẵn sẽ mượt hơn.",
+      q: "Website có cần do Dolphin Software xây dựng mới tích hợp được không?",
+      a: "Không. Dolphin Care có thể nhúng vào website đang chạy nếu cho phép widget/API. Các website mới do Dolphin Software xây dựng sẽ được tích hợp agent sẵn khi bàn giao. Xem dịch vụ web tại /services/web/.",
     },
     {
-      q: "Dữ liệu khách có an toàn không?",
-      a: "Phạm vi lưu trữ và kênh gửi đi chốt rõ trong hợp đồng. Chỉ đưa vào context những gì cần để support — không mở lung tung.",
+      q: "Dữ liệu khách hàng có được bảo mật không?",
+      a: "Có. Phạm vi lưu trữ và kênh dữ liệu được xác định cụ thể trong hợp đồng. Chỉ context liên quan đến hỗ trợ mới được nạp vào — không phải toàn bộ dữ liệu kinh doanh.",
+    },
+    {
+      q: "Dolphin Care có hỗ trợ tích hợp Zalo không?",
+      a: "Có. Dolphin Care hỗ trợ tích hợp tùy chọn với Zalo và CRM, giúp đồng bộ lead và ticket khi cần chuyển tiếp sang nhân viên hỗ trợ thực tế.",
+    },
+    {
+      q: "Chi phí triển khai Dolphin Care như thế nào?",
+      a: "Dolphin Software báo giá minh bạch theo phạm vi dự án — không phát sinh phí ẩn, không bán thêm dịch vụ không cần thiết. Gửi URL website và mô tả đối tượng khách hàng để nhận đề xuất phù hợp.",
     },
   ],
   closeEyebrow: "Bắt đầu",
-  closeTitle: "Để website [[tự chăm]] khách chuyên nghiệp hơn",
+  closeTitle: "Để website chăm sóc khách hàng [[chuyên nghiệp]] hơn",
   closeSupport:
-    "Gửi link site và mô tả loại khách bạn nhận — Dolphin Software đề xuất phạm vi Dolphin Care và cách gắn.",
+    "Gửi URL website và đối tượng bạn phục vụ — Dolphin Software sẽ đề xuất phạm vi Dolphin Care và cách tích hợp phù hợp nhất.",
   closeCta: "Nhận tư vấn Dolphin Care",
 };
 
@@ -497,6 +509,16 @@ const homeVi: AgentDolphinHomeCopy = {
       {
         role: "assistant",
         text: "Đang giữ slot 3:00 — 60 phút. Cho mình xin tên và số điện thoại nhé.",
+      },
+      { role: "user", text: "Lan, 0901 234 567" },
+      {
+        role: "assistant",
+        text: "Đã ghi nhận chị Lan — 15:00 mai, massage 60 phút. Em gửi xác nhận Zalo và báo nhân viên trên CRM ngay ạ.",
+      },
+      { role: "user", text: "Ok cảm ơn" },
+      {
+        role: "assistant",
+        text: "Đã gửi Zalo rồi. Trước giờ hẹn 2 tiếng em nhắc lại — cần đổi lịch cứ nhắn nhé.",
       },
     ],
   },

@@ -5,6 +5,7 @@ import { LazyImage } from "@/components/LazyImage";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { AccentText, BrandText } from "@/components/BrandName";
+import { FaqAnswerText } from "@/components/FaqAnswerText";
 import { PopularServices } from "@/components/PopularServices";
 import { Reveal } from "@/components/Reveal";
 import { SitesShipped } from "@/components/SitesShipped";
@@ -167,9 +168,9 @@ export function ServiceDetailContent({
               <p className="mt-3 text-sm leading-[1.7] text-[var(--kuct-muted)] sm:text-base">
                 {extras.audience}
               </p>
-              <h3 className="mt-6 font-display text-sm font-semibold tracking-wide text-[var(--kuct-text)]">
+              <h2 className="mt-6 font-display text-sm font-semibold tracking-wide text-[var(--kuct-text)]">
                 {xui.useCasesTitle}
-              </h3>
+              </h2>
               <ul className="mt-3 list-none space-y-2.5 p-0">
                 {extras.useCases.map((item) => (
                   <li
@@ -187,20 +188,20 @@ export function ServiceDetailContent({
             </Reveal>
 
             <Reveal delay={60} className="rounded-2xl border border-[var(--kuct-border)] bg-[rgba(6,6,14,0.72)] p-5 backdrop-blur-md sm:p-6">
-              <p className="text-[11px] font-semibold tracking-[0.16em] text-[var(--kuct-accent)] uppercase">
+              <h2 className="text-[11px] font-semibold tracking-[0.16em] text-[var(--kuct-accent)] uppercase">
                 {xui.faqTitle}
-              </p>
+              </h2>
               <ul className="mt-4 list-none space-y-3 p-0">
                 {extras.faq.map((item) => (
                   <li
                     key={item.q}
                     className="rounded-xl border border-[var(--kuct-border)] bg-[rgba(10,10,22,0.55)] px-3.5 py-3"
                   >
-                    <p className="text-sm font-semibold text-[var(--kuct-text)]">
+                    <h3 className="text-sm font-semibold text-[var(--kuct-text)]">
                       {item.q}
-                    </p>
+                    </h3>
                     <p className="mt-1.5 text-sm leading-[1.65] text-[var(--kuct-muted)]">
-                      {item.a}
+                      <FaqAnswerText text={item.a} />
                     </p>
                   </li>
                 ))}

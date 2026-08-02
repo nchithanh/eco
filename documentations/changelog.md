@@ -2,6 +2,9 @@
 
 ## 2026-08-03
 
+- `/careers/` VI SEO/AEO/GEO rewriter (Jasper): meta “tuyển dụng freelance IT”; mô hình freelance; roles open/closed tách block; how-to-apply; FAQ 6 Q (+ `/services/web/`, `/about/`); bake VI meta; FAQPage + JobPosting JSON-LD.
+- `/about/` VI SEO/AEO/GEO rewriter (Jasper): meta “Dolphin Software là gì? / công ty thiết kế web”; entity-led sections; founder Nguyễn Chí Thanh 7+ năm; FAQ 6 Q; FAQPage + Person JSON-LD; internal links; schema `company.json` founder + about FAQ.
+- `/dolphin-care/` VI SEO/AEO/GEO rewriter (Jasper): meta keyword “AI chăm sóc khách hàng trên website”; hero/compare/pillars/how entity-led; FAQ 6 Q (+ Zalo, báo giá; internal links `/custom-agent/`, `/services/web/`); schema `public/schema/agents/dolphin-care.json`.
 - `/services/mobile/` VI SEO/AEO/GEO rewriter (Jasper): meta/H1/intro entity-led; section leads; FAQ 6 Q (Flutter vs RN, store, timeline 8–14 tuần, chi phí, hỗ trợ sau BG, AI + internal links); use cases vấn đề→phạm vi→kết quả; bake VI meta/JSON-LD; schema `public/schema/services/mobile.json`.
 - `/services/web/` VI SEO/AEO/GEO rewriter (Jasper): meta/H1/intro entity-led; section leads; FAQ 7 Q (timeline khớp gói 3–5 ngày / 7–14 ngày / 3–4 tuần); pricing footer “không bán thừa, không phí ẩn”; schema `public/schema/services/web.json` + homepage works 6 cases.
 - i18n: drop `de` and `zh` locales — product supports **vi / en / ja** only; `DEFAULT_LOCALE` stays `ja`; pricing FX VND/USD/JPY; LanguageSwitcher, SEO alternates, boot script updated.
