@@ -1,27 +1,35 @@
 {
   "meta": {
     "kind": "homepage-section",
+    "id": "contact",
     "locale": "vi",
     "brand": "Dolphin Software",
-    "updated": "2026-08-02",
-    "productRoute": "/",
-    "id": "contact",
-    "anchor": "#contact",
-    "component": "ContactForm",
+    "updated": "2026-08-03",
     "schemaPath": "/schema/homepage/contact/",
     "rawPath": "/schema/homepage/contact.json",
-    "copyKey": "contactChrome"
+    "productRoute": "/"
   },
   "content": {
-    "eyebrow": "Next step",
-    "title": "Có [[bài toán]] cần giải?",
-    "support": "Mô tả ngắn vấn đề bạn đang gặp. Chúng tôi phản hồi hướng tiếp cận và phạm vi phù hợp, không ép gói.",
-    "nextHint": "Thường phản hồi trong ngày làm việc.",
-    "afterSubmitTitle": "Sau khi bạn gửi form, bạn sẽ nhận được:",
-    "afterSubmitItems": [
-      "Hướng tiếp cận ban đầu cho bài toán của bạn.",
-      "Gợi ý phạm vi: Build / Modernize / Automate / Care.",
-      "Mốc thời gian và khoảng chi phí ước tính."
+    "order": 13,
+    "id": "contact",
+    "section_label": "Liên hệ",
+    "headline": "Sẵn sàng làm website hoặc tự động hóa quy trình?",
+    "subheadline": "Gửi brief ngắn — Dolphin Software phản hồi hướng tiếp cận và phạm vi phù hợp, không ép gói.",
+    "after_submit": [
+      "Hướng tiếp cận ban đầu cho bài toán của bạn",
+      "Gợi ý phạm vi: website · nâng cấp · AI automation · Dolphin Care",
+      "Mốc thời gian và khoảng chi phí ước tính"
+    ],
+    "next_hint": "Thường phản hồi trong ngày làm việc.",
+    "ctas": [
+      {
+        "label": "Chat Zalo",
+        "href": "https://zalo.me/0779937633"
+      },
+      {
+        "label": "Email",
+        "href": "mailto:nchithanh9999@gmail.com"
+      }
     ]
   }
 }

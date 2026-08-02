@@ -6,29 +6,105 @@
     "brand": "Dolphin Software",
     "schemaPath": "/schema/services/web/",
     "rawPath": "/schema/services/web.json",
-    "updated": "2026-08-02"
+    "updated": "2026-08-03"
   },
   "pillar": "Build",
   "productRoute": "/services/web/",
-  "title": "Thiết kế & làm website theo yêu cầu",
+  "title": "Thiết kế website theo yêu cầu cho doanh nghiệp vừa và nhỏ",
   "metaTitle": "Thiết kế website theo yêu cầu | Dolphin Software",
-  "metaDescription": "Làm website, landing page và corporate site cho SMB — phạm vi rõ, báo giá minh bạch, SEO kỹ thuật cơ bản. Nhận báo giá nhanh qua Zalo hoặc form.",
-  "intro": "Cần làm website hoặc thiết kế web cho doanh nghiệp? Chúng tôi xây landing, site bán hàng và corporate — phạm vi rõ, timeline rõ, dễ nhận báo giá và mở rộng sau.",
+  "metaDescription": "Dolphin Software thiết kế website doanh nghiệp, landing page và e-commerce theo yêu cầu — báo giá rõ ràng, bàn giao đúng hạn, dễ mở rộng về sau. Xem gói dịch vụ.",
+  "intro": "Dolphin Software xây dựng website doanh nghiệp, landing page, và cửa hàng trực tuyến — phạm vi rõ ràng, tiến độ minh bạch, dễ báo giá và mở rộng về sau. Phù hợp cho SMB, startup, và đội marketing cần ra hàng nhanh mà không cần am hiểu kỹ thuật.",
+  "tech": "Next.js · React · Headless CMS (Strapi)",
+  "highlightsTitle": "Bạn nhận được gì từ dịch vụ thiết kế web của Dolphin Software?",
+  "highlightsLead": "Mỗi website do Dolphin Software xây dựng đều được thiết kế hướng đến chuyển đổi — không chỉ đẹp về hình thức mà còn hoạt động hiệu quả cho doanh nghiệp.",
   "highlights": [
-    "Landing / marketing site tối ưu chuyển đổi",
-    "Website doanh nghiệp & bán hàng đa trang",
-    "CMS (Strapi / headless) để team tự cập nhật",
-    "SEO kỹ thuật cơ bản và performance tốt"
+    "Landing page & marketing site tối ưu chuyển đổi, rõ thông điệp",
+    "Website doanh nghiệp đa trang cho profile công ty, dịch vụ, SEO dài hạn",
+    "CMS headless (Strapi) để đội ngũ tự cập nhật nội dung mà không cần lập trình viên",
+    "Nền tảng SEO kỹ thuật bao gồm meta tags, tốc độ tải, mobile, sitemap/robots"
   ],
+  "processTitle": "Quy trình làm việc",
+  "processLead": "Dolphin Software theo quy trình theo từng milestone — minh bạch, gọn gàng, không kéo dài không cần thiết.",
   "process": [
-    "Khảo sát mục tiêu, sitemap và nội dung",
-    "Thiết kế UI + review vòng ngắn",
-    "Implement Next.js / React theo milestone",
-    "QA, bàn giao và hướng dẫn vận hành"
+    "Khám phá mục tiêu — xác định sitemap, cấu trúc nội dung, và yêu cầu kỹ thuật",
+    "Thiết kế UI — vòng review ngắn, phản hồi nhanh, tránh lãng phí thời gian",
+    "Phát triển theo milestone — build bằng Next.js / React, bàn giao từng phần để kiểm tra",
+    "QA, ra mắt, và bàn giao vận hành — bao gồm hướng dẫn sử dụng và hỗ trợ sau launch"
   ],
+  "deliverablesTitle": "Bàn giao bao gồm những gì?",
+  "deliverablesLead": "Phù hợp nhất cho: doanh nghiệp vừa và nhỏ (SMB), startup, và đội marketing cần website hoàn chỉnh, bàn giao đúng hạn và dễ báo giá.",
   "deliverables": [
-    "Source code + deploy production",
-    "Tài liệu cấu trúc nội dung / CMS",
-    "Checklist launch và hỗ trợ hậu kỳ ngắn"
-  ]
+    "Source code và deploy production",
+    "Tài liệu cấu trúc CMS / nội dung",
+    "Checklist ra mắt và hỗ trợ ngắn sau launch"
+  ],
+  "audience": "Doanh nghiệp vừa và nhỏ (SMB), startup, và đội marketing cần website hoàn chỉnh, bàn giao đúng hạn và dễ báo giá.",
+  "useCases": [
+    "Landing page cho chiến dịch quảng cáo hoặc ra mắt sản phẩm mới",
+    "Website doanh nghiệp với CMS để tự quản lý nội dung",
+    "Website đa ngôn ngữ hỗ trợ VI / EN / JA cho doanh nghiệp hướng xuất khẩu hoặc khách quốc tế"
+  ],
+  "caseStudies": [
+    {
+      "id": "billiard",
+      "title": "Ops quản lý bida",
+      "result": "Giảm ca bị bỏ sót, onboarding nhanh hơn, xem ca trực tiếp"
+    },
+    {
+      "id": "badminton",
+      "title": "Website sân cầu lông",
+      "result": "Ít cuộc gọi hỏi lịch trống hơn, đặt chỗ đúng khung giờ tăng"
+    },
+    {
+      "id": "tickets",
+      "title": "Đặt vé & tối ưu chuyển đổi",
+      "result": "Ít bước để đặt vé, tỷ lệ hoàn thành booking tăng"
+    },
+    {
+      "id": "beauty",
+      "title": "Đặt lịch beauty",
+      "result": "Giảm lịch bị bỏ, tăng đặt hẹn ngoài giờ làm việc"
+    },
+    {
+      "id": "cafe",
+      "title": "Đặt món QR cho quán cafe",
+      "result": "Gọi đồ nhanh hơn, ít sai món hơn, nhân viên tập trung phục vụ"
+    },
+    {
+      "id": "clinic",
+      "title": "Đặt lịch khám phòng khám",
+      "result": "Giảm cuộc gọi hỏi lịch, hạn chế đặt trùng"
+    }
+  ],
+  "faq": [
+    {
+      "q": "Thiết kế website theo yêu cầu giá bao nhiêu?",
+      "a": "Giá phụ thuộc vào phạm vi: số trang, thiết kế tùy chỉnh hay dùng template, có CMS không, và các tích hợp như form hoặc thanh toán. Gói khởi điểm từ $38 (landing page) đến $380 (e-commerce). Báo giá chính xác được cung cấp sau khi xác nhận mục tiêu."
+    },
+    {
+      "q": "Làm website doanh nghiệp mất bao lâu?",
+      "a": "Landing page thường hoàn thành trong 3–5 ngày làm việc. Website doanh nghiệp đa trang mất 7–14 ngày. Website e-commerce mất 3–4 tuần. Thời gian thực tế phụ thuộc vào mức độ phản hồi nội dung và review từ phía khách hàng."
+    },
+    {
+      "q": "Tôi có thể tự cập nhật nội dung website sau khi bàn giao không?",
+      "a": "Có. Các gói Business Website trở lên bao gồm CMS headless (Strapi), cho phép đội ngũ của bạn tự thêm, sửa, xóa nội dung mà không cần lập trình viên."
+    },
+    {
+      "q": "Dịch vụ có bao gồm SEO không?",
+      "a": "Tất cả các gói đều bao gồm SEO kỹ thuật nền tảng: meta tags, tối ưu tốc độ, mobile-friendly, sitemap và robots.txt. Chiến lược từ khóa và xây dựng backlink là dịch vụ bổ sung nếu bạn muốn tăng trưởng organic dài hạn."
+    },
+    {
+      "q": "Dolphin Software có làm website đa ngôn ngữ không?",
+      "a": "Có. Dolphin Software hỗ trợ xây dựng website đa ngôn ngữ (Tiếng Việt / Tiếng Anh / Tiếng Nhật), phù hợp cho doanh nghiệp có khách hàng hoặc đối tác quốc tế."
+    },
+    {
+      "q": "Tôi đang dùng website cũ — Dolphin Software có hỗ trợ nâng cấp hệ thống cũ không?",
+      "a": "Có. Dolphin Software đánh giá hệ thống hiện tại và đề xuất phương án nâng cấp phù hợp — từ cải thiện hiệu năng đến tái cấu trúc toàn bộ stack kỹ thuật. Liên hệ để được phân tích giải pháp miễn phí."
+    },
+    {
+      "q": "Dolphin Software có tích hợp AI automation vào website không?",
+      "a": "Có. Với định vị là studio phát triển phần mềm và AI, Dolphin Software có thể tích hợp các tính năng AI automation — như chatbot, xử lý đơn hàng tự động, hoặc phân tích dữ liệu — vào website doanh nghiệp theo yêu cầu."
+    }
+  ],
+  "positioningNote": "không bán thừa, không phí ẩn"
 }

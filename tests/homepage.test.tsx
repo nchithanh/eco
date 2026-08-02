@@ -169,10 +169,8 @@ describe("Dolphin Software homepage", () => {
     expect(within(popular).getByText("1.000.000đ")).toBeInTheDocument();
 
     await user.click(screen.getByRole("button", { name: /^Language$/i }));
-    await user.click(screen.getByRole("button", { name: /Deutsch/i }));
-    expect(
-      within(popular).getByText((content) => /^33\s*€$/.test(content.trim())),
-    ).toBeInTheDocument();
+    await user.click(screen.getByRole("button", { name: /日本語/i }));
+    expect(within(popular).getByText("￥6,200")).toBeInTheDocument();
   });
 
   it("renders projects and care before solutions (packages near end)", () => {
@@ -376,37 +374,20 @@ describe("Dolphin Software homepage", () => {
     ).toBeGreaterThanOrEqual(1);
   });
 
-  it("switches language to German", async () => {
+  it("switches language to Japanese", async () => {
     const user = userEvent.setup();
     renderHome();
 
     await user.click(screen.getByRole("button", { name: /^Language$/i }));
-    await user.click(screen.getByRole("button", { name: /Deutsch/i }));
+    await user.click(screen.getByRole("button", { name: /日本語/i }));
 
     expect(
       screen.getByRole("heading", {
-        name: /Lassen Sie Technologie nicht zur Last für Ihr Unternehmen werden/i,
+        name: /テクノロジーを事業の負担にしない/i,
       }),
     ).toBeInTheDocument();
     expect(
-      screen.getAllByRole("button", { name: /Angebot anfordern/i }).length,
-    ).toBeGreaterThanOrEqual(1);
-  });
-
-  it("switches language to Chinese", async () => {
-    const user = userEvent.setup();
-    renderHome();
-
-    await user.click(screen.getByRole("button", { name: /^Language$/i }));
-    await user.click(screen.getByRole("button", { name: /中文/i }));
-
-    expect(
-      screen.getByRole("heading", {
-        name: /别让技术成为企业的负担/i,
-      }),
-    ).toBeInTheDocument();
-    expect(
-      screen.getAllByRole("button", { name: /获取报价/i }).length,
+      screen.getAllByRole("button", { name: /見積もりを依頼/i }).length,
     ).toBeGreaterThanOrEqual(1);
   });
 });

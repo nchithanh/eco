@@ -21,6 +21,14 @@ export type ServiceDetail = {
   /** Optional SEO title (browser tab / Google). Falls back to title. */
   metaTitle?: string;
   metaDescription?: string;
+  /** Optional section title overrides (e.g. web AEO headers). */
+  highlightsTitle?: string;
+  processTitle?: string;
+  deliverablesTitle?: string;
+  /** Optional lead sentences for AEO section extraction. */
+  highlightsLead?: string;
+  processLead?: string;
+  deliverablesLead?: string;
   highlights: string[];
   process: string[];
   deliverables: string[];
@@ -40,10 +48,10 @@ const ui: Record<Locale, ServiceDetailUi> = {
   vi: {
     back: "← Về trang chủ",
     highlightsTitle: "Bạn nhận được gì",
-    processTitle: "Cách chúng tôi làm",
+    processTitle: "Quy trình làm việc",
     deliverablesTitle: "Bàn giao",
-    cta: "Nhận báo giá",
-    packagesCta: "Xem gói giá",
+    cta: "Nhận báo giá miễn phí",
+    packagesCta: "Xem các gói dịch vụ",
     notFound: "Không tìm thấy dịch vụ này.",
   },
   en: {
@@ -64,72 +72,75 @@ const ui: Record<Locale, ServiceDetailUi> = {
     packagesCta: "料金パッケージを見る",
     notFound: "このサービスは見つかりませんでした。",
   },
-  de: {
-    back: "← Zur Startseite",
-    highlightsTitle: "Was Sie erhalten",
-    processTitle: "So arbeiten wir",
-    deliverablesTitle: "Lieferumfang",
-    cta: "Angebot anfordern",
-    packagesCta: "Pakete ansehen",
-    notFound: "Dieser Service wurde nicht gefunden.",
-  },
-  zh: {
-    back: "← 返回首页",
-    highlightsTitle: "你将获得",
-    processTitle: "我们如何做",
-    deliverablesTitle: "交付物",
-    cta: "获取报价",
-    packagesCta: "查看套餐",
-    notFound: "未找到该服务。",
-  },
 };
 
 const vi: Record<ServiceSlug, ServiceDetail> = {
   web: {
-    title: "Thiết kế & làm website theo yêu cầu",
+    title: "Thiết kế website theo yêu cầu cho doanh nghiệp vừa và nhỏ",
     metaTitle: "Thiết kế website theo yêu cầu | Dolphin Software",
     metaDescription:
-      "Làm website, landing page và corporate site cho SMB — phạm vi rõ, báo giá minh bạch, SEO kỹ thuật cơ bản. Nhận báo giá nhanh qua Zalo hoặc form.",
+      "Dolphin Software thiết kế website doanh nghiệp, landing page và e-commerce theo yêu cầu — báo giá rõ ràng, bàn giao đúng hạn, dễ mở rộng về sau. Xem gói dịch vụ.",
     intro:
-      "Cần làm website hoặc thiết kế web cho doanh nghiệp? Chúng tôi xây landing, site bán hàng và corporate — phạm vi rõ, timeline rõ, dễ nhận báo giá và mở rộng sau.",
+      "Dolphin Software xây dựng website doanh nghiệp, landing page, và cửa hàng trực tuyến — phạm vi rõ ràng, tiến độ minh bạch, dễ báo giá và mở rộng về sau. Phù hợp cho SMB, startup, và đội marketing cần ra hàng nhanh mà không cần am hiểu kỹ thuật.",
+    highlightsTitle: "Bạn nhận được gì từ dịch vụ thiết kế web của Dolphin Software?",
+    highlightsLead:
+      "Mỗi website do Dolphin Software xây dựng đều được thiết kế hướng đến chuyển đổi — không chỉ đẹp về hình thức mà còn hoạt động hiệu quả cho doanh nghiệp.",
+    processTitle: "Quy trình làm việc",
+    processLead:
+      "Dolphin Software theo quy trình theo từng milestone — minh bạch, gọn gàng, không kéo dài không cần thiết.",
+    deliverablesTitle: "Bàn giao bao gồm những gì?",
+    deliverablesLead:
+      "Phù hợp nhất cho: doanh nghiệp vừa và nhỏ (SMB), startup, và đội marketing cần website hoàn chỉnh, bàn giao đúng hạn và dễ báo giá.",
     highlights: [
-      "Landing / marketing site tối ưu chuyển đổi",
-      "Website doanh nghiệp & bán hàng đa trang",
-      "CMS (Strapi / headless) để team tự cập nhật",
-      "SEO kỹ thuật cơ bản và performance tốt",
+      "Landing page & marketing site tối ưu chuyển đổi, rõ thông điệp",
+      "Website doanh nghiệp đa trang cho profile công ty, dịch vụ, SEO dài hạn",
+      "CMS headless (Strapi) để đội ngũ tự cập nhật nội dung mà không cần lập trình viên",
+      "Nền tảng SEO kỹ thuật bao gồm meta tags, tốc độ tải, mobile, sitemap/robots",
     ],
     process: [
-      "Khảo sát mục tiêu, sitemap và nội dung",
-      "Thiết kế UI + review vòng ngắn",
-      "Implement Next.js / React theo milestone",
-      "QA, bàn giao và hướng dẫn vận hành",
+      "Khám phá mục tiêu — xác định sitemap, cấu trúc nội dung, và yêu cầu kỹ thuật",
+      "Thiết kế UI — vòng review ngắn, phản hồi nhanh, tránh lãng phí thời gian",
+      "Phát triển theo milestone — build bằng Next.js / React, bàn giao từng phần để kiểm tra",
+      "QA, ra mắt, và bàn giao vận hành — bao gồm hướng dẫn sử dụng và hỗ trợ sau launch",
     ],
     deliverables: [
-      "Source code + deploy production",
-      "Tài liệu cấu trúc nội dung / CMS",
-      "Checklist launch và hỗ trợ hậu kỳ ngắn",
+      "Source code và deploy production",
+      "Tài liệu cấu trúc CMS / nội dung",
+      "Checklist ra mắt và hỗ trợ ngắn sau launch",
     ],
   },
   mobile: {
-    title: "Phát triển mobile app",
+    title: "Phát triển ứng dụng mobile – iOS, Android & cross-platform",
+    metaTitle: "Phát triển ứng dụng mobile | Dolphin Software",
+    metaDescription:
+      "Dolphin Software phát triển app iOS/Android và cross-platform bằng Flutter, React Native cho doanh nghiệp vừa và nhỏ tại Việt Nam. Báo giá rõ ràng, bàn giao đúng hạn.",
     intro:
-      "App iOS / Android hoặc cross-platform — ưu tiên trải nghiệm người dùng, ổn định release và tích hợp API rõ ràng.",
+      "Dolphin Software xây dựng ứng dụng di động iOS/Android và cross-platform bằng Flutter hoặc React Native — ưu tiên trải nghiệm người dùng, phát hành ổn định và tích hợp API sạch. Phù hợp cho doanh nghiệp vừa và nhỏ, startup và product team tại Việt Nam cần ra mắt MVP nhanh, đúng hạn, không phát sinh chi phí ẩn.",
+    highlightsTitle: "Bạn nhận được gì khi làm app với Dolphin Software?",
+    highlightsLead:
+      "Dolphin Software cung cấp đầy đủ năng lực phát triển app di động — từ thiết kế luồng UX, lập trình tính năng lõi, đến hỗ trợ submit lên store — trong một gói dịch vụ rõ ràng, không bán thừa.",
+    processTitle: "Cách Dolphin Software triển khai dự án app",
+    processLead:
+      "Dolphin Software làm việc theo quy trình sprint có cấu trúc, giúp SMB và startup kiểm soát tiến độ và chi phí ở từng giai đoạn — không bị surprise ở cuối dự án.",
+    deliverablesTitle: "Bàn giao dự án app bao gồm những gì?",
+    deliverablesLead:
+      "Sau khi hoàn thành, Dolphin Software bàn giao đầy đủ tài liệu và source code để team của bạn có thể tự vận hành hoặc tiếp tục phát triển.",
     highlights: [
-      "Flutter hoặc React Native theo stack đội ngũ",
-      "Navigation, auth và offline-friendly khi cần",
-      "Tích hợp API / thanh toán / push notification",
-      "Build pipeline và checklist store release",
+      "Flutter hoặc React Native phù hợp với stack và yêu cầu native của team bạn",
+      "Navigation, xác thực (auth), offline-friendly patterns được xây dựng theo chuẩn từ đầu",
+      "Tích hợp API, thanh toán, push notifications — không cần team riêng",
+      "Build pipeline và checklist phát hành lên store (App Store / Google Play)",
     ],
     process: [
-      "Định nghĩa user flow và MVP scope",
-      "UI kit mobile + prototype chính",
-      "Sprint phát triển với demo định kỳ",
-      "Test thiết bị, UAT và hỗ trợ submit store",
+      "Xác định luồng và phạm vi MVP — cùng bạn làm rõ yêu cầu, loại bỏ phần không cần thiết cho v1",
+      "Mobile UI kit + prototype lõi — bàn giao bản prototype có thể click trước khi lập trình",
+      "Phát triển sprint, demo định kỳ — bạn thấy tiến độ thực tế mỗi sprint, không chờ đến cuối",
+      "Device testing, UAT, hỗ trợ submit store — kiểm thử trên thiết bị thật, hỗ trợ toàn bộ quá trình submit",
     ],
     deliverables: [
-      "App builds (TestFlight / internal track)",
-      "Source + hướng dẫn chạy local",
-      "Tài liệu API integration phía app",
+      "App builds (TestFlight / internal track) sẵn sàng để test và submit",
+      "Source code + hướng dẫn chạy local — không bị lock-in vào Dolphin Software",
+      "Tài liệu tích hợp API phía app — rõ ràng cho developer kế tiếp tiếp quản",
     ],
   },
   backend: {
@@ -567,173 +578,11 @@ const ja: Record<ServiceSlug, ServiceDetail> = {
   },
 };
 
-const de: Record<ServiceSlug, ServiceDetail> = {
-  web: {
-    title: "Website-Design & Entwicklung",
-    metaTitle: "Website-Design & Entwicklung | Dolphin Software",
-    metaDescription:
-      "Websites, Landings und Corporate Sites für KMUs — klarer Scope, transparente Angebote, solide technische SEO. Angebot per Formular oder Chat.",
-    intro:
-      "Brauchen Sie eine Unternehmenswebsite oder Landingpage? Wir bauen Marketing-Sites, Verkaufsfronten und Corporate Sites — klarer Scope, klarer Zeitplan, leicht anzubieten und später erweiterbar.",
-    highlights: [
-      "Conversion-orientierte Landing- / Marketing-Sites",
-      "Business- & Handels-Sites mit mehreren Seiten",
-      "CMS (Strapi / headless) für Eigenpflege",
-      "Solide technische SEO- und Performance-Basis",
-    ],
-    process: [
-      "Ziele, Sitemap und Content-Modell klären",
-      "UI-Design mit kurzen Review-Loops",
-      "Umsetzung in Next.js / React nach Meilensteinen",
-      "QA, Go-live und Ops-Übergabe",
-    ],
-    deliverables: [
-      "Source + Production-Deploy",
-      "CMS- / Content-Dokumentation",
-      "Launch-Checklist und kurze Nachbetreuung",
-    ],
-  },
-  mobile: {
-    title: "Mobile-App-Entwicklung",
-    intro:
-      "iOS / Android oder Cross-Platform — UX zuerst, stabile Releases und saubere API-Anbindung.",
-    highlights: [
-      "Flutter oder React Native passend zum Stack",
-      "Navigation, Auth, offline-freundliche Patterns",
-      "API / Zahlungen / Push-Benachrichtigungen",
-      "Build-Pipeline und Store-Release-Checklist",
-    ],
-    process: [
-      "Flows und MVP-Scope definieren",
-      "Mobile-UI-Kit + Kernprototyp",
-      "Sprint-Lieferung mit regelmäßigen Demos",
-      "Gerätetests, UAT, Store-Submit-Support",
-    ],
-    deliverables: [
-      "App-Builds (TestFlight / Internal Track)",
-      "Source + lokale Startanleitung",
-      "API-Integrationsnotizen auf App-Seite",
-    ],
-  },
-  backend: {
-    title: "Backend & Systemintegration",
-    intro:
-      "APIs, Auth, Zahlungen und Drittanbieter — ein Fundament, das skaliert, statt endlos zu patchen.",
-    highlights: [
-      "REST / APIs mit klaren Contracts und Fehlern",
-      "Auth (JWT / Session) und Berechtigungen",
-      "Zahlungen, E-Mail, Storage, Webhooks",
-      "PostgreSQL plus Basis-Logging / Monitoring",
-    ],
-    process: [
-      "Domänengrenzen und Integrationen mapen",
-      "API + Datenmodell entwerfen",
-      "Modulweise implementieren",
-      "Integrationstests, Doku und Ops-Übergabe",
-    ],
-    deliverables: [
-      "Deploybare Backend-Services",
-      "OpenAPI / Endpoint-Dokumentation",
-      "Env-Samples + kurzes Runbook",
-    ],
-  },
-  design: {
-    title: "UI/UX & Übergabe",
-    intro:
-      "Interfaces und Design Systems — konsistent im Look, schnell umsetzbar für Engineering.",
-    highlights: [
-      "Leichte Research + User Flows",
-      "High-Fidelity-UI in Figma",
-      "Design System / Komponentenbibliothek",
-      "Saubere Handover: Abstände, States, Assets",
-    ],
-    process: [
-      "Workshop zu Anforderungen und Zielgruppen",
-      "Wireframes → poliertes UI mit Feedback",
-      "Tokens und Komponenten standardisieren",
-      "Übergabe und Support in der Build-Phase",
-    ],
-    deliverables: [
-      "Organisierte Figma-Datei",
-      "Specs / Redlines für Schlüsselscreens",
-      "Exportierte Assets und kurze Guideline",
-    ],
-  },
-  integrations: {
-    title: "Drittanbieter-Integration",
-    intro:
-      "MoMo / ZaloPay / VNPay, Zalo OA, SMS, E-Mail und weitere APIs sicher in Ihr bestehendes System einbinden — mit klaren Flows und betreibbaren Runbooks.",
-    highlights: [
-      "Zahlungen: MoMo, ZaloPay, VNPay, Stripe…",
-      "Zalo OA / Messaging / Webhooks",
-      "SMS, E-Mail, eKYC, Logistik nach Bedarf",
-      "Retries, Idempotenz, Logging, Abstimmung",
-    ],
-    process: [
-      "Bestands-Audit und Provider-Auswahl",
-      "Zahlungs- / Callback- / Refund-Flows designen",
-      "Umsetzung + Sandbox-Tests mit Partnern",
-      "Go-live, Monitoring und Ops-Übergabe",
-    ],
-    deliverables: [
-      "Integrationsmodule auf Staging/Production",
-      "Flow-Doku + Env-/Credential-Checkliste",
-      "Runbook für Zahlungs-/Webhook-Fehler",
-    ],
-  },
-  agents: {
-    title: "Agent-Ökosystem für Business",
-    intro:
-      "Business-Context, MCP-Connectoren und interne Tools aufbauen — damit Ihr Team schneller und domain-treu vibe-coden und AI-Workflows fahren kann.",
-    highlights: [
-      "Business-Context / Knowledge Base für Agents",
-      "MCP-Server und interne Tool-Integration",
-      "Agent-Workflows für Coding, CS und Ops",
-      "Guardrails: Zugriffsrechte, Audit, Prompt-Policy",
-    ],
-    process: [
-      "Prozesse, Daten und Agent-Use-Cases mappen",
-      "Context-Layer + MCP-/Tool-Connectoren designen",
-      "Workflows prototypen und Qualität bewerten",
-      "Härten, dokumentieren und Betrieb übergeben",
-    ],
-    deliverables: [
-      "Lauffähiger Agent-/MCP-Stack je Umgebung",
-      "Business-Context-Pack + Nutzungsleitfaden",
-      "Security-Checkliste und Pfad für neue Tools",
-    ],
-  },
-
-  "custom-agent": {
-    title: "Individuelle AI-Agents nach Auftrag",
-    intro:
-      "Kein fertiges Skript-Chatbot. Dolphin lädt Ihre echten Abläufe — Prozess, Preise, Richtlinien — und verbindet bestehende Systeme (CRM, Messaging, Kalender, Zahlung), damit der Agent Arbeit übernimmt und messbare Ergebnisse liefert.",
-    highlights: [
-      "Geschäftsregeln eingebettet: Prozess, Preise, Ton, Ausnahmen",
-      "Anbindung an aktuelle Tools — kein Komplettaustausch",
-      "Ein Agent, eine klare Aufgabe: Leads, Termine, Angebote, Follow-ups…",
-      "Human-in-the-loop bei kritischen Schritten; Logs und Nachjustierung",
-    ],
-    process: [
-      "Realen Workflow kartieren — zuerst den teuersten Wiederholschritt",
-      "Regeln, Datenquellen und Erfolgskriterien laden",
-      "Tools / APIs / Kanäle im vereinbarten Scope anbinden",
-      "Pilot mit echten Fällen, messen, nachschärfen, dann erweitern",
-    ],
-    deliverables: [
-      "Laufender Agent / Workflow in der vereinbarten Umgebung",
-      "Geladenes Business-Pack + kurze Ops-Anleitung",
-      "Security-/Zugangs-Checkliste und Pfad für den nächsten Job",
-    ],
-  },
-};
 
 const detailsByLocale: Record<Locale, Record<ServiceSlug, ServiceDetail>> = {
   vi,
   en,
   ja,
-  de,
-  zh: en,
 };
 
 export function getServiceDetailUi(locale: Locale): ServiceDetailUi {

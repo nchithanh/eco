@@ -48,22 +48,8 @@ const ui: Record<Locale, MoreDetailUi> = {
     notesTitle: "注意事項",
     cta: "相談する",
   },
-  de: {
-    back: "← Zurück zur Startseite",
-    highlightsTitle: "Umfang",
-    processTitle: "Ablauf",
-    notesTitle: "Hinweise",
-    cta: "Kontakt aufnehmen",
-  },
 
 
-  zh: {
-    back: "← 返回首页",
-    highlightsTitle: "范围",
-    processTitle: "合作方式",
-    notesTitle: "注意事项",
-    cta: "联系咨询",
-  }
 };
 
 /** Logical public paths — resolve with `themeAsset` at render. */
@@ -216,102 +202,8 @@ const copyByLocale: Record<Locale, Record<MoreSlug, MoreCopy>> = {
       ],
     },
   },
-  de: {
-    architecture: {
-      title: "Architektur- & Systemsupport",
-      tag: "Ops",
-      intro:
-        "Wenn ein laufendes System langsam, fehleranfällig, schwer skalierbar oder ohne Ops-Kapazität ist — Dolphin Software auditiert fokussiert, schlägt Fixes vor und unterstützt remote nach Session.",
-      highlights: [
-        "Architektur- / Performance- / Bottleneck-Audit",
-        "Remediation nach Priorität (P0–P2)",
-        "Remote-Support bei Incidents oder Ops-Onboarding",
-        "Kurzes Dokument: Ist-Map + nächste Schritte",
-      ],
-      process: [
-        "Symptome, Logs, vorhandene Diagramme sammeln",
-        "Discovery / Screenshare zur Eingrenzung",
-        "Kurzer Report + Aufwandsschätzung",
-        "Fix in kleinen Sprints oder Support-Retainer",
-      ],
-      notes: [
-        "Für bestehende Systeme — kein Greenfield-Product-Discovery.",
-        "Wir können mit Ihrem Intern-Team arbeiten; Repo-Übernahme nur auf Wunsch.",
-      ],
-    },
-    stock: {
-      title: "Wertpapier-Investment-Community",
-      tag: "Community",
-      intro:
-        "Hilfe beim ID-Linking / Beitritt zu einer Diskussionscommunity. Unter Bedingungen kostenlos. Keine lizenzierte Anlageberatung und keine Renditeversprechen.",
-      highlights: [
-        "ID-Linking-Anleitung gemäß Community-Prozess",
-        "Gruppenkanal für Austausch / Updates",
-        "Kostenlos bei erfüllten Bedingungen",
-        "Transparent: kein Verkauf von „sicheren Tipps“",
-      ],
-      process: [
-        "Kontakt per Formular / Zalo mit ID-Link-Absicht",
-        "Kostenlos-Bedingungen prüfen (falls vorhanden)",
-        "Beitrittsanleitung erhalten",
-        "Entscheidung liegt bei Ihnen; keine versteckte Personalberatung",
-      ],
-      notes: [
-        "Keine lizenzierte Anlageberatung.",
-        "Keine Renditegarantie; Marktrisiko trägt der Nutzer.",
-        "Nur Community-Sharing — keine Kauf-/Verkaufsempfehlungen.",
-      ],
-    },
-  },
 
 
-  zh: {
-    architecture: {
-      title: "架构与系统支持",
-      tag: "Ops",
-      intro:
-        "When a live system is slow, failing, hard to scale, or short on operators — Dolphin Software runs a focused audit, proposes fixes, and can support remotely by session.",
-      highlights: [
-        "Architecture / performance / bottleneck audit",
-        "Remediation plan by priority (P0–P2)",
-        "Remote support for incidents or ops onboarding",
-        "Short write-up: current map + next steps",
-      ],
-      process: [
-        "Collect symptoms, logs, existing diagrams",
-        "Discovery / screen-share to narrow the issue",
-        "Short report + effort estimate",
-        "Fix in small sprints or support retainer",
-      ],
-      notes: [
-        "Best for existing systems — not a greenfield product discovery.",
-        "We can pair with your internal team; we won’t take over the repo unless you ask.",
-      ],
-    },
-    stock: {
-      title: "证券投资社区",
-      tag: "Community",
-      intro:
-        "Help linking an ID / joining a discussion community. Free under conditions. This is not licensed investment advice and does not promise returns.",
-      highlights: [
-        "ID-linking guidance per community process",
-        "Group discussion / update channel",
-        "Free when eligibility conditions are met",
-        "Transparent: no “sure-win tip” selling",
-      ],
-      process: [
-        "Contact via form / Zalo with ID-link intent",
-        "Confirm free-eligibility conditions (if any)",
-        "Receive join instructions",
-        "You decide; no hidden paid personal advisory",
-      ],
-      notes: [
-        "Not licensed investment advice.",
-        "No return guarantees; market risk is yours.",
-        "Community sharing only — not buy/sell recommendations.",
-      ],
-    },
-  }
 };
 
 export function getMoreDetail(locale: Locale, slug: MoreSlug): MoreDetail {

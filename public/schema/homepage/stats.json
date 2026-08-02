@@ -1,46 +1,50 @@
 {
   "meta": {
     "kind": "homepage-section",
+    "id": "stats",
     "locale": "vi",
     "brand": "Dolphin Software",
-    "updated": "2026-08-02",
-    "productRoute": "/",
-    "id": "stats",
-    "anchor": "#stats",
-    "component": "SiteOutcomes",
+    "updated": "2026-08-03",
     "schemaPath": "/schema/homepage/stats/",
     "rawPath": "/schema/homepage/stats.json",
-    "copyKey": "siteOutcomes"
+    "productRoute": "/"
   },
   "content": {
-    "eyebrow": "Outcomes",
-    "title": "Doanh nghiệp chọn Dolphin để [[chạy được việc thật]]",
-    "support": "Chúng tôi không đo bằng số lượng website đã làm. Điều quan trọng là sau khi bàn giao, hệ thống có thật sự giúp doanh nghiệp vận hành tốt hơn không.",
-    "painLead": "Đây là những thay đổi doanh nghiệp thường muốn đạt được.",
+    "order": 2,
+    "id": "stats",
+    "section_label": "Kết quả vận hành",
+    "headline": "Sau bàn giao, doanh nghiệp bạn có thể tự chạy các việc này",
+    "subheadline": "Không phải danh sách tính năng — đây là kết quả thực tế sau khi bàn giao: khách hàng tiềm năng, đặt lịch, nội dung, thanh toán và vận hành đều nằm trong tầm kiểm soát của bạn.",
     "items": [
       {
-        "title": "Thu lead và chuyển đổi rõ",
-        "body": "Khách biết cần làm gì tiếp theo, để lại thông tin nhanh hơn và bạn không bỏ lỡ cơ hội."
+        "number": "01",
+        "title": "Thu hút và chuyển đổi khách hàng tiềm năng",
+        "body": "Form/CTA và hành trình liên hệ ngắn gọn — khách truy cập hành động; đội nhóm của bạn theo dõi được nguồn."
       },
       {
-        "title": "Đặt lịch và xử lý yêu cầu tự động",
-        "body": "Từ đặt lịch, xác nhận đến nhắc hẹn — giảm thao tác tay và hạn chế bỏ sót."
+        "number": "02",
+        "title": "Đặt lịch ổn định, không nhầm chỗ",
+        "body": "Hiển thị slot trống, xác nhận và nhắc lịch tự động — giảm cuộc gọi hỏi chỗ trống và đặt trùng."
       },
       {
-        "title": "Website tạo niềm tin ngay lần đầu",
-        "body": "Giao diện rõ, tốc độ nhanh, nội dung đúng trọng tâm để khách yên tâm liên hệ."
+        "number": "03",
+        "title": "Thương hiệu được khách tin tưởng và nhớ đến",
+        "body": "Trang landing hoặc website doanh nghiệp với nội dung tập trung — responsive, dễ đọc, xây dựng niềm tin."
       },
       {
-        "title": "Tự chủ khi cần sửa website",
-        "body": "Đổi nội dung, hình ảnh hay bảng giá ngay khi cần, không phải chờ lập trình viên."
+        "number": "04",
+        "title": "Đội nhóm tự cập nhật nội dung",
+        "body": "CMS/admin đưa vào phạm vi — chỉnh bài viết, hình ảnh, giá mà không cần gọi lại studio."
       },
       {
-        "title": "Kết nối công cụ bạn đang dùng",
-        "body": "Tích hợp MoMo, VNPay, Zalo OA, CRM hay hệ thống nội bộ để dữ liệu không rời rạc."
+        "number": "05",
+        "title": "Thanh toán và nhắn tin trong quy trình thực",
+        "body": "Tích hợp MoMo / ZaloPay / VNPay / Zalo OA khi cần — ít sai sót vận hành hơn so với kết nối thủ công."
       },
       {
-        "title": "Không đứng lại khi một người nghỉ",
-        "body": "AI và quy trình giúp trả lời khách, xử lý yêu cầu và lưu thông tin nhất quán."
+        "number": "06",
+        "title": "Vận hành nội bộ gọn gàng hơn",
+        "body": "Dashboard, business agent hoặc vòng lặp Thu thập → Quản trị — một bức tranh thay vì mười công cụ rời rạc."
       }
     ]
   }

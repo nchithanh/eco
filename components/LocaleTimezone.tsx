@@ -14,8 +14,6 @@ const ZONE_BY_LOCALE: Record<
       vi: "Việt Nam",
       en: "Vietnam",
       ja: "ベトナム",
-      de: "Vietnam",
-      zh: "越南",
     },
   },
   en: {
@@ -24,8 +22,6 @@ const ZONE_BY_LOCALE: Record<
       vi: "Hoa Kỳ",
       en: "United States",
       ja: "アメリカ",
-      de: "USA",
-      zh: "美国",
     },
   },
   ja: {
@@ -34,43 +30,13 @@ const ZONE_BY_LOCALE: Record<
       vi: "Nhật Bản",
       en: "Japan",
       ja: "日本",
-      de: "Japan",
-      zh: "日本",
-    },
-  },
-  de: {
-    timeZone: "Europe/Berlin",
-    label: {
-      vi: "Đức",
-      en: "Germany",
-      ja: "ドイツ",
-      de: "Deutschland",
-      zh: "德国",
-    },
-  },
-  zh: {
-    timeZone: "Asia/Shanghai",
-    label: {
-      vi: "Trung Quốc",
-      en: "China",
-      ja: "中国",
-      de: "China",
-      zh: "中国",
     },
   },
 };
 
 function formatTime(date: Date, timeZone: string, locale: Locale) {
   const localeTag =
-    locale === "vi"
-      ? "vi-VN"
-      : locale === "ja"
-        ? "ja-JP"
-        : locale === "de"
-          ? "de-DE"
-          : locale === "zh"
-            ? "zh-CN"
-            : "en-US";
+    locale === "vi" ? "vi-VN" : locale === "ja" ? "ja-JP" : "en-US";
 
   return new Intl.DateTimeFormat(localeTag, {
     timeZone,

@@ -12,63 +12,63 @@ export type FaqCopy = {
 const vi: FaqCopy = {
   eyebrow: "FAQ",
   title: "Câu hỏi [[thường gặp]]",
-  support:
-    "Timeline · báo giá · bảo hành · bảo mật — những điều bạn cần biết trước khi bắt đầu.",
+  support: "Timeline · báo giá · bảo hành · bảo mật — trả lời trước khi bắt đầu.",
   items: [
-    {
-      q: "Studio làm những gì?",
-      a: "Dolphin Software giúp SMB đi từ bài toán kinh doanh đến hệ thống dễ vận hành — website, phần mềm, tự động hóa và AI. Bạn nói mục tiêu, chúng tôi đề xuất phạm vi phù hợp.",
-    },
-    {
-      q: "Không biết kỹ thuật có làm được không?",
-      a: "Được. Đa số khách không code. Bạn gửi ý tưởng hoặc mô tả ngắn, chúng tôi tư vấn bằng ngôn ngữ kinh doanh, làm trọn gói và bàn giao kèm hướng dẫn vận hành.",
-    },
-    {
-      q: "Quy trình làm việc thế nào?",
-      a: "Làm rõ mục tiêu → chốt phạm vi & báo giá → sprint có đầu ra → nghiệm thu → bàn giao & hỗ trợ. Bạn luôn biết bước tiếp theo.",
-    },
-    {
-      q: "Nhận báo giá ra sao?",
-      a: "Gửi mô tả qua Contact, nút “Nhận báo giá” hoặc Zalo. Chúng tôi phản hồi phạm vi ước tính và bước tiếp theo — không phí ẩn ngoài scope đã thống nhất.",
-    },
-    {
-      q: "Timeline thường bao lâu?",
-      a: "Landing: ~3–5 ngày. Business website: ~7–14 ngày. Shop / e-commerce: ~3–4 tuần. App / workflow: theo scope. Ngày cụ thể được gắn trong báo giá sau khi chốt.",
-    },
-    {
-      q: "Website có tối ưu SEO / mobile không?",
-      a: "Mặc định responsive, heading / meta rõ và SEO on-page cơ bản. SEO nội dung dài hạn hoặc Ads quy mô lớn có thể thỏa thuận thêm.",
-    },
-    {
-      q: "Làm remote được không?",
-      a: "Được — chat / call, demo định kỳ và tài liệu bàn giao rõ. Chúng tôi phục vụ khách toàn quốc.",
-    },
-    {
-      q: "Bảo trì sau bàn giao khác gì tính năng mới?",
-      a: "Sau bàn giao: hướng dẫn vận hành và bảo hành lỗi kỹ thuật (thường 3–6 tháng) trong phạm vi đã nghiệm thu. Tính năng mới là hạng mục riêng, báo giá trước.",
-    },
-    {
-      q: "Bảo mật và dữ liệu thế nào?",
-      a: "HTTPS, phân quyền, env vars, không commit secret. Dữ liệu thuộc về bạn. Audit / SSO / compliance nâng cao thỏa thuận thêm trong scope.",
-    },
-    {
-      q: "Có làm MVP theo giai đoạn không?",
-      a: "Có. Chúng tôi ưu tiên MVP đủ chạy rồi mở rộng theo milestone — kiểm chứng sớm và kiểm soát ngân sách.",
-    },
-    {
-      q: "AI agent khác chatbot marketing thế nào?",
-      a: "Chatbot marketing trả lời FAQ theo kịch bản. Agent gắn với quy trình nghiệp vụ, tool và ngữ cảnh nội bộ — hỗ trợ vận hành, không chỉ chat bán hàng.",
-    },
-    {
-      q: "Phạm vi có bị phình giữa chừng không?",
-      a: "Scope được chốt ở bước báo giá. Yêu cầu ngoài phạm vi sẽ được ghi nhận, ước lượng lại và chỉ làm khi bạn đồng ý.",
-    },
-    {
-      q: "Làm sao để bắt đầu?",
-      a: "Nhấn “Nhận báo giá”, chat Zalo hoặc gửi form Contact với mục tiêu, deadline và ngân sách ước lượng nếu có.",
-    },
+      {
+          "q": "Dolphin Software làm gì?",
+          "a": "Dolphin Software giúp doanh nghiệp vừa và nhỏ (SMB) đi từ vấn đề kinh doanh đến hệ thống có thể vận hành — website, mobile, automation và AI. Bạn chỉ cần nêu mục tiêu; Dolphin Software đề xuất phạm vi phù hợp."
+      },
+      {
+          "q": "Doanh nghiệp không rành kỹ thuật có làm việc được không?",
+          "a": "Được. Hầu hết khách hàng của Dolphin Software không biết lập trình. Bạn chỉ cần chia sẻ ý tưởng hoặc brief ngắn — đội ngũ xác định phạm vi bằng ngôn ngữ kinh doanh, bàn giao end-to-end và hướng dẫn vận hành sau khi xong."
+      },
+      {
+          "q": "Quy trình làm việc diễn ra như thế nào?",
+          "a": "Làm rõ mục tiêu → Khóa phạm vi & dự toán → Sprint có sản phẩm bàn giao → Nghiệm thu → Bàn giao & Hỗ trợ. Bạn luôn biết bước tiếp theo là gì."
+      },
+      {
+          "q": "Báo giá hoạt động như thế nào? Có phí ẩn không?",
+          "a": "Gửi brief ngắn qua Contact, 'Nhận báo giá' hoặc Zalo. Dolphin Software phản hồi với phạm vi dự kiến và bước tiếp theo — không có phí ngoài phạm vi đã thỏa thuận."
+      },
+      {
+          "q": "Timeline điển hình là bao lâu?",
+          "a": "Landing page: ~3–5 ngày. Website doanh nghiệp: ~7–14 ngày. Shop / e-commerce: ~3–4 tuần. App / workflow: theo phạm vi. Ngày cụ thể có trong báo giá sau khi khóa phạm vi."
+      },
+      {
+          "q": "Có bao gồm SEO và mobile không?",
+          "a": "Responsive theo mặc định với heading/meta rõ ràng và SEO on-page nền tảng. SEO nội dung dài hạn hoặc chiến dịch quảng cáo lớn có thể thêm vào phạm vi riêng."
+      },
+      {
+          "q": "Có làm việc từ xa được không?",
+          "a": "Được — chat/call, demo định kỳ và tài liệu bàn giao rõ ràng. Khách hàng toàn quốc đều hợp tác được."
+      },
+      {
+          "q": "Bảo trì sau bàn giao khác gì tính năng mới?",
+          "a": "Sau bàn giao: hướng dẫn vận hành cộng với bảo hành lỗi kỹ thuật (thường 3–6 tháng) trong phạm vi đã nghiệm thu. Tính năng mới là riêng — báo giá trước, không nằm trong bảo hành."
+      },
+      {
+          "q": "Bảo mật và dữ liệu được xử lý như thế nào?",
+          "a": "HTTPS, kiểm soát truy cập, biến môi trường, không commit secret. Dữ liệu của bạn là của bạn. Audit / SSO / compliance có thể thêm vào phạm vi."
+      },
+      {
+          "q": "Phạm vi có bị phình to giữa chừng không?",
+          "a": "Phạm vi được khóa ở bước báo giá. Yêu cầu ngoài phạm vi sẽ được ghi nhận, ước lượng lại và chỉ thực hiện khi bạn đồng ý."
+      },
+      {
+          "q": "Có làm MVP theo giai đoạn không?",
+          "a": "Có. Dolphin Software ưu tiên MVP đủ để chạy, rồi mở rộng theo milestone — xác thực sớm và kiểm soát ngân sách."
+      },
+      {
+          "q": "AI agent khác chatbot marketing thế nào?",
+          "a": "Chatbot marketing trả lời FAQ theo kịch bản. Agent của Dolphin Software gắn với quy trình nghiệp vụ, công cụ và ngữ cảnh nội bộ — hỗ trợ vận hành, không chỉ chat bán hàng."
+      },
+      {
+          "q": "Làm sao để bắt đầu?",
+          "a": "Nhấn 'Nhận báo giá', chat Zalo, hoặc gửi form Contact với mục tiêu, deadline và ngân sách ước lượng nếu có."
+      }
   ],
 };
+
 
 const en: FaqCopy = {
   eyebrow: "FAQ",
@@ -198,135 +198,9 @@ const ja: FaqCopy = {
   ],
 };
 
-const de: FaqCopy = {
-  eyebrow: "FAQ",
-  title: "Häufige [[Fragen]]",
-  support: "Timeline · Angebot · Garantie · Sicherheit — vor dem Start.",
-  items: [
-    {
-      q: "Was macht das Studio?",
-      a: "Dolphin Software hilft KMUs vom Geschäftsproblem zum betreibbaren System — Web, Mobile, Automation und AI. Ziel nennen; wir schlagen passenden Scope vor.",
-    },
-    {
-      q: "Wir sind nicht technisch — geht das trotzdem?",
-      a: "Ja. Die meisten Kunden schreiben keinen Code. Idee oder kurzes Briefing reichen — wir scopen in Geschäftssprache und übergeben mit Betriebseinweisung.",
-    },
-    {
-      q: "Wie läuft der Prozess?",
-      a: "Ziele klären → Scope & Angebot → Sprint mit Deliverables → Abnahme → Übergabe & Support. Der nächste Schritt ist immer klar.",
-    },
-    {
-      q: "Wie funktioniert das Angebot?",
-      a: "Kurzes Briefing per Kontakt, „Angebot anfordern“ oder Zalo. Antwort mit geschätztem Scope und nächsten Schritten — keine versteckten Kosten außerhalb des Scopes.",
-    },
-    {
-      q: "Typische Dauer?",
-      a: "Landings: ~2–4 Wochen. Mehrseitige Sites: Wochen bis ~1–2 Monate. Apps/Workflows: 4–12-Wochen-Meilensteine. Termine stehen im Angebot nach Scope-Fix.",
-    },
-    {
-      q: "SEO / Mobile inklusive?",
-      a: "Standardmäßig responsive mit klarer Heading-/Meta-Struktur und soliden On-Page-SEO-Basics. Längeres Content-SEO oder große Kampagnen separat möglich.",
-    },
-    {
-      q: "Remote möglich?",
-      a: "Ja — Chat/Calls, regelmäßige Demos und klare Übergabedokumente.",
-    },
-    {
-      q: "Worin unterscheidet sich Wartung nach Übergabe von neuen Features?",
-      a: "Nach Übergabe: Einweisung plus technische Fehlergarantie (typisch 3–6 Monate) im abgenommenen Scope. Neue Features separat — vorab angeboten, nicht von der Garantie abgedeckt.",
-    },
-    {
-      q: "Wie steht es um Sicherheit und Daten?",
-      a: "HTTPS, Rechte, Env-Variablen, keine committed Secrets. Ihre Daten bleiben Ihre. Audit/SSO/Compliance können in den Scope.",
-    },
-    {
-      q: "Zum Börsen-/Community-Inhalt?",
-      a: "Nur Community-Sharing — keine lizenzierte Anlageberatung und keine Gewinnzusage.",
-    },
-    {
-      q: "Wie starten wir?",
-      a: "„Angebot anfordern“, Zalo oder Kontaktformular mit Ziel, Deadline und grobem Budget senden.",
-    },
-    {
-      q: "Bläht sich der Scope mitten im Projekt auf?",
-      a: "Scope wird im Angebot fixiert. Out-of-Scope wird erfasst, neu geschätzt und erst nach Freigabe gebaut.",
-    },
-    {
-      q: "MVP in Stufen möglich?",
-      a: "Ja. Zuerst lauffähiges MVP, danach Erweiterung per Meilenstein — frühe Validierung und Budgetkontrolle.",
-    },
-    {
-      q: "Unterschied AI-Agent vs. Marketing-Chatbot?",
-      a: "Marketing-Bots beantworten meist FAQ/Skripte. Unsere Agents hängen an Prozessen, Tools/MCP und Kontext — Ops-Hilfe, nicht nur Sales-Chat.",
-    },
-  ],
-};
 
-const zh: FaqCopy = {
-  eyebrow: "FAQ",
-  title: "常见[[问题]]",
-  support: "周期 · 报价 · 质保 · 安全——开始前可先了解。",
-  items: [
-    {
-      q: "工作室提供哪些服务？",
-      a: "Dolphin Software 帮助中小企业从业务问题走到可运营系统——网站、移动、自动化与 AI。告诉我们目标，我们提出合适范围。",
-    },
-    {
-      q: "不懂技术也能合作吗？",
-      a: "可以。多数客户不会写代码。分享想法或简要说明即可——用业务语言界定范围、端到端交付，并附运营指引。",
-    },
-    {
-      q: "合作流程是怎样的？",
-      a: "对齐目标 → 锁定范围与报价 → 有交付物的冲刺 → 验收 → 交接与支持。你始终清楚下一步。",
-    },
-    {
-      q: "报价流程是怎样的？",
-      a: "通过联系表单、“获取报价”或 Zalo 发送简要说明。我们回复估算范围与下一步——约定范围外无隐藏费用。",
-    },
-    {
-      q: "典型周期多久？",
-      a: "落地页：约 2–4 周。多页站：数周到约 1–2 个月。应用/工作流：4–12 周里程碑。具体日期在锁定范围后的报价中写明。",
-    },
-    {
-      q: "包含 SEO / 移动适配吗？",
-      a: "默认响应式，标题/元信息清晰，含基础站内 SEO。长期内容 SEO 或大型广告可另议。",
-    },
-    {
-      q: "可以远程协作吗？",
-      a: "可以——聊天/通话、定期演示与清晰交接文档。",
-    },
-    {
-      q: "交接后维护和新功能有何不同？",
-      a: "交接后：运营指引 + 验收范围内技术故障质保（通常 3–6 个月）。新功能单独报价，不纳入质保。",
-    },
-    {
-      q: "安全与数据如何处理？",
-      a: "HTTPS、权限、环境变量、不提交密钥。数据归你。审计/SSO/合规可加入范围。",
-    },
-    {
-      q: "关于站点上的证券社区内容？",
-      a: "仅为社区分享——不是持牌投资建议，也不保证收益。",
-    },
-    {
-      q: "如何开始？",
-      a: "点击“获取报价”、聊 Zalo，或提交联系表单，附上目标、截止日期与大致预算（如有）。",
-    },
-    {
-      q: "项目中途范围会膨胀吗？",
-      a: "报价阶段锁定范围。超出需求会记录、重新估算，并在你同意后才做。",
-    },
-    {
-      q: "能否分阶段做 MVP？",
-      a: "可以。先做可运行 MVP，再按里程碑扩展——尽早验证并控制预算。",
-    },
-    {
-      q: "AI Agent 和营销聊天机器人有何不同？",
-      a: "营销机器人多回答 FAQ/话术。我们的 Agent 连接业务流程、工具/MCP 与内部上下文——服务运营，不只是售前窗。",
-    },
-  ],
-};
 
-const byLocale: Record<Locale, FaqCopy> = { vi, en, ja, de, zh };
+const byLocale: Record<Locale, FaqCopy> = { vi, en, ja };
 
 export function getFaqCopy(locale: Locale): FaqCopy {
   return byLocale[locale];

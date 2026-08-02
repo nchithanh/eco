@@ -382,236 +382,12 @@ const ja: AgentDolphinCopy = {
   closeCta: "Dolphin Care を相談",
 };
 
-const de: AgentDolphinCopy = {
-  metaTitle: "Dolphin Care | Cleverer Website-Support | Dolphin Software",
-  metaDescription:
-    "Dolphin Care auf Ihrer Website — Kundenservice mit LLM plus Business- und Kundenkontext, wie ein empathischer Mitarbeiter.",
-  eyebrow: "Dolphin Care",
-  headline: "Website-Support wie ein [[Teammitglied]] — kein Skript-Bot",
-  support:
-    "Dolphin Care übernimmt die Kundenbetreuung auf Ihrer Site. Anders als starre Chatboxen kombiniert er ein LLM mit Ihrem Business-Kontext und dem Kontext jedes Besuchers.",
-  ctaPrimary: "Umsetzung besprechen",
-  ctaSecondary: "Andere AI Agents",
-  trustLine: "LLM · Business-Kontext · Kundenkontext · Markenstimme",
-  heroAgentName: "Dolphin Care",
-  heroJustNow: "jetzt",
-  heroCards: [
-    "Hallo! Bestellung #123456 geprüft — wird gepackt, Lieferung morgen erwartet.",
-    "Auf Größe M Navy wechseln? Auf Lager — ich halte sie bis 18 Uhr.",
-    "Adresse in District 1 notiert. Noch Fragen — einfach schreiben.",
-  ],
-  compareEyebrow: "Unterschied",
-  compareTitle: "Klassische Chatbox vs [[Dolphin Care]]",
-  compareSupport:
-    "Gleiche Ecke der Website — eine antwortet starr, die andere versteht Aufgabe und Stimmung.",
-  oldTitle: "Typische FAQ-/Skript-Chatbox",
-  oldItems: [
-    "Skriptgebunden — Off-Script-Fragen stocken",
-    "Kennt Preise, Policies, Bestand nicht",
-    "Kein Besuchergedächtnis — jedes Chat kalt",
-    "Roboter-Ton — wenig Vertrauen",
-  ],
-  newTitle: "Dolphin Care",
-  newItems: [
-    "Flexibles LLM im erlaubten Scope — nicht nur FAQ-Buttons",
-    "Business-Kontext: Preise, Services, Prozess, Ansprache",
-    "Kundenkontext: Session, Verhalten, geteilte Infos",
-    "Nahe am echten Mitarbeitenden — höflich, empathisch, on-brand",
-  ],
-  pillarsEyebrow: "Drei Kontextebenen",
-  pillarsTitle: "KI-Modell + [[Business]] + [[Kunde]]",
-  pillarsSupport:
-    "Drei Quellen gleichzeitig — richtige Aufgabe, Person und Stimme.",
-  pillars: [
-    {
-      title: "LLM",
-      body: "Natürliche Sprache, Rückfragen, flüssige Formulierung — kein Copy-Paste-Skript.",
-    },
-    {
-      title: "Business-Kontext",
-      body: "Ihr Shop-/Studio-Wissen: Services, Preise, Policies, interne FAQ, Tonalität.",
-    },
-    {
-      title: "Kundenkontext",
-      body: "Aktuelle Session und bekannte Signale (Formulare, Seite, Historie) für persönliche Antworten.",
-    },
-  ],
-  howEyebrow: "Ablauf",
-  howTitle: "Dolphin Care auf [[Ihrer Website]]",
-  howSupport: "Vier Schritte — von der Markenstimme zum Live-Widget.",
-  howSteps: [
-    {
-      title: "Ops & Ton erfassen",
-      body: "Kurzer Workshop: Services, Ausnahmen, Ansprache, Eskalation an Menschen.",
-    },
-    {
-      title: "Wissen + Guardrails",
-      body: "Docs/FAQ/Policy in den Kontext; Scope für Solo-Antworten festlegen.",
-    },
-    {
-      title: "Widget & Kanäle",
-      body: "Website-Embed (optional Zalo/CRM). Tickets wenn Menschen übernehmen.",
-    },
-    {
-      title: "Monitor & Feinschliff",
-      body: "Echte Chats prüfen, Prompts/Kontext nachschärfen.",
-    },
-  ],
-  embedMock: {
-    url: "yourstore.com",
-    agentName: "Dolphin Care",
-    userMsg: "Wann kommt Bestellung #123456?",
-    agentLines: [
-      "Wird gepackt",
-      "Lieferung morgen",
-      "Größe M reservierbar",
-    ],
-    inputPlaceholder: "Nachricht eingeben…",
-  },
-  faqEyebrow: "FAQ",
-  faqTitle: "Häufige Fragen",
-  faqItems: [
-    {
-      q: "Unterschied zu Fertig-Chatbots?",
-      a: "Fertige Bots oft skriptbasiert. Dolphin Care nutzt LLM mit Ihrem Wissen und Besucherkontext — flexibel, aber mit Guardrails.",
-    },
-    {
-      q: "Ersetzt es Support-Personal?",
-      a: "Nicht zwingend. Es deckt Wiederholung und außerhalb der Zeiten ab; Sensibles eskaliert — mit Logs.",
-    },
-    {
-      q: "Muss die Website von Dolphin Software sein?",
-      a: "Nein. Embed auf bestehender Site möglich. Neue Sites liefern wir agent-ready.",
-    },
-    {
-      q: "Sind Kundendaten sicher?",
-      a: "Speicherumfang und Kanäle vertraglich klar. Nur support-relevanter Kontext.",
-    },
-  ],
-  closeEyebrow: "Start",
-  closeTitle: "Lassen Sie die Site [[professioneller]] betreuen",
-  closeSupport:
-    "Senden Sie URL und Zielkunden — wir schlagen Scope und Embed für Dolphin Care vor.",
-  closeCta: "Dolphin Care beraten lassen",
-};
 
-const zh: AgentDolphinCopy = {
-  metaTitle: "Dolphin Care | 智能网站客服 | Dolphin Software",
-  metaDescription:
-    "Dolphin Care 部署在您的网站 — 用 LLM + 业务上下文 + 客户上下文提供有温度的专业客服，而非机械话术机器人。",
-  eyebrow: "Dolphin Care",
-  headline: "像[[同事]]一样做客服 — 不是机械聊天框",
-  support:
-    "Dolphin Care 负责网站上的客户关怀。不同于按剧本回答的聊天框：结合大模型、您的业务知识与每位访客的上下文，倾听、建议并以合适语气回应。",
-  ctaPrimary: "咨询落地",
-  ctaSecondary: "查看其他 AI Agent",
-  trustLine: "LLM · 业务上下文 · 客户上下文 · 品牌语气",
-  heroAgentName: "Dolphin Care",
-  heroJustNow: "刚刚",
-  heroCards: [
-    "您好！已查订单 #123456 — 正在打包，预计明天送达。",
-    "要换成海军蓝 M 码吗？有货，可留至今晚 18:00。",
-    "已记下 1 区地址。还有需要随时找我。",
-  ],
-  compareEyebrow: "区别",
-  compareTitle: "传统聊天框 vs [[Dolphin Care]]",
-  compareSupport: "同在网站一角 — 一边生硬回复，一边理解业务与情绪。",
-  oldTitle: "常见 FAQ / 脚本机器人",
-  oldItems: [
-    "按剧本回答 — 超纲问题容易卡住",
-    "不了解您的产品、政策、库存或活动",
-    "不记得访客 — 每次都像陌生人",
-    "机械语气 — 难建立信任",
-  ],
-  newTitle: "Dolphin Care",
-  newItems: [
-    "在允许范围内灵活用 LLM — 不只是 FAQ 按钮",
-    "业务上下文：价格、服务、流程、称呼方式",
-    "客户上下文：会话、行为、已提供的信息",
-    "接近真人同事 — 礼貌、共情、符合品牌",
-  ],
-  pillarsEyebrow: "三层上下文",
-  pillarsTitle: "模型 + [[业务]] + [[客户]]",
-  pillarsSupport: "三路信息同时运转 — 答对事、对人、对语气。",
-  pillars: [
-    {
-      title: "大模型 LLM",
-      body: "自然语言、必要时追问、表达流畅 — 不是复制粘贴话术。",
-    },
-    {
-      title: "业务上下文",
-      body: "您的门店/工作室知识：服务、价格、政策、内部 FAQ、品牌声音。",
-    },
-    {
-      title: "客户上下文",
-      body: "当前会话与已知信号（表单、浏览页、历史）做个性化回复。",
-    },
-  ],
-  howEyebrow: "如何上线",
-  howTitle: "把 Dolphin Care 接到[[您的网站]]",
-  howSupport: "四步 — 从品牌语气到线上小组件。",
-  howSteps: [
-    {
-      title: "梳理业务与语气",
-      body: "短工作坊：服务、例外、称呼、必须转人工的事项。",
-    },
-    {
-      title: "装载知识与护栏",
-      body: "文档/FAQ/政策进入知识库；划定可独自回答的范围。",
-    },
-    {
-      title: "嵌入组件与渠道",
-      body: "网站嵌入（可选 Zalo/CRM）。需人工时同步线索/工单。",
-    },
-    {
-      title: "监测与调优",
-      body: "看真实对话，按卡点调整提示词/知识 — 越用越贴。",
-    },
-  ],
-  embedMock: {
-    url: "yourstore.com",
-    agentName: "Dolphin Care",
-    userMsg: "订单 #123456 什么时候到？",
-    agentLines: [
-      "正在打包",
-      "预计明天送达",
-      "可预留 M 码",
-    ],
-    inputPlaceholder: "输入消息…",
-  },
-  faqEyebrow: "FAQ",
-  faqTitle: "常见问题",
-  faqItems: [
-    {
-      q: "和成品聊天机器人有何不同？",
-      a: "成品多靠脚本。Dolphin Care 用 LLM 加载您的知识与访客上下文 — 更灵活，仍有护栏。",
-    },
-    {
-      q: "会完全取代客服人员吗？",
-      a: "不必。它覆盖重复与非工作时间；敏感或超范围转人工 — 有日志。",
-    },
-    {
-      q: "网站必须由 Dolphin Software 制作吗？",
-      a: "不必。现有站可嵌入。我们新做的站可直接预装。",
-    },
-    {
-      q: "客户数据安全吗？",
-      a: "存储范围与通道在合同中明确。只加载客服所需上下文。",
-    },
-  ],
-  closeEyebrow: "开始",
-  closeTitle: "让网站更[[专业地]]照顾访客",
-  closeSupport:
-    "发来网站链接与客群说明 — 我们给出 Dolphin Care 范围与嵌入方式。",
-  closeCta: "咨询 Dolphin Care",
-};
 
 export const agentDolphinByLocale: Record<Locale, AgentDolphinCopy> = {
   vi,
   en,
   ja,
-  de,
-  zh,
 };
 
 export function getAgentDolphinCopy(locale: Locale): AgentDolphinCopy {
@@ -660,28 +436,27 @@ export type AgentDolphinHomeCopy = {
 
 const homeVi: AgentDolphinHomeCopy = {
   eyebrow: "Dolphin Care",
-  title: "Đừng để khách phải [[chờ đến giờ làm việc]]",
+  title: "AI giảm tải vận hành và [[nâng cao]] hiệu quả",
   support:
-    "Khách hỏi ngoài giờ, hỏi đi hỏi lại cùng một câu, hoặc rời đi vì không ai trả lời kịp. Dolphin Care giúp doanh nghiệp không bỏ lỡ những cơ hội đó.",
-  cta: "Xem Dolphin Care hoạt động",
-  ctaSecondary: "Đặt lịch demo",
-  trustMicro:
-    "Không làm thay nhân viên — bổ sung lớp chăm sóc đầu tiên trên website.",
+    "Dolphin Care là giải pháp AI chat tích hợp trực tiếp lên website của bạn — trả lời đúng việc, đúng giọng điệu thương hiệu, giảm câu hỏi lặp đi lặp lại.",
+  cta: "Tìm hiểu Dolphin Care",
+  ctaSecondary: "Nhận báo giá",
+  trustMicro: "Thêm vào website mới hoặc website bạn đang chạy",
   benefits: [
     {
-      title: "Khách không phải chờ phản hồi",
-      body: "Trả lời những câu hỏi phổ biến ngay khi khách vào website.",
+      title: "Trả lời đúng ngữ cảnh",
+      body: "Câu hỏi thường gặp được phản hồi ngay khi khách vừa vào trang — không cần nhân viên trực 24/7.",
     },
     {
-      title: "Nhân viên bớt việc lặp",
-      body: "Tự ghi nhận thông tin, trả lời câu hỏi quen thuộc và chuyển tiếp khi cần.",
+      title: "Giảm trao đổi thủ công",
+      body: "Thu thập thông tin, trả lời câu hỏi lặp và chuyển tiếp sang người khi cần thiết.",
     },
     {
-      title: "Không bỏ lỡ khách ngoài giờ",
-      body: "Hỗ trợ cả ngoài giờ làm việc để khách luôn nhận được phản hồi đầu tiên.",
+      title: "Không bỏ lỡ lead ngoài giờ",
+      body: "Khách vẫn nhận được phản hồi đầu tiên ngoài giờ làm việc — cơ hội không trôi qua.",
     },
   ],
-  situationsLabel: "Dolphin Care làm được gì?",
+  situationsLabel: "Dolphin Care xử lý được:",
   situations: [
     "Khách hỏi giá",
     "Khách hỏi còn lịch không",
@@ -713,25 +488,15 @@ const homeVi: AgentDolphinHomeCopy = {
   card: {
     context: "Spa · Đặt lịch",
     messages: [
-      { role: "user", text: "Chiều mai còn slot massage không?" },
+      { role: "user", text: "Mai buổi chiều còn slot massage không?" },
       {
         role: "assistant",
-        text: "Còn 15:00 và 17:30. Anh/chị muốn 60 hay 90 phút?",
+        text: "Còn — 3:00 và 5:30 chiều. 60 hay 90 phút ạ?",
       },
-      { role: "user", text: "60 phút lúc 15:00 giúp em." },
+      { role: "user", text: "60 phút lúc 3:00 nhé" },
       {
         role: "assistant",
-        text: "Em giữ slot 15:00 — 60 phút. Cho em tên và SĐT để xác nhận ạ?",
-      },
-      { role: "user", text: "Minh, 0901 234 567." },
-      {
-        role: "assistant",
-        text: "Đã ghi lead Minh · 15:00 mai. Em gửi Zalo nhắc trước 2 tiếng và báo nhân viên trên CRM nhé.",
-      },
-      { role: "user", text: "Ok em, cảm ơn nhiều." },
-      {
-        role: "assistant",
-        text: "Dạ — nhân viên đã được thông báo. Em sẵn sàng hỗ trợ nếu anh/chị cần đổi giờ.",
+        text: "Đang giữ slot 3:00 — 60 phút. Cho mình xin tên và số điện thoại nhé.",
       },
     ],
   },
@@ -842,115 +607,12 @@ const homeJa: AgentDolphinHomeCopy = {
   inputPlaceholder: "メッセージを入力…",
 };
 
-const homeDe: AgentDolphinHomeCopy = {
-  eyebrow: "Dolphin Care",
-  title: "AI, die [[Abläufe erleichtert]] und Effizienz steigert",
-  support:
-    "Auf Ihrer Website — Antworten passend zur Aufgabe und zum Ton; weniger Wiederholungsfragen.",
-  cta: "Dolphin Care ansehen",
-  ctaSecondary: "Angebot anfordern",
-  trustMicro: "Für neue Sites oder bestehende Sites",
-  benefits: [
-    {
-      title: "Passende Antworten",
-      body: "Häufige Fragen bekommen sofort eine erste Antwort auf der Website.",
-    },
-    {
-      title: "Weniger manuelle Rückfragen",
-      body: "Daten erfassen, Wiederholungen beantworten, bei Bedarf an Menschen übergeben.",
-    },
-    {
-      title: "Weniger verpasste Anfragen außerhalb der Öffnungszeiten",
-      body: "Besucher erhalten auch nach Feierabend eine erste Antwort.",
-    },
-  ],
-  agentName: "Dolphin Care",
-  online: "Online",
-  card: {
-    context: "Spa · Termin",
-    messages: [
-      { role: "user", text: "Massage-Slots morgen Nachmittag?" },
-      {
-        role: "assistant",
-        text: "Ja — 15:00 und 17:30. 60 oder 90 Minuten?",
-      },
-      { role: "user", text: "60 Minuten um 15:00 bitte" },
-      {
-        role: "assistant",
-        text: "15:00 — 60 Minuten reserviert. Name und Telefon zur Bestätigung?",
-      },
-      { role: "user", text: "Minh, 0901 234 567" },
-      {
-        role: "assistant",
-        text: "Notiert: Minh · morgen 15:00. Ich erinnere per Zalo 2 Stunden vorher und informiere das Team im CRM.",
-      },
-      { role: "user", text: "Super, danke" },
-      {
-        role: "assistant",
-        text: "Gern — bei Terminänderung einfach melden. Ihr Team wurde benachrichtigt.",
-      },
-    ],
-  },
-  inputPlaceholder: "Nachricht eingeben…",
-};
 
-const homeZh: AgentDolphinHomeCopy = {
-  eyebrow: "Dolphin Care",
-  title: "用 AI [[减轻运营负担]]、提升效率",
-  support: "挂在网站上——按事项与语气回复，少重复问答。",
-  cta: "了解 Dolphin Care",
-  ctaSecondary: "获取报价",
-  trustMicro: "可挂到新站或现有站点",
-  benefits: [
-    {
-      title: "回复贴合事项",
-      body: "访客一进站就能先得到常见问题的答复。",
-    },
-    {
-      title: "少手工来回",
-      body: "记录信息、回答重复问题，必要时转给人工。",
-    },
-    {
-      title: "少漏掉非营业时间的客户",
-      body: "下班后访客仍能收到第一句回复。",
-    },
-  ],
-  agentName: "Dolphin Care",
-  online: "在线",
-  card: {
-    context: "Spa · 预约",
-    messages: [
-      { role: "user", text: "明天下午还有按摩档期吗？" },
-      {
-        role: "assistant",
-        text: "还有 15:00 和 17:30。60 还是 90 分钟？",
-      },
-      { role: "user", text: "15:00 的 60 分钟" },
-      {
-        role: "assistant",
-        text: "已保留 15:00 · 60 分钟。请留下姓名和电话确认？",
-      },
-      { role: "user", text: "Minh，0901 234 567" },
-      {
-        role: "assistant",
-        text: "已登记 Minh · 明天 15:00。会提前 2 小时用 Zalo 提醒，并通知员工到 CRM。",
-      },
-      { role: "user", text: "好的，谢谢" },
-      {
-        role: "assistant",
-        text: "需要改时间随时找我——员工已收到通知。",
-      },
-    ],
-  },
-  inputPlaceholder: "输入消息…",
-};
 
 export const agentDolphinHomeByLocale: Record<Locale, AgentDolphinHomeCopy> = {
   vi: homeVi,
   en: homeEn,
   ja: homeJa,
-  de: homeDe,
-  zh: homeZh,
 };
 
 export function getAgentDolphinHomeCopy(locale: Locale): AgentDolphinHomeCopy {

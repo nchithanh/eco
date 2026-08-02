@@ -45,24 +45,6 @@ export function FlagIcon({ locale, className = "size-4" }: FlagIconProps) {
           <circle cx="12" cy="8" r="4.2" fill="#BC002D" />
         </svg>
       );
-    case "de":
-      return (
-        <svg {...common}>
-          <rect width="24" height="16" fill="#000" />
-          <rect y="5.33" width="24" height="5.34" fill="#DD0000" />
-          <rect y="10.67" width="24" height="5.33" fill="#FFCE00" />
-        </svg>
-      );
-    case "zh":
-      return (
-        <svg {...common}>
-          <rect width="24" height="16" fill="#DE2910" />
-          <polygon
-            fill="#FFDE00"
-            points="4.8,2.4 5.55,4.7 8,4.7 6.05,6.15 6.8,8.45 4.8,7 2.8,8.45 3.55,6.15 1.6,4.7 4.05,4.7"
-          />
-        </svg>
-      );
     default:
       return null;
   }

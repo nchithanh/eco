@@ -1,96 +1,90 @@
 {
   "meta": {
     "kind": "homepage-section",
+    "id": "works",
     "locale": "vi",
     "brand": "Dolphin Software",
-    "updated": "2026-08-02",
-    "productRoute": "/",
-    "id": "works",
-    "anchor": "#works",
-    "component": "WorksShowcase",
+    "updated": "2026-08-03",
     "schemaPath": "/schema/homepage/works/",
     "rawPath": "/schema/homepage/works.json",
-    "copyKey": "works"
+    "productRoute": "/"
   },
   "content": {
-    "eyebrow": "Projects",
-    "title": "Những bài toán [[đã giải quyết]]",
-    "support": "Chúng tôi không bắt đầu bằng công nghệ, mà bằng việc tìm hiểu doanh nghiệp đang cần cải thiện điều gì.",
-    "cta": "Doanh nghiệp của bạn đang gặp bài toán tương tự?",
-    "ctaHint": "Trao đổi với chúng tôi — cùng phân tích trước khi đề xuất giải pháp.",
-    "industries": [
-      "Spa",
-      "Nhà hàng",
-      "Giáo dục",
-      "Y tế",
-      "Bán lẻ",
-      "Sự kiện"
-    ],
-    "problemLabel": "Bài toán",
-    "scopeLabel": "Phạm vi",
-    "resultLabel": "Kết quả",
-    "beforeLabel": "Before",
-    "afterLabel": "After",
+    "order": 5,
+    "id": "works",
+    "section_label": "Projects",
+    "headline": "Các website thực tế đã triển khai",
+    "subheadline": "Mỗi dự án dưới đây: vấn đề → phạm vi → kết quả đo được.",
+    "cta_inline": {
+      "label": "Muốn một website như thế này?",
+      "href": "#contact"
+    },
     "items": [
       {
         "id": "billiard",
-        "title": "Giúp cửa hàng bida quản lý bàn và ca làm dễ hơn",
-        "tag": "Bida · Vận hành",
-        "problem": "Chủ quán theo dõi bàn và doanh thu bằng sổ hoặc Excel, dễ nhầm ca và khó biết bàn nào đang trống.",
-        "scope": "Website và hệ thống quản lý bàn, theo dõi giờ chơi, dịch vụ đi kèm và tổng kết ca.",
-        "result": "✓ Biết ngay bàn nào đang sử dụng.\n✓ Giảm nhầm giờ tính tiền.\n✓ Nhân viên mới quen việc nhanh hơn.",
-        "before": "Sổ / Excel",
-        "after": "Bản đồ bàn + ca trên web"
+        "image": "https://dolphin-software.io.vn/works/billiard.jpg",
+        "client_code": "KU",
+        "tags": ["Website", "Booking"],
+        "title": "Ops quản lý bida",
+        "problem": "Giấy/Excel: khó thấy bàn trống; doanh thu ca làm bị thất thoát.",
+        "scope": "Bản đồ bàn, đồng hồ đếm giờ, add-on, tổng kết ca trên web/ops.",
+        "result": "Giảm ca bị bỏ sót, onboarding nhanh hơn, xem ca trực tiếp.",
+        "href": "https://dolphin-software.io.vn/works/billiard/"
       },
       {
         "id": "badminton",
-        "title": "Giúp sân cầu lông nhận đặt sân trực tuyến",
-        "tag": "Thể thao · Đặt sân",
-        "problem": "Khách phải gọi hỏi sân trống, nhân viên mất thời gian kiểm tra và xác nhận.",
-        "scope": "Website giới thiệu sân, lịch trống và luồng đặt sân rõ để khách tự giữ chỗ.",
-        "result": "✓ Khách tự xem lịch và đặt sân trong vài bước.\n✓ Giảm rõ số cuộc gọi xác nhận mỗi ngày.",
-        "before": "Khách phải gọi hỏi",
-        "after": "Khách tự xem lịch và đặt sân"
+        "image": "https://dolphin-software.io.vn/works/badminton.jpg",
+        "client_code": "KU",
+        "tags": ["Booking"],
+        "title": "Website sân cầu lông",
+        "problem": "Khách gọi hỏi chỗ; admin đụng slot nhau.",
+        "scope": "Giới thiệu sân, lịch trống, quy trình đặt chỗ rõ ràng.",
+        "result": "Ít cuộc gọi hỏi lịch trống hơn, đặt chỗ đúng khung giờ tăng.",
+        "href": "https://dolphin-software.io.vn/works/badminton/"
       },
       {
         "id": "tickets",
-        "title": "Giúp đơn vị sự kiện bán vé gọn hơn",
-        "tag": "Sự kiện · Đặt vé",
-        "problem": "Khách xem chương trình nhưng bỏ giữa chừng trước khi hoàn tất đặt vé.",
-        "scope": "Thiết kế lại luồng đặt vé từ chọn sự kiện đến thanh toán, cắt các bước thừa.",
-        "result": "✓ Nhiều khách hoàn tất đặt vé hơn.\n✓ Ít người rời bỏ giữa quá trình thanh toán.",
-        "before": "Nhiều bước, dễ bỏ giữa chừng",
-        "after": "Luồng đặt vé gọn hơn"
+        "image": "https://dolphin-software.io.vn/works/tickets.jpg",
+        "client_code": "KU",
+        "tags": ["Booking", "Convert"],
+        "title": "Đặt vé & tối ưu chuyển đổi",
+        "problem": "Khách xem sự kiện nhưng bỏ dở trước khi hoàn tất đặt vé.",
+        "scope": "Quy trình Duyệt → Chọn → Thanh toán/Giữ chỗ tối ưu cho chuyển đổi.",
+        "result": "Ít bước để đặt vé, tỷ lệ hoàn thành booking tăng.",
+        "href": "https://dolphin-software.io.vn/works/tickets/"
       },
       {
         "id": "beauty",
-        "title": "Giúp spa nhận đặt lịch cả ngoài giờ hành chính",
-        "tag": "Spa · Làm đẹp",
-        "problem": "Dễ sót lịch, trùng lịch; khách ngoài giờ khó tự giữ chỗ.",
-        "scope": "Đặt lịch theo slot dịch vụ, xác nhận và nhắc lịch trên website.",
-        "result": "✓ Ít sót lịch hơn.\n✓ Khách vẫn giữ được chỗ khi quán đã đóng cửa.",
-        "before": "Gọi / nhắn để xin lịch",
-        "after": "Tự chọn slot trên website"
+        "image": "https://dolphin-software.io.vn/works/beauty.jpg",
+        "client_code": "KU",
+        "tags": ["Beauty"],
+        "title": "Đặt lịch beauty",
+        "problem": "Sót lịch, double-book; khó tự giữ chỗ ngoài giờ.",
+        "scope": "Đặt lịch theo slot nail/makeup/dịch vụ + xác nhận.",
+        "result": "Giảm lịch bị bỏ, tăng đặt hẹn ngoài giờ làm việc.",
+        "href": "https://dolphin-software.io.vn/works/beauty/"
       },
       {
         "id": "cafe",
-        "title": "Giúp quán cafe nhận gọi món bằng QR theo bàn",
-        "tag": "Nhà hàng · Cafe",
+        "image": "https://dolphin-software.io.vn/works/tickets.jpg",
+        "client_code": "KU",
+        "tags": ["QR", "Order"],
+        "title": "Đặt món QR cho quán cafe",
         "problem": "Giờ cao điểm gọi món chậm, dễ sai vì ghi tay.",
-        "scope": "Menu QR theo bàn, giỏ món và đẩy order tới quầy / bếp.",
-        "result": "✓ Gọi món nhanh hơn.\n✓ Ít sai món; nhân viên bớt chạy sổ.",
-        "before": "Ghi tay / gọi phục vụ",
-        "after": "QR menu + order vào quầy"
+        "scope": "Menu QR theo bàn, giỏ món, đẩy order tới quầy/bếp.",
+        "result": "Gọi đồ nhanh hơn, ít sai món hơn, nhân viên tập trung phục vụ.",
+        "href": "https://dolphin-software.io.vn/works/cafe/"
       },
       {
         "id": "clinic",
-        "title": "Giúp phòng khám nhận đặt lịch theo bác sĩ",
-        "tag": "Y tế · Phòng khám",
-        "problem": "Bệnh nhân gọi hỏi lịch; dễ trùng slot và quên nhắc tái khám.",
-        "scope": "Lịch theo bác sĩ / slot kèm xác nhận và nhắc lịch.",
-        "result": "✓ Giảm cuộc gọi hỏi lịch.\n✓ Ít trùng slot hơn.",
-        "before": "Gọi hỏi lịch trống",
-        "after": "Tự đặt theo bác sĩ / slot"
+        "image": "https://dolphin-software.io.vn/works/beauty.jpg",
+        "client_code": "KU",
+        "tags": ["Clinic"],
+        "title": "Đặt lịch khám phòng khám",
+        "problem": "Bệnh nhân gọi hỏi lịch; dễ trùng slot, quên nhắc tái khám.",
+        "scope": "Lịch theo bác sĩ/slot + xác nhận và nhắc lịch.",
+        "result": "Giảm cuộc gọi hỏi lịch, hạn chế đặt trùng.",
+        "href": "https://dolphin-software.io.vn/works/clinic/"
       }
     ]
   }

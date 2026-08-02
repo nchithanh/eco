@@ -1,27 +1,112 @@
 {
   "meta": {
     "kind": "homepage-section",
+    "id": "popular-services",
     "locale": "vi",
     "brand": "Dolphin Software",
-    "updated": "2026-08-02",
-    "productRoute": "/",
-    "id": "popular-services",
-    "anchor": "#popular-services",
-    "component": "PopularServices",
+    "updated": "2026-08-03",
     "schemaPath": "/schema/homepage/popular-services/",
     "rawPath": "/schema/homepage/popular-services.json",
-    "copyKey": "popularServicesChrome"
+    "productRoute": "/"
   },
   "content": {
-    "eyebrow": "Solutions",
-    "title": "Gói giải pháp [[bắt đầu nhanh]]",
-    "support": "Đây là mốc giá tham khảo để bắt đầu, không phải sản phẩm đóng hộp. Website là nền; Care / AI thêm khi cần. Scope cuối cùng chốt qua báo giá sau khi hiểu bài toán của bạn.",
-    "packagesNote": "Package rows/pricing: lib/i18n/popular-services-copy.ts + pricing-fx",
-    "packageIds": [
-      "landing",
-      "business",
-      "shop",
-      "webapp"
-    ]
+    "order": 11,
+    "id": "popular-services",
+    "section_label": "Bảng giá",
+    "headline": "Dịch vụ phổ biến",
+    "subheadline": "So sánh bốn gói chủ lực — chọn gói phù hợp, sau đó yêu cầu báo giá hoặc chat Zalo.",
+    "note_fx": "Giá VND quy đổi xấp xỉ, tỷ giá tham chiếu 2026-07-30. Giá USD hiển thị để tiện so sánh.",
+    "packages": [
+      {
+        "id": "landing-page",
+        "name": "Landing Page",
+        "tag": "Khởi động nhanh",
+        "price_original_usd": 114,
+        "price_promo_usd": 38,
+        "discount_label": "Tiết kiệm 67%",
+        "promo_note": "Theo phạm vi",
+        "timeline": "3–5 ngày",
+        "best_for": "Chiến dịch, giới thiệu dịch vụ, form tư vấn",
+        "ui": "1 layout responsive",
+        "seo": "SEO nền tảng",
+        "admin": "Form liên hệ",
+        "analytics": "GA4 cơ bản + Pixel",
+        "support": "Bảo hành 12 tháng",
+        "highlight": "Bao gồm 1 năm hosting",
+        "cta": {
+          "label": "Báo giá Landing",
+          "href": "#contact"
+        }
+      },
+      {
+        "id": "business-website",
+        "name": "Website Doanh Nghiệp",
+        "tag": "Đề xuất",
+        "price_original_usd": 304,
+        "price_promo_usd": 190,
+        "discount_label": "Tiết kiệm 38%",
+        "promo_note": "Theo phạm vi",
+        "timeline": "7–14 ngày",
+        "best_for": "Profile công ty, dịch vụ, SEO dài hạn",
+        "ui": "Đa trang + UI hệ thống",
+        "seo": "On-page + cấu trúc nội dung",
+        "admin": "CMS cơ bản",
+        "analytics": "GA4 + sự kiện chính",
+        "support": "Hướng dẫn vận hành",
+        "highlight": "CMS nội dung",
+        "cta": {
+          "label": "Tư vấn kinh doanh",
+          "href": "#contact"
+        }
+      },
+      {
+        "id": "ecommerce",
+        "name": "Website Thương Mại Điện Tử",
+        "tag": "Tăng trưởng",
+        "price_original_usd": 570,
+        "price_promo_usd": 380,
+        "discount_label": "Tiết kiệm 33%",
+        "promo_note": "Theo phạm vi",
+        "timeline": "3–4 tuần",
+        "best_for": "Shop, danh mục online, checkout",
+        "ui": "Danh mục + giỏ hàng",
+        "seo": "SEO sản phẩm",
+        "admin": "Sản phẩm / đơn hàng",
+        "analytics": "Funnel + chuyển đổi",
+        "support": "Thiết lập thanh toán",
+        "highlight": "Giỏ hàng + thanh toán",
+        "cta": {
+          "label": "Xây shop online",
+          "href": "#contact"
+        }
+      },
+      {
+        "id": "web-app",
+        "name": "Web App Tùy Chỉnh",
+        "tag": "Theo yêu cầu",
+        "price_original_usd": null,
+        "price_from_usd": 760,
+        "price_promo_from_usd": 380,
+        "discount_label": "Deal phạm vi đầu tiên",
+        "promo_note": "Theo phạm vi",
+        "timeline": "Theo phạm vi",
+        "best_for": "Dashboard, CRM, quy trình tùy chỉnh",
+        "ui": "UI theo domain",
+        "seo": "Tùy chọn",
+        "admin": "Phân quyền",
+        "analytics": "Chỉ số vận hành",
+        "support": "Phân tích giải pháp",
+        "highlight": "Phân tích giải pháp miễn phí",
+        "cta": {
+          "label": "Thảo luận giải pháp",
+          "href": "#contact"
+        }
+      }
+    ],
+    "footer_note": "Cần phạm vi tùy chỉnh, tích hợp hệ thống cũ hoặc SEO ngành đặc thù? Dolphin Software phân tích chi tiết từng hạng mục trước khi báo giá.",
+    "zalo_cta": {
+      "label": "Tư vấn Zalo miễn phí",
+      "href": "https://zalo.me/0779937633"
+    }
   }
 }

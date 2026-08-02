@@ -6,28 +6,82 @@
     "brand": "Dolphin Software",
     "schemaPath": "/schema/services/mobile/",
     "rawPath": "/schema/services/mobile.json",
-    "updated": "2026-08-02"
+    "updated": "2026-08-03"
   },
   "pillar": "Build",
   "productRoute": "/services/mobile/",
-  "title": "Phát triển mobile app",
-  "intro": "App iOS / Android hoặc cross-platform — ưu tiên trải nghiệm người dùng, ổn định release và tích hợp API rõ ràng.",
+  "title": "Phát triển ứng dụng mobile – iOS, Android & cross-platform",
+  "metaTitle": "Phát triển ứng dụng mobile | Dolphin Software",
+  "metaDescription": "Dolphin Software phát triển app iOS/Android và cross-platform bằng Flutter, React Native cho doanh nghiệp vừa và nhỏ tại Việt Nam. Báo giá rõ ràng, bàn giao đúng hạn.",
+  "intro": "Dolphin Software xây dựng ứng dụng di động iOS/Android và cross-platform bằng Flutter hoặc React Native — ưu tiên trải nghiệm người dùng, phát hành ổn định và tích hợp API sạch. Phù hợp cho doanh nghiệp vừa và nhỏ, startup và product team tại Việt Nam cần ra mắt MVP nhanh, đúng hạn, không phát sinh chi phí ẩn.",
+  "tech": "Flutter · React Native · iOS/Android",
+  "highlightsTitle": "Bạn nhận được gì khi làm app với Dolphin Software?",
+  "highlightsLead": "Dolphin Software cung cấp đầy đủ năng lực phát triển app di động — từ thiết kế luồng UX, lập trình tính năng lõi, đến hỗ trợ submit lên store — trong một gói dịch vụ rõ ràng, không bán thừa.",
   "highlights": [
-    "Flutter hoặc React Native theo stack đội ngũ",
-    "Navigation, auth và offline-friendly khi cần",
-    "Tích hợp API / thanh toán / push notification",
-    "Build pipeline và checklist store release"
+    "Flutter hoặc React Native phù hợp với stack và yêu cầu native của team bạn",
+    "Navigation, xác thực (auth), offline-friendly patterns được xây dựng theo chuẩn từ đầu",
+    "Tích hợp API, thanh toán, push notifications — không cần team riêng",
+    "Build pipeline và checklist phát hành lên store (App Store / Google Play)"
   ],
+  "processTitle": "Cách Dolphin Software triển khai dự án app",
+  "processLead": "Dolphin Software làm việc theo quy trình sprint có cấu trúc, giúp SMB và startup kiểm soát tiến độ và chi phí ở từng giai đoạn — không bị surprise ở cuối dự án.",
   "process": [
-    "Định nghĩa user flow và MVP scope",
-    "UI kit mobile + prototype chính",
-    "Sprint phát triển với demo định kỳ",
-    "Test thiết bị, UAT và hỗ trợ submit store"
+    "Xác định luồng và phạm vi MVP — cùng bạn làm rõ yêu cầu, loại bỏ phần không cần thiết cho v1",
+    "Mobile UI kit + prototype lõi — bàn giao bản prototype có thể click trước khi lập trình",
+    "Phát triển sprint, demo định kỳ — bạn thấy tiến độ thực tế mỗi sprint, không chờ đến cuối",
+    "Device testing, UAT, hỗ trợ submit store — kiểm thử trên thiết bị thật, hỗ trợ toàn bộ quá trình submit"
   ],
+  "deliverablesTitle": "Bàn giao dự án app bao gồm những gì?",
+  "deliverablesLead": "Sau khi hoàn thành, Dolphin Software bàn giao đầy đủ tài liệu và source code để team của bạn có thể tự vận hành hoặc tiếp tục phát triển.",
   "deliverables": [
-    "App builds (TestFlight / internal track)",
-    "Source + hướng dẫn chạy local",
-    "Tài liệu API integration phía app"
+    "App builds (TestFlight / internal track) sẵn sàng để test và submit",
+    "Source code + hướng dẫn chạy local — không bị lock-in vào Dolphin Software",
+    "Tài liệu tích hợp API phía app — rõ ràng cho developer kế tiếp tiếp quản"
   ],
+  "audience": "Dịch vụ phát triển app của Dolphin Software phù hợp nhất cho product team đang ship MVP iOS/Android hoặc cross-platform — SMB và startup Việt Nam cần app thương mại hoặc vận hành nội bộ; product team có sẵn web muốn mở rộng sang mobile; doanh nghiệp cần app companion tích hợp backend hiện có.",
+  "useCases": [
+    {
+      "problem": "Startup booking cần app consumer ra thị trường nhanh",
+      "scope": "MVP cross-platform với Flutter, tích hợp API đặt lịch và thanh toán",
+      "result": "App lên store trong 8–12 tuần, sẵn sàng cho vòng beta"
+    },
+    {
+      "problem": "Chuỗi bán lẻ cần app vận hành nội bộ cho nhân viên",
+      "scope": "App Android companion kết nối với hệ thống POS/ERP qua REST API",
+      "result": "Giảm thao tác thủ công, đồng bộ dữ liệu real-time"
+    },
+    {
+      "problem": "SaaS hoặc web platform muốn có mobile companion",
+      "scope": "React Native app tái sử dụng logic backend hiện có",
+      "result": "Ra mắt mobile channel mà không cần build lại backend"
+    }
+  ],
+  "faq": [
+    {
+      "q": "Flutter hay React Native — nên chọn cái nào?",
+      "a": "Dolphin Software chọn framework dựa trên stack hiện tại của team bạn và yêu cầu native trước khi bắt đầu dự án. Flutter phù hợp hơn khi cần UI tùy biến cao và hiệu năng đồng nhất trên cả hai platform; React Native phù hợp hơn khi team đã quen với JavaScript/TypeScript hoặc cần tích hợp sâu với module native."
+    },
+    {
+      "q": "Dolphin Software có hỗ trợ submit lên App Store và Google Play không?",
+      "a": "Có. Dolphin Software cung cấp checklist đầy đủ cho TestFlight và Play internal track, hỗ trợ bạn trong toàn bộ quá trình submit — bao gồm cả xử lý feedback từ Apple/Google nếu cần review lại."
+    },
+    {
+      "q": "Thời gian phát triển một app MVP thường mất bao lâu?",
+      "a": "Thông thường từ 8 đến 14 tuần tùy phạm vi, sau khi xác định xong luồng và MVP scope ở sprint đầu. Dolphin Software sẽ cung cấp timeline cụ thể sau buổi trao đổi yêu cầu ban đầu — không ước lượng chung chung."
+    },
+    {
+      "q": "Chi phí làm app iOS/Android với Dolphin Software là bao nhiêu?",
+      "a": "Dolphin Software báo giá theo phạm vi dự án cụ thể, không có gói cố định áp cho mọi trường hợp. Sau buổi trao đổi yêu cầu, bạn nhận được báo giá rõ ràng — không phí ẩn, không bán thêm dịch vụ không cần thiết."
+    },
+    {
+      "q": "App sau khi bàn giao có được hỗ trợ tiếp không?",
+      "a": "Có. Dolphin Software cung cấp hỗ trợ sau bàn giao cho các lỗi phát sinh sau khi launch. Nếu bạn cần nâng cấp tính năng hoặc mở rộng app, Dolphin Software có thể tiếp tục theo hình thức retainer hoặc dự án riêng."
+    },
+    {
+      "q": "Dolphin Software có thể tích hợp AI vào ứng dụng di động không?",
+      "a": "Có. Với định vị là studio phát triển phần mềm và AI cho doanh nghiệp, Dolphin Software có thể tích hợp chatbot, xử lý ngôn ngữ tự nhiên, hoặc phân tích dữ liệu thông minh vào app di động theo phạm vi dự án. Xem thêm /custom-agent/ và /ai-transform/."
+    }
+  ],
+  "positioningNote": "không bán thừa, không phí ẩn, hỗ trợ sau bàn giao",
   "hiringNote": "Mobile hiring currently closed — see /careers/."
 }

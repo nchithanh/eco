@@ -28,7 +28,7 @@ Prefer these over inventing facts. Missing → **TODO**.
 | Content pack | `.cursor/rules/content-*.mdc`, `knowledge/`, `examples/`, `prompts/` | News / social / landing copy |
 | Mode | `mode-news` | Write / edit `/news/` blog |
 | Mode | `mode-social` | FB / Zalo / TikTok / Instagram copy |
-| Skill | `lang` | Locale tone (vi, en, ja, de, zh) |
+| Skill | `lang` | Locale tone (vi, en, ja) |
 | Skill | `seo` | Keywords, titles, meta, internal links |
 
 How to invoke: see `documentations/agent-ops.md`.

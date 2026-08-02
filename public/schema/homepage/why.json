@@ -1,45 +1,40 @@
 {
   "meta": {
     "kind": "homepage-section",
+    "id": "why",
     "locale": "vi",
     "brand": "Dolphin Software",
-    "updated": "2026-08-02",
-    "productRoute": "/",
-    "id": "why",
-    "anchor": "#why",
-    "component": "WhyKuct",
+    "updated": "2026-08-03",
     "schemaPath": "/schema/homepage/why/",
     "rawPath": "/schema/homepage/why.json",
-    "copyKey": "why"
+    "productRoute": "/"
   },
   "content": {
-    "eyebrow": "Why Dolphin",
-    "title": "Nguyên tắc chúng tôi [[luôn giữ]]",
-    "support": "Chúng tôi bắt đầu bằng việc hiểu vấn đề, rồi mới đề xuất giải pháp phù hợp — không phải giải pháp đắt nhất.",
-    "reasons": [
+    "order": 3,
+    "id": "why",
+    "section_label": "Tại sao chọn Dolphin Software",
+    "headline": "Đối tác dài hạn, không chỉ giao code",
+    "subheadline": "Timeline rõ ràng, phạm vi cam kết và hỗ trợ sau bàn giao — không có sương mù kỹ thuật.",
+    "pillars": [
       {
-        "title": "Không vội viết code",
-        "body": "Có bài toán chỉ cần đổi một quy trình nhỏ, thay vì xây lại toàn bộ."
+        "icon": "shield",
+        "title": "Kinh nghiệm thực chiến",
+        "body": "7 năm vận hành thực tế — đáng tin cậy, có khả năng quan sát, bàn giao end-to-end cho doanh nghiệp SMB."
       },
       {
-        "title": "Đơn giản trước",
-        "body": "Không phải dự án nào cũng cần làm mới. Quan trọng là cách giải hiệu quả nhất."
+        "icon": "layers",
+        "title": "Bàn giao end-to-end",
+        "body": "Từ discovery đến deploy — một đội chịu trách nhiệm; cấu trúc để mở rộng về sau."
       },
       {
-        "title": "Modernize trước khi rebuild",
-        "body": "Tận dụng phần đang chạy tốt, chỉ nâng cấp phần thật sự cần."
+        "icon": "eye",
+        "title": "Quy trình minh bạch",
+        "body": "Milestone, demo định kỳ, báo giá theo phạm vi — đo lường bằng sản phẩm bàn giao thực tế."
       },
       {
-        "title": "Làm đúng điều đã thống nhất",
-        "body": "Phạm vi rõ, tiến độ minh bạch, bàn giao đầy đủ để bạn chủ động vận hành."
-      },
-      {
-        "title": "AI / Care đúng chỗ",
-        "body": "Chỉ dùng AI khi giảm được việc lặp hoặc cải thiện trải nghiệm khách — không chạy theo xu hướng."
-      },
-      {
-        "title": "Đồng hành sau bàn giao",
-        "body": "Bàn giao không phải điểm kết. Doanh nghiệp lớn lên, hệ thống cũng cần lớn theo."
+        "icon": "headset",
+        "title": "Hỗ trợ sau bàn giao",
+        "body": "Hướng dẫn vận hành, bảo hành lỗi theo thỏa thuận, tối ưu khi thực tế phát sinh."
       }
     ]
   }

@@ -42,7 +42,9 @@ Hero
 
 ## Brand chrome (VI)
 
-Eyebrows stay English (`Outcomes`, `Why Dolphin`, `How we help`, `Projects`, `Ops AI`, `Fit`, `Solutions`, `Next step`). Display name always **Dolphin Software**. Titles/support/body in VI via `homepage_lang_vi.ts`.
+Eyebrows stay English (`Outcomes`, `Why Dolphin`, `How we help`, `Projects`, `Ops AI`, `Fit`, `Solutions`, `Next step`). Display name always **Dolphin Software**. Titles/support/body in VI via `homepage_lang_vi.ts` (SEO/AEO/GEO rewriter SoT mirrored in `public/schema/homepage/`). Projects `#works`: 6 cases (bida, cầu lông, vé, beauty, cafe QR, clinic).
+
+Homepage `<title>` / description (VI): from `homepageLangVi.seo` in `app/page.tsx`. JSON-LD: `WebPage` + `FAQPage` on `/` (Organization/WebSite remain in root layout).
 
 ## Homepage locale files
 

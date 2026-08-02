@@ -1,47 +1,29 @@
 {
   "meta": {
     "kind": "homepage-section",
+    "id": "technology",
     "locale": "vi",
     "brand": "Dolphin Software",
-    "updated": "2026-08-02",
-    "productRoute": "/",
-    "id": "technology",
-    "anchor": "#technology",
-    "component": "Technology",
+    "updated": "2026-08-03",
     "schemaPath": "/schema/homepage/technology/",
     "rawPath": "/schema/homepage/technology.json",
-    "copyKey": "technology"
+    "productRoute": "/"
   },
   "content": {
-    "eyebrow": "AI Philosophy",
-    "title": "Chúng tôi nghĩ gì về [[AI cho doanh nghiệp]]",
-    "support": "AI không thay người, và không phải doanh nghiệp nào cũng cần AI. Chúng tôi chỉ đề xuất khi nó thật sự giảm việc lặp hoặc cải thiện trải nghiệm khách — website và hệ thống vẫn là nền.",
-    "cta": "Tìm hiểu AI Transformation",
-    "live": "live",
-    "tabs": [
-      "Tổng quan",
-      "Dữ liệu",
-      "Insight",
-      "Cảnh báo"
-    ],
-    "widgets": {
-      "activity": "Hoạt động",
-      "pulse": "Nhịp hệ thống",
-      "nodes": "Node đang chạy"
-    },
+    "order": 7,
+    "id": "technology",
+    "section_label": "Công nghệ",
+    "headline": "Một console cho tín hiệu vốn nằm rải rác khắp nơi",
+    "subheadline": "Trước đây: Slack, Jira và tài liệu phân mảnh dữ liệu thật. Sau khi áp dụng: Thu thập → Chuẩn hóa → Vận hành → Quản trị — toàn bộ bức tranh trong một luồng duy nhất, minh bạch.",
     "principles": [
-      {
-        "title": "Có bài toán trước, có AI sau",
-        "body": "Chúng tôi bắt đầu từ việc doanh nghiệp đang mất thời gian ở đâu, không từ công nghệ."
-      },
-      {
-        "title": "Thực dụng, không sci-fi",
-        "body": "Không hứa “thay cả business”, không cam kết doanh thu. Chỉ làm phần đo được kết quả."
-      },
-      {
-        "title": "Gắn vào cái đang chạy",
-        "body": "AI nối vào website, CRM và quy trình hiện có, thay vì bắt bạn làm lại từ đầu."
-      }
-    ]
+      "Quy trình trước công cụ",
+      "Đo lường bằng con số",
+      "Con người luôn trong vòng kiểm soát"
+    ],
+    "cta": {
+      "label": "Tìm hiểu thêm",
+      "href": "https://dolphin-software.io.vn/ai-transform/"
+    },
+    "dashboard_ui_hint": "Giao diện console hiển thị: Overview · Data · Insights · Alerts — 26 active nodes, system pulse APICIAI"
   }
 }

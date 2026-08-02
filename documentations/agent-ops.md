@@ -15,7 +15,7 @@ How Cursor **agents**, **Content Agent pack**, modes/skills, and **`documentatio
 | Prompts | `.cursor/prompts/` | `create-blog`, `create-social`, `pipeline` |
 | Mode news | `.cursor/rules/mode-news.mdc` | Blog `/news/` |
 | Mode social | `.cursor/rules/mode-social.mdc` | FB / Zalo / TikTok / IG |
-| Skill lang | `.cursor/skills/lang/` | vi · en · ja · de · zh |
+| Skill lang | `.cursor/skills/lang/` | vi · en · ja |
 | Skill seo | `.cursor/skills/seo/` | Keywords, meta, links |
 | Canonical docs | `documentations/*` | Product truth, routes, deploy, changelog |
 

@@ -15,8 +15,8 @@ describe("detectBrowserLocale", () => {
     expect(detectBrowserLocale(["vi-VN", "en-US"])).toBe("vi");
     expect(detectBrowserLocale(["en-GB"])).toBe("en");
     expect(detectBrowserLocale(["ja"])).toBe("ja");
-    expect(detectBrowserLocale(["de-DE"])).toBe("de");
-    expect(detectBrowserLocale(["zh-CN", "en"])).toBe("zh");
+    expect(detectBrowserLocale(["de-DE"])).toBe(DEFAULT_LOCALE);
+    expect(detectBrowserLocale(["zh-CN", "en"])).toBe("en");
     expect(detectBrowserLocale(["fr-FR", "en-US"])).toBe("en");
   });
 
@@ -38,8 +38,8 @@ describe("resolveClientLocale", () => {
   });
 
   it("uses stored locale when data-locale is absent", () => {
-    window.localStorage.setItem("kuct-locale", "de");
-    expect(resolveClientLocale()).toBe("de");
+    window.localStorage.setItem("kuct-locale", "en");
+    expect(resolveClientLocale()).toBe("en");
   });
 
   it("uses DEFAULT in test when nothing is stored", () => {

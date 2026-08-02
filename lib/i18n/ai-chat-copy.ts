@@ -147,32 +147,6 @@ const en: AiChatCopy = {
   escalateHint: "Need a human? Tap the Zalo button next to this widget.",
 };
 
-const de: AiChatCopy = {
-  ...en,
-  online: "Online",
-  justNow: "gerade eben",
-  open: "Dolphin Assist Chat öffnen",
-  close: "Dolphin Assist Chat schließen",
-  closePanel: "Schließen",
-  zalo: "Zalo-Chat",
-  messenger: "Messenger-Chat",
-  toastWelcome:
-    "Hallo! Ich bin Dolphin Assist — melde dich, wenn du Hilfe brauchst.",
-  toastContinue:
-    "Web, Custom AI Agent oder KI-Transformation? Schreib mir hier oder auf Zalo.",
-  dismissToasts: "Hinweise ausblenden",
-  placeholder: "Nachricht eingeben…",
-  send: "Senden",
-  greeting:
-    "Hallo! Ich bin Dolphin Assist von Dolphin Software. Brauchst du Website/App, einen Custom AI Agent oder KI-Transformation?",
-  suggestions: [
-    "Projektangebot",
-    "Custom AI Agent",
-    "KI-Transformation",
-    "Mensch auf Zalo",
-  ],
-  escalateHint: "Mensch nötig? Tippe auf den Zalo-Button neben dem Widget.",
-};
 
 const ja: AiChatCopy = {
   ...en,
@@ -201,32 +175,11 @@ const ja: AiChatCopy = {
   escalateHint: "人と話したい場合は、横の Zalo ボタンを押してください。",
 };
 
-const zh: AiChatCopy = {
-  ...en,
-  online: "在线",
-  justNow: "刚刚",
-  open: "打开 Dolphin Assist 对话",
-  close: "关闭 Dolphin Assist 对话",
-  closePanel: "关闭",
-  zalo: "用 Zalo 聊天",
-  messenger: "用 Messenger 聊天",
-  toastWelcome: "你好！我是 Dolphin Assist — 需要时随时找我。",
-  toastContinue: "网站、按需 AI Agent 或企业 AI 转型？在这里留言，或通过 Zalo。",
-  dismissToasts: "关闭提示",
-  placeholder: "输入消息…",
-  send: "发送",
-  greeting:
-    "你好！我是 Dolphin Software 的 Dolphin Assist。你想咨询网站/应用、按需 AI Agent，还是企业 AI 转型？",
-  suggestions: ["项目报价", "按需 AI Agent", "AI 转型", "用 Zalo 找人工"],
-  escalateHint: "需要人工？点按旁边的 Zalo 按钮。",
-};
 
 export const aiChatCopy: Record<Locale, AiChatCopy> = {
   vi,
   en,
-  de,
   ja,
-  zh,
 };
 
 export function getAiChatCopy(locale: Locale): AiChatCopy {

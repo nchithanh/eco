@@ -1,43 +1,47 @@
 {
   "meta": {
     "kind": "homepage-section",
+    "id": "ai-edge",
     "locale": "vi",
     "brand": "Dolphin Software",
-    "updated": "2026-08-02",
-    "productRoute": "/",
-    "id": "ai-edge",
-    "anchor": "#ai-edge",
-    "component": "AiEdge",
+    "updated": "2026-08-03",
     "schemaPath": "/schema/homepage/ai-edge/",
     "rawPath": "/schema/homepage/ai-edge.json",
-    "copyKey": "aiEdge"
+    "productRoute": "/"
   },
   "content": {
-    "eyebrow": "Ops AI",
-    "badge": "Automate",
-    "title": "AI cho [[quy trình vận hành]]",
-    "support": "Đây là những nơi AI mang lại giá trị rõ nhất cho SMB — gắn vào website và hệ thống bạn đã có.",
-    "items": [
+    "order": 8,
+    "id": "ai-edge",
+    "section_label": "Năng lực AI",
+    "headline": "Website làm nền — AI là lớp thông minh bên trên",
+    "subheadline": "Web & app là cốt lõi của Dolphin Software. Khi thực sự có ích, chúng tôi thêm chat, automation và process agent — thực tế, không phải khoa học viễn tưởng.",
+    "capabilities": [
       {
-        "id": "chat",
-        "tag": "On-site",
-        "title": "AI chat & FAQ trên site",
-        "body": "Trả lời câu hỏi thường gặp và thu lead, gắn thẳng vào website hiện tại."
+        "context": "On-site",
+        "title": "AI chat & FAQ trên website của bạn",
+        "body": "Trả lời câu hỏi thường gặp và thu lead ngay trên website đang chạy."
       },
       {
-        "id": "workflow",
-        "tag": "Automation",
-        "title": "Workflow & form thông minh",
-        "body": "Tự động hóa đặt lịch, báo giá và phân luồng lead, giảm thao tác tay."
+        "context": "Automation",
+        "title": "Quy trình thông minh & form tự động",
+        "body": "Tự động hóa đặt lịch, báo giá và phân luồng lead — giảm bước thủ công."
       },
       {
-        "id": "agent",
-        "tag": "Integration",
-        "title": "Agent nối CRM / Zalo",
-        "body": "Agent theo nghiệp vụ, nối hệ thống đang chạy và đo được kết quả."
+        "context": "Integration",
+        "title": "Agent kết nối CRM / Zalo",
+        "body": "Business agent gắn vào quy trình thực, kết nối hệ thống live — kết quả đo được."
       }
     ],
-    "ctaTransform": "Chuyển đổi AI doanh nghiệp",
-    "ctaAgent": "AI Agent theo yêu cầu"
+    "links": [
+      {
+        "label": "Chuyển đổi AI doanh nghiệp",
+        "href": "https://dolphin-software.io.vn/ai-transform/"
+      },
+      {
+        "label": "AI agent tùy chỉnh",
+        "href": "https://dolphin-software.io.vn/custom-agent/"
+      }
+    ],
+    "aeo_snippet": "Dolphin Software tích hợp AI automation cho doanh nghiệp vừa và nhỏ dưới ba dạng: AI chat trên website, quy trình tự động hóa (đặt lịch, báo giá, phân luồng lead), và business agent kết nối CRM hoặc Zalo — đo được bằng kết quả vận hành thực tế."
   }
 }

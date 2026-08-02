@@ -110,70 +110,12 @@ const ja: NewsCopy = {
   },
 };
 
-const de: NewsCopy = {
-  meta: {
-    title: "Dolphin Software — News & Notizen",
-    description:
-      "Praxisnahe Notizen zu Web, Apps, UX, Prozess und Cases von Dolphin Software.",
-  },
-  title: "News & Notizen",
-  blurb:
-    "Produkt, Technik, Arbeitsweise — kurze Notizen, keine Pressemitteilungen.",
-  homeEyebrow: "Notizen",
-  homeTitle: "[[Neueste]] Notizen",
-  viewAll: "Alle Notizen",
-  filterAll: "Alle",
-  readMore: "Weiterlesen",
-  readMinutes: "{n} Min. Lesezeit",
-  prevPage: "Vorherige Seite",
-  nextPage: "Nächste Seite",
-  relatedTitle: "Verwandt",
-  cta: "Über ein Projekt sprechen?",
-  breadcrumbHome: "Start",
-  breadcrumbNews: "News",
-  categories: {
-    process: "Prozess",
-    product: "Produkt",
-    tech: "Technik",
-    studio: "Studio",
-    cases: "Cases",
-  },
-};
 
-const zh: NewsCopy = {
-  meta: {
-    title: "Dolphin Software — 新闻与笔记",
-    description: "来自 Dolphin Software 的 Web、应用、UX、流程与案例实践笔记。",
-  },
-  title: "新闻与笔记",
-  blurb: "产品、工程与工作方式的短文——不是新闻稿。",
-  homeEyebrow: "笔记",
-  homeTitle: "[[最新]]笔记",
-  viewAll: "查看全部笔记",
-  filterAll: "全部",
-  readMore: "阅读更多",
-  readMinutes: "{n} 分钟阅读",
-  prevPage: "上一页",
-  nextPage: "下一页",
-  relatedTitle: "相关文章",
-  cta: "想聊聊项目吗？",
-  breadcrumbHome: "首页",
-  breadcrumbNews: "新闻",
-  categories: {
-    process: "流程",
-    product: "产品",
-    tech: "技术",
-    studio: "工作室",
-    cases: "案例",
-  },
-};
 
-export const newsByLocale: Record<Locale, NewsCopy> = { vi, en, ja, de, zh };
+export const newsByLocale: Record<Locale, NewsCopy> = { vi, en, ja };
 
 export const newsNavLabel: Record<Locale, string> = {
   vi: "Tin tức",
   en: "News",
   ja: "ニュース",
-  de: "News",
-  zh: "新闻",
 };

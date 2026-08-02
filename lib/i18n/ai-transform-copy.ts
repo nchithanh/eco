@@ -297,135 +297,6 @@ const en: AiTransformCopy = {
   closeCta: "Contact Dolphin Software",
 };
 
-const de: AiTransformCopy = {
-  metaTitle: "KI-Transformation für Unternehmen | Dolphin Software",
-  metaDescription:
-    "Echte Workflows analysieren und KI dort anbinden, wo Menschen und Geld verbrennen — messbare Roadmap statt ChatGPT-Lizenzen und Hoffnung.",
-  eyebrow: "KI-Transformation",
-  headline: "KI in den [[Betriebskern]] — keine Sitzlizenzen und Hoffnung",
-  support:
-    "Dolphin prüft echte Prozesse, findet Aufgaben, die Menschen und Budget verbrennen, und bindet kontrollierte Agents an. Meilenstein-Roadmap — klein starten, nach Beweis skalieren.",
-  ctaPrimary: "Grobe Roadmap anfragen",
-  ctaSecondary: "Custom AI Agents ansehen",
-  trustLine: "Prozess vor Tool · Messen in Zahlen · Human-in-the-Loop",
-  compareEyebrow: "Betriebliche Realität",
-  compareTitle: "KI-Lizenzen vs [[echte Transformation]]",
-  compareSupport:
-    "ChatGPT/Gemini für jedes Team zu kaufen ist keine Transformation. Transformation verdrahtet KI mit laufenden Geschäftsprozessen.",
-  offShelfTitle: "Sitzlizenzen / verstreute Tools",
-  offShelfItems: [
-    "Jeder nutzt KI anders — schwer zu standardisieren oder eingesparte Stunden zu messen",
-    "KI sieht weder CRM, Lagerbestand noch Prozess — lebt nur in der Chatbox",
-    "Fixkosten steigen; Durchsatz und Qualität bleiben oft gleich",
-    "Leicht zu vertrauen oder falsch zu nutzen — Fehler zeigen sich erst beim Kunden",
-  ],
-  customTitle: "KI-Transformation à la Dolphin Software",
-  customItems: [
-    "Prozess neu zeichnen: welche Schritte menschlich, welche maschinell",
-    "KI/Agents an repetitive Aufgaben anbinden — bestehende Systeme verbinden",
-    "Einen Flow pilotieren; Leads/Stunden/Fehler messen, bevor erweitert wird",
-    "Menschen genehmigen sensible Schritte; Logs, Übergabe und Tuning inklusive",
-  ],
-  whenEyebrow: "Wann es zählt",
-  whenTitle: "Drei Stellen, an denen \"wir haben KI\" noch [[bricht]]",
-  whenSupport:
-    "Wenn Sie diese Punkte wiedererkennen, erstellen Sie eine Roadmap bevor Sie mehr Geld in Tools stecken.",
-  whenItems: [
-    {
-      title: "Tools sind nicht verbunden",
-      body: "Bot hier, CRM dort, Excel woanders — jede Verbindung ist manuelles Copy-Paste.",
-    },
-    {
-      title: "KI gekauft, Arbeit steckt fest",
-      body: "Lizenzen und Schulungen erledigt — Leads fallen trotzdem durch, Buchung weiterhin manuell, Reports immer noch monatliche Feuerwehrübung.",
-    },
-    {
-      title: "Kein messbarer ROI",
-      body: "Sie können weder eingesparte Stunden noch reduzierte Fehler benennen — nur eine steigende KI-Rechnung.",
-    },
-  ],
-  processEyebrow: "So arbeitet Dolphin Software",
-  processTitle: "Eine [[messbare]] Roadmap — kein Sprung ins Ungewisse",
-  processSupport:
-    "Fünf Schritte mit klaren Ergebnissen pro Phase; Erweiterung erst nach Beweis.",
-  processSteps: [
-    {
-      title: "Betriebsbild erfassen",
-      body: "Kunden-/Auftrags-/interne Flows abbilden — Personalverbrauch und Datenbrüche erkennen.",
-    },
-    {
-      title: "1–2 Prioritätsaufgaben wählen",
-      body: "Keinen Nebel automatisieren. Repetitive, regelklare Aufgaben mit schneller Amortisation bevorzugen.",
-    },
-    {
-      title: "Mensch–Maschine-Design + Integrationen",
-      body: "Wer genehmigt was; Agents/Tools mit CRM, Chat, Kalender, Zahlung im Scope verdrahtet.",
-    },
-    {
-      title: "Pilot mit echter Arbeit",
-      body: "Echte Daten, echte Zahlen, den neuen Prozess ernsthaft korrigieren, bevor er repliziert wird.",
-    },
-    {
-      title: "Kontrolliert skalieren",
-      body: "Für die nächste Aufgabe wiederholen; Betrieb, Zugang und eine Erweiterungs-Checkliste übergeben.",
-    },
-  ],
-  industriesEyebrow: "Scope",
-  industriesTitle: "Wo Teams normalerweise [[starten]]",
-  industriesSupport:
-    "Am ersten Tag brauchen Sie kein \"KI überall\". Übliche Einstiegspunkte für KMU:",
-  industries: [
-    {
-      name: "Vertrieb & Leads",
-      body: "Leads erfassen und qualifizieren, Deal-Erinnerungen, konsistente Mehrkanalantworten.",
-    },
-    {
-      name: "Betreuung & Terminplanung",
-      body: "FAQ, Buchung, Erinnerungen gebunden an reale Verfügbarkeit.",
-    },
-    {
-      name: "Content & Web-Ops",
-      body: "Wiederholbare Content-/SEO-Updates mit Freigabe — weniger Routinearbeit.",
-    },
-    {
-      name: "Reporting & Betrieb",
-      body: "Verstreute Signale in einen Collect → Govern Loop bündeln.",
-    },
-    {
-      name: "HR / interne Ops",
-      body: "Screening, Erinnerungen, Checklisten — wenn Regeln klar sind.",
-    },
-    {
-      name: "Mit Custom Agents",
-      body: "Eine Aufgabe kann ein Custom Agent sein; die Roadmap ist unternehmensweite KI-Transformation.",
-    },
-  ],
-  faqEyebrow: "FAQ",
-  faqTitle: "Schnelle Antworten zur [[KI-Transformation]]",
-  faqItems: [
-    {
-      q: "Unterschied zum Kauf von ChatGPT-Lizenzen?",
-      a: "Lizenzen sind persönliche Werkzeuge. Transformation verbindet Maschinen mit Prozess und Systemen, mit Freigaben und Kennzahlen.",
-    },
-    {
-      q: "Müssen wir das ganze Unternehmen auf einmal transformieren?",
-      a: "Nein. Dolphin priorisiert 1–2 schmerzhafte Aufgaben, pilotiert mit Zahlen, dann erweitern — kein unkontrolliertes Megaprojekt.",
-    },
-    {
-      q: "Wie hängt das mit Custom Agents zusammen?",
-      a: "Ein Custom Agent ist oft ein Baustein. Transformation umfasst Prozess, Prioritätsreihenfolge und Systemverdrahtung.",
-    },
-    {
-      q: "Kann ein kleines KMU starten?",
-      a: "Ja — wenn der Prozess klar genug ist und eine repetitive Aufgabe Menschen verbrennt. Der Scope passt zur Größe; keine Fake-Plattform.",
-    },
-  ],
-  closeEyebrow: "Starten",
-  closeTitle: "Bringen Sie [[einen echten Workflow]] ins Gespräch",
-  closeSupport:
-    "Dolphin findet Bruchstellen und entwirft eine grobe Roadmap: was zuerst, was messen, welche Meilensteine. Keine Magie auf Folien.",
-  closeCta: "Dolphin Software kontaktieren",
-};
 
 const ja: AiTransformCopy = {
   metaTitle: "企業の AI 変革 | Dolphin Software",
@@ -557,25 +428,11 @@ const ja: AiTransformCopy = {
   closeCta: "Dolphin Software に連絡",
 };
 
-const zh: AiTransformCopy = {
-  ...en,
-  metaTitle: "企业 AI 转型 | Dolphin Software",
-  eyebrow: "企业 AI 转型",
-  headline: "把 AI 接到[[运营核心]] — 不是发账号碰运气",
-  support:
-    "Dolphin 梳理真实流程，锁定耗人耗钱的环节，再接入可控 Agent。按里程碑推进 — 小步验证，再扩大。",
-  trustLine: "流程先于工具 · 用数据衡量 · Human-in-the-loop",
-  ctaPrimary: "获取初步路线图",
-  ctaSecondary: "查看按需 AI Agent",
-  closeCta: "联系 Dolphin Software",
-};
 
 export const aiTransformCopy: Record<Locale, AiTransformCopy> = {
   vi,
   en,
-  de,
   ja,
-  zh,
 };
 
 export function getAiTransformCopy(locale: Locale): AiTransformCopy {

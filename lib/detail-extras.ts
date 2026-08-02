@@ -36,46 +36,75 @@ const serviceExtras: L<ServiceExtras> = {
   vi: {
     web: {
       audience:
-        "SME, startup và đội marketing cần làm website / thiết kế web rõ phạm vi, ra mắt nhanh, dễ nhận báo giá.",
+        "Doanh nghiệp vừa và nhỏ (SMB), startup, và đội marketing cần website hoàn chỉnh, bàn giao đúng hạn và dễ báo giá.",
       useCases: [
-        "Landing campaign / ra mắt sản phẩm",
-        "Website doanh nghiệp & bán hàng + blog/CMS",
-        "Site đa ngôn ngữ VI/EN/JA",
+        "Landing page cho chiến dịch quảng cáo hoặc ra mắt sản phẩm mới",
+        "Website doanh nghiệp với CMS để tự quản lý nội dung",
+        "Website đa ngôn ngữ hỗ trợ VI / EN / JA cho doanh nghiệp hướng xuất khẩu hoặc khách quốc tế",
       ],
       faq: [
         {
-          q: "Báo giá website tính như thế nào?",
-          a: "Theo phạm vi: số trang, thiết kế mới hay template, CMS, tích hợp form/thanh toán. Gói tham khảo trên trang chủ; báo giá chính xác sau khi nói rõ mục tiêu.",
+          q: "Thiết kế website theo yêu cầu giá bao nhiêu?",
+          a: "Giá phụ thuộc vào phạm vi: số trang, thiết kế tùy chỉnh hay dùng template, có CMS không, và các tích hợp như form hoặc thanh toán. Gói khởi điểm từ $38 (landing page) đến $380 (e-commerce). Báo giá chính xác được cung cấp sau khi xác nhận mục tiêu.",
         },
         {
-          q: "Làm website mất bao lâu?",
-          a: "Landing thường 1–3 tuần; corporate / bán hàng vài tuần đến vài tháng tùy nội dung và vòng review.",
+          q: "Làm website doanh nghiệp mất bao lâu?",
+          a: "Landing page thường hoàn thành trong 3–5 ngày làm việc. Website doanh nghiệp đa trang mất 7–14 ngày. Website e-commerce mất 3–4 tuần. Thời gian thực tế phụ thuộc vào mức độ phản hồi nội dung và review từ phía khách hàng.",
         },
         {
-          q: "Có kèm CMS không?",
-          a: "Có thể gắn headless CMS (vd. Strapi) để team tự cập nhật bài viết và trang.",
+          q: "Tôi có thể tự cập nhật nội dung website sau khi bàn giao không?",
+          a: "Có. Các gói Business Website trở lên bao gồm CMS headless (Strapi), cho phép đội ngũ của bạn tự thêm, sửa, xóa nội dung mà không cần lập trình viên.",
         },
         {
-          q: "Website có chuẩn SEO không?",
-          a: "Có SEO kỹ thuật cơ bản (title/meta, tốc độ, mobile, sitemap/robots). Content từ khóa và backlink là phần tiếp theo nếu bạn muốn đẩy organic.",
+          q: "Dịch vụ có bao gồm SEO không?",
+          a: "Tất cả các gói đều bao gồm SEO kỹ thuật nền tảng: meta tags, tối ưu tốc độ, mobile-friendly, sitemap và robots.txt. Chiến lược từ khóa và xây dựng backlink là dịch vụ bổ sung nếu bạn muốn tăng trưởng organic dài hạn.",
+        },
+        {
+          q: "Dolphin Software có làm website đa ngôn ngữ không?",
+          a: "Có. Dolphin Software hỗ trợ xây dựng website đa ngôn ngữ (Tiếng Việt / Tiếng Anh / Tiếng Nhật), phù hợp cho doanh nghiệp có khách hàng hoặc đối tác quốc tế.",
+        },
+        {
+          q: "Tôi đang dùng website cũ — Dolphin Software có hỗ trợ nâng cấp hệ thống cũ không?",
+          a: "Có. Dolphin Software đánh giá hệ thống hiện tại và đề xuất phương án nâng cấp phù hợp — từ cải thiện hiệu năng đến tái cấu trúc toàn bộ stack kỹ thuật. Liên hệ để được phân tích giải pháp miễn phí.",
+        },
+        {
+          q: "Dolphin Software có tích hợp AI automation vào website không?",
+          a: "Có. Với định vị là studio phát triển phần mềm và AI, Dolphin Software có thể tích hợp các tính năng AI automation — như chatbot, xử lý đơn hàng tự động, hoặc phân tích dữ liệu — vào website doanh nghiệp theo yêu cầu.",
         },
       ],
     },
     mobile: {
-      audience: "Đội sản phẩm cần MVP app iOS/Android hoặc cross-platform.",
+      audience:
+        "Dịch vụ phát triển app của Dolphin Software phù hợp nhất cho product team đang ship MVP iOS/Android hoặc cross-platform — SMB và startup Việt Nam cần app thương mại hoặc vận hành nội bộ; product team có sẵn web muốn mở rộng sang mobile; doanh nghiệp cần app companion tích hợp backend hiện có.",
       useCases: [
-        "App booking / consumer MVP",
-        "App nội bộ vận hành cửa hàng",
-        "Companion app cho web hiện có",
+        "Startup booking cần app consumer nhanh → MVP cross-platform Flutter + API đặt lịch/thanh toán → lên store trong 8–12 tuần, sẵn sàng beta",
+        "Chuỗi bán lẻ cần app vận hành nội bộ → Android companion nối POS/ERP qua REST API → giảm thao tác thủ công, đồng bộ dữ liệu real-time",
+        "SaaS / web platform muốn mobile companion → React Native tái sử dụng backend hiện có → ra mắt mobile channel không build lại backend",
       ],
       faq: [
         {
-          q: "Flutter hay React Native?",
-          a: "Chọn theo stack đội ngũ và yêu cầu native — chúng tôi tư vấn trước khi kickoff.",
+          q: "Flutter hay React Native — nên chọn cái nào?",
+          a: "Dolphin Software chọn framework dựa trên stack hiện tại của team bạn và yêu cầu native trước khi bắt đầu dự án. Flutter phù hợp hơn khi cần UI tùy biến cao và hiệu năng đồng nhất trên cả hai platform; React Native phù hợp hơn khi team đã quen với JavaScript/TypeScript hoặc cần tích hợp sâu với module native.",
         },
         {
-          q: "Có hỗ trợ lên store?",
-          a: "Có checklist TestFlight / Play internal và hỗ trợ submit.",
+          q: "Dolphin Software có hỗ trợ submit lên App Store và Google Play không?",
+          a: "Có. Dolphin Software cung cấp checklist đầy đủ cho TestFlight và Play internal track, hỗ trợ bạn trong toàn bộ quá trình submit — bao gồm cả xử lý feedback từ Apple/Google nếu cần review lại.",
+        },
+        {
+          q: "Thời gian phát triển một app MVP thường mất bao lâu?",
+          a: "Thông thường từ 8 đến 14 tuần tùy phạm vi, sau khi xác định xong luồng và MVP scope ở sprint đầu. Dolphin Software sẽ cung cấp timeline cụ thể sau buổi trao đổi yêu cầu ban đầu — không ước lượng chung chung.",
+        },
+        {
+          q: "Chi phí làm app iOS/Android với Dolphin Software là bao nhiêu?",
+          a: "Dolphin Software báo giá theo phạm vi dự án cụ thể, không có gói cố định áp cho mọi trường hợp. Sau buổi trao đổi yêu cầu, bạn nhận được báo giá rõ ràng — không phí ẩn, không bán thêm dịch vụ không cần thiết.",
+        },
+        {
+          q: "App sau khi bàn giao có được hỗ trợ tiếp không?",
+          a: "Có. Dolphin Software cung cấp hỗ trợ sau bàn giao cho các lỗi phát sinh sau khi launch. Nếu bạn cần nâng cấp tính năng hoặc mở rộng app, Dolphin Software có thể tiếp tục theo hình thức retainer hoặc dự án riêng.",
+        },
+        {
+          q: "Dolphin Software có thể tích hợp AI vào ứng dụng di động không?",
+          a: "Có. Với định vị là studio phát triển phần mềm và AI cho doanh nghiệp, Dolphin Software có thể tích hợp chatbot, xử lý ngôn ngữ tự nhiên, hoặc phân tích dữ liệu thông minh vào app di động theo phạm vi dự án. Xem thêm dịch vụ agent tùy chỉnh tại /custom-agent/ hoặc lộ trình AI tại /ai-transform/.",
         },
       ],
     },
@@ -425,259 +454,7 @@ const serviceExtras: L<ServiceExtras> = {
       ],
     },
   },
-  de: {
-    web: {
-      audience:
-        "KMUs, Startups und Marketing-Teams mit klarem Scope, schnellem Launch und transparentem Angebot.",
-      useCases: [
-        "Campaign- / Launch-Landing",
-        "Business- & Handels-Site + CMS",
-        "Mehrsprachige VI/EN/JA-Sites",
-      ],
-      faq: [
-        {
-          q: "Wie wird der Website-Preis berechnet?",
-          a: "Nach Scope: Seitenzahl, Custom- vs. Template-Design, CMS, Formulare/Zahlungen. Homepage-Pakete als Orientierung; genaues Angebot nach Zielklärung.",
-        },
-        {
-          q: "Wie lange dauert eine Website?",
-          a: "Landings meist 1–3 Wochen; mehrseitige Business-Sites Wochen bis Monate je nach Content und Reviews.",
-        },
-        {
-          q: "CMS möglich?",
-          a: "Ja — Headless-CMS (z. B. Strapi) für eigene Updates.",
-        },
-        {
-          q: "Ist SEO enthalten?",
-          a: "Technische SEO-Basics (Meta, Performance, Mobile, Sitemap/Robots). Keyword-Content und Links sind ein Folgeschritt.",
-        },
-      ],
-    },
-    mobile: {
-      audience: "Produktteams mit iOS/Android- oder Cross-Platform-MVP.",
-      useCases: [
-        "Consumer-Booking-MVP",
-        "Store-Ops-Companion",
-        "Mobile-Companion zu bestehendem Web",
-      ],
-      faq: [
-        { q: "Flutter oder RN?", a: "Auswahl nach Team-Stack und Native-Bedarf vor Kickoff." },
-        { q: "Store-Hilfe?", a: "Ja — TestFlight/Play-Checkliste und Submit-Support." },
-      ],
-    },
-    backend: {
-      audience: "Teams mit Bedarf an stabilen APIs, Auth und Integrationen.",
-      useCases: [
-        "APIs für Web + Mobile",
-        "Auth, Rollen, Webhooks",
-        "Payments / E-Mail / Storage",
-      ],
-      faq: [
-        { q: "Default-Stack?", a: "Node.js (NestJS/Express) + PostgreSQL — anpassbar." },
-        { q: "API-Docs?", a: "OpenAPI/Endpoint-Notizen und Env-Samples bei Übergabe." },
-      ],
-    },
-    design: {
-      audience: "Owner mit Bedarf an klarer UI und sauberem Engineering-Handover.",
-      useCases: [
-        "Marketing-Site / App-Flows",
-        "Leichte SMB-Design-Systeme",
-        "Booking-/Conversion-UX",
-      ],
-      faq: [
-        { q: "Figma?", a: "Ja — strukturierte Files, States und Assets." },
-        { q: "Prototypen?", a: "Kernflows zuerst, dann visueller Feinschliff." },
-      ],
-    },
-    integrations: {
-      audience: "Unternehmen, die bestehende Systeme verbinden statt neu bauen.",
-      useCases: [
-        "Zalo / E-Mail / CRM-Webhooks",
-        "Payment-Gateways und Abstimmung",
-        "Sync von Orders/Terminen in interne Tools",
-      ],
-      faq: [
-        { q: "Was brauchen wir von Ihnen?", a: "Sandbox-Credentials, Ist-Flow und Systemverantwortlichen." },
-        { q: "Monitoring?", a: "Basis-Logging und Fehleralerts, wenn im Scope." },
-      ],
-    },
-    agents: {
-      audience: "Teams, die Workflows mit kontrollierten AI-Agents automatisieren.",
-      useCases: [
-        "Interne / Kunden-FAQ-Bots",
-        "Dokumentensammlung und Zyklus-Summaries",
-        "Tool-Calling / MCP je Umgebung",
-      ],
-      faq: [
-        { q: "Ersetzt AI Menschen?", a: "Nein — kritische Schritte bleiben human-in-the-loop." },
-        { q: "Wo läuft es?", a: "Nach Policy: Managed Cloud oder Self-Host." },
-      ],
-    },
-    "custom-agent": {
-      audience: "KMU / Betreiber mit klarem Wiederholjob — Agent am echten Prozess, kein Skript-Chatbot.",
-      useCases: [
-        "Multichannel-Antwort & Lead-Capture nach Ihren Regeln",
-        "Termine / Reminder an echte Verfügbarkeit",
-        "Angebots-/Dokumententwürfe mit Freigabe",
-      ],
-      faq: [
-        {
-          q: "Unterschied zum Fertig-Chatbot?",
-          a: "Skript-Bots stoppen außerhalb des Skripts. Ein Custom-Agent lädt Ihren Prozess, koppelt Systeme und liefert Outcomes im Scope.",
-        },
-        {
-          q: "Auch für kleine Teams?",
-          a: "Ja — zuerst ein Engpass, messen, dann erweitern. Kein Riesenprojekt am Tag eins.",
-        },
-        {
-          q: "Braucht es danach noch Menschen?",
-          a: "Ja bei sensiblen Schritten. Ops-Guide inklusive; Nachjustierung bei Regeländerungen laut Gewährleistung oder Follow-up.",
-        },
-      ],
-    },
-  },
 
-  zh: {
-    web: {
-      audience:
-        "需要范围清晰、上线快、报价明确的网站的中小企业、创业团队与市场部门。",
-      useCases: [
-        "活动 / 产品发布落地页",
-        "企业与销售站 + CMS",
-        "VI/EN/JA 多语言站点",
-      ],
-      faq: [
-        {
-          q: "网站报价如何计算？",
-          a: "按范围：页数、定制或模板设计、CMS、表单/支付。首页套餐仅供参考；目标明确后给出正式报价。",
-        },
-        {
-          q: "做网站要多久？",
-          a: "落地页通常 1–3 周；多页企业站视内容与评审，数周到数月。",
-        },
-        {
-          q: "可以带 CMS 吗？",
-          a: "可以接入无头 CMS（如 Strapi），方便团队自行更新。",
-        },
-        {
-          q: "包含 SEO 吗？",
-          a: "含技术 SEO 基础（meta、性能、移动端、sitemap/robots）。关键词内容与外链属后续阶段。",
-        },
-      ],
-    },
-    mobile: {
-      audience: "Product teams shipping an iOS/Android or cross-platform MVP.",
-      useCases: [
-        "Consumer booking MVP",
-        "Store ops companion app",
-        "Mobile companion to an existing web product",
-      ],
-      faq: [
-        {
-          q: "Flutter or React Native?",
-          a: "We pick based on your team stack and native needs before kickoff.",
-        },
-        {
-          q: "Store submission help?",
-          a: "Yes — TestFlight / Play internal checklist and submit support.",
-        },
-      ],
-    },
-    backend: {
-      audience: "Teams that need solid APIs, auth, and third-party integrations.",
-      useCases: [
-        "APIs for web + mobile",
-        "Auth, roles, webhooks",
-        "Payments / email / storage",
-      ],
-      faq: [
-        {
-          q: "Default stack?",
-          a: "Node.js (NestJS/Express) + PostgreSQL is common; we adapt as needed.",
-        },
-        {
-          q: "API docs included?",
-          a: "OpenAPI / endpoint notes and env samples at handover.",
-        },
-      ],
-    },
-    design: {
-      audience: "Owners who need clear UI and clean engineering handover.",
-      useCases: [
-        "Marketing site / app flows",
-        "Lightweight SMB design systems",
-        "Booking / conversion UX redesigns",
-      ],
-      faq: [
-        {
-          q: "Figma?",
-          a: "Yes — organized files, states, and assets for implementation.",
-        },
-        {
-          q: "Prototypes?",
-          a: "Core flows are prototyped before visual polish.",
-        },
-      ],
-    },
-    integrations: {
-      audience: "Businesses connecting existing systems instead of rewriting everything.",
-      useCases: [
-        "Zalo / email / CRM webhooks",
-        "Payment gateways and reconciliation",
-        "Syncing orders / schedules into internal tools",
-      ],
-      faq: [
-        {
-          q: "What do you need from us?",
-          a: "Sandbox credentials, current flow notes, and a system owner.",
-        },
-        {
-          q: "Monitoring?",
-          a: "Basic logging plus integration error alerts when in scope.",
-        },
-      ],
-    },
-    agents: {
-      audience: "Teams automating workflows with controlled AI agents.",
-      useCases: [
-        "Internal / customer FAQ chatbots",
-        "Doc collection and cycle summaries",
-        "Tool-calling / MCP per environment",
-      ],
-      faq: [
-        {
-          q: "Does AI replace people?",
-          a: "No — we keep humans in the loop for critical steps.",
-        },
-        {
-          q: "Where does it run?",
-          a: "Per your policy: managed cloud or self-hosted when required.",
-        },
-      ],
-    },
-    "custom-agent": {
-      audience: "SMEs / operators with a clear repetitive job who want an agent tied to real process — not a scripted chatbot.",
-      useCases: [
-        "Multi-channel reply & lead capture with your rules",
-        "Booking / reminders against real availability",
-        "Quote or document drafts with human approval",
-      ],
-      faq: [
-        {
-          q: "How is this different from an off-the-shelf chatbot?",
-          a: "Scripted bots stall outside the script. A custom agent loads your process, connects systems, and finishes outcomes (leads, bookings, quotes…) in agreed scope.",
-        },
-        {
-          q: "Can a small business start?",
-          a: "Yes — start with one painful job, measure, then expand. No giant platform on day one.",
-        },
-        {
-          q: "Do we still need humans after handover?",
-          a: "Yes for sensitive steps. Dolphin hands over an ops guide; further tuning when rules change is covered by warranty or a scoped follow-up.",
-        },
-      ],
-    },
-  }
 };
 
 const techExtras: L<TechExtras> = {
@@ -903,155 +680,7 @@ const techExtras: L<TechExtras> = {
       stackFit: "Defines repeatable AWS/K8s and related services.",
     }
   },
-  de: {
-    react: {
-      whenToUse: ["Komponenten-UI", "JS/TS-Teams", "Großes Ökosystem"],
-      stackFit: "Oft mit Next.js, TypeScript und Tailwind bei Dolphin Software.",
-    },
-    nextjs: {
-      whenToUse: ["Marketing + App in einem Codebase", "SEO / SSR wichtig", "Full-Stack React"],
-      stackFit: "Standard für Studio-Websites und Dashboards.",
-    },
-    typescript: {
-      whenToUse: ["Mittel/große Codebases", "Mehrere Devs", "Klare API-Verträge"],
-      stackFit: "Standard für Frontend, NestJS und Tooling.",
-    },
-    tailwind: {
-      whenToUse: ["Schnelles UI-Shipping", "Utility-first", "Shared Marketing + App"],
-      stackFit: "Über Landings und Product-UI hinweg.",
-    },
-    nodejs: {
-      whenToUse: ["APIs / Realtime", "Gleiche Sprache wie Frontend", "CLIs & Worker"],
-      stackFit: "Basis für Express, NestJS und Automation.",
-    },
-    flutter: {
-      whenToUse: ["Eine Multi-Platform-Codebasis", "Stark custom UI", "Native Performance"],
-      stackFit: "Mobile-Wahl bei Flutter-Teams.",
-    },
-    "react-native": {
-      whenToUse: ["React-Skills nutzen", "Schnelles Mobile-MVP", "Logik mit Web teilen"],
-      stackFit: "Wenn React-Web-Teams auf Mobile gehen.",
-    },
-    postgresql: {
-      whenToUse: ["Relationale Daten", "JSON + SQL", "Hohe Zuverlässigkeit"],
-      stackFit: "Default-DB für die meisten Backends.",
-    },
-    docker: {
-      whenToUse: ["Einheitliche Umgebungen", "CI/CD", "Microservices / Agents"],
-      stackFit: "Packaging von Services und Compose-Stacks.",
-    },
-    nestjs: {
-      whenToUse: ["Strukturierte TS-APIs", "Klare Domänenmodule", "Enterprise-ready"],
-      stackFit: "Primäres Backend bei großem API-Scope.",
-    },
-    express: {
-      whenToUse: ["Kleine APIs / Gateways", "Schnelle Prototypen", "Flexible Middleware"],
-      stackFit: "Kleine Services oder schlanke HTTP-Schichten.",
-    },
-    strapi: {
-      whenToUse: ["Headless CMS", "Editor-Self-Serve", "Multi-Channel-Frontends"],
-      stackFit: "Marketing-/Blog-Content für Next.js.",
-    },
-    aws: {
-      whenToUse: ["Need managed cloud", "Scale with traffic", "Compute/DB/storage building blocks"],
-      stackFit: "Production deploy and managed data foundation for Dolphin Software products.",
-    },
-    kubernetes: {
-      whenToUse: ["Many containerized services", "Standard rollouts/rollbacks", "GitOps / platform teams"],
-      stackFit: "When the system outgrows one or two Compose containers.",
-    },
-    grafana: {
-      whenToUse: ["Ops dashboards", "Metric/log alerts", "Multiple datasources"],
-      stackFit: "Observability layer with Prometheus/Loki or cloud metrics.",
-    },
-    elasticsearch: {
-      whenToUse: ["Full-text search", "Large log/event volumes", "Near-real-time analytics"],
-      stackFit: "Product search or log pipelines when PostgreSQL is not enough.",
-    },
-    redis: {
-      whenToUse: ["Hot-path cache", "Sessions / rate limits", "Lightweight queues"],
-      stackFit: "Pairs with Nest/Express APIs and PostgreSQL.",
-    },
-    terraform: {
-      whenToUse: ["Multi-env cloud", "Reviewable IaC", "Avoid click-ops"],
-      stackFit: "Defines repeatable AWS/K8s and related services.",
-    }
-  },
 
-  zh: {
-    react: {
-      whenToUse: ["Component-based web/app UI", "JS/TS-friendly teams", "Large ecosystem needed"],
-      stackFit: "Pairs with Next.js, TypeScript, and Tailwind on Dolphin Software projects.",
-    },
-    nextjs: {
-      whenToUse: ["Marketing + app in one codebase", "SEO / SSR matters", "Full-stack React"],
-      stackFit: "Default for studio websites and dashboards.",
-    },
-    typescript: {
-      whenToUse: ["Medium/large codebases", "Multi-dev collaboration", "Clear API contracts"],
-      stackFit: "Standard across frontend, NestJS, and tooling.",
-    },
-    tailwind: {
-      whenToUse: ["Fast UI shipping", "Utility-first design systems", "Shared marketing + app styling"],
-      stackFit: "Used across landings and product UI.",
-    },
-    nodejs: {
-      whenToUse: ["APIs / realtime", "Same language as frontend", "CLIs & workers"],
-      stackFit: "Foundation for Express, NestJS, and automation.",
-    },
-    flutter: {
-      whenToUse: ["One multi-platform codebase", "Highly custom UI", "Native performance"],
-      stackFit: "Mobile choice when teams prefer Flutter.",
-    },
-    "react-native": {
-      whenToUse: ["Reuse React skills", "Fast mobile MVP", "Share logic with web"],
-      stackFit: "When React web teams expand to mobile.",
-    },
-    postgresql: {
-      whenToUse: ["Relational data", "JSON + SQL together", "High reliability"],
-      stackFit: "Default DB for most product backends.",
-    },
-    docker: {
-      whenToUse: ["Consistent environments", "CI/CD", "Microservices / agents"],
-      stackFit: "Packages services and local Compose stacks.",
-    },
-    nestjs: {
-      whenToUse: ["Structured TypeScript APIs", "Clear domain modules", "Enterprise-ready"],
-      stackFit: "Primary backend when API scope is large.",
-    },
-    express: {
-      whenToUse: ["Small APIs / gateways", "Fast prototypes", "Flexible middleware"],
-      stackFit: "Small services or minimal HTTP layers.",
-    },
-    strapi: {
-      whenToUse: ["Headless CMS", "Editor self-serve updates", "Multi-channel frontends"],
-      stackFit: "Marketing / blog content for Next.js.",
-    },
-    aws: {
-      whenToUse: ["Need managed cloud", "Scale with traffic", "Compute/DB/storage building blocks"],
-      stackFit: "Production deploy and managed data foundation for Dolphin Software products.",
-    },
-    kubernetes: {
-      whenToUse: ["Many containerized services", "Standard rollouts/rollbacks", "GitOps / platform teams"],
-      stackFit: "When the system outgrows one or two Compose containers.",
-    },
-    grafana: {
-      whenToUse: ["Ops dashboards", "Metric/log alerts", "Multiple datasources"],
-      stackFit: "Observability layer with Prometheus/Loki or cloud metrics.",
-    },
-    elasticsearch: {
-      whenToUse: ["Full-text search", "Large log/event volumes", "Near-real-time analytics"],
-      stackFit: "Product search or log pipelines when PostgreSQL is not enough.",
-    },
-    redis: {
-      whenToUse: ["Hot-path cache", "Sessions / rate limits", "Lightweight queues"],
-      stackFit: "Pairs with Nest/Express APIs and PostgreSQL.",
-    },
-    terraform: {
-      whenToUse: ["Multi-env cloud", "Reviewable IaC", "Avoid click-ops"],
-      stackFit: "Defines repeatable AWS/K8s and related services.",
-    }
-  }
 };
 
 const workExtras: L<WorkExtras> = {
@@ -1133,59 +762,7 @@ const workExtras: L<WorkExtras> = {
       stack: ["Next.js", "Doctor calendar", "Intake form", "Reminders"],
     },
   },
-  de: {
-    billiard: {
-      timeline: "Ca. 3–5 Wochen für Ops-MVP (Tische + Reporting).",
-      stack: ["Next.js", "TypeScript", "PostgreSQL", "Realtime status"],
-    },
-    badminton: {
-      timeline: "Ca. 2–4 Wochen für Site + Basis-Platzbuchung.",
-      stack: ["Next.js", "Tailwind", "Booking calendar", "Form / notify"],
-    },
-    tickets: {
-      timeline: "Ca. 2–3 Wochen für Conversion-Landing + kurzen Ticket-Flow.",
-      stack: ["Next.js", "Conversion funnel", "Minimal form", "Confirm screen"],
-    },
-    beauty: {
-      timeline: "Ca. 3–4 Wochen für Servicekatalog + Slot-Booking.",
-      stack: ["Next.js", "Service catalog", "Slot calendar", "Status workflow"],
-    },
-    cafe: {
-      timeline: "Ca. 3–5 Wochen für QR-Menü + Theke/Küchen-Orderflow.",
-      stack: ["Next.js", "QR per table", "Order cart", "Kitchen / counter status"],
-    },
-    clinic: {
-      timeline: "Ca. 3–4 Wochen für Klinik-Site + Arzt/Slot-Kalender.",
-      stack: ["Next.js", "Doctor calendar", "Intake form", "Reminders"],
-    },
-  },
 
-  zh: {
-    billiard: {
-      timeline: "About 3–5 weeks for an ops MVP (tables + reporting).",
-      stack: ["Next.js", "TypeScript", "PostgreSQL", "Realtime status"],
-    },
-    badminton: {
-      timeline: "About 2–4 weeks for site + basic court booking.",
-      stack: ["Next.js", "Tailwind", "Booking calendar", "Form / notify"],
-    },
-    tickets: {
-      timeline: "About 2–3 weeks for a conversion landing + short ticket flow.",
-      stack: ["Next.js", "Conversion funnel", "Minimal form", "Confirm screen"],
-    },
-    beauty: {
-      timeline: "About 3–4 weeks for service catalog + slot booking.",
-      stack: ["Next.js", "Service catalog", "Slot calendar", "Status workflow"],
-    },
-    cafe: {
-      timeline: "About 3–5 weeks for QR menu + counter/kitchen order flow.",
-      stack: ["Next.js", "QR per table", "Order cart", "Kitchen / counter status"],
-    },
-    clinic: {
-      timeline: "About 3–4 weeks for clinic site + doctor/slot calendar.",
-      stack: ["Next.js", "Doctor calendar", "Intake form", "Reminders"],
-    },
-  }
 };
 
 export function getServiceExtras(
@@ -1216,7 +793,7 @@ export type DetailExtrasUi = {
 const extrasUi: Record<Locale, DetailExtrasUi> = {
   vi: {
     audienceTitle: "Phù hợp với",
-    useCasesTitle: "Use cases",
+    useCasesTitle: "Use cases điển hình",
     faqTitle: "Câu hỏi thường gặp",
     whenToUseTitle: "Khi nào nên dùng",
     stackFitTitle: "Trong stack KU THANH",
@@ -1241,26 +818,8 @@ const extrasUi: Record<Locale, DetailExtrasUi> = {
     timelineTitle: "参考スケジュール",
     stackTitle: "使用スタック",
   },
-  de: {
-    audienceTitle: "Geeignet für",
-    useCasesTitle: "Use Cases",
-    faqTitle: "FAQ",
-    whenToUseTitle: "Wann einsetzen",
-    stackFitTitle: "Im KU THANH Stack",
-    timelineTitle: "Orientierungszeitplan",
-    stackTitle: "Verwendeter Stack",
-  },
 
 
-  zh: {
-    audienceTitle: "适合对象",
-    useCasesTitle: "使用场景",
-    faqTitle: "常见问题",
-    whenToUseTitle: "何时使用",
-    stackFitTitle: "在 KU THANH 技术栈中",
-    timelineTitle: "参考时间表",
-    stackTitle: "所用技术栈",
-  }
 };
 
 export function getDetailExtrasUi(locale: Locale): DetailExtrasUi {

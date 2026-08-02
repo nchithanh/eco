@@ -1,4 +1,4 @@
-export type Locale = "vi" | "en" | "ja" | "de" | "zh";
+export type Locale = "vi" | "en" | "ja";
 
 export const LOCALES: {
   code: Locale;
@@ -8,8 +8,6 @@ export const LOCALES: {
   { code: "vi", label: "VI", name: "Tiếng Việt" },
   { code: "en", label: "EN", name: "English" },
   { code: "ja", label: "JA", name: "日本語" },
-  { code: "de", label: "DE", name: "Deutsch" },
-  { code: "zh", label: "ZH", name: "中文" },
 ];
 
 export const DEFAULT_LOCALE: Locale = "ja";
@@ -267,15 +265,18 @@ export type Dictionary = {
     support: string;
     reasons: { title: string; body: string }[];
   };
-  /** Optional homepage “fit / not a fit” block (VI via homepage_lang). */
+  /** Optional homepage “fit” block (VI via homepage_lang). */
   fit?: {
     eyebrow: string;
     title: string;
     support: string;
-    noTitle: string;
-    noItems: string[];
-    yesTitle: string;
-    yesItems: string[];
+    /** Legacy yes/no columns */
+    noTitle?: string;
+    noItems?: string[];
+    yesTitle?: string;
+    yesItems?: string[];
+    /** SEO/GEO fit matrix (preferred when present) */
+    matrix?: { profile: string; recommended: string; note: string }[];
   };
   cofounder: {
     eyebrow: string;

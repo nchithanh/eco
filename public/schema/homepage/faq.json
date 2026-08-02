@@ -1,73 +1,87 @@
 {
   "meta": {
     "kind": "homepage-section",
+    "id": "faq",
     "locale": "vi",
     "brand": "Dolphin Software",
-    "updated": "2026-08-02",
-    "productRoute": "/",
-    "id": "faq",
-    "anchor": "#faq",
-    "component": "Faq",
+    "updated": "2026-08-03",
     "schemaPath": "/schema/homepage/faq/",
     "rawPath": "/schema/homepage/faq.json",
-    "copyKey": "faq"
+    "productRoute": "/"
   },
   "content": {
-    "eyebrow": "FAQ",
-    "title": "Câu hỏi [[thường gặp]]",
-    "support": "Timeline · báo giá · bảo hành · bảo mật — những điều bạn cần biết trước khi bắt đầu.",
+    "order": 12,
+    "id": "faq",
+    "section_label": "FAQ",
+    "headline": "Câu hỏi thường gặp",
+    "subheadline": "Timeline · báo giá · bảo hành · bảo mật — trả lời trước khi bắt đầu.",
+    "aeo_note": "Mỗi câu trả lời được viết để công cụ tìm kiếm và AI có thể trích dẫn độc lập.",
     "items": [
       {
-        "q": "Studio làm những gì?",
-        "a": "Dolphin Software giúp SMB đi từ bài toán kinh doanh đến hệ thống dễ vận hành — website, phần mềm, tự động hóa và AI. Bạn nói mục tiêu, chúng tôi đề xuất phạm vi phù hợp."
+        "id": "faq-what",
+        "question": "Dolphin Software làm gì?",
+        "answer": "Dolphin Software giúp doanh nghiệp vừa và nhỏ (SMB) đi từ vấn đề kinh doanh đến hệ thống có thể vận hành — website, mobile, automation và AI. Bạn chỉ cần nêu mục tiêu; Dolphin Software đề xuất phạm vi phù hợp.",
+        "open": true
       },
       {
-        "q": "Không biết kỹ thuật có làm được không?",
-        "a": "Được. Đa số khách không code. Bạn gửi ý tưởng hoặc mô tả ngắn, chúng tôi tư vấn bằng ngôn ngữ kinh doanh, làm trọn gói và bàn giao kèm hướng dẫn vận hành."
+        "id": "faq-non-technical",
+        "question": "Doanh nghiệp không rành kỹ thuật có làm việc được không?",
+        "answer": "Được. Hầu hết khách hàng của Dolphin Software không biết lập trình. Bạn chỉ cần chia sẻ ý tưởng hoặc brief ngắn — đội ngũ xác định phạm vi bằng ngôn ngữ kinh doanh, bàn giao end-to-end và hướng dẫn vận hành sau khi xong."
       },
       {
-        "q": "Quy trình làm việc thế nào?",
-        "a": "Làm rõ mục tiêu → chốt phạm vi & báo giá → sprint có đầu ra → nghiệm thu → bàn giao & hỗ trợ. Bạn luôn biết bước tiếp theo."
+        "id": "faq-process",
+        "question": "Quy trình làm việc diễn ra như thế nào?",
+        "answer": "Làm rõ mục tiêu → Khóa phạm vi & dự toán → Sprint có sản phẩm bàn giao → Nghiệm thu → Bàn giao & Hỗ trợ. Bạn luôn biết bước tiếp theo là gì."
       },
       {
-        "q": "Nhận báo giá ra sao?",
-        "a": "Gửi mô tả qua Contact, nút “Nhận báo giá” hoặc Zalo. Chúng tôi phản hồi phạm vi ước tính và bước tiếp theo — không phí ẩn ngoài scope đã thống nhất."
+        "id": "faq-quote",
+        "question": "Báo giá hoạt động như thế nào? Có phí ẩn không?",
+        "answer": "Gửi brief ngắn qua Contact, 'Nhận báo giá' hoặc Zalo. Dolphin Software phản hồi với phạm vi dự kiến và bước tiếp theo — không có phí ngoài phạm vi đã thỏa thuận."
       },
       {
-        "q": "Timeline thường bao lâu?",
-        "a": "Landing: ~3–5 ngày. Business website: ~7–14 ngày. Shop / e-commerce: ~3–4 tuần. App / workflow: theo scope. Ngày cụ thể được gắn trong báo giá sau khi chốt."
+        "id": "faq-timeline",
+        "question": "Timeline điển hình là bao lâu?",
+        "answer": "Landing page: ~3–5 ngày. Website doanh nghiệp: ~7–14 ngày. Shop / e-commerce: ~3–4 tuần. App / workflow: theo phạm vi. Ngày cụ thể có trong báo giá sau khi khóa phạm vi."
       },
       {
-        "q": "Website có tối ưu SEO / mobile không?",
-        "a": "Mặc định responsive, heading / meta rõ và SEO on-page cơ bản. SEO nội dung dài hạn hoặc Ads quy mô lớn có thể thỏa thuận thêm."
+        "id": "faq-seo-mobile",
+        "question": "Có bao gồm SEO và mobile không?",
+        "answer": "Responsive theo mặc định với heading/meta rõ ràng và SEO on-page nền tảng. SEO nội dung dài hạn hoặc chiến dịch quảng cáo lớn có thể thêm vào phạm vi riêng."
       },
       {
-        "q": "Làm remote được không?",
-        "a": "Được — chat / call, demo định kỳ và tài liệu bàn giao rõ. Chúng tôi phục vụ khách toàn quốc."
+        "id": "faq-remote",
+        "question": "Có làm việc từ xa được không?",
+        "answer": "Được — chat/call, demo định kỳ và tài liệu bàn giao rõ ràng. Khách hàng toàn quốc đều hợp tác được."
       },
       {
-        "q": "Bảo trì sau bàn giao khác gì tính năng mới?",
-        "a": "Sau bàn giao: hướng dẫn vận hành và bảo hành lỗi kỹ thuật (thường 3–6 tháng) trong phạm vi đã nghiệm thu. Tính năng mới là hạng mục riêng, báo giá trước."
+        "id": "faq-maintenance",
+        "question": "Bảo trì sau bàn giao khác gì tính năng mới?",
+        "answer": "Sau bàn giao: hướng dẫn vận hành cộng với bảo hành lỗi kỹ thuật (thường 3–6 tháng) trong phạm vi đã nghiệm thu. Tính năng mới là riêng — báo giá trước, không nằm trong bảo hành."
       },
       {
-        "q": "Bảo mật và dữ liệu thế nào?",
-        "a": "HTTPS, phân quyền, env vars, không commit secret. Dữ liệu thuộc về bạn. Audit / SSO / compliance nâng cao thỏa thuận thêm trong scope."
+        "id": "faq-security",
+        "question": "Bảo mật và dữ liệu được xử lý như thế nào?",
+        "answer": "HTTPS, kiểm soát truy cập, biến môi trường, không commit secret. Dữ liệu của bạn là của bạn. Audit / SSO / compliance có thể thêm vào phạm vi."
       },
       {
-        "q": "Có làm MVP theo giai đoạn không?",
-        "a": "Có. Chúng tôi ưu tiên MVP đủ chạy rồi mở rộng theo milestone — kiểm chứng sớm và kiểm soát ngân sách."
+        "id": "faq-scope-creep",
+        "question": "Phạm vi có bị phình to giữa chừng không?",
+        "answer": "Phạm vi được khóa ở bước báo giá. Yêu cầu ngoài phạm vi sẽ được ghi nhận, ước lượng lại và chỉ thực hiện khi bạn đồng ý."
       },
       {
-        "q": "AI agent khác chatbot marketing thế nào?",
-        "a": "Chatbot marketing trả lời FAQ theo kịch bản. Agent gắn với quy trình nghiệp vụ, tool và ngữ cảnh nội bộ — hỗ trợ vận hành, không chỉ chat bán hàng."
+        "id": "faq-mvp",
+        "question": "Có làm MVP theo giai đoạn không?",
+        "answer": "Có. Dolphin Software ưu tiên MVP đủ để chạy, rồi mở rộng theo milestone — xác thực sớm và kiểm soát ngân sách."
       },
       {
-        "q": "Phạm vi có bị phình giữa chừng không?",
-        "a": "Scope được chốt ở bước báo giá. Yêu cầu ngoài phạm vi sẽ được ghi nhận, ước lượng lại và chỉ làm khi bạn đồng ý."
+        "id": "faq-ai-vs-chatbot",
+        "question": "AI agent khác chatbot marketing thế nào?",
+        "answer": "Chatbot marketing trả lời FAQ theo kịch bản. Agent của Dolphin Software gắn với quy trình nghiệp vụ, công cụ và ngữ cảnh nội bộ — hỗ trợ vận hành, không chỉ chat bán hàng."
       },
       {
-        "q": "Làm sao để bắt đầu?",
-        "a": "Nhấn “Nhận báo giá”, chat Zalo hoặc gửi form Contact với mục tiêu, deadline và ngân sách ước lượng nếu có."
+        "id": "faq-start",
+        "question": "Làm sao để bắt đầu?",
+        "answer": "Nhấn 'Nhận báo giá', chat Zalo, hoặc gửi form Contact với mục tiêu, deadline và ngân sách ước lượng nếu có."
       }
     ]
   }

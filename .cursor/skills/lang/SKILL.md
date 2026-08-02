@@ -1,7 +1,7 @@
 ---
 name: lang
 description: >-
-  Localize or write Dolphin Software copy in vi, en, ja, de, or zh with correct
+  Localize or write Dolphin Software copy in vi, en, or ja with correct
   tone. Use when the user asks for a locale, Japan/JA priority, translation, or
   multi-language news/social/UI strings.
 ---
@@ -10,7 +10,7 @@ description: >-
 
 ## When to use
 
-- User specifies locale: vi, en, ja, de, zh  
+- User specifies locale: vi, en, ja  
 - Japan / JA / 日本 priority  
 - Translating or writing news, social, UI, careers copy  
 

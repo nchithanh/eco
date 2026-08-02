@@ -33,7 +33,7 @@ Router: `.cursor/agents/_router.md` — personas: content, seo, frontend, review
 
 | Skill | Path | Use for |
 | --- | --- | --- |
-| lang | `.cursor/skills/lang/SKILL.md` | vi / en / ja / de / zh tone |
+| lang | `.cursor/skills/lang/SKILL.md` | vi / en / ja tone |
 | seo | `.cursor/skills/seo/SKILL.md` | Keywords, meta, internal links |
 
 How to combine: [agent-ops.md](./agent-ops.md).  

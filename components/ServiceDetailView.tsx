@@ -139,18 +139,21 @@ export function ServiceDetailContent({
           <div className="grid gap-4 md:grid-cols-3 md:gap-5">
             <DetailBlock
               index={0}
-              title={ui.highlightsTitle}
+              title={detail.highlightsTitle ?? ui.highlightsTitle}
+              leadText={detail.highlightsLead}
               items={detail.highlights}
               lead
             />
             <DetailBlock
               index={1}
-              title={ui.processTitle}
+              title={detail.processTitle ?? ui.processTitle}
+              leadText={detail.processLead}
               items={detail.process}
             />
             <DetailBlock
               index={2}
-              title={ui.deliverablesTitle}
+              title={detail.deliverablesTitle ?? ui.deliverablesTitle}
+              leadText={detail.deliverablesLead}
               items={detail.deliverables}
               lead
             />
@@ -242,11 +245,13 @@ function DetailBlock({
   items,
   index,
   lead = false,
+  leadText,
 }: {
   title: string;
   items: string[];
   index: number;
   lead?: boolean;
+  leadText?: string;
 }) {
   return (
     <Reveal
@@ -263,6 +268,11 @@ function DetailBlock({
       <h2 className="mt-2 font-display text-base font-semibold tracking-wide text-[var(--kuct-text)] sm:text-lg">
         {title}
       </h2>
+      {leadText ? (
+        <p className="mt-3 text-sm leading-[1.65] text-[var(--kuct-muted)]">
+          {leadText}
+        </p>
+      ) : null}
       <ul className="mt-4 list-none space-y-2.5 p-0">
         {items.map((item) => (
           <li

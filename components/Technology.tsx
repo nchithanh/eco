@@ -603,9 +603,11 @@ export function Technology() {
                   <p className="font-display text-sm font-semibold text-[var(--kuct-text)]">
                     {p.title}
                   </p>
-                  <p className="mt-1 text-sm leading-relaxed text-[var(--kuct-muted)]">
-                    {p.body}
-                  </p>
+                  {p.body ? (
+                    <p className="mt-1 text-sm leading-relaxed text-[var(--kuct-muted)]">
+                      {p.body}
+                    </p>
+                  ) : null}
                 </li>
               ))}
             </ul>

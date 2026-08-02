@@ -29,13 +29,7 @@ type LocaleContextValue = {
 const LocaleContext = createContext<LocaleContextValue | null>(null);
 
 export function isLocale(value: string | null | undefined): value is Locale {
-  return (
-    value === "vi" ||
-    value === "en" ||
-    value === "ja" ||
-    value === "de" ||
-    value === "zh"
-  );
+  return value === "vi" || value === "en" || value === "ja";
 }
 
 /** Map BCP-47 / navigator language tags to supported locales. */
@@ -49,8 +43,6 @@ export function detectBrowserLocale(
     const primary = tag.split("-")[0] ?? tag;
     if (primary === "vi") return "vi";
     if (primary === "ja") return "ja";
-    if (primary === "zh") return "zh";
-    if (primary === "de") return "de";
     if (primary === "en") return "en";
   }
   return DEFAULT_LOCALE;

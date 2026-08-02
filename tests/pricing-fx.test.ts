@@ -19,10 +19,6 @@ describe("quote FX formatting", () => {
     expect(formatQuoteEstimateRange("ja", sample)).toBe("￥28,000 – ￥62,100");
   });
 
-  it("formats EUR for German locale", () => {
-    expect(formatQuoteEstimateRange("de", sample)).toBe("150\u00a0€ – 332\u00a0€");
-  });
-
   it("formats project-type hint ranges", () => {
     expect(formatQuoteHintRange("vi", { min: 2, max: 10 })).toBe("~2–10 triệu");
     expect(formatQuoteHintRange("en", { min: 2, max: 10 })).toBe("~$76 – $380");

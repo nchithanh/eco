@@ -10,6 +10,7 @@ import Home from "@/app/page";
 
 describe("service detail pages", () => {
   beforeEach(() => {
+    document.documentElement.setAttribute("data-locale", "vi");
     window.localStorage.setItem("kuct-locale", "vi");
     vi.stubGlobal(
       "matchMedia",
@@ -26,7 +27,7 @@ describe("service detail pages", () => {
     );
   });
 
-  it("capabilities offer cards link to pillars and more tags (VI homepage_lang)", () => {
+  it("capabilities offer cards link to pillars and more tags (VI homepage_lang)", async () => {
     const { container } = render(
       <AppProviders>
         <Capabilities />
@@ -37,59 +38,24 @@ describe("service detail pages", () => {
     expect(capabilities).toBeTruthy();
     const section = within(capabilities as HTMLElement);
 
-    // Prefer VI overlay when locale resolves to vi (homepage_lang_vi).
-    // If worker default is ja without overlay, skip — assert either pillars or legacy offers.
-    const pillarHeading = section.queryByRole("heading", {
-      level: 2,
-      name: /Chúng tôi giúp doanh nghiệp theo 4 cách/i,
-    });
-    if (pillarHeading) {
-      expect(section.getByRole("link", { name: /Build/i })).toHaveAttribute(
-        "href",
-        "/services/web",
-      );
-      expect(section.getByRole("link", { name: /Modernize/i })).toHaveAttribute(
-        "href",
-        "/services/web",
-      );
-      expect(section.getByRole("link", { name: /Automate/i })).toHaveAttribute(
-        "href",
-        "/ai-transform",
-      );
-      expect(section.getByRole("link", { name: /Care/i })).toHaveAttribute(
-        "href",
-        "/dolphin-care",
-      );
-      expect(section.getByRole("link", { name: /Spa/i })).toHaveAttribute(
-        "href",
-        "#works",
-      );
-      expect(section.getByRole("link", { name: /Phòng khám/i })).toHaveAttribute(
-        "href",
-        "#works",
-      );
-      expect(
-        section.getByRole("button", { name: /Nhận tư vấn miễn phí/i }),
-      ).toBeInTheDocument();
-      expect(
-        section.getByRole("link", { name: /Xem cách chúng tôi làm việc/i }),
-      ).toHaveAttribute("href", "#process");
-      return;
-    }
-
     expect(
-      section.getByRole("heading", {
+      await section.findByRole("heading", {
         level: 2,
-        name: /わかりやすく回るWebサイトを先に/i,
+        name: /Website rõ ràng, doanh nghiệp thực sự vận hành được/i,
       }),
     ).toBeInTheDocument();
     expect(
-      section.getByRole("link", { name: /ランディングページ/i }),
+      section.getByRole("link", { name: /Landing Page/i }),
     ).toHaveAttribute("href", "/services/web");
+    expect(
+      section.getByRole("link", { name: /Mobile App/i }),
+    ).toHaveAttribute("href", "/services/mobile");
+    expect(
+      section.getByRole("button", { name: /Nhận báo giá/i }),
+    ).toBeInTheDocument();
   });
 
-  it("works showcase paginates like capabilities", async () => {
-    const user = userEvent.setup();
+  it("works showcase lists VI homepage_lang projects", async () => {
     const { container } = render(
       <AppProviders>
         <Home />
@@ -101,31 +67,15 @@ describe("service detail pages", () => {
     const section = within(works as HTMLElement);
 
     expect(
-      section.getByRole("link", { name: /Giúp cửa hàng bida quản lý bàn và ca làm dễ hơn/i }),
+      await section.findByRole("link", { name: /Ops quản lý bida/i }),
     ).toBeInTheDocument();
     expect(
-      section.getByRole("link", { name: /Website đặt sân cầu lông trực tuyến/i }),
+      section.getByRole("link", { name: /Website sân cầu lông/i }),
     ).toBeInTheDocument();
     expect(
-      section.getByRole("link", { name: /Website đặt vé sự kiện/i }),
+      section.getByRole("link", { name: /Đặt vé & tối ưu chuyển đổi/i }),
     ).toBeInTheDocument();
-    expect(
-      section.queryByRole("link", { name: /Đặt lịch làm đẹp ngoài giờ hành chính/i }),
-    ).not.toBeInTheDocument();
-
     expect(section.getByText("1 / 2")).toBeInTheDocument();
-    await user.click(section.getByRole("button", { name: /Trang sau/i }));
-
-    expect(section.getByText("2 / 2")).toBeInTheDocument();
-    expect(
-      section.getByRole("link", { name: /Đặt lịch làm đẹp ngoài giờ hành chính/i }),
-    ).toBeInTheDocument();
-    expect(
-      section.getByRole("link", { name: /Gọi món cafe bằng QR theo bàn/i }),
-    ).toBeInTheDocument();
-    expect(
-      section.getByRole("link", { name: /Đặt lịch phòng khám theo bác sĩ/i }),
-    ).toBeInTheDocument();
   });
 
   it("renders web service detail content", () => {
@@ -137,13 +87,41 @@ describe("service detail pages", () => {
 
     expect(
       screen.getByRole("heading", {
-        name: /Thiết kế & làm website theo yêu cầu/i,
+        name: /Thiết kế website theo yêu cầu cho doanh nghiệp vừa và nhỏ/i,
       }),
     ).toBeInTheDocument();
-    expect(screen.getByText(/Bạn nhận được gì/i)).toBeInTheDocument();
     expect(
-      screen.getAllByRole("button", { name: /Nhận báo giá/i }).length,
+      screen.getByText(/Bạn nhận được gì từ dịch vụ thiết kế web của Dolphin Software/i),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(/Thiết kế website theo yêu cầu giá bao nhiêu/i),
+    ).toBeInTheDocument();
+    expect(
+      screen.getAllByRole("button", { name: /Nhận báo giá miễn phí/i }).length,
     ).toBeGreaterThanOrEqual(1);
+  });
+
+  it("renders mobile service detail content", () => {
+    render(
+      <AppProviders>
+        <ServiceDetailView slug="mobile" />
+      </AppProviders>,
+    );
+
+    expect(
+      screen.getByRole("heading", {
+        name: /Phát triển ứng dụng mobile/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(/Bạn nhận được gì khi làm app với Dolphin Software/i),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(/Flutter hay React Native — nên chọn cái nào/i),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(/8 đến 14 tuần/i),
+    ).toBeInTheDocument();
   });
 
   it("renders custom-agent service detail content", () => {

@@ -1,29 +1,39 @@
 {
   "meta": {
     "kind": "homepage-section",
+    "id": "hero",
     "locale": "vi",
     "brand": "Dolphin Software",
-    "updated": "2026-08-02",
-    "productRoute": "/",
-    "id": "hero",
-    "anchor": "#top",
-    "component": "Hero",
+    "updated": "2026-08-03",
     "schemaPath": "/schema/homepage/hero/",
-    "rawPath": "/schema/homepage/hero.json"
+    "rawPath": "/schema/homepage/hero.json",
+    "productRoute": "/"
   },
   "content": {
-    "eyebrow": "Dolphin Software",
-    "aiPill": "",
-    "headline": "Đừng để công nghệ trở thành [[gánh nặng]] cho doanh nghiệp",
-    "subhead": "Xây website · nâng cấp hệ thống cũ · AI đúng chỗ cần",
-    "support": "Không phải lúc nào cũng cần làm lại từ đầu. Chúng tôi giúp bạn chọn đúng phần cần xây, cần nâng cấp hay cần tự động hóa — để website và hệ thống thật sự hỗ trợ bán hàng, vận hành và chăm sóc khách.",
-    "trustLine": "Hiểu vấn đề · Báo giá rõ · Không bán thừa",
-    "ctaPrimary": "Nhận báo giá",
-    "ctaSecondary": "Xem dịch vụ website",
-    "visual": {
-      "web": "Web & App",
-      "automation": "Tự động hóa",
-      "ai": "Tích hợp AI"
-    }
+    "order": 1,
+    "id": "hero",
+    "headline": "Đừng để công nghệ trở thành gánh nặng cho doanh nghiệp",
+    "subheadline": "Xây website · Nâng cấp hệ thống cũ · Tích hợp AI đúng chỗ",
+    "body": "Dolphin Software giúp doanh nghiệp vừa và nhỏ thiết kế website theo yêu cầu, nâng cấp hệ thống cũ và ứng dụng AI automation — để tiết kiệm thời gian và nâng cao hiệu quả vận hành thực sự.",
+    "trust_strip": [
+      "Hiểu trước · Báo giá rõ ràng · Không đẩy dịch vụ không cần thiết"
+    ],
+    "ctas": [
+      {
+        "label": "Nhận báo giá",
+        "href": "#contact",
+        "style": "primary"
+      },
+      {
+        "label": "Xem dịch vụ website",
+        "href": "#capabilities",
+        "style": "secondary"
+      }
+    ],
+    "tags": [
+      "Automation",
+      "Web & App",
+      "Tích hợp AI"
+    ]
   }
 }

@@ -92,70 +92,10 @@ const ja: AiEdge = {
   ctaAgent: "カスタムAI Agent",
 };
 
-const de: AiEdge = {
-  eyebrow: "Zusatzvorteil",
-  badge: "AI capability",
-  title: "Website zuerst — [[AI]] als smarte Schicht",
-  support:
-    "Web & Apps sind unser Kern. Bei Bedarf Chat, Automation und Prozess-Agents — praxisnah, nicht Sci-Fi.",
-  items: [
-    {
-      id: "chat",
-      tag: "On-site",
-      title: "AI-Chat & FAQ auf der Site",
-      body: "Häufige Fragen beantworten und Leads auf der bestehenden Website sammeln.",
-    },
-    {
-      id: "workflow",
-      tag: "Automation",
-      title: "Smarte Workflows & Formulare",
-      body: "Booking, Angebote, Lead-Routing automatisieren — weniger Handarbeit.",
-    },
-    {
-      id: "agent",
-      tag: "Integration",
-      title: "Agents an CRM / Zalo",
-      body: "Business-Agents auf echten Prozessen, angebunden an laufende Systeme.",
-    },
-  ],
-  ctaTransform: "Unternehmens-AI-Transformation",
-  ctaAgent: "Individuelle AI-Agents",
-};
 
-const zh: AiEdge = {
-  eyebrow: "附加优势",
-  badge: "AI capability",
-  title: "网站为本 — [[AI]] 为加速层",
-  support:
-    "我们以网站与应用为核心。需要时叠加聊天、自动化与业务 Agent — 务实可落地，而非科幻展示。",
-  items: [
-    {
-      id: "chat",
-      tag: "On-site",
-      title: "站内 AI 聊天 / FAQ",
-      body: "在现有网站上回答常见问题并获取线索。",
-    },
-    {
-      id: "workflow",
-      tag: "Automation",
-      title: "智能流程与表单",
-      body: "自动化预约、报价与线索分配 — 减少手工操作。",
-    },
-    {
-      id: "agent",
-      tag: "Integration",
-      title: "对接 CRM / Zalo 的 Agent",
-      body: "按真实业务流程连接现有系统 — 成果可衡量。",
-    },
-  ],
-  ctaTransform: "企业 AI 转型",
-  ctaAgent: "定制 AI Agent",
-};
 
 export const aiEdgeByLocale: Record<Locale, AiEdge> = {
   vi,
   en,
   ja,
-  de,
-  zh,
 };

@@ -1,7 +1,14 @@
 # Changelog
 
+## 2026-08-03
+
+- `/services/mobile/` VI SEO/AEO/GEO rewriter (Jasper): meta/H1/intro entity-led; section leads; FAQ 6 Q (Flutter vs RN, store, timeline 8–14 tuần, chi phí, hỗ trợ sau BG, AI + internal links); use cases vấn đề→phạm vi→kết quả; bake VI meta/JSON-LD; schema `public/schema/services/mobile.json`.
+- `/services/web/` VI SEO/AEO/GEO rewriter (Jasper): meta/H1/intro entity-led; section leads; FAQ 7 Q (timeline khớp gói 3–5 ngày / 7–14 ngày / 3–4 tuần); pricing footer “không bán thừa, không phí ẩn”; schema `public/schema/services/web.json` + homepage works 6 cases.
+- i18n: drop `de` and `zh` locales — product supports **vi / en / ja** only; `DEFAULT_LOCALE` stays `ja`; pricing FX VND/USD/JPY; LanguageSwitcher, SEO alternates, boot script updated.
+
 ## 2026-08-02
 
+- Homepage SEO/AEO/GEO rewriter: merge Part1+Part2 → `public/schema/homepage/*`; map VI UI copy; Fit matrix; homepage meta VI + WebPage/FAQPage JSON-LD; FAQ timeline khớp Solutions (3–5 ngày).
 - Homepage VI rewrite (full section copy): hero→contact; Technology = AI Philosophy + principles; FAQ 13 Q; Care/home + contact afterSubmit; schema `/schema/homepage/*` synced.
 - Schema homepage: `/schema/homepage/` list + `/schema/homepage/[slug]/` JSON (VI SoT); sync rule updated.
 - Agent rule: `schema-json-sync.mdc` — khi chỉnh content/product truth, cập nhật `public/schema/` liên quan trong cùng task.

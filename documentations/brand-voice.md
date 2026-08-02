@@ -32,8 +32,6 @@ Do **not** open cold SMB outreach with “AI Agent”.
 | **vi** | Warm, “anh chị”, plain language; avoid robotic studio jargon |
 | **en** | Clear, confident, short sentences |
 | **ja** | Polite, calm SMB tone; prefer natural Japanese (see `geo-japan.md`) |
-| **de** | Direct, professional, low hype |
-| **zh** | Clear, practical, benefit-first |
 
 ## Writing habits
 

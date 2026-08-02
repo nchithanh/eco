@@ -45,8 +45,8 @@ export async function generateMetadata({
     };
   }
 
-  // Web is ICP #1 (VI keywords) — bake VI meta for Google even if UI default locale is JA.
-  const metaLocale = slug === "web" ? "vi" : SEO_LOCALE;
+  // Web + mobile: bake VI meta for Google even if UI default locale is JA.
+  const metaLocale = slug === "web" || slug === "mobile" ? "vi" : SEO_LOCALE;
   const detail = getServiceDetail(metaLocale, slug);
   const path = `/services/${slug}/`;
   const title = detail.metaTitle ?? detail.title;
@@ -75,7 +75,7 @@ export default async function ServicePage({
     return <CustomAgentPage />;
   }
 
-  const metaLocale = slug === "web" ? "vi" : SEO_LOCALE;
+  const metaLocale = slug === "web" || slug === "mobile" ? "vi" : SEO_LOCALE;
   const detail = getServiceDetail(metaLocale, slug);
   const extras = getServiceExtras(metaLocale, slug);
   const path = `/services/${slug}/`;

@@ -8,9 +8,7 @@ export const FX_AS_OF = "2026-07-30";
 
 export const FX_VND_PER_UNIT = {
   USD: 26_300,
-  EUR: 30_100,
   JPY: 161,
-  CNY: 3_900,
 } as const;
 
 export type PackagePriceId = "landing" | "business" | "shop" | "webapp";
@@ -26,14 +24,12 @@ export const PACKAGE_PRICES_VND: Record<
   webapp: { was: 20_000_000, now: 10_000_000, from: true },
 };
 
-type DisplayCurrency = "VND" | "USD" | "EUR" | "JPY" | "CNY";
+type DisplayCurrency = "VND" | "USD" | "JPY";
 
 const LOCALE_CURRENCY: Record<Locale, DisplayCurrency> = {
   vi: "VND",
   en: "USD",
   ja: "JPY",
-  de: "EUR",
-  zh: "CNY",
 };
 
 function convertFromVnd(amountVnd: number, currency: DisplayCurrency): number {
@@ -41,7 +37,6 @@ function convertFromVnd(amountVnd: number, currency: DisplayCurrency): number {
   const rate = FX_VND_PER_UNIT[currency];
   const raw = amountVnd / rate;
   if (currency === "JPY") return Math.round(raw / 100) * 100;
-  if (currency === "CNY") return Math.round(raw / 10) * 10;
   return Math.round(raw);
 }
 
@@ -56,24 +51,9 @@ function formatAmount(amount: number, currency: DisplayCurrency, locale: Locale)
       maximumFractionDigits: 0,
     }).format(amount);
   }
-  if (currency === "EUR") {
-    return new Intl.NumberFormat("de-DE", {
-      style: "currency",
-      currency: "EUR",
-      maximumFractionDigits: 0,
-    }).format(amount);
-  }
-  if (currency === "JPY") {
-    return new Intl.NumberFormat("ja-JP", {
-      style: "currency",
-      currency: "JPY",
-      maximumFractionDigits: 0,
-    }).format(amount);
-  }
-  // CNY — use zh-CN; avoid colliding with JPY yen glyph alone in mixed UIs
-  return new Intl.NumberFormat(locale === "zh" ? "zh-CN" : "en-US", {
+  return new Intl.NumberFormat("ja-JP", {
     style: "currency",
-    currency: "CNY",
+    currency: "JPY",
     maximumFractionDigits: 0,
   }).format(amount);
 }
@@ -88,9 +68,7 @@ export function formatPackageMoney(
   const formatted = formatAmount(converted, currency, locale);
   if (!opts?.from) return formatted;
 
-  // JP/ZH usually mark “from” as a suffix
   if (locale === "ja") return `${formatted}〜`;
-  if (locale === "zh") return `${formatted}起`;
 
   const prefix = opts.fromPrefix?.trim();
   return prefix ? `${prefix} ${formatted}` : formatted;
@@ -117,15 +95,7 @@ function formatMillionVndPart(value: number, locale: Locale): string {
       ? Math.round(value)
       : Math.round(value * 10) / 10;
   const intl =
-    locale === "vi"
-      ? "vi-VN"
-      : locale === "ja"
-        ? "ja-JP"
-        : locale === "de"
-          ? "de-DE"
-          : locale === "zh"
-            ? "zh-CN"
-            : "en-US";
+    locale === "vi" ? "vi-VN" : locale === "ja" ? "ja-JP" : "en-US";
   return new Intl.NumberFormat(intl, { maximumFractionDigits: 1 }).format(rounded);
 }
 

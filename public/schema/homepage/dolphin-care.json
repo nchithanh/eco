@@ -1,105 +1,66 @@
 {
   "meta": {
     "kind": "homepage-section",
+    "id": "dolphin-care",
     "locale": "vi",
     "brand": "Dolphin Software",
-    "updated": "2026-08-02",
-    "productRoute": "/",
-    "id": "dolphin-care",
-    "anchor": "#dolphin-care",
-    "component": "AgentDolphinHome",
+    "updated": "2026-08-03",
     "schemaPath": "/schema/homepage/dolphin-care/",
     "rawPath": "/schema/homepage/dolphin-care.json",
-    "copySource": "agent-dolphin-copy homeVi"
+    "productRoute": "/"
   },
   "content": {
-    "eyebrow": "Dolphin Care",
-    "title": "Đừng để khách phải [[chờ đến giờ làm việc]]",
-    "support": "Khách hỏi ngoài giờ, hỏi đi hỏi lại cùng một câu, hoặc rời đi vì không ai trả lời kịp. Dolphin Care giúp doanh nghiệp không bỏ lỡ những cơ hội đó.",
-    "cta": "Xem Dolphin Care hoạt động",
-    "ctaSecondary": "Đặt lịch demo",
-    "trustMicro": "Không làm thay nhân viên — bổ sung lớp chăm sóc đầu tiên trên website.",
+    "order": 6,
+    "id": "dolphin-care",
+    "section_label": "Dolphin Care",
+    "headline": "AI giảm tải vận hành và nâng cao hiệu quả",
+    "subheadline": "Dolphin Care là giải pháp AI chat tích hợp trực tiếp lên website của bạn — trả lời đúng việc, đúng giọng điệu thương hiệu, giảm câu hỏi lặp đi lặp lại.",
     "benefits": [
       {
-        "title": "Khách không phải chờ phản hồi",
-        "body": "Trả lời những câu hỏi phổ biến ngay khi khách vào website."
+        "title": "Trả lời đúng ngữ cảnh",
+        "body": "Câu hỏi thường gặp được phản hồi ngay khi khách vừa vào trang — không cần nhân viên trực 24/7."
       },
       {
-        "title": "Nhân viên bớt việc lặp",
-        "body": "Tự ghi nhận thông tin, trả lời câu hỏi quen thuộc và chuyển tiếp khi cần."
+        "title": "Giảm trao đổi thủ công",
+        "body": "Thu thập thông tin, trả lời câu hỏi lặp và chuyển tiếp sang người khi cần thiết."
       },
       {
-        "title": "Không bỏ lỡ khách ngoài giờ",
-        "body": "Hỗ trợ cả ngoài giờ làm việc để khách luôn nhận được phản hồi đầu tiên."
+        "title": "Không bỏ lỡ lead ngoài giờ",
+        "body": "Khách vẫn nhận được phản hồi đầu tiên ngoài giờ làm việc — cơ hội không trôi qua."
       }
     ],
-    "situationsLabel": "Dolphin Care làm được gì?",
-    "situations": [
-      "Khách hỏi giá",
-      "Khách hỏi còn lịch không",
-      "Khách hỏi địa chỉ",
-      "Khách hỏi dịch vụ",
-      "Khách muốn để lại SĐT",
-      "Khách muốn gặp nhân viên"
+    "ctas": [
+      {
+        "label": "Tìm hiểu Dolphin Care",
+        "href": "https://dolphin-software.io.vn/dolphin-care/",
+        "style": "primary"
+      },
+      {
+        "label": "Nhận báo giá",
+        "href": "#contact",
+        "style": "secondary"
+      }
     ],
-    "industriesLabel": "Phù hợp cho",
-    "industries": [
-      "Spa",
-      "Phòng khám",
-      "Nhà hàng",
-      "Giáo dục",
-      "Showroom",
-      "Bất động sản"
-    ],
-    "pipelineLabel": "Cách hoạt động (không phải chatbot cứng)",
-    "pipeline": [
-      "Hiểu ngữ cảnh",
-      "Thu thông tin",
-      "Đặt lịch",
-      "Gửi Zalo / CRM",
-      "Thông báo nhân viên",
-      "Theo dõi khách"
-    ],
-    "agentName": "Dolphin Care",
-    "online": "Đang trực tuyến",
-    "card": {
-      "context": "Spa · Đặt lịch",
+    "compatibility_note": "Thêm vào website mới hoặc website bạn đang chạy",
+    "chat_demo": {
       "messages": [
         {
-          "role": "user",
-          "text": "Chiều mai còn slot massage không?"
+          "from": "user",
+          "text": "Mai buổi chiều còn slot massage không?"
         },
         {
-          "role": "assistant",
-          "text": "Còn 15:00 và 17:30. Anh/chị muốn 60 hay 90 phút?"
+          "from": "bot",
+          "text": "Còn — 3:00 và 5:30 chiều. 60 hay 90 phút ạ?"
         },
         {
-          "role": "user",
-          "text": "60 phút lúc 15:00 giúp em."
+          "from": "user",
+          "text": "60 phút lúc 3:00 nhé"
         },
         {
-          "role": "assistant",
-          "text": "Em giữ slot 15:00 — 60 phút. Cho em tên và SĐT để xác nhận ạ?"
-        },
-        {
-          "role": "user",
-          "text": "Minh, 0901 234 567."
-        },
-        {
-          "role": "assistant",
-          "text": "Đã ghi lead Minh · 15:00 mai. Em gửi Zalo nhắc trước 2 tiếng và báo nhân viên trên CRM nhé."
-        },
-        {
-          "role": "user",
-          "text": "Ok em, cảm ơn nhiều."
-        },
-        {
-          "role": "assistant",
-          "text": "Dạ — nhân viên đã được thông báo. Em sẵn sàng hỗ trợ nếu anh/chị cần đổi giờ."
+          "from": "bot",
+          "text": "Đang giữ slot 3:00 — 60 phút. Cho mình xin tên và số điện thoại nhé."
         }
       ]
-    },
-    "productRoute": "/dolphin-care/",
-    "schemaAgent": "/schema/agents/dolphin-care/"
+    }
   }
 }

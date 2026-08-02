@@ -1,48 +1,52 @@
 {
   "meta": {
     "kind": "homepage-section",
+    "id": "process",
     "locale": "vi",
     "brand": "Dolphin Software",
-    "updated": "2026-08-02",
-    "productRoute": "/",
-    "id": "process",
-    "anchor": "#process",
-    "component": "Process",
+    "updated": "2026-08-03",
     "schemaPath": "/schema/homepage/process/",
     "rawPath": "/schema/homepage/process.json",
-    "copyKey": "process"
+    "productRoute": "/"
   },
   "content": {
-    "eyebrow": "Process",
-    "title": "Cách chúng tôi [[làm việc]]",
-    "support": "Từ lúc nghe bài toán đến khi bàn giao, mỗi bước đều có đầu ra rõ — bạn luôn biết mình đang ở đâu và điều gì tới tiếp theo.",
-    "deliverableLabel": "Đầu ra",
+    "order": 9,
+    "id": "process",
+    "section_label": "Phương pháp",
+    "headline": "Quy trình 5 bước bàn giao rõ ràng",
+    "subheadline": "Từ discovery đến bàn giao — đầu ra rõ ràng ở mỗi bước, không bỏ qua giai đoạn nào.",
     "steps": [
       {
-        "name": "Lắng nghe & hiểu vấn đề",
-        "detail": "Chúng tôi muốn hiểu doanh nghiệp bạn trước khi bàn giải pháp. Làm rõ mục tiêu và ràng buộc ngân sách / thời gian.",
-        "deliverable": "Tóm tắt bài toán, mục tiêu và ràng buộc đã thống nhất."
+        "number": "01",
+        "title": "Lắng nghe & Khám phá",
+        "body": "Làm rõ mục tiêu website/app cùng ngân sách và ràng buộc thời gian.",
+        "deliverable": "Tóm tắt vấn đề, mục tiêu và ràng buộc đã được căn chỉnh."
       },
       {
-        "name": "Đề xuất & báo giá rõ",
-        "detail": "Chọn Build / Modernize / Automate / Care phù hợp, kèm phạm vi và mốc rõ ràng.",
-        "deliverable": "Đề xuất phạm vi, timeline và báo giá."
+        "number": "02",
+        "title": "Lên kế hoạch & Báo giá",
+        "body": "Phân tách tính năng, milestone, chi phí và đầu ra bàn giao.",
+        "deliverable": "Đề xuất có phạm vi, timeline và báo giá rõ ràng."
       },
       {
-        "name": "Thiết kế & xây theo sprint",
-        "detail": "UI, tính năng và tích hợp, có demo định kỳ để bạn góp ý sớm thay vì chờ đến cuối.",
-        "deliverable": "Bản build / demo theo sprint để review."
+        "number": "03",
+        "title": "Phát triển theo sprint",
+        "body": "Bàn giao UI, tính năng, responsive, tích hợp — demo để điều chỉnh sớm.",
+        "deliverable": "Sprint build/demo để review sớm."
       },
       {
-        "name": "Kiểm thử & nghiệm thu",
-        "detail": "Kiểm soát chất lượng và nghiệm thu cùng bạn trước khi lên production.",
+        "number": "04",
+        "title": "Kiểm thử & UAT",
+        "body": "Kiểm tra chất lượng và nghiệm thu cùng bạn trước khi lên production.",
         "deliverable": "Checklist nghiệm thu và danh sách lỗi đã xử lý."
       },
       {
-        "name": "Bàn giao & đồng hành",
-        "detail": "Deploy, hướng dẫn vận hành và hỗ trợ khi hệ thống chạy thật. Chúng tôi vẫn ở đây sau go-live.",
-        "deliverable": "Source, domain/hosting & env, admin (nếu có), hướng dẫn và bảo hành kỹ thuật."
+        "number": "05",
+        "title": "Bàn giao & Đối tác",
+        "body": "Deploy, hướng dẫn vận hành, tài liệu — cộng với hỗ trợ kỹ thuật sau khi live.",
+        "deliverable": "Source code, domain/hosting & env, admin (nếu có), hướng dẫn và bảo hành theo thỏa thuận."
       }
-    ]
+    ],
+    "aeo_snippet": "Quy trình bàn giao của Dolphin Software gồm 5 bước: Lắng nghe & Khám phá → Lên kế hoạch & Báo giá → Phát triển theo sprint → Kiểm thử & UAT → Bàn giao & Hỗ trợ. Mỗi bước có đầu ra cụ thể và khách hàng luôn biết bước tiếp theo là gì."
   }
 }

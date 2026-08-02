@@ -49,7 +49,7 @@ export function buildPageMetadata({
       url,
       siteName: "Dolphin Software",
       locale: "ja_JP",
-      alternateLocale: ["vi_VN", "en_US", "de_DE", "zh_CN"],
+      alternateLocale: ["vi_VN", "en_US"],
       images: [
         {
           url: imageUrl,
@@ -81,7 +81,7 @@ export function organizationJsonLd() {
         "@type": "ContactPoint",
         contactType: "sales",
         email: "nchithanh9999@gmail.com",
-        availableLanguage: ["Vietnamese", "Japanese", "English", "German", "Chinese"],
+        availableLanguage: ["Vietnamese", "Japanese", "English"],
       },
     ],
   };
@@ -98,7 +98,7 @@ export function websiteJsonLd() {
       name: "Dolphin Software",
       url: SITE_URL,
     },
-    inLanguage: ["ja", "vi", "en", "de", "zh"],
+    inLanguage: ["ja", "vi", "en"],
   };
 }
 
