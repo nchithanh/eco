@@ -156,6 +156,25 @@ function IconMail({ className }: { className?: string }) {
   );
 }
 
+function IconContact({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="none" aria-hidden>
+      <path
+        d="M8 10.5a2.5 2.5 0 115 0 2.5 2.5 0 01-5 0zM6.5 16.2c.7-1.4 2.1-2.2 4-2.2s3.3.8 4 2.2"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+      />
+      <path
+        d="M14.5 8.5h4.2A1.8 1.8 0 0120.5 10.3v4.4a1.8 1.8 0 01-1.8 1.8h-1.1l-1.6 1.2c-.35.26-.8-.05-.72-.48l.35-1.72H14.5"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 function IconSend({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" className={className} fill="none" aria-hidden>
@@ -200,10 +219,12 @@ export function AiChatWidget() {
   const hadOpenRef = useRef(false);
 
   const [open, setOpen] = useState(false);
+  const [contactsOpen, setContactsOpen] = useState(false);
   const [toastIndex, setToastIndex] = useState(0);
   const [toastVisible, setToastVisible] = useState(false);
   const [draft, setDraft] = useState("");
   const [messages, setMessages] = useState<ChatMessage[]>([]);
+  const contactsRef = useRef<HTMLDivElement>(null);
 
   const toastPool = useMemo(
     () => [c.toastWelcome, c.toastContinue, ...c.suggestions],
@@ -281,8 +302,32 @@ export function AiChatWidget() {
   };
 
   const openChat = () => {
+    setContactsOpen(false);
     setOpen(true);
   };
+
+  useEffect(() => {
+    if (!contactsOpen) return;
+
+    const onPointerDown = (event: PointerEvent) => {
+      const root = contactsRef.current;
+      if (!root) return;
+      if (event.target instanceof Node && !root.contains(event.target)) {
+        setContactsOpen(false);
+      }
+    };
+
+    const onKeyDown = (event: globalThis.KeyboardEvent) => {
+      if (event.key === "Escape") setContactsOpen(false);
+    };
+
+    document.addEventListener("pointerdown", onPointerDown);
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.removeEventListener("pointerdown", onPointerDown);
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, [contactsOpen]);
 
   const pushUserAndReply = (text: string) => {
     const trimmed = text.trim();
@@ -493,27 +538,46 @@ export function AiChatWidget() {
         ) : null}
 
         <div className="flex flex-col items-center gap-3">
-          <ul className="flex flex-col items-center gap-3">
-            {contactItems.map((item, index) => (
-              <li
-                key={item.key}
-                className="kuct-contact-fab__item pointer-events-auto"
-                style={{ animationDelay: `${index * 50}ms` }}
-              >
-                <a
-                  href={item.href}
-                  aria-label={item.label}
-                  title={item.label}
-                  className="kuct-contact-fab__btn"
-                  {...(item.external
-                    ? { target: "_blank", rel: "noopener noreferrer" }
-                    : {})}
-                >
-                  {item.icon}
-                </a>
-              </li>
-            ))}
-          </ul>
+          <div ref={contactsRef} className="flex flex-col items-center gap-3">
+            {contactsOpen ? (
+              <ul className="flex flex-col items-center gap-3">
+                {contactItems.map((item, index) => (
+                  <li
+                    key={item.key}
+                    className="kuct-contact-fab__item pointer-events-auto"
+                    style={{ animationDelay: `${index * 50}ms` }}
+                  >
+                    <a
+                      href={item.href}
+                      aria-label={item.label}
+                      title={item.label}
+                      className="kuct-contact-fab__btn"
+                      {...(item.external
+                        ? { target: "_blank", rel: "noopener noreferrer" }
+                        : {})}
+                    >
+                      {item.icon}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            ) : null}
+
+            <button
+              type="button"
+              className="kuct-contact-fab__btn kuct-contact-fab__toggle pointer-events-auto"
+              aria-expanded={contactsOpen}
+              aria-label={contactsOpen ? fab.close : fab.open}
+              title={contactsOpen ? fab.close : fab.open}
+              onClick={() => setContactsOpen((prev) => !prev)}
+            >
+              {contactsOpen ? (
+                <IconClose className="size-5" />
+              ) : (
+                <IconContact className="size-5" />
+              )}
+            </button>
+          </div>
 
           <span className="kuct-ai-chat__avatar-wrap pointer-events-auto">
             <button

@@ -317,13 +317,17 @@ describe("Dolphin Software homepage", () => {
     expect(
       screen.getByRole("button", { name: /Dolphin Assist チャットを閉じる/i }),
     ).toBeInTheDocument();
+    expect(
+      screen.getByRole("dialog", { name: /Dolphin Assist/i }),
+    ).toBeInTheDocument();
+
+    await user.click(
+      screen.getByRole("button", { name: /クイック連絡を開く/i }),
+    );
     expect(screen.getByRole("link", { name: /Zaloでチャット/i })).toHaveAttribute(
       "href",
       "https://zalo.me/0779937633",
     );
-    expect(
-      screen.getByRole("dialog", { name: /Dolphin Assist/i }),
-    ).toBeInTheDocument();
   });
 
   it("hides theme switcher temporarily", () => {
