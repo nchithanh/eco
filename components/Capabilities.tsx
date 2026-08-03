@@ -86,7 +86,7 @@ export function Capabilities() {
   return (
     <section id="capabilities" className="scroll-mt-20 py-20 sm:py-24">
       <div className="mx-auto max-w-6xl px-6">
-        <Reveal className="max-w-2xl">
+        <Reveal variant="title" className="max-w-2xl">
           <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
             {c.eyebrow}
           </p>

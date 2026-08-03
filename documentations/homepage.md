@@ -24,8 +24,8 @@ Hero
 | # | Schema | Component | Anchor |
 | --- | --- | --- | --- |
 | — | Nav | `Nav` | |
-| 1 | Hero | `Hero` | `#top` |
-| 2 | Outcomes | `SiteOutcomes` | `#stats` |
+| 1 | Hero | `Hero` | `#top` — H1/subhead: LCP-safe `kuct-title-enter` (desktop) |
+| 2 | Outcomes | `SiteOutcomes` | `#stats` — section titles use `Reveal variant="title"` |
 | 3 | Why Dolphin | `WhyKuct` | `#why` |
 | 4 | How we help | `Capabilities` | `#capabilities` |
 | 5 | Projects | `WorksShowcase` | `#works` |
@@ -33,7 +33,7 @@ Hero
 | 7 | Ops AI | `Technology`, `AiEdge` | `#technology` (AI Philosophy + principles VI), `#ai-edge` |
 | 8 | Process | `Process` | `#process` |
 | 9 | Fit | `FitSection` | `#fit` (via homepage overlay; hidden if `t.fit` missing) |
-| 10 | Solutions | `PopularServices` | `#popular-services` |
+| 10 | Solutions | `PopularServices` | `#popular-services` — 50/50: left intro / right top tabs + detail |
 | 11 | FAQ | `Faq` | `#faq` |
 | 12 | CTA | `ContactForm` | `#contact` |
 | — | Footer | `Footer` | |

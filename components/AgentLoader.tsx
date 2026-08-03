@@ -2,7 +2,10 @@
 
 import { useEffect, useState } from "react";
 import { Logo } from "@/components/Logo";
-import { useLocale } from "@/lib/i18n/LocaleProvider";
+import { getDictionary } from "@/lib/i18n/dictionaries";
+
+/** Boot overlay copy is always EN — independent of UI locale. */
+const LOADER_COPY = getDictionary("en").loader;
 
 const MIN_DURATION_MS = 1500;
 const EXIT_MS = 420;
@@ -35,7 +38,6 @@ export function AgentLoader({
   disabled = isTestRuntime(),
   minDurationMs = MIN_DURATION_MS,
 }: AgentLoaderProps = {}) {
-  const { t } = useLocale();
   const [phase, setPhase] = useState<"running" | "exiting" | "done">(
     disabled ? "done" : "running",
   );
@@ -95,14 +97,14 @@ export function AgentLoader({
 
   if (phase === "done") return null;
 
-  const agents = t.loader.agents;
+  const agents = LOADER_COPY.agents;
 
   return (
     <div
       role="status"
       aria-live="polite"
       aria-busy={phase === "running"}
-      aria-label={t.loader.aria}
+      aria-label={LOADER_COPY.aria}
       className={`kuct-loader fixed inset-0 z-[200] flex flex-col items-center justify-center px-6 ${
         phase === "exiting" ? "kuct-loader--exit" : ""
       }`}
@@ -175,7 +177,7 @@ export function AgentLoader({
 
         <div className="w-full max-w-[220px] text-center">
           <p className="text-xs font-semibold tracking-[0.16em] text-[var(--kuct-accent)] uppercase">
-            {t.loader.status}
+            {LOADER_COPY.status}
           </p>
           <div
             className="kuct-loader-progress mt-3 h-1 overflow-hidden rounded-full"

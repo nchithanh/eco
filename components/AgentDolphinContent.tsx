@@ -394,7 +394,7 @@ export function AgentDolphinContent({ embedded = false }: { embedded?: boolean }
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[rgba(var(--kuct-accent-rgb),0.08)] via-transparent to-[rgba(var(--kuct-accent-rgb),0.05)]" />
         <div className="relative mx-auto max-w-6xl px-6">
           <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-12 xl:gap-16">
-            <Reveal>
+            <Reveal variant="title">
               <div className="text-left">
                 <p className="text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
                   {c.eyebrow}
@@ -441,7 +441,7 @@ export function AgentDolphinContent({ embedded = false }: { embedded?: boolean }
 
       <section className="scroll-mt-20 border-t border-[var(--kuct-border)] py-20">
         <div className="mx-auto max-w-6xl px-6">
-          <Reveal>
+          <Reveal variant="title">
             <p className="text-center text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
               {c.compareEyebrow}
             </p>
@@ -538,7 +538,7 @@ export function AgentDolphinContent({ embedded = false }: { embedded?: boolean }
 
       <section className="scroll-mt-20 border-t border-[var(--kuct-border)] py-20">
         <div className="mx-auto max-w-6xl px-6">
-          <Reveal>
+          <Reveal variant="title">
             <p className="text-center text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
               {c.howEyebrow}
             </p>
@@ -588,7 +588,7 @@ export function AgentDolphinContent({ embedded = false }: { embedded?: boolean }
 
       <section className="kuct-section-wash scroll-mt-20 border-t border-[var(--kuct-border)] py-20">
         <div className="mx-auto max-w-6xl px-6">
-          <Reveal>
+          <Reveal variant="title">
             <p className="text-center text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
               {c.faqEyebrow}
             </p>
@@ -644,7 +644,7 @@ export function AgentDolphinContent({ embedded = false }: { embedded?: boolean }
         className="scroll-mt-20 border-t border-[var(--kuct-border)] py-20"
       >
         <div className="mx-auto max-w-3xl px-6 text-center">
-          <Reveal>
+          <Reveal variant="title">
             <p className="text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
               {c.closeEyebrow}
             </p>

@@ -586,7 +586,7 @@ export function Technology() {
           />
         </Reveal>
 
-        <Reveal className="max-w-lg lg:justify-self-end" variant="right">
+        <Reveal className="max-w-lg lg:justify-self-end" variant="title">
           <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
             {tech.eyebrow}
           </p>

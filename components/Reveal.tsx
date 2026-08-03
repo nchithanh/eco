@@ -8,13 +8,14 @@ import {
 } from "react";
 import { useInView, type UseInViewOptions } from "@/lib/useInView";
 
-export type RevealVariant = "up" | "left" | "right" | "scale";
+export type RevealVariant = "up" | "left" | "right" | "scale" | "title";
 
 const VARIANT_CLASS: Record<RevealVariant, string> = {
   up: "kuct-reveal",
   left: "kuct-reveal kuct-reveal-left",
   right: "kuct-reveal kuct-reveal-right",
   scale: "kuct-reveal kuct-reveal-scale",
+  title: "kuct-reveal kuct-reveal-title",
 };
 
 type RevealProps = {

@@ -27,7 +27,7 @@ export function CoFounder() {
             </div>
           </Reveal>
 
-          <Reveal className="min-w-0 text-left" variant="right" delay={100}>
+          <Reveal className="min-w-0 text-left" variant="title" delay={100}>
             <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
               {c.eyebrow}
             </p>

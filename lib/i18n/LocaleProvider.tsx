@@ -90,6 +90,8 @@ function applyLocaleToDocument(locale: Locale) {
 }
 
 export function LocaleProvider({ children }: { children: ReactNode }) {
+  // Always DEFAULT_LOCALE on first render so SSR HTML matches client hydration.
+  // Real locale (boot script / localStorage / navigator) applies in useEffect.
   const [locale, setLocaleState] = useState<Locale>(DEFAULT_LOCALE);
 
   useEffect(() => {

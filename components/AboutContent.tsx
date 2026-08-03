@@ -22,7 +22,7 @@ export function AboutContent() {
       <section className="relative isolate overflow-hidden border-b border-[var(--kuct-border)] py-20 sm:py-24">
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[rgba(var(--kuct-accent-rgb),0.1)] via-transparent to-[rgba(var(--kuct-accent-rgb),0.04)]" />
         <div className="relative mx-auto max-w-6xl px-6">
-          <Reveal className="max-w-5xl text-left">
+          <Reveal variant="title" className="max-w-5xl text-left">
             <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
               {a.eyebrow}
             </p>
@@ -56,7 +56,7 @@ export function AboutContent() {
 
       <section className="scroll-mt-20 py-24">
         <div className="mx-auto max-w-6xl px-6">
-          <Reveal className="max-w-2xl">
+          <Reveal variant="title" className="max-w-2xl">
             <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
               {a.mindsetEyebrow}
             </p>
@@ -92,7 +92,7 @@ export function AboutContent() {
 
       <section className="scroll-mt-20 border-t border-[var(--kuct-border)] py-24">
         <div className="mx-auto max-w-6xl px-6">
-          <Reveal className="max-w-2xl">
+          <Reveal variant="title" className="max-w-2xl">
             <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
               {a.buildEyebrow}
             </p>
@@ -140,7 +140,7 @@ export function AboutContent() {
 
       <section className="scroll-mt-20 border-t border-[var(--kuct-border)] py-24">
         <div className="mx-auto max-w-6xl px-6">
-          <Reveal className="max-w-2xl">
+          <Reveal variant="title" className="max-w-2xl">
             <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
               {a.proofEyebrow}
             </p>
@@ -221,7 +221,7 @@ export function AboutContent() {
         className="scroll-mt-20 border-t border-[var(--kuct-border)] py-24"
       >
         <div className="mx-auto max-w-6xl px-6">
-          <Reveal className="max-w-2xl">
+          <Reveal variant="title" className="max-w-2xl">
             <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
               {a.faqEyebrow}
             </p>
@@ -274,7 +274,7 @@ export function AboutContent() {
 
       <section className="scroll-mt-20 border-t border-[var(--kuct-border)] py-24">
         <div className="mx-auto max-w-6xl px-6">
-          <Reveal className="rounded-[1.75rem] border border-[var(--kuct-border)] bg-[rgba(6,6,14,0.88)] px-6 py-10 text-center ring-1 ring-[var(--kuct-accent)]/15 backdrop-blur-md sm:px-10 sm:py-12">
+          <Reveal variant="title" className="rounded-[1.75rem] border border-[var(--kuct-border)] bg-[rgba(6,6,14,0.88)] px-6 py-10 text-center ring-1 ring-[var(--kuct-accent)]/15 backdrop-blur-md sm:px-10 sm:py-12">
             <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
               {a.ctaEyebrow}
             </p>

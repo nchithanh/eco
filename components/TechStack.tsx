@@ -43,7 +43,7 @@ export function TechStack() {
       />
 
       <div className="relative mx-auto max-w-5xl px-6 text-left">
-        <Reveal>
+        <Reveal variant="title">
           <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
             {eyebrow}
           </p>

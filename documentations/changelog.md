@@ -4,6 +4,15 @@
 
 - `/services/backend/` VI SEO/AEO/GEO rewriter (Jasper): meta “Phát Triển Backend & Tích Hợp Hệ Thống”; intro snippet-ready; section leads; use cases cụ thể; FAQ 6 Q (+ VN payments → `/services/integrations/`, timeline 2–4 tuần); bake VI meta + Service/FAQ JSON-LD; EN/JA sync; schema `public/schema/services/backend.json`.
 - Nav/footer: remove UI/UX (`/services/design/`) from menus; route kept.
+- `#popular-services` mobile: 2×2 package tabs, tighter padding, hide “Bao gồm” on xs, full-width CTA; desktop keeps horizontal tabs + 50/50 split.
+- `#popular-services`: **50/50 split** — left intro (eyebrow/title/support + Zalo); right top horizontal package tabs; right body includes + CTA.
+- `#popular-services`: split layout — **left** numbered includes; **right top** package radiogroup + Zalo; **right bottom** price + CTA.
+- `#popular-services`: AAAWeb-style **left/right split** — left package list + Zalo consult; right numbered includes + commitments + CTA; chrome strings `includedLabel` / `commitments` / etc. in `popular-services-copy`.
+- `#popular-services` (`PopularServices`): comparison table → **click-select** package options + detail panel (default featured); prices still on each option for FX.
+- Site background grid: purple run-lines via `SiteGridRuns` on `body::after` square grid (not AgentLoader); respects `prefers-reduced-motion`.
+- Root layout boot scripts (theme + locale): `BootScripts` + `useServerInsertedHTML` — inject outside React tree (fixes React 19 script-tag dev warning); replaces `next/script` / raw `<script>` in layout.
+- i18n boot: `DEFAULT_LOCALE` `ja` → `en`; locale boot script fallback `en`; `AgentLoader` copy always EN (no JA flash on load); `LocaleProvider` first render always `DEFAULT_LOCALE` (hydration-safe), resolve in `useEffect`.
+- Desktop title text motion: `Reveal` `variant="title"` (rise + soft blur) on homepage/key page H1–H2; hero uses LCP-safe `kuct-title-enter` (no opacity hide); gated `lg+` + `prefers-reduced-motion`.
 - **Removed Custom Agent product:** deleted `CustomAgentContent` / `custom-agent-copy` / schema JSON; `/custom-agent/` + `/services/custom-agent/` redirect → `/ai-transform/`; nav/footer/AiEdge/sitemap retargeted; agent = building block inside AI Transform roadmap only.
 - Careers FAQ (`#careers-faq`): accordion dropdown (open first item) — same pattern as Dolphin Care / AI Transform.
 - About FAQ (`#about-faq`): same accordion pattern.

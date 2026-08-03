@@ -40,8 +40,8 @@ describe("AgentLoader", () => {
     vi.useFakeTimers({ toFake: ["setTimeout", "requestAnimationFrame"] });
     renderLoader(1500);
 
-    expect(screen.getByRole("status", { name: /Đang khởi động hệ thống agent/i })).toBeInTheDocument();
-    expect(screen.getByText(/Đang khởi động agent/i)).toBeInTheDocument();
+    expect(screen.getByRole("status", { name: /Booting agent system/i })).toBeInTheDocument();
+    expect(screen.getByText(/Booting agents/i)).toBeInTheDocument();
     expect(screen.getByText("Scout")).toBeInTheDocument();
     expect(screen.getByText("Plan")).toBeInTheDocument();
     expect(screen.getByText("Build")).toBeInTheDocument();

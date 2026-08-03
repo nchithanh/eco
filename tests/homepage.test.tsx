@@ -131,7 +131,8 @@ describe("Dolphin Software homepage", () => {
     ).toHaveAttribute("href", expect.stringMatching(/\/dolphin-care\/?$/));
   });
 
-  it("renders popular services comparison with landing price focus", () => {
+  it("renders popular services click-select with landing price focus", async () => {
+    const user = userEvent.setup();
     renderHome();
     const popular = document.getElementById("popular-services");
     expect(popular).toBeTruthy();
@@ -147,6 +148,7 @@ describe("Dolphin Software homepage", () => {
     expect(section.getByRole("heading", { name: /ECサイト|オンラインショップ/i })).toBeInTheDocument();
     expect(section.getByRole("heading", { name: /カスタムWebアプリ|Webアプリ/i })).toBeInTheDocument();
     expect(section.getByText("￥6,200")).toBeInTheDocument();
+    await user.click(section.getByRole("radio", { name: /ランディングページ/i }));
     expect(section.getByRole("button", { name: /LP見積もり|LP見積り/i })).toBeInTheDocument();
     expect(section.getByRole("link", { name: /Zaloで無料相談/i })).toHaveAttribute(
       "href",

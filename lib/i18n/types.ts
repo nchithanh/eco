@@ -10,7 +10,7 @@ export const LOCALES: {
   { code: "ja", label: "JA", name: "日本語" },
 ];
 
-export const DEFAULT_LOCALE: Locale = "ja";
+export const DEFAULT_LOCALE: Locale = "en";
 
 export type Dictionary = {
   meta: {
@@ -84,6 +84,14 @@ export type Dictionary = {
     };
     priceNote: string;
     fromPrefix: string;
+    /** Right panel label next to each included feature */
+    includedLabel: string;
+    /** Left column footer prompt linking to Zalo */
+    consultPrompt: string;
+    /** Short trust chips under features */
+    commitments: string[];
+    priceBundleLabel: string;
+    noHiddenLabel: string;
     footerNote: string;
     footerCta: string;
     packages: {

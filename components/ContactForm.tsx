@@ -37,7 +37,7 @@ export function ContactForm() {
     <section id="contact" className="scroll-mt-20 py-24">
       <div className="mx-auto max-w-6xl px-6">
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
-          <Reveal variant="left">
+          <Reveal variant="title">
             <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
               {c.eyebrow}
             </p>

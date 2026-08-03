@@ -32,7 +32,7 @@ export function AiTransformContent({ embedded = false }: { embedded?: boolean })
       >
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[rgba(var(--kuct-accent-rgb),0.08)] via-transparent to-[rgba(var(--kuct-accent-rgb),0.05)]" />
         <div className="relative mx-auto max-w-6xl px-6 text-left">
-          <Reveal className="max-w-5xl">
+          <Reveal variant="title" className="max-w-5xl">
             <p className="text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
               {c.eyebrow}
             </p>
@@ -69,7 +69,7 @@ export function AiTransformContent({ embedded = false }: { embedded?: boolean })
 
       <section className="scroll-mt-20 border-t border-[var(--kuct-border)] py-20">
         <div className="mx-auto max-w-6xl px-6">
-          <Reveal>
+          <Reveal variant="title">
             <p className="text-center text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
               {c.compareEyebrow}
             </p>
@@ -124,7 +124,7 @@ export function AiTransformContent({ embedded = false }: { embedded?: boolean })
 
       <section className="kuct-section-wash scroll-mt-20 border-t border-[var(--kuct-border)] py-20">
         <div className="mx-auto max-w-6xl px-6">
-          <Reveal>
+          <Reveal variant="title">
             <p className="text-center text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
               {c.whenEyebrow}
             </p>
@@ -160,7 +160,7 @@ export function AiTransformContent({ embedded = false }: { embedded?: boolean })
 
       <section className="scroll-mt-20 border-t border-[var(--kuct-border)] py-20">
         <div className="mx-auto max-w-6xl px-6">
-          <Reveal>
+          <Reveal variant="title">
             <p className="text-center text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
               {c.processEyebrow}
             </p>
@@ -202,7 +202,7 @@ export function AiTransformContent({ embedded = false }: { embedded?: boolean })
 
       <section className="kuct-section-wash scroll-mt-20 border-t border-[var(--kuct-border)] py-20">
         <div className="mx-auto max-w-6xl px-6">
-          <Reveal>
+          <Reveal variant="title">
             <p className="text-center text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
               {c.agentEyebrow}
             </p>
@@ -242,7 +242,7 @@ export function AiTransformContent({ embedded = false }: { embedded?: boolean })
 
       <section className="scroll-mt-20 border-t border-[var(--kuct-border)] py-20">
         <div className="mx-auto max-w-6xl px-6">
-          <Reveal>
+          <Reveal variant="title">
             <p className="text-center text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
               {c.industriesEyebrow}
             </p>
@@ -275,7 +275,7 @@ export function AiTransformContent({ embedded = false }: { embedded?: boolean })
 
       <section className="kuct-section-wash scroll-mt-20 border-t border-[var(--kuct-border)] py-20">
         <div className="mx-auto max-w-6xl px-6">
-          <Reveal>
+          <Reveal variant="title">
             <p className="text-center text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
               {c.roiEyebrow}
             </p>
@@ -308,7 +308,7 @@ export function AiTransformContent({ embedded = false }: { embedded?: boolean })
 
       <section className="scroll-mt-20 border-t border-[var(--kuct-border)] py-20">
         <div className="mx-auto max-w-6xl px-6">
-          <Reveal>
+          <Reveal variant="title">
             <p className="text-center text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
               {c.govEyebrow}
             </p>
@@ -342,7 +342,7 @@ export function AiTransformContent({ embedded = false }: { embedded?: boolean })
 
       <section className="kuct-section-wash scroll-mt-20 border-t border-[var(--kuct-border)] py-20">
         <div className="mx-auto max-w-6xl px-6">
-          <Reveal>
+          <Reveal variant="title">
             <p className="text-center text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
               {c.faqEyebrow}
             </p>
@@ -398,7 +398,7 @@ export function AiTransformContent({ embedded = false }: { embedded?: boolean })
         className="scroll-mt-20 border-t border-[var(--kuct-border)] py-20"
       >
         <div className="mx-auto max-w-3xl px-6 text-center">
-          <Reveal>
+          <Reveal variant="title">
             <p className="text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
               {c.closeEyebrow}
             </p>

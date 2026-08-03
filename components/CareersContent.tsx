@@ -31,7 +31,7 @@ export function CareersContent({ embedded = false }: { embedded?: boolean }) {
         className="scroll-mt-20 border-b border-[var(--kuct-border)] py-20 sm:py-24"
       >
         <div className="mx-auto max-w-6xl px-6">
-          <Reveal className="max-w-2xl">
+          <Reveal variant="title" className="max-w-2xl">
             <p className="text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
               {c.model.eyebrow}
             </p>
@@ -67,7 +67,7 @@ export function CareersContent({ embedded = false }: { embedded?: boolean }) {
         className="scroll-mt-20 border-b border-[var(--kuct-border)] py-20 sm:py-24"
       >
         <div className="mx-auto max-w-6xl px-6">
-          <Reveal className="max-w-2xl">
+          <Reveal variant="title" className="max-w-2xl">
             <p className="text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
               {c.howToApply.eyebrow}
             </p>
@@ -102,7 +102,7 @@ export function CareersContent({ embedded = false }: { embedded?: boolean }) {
         className="scroll-mt-20 border-t border-[var(--kuct-border)] py-20 sm:py-24"
       >
         <div className="mx-auto max-w-6xl px-6">
-          <Reveal className="max-w-2xl">
+          <Reveal variant="title" className="max-w-2xl">
             <p className="text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
               {c.faq.eyebrow}
             </p>

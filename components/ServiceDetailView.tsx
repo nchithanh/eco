@@ -72,7 +72,7 @@ export function ServiceDetailContent({
           <div
             className={`${embedded ? "mt-0" : "mt-8"} grid items-center gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-14`}
           >
-            <Reveal variant="left" className="min-w-0">
+            <Reveal variant="title" className="min-w-0">
               <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
                 {card?.category ?? t.capabilities.eyebrow}
               </p>

@@ -51,7 +51,7 @@ export function AiEdge() {
   return (
     <section id="ai-edge" className="scroll-mt-20 py-24">
       <div className="mx-auto max-w-6xl px-6">
-        <Reveal>
+        <Reveal variant="title">
           <div className="flex flex-wrap items-center gap-3">
             <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
               {copy.eyebrow}
