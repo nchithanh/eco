@@ -31,6 +31,6 @@
   ],
   "relatedAgents": [
     "/schema/agents/dolphin-care/",
-    "/schema/agents/custom-agent/"
+    "/schema/agents/ai-transform/"
   ]
 }

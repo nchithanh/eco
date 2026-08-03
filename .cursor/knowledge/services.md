@@ -60,7 +60,7 @@ AI giúp tự động hóa công việc lặp lại. Ví dụ định vị:
 - hỗ trợ nhân viên  
 
 Chỉ triển khai AI khi mang lại giá trị thực tế.  
-Pages: `/ai-transform/`, `/custom-agent/`, `/services/agents/`. Chi tiết messaging: `ai.md`.
+Pages: `/ai-transform/`, `/services/agents/`. Chi tiết messaging: `ai.md`.
 
 ---
 
@@ -90,8 +90,7 @@ Route: `/dolphin-care/`. Full notes: `dolphin-care.md`.
 | Design / UI | `/services/design/` |
 | Integrations | `/services/integrations/` |
 | Agents ecosystem | `/services/agents/` |
-| Custom AI Agent | `/custom-agent/` |
-| AI transform | `/ai-transform/` |
+| AI transform (agents as building blocks) | `/ai-transform/` |
 | Dolphin Care | `/dolphin-care/` |
 
 Nav “Dịch vụ” nhấn web / landing / app / backend / UI.  

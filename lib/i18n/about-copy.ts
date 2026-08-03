@@ -93,7 +93,7 @@ const vi: AboutCopy = {
     {
       title: "03 · AI & Automation",
       body: "Agent, workflow, ops loop — giảm thao tác thủ công, tăng khả năng quan sát cho người vận hành.",
-      href: "/custom-agent/",
+      href: "/ai-transform/",
     },
     {
       title: "04 · Bàn giao & Vận hành",
@@ -222,7 +222,7 @@ const en: AboutCopy = {
     {
       title: "03 · AI & Automation",
       body: "Agents, workflows, ops loops — less manual work, more visibility for operators.",
-      href: "/custom-agent/",
+      href: "/ai-transform/",
     },
     {
       title: "04 · Handover & Ops",
@@ -351,7 +351,7 @@ const ja: AboutCopy = {
     {
       title: "03 · AI & 自動化",
       body: "エージェント、ワークフロー、運用ループ — 手作業を減らし、運用の可視性を高める。",
-      href: "/custom-agent/",
+      href: "/ai-transform/",
     },
     {
       title: "04 · 納品 & 運用",

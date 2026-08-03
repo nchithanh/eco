@@ -34,8 +34,7 @@ export type Dictionary = {
     news: string;
     careers: string;
     about: string;
-    customAgent: string;
-    customAgentItem: string;
+    agents: string;
     agentDolphin: string;
     aiTransform: string;
     contact: string;

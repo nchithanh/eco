@@ -64,7 +64,7 @@ const vi: AiChatCopy = {
     {
       keywords: ["agent", "chatbot", "ai agent", "theo yêu cầu"],
       reply:
-        "AI Agent theo yêu cầu gắn nghiệp vụ thật (CRM, Zalo, lịch…) — không chatbot kịch bản bán sẵn. Xem trang /custom-agent/ hoặc nói em biết khâu anh/chị muốn tự động hóa.",
+        "AI agent gắn nghiệp vụ thật (CRM, Zalo, lịch…) là một phần lộ trình chuyển đổi AI — không chatbot kịch bản bán sẵn. Xem /ai-transform/ hoặc nói em biết khâu anh/chị muốn tự động hóa.",
     },
     {
       keywords: ["chuyển đổi", "transform", "doanh nghiệp", "lộ trình"],
@@ -124,7 +124,7 @@ const en: AiChatCopy = {
     {
       keywords: ["agent", "chatbot", "custom"],
       reply:
-        "Custom AI agents attach to real workflows (CRM, chat, calendar) — not off-the-shelf script bots. See /custom-agent/ or tell me which job you want automated.",
+        "Custom AI agents attach to real workflows (CRM, chat, calendar) as part of the AI transformation roadmap — not off-the-shelf script bots. See /ai-transform/ or tell me which job you want automated.",
     },
     {
       keywords: ["transform", "transformation", "enterprise", "roadmap"],

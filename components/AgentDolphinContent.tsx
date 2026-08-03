@@ -380,7 +380,7 @@ export function AgentDolphinContent({ embedded = false }: { embedded?: boolean }
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const homePath = assetPath("/").replace(/\/$/, "");
   const contactHref = embedded ? `${homePath}/#contact` : "#contact";
-  const otherAgentsHref = assetPath("/custom-agent/");
+  const otherAgentsHref = assetPath("/ai-transform/");
 
   return (
     <div className={embedded ? "pb-6" : undefined}>

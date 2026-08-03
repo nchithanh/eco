@@ -60,14 +60,6 @@
       "productRoute": "/services/agents/",
       "schemaPath": "/schema/services/agents/",
       "rawPath": "/schema/services/agents.json"
-    },
-    {
-      "id": "custom-agent",
-      "title": "AI Agent theo yêu cầu",
-      "pillar": "Automate",
-      "productRoute": "/custom-agent/",
-      "schemaPath": "/schema/services/custom-agent/",
-      "rawPath": "/schema/services/custom-agent.json"
     }
   ]
 }

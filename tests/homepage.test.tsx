@@ -127,8 +127,8 @@ describe("Dolphin Software homepage", () => {
       within(aiEdge!).getByRole("link", { name: /企業AI変革/i }),
     ).toHaveAttribute("href", expect.stringMatching(/\/ai-transform\/?$/));
     expect(
-      within(aiEdge!).getByRole("link", { name: /カスタムAIエージェント/i }),
-    ).toHaveAttribute("href", expect.stringMatching(/\/custom-agent\/?$/));
+      within(aiEdge!).getByRole("link", { name: /Dolphin Careを見る/i }),
+    ).toHaveAttribute("href", expect.stringMatching(/\/dolphin-care\/?$/));
   });
 
   it("renders popular services comparison with landing price focus", () => {

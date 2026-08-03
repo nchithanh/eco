@@ -16,14 +16,6 @@
       "rawPath": "/schema/agents/dolphin-care.json"
     },
     {
-      "id": "custom-agent",
-      "title": "AI Agent theo yêu cầu",
-      "pillar": "Automate",
-      "productRoute": "/custom-agent/",
-      "schemaPath": "/schema/agents/custom-agent/",
-      "rawPath": "/schema/agents/custom-agent.json"
-    },
-    {
       "id": "ai-transform",
       "title": "Chuyển đổi AI doanh nghiệp",
       "pillar": "Automate",

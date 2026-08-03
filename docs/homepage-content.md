@@ -138,7 +138,6 @@ Tất cả · Website · Mobile · Backend · UI/UX · Integrations · Agents
 | design | UI/UX | UI/UX & bàn giao | UI đúng brand + design system + hướng dẫn — đội bạn tự vận hành nội dung, ít phụ thuộc studio. | UI/UX, Design system, Handover |
 | integrations | Integrations | Tích hợp dịch vụ bên thứ ba | Gắn MoMo, ZaloPay, VNPay, Zalo OA vào luồng thật — ít sai sót vận hành, dễ theo dõi và an toàn. | MoMo, Zalo, VNPay, Webhook |
 | agents | Agents | Hệ sinh thái agent cho business | Agent gắn nghiệp vụ + MCP/tool nội bộ — hỗ trợ vận hành theo domain, không chỉ chatbot marketing. | MCP, Agents, Context, AI |
-| custom-agent | Agents | AI Agent theo yêu cầu | Nạp nghiệp vụ thật + nối hệ thống đang chạy — agent gánh một khâu tới kết quả, không chatbot kịch bản. | Custom agent, Ops, Zalo/CRM, AI |
 
 ---
 

@@ -58,7 +58,7 @@ AI hỗ trợ khách trên website
   → Báo giá gắn kèm hoặc riêng
 ```
 
-Custom Agent & AI Transform: ICP B2B / nâng cao — không phải hook outreach tuần đầu.
+Custom Agent (legacy; now under AI Transform roadmap) & AI Transform: ICP B2B / nâng cao — không phải hook outreach tuần đầu.
 
 ---
 
@@ -67,7 +67,7 @@ Custom Agent & AI Transform: ICP B2B / nâng cao — không phải hook outreach
 ## 2. Đã có trên site (nền kỹ thuật)
 
 - Marketing site đa ngữ, Pages + domain; hero/web-first + section Dolphin Care.
-- Trang dịch vụ / works / ghi chép (`/news/`) / Dolphin Care / Custom Agent / AI Transform.
+- Trang dịch vụ / works / ghi chép (`/news/`) / Dolphin Care / AI Transform.
 - SEO technical: `robots.txt`, `sitemap.xml`, metadata + canonical, OG, JSON-LD.
 
 Chi tiết: [architecture.md](./architecture.md) (SEO), [pages.md](./pages.md), [homepage.md](./homepage.md).

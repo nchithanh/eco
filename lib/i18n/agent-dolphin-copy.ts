@@ -53,7 +53,7 @@ const vi: AgentDolphinCopy = {
   support:
     "Dolphin Care là công cụ AI chăm sóc khách hàng trên website do Dolphin Software phát triển. Không phải chatbot theo kịch bản — Dolphin Care kết hợp mô hình ngôn ngữ lớn (LLM) với nghiệp vụ doanh nghiệp và ngữ cảnh từng khách truy cập để lắng nghe, tư vấn và phản hồi đúng giọng điệu thương hiệu. Phù hợp SMB Việt Nam muốn nâng hỗ trợ trên website mà không mở rộng đội ngũ; tích hợp được vào website đang chạy hoặc mới — không bắt buộc do Dolphin Software xây.",
   ctaPrimary: "Trao đổi về tích hợp",
-  ctaSecondary: "Xem các AI agent khác",
+  ctaSecondary: "Xem lộ trình AI",
   trustLine:
     "LLM · Nghiệp vụ doanh nghiệp · Ngữ cảnh khách hàng · Giọng thương hiệu",
   heroAgentName: "Dolphin Care",
@@ -138,7 +138,7 @@ const vi: AgentDolphinCopy = {
   faqItems: [
     {
       q: "Dolphin Care là gì và khác chatbot thông thường thế nào?",
-      a: "Dolphin Care là giải pháp AI chăm sóc khách hàng trên website do Dolphin Software phát triển, dành cho SMB Việt Nam. Khác với chatbot chạy script, Dolphin Care dùng LLM kết hợp với nghiệp vụ doanh nghiệp và ngữ cảnh khách truy cập — trả lời linh hoạt hơn, nhưng vẫn trong phạm vi kiểm soát. Cần agent gắn sâu quy trình nội bộ? Xem thêm /custom-agent/.",
+      a: "Dolphin Care là giải pháp AI chăm sóc khách hàng trên website do Dolphin Software phát triển, dành cho SMB Việt Nam. Khác với chatbot chạy script, Dolphin Care dùng LLM kết hợp với nghiệp vụ doanh nghiệp và ngữ cảnh khách truy cập — trả lời linh hoạt hơn, nhưng vẫn trong phạm vi kiểm soát. Cần agent gắn sâu quy trình nội bộ? Xem lộ trình AI tại /ai-transform/.",
     },
     {
       q: "Dolphin Care có thay thế nhân viên hỗ trợ không?",
@@ -177,7 +177,7 @@ const en: AgentDolphinCopy = {
   support:
     "Dolphin Care handles customer care on your site. Unlike mechanical chatboxes, it combines an LLM with your business context and each visitor’s context to listen, advise, and respond in the right tone.",
   ctaPrimary: "Talk implementation",
-  ctaSecondary: "See other AI agents",
+  ctaSecondary: "See AI roadmap",
   trustLine: "LLM · Business context · Client context · Brand voice",
   heroAgentName: "Dolphin Care",
   heroJustNow: "now",
@@ -259,7 +259,7 @@ const en: AgentDolphinCopy = {
   faqItems: [
     {
       q: "How is Dolphin Care different from an off-the-shelf chatbot?",
-      a: "Shelf bots often run scripts. Dolphin Care uses an LLM with your knowledge and visitor context — more flexible, still inside guardrails. Need an agent deeply tied to internal processes? See /custom-agent/.",
+      a: "Shelf bots often run scripts. Dolphin Care uses an LLM with your knowledge and visitor context — more flexible, still inside guardrails. Need an agent deeply tied to internal processes? See the AI roadmap at /ai-transform/.",
     },
     {
       q: "Does it replace support staff?",
@@ -298,7 +298,7 @@ const ja: AgentDolphinCopy = {
   support:
     "Dolphin Care がサイトのカスタマーケアを担います。定型ボットと違い、LLM に御社の業務知識と来訪者の文脈を載せて、適切に聞き・案内・対応します。",
   ctaPrimary: "導入を相談",
-  ctaSecondary: "他の AI Agent を見る",
+  ctaSecondary: "AIロードマップを見る",
   trustLine: "LLM · 業務コンテキスト · 顧客コンテキスト · ブランドトーン",
   heroAgentName: "Dolphin Care",
   heroJustNow: "たった今",
@@ -380,7 +380,7 @@ const ja: AgentDolphinCopy = {
   faqItems: [
     {
       q: "既製チャットボットとの違いは？",
-      a: "既製品は台本が多いです。Dolphin Care は LLM に御社知識と来訪文脈を載せ、ガードレール内で柔軟に答えます。社内プロセスと深く連携するエージェントが必要なら /custom-agent/ をご覧ください。",
+      a: "既製品は台本が多いです。Dolphin Care は LLM に御社知識と来訪文脈を載せ、ガードレール内で柔軟に答えます。社内プロセスと深く連携するエージェントが必要なら /ai-transform/ のAIロードマップをご覧ください。",
     },
     {
       q: "サポート担当を置き換えますか？",

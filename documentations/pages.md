@@ -7,16 +7,17 @@
 | `/schema/homepage/` | `app/schema/homepage/page.tsx` | List section homepage; overview raw `homepage/overview.json` |
 | `/schema/homepage/[slug]/` | `app/schema/homepage/[slug]/page.tsx` | JSON từng section (hero, stats, why, …) |
 | `/schema/services/` | `app/schema/services/page.tsx` | Services index JSON |
-| `/schema/services/[slug]/` | `app/schema/services/[slug]/page.tsx` | Per-service JSON (`web`, `mobile`, `backend`, `design`, `integrations`, `agents`, `custom-agent`) |
+| `/schema/services/[slug]/` | `app/schema/services/[slug]/page.tsx` | Per-service JSON (`web`, `mobile`, `backend`, `design`, `integrations`, `agents`) |
 | `/schema/agents/` | `app/schema/agents/page.tsx` | Agents index JSON |
-| `/schema/agents/[slug]/` | `app/schema/agents/[slug]/page.tsx` | Agent product JSON (`dolphin-care`, `custom-agent`, `ai-transform`) |
+| `/schema/agents/[slug]/` | `app/schema/agents/[slug]/page.tsx` | Agent product JSON (`dolphin-care`, `ai-transform`) |
 | `/company_value/` | `app/company_value/page.tsx` | Legacy redirect → `/schema/company/` |
-| `/about/` | `app/about/page.tsx` | `AboutContent` — studio intro; founder photo `public/about/founder.png`; copy `lib/i18n/about-copy.ts`; VI Jasper SEO/AEO/GEO (meta “công ty thiết kế web”, FAQ 6 Q + FAQPage/Person JSON-LD; internal links web/backend/custom-agent/dolphin-care). |
+| `/about/` | `app/about/page.tsx` | `AboutContent` — studio intro; founder photo `public/about/founder.png`; copy `lib/i18n/about-copy.ts`; VI Jasper SEO/AEO/GEO (meta “công ty thiết kế web”, FAQ 6 Q + FAQPage/Person JSON-LD; internal links web/backend/ai-transform/dolphin-care). |
 | `/careers/` | `app/careers/page.tsx` | `CareersContent` + `careers-jobs.ts` / `careers-copy.ts` — VI Jasper SEO/AEO/GEO (freelance model, open/closed roles, how-to-apply, FAQ 6 Q, FAQPage + JobPosting JSON-LD); Sales/Marketing priority; FE/Mobile/Design closed. |
 | `/dolphin-care/` | `app/dolphin-care/page.tsx` | **Dolphin Care** — `AgentDolphinContent` + `agent-dolphin-copy.ts`; OG `public/og-dolphin-care.png`; VI Jasper SEO/AEO/GEO (meta keyword “AI chăm sóc khách hàng trên website”, FAQ 6 Q + Service/FAQ JSON-LD). |
 | `/agent-dolphin/` | `app/agent-dolphin/page.tsx` | Legacy redirect (noindex) → `/dolphin-care/` |
-| `/custom-agent/` | `app/custom-agent/page.tsx` | `CustomAgentContent` + `custom-agent-copy.ts` |
-| `/ai-transform/` | `app/ai-transform/page.tsx` | `AiTransformContent` + `ai-transform-copy.ts` |
+| `/custom-agent/` | `app/custom-agent/page.tsx` | Legacy redirect (noindex) → `/ai-transform/` |
+| `/services/custom-agent/` | `app/services/custom-agent/page.tsx` | Legacy redirect (noindex) → `/ai-transform/` |
+| `/ai-transform/` | `app/ai-transform/page.tsx` | `AiTransformContent` + `ai-transform-copy.ts`; VI Jasper SEO/AEO/GEO (meta “Lộ Trình Triển Khai AI”; custom AI agent = building block in roadmap, not a separate product; ROI + governance; FAQ 6 Q + links Care/about) |
 | `/news/` | `app/news/page.tsx` | `NewsContent` |
 | `/news/[slug]/` | `app/news/[slug]/page.tsx` | `NewsDetailView` + `lib/news-details.ts` |
 | `/services/[slug]/` | `app/services/[slug]/page.tsx` | `ServiceDetailView` + `lib/i18n/service-details.ts` — premium dark hero (CTA in hero), 3 outcome cards (+ optional AEO lead), Best for + FAQ, closing quote CTA. **`/services/web/`** + **`/services/mobile/`** bake VI meta + Service/FAQ JSON-LD (Jasper SEO/AEO/GEO). Web: FAQ 7 Q, `#web-pricing`, Sites shipped 6 cases. Mobile: FAQ 6 Q, Flutter/RN, MVP 8–14 tuần. |
@@ -24,4 +25,4 @@
 | `/works/[slug]/` | `app/works/[slug]/page.tsx` | `WorkDetailView` + `lib/works-details.ts` |
 | `/more/[slug]/` | `app/more/[slug]/page.tsx` | `MoreDetailView` + `lib/more-details.ts` |
 
-Nav: dropdown **Dịch vụ** (web / landing / mobile / backend / UI) + **AI Agent** dropdown; News / About / Careers. Process & Tech removed from nav/footer.
+Nav: dropdown **Dịch vụ** (web / landing / mobile / backend / UI) + **AI** dropdown (Dolphin Care, AI Transform); News / About / Careers. Process & Tech removed from nav/footer.

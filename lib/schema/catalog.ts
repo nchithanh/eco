@@ -6,10 +6,8 @@ import backend from "../../public/schema/services/backend.json";
 import design from "../../public/schema/services/design.json";
 import integrations from "../../public/schema/services/integrations.json";
 import agentsService from "../../public/schema/services/agents.json";
-import customAgentService from "../../public/schema/services/custom-agent.json";
 import agentsIndex from "../../public/schema/agents/index.json";
 import dolphinCare from "../../public/schema/agents/dolphin-care.json";
-import customAgent from "../../public/schema/agents/custom-agent.json";
 import aiTransform from "../../public/schema/agents/ai-transform.json";
 import homepageIndex from "../../public/schema/homepage/index.json";
 import homepageHero from "../../public/schema/homepage/hero.json";
@@ -33,16 +31,11 @@ export const SCHEMA_SERVICE_SLUGS = [
   "design",
   "integrations",
   "agents",
-  "custom-agent",
 ] as const;
 
 export type SchemaServiceSlug = (typeof SCHEMA_SERVICE_SLUGS)[number];
 
-export const SCHEMA_AGENT_SLUGS = [
-  "dolphin-care",
-  "custom-agent",
-  "ai-transform",
-] as const;
+export const SCHEMA_AGENT_SLUGS = ["dolphin-care", "ai-transform"] as const;
 
 export type SchemaAgentSlug = (typeof SCHEMA_AGENT_SLUGS)[number];
 
@@ -90,12 +83,10 @@ export const schemaServicesBySlug: Record<SchemaServiceSlug, object> = {
   design,
   integrations,
   agents: agentsService,
-  "custom-agent": customAgentService,
 };
 
 export const schemaAgentsBySlug: Record<SchemaAgentSlug, object> = {
   "dolphin-care": dolphinCare,
-  "custom-agent": customAgent,
   "ai-transform": aiTransform,
 };
 

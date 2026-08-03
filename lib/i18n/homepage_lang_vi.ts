@@ -341,7 +341,7 @@ export const homepageLangVi: HomepageLang = {
       }
     ],
     ctaTransform: "Chuyển đổi AI doanh nghiệp",
-    ctaAgent: "AI agent tùy chỉnh"
+    ctaAgent: "Xem Dolphin Care"
   },
   process: {
     eyebrow: "Process",
@@ -398,7 +398,7 @@ export const homepageLangVi: HomepageLang = {
       },
       {
         profile: "Doanh nghiệp muốn nâng cấp hệ thống cũ hoặc thêm AI vào hạ tầng hiện có",
-        recommended: "Nâng cấp hệ thống + AI Agent tùy chỉnh",
+        recommended: "Nâng cấp hệ thống + lộ trình AI",
         note: "Dolphin Software phân tích hệ thống hiện tại trước khi báo giá — không đẩy thêm tính năng không cần."
       }
     ]

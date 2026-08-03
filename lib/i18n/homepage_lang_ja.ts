@@ -311,7 +311,7 @@ export const homepageLangJa: HomepageLang = {
       }
     ],
     ctaTransform: "企業AI変革",
-    ctaAgent: "カスタムAIエージェント"
+    ctaAgent: "Dolphin Careを見る"
   },
   process: {
     eyebrow: "Process",
@@ -368,7 +368,7 @@ export const homepageLangJa: HomepageLang = {
       },
       {
         profile: "レガシーシステムを刷新または既存インフラにAIを追加したい企業",
-        recommended: "システム刷新 + カスタムAIエージェント",
+        recommended: "システム刷新 + AIロードマップ",
         note: "Dolphin Softwareは見積り前に現行システムを分析——不要な機能を押し付けません。"
       }
     ]

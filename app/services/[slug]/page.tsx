@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { CustomAgentPage } from "@/components/CustomAgentContent";
 import { JsonLd } from "@/components/JsonLd";
 import { ServiceDetailView } from "@/components/ServiceDetailView";
 import {
@@ -8,7 +7,6 @@ import {
   getServiceDetail,
   isServiceSlug,
 } from "@/lib/i18n/service-details";
-import { getCustomAgentCopy } from "@/lib/i18n/custom-agent-copy";
 import { getServiceExtras } from "@/lib/detail-extras";
 import {
   buildPageMetadata,
@@ -29,20 +27,6 @@ export async function generateMetadata({
   const { slug } = await params;
   if (!isServiceSlug(slug)) {
     return { title: "Services" };
-  }
-
-  // Prefer the dedicated custom-agent URL to avoid duplicate indexing.
-  if (slug === "custom-agent") {
-    const c = getCustomAgentCopy(SEO_LOCALE);
-    return {
-      ...buildPageMetadata({
-        title: c.metaTitle,
-        description: c.metaDescription,
-        path: "/custom-agent/",
-      }),
-      title: { absolute: c.metaTitle },
-      robots: { index: false, follow: true },
-    };
   }
 
   // Web + mobile: bake VI meta for Google even if UI default locale is JA.
@@ -69,10 +53,6 @@ export default async function ServicePage({
   const { slug } = await params;
   if (!isServiceSlug(slug)) {
     notFound();
-  }
-
-  if (slug === "custom-agent") {
-    return <CustomAgentPage />;
   }
 
   const metaLocale = slug === "web" || slug === "mobile" ? "vi" : SEO_LOCALE;

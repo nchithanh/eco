@@ -11,8 +11,7 @@ Outcome pillars: **Automate** + **Care**. Quan điểm: `company-opinion.md`, `c
 ## Products / pages
 
 - **Dolphin Care** — `/dolphin-care/` (`dolphin-care.md`)  
-- **Custom AI Agent** — `/custom-agent/`  
-- **AI transform** — `/ai-transform/`  
+- **AI transform** — `/ai-transform/` (lộ trình triển khai AI; custom agents là building block trong lộ trình, **không** phải sản phẩm tách `/custom-agent/`)  
 - Homepage: `#dolphin-care`, `#ai-edge`, `#technology`  
 
 ## Guardrails

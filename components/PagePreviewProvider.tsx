@@ -24,7 +24,6 @@ export type PreviewTarget =
   | { kind: "tech"; slug: TechSlug; href: string }
   | { kind: "work"; slug: WorkSlug; href: string }
   | { kind: "more"; slug: MoreSlug; href: string }
-  | { kind: "custom-agent"; href: string }
   | { kind: "dolphin-care"; href: string }
   | { kind: "ai-transform"; href: string }
   | { kind: "news"; href: string }
@@ -70,14 +69,12 @@ function resolveTarget(href: string): PreviewTarget | null {
   }
 
   if (
+    stripped === "/ai-transform" ||
+    stripped.endsWith("/ai-transform") ||
     stripped === "/custom-agent" ||
     stripped.endsWith("/custom-agent") ||
     stripped.endsWith("/services/custom-agent")
   ) {
-    return { kind: "custom-agent", href: assetPath("/custom-agent/") };
-  }
-
-  if (stripped === "/ai-transform" || stripped.endsWith("/ai-transform")) {
     return { kind: "ai-transform", href: assetPath("/ai-transform/") };
   }
 
@@ -123,9 +120,6 @@ function resolveTarget(href: string): PreviewTarget | null {
 
   const serviceMatch = stripped.match(/\/services\/([^/]+)$/);
   if (serviceMatch && isServiceSlug(serviceMatch[1])) {
-    if (serviceMatch[1] === "custom-agent") {
-      return { kind: "custom-agent", href: assetPath("/custom-agent/") };
-    }
     return {
       kind: "service",
       slug: serviceMatch[1],
@@ -142,10 +136,6 @@ export function PagePreviewProvider({ children }: { children: ReactNode }) {
   const close = useCallback(() => setTarget(null), []);
 
   const openService = useCallback((slug: ServiceSlug) => {
-    if (slug === "custom-agent") {
-      setTarget({ kind: "custom-agent", href: assetPath("/custom-agent/") });
-      return;
-    }
     setTarget({
       kind: "service",
       slug,

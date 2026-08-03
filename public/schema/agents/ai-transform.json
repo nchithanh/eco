@@ -6,55 +6,77 @@
     "brand": "Dolphin Software",
     "schemaPath": "/schema/agents/ai-transform/",
     "rawPath": "/schema/agents/ai-transform.json",
-    "updated": "2026-08-02"
+    "updated": "2026-08-03"
   },
   "pillar": "Automate",
   "displayName": "Chuyển đổi AI doanh nghiệp",
   "productRoute": "/ai-transform/",
-  "metaTitle": "Chuyển đổi AI doanh nghiệp | Dolphin Software",
-  "metaDescription": "Rà soát quy trình, gắn AI vào đúng khâu đang đốt người và tiền — lộ trình đo được, không phát tài khoản ChatGPT rồi hy vọng.",
-  "summary": "Lộ trình gắn AI vào lõi vận hành — quy trình trước tool, đo bằng số.",
-  "headline": "Gắn AI vào lõi vận hành — không phát tài khoản rồi chờ phép màu",
-  "support": "Rà soát quy trình thật, chọn khâu đang ngốn người/tiền, gắn agent có kiểm soát theo milestone.",
+  "metaTitle": "Lộ Trình Triển Khai AI cho Doanh Nghiệp | Dolphin Software",
+  "metaDescription": "Dolphin Software tư vấn chuyển đổi AI cho SMB Việt Nam: kiểm toán quy trình, ưu tiên use-case, pilot có số đo, agent tùy chỉnh — báo giá minh bạch, không phí ẩn.",
+  "summary": "Lộ trình triển khai AI có kiểm soát — audit, ưu tiên use-case, pilot đo được, governance và ROI framework.",
+  "headline": "Chuyển Đổi AI cho Doanh Nghiệp: Lộ Trình Triển Khai Có Kiểm Soát",
+  "support": "Rà soát quy trình thực tế, chọn 1–2 việc ưu tiên, thiết kế AI agent, đo kết quả trước khi nhân rộng.",
   "whenItems": [
     {
-      "title": "Tool rời, dữ liệu không nối",
-      "body": "Chatbot / CRM / Excel tách — chép tay."
+      "title": "Công cụ không kết nối",
+      "body": "Bot / CRM / Excel tách — copy-paste thủ công."
     },
     {
-      "title": "Có AI mà việc vẫn ứ",
-      "body": "Tài khoản đã mua nhưng lead/lịch vẫn thủ công."
+      "title": "AI mua xong, việc vẫn tắc",
+      "body": "Seats đã mua nhưng lead/lịch vẫn thủ công."
     },
     {
       "title": "Không đo được ROI",
-      "body": "Không biết giờ tiết kiệm / sai sót giảm."
+      "body": "Không biết giờ tiết kiệm / lỗi giảm — chỉ thấy hóa đơn AI tăng."
     }
   ],
   "processSteps": [
     {
-      "title": "Soi toàn cảnh vận hành",
-      "body": "Map luồng; chỉ khâu đốt người và đứt dữ liệu."
+      "title": "Kiểm toán quy trình vận hành",
+      "body": "Map luồng; điểm đốt người và gãy dữ liệu; AI readiness."
     },
     {
-      "title": "Chọn 1–2 khâu ưu tiên",
-      "body": "Lặp, quy tắc rõ, hoàn vốn nhanh."
+      "title": "Chọn 1–2 use case ưu tiên",
+      "body": "Việc lặp, quy tắc rõ, hoàn vốn nhanh."
     },
     {
-      "title": "Thiết kế người–máy + nối hệ thống",
-      "body": "Ai duyệt gì; nối CRM/Zalo/lịch trong scope."
+      "title": "Thiết kế human–machine + tích hợp",
+      "body": "Phê duyệt + kết nối CRM/chat/lịch; custom agent là building block."
     },
     {
-      "title": "Pilot trên việc thật",
-      "body": "Đo số trước khi nhân bản."
+      "title": "Pilot trên dữ liệu thực",
+      "body": "Chạy thật, đo thật, sửa trước khi nhân bản."
     },
     {
       "title": "Nhân rộng có kiểm soát",
-      "body": "Bàn giao vận hành và checklist mở rộng."
+      "body": "Use case tiếp; bàn giao vận hành và checklist mở rộng."
     }
   ],
-  "relatedAgents": [
-    "/schema/agents/custom-agent/",
-    "/schema/agents/dolphin-care/"
+  "faq": [
+    {
+      "q": "Chuyển đổi AI khác mua ChatGPT seats như thế nào?",
+      "a": "Seats là công cụ cá nhân. Chuyển đổi AI gắn máy vào quy trình vận hành, có tích hợp, phê duyệt và số đo."
+    },
+    {
+      "q": "Doanh nghiệp có phải chuyển đổi toàn bộ cùng một lúc không?",
+      "a": "Không — ưu tiên 1–2 việc đau nhất, pilot đo số, rồi mở rộng."
+    },
+    {
+      "q": "Custom AI agent liên quan đến lộ trình AI như thế nào?",
+      "a": "Building block ở Bước 3 sau audit và ưu tiên use-case — nằm trong lộ trình AI transformation, không phải sản phẩm tách riêng."
+    },
+    {
+      "q": "SMB nhỏ có thể bắt đầu được không?",
+      "a": "Được nếu quy trình đủ rõ và có việc lặp đang đốt người."
+    },
+    {
+      "q": "Dolphin Care khác gì với AI transformation?",
+      "a": "Dolphin Care là AI chăm sóc khách trên website. AI transformation là lộ trình vận hành nội bộ. Xem /dolphin-care/."
+    },
+    {
+      "q": "Chi phí triển khai AI transformation là bao nhiêu?",
+      "a": "Báo giá theo phạm vi sau tư vấn quy trình — không phí ẩn, không gói cố định cho mọi doanh nghiệp."
+    }
   ],
   "copySource": "lib/i18n/ai-transform-copy.ts"
 }

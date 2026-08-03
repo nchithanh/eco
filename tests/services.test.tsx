@@ -3,7 +3,6 @@ import userEvent from "@testing-library/user-event";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { ServiceDetailView } from "@/components/ServiceDetailView";
 import { Capabilities } from "@/components/Capabilities";
-import { CustomAgentContent } from "@/components/CustomAgentContent";
 import { AiTransformContent } from "@/components/AiTransformContent";
 import { AgentDolphinPage } from "@/components/AgentDolphinContent";
 import { AboutContent } from "@/components/AboutContent";
@@ -191,23 +190,6 @@ describe("service detail pages", () => {
     ).toBeInTheDocument();
   });
 
-  it("renders custom-agent service detail content", () => {
-    render(
-      <AppProviders>
-        <CustomAgentContent />
-      </AppProviders>,
-    );
-
-    expect(
-      screen.getByRole("heading", {
-        name: /Đặt riêng agent gánh đúng/i,
-      }),
-    ).toBeInTheDocument();
-    expect(
-      screen.getByText(/Không phải chatbot bán sẵn trả lời cho có/i),
-    ).toBeInTheDocument();
-  });
-
   it("renders ai-transform landing content", () => {
     render(
       <AppProviders>
@@ -217,11 +199,17 @@ describe("service detail pages", () => {
 
     expect(
       screen.getByRole("heading", {
-        name: /Gắn AI vào lõi vận hành/i,
+        level: 1,
+        name: /Chuyển Đổi AI cho Doanh Nghiệp/i,
       }),
     ).toBeInTheDocument();
     expect(
-      screen.getByRole("link", { name: /Xem AI Agent theo yêu cầu/i }),
-    ).toHaveAttribute("href", expect.stringMatching(/\/custom-agent\/?$/));
+      screen.getByRole("link", { name: /Xem Dolphin Care/i }),
+    ).toHaveAttribute("href", expect.stringMatching(/\/dolphin-care\/?$/));
+    expect(
+      screen.getByRole("heading", {
+        name: /Chi phí triển khai AI transformation là bao nhiêu/i,
+      }),
+    ).toBeInTheDocument();
   });
 });

@@ -2,6 +2,8 @@
 
 ## 2026-08-03
 
+- **Removed Custom Agent product:** deleted `CustomAgentContent` / `custom-agent-copy` / schema JSON; `/custom-agent/` + `/services/custom-agent/` redirect → `/ai-transform/`; nav/footer/AiEdge/sitemap retargeted; agent = building block inside AI Transform roadmap only.
+- `/ai-transform/` VI SEO/AEO/GEO rewriter (Jasper): meta “Lộ Trình Triển Khai AI”; seats vs lộ trình; process 5 bước; Custom AI Agent building block; ROI framework + AI governance; FAQ 6 Q (+ Care, chi phí; links `/dolphin-care/`, `/about/`); EN/JA sync; schema `agents/ai-transform.json`.
 - i18n: sync VI SoT → EN/JA for homepage overlays (`homepage_lang_en`/`_ja`), FAQ 13 Q + package timelines, About SEO copy, Dolphin Care page/home, web & mobile service details + FAQ extras. Schema JSON remains VI-only; homepage `<title>` bake still VI for crawlers.
 - Desktop motion amp (CSS only): stronger Reveal travel/duration, Hero panel side float + mascot bob; Hero copy no entrance fade (LCP/SEO-safe); still gated below `lg` + `prefers-reduced-motion`.
 - `/careers/` VI SEO/AEO/GEO rewriter (Jasper): meta “tuyển dụng freelance IT”; mô hình freelance; roles open/closed tách block; how-to-apply; FAQ 6 Q (+ `/services/web/`, `/about/`); bake VI meta; FAQPage + JobPosting JSON-LD.

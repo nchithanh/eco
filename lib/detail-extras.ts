@@ -104,7 +104,7 @@ const serviceExtras: L<ServiceExtras> = {
         },
         {
           q: "Dolphin Software có thể tích hợp AI vào ứng dụng di động không?",
-          a: "Có. Với định vị là studio phát triển phần mềm và AI cho doanh nghiệp, Dolphin Software có thể tích hợp chatbot, xử lý ngôn ngữ tự nhiên, hoặc phân tích dữ liệu thông minh vào app di động theo phạm vi dự án. Xem thêm dịch vụ agent tùy chỉnh tại /custom-agent/ hoặc lộ trình AI tại /ai-transform/.",
+          a: "Có. Với định vị là studio phát triển phần mềm và AI cho doanh nghiệp, Dolphin Software có thể tích hợp chatbot, xử lý ngôn ngữ tự nhiên, hoặc phân tích dữ liệu thông minh vào app di động theo phạm vi dự án. Xem lộ trình AI và agent tại /ai-transform/.",
         },
       ],
     },
@@ -180,28 +180,7 @@ const serviceExtras: L<ServiceExtras> = {
         },
       ],
     },
-    "custom-agent": {
-      audience: "SME / chủ vận hành có khâu lặp rõ và muốn agent gắn nghiệp vụ thật, không chatbot kịch bản.",
-      useCases: [
-        "Trả lời & gom lead đa kênh theo quy trình riêng",
-        "Đặt lịch / nhắc lịch gắn slot thật",
-        "Báo giá hoặc soạn giấy tờ theo mẫu + duyệt người",
-      ],
-      faq: [
-        {
-          q: "Khác chatbot bán sẵn thế nào?",
-          a: "Chatbot kịch bản tắc ngoài script. Agent theo yêu cầu được nạp nghiệp vụ, nối hệ thống và làm tới kết quả (lead, lịch, báo giá…) trong phạm vi đã chốt.",
-        },
-        {
-          q: "Doanh nghiệp nhỏ có làm được không?",
-          a: "Có — bắt đầu một khâu đau nhất, đo bằng số, rồi mới mở rộng. Không vẽ hệ thống đồ sộ ngay từ đầu.",
-        },
-        {
-          q: "Có cần người trông sau bàn giao?",
-          a: "Có, như nhân sự mới. Dolphin bàn giao kèm hướng dẫn; tinh chỉnh khi quy trình/giá đổi theo thỏa thuận bảo hành hoặc hạng mục riêng.",
-        },
-      ],
-    },
+
   },
   en: {
     web: {
@@ -273,7 +252,7 @@ const serviceExtras: L<ServiceExtras> = {
         },
         {
           q: "Can Dolphin Software integrate AI into mobile apps?",
-          a: "Yes. Positioned as a software and AI development studio for businesses, Dolphin Software can integrate chatbots, natural language processing, or intelligent data analysis into mobile apps within project scope. See custom agent service at /custom-agent/ or AI transformation roadmap at /ai-transform/.",
+          a: "Yes. Positioned as a software and AI development studio for businesses, Dolphin Software can integrate chatbots, natural language processing, or intelligent data analysis into mobile apps within project scope. See the AI transformation roadmap (including agents) at /ai-transform/.",
         },
       ],
     },
@@ -349,28 +328,7 @@ const serviceExtras: L<ServiceExtras> = {
         },
       ],
     },
-    "custom-agent": {
-      audience: "SMEs / operators with a clear repetitive job who want an agent tied to real process — not a scripted chatbot.",
-      useCases: [
-        "Multi-channel reply & lead capture with your rules",
-        "Booking / reminders against real availability",
-        "Quote or document drafts with human approval",
-      ],
-      faq: [
-        {
-          q: "How is this different from an off-the-shelf chatbot?",
-          a: "Scripted bots stall outside the script. A custom agent loads your process, connects systems, and finishes outcomes (leads, bookings, quotes…) in agreed scope.",
-        },
-        {
-          q: "Can a small business start?",
-          a: "Yes — start with one painful job, measure, then expand. No giant platform on day one.",
-        },
-        {
-          q: "Do we still need humans after handover?",
-          a: "Yes for sensitive steps. Dolphin hands over an ops guide; further tuning when rules change is covered by warranty or a scoped follow-up.",
-        },
-      ],
-    },
+
   },
   ja: {
     web: {
@@ -441,7 +399,7 @@ const serviceExtras: L<ServiceExtras> = {
         },
         {
           q: "Dolphin SoftwareはモバイルアプリにAIを組み込めますか？",
-          a: "はい。企業向けソフトウェアおよびAI開発スタジオとして、Dolphin Softwareはプロジェクト範囲内でチャットボット、自然言語処理、またはインテリジェントなデータ分析をモバイルアプリに組み込むことができます。/custom-agent/のカスタムエージェントサービスまたは/ai-transform/のAI変革ロードマップをご覧ください。",
+          a: "はい。企業向けソフトウェアおよびAI開発スタジオとして、Dolphin Softwareはプロジェクト範囲内でチャットボット、自然言語処理、またはインテリジェントなデータ分析をモバイルアプリに組み込むことができます。エージェントを含むAI変革ロードマップは /ai-transform/ をご覧ください。",
         },
       ],
     },
@@ -493,28 +451,7 @@ const serviceExtras: L<ServiceExtras> = {
         { q: "実行環境は？", a: "方針に応じマネージドクラウドまたはセルフホスト。" },
       ],
     },
-    "custom-agent": {
-      audience: "繰り返し業務が明確で、シナリオ型ボットではなく業務接続の Agent が必要な中小・現場責任者。",
-      useCases: [
-        "独自ルールでの多チャネル応答とリード取得",
-        "実枠に基づく予約・リマインド",
-        "見積や書類ドラフト＋人の承認",
-      ],
-      faq: [
-        {
-          q: "既製チャットボットとの違いは？",
-          a: "シナリオ外で止まるボットと異なり、業務を取り込みシステム接続し、合意範囲で成果まで進めます。",
-        },
-        {
-          q: "小規模でも可能？",
-          a: "はい。最も痛い1業務から始め、数値で測ってから拡張します。",
-        },
-        {
-          q: "引き渡し後も人が必要？",
-          a: "重要判断は人確認。運用ガイドを渡し、ルール変更時の調整は保証または別スコープで対応します。",
-        },
-      ],
-    },
+
   },
 
 };

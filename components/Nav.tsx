@@ -138,10 +138,6 @@ export function Nav() {
       label: t.nav.agentDolphin,
     },
     {
-      href: assetPath("/custom-agent/"),
-      label: t.nav.customAgentItem,
-    },
-    {
       href: assetPath("/ai-transform/"),
       label: t.nav.aiTransform,
     },
@@ -250,7 +246,7 @@ export function Nav() {
                 aria-controls={agentMenuId}
                 onClick={() => setAgentOpenDesktop((open) => !open)}
               >
-                {t.nav.customAgent}
+                {t.nav.agents}
                 <span
                   aria-hidden
                   className={`text-[0.65rem] transition ${agentOpenDesktop ? "text-[var(--kuct-accent)]" : ""}`}
@@ -367,7 +363,7 @@ export function Nav() {
                   aria-expanded={agentOpenMobile}
                   onClick={() => setAgentOpenMobile((open) => !open)}
                 >
-                  <span>{t.nav.customAgent}</span>
+                  <span>{t.nav.agents}</span>
                   <span aria-hidden className="text-[var(--kuct-accent)]/80">
                     {agentOpenMobile ? "−" : "+"}
                   </span>

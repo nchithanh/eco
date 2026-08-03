@@ -146,7 +146,6 @@
       ],
       "routes": [
         "/ai-transform/",
-        "/custom-agent/",
         "/services/agents/"
       ]
     },
@@ -161,7 +160,6 @@
       "design": "/services/design/",
       "integrations": "/services/integrations/",
       "agents": "/services/agents/",
-      "customAgent": "/custom-agent/",
       "aiTransform": "/ai-transform/",
       "dolphinCare": "/dolphin-care/"
     },
@@ -238,10 +236,6 @@
       {
         "name": "Dolphin Care",
         "path": "/dolphin-care/"
-      },
-      {
-        "name": "Custom AI Agent",
-        "path": "/custom-agent/"
       },
       {
         "name": "AI transform",

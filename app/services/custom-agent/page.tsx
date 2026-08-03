@@ -8,7 +8,7 @@ const c = getAiTransformCopy("vi");
 const canonical = "/ai-transform/";
 const redirectTo = assetPath(canonical);
 
-/** Legacy Custom Agent product — prefer /ai-transform/. */
+/** Legacy /services/custom-agent/ — prefer /ai-transform/. */
 export const metadata: Metadata = {
   ...buildPageMetadata({
     title: c.metaTitle,

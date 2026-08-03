@@ -29,7 +29,7 @@ const vi: AiEdge = {
     },
   ],
   ctaTransform: "Chuyển đổi AI doanh nghiệp",
-  ctaAgent: "AI Agent theo yêu cầu",
+  ctaAgent: "Xem Dolphin Care",
 };
 
 const en: AiEdge = {
@@ -59,7 +59,7 @@ const en: AiEdge = {
     },
   ],
   ctaTransform: "Enterprise AI transformation",
-  ctaAgent: "Custom AI agents",
+  ctaAgent: "See Dolphin Care",
 };
 
 const ja: AiEdge = {
@@ -89,7 +89,7 @@ const ja: AiEdge = {
     },
   ],
   ctaTransform: "企業のAI変革",
-  ctaAgent: "カスタムAI Agent",
+  ctaAgent: "Dolphin Careを見る",
 };
 
 

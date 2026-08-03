@@ -2,6 +2,7 @@
 
 import { useId, useState } from "react";
 import { AccentText } from "@/components/BrandName";
+import { FaqAnswerText } from "@/components/FaqAnswerText";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { Reveal } from "@/components/Reveal";
@@ -18,7 +19,7 @@ export function AiTransformContent({ embedded = false }: { embedded?: boolean })
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const homePath = assetPath("/").replace(/\/$/, "");
   const contactHref = embedded ? `${homePath}/#contact` : "#contact";
-  const servicesHref = assetPath("/custom-agent/");
+  const dolphinCareHref = assetPath("/dolphin-care/");
 
   return (
     <div className={embedded ? "pb-6" : undefined}>
@@ -41,6 +42,9 @@ export function AiTransformContent({ embedded = false }: { embedded?: boolean })
             <p className="mt-5 max-w-[78ch] text-base leading-relaxed text-[var(--kuct-muted)] sm:text-lg lg:max-w-4xl">
               {c.support}
             </p>
+            <p className="mt-3 max-w-[78ch] text-sm leading-relaxed text-[var(--kuct-muted)] lg:max-w-4xl">
+              {c.audienceLine}
+            </p>
             <div className="mt-8 flex flex-wrap items-center justify-start gap-3">
               <button
                 type="button"
@@ -50,7 +54,7 @@ export function AiTransformContent({ embedded = false }: { embedded?: boolean })
                 {c.ctaPrimary}
               </button>
               <a
-                href={servicesHref}
+                href={dolphinCareHref}
                 className="kuct-btn-ghost inline-flex items-center rounded-full px-7 py-3 text-sm font-medium"
               >
                 {c.ctaSecondary}
@@ -102,7 +106,10 @@ export function AiTransformContent({ embedded = false }: { embedded?: boolean })
                 <ul className="mt-5 flex-1 space-y-3 text-sm leading-relaxed text-[var(--kuct-text)]">
                   {c.customItems.map((item) => (
                     <li key={item} className="flex gap-2">
-                      <span aria-hidden className="font-semibold text-[var(--kuct-accent)]">
+                      <span
+                        aria-hidden
+                        className="font-semibold text-[var(--kuct-accent)]"
+                      >
                         ✓
                       </span>
                       <span>{item}</span>
@@ -197,6 +204,46 @@ export function AiTransformContent({ embedded = false }: { embedded?: boolean })
         <div className="mx-auto max-w-6xl px-6">
           <Reveal>
             <p className="text-center text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
+              {c.agentEyebrow}
+            </p>
+            <h2 className="mt-3 text-center font-display text-3xl font-semibold sm:text-4xl">
+              <AccentText>{c.agentTitle}</AccentText>
+            </h2>
+            <p className="mx-auto mt-3 max-w-3xl text-center text-[var(--kuct-muted)]">
+              {c.agentSupport}
+            </p>
+            <p className="mx-auto mt-3 max-w-3xl text-center text-sm leading-relaxed text-[var(--kuct-muted)]">
+              {c.agentFit}
+            </p>
+          </Reveal>
+          <Reveal delay={60} className="mx-auto mt-10 max-w-3xl">
+            <ul className="kuct-glass space-y-3 rounded-[1.5rem] p-6 sm:p-8">
+              {c.agentItems.map((item) => (
+                <li
+                  key={item}
+                  className="flex gap-2 text-sm leading-relaxed text-[var(--kuct-text)]"
+                >
+                  <span
+                    aria-hidden
+                    className="font-semibold text-[var(--kuct-accent)]"
+                  >
+                    ✓
+                  </span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-6 text-sm leading-relaxed text-[var(--kuct-muted)]">
+              <FaqAnswerText text={c.agentNote} />
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="scroll-mt-20 border-t border-[var(--kuct-border)] py-20">
+        <div className="mx-auto max-w-6xl px-6">
+          <Reveal>
+            <p className="text-center text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
               {c.industriesEyebrow}
             </p>
             <h2 className="mt-3 text-center font-display text-3xl font-semibold sm:text-4xl">
@@ -226,7 +273,74 @@ export function AiTransformContent({ embedded = false }: { embedded?: boolean })
         </div>
       </section>
 
+      <section className="kuct-section-wash scroll-mt-20 border-t border-[var(--kuct-border)] py-20">
+        <div className="mx-auto max-w-6xl px-6">
+          <Reveal>
+            <p className="text-center text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
+              {c.roiEyebrow}
+            </p>
+            <h2 className="mt-3 text-center font-display text-3xl font-semibold sm:text-4xl">
+              <AccentText>{c.roiTitle}</AccentText>
+            </h2>
+            <p className="mx-auto mt-3 max-w-2xl text-center text-[var(--kuct-muted)]">
+              {c.roiSupport}
+            </p>
+          </Reveal>
+          <ul className="mt-12 grid gap-5 md:grid-cols-3">
+            {c.roiItems.map((item, index) => (
+              <Reveal
+                key={item.title}
+                as="li"
+                delay={40 + index * 40}
+                className="kuct-glass rounded-2xl p-6"
+              >
+                <h3 className="font-display text-lg font-semibold text-[var(--kuct-text)]">
+                  {item.title}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-[var(--kuct-muted)]">
+                  {item.body}
+                </p>
+              </Reveal>
+            ))}
+          </ul>
+        </div>
+      </section>
+
       <section className="scroll-mt-20 border-t border-[var(--kuct-border)] py-20">
+        <div className="mx-auto max-w-6xl px-6">
+          <Reveal>
+            <p className="text-center text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
+              {c.govEyebrow}
+            </p>
+            <h2 className="mt-3 text-center font-display text-3xl font-semibold sm:text-4xl">
+              <AccentText>{c.govTitle}</AccentText>
+            </h2>
+            <p className="mx-auto mt-3 max-w-3xl text-center text-[var(--kuct-muted)]">
+              {c.govSupport}
+            </p>
+          </Reveal>
+          <Reveal delay={60} className="mx-auto mt-10 max-w-3xl">
+            <ul className="kuct-glass space-y-3 rounded-[1.5rem] p-6 sm:p-8">
+              {c.govItems.map((item) => (
+                <li
+                  key={item}
+                  className="flex gap-2 text-sm leading-relaxed text-[var(--kuct-text)]"
+                >
+                  <span
+                    aria-hidden
+                    className="font-semibold text-[var(--kuct-accent)]"
+                  >
+                    ✓
+                  </span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="kuct-section-wash scroll-mt-20 border-t border-[var(--kuct-border)] py-20">
         <div className="mx-auto max-w-6xl px-6">
           <Reveal>
             <p className="text-center text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
@@ -270,7 +384,7 @@ export function AiTransformContent({ embedded = false }: { embedded?: boolean })
                     hidden={!open}
                     className="px-5 pb-4 text-sm leading-relaxed text-[var(--kuct-muted)] sm:px-6"
                   >
-                    {item.a}
+                    <FaqAnswerText text={item.a} />
                   </div>
                 </div>
               );
@@ -310,7 +424,19 @@ export function AiTransformContent({ embedded = false }: { embedded?: boolean })
                   {c.ctaPrimary}
                 </a>
               ) : null}
+              {c.closeLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={assetPath(link.href)}
+                  className="kuct-btn-ghost inline-flex items-center rounded-full px-7 py-3 text-sm font-medium"
+                >
+                  {link.label}
+                </a>
+              ))}
             </div>
+            <p className="mt-6 text-xs font-medium tracking-wide text-[var(--kuct-muted)]">
+              {c.closeTrust}
+            </p>
           </Reveal>
         </div>
       </section>

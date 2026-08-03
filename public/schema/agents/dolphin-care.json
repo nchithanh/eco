@@ -59,7 +59,7 @@
   "faq": [
     {
       "q": "Dolphin Care là gì và khác chatbot thông thường thế nào?",
-      "a": "Dolphin Care là giải pháp AI chăm sóc khách hàng trên website do Dolphin Software phát triển, dành cho SMB Việt Nam. Khác với chatbot chạy script, Dolphin Care dùng LLM kết hợp với nghiệp vụ doanh nghiệp và ngữ cảnh khách truy cập — trả lời linh hoạt hơn, nhưng vẫn trong phạm vi kiểm soát. Cần agent gắn sâu quy trình nội bộ? Xem thêm /custom-agent/."
+      "a": "Dolphin Care là giải pháp AI chăm sóc khách hàng trên website do Dolphin Software phát triển, dành cho SMB Việt Nam. Khác với chatbot chạy script, Dolphin Care dùng LLM kết hợp với nghiệp vụ doanh nghiệp và ngữ cảnh khách truy cập — trả lời linh hoạt hơn, nhưng vẫn trong phạm vi kiểm soát. Cần agent gắn sâu quy trình nội bộ? Xem lộ trình AI tại /ai-transform/."
     },
     {
       "q": "Dolphin Care có thay thế nhân viên hỗ trợ không?",

@@ -311,7 +311,7 @@ export const homepageLangEn: HomepageLang = {
       }
     ],
     ctaTransform: "Enterprise AI transformation",
-    ctaAgent: "Custom AI agent"
+    ctaAgent: "See Dolphin Care"
   },
   process: {
     eyebrow: "Process",
@@ -368,7 +368,7 @@ export const homepageLangEn: HomepageLang = {
       },
       {
         profile: "Business wants to modernize legacy systems or add AI to existing infrastructure",
-        recommended: "System modernization + Custom AI Agent",
+        recommended: "System modernization + AI roadmap",
         note: "Dolphin Software analyzes current system before quoting — doesn't push unnecessary features."
       }
     ]

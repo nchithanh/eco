@@ -16,12 +16,6 @@ const AgentDolphinContent = lazy(() =>
   })),
 );
 
-const CustomAgentContent = lazy(() =>
-  import("@/components/CustomAgentContent").then((mod) => ({
-    default: mod.CustomAgentContent,
-  })),
-);
-
 const AiTransformContent = lazy(() =>
   import("@/components/AiTransformContent").then((mod) => ({
     default: mod.AiTransformContent,
@@ -158,8 +152,6 @@ export function PagePreviewModal({
                 <NewsDetailContent slug={target.slug} embedded />
               ) : target.kind === "dolphin-care" ? (
                 <AgentDolphinContent embedded />
-              ) : target.kind === "custom-agent" ? (
-                <CustomAgentContent embedded />
               ) : (
                 <AiTransformContent embedded />
               )}
