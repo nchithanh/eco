@@ -208,44 +208,72 @@ const serviceExtras: L<ServiceExtras> = {
       audience:
         "SMEs, startups, and marketing teams who need scoped websites that ship fast and are easy to quote.",
       useCases: [
-        "Campaign / product launch landing",
-        "Business & commerce site + CMS",
-        "Multi-language VI/EN/JA sites",
+        "Landing page for ad campaigns or new product launch",
+        "Business website with CMS for self-managed content",
+        "Multi-language website supporting VI / EN / JA for export-oriented businesses or international clients",
       ],
       faq: [
         {
-          q: "How is website pricing calculated?",
-          a: "By scope: page count, custom vs template design, CMS, forms/payments. See homepage packages for ranges; exact quote after goals are clear.",
+          q: "How much does custom website design cost?",
+          a: "Price depends on scope: number of pages, custom vs template design, CMS, and integrations like forms or payments. Starter package from $38 (landing page) to $380 (e-commerce). Exact quote provided after confirming goals.",
         },
         {
-          q: "How long does a website take?",
-          a: "Landings usually 1–3 weeks; multi-page business sites a few weeks to a few months depending on content and reviews.",
+          q: "How long does a business website take?",
+          a: "Landing pages typically complete in 3–5 business days. Multi-page business websites take 7–14 days. E-commerce websites take 3–4 weeks. Actual time depends on content feedback and review speed from the client.",
         },
         {
-          q: "Can we get a CMS?",
-          a: "Yes — headless CMS (e.g. Strapi) so your team can update pages and posts.",
+          q: "Can I update website content myself after handover?",
+          a: "Yes. Business Website packages and above include headless CMS (Strapi), allowing your team to add, edit, delete content without developers.",
         },
         {
           q: "Is SEO included?",
-          a: "Technical SEO basics (meta, performance, mobile, sitemap/robots). Keyword content and links are a follow-on if you want organic growth.",
+          a: "All packages include foundational technical SEO: meta tags, speed optimization, mobile-friendly, sitemap and robots.txt. Keyword strategy and backlink building are add-on services if you want long-term organic growth.",
+        },
+        {
+          q: "Does Dolphin Software build multi-language websites?",
+          a: "Yes. Dolphin Software supports building multi-language websites (Vietnamese / English / Japanese), suitable for businesses with international clients or partners.",
+        },
+        {
+          q: "I have an old website — can Dolphin Software help upgrade legacy systems?",
+          a: "Yes. Dolphin Software evaluates the current system and proposes suitable upgrade options — from performance improvements to full technical stack restructuring. Contact for free solution analysis.",
+        },
+        {
+          q: "Can Dolphin Software integrate AI automation into websites?",
+          a: "Yes. Positioned as a software and AI development studio, Dolphin Software can integrate AI automation features — such as chatbots, automated order processing, or data analysis — into business websites on demand.",
         },
       ],
     },
     mobile: {
-      audience: "Product teams shipping an iOS/Android or cross-platform MVP.",
+      audience: "Dolphin Software's app development service is best fit for product teams shipping iOS/Android or cross-platform MVP — SMBs and startups in Vietnam who need commercial or internal ops apps; product teams with existing web who want to expand to mobile; businesses needing companion app integrated with existing backend.",
       useCases: [
-        "Consumer booking MVP",
-        "Store ops companion app",
-        "Mobile companion to an existing web product",
+        "Startup booking needs fast consumer app → cross-platform Flutter MVP + booking/payment API → on store in 8–12 weeks, ready for beta",
+        "Retail chain needs internal ops app → Android companion connected to POS/ERP via REST API → reduce manual tasks, real-time data sync",
+        "SaaS / web platform wants mobile companion → React Native reusing existing backend → launch mobile channel without rebuilding backend",
       ],
       faq: [
         {
-          q: "Flutter or React Native?",
-          a: "We pick based on your team stack and native needs before kickoff.",
+          q: "Flutter or React Native — which should I choose?",
+          a: "Dolphin Software picks the framework based on your team's current stack and native requirements before starting the project. Flutter is better fit when highly custom UI and consistent performance across both platforms are needed; React Native is better fit when the team is already familiar with JavaScript/TypeScript or needs deep integration with native modules.",
         },
         {
-          q: "Store submission help?",
-          a: "Yes — TestFlight / Play internal checklist and submit support.",
+          q: "Does Dolphin Software help with App Store and Google Play submission?",
+          a: "Yes. Dolphin Software provides full checklist for TestFlight and Play internal track, supports you through the entire submission process — including handling feedback from Apple/Google if re-review is needed.",
+        },
+        {
+          q: "How long does developing an MVP app typically take?",
+          a: "Typically 8 to 14 weeks depending on scope, after defining flow and MVP scope in the first sprint. Dolphin Software will provide specific timeline after initial requirements discussion — no vague estimates.",
+        },
+        {
+          q: "How much does building iOS/Android app with Dolphin Software cost?",
+          a: "Dolphin Software quotes based on specific project scope, not fixed packages for all cases. After requirements discussion, you receive a clear quote — no hidden fees, no unnecessary upselling.",
+        },
+        {
+          q: "Is support provided after app handover?",
+          a: "Yes. Dolphin Software provides post-handover support for bugs that arise after launch. If you need feature upgrades or app expansion, Dolphin Software can continue via retainer or separate project.",
+        },
+        {
+          q: "Can Dolphin Software integrate AI into mobile apps?",
+          a: "Yes. Positioned as a software and AI development studio for businesses, Dolphin Software can integrate chatbots, natural language processing, or intelligent data analysis into mobile apps within project scope. See custom agent service at /custom-agent/ or AI transformation roadmap at /ai-transform/.",
         },
       ],
     },
@@ -348,39 +376,73 @@ const serviceExtras: L<ServiceExtras> = {
     web: {
       audience: "スコープが明確で早く公開・見積もりしやすい SME・スタートアップ・マーケチーム向け。",
       useCases: [
-        "キャンペーン / ローンチ用 LP",
-        "企業・販促サイト + CMS",
-        "VI/EN/JA 多言語サイト",
+        "広告キャンペーンまたは新商品ローンチ用のランディングページ",
+        "コンテンツを自社で管理できるCMS付き企業サイト",
+        "輸出志向企業または国際顧客向けのVI / EN / JA対応多言語サイト",
       ],
       faq: [
         {
-          q: "料金の決まり方は？",
-          a: "ページ数、デザイン新規/テンプレ、CMS、フォーム/決済などで決まります。ホームのパッケージが目安。目標が固まれば正式見積もりします。",
+          q: "オーダーメイドWebサイト制作の料金は？",
+          a: "範囲で決まります：ページ数、カスタムvsテンプレートデザイン、CMS有無、フォームや決済などの連携。スタートパッケージは$38（LP）～$380（EC）。目標確認後に正式見積もり。",
         },
         {
-          q: "制作期間は？",
-          a: "LPは通常1〜3週間。複数ページの企業サイトは内容とレビュー次第で数週間〜数ヶ月。",
+          q: "企業サイトの制作期間は？",
+          a: "LPは通常3〜5営業日で完成。複数ページの企業サイトは7〜14日。ECサイトは3〜4週間。実際の期間はクライアント側のコンテンツフィードバックとレビュー速度次第。",
         },
         {
-          q: "CMSは付けられますか？",
-          a: "ヘッドレスCMS（例: Strapi）で自社更新可能にできます。",
+          q: "引き渡し後に自分でコンテンツを更新できますか？",
+          a: "はい。ビジネスWebサイト以上のパッケージにはヘッドレスCMS（Strapi）が含まれ、チームが開発者なしでコンテンツを追加・編集・削除できます。",
         },
         {
           q: "SEOは含まれますか？",
-          a: "技術SEOの基礎（meta、速度、モバイル、sitemap/robots）。キーワード記事や被リンクは別フェーズです。",
+          a: "全パッケージに基本的な技術SEOが含まれます：meta tags、速度最適化、モバイル対応、sitemapとrobots.txt。キーワード戦略と被リンク構築は、長期的なオーガニック成長が必要な場合の追加サービスです。",
+        },
+        {
+          q: "Dolphin Softwareは多言語Webサイトを制作しますか？",
+          a: "はい。Dolphin Softwareは多言語Webサイト（ベトナム語 / 英語 / 日本語）の構築に対応し、国際顧客やパートナーを持つ企業に適しています。",
+        },
+        {
+          q: "古いWebサイトがあります — Dolphin Softwareは既存システムのアップグレードをサポートしますか？",
+          a: "はい。Dolphin Softwareは現行システムを評価し、適切なアップグレード案を提案します — パフォーマンス改善から技術スタック全面再構築まで。無料ソリューション分析についてお問い合わせください。",
+        },
+        {
+          q: "Dolphin SoftwareはWebサイトにAI自動化を組み込めますか？",
+          a: "はい。ソフトウェアおよびAI開発スタジオとして、Dolphin Softwareはチャットボット、自動注文処理、データ分析などのAI自動化機能を、企業サイトに要求に応じて組み込むことができます。",
         },
       ],
     },
     mobile: {
-      audience: "iOS/Android またはクロスプラットフォームの MVP を出すプロダクトチーム向け。",
+      audience: "Dolphin Softwareのアプリ開発サービスは、iOS/AndroidまたはクロスプラットフォームのMVPを出すプロダクトチーム向けに最適 — ベトナムで商用または社内運用アプリが必要なSMBとスタートアップ; 既存Webをモバイルへ拡張したいプロダクトチーム; 既存バックエンドと連携するコンパニオンアプリが必要な企業。",
       useCases: [
-        "予約系コンシューマー MVP",
-        "店舗オペ向けコンパニオン",
-        "既存 Web のモバイル版",
+        "予約系スタートアップが速いコンシューマーアプリが必要 → クロスプラットフォームFlutter MVP + 予約/決済API → 8〜12週間でストア公開、ベータ準備完了",
+        "小売チェーンが社内運用アプリ必要 → POS/ERPへREST APIで接続したAndroidコンパニオン → 手作業削減、リアルタイムデータ同期",
+        "SaaS / Webプラットフォームがモバイルコンパニオン希望 → 既存バックエンドを再利用するReact Native → バックエンド再構築なしでモバイルチャネル公開",
       ],
       faq: [
-        { q: "Flutter と RN は？", a: "チームのスタックとネイティブ要件でキックオフ前に選定します。" },
-        { q: "ストア申請は？", a: "TestFlight / Play 内部テストのチェックと申請支援あり。" },
+        {
+          q: "FlutterかReact Native — どちらを選ぶべき？",
+          a: "Dolphin Softwareはプロジェクト開始前にチームの現行スタックとネイティブ要件に基づいてフレームワークを選定します。高度にカスタムなUIと両プラットフォームで一貫したパフォーマンスが必要な場合はFlutterの方が適しています; チームがすでにJavaScript/TypeScriptに慣れている、またはネイティブモジュールとの深い統合が必要な場合はReact Nativeの方が適しています。",
+        },
+        {
+          q: "Dolphin SoftwareはApp StoreとGoogle Play申請をサポートしますか？",
+          a: "はい。Dolphin SoftwareはTestFlightとPlay内部トラックの完全なチェックリストを提供し、申請プロセス全体をサポートします — 再審査が必要な場合のApple/Googleからのフィードバック対応も含みます。",
+        },
+        {
+          q: "MVPアプリの開発期間は通常どれくらい？",
+          a: "通常8〜14週間、最初のスプリントでフローとMVP範囲を定義した後です。Dolphin Softwareは初回の要件ディスカッション後に具体的なタイムラインを提供 — 曖昧な見積もりはしません。",
+        },
+        {
+          q: "Dolphin SoftwareでiOS/Androidアプリを作る費用は？",
+          a: "Dolphin Softwareは具体的なプロジェクト範囲に基づいて見積もり、全ケース共通の固定パッケージはありません。要件ディスカッション後、明確な見積もりを受け取ります — 隠れた費用なし、不要なアップセルなし。",
+        },
+        {
+          q: "アプリ引き渡し後にサポートはありますか？",
+          a: "はい。Dolphin Softwareはローンチ後に発生するバグについて引き渡し後サポートを提供します。機能アップグレードやアプリ拡張が必要な場合、Dolphin Softwareはリテイナーまたは別プロジェクトで継続できます。",
+        },
+        {
+          q: "Dolphin SoftwareはモバイルアプリにAIを組み込めますか？",
+          a: "はい。企業向けソフトウェアおよびAI開発スタジオとして、Dolphin Softwareはプロジェクト範囲内でチャットボット、自然言語処理、またはインテリジェントなデータ分析をモバイルアプリに組み込むことができます。/custom-agent/のカスタムエージェントサービスまたは/ai-transform/のAI変革ロードマップをご覧ください。",
+        },
       ],
     },
     backend: {

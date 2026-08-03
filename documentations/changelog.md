@@ -2,6 +2,7 @@
 
 ## 2026-08-03
 
+- i18n: sync VI SoT → EN/JA for homepage overlays (`homepage_lang_en`/`_ja`), FAQ 13 Q + package timelines, About SEO copy, Dolphin Care page/home, web & mobile service details + FAQ extras. Schema JSON remains VI-only; homepage `<title>` bake still VI for crawlers.
 - Desktop motion amp (CSS only): stronger Reveal travel/duration, Hero panel side float + mascot bob; Hero copy no entrance fade (LCP/SEO-safe); still gated below `lg` + `prefers-reduced-motion`.
 - `/careers/` VI SEO/AEO/GEO rewriter (Jasper): meta “tuyển dụng freelance IT”; mô hình freelance; roles open/closed tách block; how-to-apply; FAQ 6 Q (+ `/services/web/`, `/about/`); bake VI meta; FAQPage + JobPosting JSON-LD.
 - `/about/` VI SEO/AEO/GEO rewriter (Jasper): meta “Dolphin Software là gì? / công ty thiết kế web”; entity-led sections; founder Nguyễn Chí Thanh 7+ năm; FAQ 6 Q; FAQPage + Person JSON-LD; internal links; schema `company.json` founder + about FAQ.

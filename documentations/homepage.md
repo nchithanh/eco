@@ -32,7 +32,7 @@ Hero
 | 6 | Dolphin Care | `AgentDolphinHome` | `#dolphin-care` |
 | 7 | Ops AI | `Technology`, `AiEdge` | `#technology` (AI Philosophy + principles VI), `#ai-edge` |
 | 8 | Process | `Process` | `#process` |
-| 9 | Fit | `FitSection` | `#fit` (VI via `homepage_lang_vi`; hidden if `t.fit` missing) |
+| 9 | Fit | `FitSection` | `#fit` (via homepage overlay; hidden if `t.fit` missing) |
 | 10 | Solutions | `PopularServices` | `#popular-services` |
 | 11 | FAQ | `Faq` | `#faq` |
 | 12 | CTA | `ContactForm` | `#contact` |
@@ -51,10 +51,11 @@ Homepage `<title>` / description (VI): from `homepageLangVi.seo` in `app/page.ts
 | File | Role |
 | --- | --- |
 | `lib/i18n/homepage_lang_vi.ts` | VI homepage SoT (sections + `fit` + contact chrome) |
+| `lib/i18n/homepage_lang_en.ts` / `homepage_lang_ja.ts` | EN/JA overlays synced from VI |
 | `lib/i18n/homepage_lang.ts` | Registers overlays; merge in `getDictionary` |
-| `homepage_lang_en.ts` etc. | **TODO** — add when localizing other langs |
+| `homepage_lang_*` extras | Add when localizing further chrome outside overlays |
 
-Non-VI locales still use `dictionaries.ts` (+ popular-services / ai-edge modules) until their `homepage_lang_*` exists. `FitSection` only renders when `dict.fit` is set.
+Non-VI locales use their `homepage_lang_*` overlays when registered; otherwise fall back to `dictionaries.ts` (+ popular-services / ai-edge modules). `FitSection` only renders when `dict.fit` is set.
 
 ## Global overlays
 

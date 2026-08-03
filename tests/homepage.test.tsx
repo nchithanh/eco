@@ -19,11 +19,11 @@ describe("Dolphin Software homepage", () => {
     expect(screen.getAllByLabelText(/Dolphin Software/i).length).toBeGreaterThanOrEqual(1);
     expect(
       screen.getByRole("heading", {
-        name: /テクノロジーを事業の負担にしない/i,
+        name: /テクノロジーを企業の負担にさせない/i,
       }),
     ).toBeInTheDocument();
     expect(
-      screen.getAllByRole("button", { name: /見積もりを依頼/i }).length,
+      screen.getAllByRole("button", { name: /見積もりを依頼|見積りを依頼/i }).length,
     ).toBeGreaterThanOrEqual(1);
   });
 
@@ -120,14 +120,14 @@ describe("Dolphin Software homepage", () => {
     expect(
       screen.getByRole("heading", {
         level: 2,
-        name: /Websiteが本体 — AIは加速レイヤー/i,
+        name: /Webサイトが基盤.*AI.*スマートレイヤー/i,
       }),
     ).toBeInTheDocument();
     expect(
-      within(aiEdge!).getByRole("link", { name: /企業のAI変革/i }),
+      within(aiEdge!).getByRole("link", { name: /企業AI変革/i }),
     ).toHaveAttribute("href", expect.stringMatching(/\/ai-transform\/?$/));
     expect(
-      within(aiEdge!).getByRole("link", { name: /カスタムAI Agent/i }),
+      within(aiEdge!).getByRole("link", { name: /カスタムAIエージェント/i }),
     ).toHaveAttribute("href", expect.stringMatching(/\/custom-agent\/?$/));
   });
 
@@ -138,16 +138,16 @@ describe("Dolphin Software homepage", () => {
     expect(
       screen.getByRole("heading", {
         level: 2,
-        name: /人気のサービス/i,
+        name: /人気サービス/i,
       }),
     ).toBeInTheDocument();
     const section = within(popular as HTMLElement);
     expect(section.getByRole("heading", { name: /ランディングページ/i })).toBeInTheDocument();
     expect(section.getByRole("heading", { name: /企業サイト/i })).toBeInTheDocument();
-    expect(section.getByRole("heading", { name: /ECサイト/i })).toBeInTheDocument();
-    expect(section.getByRole("heading", { name: /カスタムWebアプリ/i })).toBeInTheDocument();
+    expect(section.getByRole("heading", { name: /ECサイト|オンラインショップ/i })).toBeInTheDocument();
+    expect(section.getByRole("heading", { name: /カスタムWebアプリ|Webアプリ/i })).toBeInTheDocument();
     expect(section.getByText("￥6,200")).toBeInTheDocument();
-    expect(section.getByRole("button", { name: /LP見積もり/i })).toBeInTheDocument();
+    expect(section.getByRole("button", { name: /LP見積もり|LP見積り/i })).toBeInTheDocument();
     expect(section.getByRole("link", { name: /Zaloで無料相談/i })).toHaveAttribute(
       "href",
       "https://zalo.me/0779937633",
@@ -202,10 +202,10 @@ describe("Dolphin Software homepage", () => {
   it("renders process headings", () => {
     renderHome();
     expect(
-      screen.getByRole("heading", { name: /引き渡しまでの5ステップ/i }),
+      screen.getByRole("heading", { name: /明確な納品を伴う5ステッププロセス/i }),
     ).toBeInTheDocument();
-    expect(screen.getByText(/ヒアリング & 調査/i)).toBeInTheDocument();
-    expect(screen.getByText(/引き渡し & 伴走/i)).toBeInTheDocument();
+    expect(screen.getByText(/傾聴と発見/i)).toBeInTheDocument();
+    expect(screen.getByText(/納品とパートナーシップ/i)).toBeInTheDocument();
   });
 
   it("renders stats before what-we-do and process before faq", () => {
@@ -229,7 +229,7 @@ describe("Dolphin Software homepage", () => {
     expect(
       screen.getByRole("heading", {
         level: 2,
-        name: /引き渡し後に回せる仕事/i,
+        name: /納品後、御社が自ら運用できる業務/i,
       }),
     ).toBeInTheDocument();
   });
@@ -257,14 +257,16 @@ describe("Dolphin Software homepage", () => {
     expect(document.getElementById("cofounder")).toBeNull();
     expect(
       screen.getByRole("heading", {
-        name: /コード納品だけで終わらない、長期伴走/i,
+        name: /長期パートナー、コードを渡すだけではない/i,
       }),
     ).toBeInTheDocument();
     expect(document.getElementById("services")).toBeNull();
     expect(document.getElementById("contact")).toBeTruthy();
     const contact = within(document.getElementById("contact")!);
     expect(
-      contact.getByRole("heading", { name: /プロジェクトを始めませんか/i }),
+      contact.getByRole("heading", {
+        name: /Webサイト構築またはワークフロー自動化の準備はできましたか/i,
+      }),
     ).toBeInTheDocument();
     expect(
       contact.getByRole("link", { name: /Zaloで相談/i }),
@@ -366,7 +368,7 @@ describe("Dolphin Software homepage", () => {
 
     expect(
       screen.getByRole("heading", {
-        name: /Don't let technology become a burden on your business/i,
+        name: /Don't let technology become a burden for your business/i,
       }),
     ).toBeInTheDocument();
     expect(
@@ -383,11 +385,11 @@ describe("Dolphin Software homepage", () => {
 
     expect(
       screen.getByRole("heading", {
-        name: /テクノロジーを事業の負担にしない/i,
+        name: /テクノロジーを企業の負担にさせない/i,
       }),
     ).toBeInTheDocument();
     expect(
-      screen.getAllByRole("button", { name: /見積もりを依頼/i }).length,
+      screen.getAllByRole("button", { name: /見積もりを依頼|見積りを依頼/i }).length,
     ).toBeGreaterThanOrEqual(1);
   });
 });

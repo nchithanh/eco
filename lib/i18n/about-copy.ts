@@ -174,88 +174,90 @@ const vi: AboutCopy = {
 };
 
 const en: AboutCopy = {
-  metaTitle: "What is Dolphin Software? | Web & AI studio for SMBs",
+  metaTitle:
+    "What is Dolphin Software? | Web design & AI studio for Vietnamese SMBs",
   metaDescription:
-    "Dolphin Software is a software studio in Vietnam — custom websites, AI automation, full source handover. Clear quotes and support after go-live.",
+    "Dolphin Software is a software studio in Vietnam — custom websites, AI automation, full source handover. Transparent quotes and post-handover support.",
   eyebrow: "Studio",
   title: "Dolphin Software",
-  motto: "From hard problems to [[systems that run]] — nothing is impossible.",
+  motto:
+    "Software development studio & [[AI automation]] for Vietnamese businesses",
   support:
-    "We turn business goals into web, apps, and AI workflows you can operate. Clear scope, on-time milestones, source + walkthrough — so your team can run it.",
+    "Dolphin Software is a software studio in Vietnam that builds custom websites, apps, and AI automation for small and mid-size businesses (SMBs). We hand over full source, ops guidance, and post-launch support — no vendor lock-in, no fees outside the locked scope. From business goals to operable systems: clear scope, on-time delivery, and partnership until your team can run it.",
   ctaPrimary: "Get a quote",
   ctaSecondary: "View services",
-  mindsetEyebrow: "Mindset",
-  mindsetTitle: "How this studio shows up",
+  mindsetEyebrow: "Approach",
+  mindsetTitle: "How does Dolphin Software approach projects?",
   mindsetSupport:
-    "Dolphin Software builds systems meant to run — not stop at demos. Every project aims at a stable, measurable system your team can operate after handover.",
+    "Dolphin Software builds systems meant to run in production — not stop at demos. Every project aims at a stable, measurable system your team can operate after handover.",
   mindset: [
     {
-      title: "Obsessed with shipping live",
+      title: "Ship only when it’s live",
       body: "Demos are not the finish line. Every project aims at a live system — stable, measurable, owned by your team.",
     },
     {
-      title: "Train like a pro",
-      body: "Rhythm over luck. Discovery → plan → sprint → UAT → handover with a real standard.",
+      title: "Standard process, not luck",
+      body: "Discovery → plan → sprint → UAT → handover — clear outputs at each step, no skipped stages.",
     },
     {
-      title: "Nothing is impossible",
-      body: "Hard problems need clear scope and relentless execution. Legacy to microservices, manual ops to automation — we find the path and ship.",
+      title: "Hard problems still have a path",
+      body: "Clear scope and disciplined execution is how Dolphin Software solves complexity — legacy to microservices, manual ops to automation.",
     },
   ],
   buildEyebrow: "Capabilities",
-  buildTitle: "What Dolphin Software builds",
+  buildTitle: "What does Dolphin Software build?",
   buildSupport:
-    "Strength forged on real edtech & SaaS products — production, incidents, scale — then applied to how we ship for SMBs.",
+    "Dolphin Software develops four core capability groups for SMBs, forged on real edtech and SaaS products that already ran under production load.",
   buildItems: [
     {
-      title: "Web & App",
-      body: "Sites, portals, mini apps — clean UI, mobile-ready, scope locked before code.",
+      title: "01 · Web & App",
+      body: "Websites, portals, mini apps — clean UI, mobile-ready, scope locked before code.",
       href: "/services/web/",
     },
     {
-      title: "Backend & systems",
-      body: "APIs, admin, integrations (Zalo, payments, CRM…) — designed to scale and maintain.",
+      title: "02 · Backend & Systems",
+      body: "APIs, admin, integrations (Zalo, payments, CRM…) — designed to scale and maintain long-term.",
       href: "/services/backend/",
     },
     {
-      title: "AI & automation",
+      title: "03 · AI & Automation",
       body: "Agents, workflows, ops loops — less manual work, more visibility for operators.",
       href: "/custom-agent/",
     },
     {
-      title: "Handover & ops",
+      title: "04 · Handover & Ops",
       body: "Source, docs, walkthrough, warranty — clear ownership, no vendor lock-in. See Dolphin Care for on-site customer care.",
       href: "/dolphin-care/",
     },
   ],
-  proofEyebrow: "How we work",
-  proofTitle: "Production experience inside the studio",
+  proofEyebrow: "Experience",
+  proofTitle: "Dolphin Software’s real production experience",
   proofSupport:
-    "Not a marketing checklist — lessons from live systems that already ran under real load.",
+    "Dolphin Software brings lessons from live production systems — not a marketing checklist — into every SMB project.",
   proofs: [
     {
       title: "Production reliability",
-      body: "Incident response, data recovery, observability (Prometheus, Grafana, logging) — keep systems steady under peak traffic.",
+      body: "Incident response, data recovery, observability with Prometheus and Grafana — keep systems steady under peak traffic.",
     },
     {
       title: "Battle-tested system design",
       body: "Monolith → microservices (Golang, NestJS), messaging (Kafka, RabbitMQ), K6 load tests before high-traffic windows.",
     },
     {
-      title: "Stakeholder partnership",
+      title: "Close stakeholder partnership",
       body: "Flow analysis with PO/BA, feasibility checks, multi-project team lead — straight talk, clear scope.",
     },
     {
-      title: "Integrations shipped",
+      title: "Integrations shipped in production",
       body: "ClassIn, Zalo ZNS, HubSpot, Mailgun, multi-platform Mini Apps — production integrations, not just PoCs.",
     },
   ],
   founderEyebrow: "Team",
-  founderTitle: "Behind the studio",
+  founderTitle: "Who founded Dolphin Software?",
   founderRole: "Founder · Product Backend / Tech Lead",
-  founderName: "Nguyen Chi Thanh",
+  founderName: "Nguyễn Chí Thanh",
   founderBody:
-    "7+ years backend on live products (Marathon, Myspa, Splus). Team lead, incident response, system design — production thinking in every Dolphin Software project.",
+    "Nguyễn Chí Thanh has 7+ years of backend experience on live products: Marathon, Myspa, and Splus. He has led teams, handled production incidents, and designed systems — production thinking applied directly to every Dolphin Software project.",
   founderStack: [
     "Golang",
     "NestJS",
@@ -267,122 +269,124 @@ const en: AboutCopy = {
     "Grafana",
   ],
   faqEyebrow: "FAQ",
-  faqTitle: "Common questions about Dolphin Software",
+  faqTitle: "Frequently asked questions about Dolphin Software",
   faqItems: [
     {
       q: "What kind of company is Dolphin Software?",
       a: "Dolphin Software is a software studio in Vietnam building custom websites, mobile apps, backends, and AI automation for SMBs — with full source handover and post-launch support.",
     },
     {
-      q: "Can non-technical teams work with Dolphin Software?",
-      a: "Yes. Most clients are not engineers. Describe the business goal — Dolphin Software scopes in operating language, ships end-to-end, and hands over walkthroughs so your team can run it.",
+      q: "Can non-technical businesses work with Dolphin Software?",
+      a: "Yes. Most Dolphin Software clients are not engineers. Describe the business goal — Dolphin Software scopes in operating language, ships end-to-end, and hands over walkthroughs so your team can run it.",
     },
     {
-      q: "Do you lock customers into a vendor after handover?",
+      q: "Does Dolphin Software lock customers into a vendor after handover?",
       a: "No. You get full source, technical docs, and ops guidance. You own the product — you are not dependent on Dolphin Software to keep it running.",
     },
     {
-      q: "How does pricing work?",
+      q: "How does Dolphin Software pricing work?",
       a: "Send a short brief via the contact form, Get a quote, or Zalo. Dolphin Software replies with estimated scope and next steps — no fees outside the agreed scope.",
     },
     {
-      q: "Is there support after go-live?",
+      q: "Is there support after handover?",
       a: "Yes. After go-live you get ops guidance and warranty for technical defects in the signed scope (typically 3–6 months). New features are quoted separately first.",
     },
     {
-      q: "Do you integrate Zalo and CRM systems?",
+      q: "Does Dolphin Software integrate Zalo and CRM systems?",
       a: "Yes. Dolphin Software has shipped production integrations with Zalo ZNS, HubSpot, Mailgun, and more — not just proofs of concept.",
     },
   ],
   ctaEyebrow: "Start",
-  ctaTitle: "Ready to turn the problem into a system?",
+  ctaTitle: "Start a project with [[Dolphin Software]]",
   ctaSupport:
-    "Tell us the goal — sell, capture leads, take bookings, or run internal ops. Dolphin Software locks scope and ships until your team can run it.",
+    "Tell Dolphin Software the goal — sell, capture leads, take bookings, or run internal ops. We lock scope and ship until your team can operate it.",
 };
 
 const ja: AboutCopy = {
-  metaTitle: "Dolphin Softwareとは？ | SMB向けWeb・AIスタジオ",
+  metaTitle:
+    "Dolphin Softwareとは？ | ベトナムSMB向けWebデザイン＆AIスタジオ",
   metaDescription:
-    "Dolphin Softwareはベトナムのソフトウェアスタジオ — オーダーメイドWeb、AI自動化、ソース一式納品。見積もり明確、本番後サポートあり。",
+    "Dolphin Softwareはベトナムのソフトウェアスタジオ — オーダーメイドWeb、AI自動化、ソース一式納品。見積もり明確、納品後サポートあり。",
   eyebrow: "Studio",
   title: "Dolphin Software",
-  motto: "難しい課題から[[動くシステム]]へ — 不可能はない。",
+  motto:
+    "ベトナム企業向けソフトウェア開発スタジオ & [[AI automation]]",
   support:
-    "ビジネス目標を、運用できる Web・アプリ・AI ワークフローに変えます。スコープ明確、マイルストーン、ソース＋ガイド付き。",
+    "Dolphin Softwareはベトナムのソフトウェアスタジオで、中小企業（SMB）向けにオーダーメイドWeb、アプリ、AI自動化を構築します。ソース一式、運用ガイド、本番後サポートまで — ベンダーロックインなし、合意スコープ外の費用なし。ビジネス目標から運用できるシステムへ：スコープ明確、期日どおりの納品、自走できるまで伴走します。",
   ctaPrimary: "見積もりを依頼",
   ctaSecondary: "サービスを見る",
-  mindsetEyebrow: "マインドセット",
-  mindsetTitle: "このスタジオのスタンス",
+  mindsetEyebrow: "アプローチ",
+  mindsetTitle: "Dolphin Softwareはプロジェクトをどう進めますか？",
   mindsetSupport:
-    "Dolphin Software はデモで終わらず、本番で動くシステムを作ります。安定・計測可能・引継ぎ後に自社チームで運用できることを目指します。",
+    "Dolphin Softwareはデモで終わらず、本番で動くシステムを作ります。安定・計測可能・引継ぎ後に自社チームで運用できることを目指します。",
   mindset: [
     {
-      title: "本番リリースへのこだわり",
-      body: "デモで満足しません。すべてのプロジェクトで、安定して測定可能、自社チームで運用できる本番システムを目指します。",
+      title: "本番に乗せてからがゴール",
+      body: "デモはゴールではありません。すべてのプロジェクトで、安定して測定可能、自社チームが所有する本番システムを目指します。",
     },
     {
-      title: "プロとしての規律",
-      body: "運に頼らずリズムを維持。Discovery → Plan → Sprint → UAT → 引継ぎまで標準化。",
+      title: "標準プロセス、運に頼らない",
+      body: "Discovery → 計画 → スプリント → UAT → 納品 — 各ステップに明確な成果物があり、段階を飛ばしません。",
     },
     {
-      title: "不可能はない",
-      body: "複雑な課題も明確なスコープと執念があれば解決できます。レガシーからマイクロサービス、手作業から自動化まで最適な道を切り開きます。",
+      title: "難しい課題にも道はある",
+      body: "明確なスコープと規律ある実行がDolphin Softwareの解法です — レガシーからマイクロサービス、手作業から自動化まで。",
     },
   ],
   buildEyebrow: "できること",
-  buildTitle: "Dolphin Software がつくるもの",
+  buildTitle: "Dolphin Softwareは何を作りますか？",
   buildSupport:
-    "EdTech や SaaS のリアルな本番・障害・スケール経験で鍛え抜かれた開発力を、SMB 向けの納品に活かします。",
+    "Dolphin SoftwareはSMB向けの4つの中核能力を、本番負荷下で動いてきたEdTech・SaaSの実戦経験から鍛えています。",
   buildItems: [
     {
-      title: "Web & アプリ",
-      body: "サイト、ポータル、ミニアプリ — クリーンな UI、モバイル対応、実装前にスコープを確定。",
+      title: "01 · Web & アプリ",
+      body: "サイト、ポータル、ミニアプリ — クリーンなUI、モバイル対応、実装前にスコープ確定。",
       href: "/services/web/",
     },
     {
-      title: "バックエンド & システム",
-      body: "API、管理画面、連携（Zalo、決済、CRMなど） — スケールと保守性を考慮した設計。",
+      title: "02 · バックエンド & システム",
+      body: "API、管理画面、連携（Zalo、決済、CRMなど） — 長期のスケールと保守を見据えた設計。",
       href: "/services/backend/",
     },
     {
-      title: "AI & 自動化",
-      body: "エージェント、ワークフロー、運用ループ — 手作業を減らし、運用チームの可視性を向上。",
+      title: "03 · AI & 自動化",
+      body: "エージェント、ワークフロー、運用ループ — 手作業を減らし、運用の可視性を高める。",
       href: "/custom-agent/",
     },
     {
-      title: "納品 & 運用",
-      body: "ソースコード、ドキュメント、レクチャー、保証 — 所有権を明確にし、ベンダーロックインを回避。",
+      title: "04 · 納品 & 運用",
+      body: "ソース、ドキュメント、レクチャー、保証 — 所有権明確、ベンダーロックインなし。サイト上の顧客ケアはDolphin Careもご覧ください。",
       href: "/dolphin-care/",
     },
   ],
-  proofEyebrow: "進め方",
-  proofTitle: "本番経験をスタジオに落とし込む",
+  proofEyebrow: "経験",
+  proofTitle: "Dolphin Softwareの本番経験",
   proofSupport:
-    "マーケティング用のチェックリストではなく、実際の高負荷下で稼働したシステムからの学びです。",
+    "マーケティング用チェックリストではなく、実負荷下で動いた本番システムからの学びを、SMB案件に落とし込みます。",
   proofs: [
     {
       title: "本番環境の信頼性",
-      body: "インシデント対応、データ復旧、可視化（Prometheus, Grafana, ログ） — 高トラフィック時も安定運用。",
+      body: "インシデント対応、データ復旧、Prometheus / Grafanaによる可視化 — ピーク時も安定運用。",
     },
     {
-      title: "実践的なシステム設計",
-      body: "モノリスからマイクロサービス（Golang, NestJS）、メッセージング（Kafka, RabbitMQ）、ピーク前の K6 負荷テスト。",
+      title: "実戦で鍛えたシステム設計",
+      body: "モノリス → マイクロサービス（Golang, NestJS）、メッセージング（Kafka, RabbitMQ）、ピーク前のK6負荷テスト。",
     },
     {
-      title: "ステークホルダーとの連携",
-      body: "PO/BA とのフロー分析、実現可能性の検証、複数プロジェクトのリード — 迅速なコミュニケーションと明確なスコープ。",
+      title: "ステークホルダーとの密な連携",
+      body: "PO/BAとのフロー分析、実現可能性の検証、複数プロジェクトのリード — 率直な対話と明確なスコープ。",
     },
     {
-      title: "豊富な連携実績",
-      body: "ClassIn, Zalo ZNS, HubSpot, Mailgun, マルチプラットフォームミニアプリ — PoC に留まらない本番実装。",
+      title: "本番で出荷した連携",
+      body: "ClassIn、Zalo ZNS、HubSpot、Mailgun、マルチプラットフォームMini App — PoCに留まらない本番実装。",
     },
   ],
   founderEyebrow: "チーム",
-  founderTitle: "スタジオの裏側",
+  founderTitle: "Dolphin Softwareの創業者は誰ですか？",
   founderRole: "Founder · Product Backend / Tech Lead",
-  founderName: "Nguyen Chi Thanh",
+  founderName: "Nguyễn Chí Thanh",
   founderBody:
-    "ライブプロダクトで7年以上のバックエンド（Marathon, Myspa, Splus）。チームリード、インシデント、設計 — 本番視点を各プロジェクトへ。",
+    "Nguyễn Chí Thanhはライブプロダクト（Marathon、Myspa、Splus）で7年以上のバックエンド経験を持ちます。チームリード、本番インシデント対応、システム設計 — 本番視点をDolphin Softwareの全プロジェクトに直接活かしています。",
   founderStack: [
     "Golang",
     "NestJS",
@@ -394,37 +398,37 @@ const ja: AboutCopy = {
     "Grafana",
   ],
   faqEyebrow: "FAQ",
-  faqTitle: "Dolphin Software についてよくある質問",
+  faqTitle: "Dolphin Softwareについてよくある質問",
   faqItems: [
     {
-      q: "Dolphin Software はどんな会社ですか？",
+      q: "Dolphin Softwareはどんな会社ですか？",
       a: "ベトナムのソフトウェアスタジオで、SMB向けにオーダーメイドWeb、モバイル、バックエンド、AI自動化を提供し、ソース一式納品と本番後サポートを行います。",
     },
     {
-      q: "技術チームがなくても依頼できますか？",
+      q: "技術チームがなくてもDolphin Softwareに依頼できますか？",
       a: "はい。多くのお客様はエンジニアではありません。ビジネス目標を伝えていただければ、運用の言葉でスコープを固め、エンドツーエンドで納品し、自走できるまでガイドします。",
     },
     {
       q: "納品後にベンダーロックインはありますか？",
-      a: "ありません。ソース、技術ドキュメント、運用ガイドをすべてお渡しします。製品はお客様の所有です。",
+      a: "ありません。ソース、技術ドキュメント、運用ガイドをすべてお渡しします。製品はお客様の所有です — 稼働維持のためにDolphin Softwareに依存しません。",
     },
     {
-      q: "見積もりはどのように進みますか？",
-      a: "お問い合わせフォーム、「見積もりを依頼」、または Zalo で短いブリーフを送ってください。合意スコープ外の費用は発生しません。",
+      q: "Dolphin Softwareの見積もりはどう進みますか？",
+      a: "お問い合わせフォーム、「見積もりを依頼」、またはZaloで短いブリーフを送ってください。合意スコープ外の費用は発生しません。",
     },
     {
-      q: "本番後のサポートはありますか？",
+      q: "納品後のサポートはありますか？",
       a: "はい。本番後は運用ガイドと、契約スコープ内の技術不具合保証（通常3〜6ヶ月）があります。新機能は先に見積もりします。",
     },
     {
-      q: "Zalo や CRM 連携の実績はありますか？",
-      a: "はい。Zalo ZNS、HubSpot、Mailgun など本番連携の実績があります。PoC だけではありません。",
+      q: "ZaloやCRM連携の実績はありますか？",
+      a: "はい。Zalo ZNS、HubSpot、Mailgunなど本番連携の実績があります。PoCだけではありません。",
     },
   ],
   ctaEyebrow: "スタート",
-  ctaTitle: "課題をシステムに変える準備はできましたか？",
+  ctaTitle: "[[Dolphin Software]]でプロジェクトを始めましょう",
   ctaSupport:
-    "ゴールを教えてください。Dolphin Software がスコープを固め、チームが自走できるまで届けます。",
+    "ゴールを教えてください — 販売、リード獲得、予約受付、社内運用。スコープを固め、チームが自走できるまで届けます。",
 };
 
 export const aboutCopy: Record<Locale, AboutCopy> = { vi, en, ja };

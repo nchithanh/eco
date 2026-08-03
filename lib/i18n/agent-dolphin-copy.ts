@@ -259,7 +259,7 @@ const en: AgentDolphinCopy = {
   faqItems: [
     {
       q: "How is Dolphin Care different from an off-the-shelf chatbot?",
-      a: "Shelf bots often run scripts. Dolphin Care uses an LLM with your knowledge and visitor context — more flexible, still inside guardrails.",
+      a: "Shelf bots often run scripts. Dolphin Care uses an LLM with your knowledge and visitor context — more flexible, still inside guardrails. Need an agent deeply tied to internal processes? See /custom-agent/.",
     },
     {
       q: "Does it replace support staff?",
@@ -267,11 +267,19 @@ const en: AgentDolphinCopy = {
     },
     {
       q: "Must Dolphin Software build the website?",
-      a: "No. We can embed on an existing site if widgets/APIs are allowed. New sites we build ship with the agent ready.",
+      a: "No. We can embed on an existing site if widgets/APIs are allowed. New sites we build ship with the agent ready. See web services at /services/web/.",
     },
     {
       q: "Is customer data safe?",
       a: "Storage scope and channels are fixed in the agreement. Only support-relevant context is loaded — not an open dump.",
+    },
+    {
+      q: "Does Dolphin Care support Zalo integration?",
+      a: "Yes. Dolphin Care supports optional integration with Zalo and CRM, syncing leads and tickets when escalating to real support staff.",
+    },
+    {
+      q: "How does Dolphin Care pricing work?",
+      a: "Dolphin Software quotes transparently by project scope — no hidden fees, no unnecessary upsells. Send your website URL and customer profile for a fitting proposal.",
     },
   ],
   closeEyebrow: "Get started",
@@ -372,7 +380,7 @@ const ja: AgentDolphinCopy = {
   faqItems: [
     {
       q: "既製チャットボットとの違いは？",
-      a: "既製品は台本が多いです。Dolphin Care は LLM に御社知識と来訪文脈を載せ、ガードレール内で柔軟に答えます。",
+      a: "既製品は台本が多いです。Dolphin Care は LLM に御社知識と来訪文脈を載せ、ガードレール内で柔軟に答えます。社内プロセスと深く連携するエージェントが必要なら /custom-agent/ をご覧ください。",
     },
     {
       q: "サポート担当を置き換えますか？",
@@ -380,11 +388,19 @@ const ja: AgentDolphinCopy = {
     },
     {
       q: "サイトは Dolphin Software 製が必要？",
-      a: "不要です。埋め込み可能なら既存サイトにも。新規制作なら最初から組み込みやすいです。",
+      a: "不要です。埋め込み可能なら既存サイトにも。新規制作なら最初から組み込みやすいです。Webサービスは /services/web/ をご覧ください。",
     },
     {
       q: "顧客データは安全？",
       a: "保存範囲とチャネルは契約で明確化。サポートに必要な文脈だけを載せます。",
+    },
+    {
+      q: "Dolphin Care は Zalo 連携に対応していますか？",
+      a: "はい。Dolphin Care はオプションで Zalo や CRM と連携し、人へのエスカレーション時にリードやチケットを同期します。",
+    },
+    {
+      q: "Dolphin Care の料金体系は？",
+      a: "Dolphin Software はプロジェクトスコープに応じて明確に見積もります。隠れた費用や不要なアップセルはありません。サイトURLと想定顧客像をお送りください。",
     },
   ],
   closeEyebrow: "はじめの一歩",
@@ -547,6 +563,33 @@ const homeEn: AgentDolphinHomeCopy = {
       body: "Visitors still get a first response outside business hours.",
     },
   ],
+  situationsLabel: "Dolphin Care handles:",
+  situations: [
+    "Pricing questions",
+    "Availability checks",
+    "Address requests",
+    "Service inquiries",
+    "Phone capture",
+    "Staff escalation",
+  ],
+  industriesLabel: "Fits",
+  industries: [
+    "Spas",
+    "Clinics",
+    "Restaurants",
+    "Education",
+    "Showrooms",
+    "Real estate",
+  ],
+  pipelineLabel: "How it works (not a rigid chatbot)",
+  pipeline: [
+    "Understand context",
+    "Gather info",
+    "Book appointment",
+    "Send Zalo / CRM",
+    "Notify staff",
+    "Follow up",
+  ],
   agentName: "Dolphin Care",
   online: "Online now",
   card: {
@@ -598,6 +641,33 @@ const homeJa: AgentDolphinHomeCopy = {
       title: "営業時間外の取りこぼしを減らす",
       body: "時間外でも最初の返信を届けます。",
     },
+  ],
+  situationsLabel: "Dolphin Care が対応できる内容：",
+  situations: [
+    "料金の質問",
+    "空き状況の確認",
+    "住所の問い合わせ",
+    "サービス内容の質問",
+    "電話番号の取得",
+    "スタッフへのエスカレーション",
+  ],
+  industriesLabel: "適した業種",
+  industries: [
+    "スパ",
+    "クリニック",
+    "レストラン",
+    "教育",
+    "ショールーム",
+    "不動産",
+  ],
+  pipelineLabel: "動作の流れ（硬いチャットボットではない）",
+  pipeline: [
+    "文脈を理解",
+    "情報を収集",
+    "予約",
+    "Zalo / CRM送信",
+    "スタッフに通知",
+    "フォローアップ",
   ],
   agentName: "Dolphin Care",
   online: "オンライン",

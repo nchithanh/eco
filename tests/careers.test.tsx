@@ -19,7 +19,7 @@ describe("Dolphin Software careers page", () => {
   it("renders freelance hero and open roles including sales", () => {
     renderCareers();
     expect(
-      screen.getByRole("heading", { name: /Freelance cùng Dolphin Software/i }),
+      screen.getByRole("heading", { name: /Làm freelance với Dolphin Software/i }),
     ).toBeInTheDocument();
     expect(
       screen.getByRole("heading", {
@@ -47,11 +47,11 @@ describe("Dolphin Software careers page", () => {
     ).toBeInTheDocument();
     expect(screen.getAllByText(/^Đã đóng$/i).length).toBeGreaterThanOrEqual(2);
     expect(screen.getAllByText(/^Freelance$/i).length).toBeGreaterThanOrEqual(5);
-    expect(screen.getAllByText(/\$1,000/i).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText(/1\.000 USD/i).length).toBeGreaterThanOrEqual(1);
     expect(
-      screen.getByText(/Hoa hồng 50% deal · không lương cứng/i),
+      screen.getByText(/Hoa hồng 50% · không lương cứng/i),
     ).toBeInTheDocument();
-    expect(screen.getByText(/Ưu tiên · Gấp/i)).toBeInTheDocument();
+    expect(screen.getByText(/Ưu tiên · Khẩn cấp/i)).toBeInTheDocument();
   });
 
   it("Apply on a job selects that role in the form", async () => {

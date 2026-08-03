@@ -1,14 +1,16 @@
 import type { Dictionary, Locale } from "./types";
+import { homepageLangEn } from "./homepage_lang_en";
+import { homepageLangJa } from "./homepage_lang_ja";
 import { homepageLangVi, type HomepageLang } from "./homepage_lang_vi";
 
 /**
- * Per-locale homepage overlays.
- * Add `homepage_lang_en.ts` etc. and register here — do not expand all locales in dictionaries for homepage chrome.
+ * Per-locale homepage overlays (VI SoT; EN/JA synced).
+ * Keep homepage chrome here — do not expand all locales in dictionaries.
  */
 const homepageLangByLocale: Partial<Record<Locale, HomepageLang>> = {
   vi: homepageLangVi,
-  // en: homepageLangEn,
-  // ja: homepageLangJa,
+  en: homepageLangEn,
+  ja: homepageLangJa,
 };
 
 export function applyHomepageLang(
