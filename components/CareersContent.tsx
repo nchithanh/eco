@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useId, useState } from "react";
 import { CareersHero } from "@/components/CareersHero";
 import { CareersJobs } from "@/components/CareersJobs";
 import { CareersApplyForm } from "@/components/CareersApplyForm";
@@ -14,6 +14,8 @@ export function CareersContent({ embedded = false }: { embedded?: boolean }) {
   const { t } = useLocale();
   const c = t.careers;
   const [selectedRole, setSelectedRole] = useState<JobId | undefined>();
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const faqId = useId();
 
   const onApply = (role: JobId) => {
     setSelectedRole(role);
@@ -108,22 +110,46 @@ export function CareersContent({ embedded = false }: { embedded?: boolean }) {
               <AccentText>{c.faq.title}</AccentText>
             </h2>
           </Reveal>
-          <ul className="mt-10 list-none space-y-3 p-0">
-            {c.faq.items.map((item, index) => (
-              <li key={item.q}>
-                <Reveal delay={index * 40}>
-                  <div className="rounded-2xl border border-[var(--kuct-border)] bg-[rgba(12,10,24,0.62)] px-4 py-4 sm:px-5 sm:py-5">
-                    <h3 className="text-sm font-semibold text-[var(--kuct-text)]">
-                      {item.q}
-                    </h3>
-                    <p className="mt-2 text-sm leading-[1.7] text-[var(--kuct-muted)]">
-                      <FaqAnswerText text={item.a} />
-                    </p>
+          <Reveal
+            delay={60}
+            className="mx-auto mt-10 max-w-3xl divide-y divide-[var(--kuct-border)] overflow-hidden rounded-2xl border border-[var(--kuct-border)] bg-[rgba(12,10,24,0.7)] shadow-[0_1rem_2.5rem_rgb(var(--kuct-accent-rgb)/0.12)] backdrop-blur-md"
+          >
+            {c.faq.items.map((item, index) => {
+              const open = openFaq === index;
+              const panelId = `${faqId}-panel-${index}`;
+              const buttonId = `${faqId}-btn-${index}`;
+              return (
+                <div key={item.q}>
+                  <h3>
+                    <button
+                      type="button"
+                      id={buttonId}
+                      aria-expanded={open}
+                      aria-controls={panelId}
+                      className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left text-sm font-semibold text-[var(--kuct-text)] transition hover:bg-[rgba(var(--kuct-accent-rgb),0.12)] sm:px-6 sm:text-base"
+                      onClick={() =>
+                        setOpenFaq((cur) => (cur === index ? null : index))
+                      }
+                    >
+                      <span>{item.q}</span>
+                      <span aria-hidden className="text-[var(--kuct-accent)]">
+                        {open ? "−" : "+"}
+                      </span>
+                    </button>
+                  </h3>
+                  <div
+                    id={panelId}
+                    role="region"
+                    aria-labelledby={buttonId}
+                    hidden={!open}
+                    className="px-5 pb-4 text-sm leading-[1.7] text-[var(--kuct-muted)] sm:px-6"
+                  >
+                    <FaqAnswerText text={item.a} />
                   </div>
-                </Reveal>
-              </li>
-            ))}
-          </ul>
+                </div>
+              );
+            })}
+          </Reveal>
         </div>
       </section>
     </div>

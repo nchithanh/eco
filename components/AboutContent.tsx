@@ -1,5 +1,6 @@
 "use client";
 
+import { useId, useState } from "react";
 import { AccentText, BrandName } from "@/components/BrandName";
 import { FaqAnswerText } from "@/components/FaqAnswerText";
 import { LazyImage } from "@/components/LazyImage";
@@ -13,6 +14,8 @@ export function AboutContent() {
   const { locale } = useLocale();
   const a = getAboutCopy(locale);
   const { openQuote } = useQuote();
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const faqId = useId();
 
   return (
     <>
@@ -226,22 +229,46 @@ export function AboutContent() {
               <AccentText>{a.faqTitle}</AccentText>
             </h2>
           </Reveal>
-          <ul className="mt-10 list-none space-y-3 p-0">
-            {a.faqItems.map((item, index) => (
-              <li key={item.q}>
-                <Reveal delay={index * 40}>
-                  <div className="rounded-2xl border border-[var(--kuct-border)] bg-[rgba(6,6,14,0.72)] px-4 py-4 backdrop-blur-md sm:px-5 sm:py-5">
-                    <h3 className="text-sm font-semibold text-[var(--kuct-text)]">
-                      {item.q}
-                    </h3>
-                    <p className="mt-2 text-sm leading-[1.7] text-[var(--kuct-muted)]">
-                      <FaqAnswerText text={item.a} />
-                    </p>
+          <Reveal
+            delay={60}
+            className="mx-auto mt-10 max-w-3xl divide-y divide-[var(--kuct-border)] overflow-hidden rounded-2xl border border-[var(--kuct-border)] bg-[rgba(6,6,14,0.72)] shadow-[0_1rem_2.5rem_rgb(var(--kuct-accent-rgb)/0.12)] backdrop-blur-md"
+          >
+            {a.faqItems.map((item, index) => {
+              const open = openFaq === index;
+              const panelId = `${faqId}-panel-${index}`;
+              const buttonId = `${faqId}-btn-${index}`;
+              return (
+                <div key={item.q}>
+                  <h3>
+                    <button
+                      type="button"
+                      id={buttonId}
+                      aria-expanded={open}
+                      aria-controls={panelId}
+                      className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left text-sm font-semibold text-[var(--kuct-text)] transition hover:bg-[rgba(var(--kuct-accent-rgb),0.12)] sm:px-6 sm:text-base"
+                      onClick={() =>
+                        setOpenFaq((cur) => (cur === index ? null : index))
+                      }
+                    >
+                      <span>{item.q}</span>
+                      <span aria-hidden className="text-[var(--kuct-accent)]">
+                        {open ? "−" : "+"}
+                      </span>
+                    </button>
+                  </h3>
+                  <div
+                    id={panelId}
+                    role="region"
+                    aria-labelledby={buttonId}
+                    hidden={!open}
+                    className="px-5 pb-4 text-sm leading-[1.7] text-[var(--kuct-muted)] sm:px-6"
+                  >
+                    <FaqAnswerText text={item.a} />
                   </div>
-                </Reveal>
-              </li>
-            ))}
-          </ul>
+                </div>
+              );
+            })}
+          </Reveal>
         </div>
       </section>
 
