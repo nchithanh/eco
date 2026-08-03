@@ -126,10 +126,6 @@ export function Nav() {
       href: assetPath("/services/backend/"),
       label: t.nav.serviceBackend,
     },
-    {
-      href: assetPath("/services/design/"),
-      label: t.nav.serviceDesign,
-    },
   ];
 
   const agentItems: NavLink[] = [

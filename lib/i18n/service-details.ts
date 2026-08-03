@@ -144,24 +144,37 @@ const vi: Record<ServiceSlug, ServiceDetail> = {
   },
   backend: {
     title: "Backend & tích hợp hệ thống",
+    metaTitle: "Phát Triển Backend & Tích Hợp Hệ Thống | Dolphin Software",
+    metaDescription:
+      "Dolphin Software xây dựng backend Node.js, tích hợp API, thanh toán và bên thứ ba cho SMB Việt Nam. Báo giá minh bạch, tài liệu đầy đủ, hỗ trợ sau bàn giao.",
     intro:
-      "API, auth, thanh toán và kết nối dịch vụ bên thứ ba — nền tảng vững để web/app scale mà không “vá” lung tung.",
+      "Dolphin Software xây dựng nền tảng backend vững chắc — API rõ ràng, xác thực an toàn, thanh toán và kết nối bên thứ ba — để doanh nghiệp mở rộng mà không vá chằng vá đụp. Hệ thống backend yếu là nguyên nhân phổ biến khiến web và mobile chậm, mất dữ liệu, hoặc không kết nối được thanh toán, email và CRM; Dolphin Software thiết kế từ đầu theo chuẩn sản xuất.",
+    highlightsTitle: "Bạn nhận được gì từ dịch vụ phát triển backend?",
+    highlightsLead:
+      "Dịch vụ phát triển backend của Dolphin Software bao gồm toàn bộ lớp kỹ thuật mà một sản phẩm số cần để vận hành ổn định.",
+    processTitle: "Quy trình làm việc backend của Dolphin Software",
+    processLead:
+      "Dolphin Software áp dụng quy trình có cấu trúc để mỗi giai đoạn đều có đầu ra cụ thể — không đoán mò, không chờ đợi mơ hồ.",
+    deliverablesTitle: "Bàn giao backend bao gồm những gì?",
+    deliverablesLead:
+      "Bạn nhận hệ thống chạy được, không chỉ source code — không vendor lock-in, không phí ẩn sau bàn giao.",
     highlights: [
-      "REST / API rõ contract và error handling",
-      "Auth (JWT / session) và phân quyền",
-      "Tích hợp payment, email, storage, webhook",
-      "PostgreSQL + logging / monitoring cơ bản",
+      "REST API với hợp đồng rõ ràng, xử lý lỗi nhất quán",
+      "Xác thực & phân quyền — JWT, session, kiểm soát vai trò",
+      "Tích hợp thanh toán — MoMo, ZaloPay, VNPay, Stripe và các cổng phổ biến",
+      "Email, lưu trữ file, webhooks — kết nối dịch vụ bên thứ ba không rối",
+      "PostgreSQL với logging và monitoring cơ bản để theo dõi hệ thống",
     ],
     process: [
-      "Phân tích domain và biên hệ thống",
-      "Thiết kế API + data model",
-      "Implement theo module / sprint",
-      "Test tích hợp, tài liệu và bàn giao ops",
+      "Xác định ranh giới domain và điểm tích hợp — làm rõ hệ thống cần giao tiếp với gì",
+      "Thiết kế API và mô hình dữ liệu — trước khi viết một dòng code",
+      "Triển khai từng module — từng phần được kiểm tra trước khi gắn vào tổng thể",
+      "Integration tests, tài liệu, và bàn giao vận hành",
     ],
     deliverables: [
-      "Service backend deploy được",
-      "OpenAPI / tài liệu endpoint",
-      "Env sample + runbook ngắn",
+      "Backend services sẵn sàng deploy lên môi trường của bạn",
+      "Tài liệu OpenAPI / endpoint — đội kỹ thuật hoặc đối tác sau này đọc được ngay",
+      "Env samples và runbook ngắn — tự vận hành mà không phụ thuộc Dolphin Software",
     ],
   },
   design: {
@@ -305,24 +318,37 @@ const en: Record<ServiceSlug, ServiceDetail> = {
   },
   backend: {
     title: "Backend & system integration",
+    metaTitle: "Backend Development & System Integration | Dolphin Software",
+    metaDescription:
+      "Dolphin Software builds Node.js backends, APIs, payments, and third-party integrations for Vietnam SMBs — transparent quotes, full docs, post-handover support.",
     intro:
-      "APIs, auth, payments, and third-party connections — a foundation that scales without endless patches.",
+      "Dolphin Software builds solid backends — clear APIs, secure auth, payments, and third-party connections — so your business can scale without endless patches. Weak backends commonly cause slow web/mobile apps, data loss, or broken payment/email/CRM links; Dolphin Software designs for production from day one.",
+    highlightsTitle: "What do you get from Dolphin Software backend development?",
+    highlightsLead:
+      "Dolphin Software’s backend service covers the full technical layer a digital product needs to run reliably.",
+    processTitle: "How Dolphin Software runs backend projects",
+    processLead:
+      "Dolphin Software uses a structured process so every stage has a concrete output — no guessing, no vague waiting.",
+    deliverablesTitle: "What does backend handover include?",
+    deliverablesLead:
+      "You receive a runnable system, not just source — no vendor lock-in, no hidden fees after handover.",
     highlights: [
-      "REST / APIs with clear contracts and errors",
-      "Auth (JWT / session) and authorization",
-      "Payments, email, storage, webhooks",
-      "PostgreSQL plus basic logging / monitoring",
+      "REST APIs with clear contracts and consistent error handling",
+      "Auth & authorization — JWT, sessions, role controls",
+      "Payment integrations — MoMo, ZaloPay, VNPay, Stripe, and common gateways",
+      "Email, file storage, webhooks — third-party connections without chaos",
+      "PostgreSQL with basic logging and monitoring",
     ],
     process: [
-      "Map domain boundaries and integrations",
-      "Design API + data model",
-      "Implement module by module",
-      "Integration tests, docs, and ops handover",
+      "Define domain boundaries and integration points — what the system must talk to",
+      "Design API and data model — before writing production code",
+      "Implement module by module — each part tested before wiring into the whole",
+      "Integration tests, documentation, and ops handover",
     ],
     deliverables: [
-      "Deployable backend services",
-      "OpenAPI / endpoint documentation",
-      "Env samples + short runbook",
+      "Backend services ready to deploy on your environment",
+      "OpenAPI / endpoint docs — readable for your next team or partner",
+      "Env samples and a short runbook — operate without depending on Dolphin Software",
     ],
   },
   design: {
@@ -466,24 +492,37 @@ const ja: Record<ServiceSlug, ServiceDetail> = {
   },
   backend: {
     title: "バックエンド & システム連携",
+    metaTitle: "バックエンド開発・システム連携 | Dolphin Software",
+    metaDescription:
+      "Dolphin SoftwareはベトナムSMB向けにNode.jsバックエンド、API連携、決済・外部サービス統合を構築。透明な見積もり、ドキュメント完備、納品後サポート。",
     intro:
-      "API、認証、決済、外部連携 — 場当たり的な継ぎ接ぎではなく、スケールできる基盤を作ります。",
+      "Dolphin Softwareは堅牢なバックエンド基盤を構築します — 明確なAPI、安全な認証、決済と外部連携 — 継ぎ接ぎだらけの拡張を避けます。弱いバックエンドはWeb/モバイルの遅延、データ欠落、決済・メール・CRM接続不良の原因になりやすく、Dolphin Softwareは最初から本番品質で設計します。",
+    highlightsTitle: "Dolphin Softwareのバックエンド開発で得られるものは？",
+    highlightsLead:
+      "Dolphin Softwareのバックエンドサービスは、デジタルプロダクトが安定運用するために必要な技術レイヤーを一通りカバーします。",
+    processTitle: "Dolphin Softwareのバックエンド進め方",
+    processLead:
+      "Dolphin Softwareは各段階で具体成果がある構造化プロセスを採用 — 当てずっぽうや曖昧な待ち時間を避けます。",
+    deliverablesTitle: "バックエンド納品物は何を含みますか？",
+    deliverablesLead:
+      "ソースだけでなく動くシステムを納品 — ベンダーロックインなし、納品後の隠れ費用なし。",
     highlights: [
-      "契約とエラーが明確なREST / API",
-      "認証（JWT / session）と権限",
-      "決済・メール・ストレージ・Webhook",
+      "契約とエラー処理が明確なREST API",
+      "認証と権限 — JWT、セッション、ロール制御",
+      "決済連携 — MoMo、ZaloPay、VNPay、Stripeなど",
+      "メール、ファイル保存、Webhook — 外部サービスを整理して接続",
       "PostgreSQL + 基本ログ / 監視",
     ],
     process: [
-      "ドメイン境界と連携の整理",
-      "API + データモデル設計",
-      "モジュール単位で実装",
+      "ドメイン境界と連携ポイントの定義 — 何と通信するかを明確化",
+      "APIとデータモデル設計 — 本番コード前に固める",
+      "モジュール単位で実装 — 結合前に各部分を検証",
       "結合テスト、ドキュメント、運用引き継ぎ",
     ],
     deliverables: [
-      "デプロイ可能なバックエンド",
-      "OpenAPI / エンドポイント文書",
-      "環境変数サンプル + 短い運用手順",
+      "御社環境へデプロイ可能なバックエンドサービス",
+      "OpenAPI / エンドポイント文書 — 次のチームやパートナーがすぐ読める",
+      "環境変数サンプルと短い運用手順 — Dolphin Softwareに依存せず運用可能",
     ],
   },
   design: {

@@ -109,20 +109,39 @@ const serviceExtras: L<ServiceExtras> = {
       ],
     },
     backend: {
-      audience: "Team cần API vững, auth và tích hợp dịch vụ bên thứ ba.",
+      audience:
+        "Startup và SMB cần API ổn định, xác thực an toàn, và tích hợp bên thứ ba — mà không muốn tự quản lý đội kỹ thuật toàn thời gian.",
       useCases: [
-        "API cho web + mobile",
-        "Auth, phân quyền, webhook",
-        "Thanh toán / email / storage",
+        "API cho web và mobile — một backend phục vụ cả hai nền tảng, giảm trùng lặp",
+        "Xác thực, vai trò, webhooks — phân quyền người dùng, nhận sự kiện từ hệ thống ngoài",
+        "Thanh toán & email — tích hợp MoMo, ZaloPay, VNPay, Zalo OA, SendGrid vào luồng nghiệp vụ thực",
+        "Lưu trữ file & CDN — upload ảnh, tài liệu, media không làm chậm server chính",
+        "Internal dashboards & ops tools — API cho công cụ nội bộ, báo cáo vận hành",
       ],
       faq: [
         {
-          q: "Stack mặc định?",
-          a: "Node.js (NestJS/Express) + PostgreSQL là lựa chọn phổ biến; có thể điều chỉnh.",
+          q: "Stack mặc định là gì?",
+          a: "Node.js với NestJS hoặc Express kết hợp PostgreSQL là lựa chọn phổ biến nhất của Dolphin Software. Tuy nhiên, Dolphin Software điều chỉnh theo hệ thống hiện tại của bạn nếu cần — không ép buộc công nghệ không phù hợp.",
         },
         {
-          q: "Có tài liệu API?",
-          a: "Bàn giao OpenAPI / mô tả endpoint và env sample.",
+          q: "Tài liệu API có được bàn giao không?",
+          a: "Có. Mỗi dự án đều bao gồm tài liệu OpenAPI hoặc ghi chú endpoint đầy đủ, kèm env samples tại thời điểm bàn giao — để đội kỹ thuật hoặc đối tác tiếp theo hiểu hệ thống ngay.",
+        },
+        {
+          q: "Dolphin Software hỗ trợ tích hợp thanh toán Việt Nam không?",
+          a: "Có. Dolphin Software tích hợp MoMo, ZaloPay, và VNPay vào luồng nghiệp vụ thực — không phải demo sandbox bỏ ngỏ. Xem thêm trang tích hợp thanh toán tại /services/integrations/.",
+        },
+        {
+          q: "Tôi không có đội kỹ thuật — có làm việc được với Dolphin Software không?",
+          a: "Được. Phần lớn khách hàng SMB của Dolphin Software không có đội IT nội bộ. Bạn chỉ cần mô tả bài toán kinh doanh — Dolphin Software sẽ đề xuất phạm vi phù hợp và bàn giao kèm hướng dẫn vận hành.",
+        },
+        {
+          q: "Sau khi bàn giao, nếu cần thêm tính năng thì sao?",
+          a: "Bảo hành kỹ thuật (thường 3–6 tháng) bao gồm lỗi trong phạm vi đã chấp nhận. Tính năng mới được báo giá riêng trước khi thực hiện — không tự ý phát sinh chi phí.",
+        },
+        {
+          q: "Mất bao lâu để hoàn thành một dự án backend?",
+          a: "Thời gian phụ thuộc vào độ phức tạp. Một backend API cơ bản thường mất 2–4 tuần. Tích hợp nhiều bên thứ ba hoặc hệ thống phân quyền phức tạp hơn sẽ được ước tính cụ thể trong báo giá sau khi làm rõ phạm vi.",
         },
       ],
     },
@@ -257,20 +276,39 @@ const serviceExtras: L<ServiceExtras> = {
       ],
     },
     backend: {
-      audience: "Teams that need solid APIs, auth, and third-party integrations.",
+      audience:
+        "Startups and SMBs that need stable APIs, secure auth, and third-party integrations — without hiring a full-time engineering team.",
       useCases: [
-        "APIs for web + mobile",
-        "Auth, roles, webhooks",
-        "Payments / email / storage",
+        "APIs for web and mobile — one backend serving both platforms, less duplication",
+        "Auth, roles, webhooks — user permissions and inbound events from external systems",
+        "Payments & email — MoMo, ZaloPay, VNPay, Zalo OA, SendGrid in real business flows",
+        "File storage & CDN — uploads for images, docs, and media without slowing the main server",
+        "Internal dashboards & ops tools — APIs for internal tools and operational reports",
       ],
       faq: [
         {
-          q: "Default stack?",
-          a: "Node.js (NestJS/Express) + PostgreSQL is common; we adapt as needed.",
+          q: "What is the default stack?",
+          a: "Node.js with NestJS or Express plus PostgreSQL is Dolphin Software’s most common choice. Dolphin Software adapts to your existing systems when needed — we don’t force unfit technology.",
         },
         {
-          q: "API docs included?",
-          a: "OpenAPI / endpoint notes and env samples at handover.",
+          q: "Are API docs included at handover?",
+          a: "Yes. Every project includes OpenAPI or full endpoint notes plus env samples at handover — so your next engineering team or partner can understand the system immediately.",
+        },
+        {
+          q: "Does Dolphin Software integrate Vietnam payment gateways?",
+          a: "Yes. Dolphin Software integrates MoMo, ZaloPay, and VNPay into real business flows — not abandoned sandbox demos. See payment integrations at /services/integrations/.",
+        },
+        {
+          q: "We don’t have an in-house tech team — can we still work with Dolphin Software?",
+          a: "Yes. Most of Dolphin Software’s SMB clients have no internal IT team. You describe the business problem — Dolphin Software proposes a fitting scope and hands over with an operations guide.",
+        },
+        {
+          q: "What if we need more features after handover?",
+          a: "Technical warranty (typically 3–6 months) covers bugs within the accepted scope. New features are quoted separately before work starts — no surprise costs.",
+        },
+        {
+          q: "How long does a backend project take?",
+          a: "It depends on complexity. A basic API backend often takes 2–4 weeks. Multiple third-party integrations or complex authorization are estimated in the quote after scope is clear.",
         },
       ],
     },
@@ -404,15 +442,40 @@ const serviceExtras: L<ServiceExtras> = {
       ],
     },
     backend: {
-      audience: "堅牢な API・認証・外部連携が必要なチーム向け。",
+      audience:
+        "安定したAPI・安全な認証・外部連携が必要で、専任エンジニアチームを抱えたくないスタートアップとSMB向け。",
       useCases: [
-        "Web + Mobile 向け API",
-        "認証・権限・Webhook",
-        "決済 / メール / ストレージ",
+        "Webとモバイル向けAPI — 両プラットフォームを一つのバックエンドで、重複を削減",
+        "認証・ロール・Webhook — ユーザー権限と外部システムからのイベント受信",
+        "決済とメール — MoMo、ZaloPay、VNPay、Zalo OA、SendGridを実業務フローへ",
+        "ファイル保存とCDN — 画像・文書・メディアを本サーバーを遅くせずアップロード",
+        "社内ダッシュボードと運用ツール — 社内ツールと運用レポート用API",
       ],
       faq: [
-        { q: "標準スタックは？", a: "Node.js（NestJS/Express）+ PostgreSQL が一般的。要件に合わせて調整。" },
-        { q: "API ドキュメントは？", a: "OpenAPI / エンドポイント説明と env サンプルを納品。" },
+        {
+          q: "標準スタックは何ですか？",
+          a: "Node.js（NestJSまたはExpress）+ PostgreSQLがDolphin Softwareで最も一般的です。必要に応じて既存システムに合わせて調整し、合わない技術を強制しません。",
+        },
+        {
+          q: "APIドキュメントは納品されますか？",
+          a: "はい。各プロジェクトでOpenAPIまたはエンドポイント説明とenvサンプルを納品時に含めます — 次の開発チームやパートナーがすぐ理解できます。",
+        },
+        {
+          q: "ベトナムの決済連携は対応していますか？",
+          a: "はい。Dolphin SoftwareはMoMo、ZaloPay、VNPayを実業務フローに統合します — 放置されたサンドボックスデモではありません。詳しくは /services/integrations/ をご覧ください。",
+        },
+        {
+          q: "社内に技術チームがなくても依頼できますか？",
+          a: "できます。Dolphin SoftwareのSMB顧客の多くは社内ITチームがありません。ビジネス課題を説明いただければ、適切な範囲を提案し、運用ガイド付きで納品します。",
+        },
+        {
+          q: "納品後に機能追加が必要になったら？",
+          a: "技術保証（通常3〜6か月）は合意済み範囲内の不具合を対象とします。新機能は着手前に別見積もり — 勝手に費用は発生しません。",
+        },
+        {
+          q: "バックエンドプロジェクトはどのくらい掛かりますか？",
+          a: "複雑さ次第です。基本的なAPIバックエンドは多くの場合2〜4週間。多数の外部連携や複雑な権限は、範囲確定後の見積もりで具体化します。",
+        },
       ],
     },
     design: {

@@ -29,8 +29,9 @@ export async function generateMetadata({
     return { title: "Services" };
   }
 
-  // Web + mobile: bake VI meta for Google even if UI default locale is JA.
-  const metaLocale = slug === "web" || slug === "mobile" ? "vi" : SEO_LOCALE;
+  // Web + mobile + backend: bake VI meta for Google even if UI default locale is JA.
+  const metaLocale =
+    slug === "web" || slug === "mobile" || slug === "backend" ? "vi" : SEO_LOCALE;
   const detail = getServiceDetail(metaLocale, slug);
   const path = `/services/${slug}/`;
   const title = detail.metaTitle ?? detail.title;
@@ -55,7 +56,8 @@ export default async function ServicePage({
     notFound();
   }
 
-  const metaLocale = slug === "web" || slug === "mobile" ? "vi" : SEO_LOCALE;
+  const metaLocale =
+    slug === "web" || slug === "mobile" || slug === "backend" ? "vi" : SEO_LOCALE;
   const detail = getServiceDetail(metaLocale, slug);
   const extras = getServiceExtras(metaLocale, slug);
   const path = `/services/${slug}/`;

@@ -20,9 +20,9 @@
 | `/ai-transform/` | `app/ai-transform/page.tsx` | `AiTransformContent` + `ai-transform-copy.ts`; VI Jasper SEO/AEO/GEO (meta “Lộ Trình Triển Khai AI”; custom AI agent = building block in roadmap, not a separate product; ROI + governance; FAQ 6 Q + links Care/about) |
 | `/news/` | `app/news/page.tsx` | `NewsContent` |
 | `/news/[slug]/` | `app/news/[slug]/page.tsx` | `NewsDetailView` + `lib/news-details.ts` |
-| `/services/[slug]/` | `app/services/[slug]/page.tsx` | `ServiceDetailView` + `lib/i18n/service-details.ts` — premium dark hero (CTA in hero), 3 outcome cards (+ optional AEO lead), Best for + FAQ, closing quote CTA. **`/services/web/`** + **`/services/mobile/`** bake VI meta + Service/FAQ JSON-LD (Jasper SEO/AEO/GEO). Web: FAQ 7 Q, `#web-pricing`, Sites shipped 6 cases. Mobile: FAQ 6 Q, Flutter/RN, MVP 8–14 tuần. |
+| `/services/[slug]/` | `app/services/[slug]/page.tsx` | `ServiceDetailView` + `lib/i18n/service-details.ts` — premium dark hero (CTA in hero), 3 outcome cards (+ optional AEO lead), Best for + FAQ, closing quote CTA. **`/services/web/`**, **`/services/mobile/`**, **`/services/backend/`** bake VI meta + Service/FAQ JSON-LD (Jasper SEO/AEO/GEO). Web: FAQ 7 Q, `#web-pricing`, Sites shipped 6 cases. Mobile: FAQ 6 Q, Flutter/RN, MVP 8–14 tuần. Backend: FAQ 6 Q (stack, OpenAPI, VN payments → `/services/integrations/`, no IT team, warranty, timeline 2–4 tuần). |
 | `/tech/[slug]/` | `app/tech/[slug]/page.tsx` | `TechDetailView` + `lib/tech-stack.ts` / extras |
 | `/works/[slug]/` | `app/works/[slug]/page.tsx` | `WorkDetailView` + `lib/works-details.ts` |
 | `/more/[slug]/` | `app/more/[slug]/page.tsx` | `MoreDetailView` + `lib/more-details.ts` |
 
-Nav: dropdown **Dịch vụ** (web / landing / mobile / backend / UI) + **AI** dropdown (Dolphin Care, AI Transform); News / About / Careers. Process & Tech removed from nav/footer.
+Nav: dropdown **Dịch vụ** (web / landing / mobile / backend) + **AI** dropdown (Dolphin Care, AI Transform); News / About / Careers. Process & Tech removed from nav/footer. `/services/design/` still exists but is not linked from nav/footer.

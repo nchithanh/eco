@@ -6,27 +6,70 @@
     "brand": "Dolphin Software",
     "schemaPath": "/schema/services/backend/",
     "rawPath": "/schema/services/backend.json",
-    "updated": "2026-08-02"
+    "updated": "2026-08-03"
   },
   "pillar": "Build",
   "productRoute": "/services/backend/",
   "title": "Backend & tích hợp hệ thống",
-  "intro": "API, auth, thanh toán và kết nối dịch vụ bên thứ ba — nền tảng vững để web/app scale mà không “vá” lung tung.",
+  "metaTitle": "Phát Triển Backend & Tích Hợp Hệ Thống | Dolphin Software",
+  "metaDescription": "Dolphin Software xây dựng backend Node.js, tích hợp API, thanh toán và bên thứ ba cho SMB Việt Nam. Báo giá minh bạch, tài liệu đầy đủ, hỗ trợ sau bàn giao.",
+  "intro": "Dolphin Software xây dựng nền tảng backend vững chắc — API rõ ràng, xác thực an toàn, thanh toán và kết nối bên thứ ba — để doanh nghiệp mở rộng mà không vá chằng vá đụp. Hệ thống backend yếu là nguyên nhân phổ biến khiến web và mobile chậm, mất dữ liệu, hoặc không kết nối được thanh toán, email và CRM; Dolphin Software thiết kế từ đầu theo chuẩn sản xuất.",
+  "highlightsTitle": "Bạn nhận được gì từ dịch vụ phát triển backend?",
+  "highlightsLead": "Dịch vụ phát triển backend của Dolphin Software bao gồm toàn bộ lớp kỹ thuật mà một sản phẩm số cần để vận hành ổn định.",
+  "processTitle": "Quy trình làm việc backend của Dolphin Software",
+  "processLead": "Dolphin Software áp dụng quy trình có cấu trúc để mỗi giai đoạn đều có đầu ra cụ thể — không đoán mò, không chờ đợi mơ hồ.",
+  "deliverablesTitle": "Bàn giao backend bao gồm những gì?",
+  "deliverablesLead": "Bạn nhận hệ thống chạy được, không chỉ source code — không vendor lock-in, không phí ẩn sau bàn giao.",
   "highlights": [
-    "REST / API rõ contract và error handling",
-    "Auth (JWT / session) và phân quyền",
-    "Tích hợp payment, email, storage, webhook",
-    "PostgreSQL + logging / monitoring cơ bản"
+    "REST API với hợp đồng rõ ràng, xử lý lỗi nhất quán",
+    "Xác thực & phân quyền — JWT, session, kiểm soát vai trò",
+    "Tích hợp thanh toán — MoMo, ZaloPay, VNPay, Stripe và các cổng phổ biến",
+    "Email, lưu trữ file, webhooks — kết nối dịch vụ bên thứ ba không rối",
+    "PostgreSQL với logging và monitoring cơ bản để theo dõi hệ thống"
   ],
   "process": [
-    "Phân tích domain và biên hệ thống",
-    "Thiết kế API + data model",
-    "Implement theo module / sprint",
-    "Test tích hợp, tài liệu và bàn giao ops"
+    "Xác định ranh giới domain và điểm tích hợp — làm rõ hệ thống cần giao tiếp với gì",
+    "Thiết kế API và mô hình dữ liệu — trước khi viết một dòng code",
+    "Triển khai từng module — từng phần được kiểm tra trước khi gắn vào tổng thể",
+    "Integration tests, tài liệu, và bàn giao vận hành"
   ],
   "deliverables": [
-    "Service backend deploy được",
-    "OpenAPI / tài liệu endpoint",
-    "Env sample + runbook ngắn"
+    "Backend services sẵn sàng deploy lên môi trường của bạn",
+    "Tài liệu OpenAPI / endpoint — đội kỹ thuật hoặc đối tác sau này đọc được ngay",
+    "Env samples và runbook ngắn — tự vận hành mà không phụ thuộc Dolphin Software"
+  ],
+  "audience": "Startup và SMB cần API ổn định, xác thực an toàn, và tích hợp bên thứ ba — mà không muốn tự quản lý đội kỹ thuật toàn thời gian.",
+  "useCases": [
+    "API cho web và mobile — một backend phục vụ cả hai nền tảng, giảm trùng lặp",
+    "Xác thực, vai trò, webhooks — phân quyền người dùng, nhận sự kiện từ hệ thống ngoài",
+    "Thanh toán & email — tích hợp MoMo, ZaloPay, VNPay, Zalo OA, SendGrid vào luồng nghiệp vụ thực",
+    "Lưu trữ file & CDN — upload ảnh, tài liệu, media không làm chậm server chính",
+    "Internal dashboards & ops tools — API cho công cụ nội bộ, báo cáo vận hành"
+  ],
+  "faq": [
+    {
+      "q": "Stack mặc định là gì?",
+      "a": "Node.js với NestJS hoặc Express kết hợp PostgreSQL là lựa chọn phổ biến nhất của Dolphin Software. Tuy nhiên, Dolphin Software điều chỉnh theo hệ thống hiện tại của bạn nếu cần — không ép buộc công nghệ không phù hợp."
+    },
+    {
+      "q": "Tài liệu API có được bàn giao không?",
+      "a": "Có. Mỗi dự án đều bao gồm tài liệu OpenAPI hoặc ghi chú endpoint đầy đủ, kèm env samples tại thời điểm bàn giao — để đội kỹ thuật hoặc đối tác tiếp theo hiểu hệ thống ngay."
+    },
+    {
+      "q": "Dolphin Software hỗ trợ tích hợp thanh toán Việt Nam không?",
+      "a": "Có. Dolphin Software tích hợp MoMo, ZaloPay, và VNPay vào luồng nghiệp vụ thực — không phải demo sandbox bỏ ngỏ. Xem thêm trang tích hợp thanh toán tại /services/integrations/."
+    },
+    {
+      "q": "Tôi không có đội kỹ thuật — có làm việc được với Dolphin Software không?",
+      "a": "Được. Phần lớn khách hàng SMB của Dolphin Software không có đội IT nội bộ. Bạn chỉ cần mô tả bài toán kinh doanh — Dolphin Software sẽ đề xuất phạm vi phù hợp và bàn giao kèm hướng dẫn vận hành."
+    },
+    {
+      "q": "Sau khi bàn giao, nếu cần thêm tính năng thì sao?",
+      "a": "Bảo hành kỹ thuật (thường 3–6 tháng) bao gồm lỗi trong phạm vi đã chấp nhận. Tính năng mới được báo giá riêng trước khi thực hiện — không tự ý phát sinh chi phí."
+    },
+    {
+      "q": "Mất bao lâu để hoàn thành một dự án backend?",
+      "a": "Thời gian phụ thuộc vào độ phức tạp. Một backend API cơ bản thường mất 2–4 tuần. Tích hợp nhiều bên thứ ba hoặc hệ thống phân quyền phức tạp hơn sẽ được ước tính cụ thể trong báo giá sau khi làm rõ phạm vi."
+    }
   ]
 }

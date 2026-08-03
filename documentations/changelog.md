@@ -2,6 +2,8 @@
 
 ## 2026-08-03
 
+- `/services/backend/` VI SEO/AEO/GEO rewriter (Jasper): meta “Phát Triển Backend & Tích Hợp Hệ Thống”; intro snippet-ready; section leads; use cases cụ thể; FAQ 6 Q (+ VN payments → `/services/integrations/`, timeline 2–4 tuần); bake VI meta + Service/FAQ JSON-LD; EN/JA sync; schema `public/schema/services/backend.json`.
+- Nav/footer: remove UI/UX (`/services/design/`) from menus; route kept.
 - **Removed Custom Agent product:** deleted `CustomAgentContent` / `custom-agent-copy` / schema JSON; `/custom-agent/` + `/services/custom-agent/` redirect → `/ai-transform/`; nav/footer/AiEdge/sitemap retargeted; agent = building block inside AI Transform roadmap only.
 - Careers FAQ (`#careers-faq`): accordion dropdown (open first item) — same pattern as Dolphin Care / AI Transform.
 - About FAQ (`#about-faq`): same accordion pattern.
