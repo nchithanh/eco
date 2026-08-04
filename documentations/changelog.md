@@ -2,7 +2,9 @@
 
 ## 2026-08-04
 
-- `/news/` layout Canva **pageNew** (page 2): eyebrow + title/blurb trái, filter pills phải; featured ngang (copy \| ảnh + badge Nổi bật); grid 3 cột có thumbnail; i18n `pageEyebrow`, `featuredLabel`.
+- Gỡ `SiteGridRuns` — bỏ line phát sáng chạy ngẫu nhiên trên nền grid; giữ lưới ô vuông tĩnh `body::after`.
+- Homepage `#news` carousel: desktop click card mở popup (mouse không hijack drag pointer).
+- `/news/` layout Canva **pageNew** (page 2): eyebrow + title/blurb trái, filter pills phải; featured ngang; grid 3 cột; i18n `pageEyebrow`, `featuredLabel`.
 - `/news/[slug]/` hero split: category/date + title + excerpt trái, ảnh chính phải (lg+); popup `Reveal immediate` để body hiện đủ.
 
 ## 2026-08-06

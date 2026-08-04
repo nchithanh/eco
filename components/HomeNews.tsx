@@ -188,6 +188,7 @@ export function HomeNews() {
   };
 
   const finishDrag = (event: ReactPointerEvent<HTMLDivElement>) => {
+    if (event.pointerType === "mouse") return;
     const drag = dragRef.current;
     if (drag.pointerId !== event.pointerId) return;
 
@@ -215,6 +216,8 @@ export function HomeNews() {
 
   const onTrackPointerDown = (event: ReactPointerEvent<HTMLDivElement>) => {
     if (!showSideCards || event.button !== 0) return;
+    // Desktop: let card links receive plain clicks; use arrows/dots to slide.
+    if (event.pointerType === "mouse") return;
 
     dragRef.current = {
       pointerId: event.pointerId,
@@ -227,6 +230,7 @@ export function HomeNews() {
   };
 
   const onTrackPointerMove = (event: ReactPointerEvent<HTMLDivElement>) => {
+    if (event.pointerType === "mouse") return;
     const drag = dragRef.current;
     if (drag.pointerId !== event.pointerId) return;
 

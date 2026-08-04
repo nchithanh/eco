@@ -294,6 +294,29 @@ describe("Dolphin Software homepage", () => {
     ).toHaveAttribute("href", expect.stringMatching(/\/news\/?$/));
   });
 
+  it("opens news article preview when clicking the active carousel card", async () => {
+    window.localStorage.setItem("kuct-locale", "vi");
+    const user = userEvent.setup();
+    renderHome();
+
+    const news = document.getElementById("news");
+    expect(news).toBeTruthy();
+
+    await user.click(
+      within(news!).getByRole("link", {
+        name: /Website giới thiệu xe: Showroom cần gì/i,
+      }),
+    );
+
+    const dialog = await screen.findByRole("dialog");
+    expect(
+      within(dialog).getByRole("link", { name: /Xem full/i }),
+    ).toHaveAttribute(
+      "href",
+      expect.stringMatching(/website-gioi-thieu-xe-showroom/),
+    );
+  });
+
   it("reveals the contact link from the mobile menu", async () => {
     const user = userEvent.setup();
     render(

@@ -6,7 +6,6 @@ import { AiChatWidget } from "@/components/AiChatWidget";
 import { CookieConsent } from "@/components/CookieConsent";
 import { PagePreviewProvider } from "@/components/PagePreviewProvider";
 import { QuoteProvider } from "@/components/QuoteProvider";
-import { SiteGridRuns } from "@/components/SiteGridRuns";
 import { WhaleBackdrop } from "@/components/WhaleBackdrop";
 import { LocaleProvider } from "@/lib/i18n/LocaleProvider";
 import { ThemeProvider } from "@/lib/theme";
@@ -21,7 +20,6 @@ export function AppProviders({ children }: { children: ReactNode }) {
         <QuoteProvider>
           <PagePreviewProvider>
             {SHOW_WHALE_BACKDROP ? <WhaleBackdrop /> : null}
-            <SiteGridRuns />
             <AgentLoader />
             <div className="relative z-10">{children}</div>
             <AiChatWidget />
