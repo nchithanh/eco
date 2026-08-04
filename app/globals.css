@@ -654,7 +654,58 @@ html[data-theme="violet"] body::after {
     border-color 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Soft lift for list rows (news teaser / /news) */
+/* Homepage #news carousel — slide on prev/next/dot */
+.kuct-home-news-track {
+  touch-action: pan-y;
+  cursor: grab;
+}
+
+.kuct-home-news-track.is-dragging {
+  cursor: grabbing;
+  user-select: none;
+}
+
+.kuct-home-news-track.is-dragging a {
+  pointer-events: none;
+}
+
+@keyframes kuct-home-news-slide-next {
+  from {
+    opacity: 0.5;
+    transform: translateX(2rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes kuct-home-news-slide-prev {
+  from {
+    opacity: 0.5;
+    transform: translateX(-2rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.kuct-home-news-slide-next {
+  animation: kuct-home-news-slide-next 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.kuct-home-news-slide-prev {
+  animation: kuct-home-news-slide-prev 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kuct-home-news-slide-next,
+  .kuct-home-news-slide-prev {
+    animation: none;
+  }
+}
+
 .kuct-list-hover {
   touch-action: pan-y;
   border: none;

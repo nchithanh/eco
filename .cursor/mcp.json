@@ -1,8 +1,35 @@
 {
   "mcpServers": {
     "canva-dev": {
-      "command": "npx",
-      "args": ["-y", "@canva/cli@latest", "mcp"]
+      "command": "/home/thanhnc/.nvm/versions/node/v24.16.0/bin/npx",
+      "args": ["-y", "@canva/cli@latest", "mcp"],
+      "env": {
+        "PATH": "/home/thanhnc/.nvm/versions/node/v24.16.0/bin:/usr/local/bin:/usr/bin:/bin"
+      }
+    },
+    "canva": {
+      "command": "/home/thanhnc/.nvm/versions/node/v24.16.0/bin/npx",
+      "args": [
+        "-y",
+        "mcp-remote@latest",
+        "https://mcp.canva.com/mcp"
+      ],
+      "env": {
+        "PATH": "/home/thanhnc/.nvm/versions/node/v24.16.0/bin:/usr/local/bin:/usr/bin:/bin"
+      }
+    },
+    "chrome-devtools": {
+      "command": "/home/thanhnc/.nvm/versions/node/v24.16.0/bin/npx",
+      "args": [
+        "-y",
+        "chrome-devtools-mcp@latest",
+        "--isolated=true",
+        "--viewport=1280x720",
+        "--executablePath=/mnt/c/Program Files/Google/Chrome/Application/chrome.exe"
+      ],
+      "env": {
+        "PATH": "/home/thanhnc/.nvm/versions/node/v24.16.0/bin:/usr/local/bin:/usr/bin:/bin"
+      }
     }
   }
 }

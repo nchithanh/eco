@@ -5,8 +5,13 @@ export type NewsCopy = {
   meta: { title: string; description: string };
   title: string;
   blurb: string;
+  pageEyebrow: string;
+  featuredLabel: string;
   homeEyebrow: string;
   homeTitle: string;
+  homeCarouselEyebrow: string;
+  homeCarouselTitle: string;
+  homeCarouselSupport: string;
   viewAll: string;
   filterAll: string;
   readMore: string;
@@ -18,6 +23,7 @@ export type NewsCopy = {
   breadcrumbHome: string;
   breadcrumbNews: string;
   categories: Record<NewsCategory, string>;
+  emptyState: string;
 };
 
 const vi: NewsCopy = {
@@ -29,9 +35,15 @@ const vi: NewsCopy = {
   title: "Tin tức & ghi chép",
   blurb:
     "Bài ngắn về product, engineering và cách làm việc — không phải thông cáo báo chí.",
+  pageEyebrow: "Tin tức & ghi chép",
+  featuredLabel: "Nổi bật",
   homeEyebrow: "Ghi chép",
   homeTitle: "Ghi chép [[mới nhất]]",
-  viewAll: "Xem tất cả",
+  homeCarouselEyebrow: "Tin tức & cập nhật",
+  homeCarouselTitle: "Cập nhật [[đáng theo dõi]]",
+  homeCarouselSupport:
+    "Theo dõi thay đổi mới — từ sản phẩm, kỹ thuật đến cách làm việc của team.",
+  viewAll: "Xem đầy đủ",
   filterAll: "Tất cả",
   readMore: "Đọc tiếp",
   readMinutes: "{n} phút đọc",
@@ -48,6 +60,7 @@ const vi: NewsCopy = {
     studio: "Studio",
     cases: "Case",
   },
+  emptyState: "Chưa có bài viết. Nội dung mới sẽ được đăng tại đây.",
 };
 
 const en: NewsCopy = {
@@ -59,9 +72,15 @@ const en: NewsCopy = {
   title: "News & notes",
   blurb:
     "Product, engineering, how we work — short notes, not press releases.",
+  pageEyebrow: "News & notes",
+  featuredLabel: "Featured",
   homeEyebrow: "Notes",
   homeTitle: "[[Latest]] notes",
-  viewAll: "View all notes",
+  homeCarouselEyebrow: "News & updates",
+  homeCarouselTitle: "Updates [[worth watching]]",
+  homeCarouselSupport:
+    "Follow the latest changes — from products and engineering to how we work.",
+  viewAll: "View full",
   filterAll: "All",
   readMore: "Read more",
   readMinutes: "{n} min read",
@@ -78,6 +97,7 @@ const en: NewsCopy = {
     studio: "Studio",
     cases: "Cases",
   },
+  emptyState: "No posts yet. New articles will appear here.",
 };
 
 const ja: NewsCopy = {
@@ -89,9 +109,15 @@ const ja: NewsCopy = {
   title: "ニュース＆メモ",
   blurb:
     "プロダクト・技術・進め方の短い記事です。プレスリリースではありません。",
+  pageEyebrow: "ニュース＆メモ",
+  featuredLabel: "注目",
   homeEyebrow: "メモ",
   homeTitle: "[[最新]]のメモ",
-  viewAll: "すべてのニュースを見る",
+  homeCarouselEyebrow: "ニュース＆アップデート",
+  homeCarouselTitle: "[[注目]]のアップデート",
+  homeCarouselSupport:
+    "プロダクト・技術・進め方の最新情報をチェック。",
+  viewAll: "すべて見る",
   filterAll: "すべて",
   readMore: "続きを読む",
   readMinutes: "約{n}分",
@@ -108,6 +134,7 @@ const ja: NewsCopy = {
     studio: "スタジオ",
     cases: "ケース",
   },
+  emptyState: "まだ記事がありません。新しい記事はここに掲載されます。",
 };
 
 

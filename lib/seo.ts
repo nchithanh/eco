@@ -122,6 +122,41 @@ export function serviceJsonLd(input: {
   };
 }
 
+export function articleJsonLd(input: {
+  title: string;
+  description: string;
+  path: string;
+  datePublished: string;
+  image?: string;
+}) {
+  const path = input.path.endsWith("/") ? input.path : `${input.path}/`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: input.title,
+    description: input.description,
+    datePublished: input.datePublished,
+    url: absoluteUrl(path),
+    author: {
+      "@type": "Organization",
+      name: "Dolphin Software",
+      url: SITE_URL,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Dolphin Software",
+      url: SITE_URL,
+      logo: {
+        "@type": "ImageObject",
+        url: absoluteUrl("/brand/logo-dolphin.webp"),
+      },
+    },
+    ...(input.image
+      ? { image: absoluteUrl(input.image) }
+      : {}),
+  };
+}
+
 export function faqPageJsonLd(items: { q: string; a: string }[]) {
   return {
     "@context": "https://schema.org",

@@ -9,7 +9,7 @@ How Cursor **agents**, **Content Agent pack**, modes/skills, and **`documentatio
 | Core rule | `.cursor/rules/dolphin-core.mdc` | Always on — brand, ICP, docs pointer |
 | Agent router | `.cursor/agents/_router.md` | Pick primary persona (content / seo / frontend / …) |
 | Personas | `.cursor/agents/*.md` | Role briefs |
-| Content rules | `.cursor/rules/content-*.mdc` | Brand, writing, forbidden, SEO for copy |
+| Content rules | `.cursor/rules/content-*.mdc`, **`seo-geo-html.mdc`** | Brand, writing, forbidden, SEO copy + **semantic HTML** |
 | Knowledge pack | `.cursor/knowledge/` | Company source of truth (company, opinion, values, services, pains…) — not customer RAG |
 | Examples | `.cursor/examples/` | Tone references (blog / FB / Zalo / landing) |
 | Prompts | `.cursor/prompts/` | `create-blog`, `create-social`, `pipeline` |

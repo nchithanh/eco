@@ -4,7 +4,7 @@ Entry: `app/page.tsx` → `components/HomePage.tsx`.
 
 ## Schema (section order)
 
-Outcome-first story: trust → principles → how we help → proof → Care / Ops AI → process → fit → packages → FAQ → CTA.
+Outcome-first story: trust → principles → how we help → proof → Care / Ops AI → process → fit → packages → news → FAQ → CTA.
 
 ```
 Hero
@@ -17,6 +17,7 @@ Hero
 ├── Process                     → Process `#process`
 ├── Fit                         → FitSection `#fit` (VI overlay; optional)
 ├── Solutions                   → PopularServices `#popular-services`
+├── News                        → HomeNews `#news` (hidden when no posts)
 ├── FAQ                         → Faq `#faq`
 └── CTA                         → ContactForm `#contact`
 ```
@@ -34,11 +35,13 @@ Hero
 | 8 | Process | `Process` | `#process` |
 | 9 | Fit | `FitSection` | `#fit` (via homepage overlay; hidden if `t.fit` missing) |
 | 10 | Solutions | `PopularServices` | `#popular-services` — 50/50: left intro / right top tabs + detail |
-| 11 | FAQ | `Faq` | `#faq` |
-| 12 | CTA | `ContactForm` | `#contact` |
+| 11 | News | `HomeNews` | `#news` — Canva page 4 carousel: header + horizontal cards + dots |
+| — | `/news/` list | `NewsContent` | Canva **pageNew** (page 2): eyebrow + title/filters row; featured split (copy \| image); grid cards ↗ |
+| 12 | FAQ | `Faq` | `#faq` |
+| 13 | CTA | `ContactForm` | `#contact` |
 | — | Footer | `Footer` | |
 
-**Deferred:** Testimonials. **Not on homepage:** WhatYouGet, TrustStrip, TechStack, OpsLifecycle, CoFounder, HomeNews, UiGallery.
+**Deferred:** Testimonials. **Not on homepage:** WhatYouGet, TrustStrip, TechStack, OpsLifecycle, CoFounder, UiGallery.
 
 ## Brand chrome (VI)
 

@@ -320,8 +320,13 @@ export type Dictionary = {
     meta: { title: string; description: string };
     title: string;
     blurb: string;
+    pageEyebrow: string;
+    featuredLabel: string;
     homeEyebrow: string;
     homeTitle: string;
+    homeCarouselEyebrow: string;
+    homeCarouselTitle: string;
+    homeCarouselSupport: string;
     viewAll: string;
     filterAll: string;
     readMore: string;
@@ -339,6 +344,7 @@ export type Dictionary = {
       studio: string;
       cases: string;
     };
+    emptyState: string;
   };
   careers: {
     meta: { title: string; description: string };

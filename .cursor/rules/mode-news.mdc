@@ -10,7 +10,7 @@ Use when the user asks to write, edit, plan, or localize a **blog / news** artic
 ## Before drafting (required reads)
 
 1. Persona: `.cursor/agents/content.md` (+ `.cursor/agents/seo.md`); prompt `.cursor/prompts/create-blog.md` / `pipeline.md`
-2. Content rules: `content-brand`, `content-writing`, `content-forbidden`, `content-seo`
+2. Content rules: `content-brand`, `content-writing`, `content-forbidden`, `content-seo`, **`seo-geo-html`**
 3. Knowledge: `.cursor/knowledge/` (topic files that match the brief)
 4. Tone: `.cursor/examples/blog/`
 5. `documentations/agent-ops.md` (checklist)
@@ -29,7 +29,8 @@ Also apply skills when relevant:
 1. Short plan (keyword, slug, locale, outline) → wait for **`ok`**
 2. Implement only news-related files unless user asks otherwise
 3. Update `documentations/changelog.md` if the change is non-trivial
-4. Do not invent case metrics or customer names
+4. New article with custom images → add `documentations/news-{slug}-canva-prompts.md` (see existing examples)
+5. Do not invent case metrics or customer names
 
 ## Output shape (draft)
 

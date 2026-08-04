@@ -12,6 +12,7 @@ import { AiEdge } from "@/components/AiEdge";
 import { Process } from "@/components/Process";
 import { FitSection } from "@/components/FitSection";
 import { PopularServices } from "@/components/PopularServices";
+import { HomeNews } from "@/components/HomeNews";
 import { Faq } from "@/components/Faq";
 import { ContactForm } from "@/components/ContactForm";
 import { Footer } from "@/components/Footer";
@@ -19,7 +20,7 @@ import { Footer } from "@/components/Footer";
 /**
  * Homepage story (outcome-first):
  * Hero → Outcomes → Why → How we help → Projects → Care → Ops AI →
- * Process → Fit → Solutions → FAQ → CTA
+ * Process → Fit → Solutions → News → FAQ → CTA
  */
 export function HomePage() {
   return (
@@ -36,6 +37,7 @@ export function HomePage() {
       <Process />
       <FitSection />
       <PopularServices />
+      <HomeNews />
       <Faq />
       <ContactForm />
       <Footer />

@@ -19,6 +19,7 @@ Update these when code changes (see `.cursor/rules/update-documentations.mdc`).
 | [growth-reach-users.md](./growth-reach-users.md) | Plan: tiếp cận user / growth (GSC, kênh, content, CTA) |
 | [seo-keywords.md](./seo-keywords.md) | SEO từ khóa web-first (P1/P2/P3) + gợi ý bài viết |
 | [agent-dolphin-canva-prompts.md](./agent-dolphin-canva-prompts.md) | Canva AI image prompts for Dolphin Care page |
+| [news-website-gioi-thieu-xe-showroom-canva-prompts.md](./news-website-gioi-thieu-xe-showroom-canva-prompts.md) | Canva AI prompts — news article showroom ô tô |
 | [changelog.md](./changelog.md) | Dated change log |
 
 Legacy notes may still exist under `docs/` — prefer **this folder** going forward.

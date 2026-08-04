@@ -40,6 +40,7 @@ describe("Dolphin Software homepage", () => {
     const process = document.getElementById("process");
     const fit = document.getElementById("fit");
     const popular = document.getElementById("popular-services");
+    const news = document.getElementById("news");
     const faq = document.getElementById("faq");
     const contact = document.getElementById("contact");
 
@@ -53,12 +54,12 @@ describe("Dolphin Software homepage", () => {
     expect(aiEdge).toBeTruthy();
     expect(process).toBeTruthy();
     expect(popular).toBeTruthy();
+    expect(news).toBeTruthy();
     expect(faq).toBeTruthy();
     expect(contact).toBeTruthy();
 
     expect(document.getElementById("stack")).toBeNull();
     expect(document.getElementById("ops")).toBeNull();
-    expect(document.getElementById("news")).toBeNull();
     expect(document.getElementById("handover")).toBeNull();
     expect(document.getElementById("what-you-get")).toBeNull();
     expect(document.getElementById("ui-gallery")).toBeNull();
@@ -79,7 +80,8 @@ describe("Dolphin Software homepage", () => {
     } else {
       expect(process!.compareDocumentPosition(popular!) & following).toBeTruthy();
     }
-    expect(popular!.compareDocumentPosition(faq!) & following).toBeTruthy();
+    expect(popular!.compareDocumentPosition(news!) & following).toBeTruthy();
+    expect(news!.compareDocumentPosition(faq!) & following).toBeTruthy();
     expect(faq!.compareDocumentPosition(contact!) & following).toBeTruthy();
 
     expect(
@@ -252,10 +254,10 @@ describe("Dolphin Software homepage", () => {
     expect(screen.getAllByText(/^結果$/i).length).toBeGreaterThanOrEqual(1);
   });
 
-  it("renders why and contact; no stack or news on homepage", () => {
+  it("renders why and contact; no stack on homepage", () => {
     renderHome();
     expect(document.getElementById("stack")).toBeNull();
-    expect(document.getElementById("news")).toBeNull();
+    expect(document.getElementById("news")).toBeTruthy();
     expect(document.getElementById("cofounder")).toBeNull();
     expect(
       screen.getByRole("heading", {
@@ -278,9 +280,18 @@ describe("Dolphin Software homepage", () => {
     ).toHaveAttribute("href", "mailto:nchithanh9999@gmail.com");
   });
 
-  it("keeps news off the homepage schema", () => {
+  it("renders news section with latest post", () => {
     renderHome();
-    expect(document.getElementById("news")).toBeNull();
+    const news = document.getElementById("news");
+    expect(news).toBeTruthy();
+    expect(
+      within(news!).getByRole("link", {
+        name: /車販売店ウェブサイト：来店前に必要な機能/i,
+      }),
+    ).toHaveAttribute("aria-current", "true");
+    expect(
+      within(news!).getByRole("link", { name: /すべて見る/i }),
+    ).toHaveAttribute("href", expect.stringMatching(/\/news\/?$/));
   });
 
   it("reveals the contact link from the mobile menu", async () => {

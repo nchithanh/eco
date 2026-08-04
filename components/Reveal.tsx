@@ -22,6 +22,8 @@ type RevealProps = {
   as?: ElementType;
   delay?: number;
   variant?: RevealVariant;
+  /** Skip scroll-triggered hide in modals / embedded previews. */
+  immediate?: boolean;
   className?: string;
   style?: CSSProperties;
   children?: ReactNode;
@@ -32,6 +34,7 @@ export function Reveal({
   as: Component = "div",
   delay = 0,
   variant = "up",
+  immediate = false,
   className = "",
   style,
   children,
@@ -39,7 +42,8 @@ export function Reveal({
   ...rest
 }: RevealProps) {
   const { ref, inView } = useInView(inViewOptions);
-  const classes = [VARIANT_CLASS[variant], inView ? "is-inview" : "", className]
+  const visible = immediate || inView;
+  const classes = [VARIANT_CLASS[variant], visible ? "is-inview" : "", className]
     .filter(Boolean)
     .join(" ");
 

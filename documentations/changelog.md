@@ -1,5 +1,25 @@
 # Changelog
 
+## 2026-08-04
+
+- `/news/` layout Canva **pageNew** (page 2): eyebrow + title/blurb trái, filter pills phải; featured ngang (copy \| ảnh + badge Nổi bật); grid 3 cột có thumbnail; i18n `pageEyebrow`, `featuredLabel`.
+- `/news/[slug]/` hero split: category/date + title + excerpt trái, ảnh chính phải (lg+); popup `Reveal immediate` để body hiện đủ.
+
+## 2026-08-06
+
+- News: bài SEO/GEO **「Website giới thiệu xe: Showroom cần gì…」** — slug `website-gioi-thieu-xe-showroom`; VI SoT nguyên văn; FAQ 5 Q; hero + 2 inline images; Canva prompts `documentations/news-website-gioi-thieu-xe-showroom-canva-prompts.md`; sitemap entry.
+
+## 2026-08-05
+
+- News: bài SEO/GEO **「Studio cưới cần website xem váy online」** — slug `studio-cuoi-website-xem-vay-online`; VI SoT nguyên văn từ content pack; body blocks thêm `h3` + inline `image`; FAQ 5 Q; hero `public/news/studio-cuoi-website-xem-vay-online.jpg` + catalog inline `studio-cuoi-catalog-vay-online.jpg`; sitemap entry.
+- Homepage `#news` carousel: slide animation on prev/next/dot; **drag/swipe ngang** (pointer + touch, `touch-action: pan-y`); chặn click card sau swipe.
+- Rule **`.cursor/rules/seo-geo-html.mdc`** (always on): semantic HTML cho SEO/GEO — headings, `article`, `alt`, landmarks, carousel a11y; news UI aligned.
+
+## 2026-08-04
+
+- News: bài SEO/GEO đầu tiên **「5 dấu hiệu website doanh nghiệp đang làm mất khách」** — slug `5-dau-hieu-website-lam-mat-khach`; body blocks (lead/H2/p), FAQ accordion, Article + FAQPage JSON-LD; hero `public/news/5-dau-hieu-website-lam-mat-khach.jpg`; internal links `/services/web/`, `/dolphin-care/`, `/#contact`; VI SoT + EN/JA; sitemap entry.
+- Homepage: `HomeNews` carousel layout (Canva page 4) — eyebrow + title + View full; card slider glow center; dots/arrows.
+
 ## 2026-08-03
 
 - `/services/backend/` VI SEO/AEO/GEO rewriter (Jasper): meta “Phát Triển Backend & Tích Hợp Hệ Thống”; intro snippet-ready; section leads; use cases cụ thể; FAQ 6 Q (+ VN payments → `/services/integrations/`, timeline 2–4 tuần); bake VI meta + Service/FAQ JSON-LD; EN/JA sync; schema `public/schema/services/backend.json`.
