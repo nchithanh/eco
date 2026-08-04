@@ -2,28 +2,23 @@
 
 import { useEffect, useState } from "react";
 
-/** Matches repo CSS motion gate (`globals.css` / `useInView`). */
+/** @deprecated Prefer reduced-motion only; kept for call-site compatibility. */
 export const DESKTOP_MOTION_MQ = "(min-width: 1024px)";
 
-/** True when JS-driven motion (typewriter, chat demos) may run. */
+/** True when JS-driven motion (typewriter, chat demos, etc.) may run. */
 export function useDesktopMotion(): boolean {
   const [enabled, setEnabled] = useState(false);
 
   useEffect(() => {
     if (typeof window.matchMedia !== "function") {
-      setEnabled(false);
+      setEnabled(true);
       return;
     }
-    const desktop = window.matchMedia(DESKTOP_MOTION_MQ);
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const sync = () => setEnabled(desktop.matches && !reduce.matches);
+    const sync = () => setEnabled(!reduce.matches);
     sync();
-    desktop.addEventListener("change", sync);
     reduce.addEventListener("change", sync);
-    return () => {
-      desktop.removeEventListener("change", sync);
-      reduce.removeEventListener("change", sync);
-    };
+    return () => reduce.removeEventListener("change", sync);
   }, []);
 
   return enabled;

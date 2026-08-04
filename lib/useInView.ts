@@ -2,8 +2,6 @@
 
 import { useEffect, useRef, useState, type RefObject } from "react";
 
-const DESKTOP_MQ = "(min-width: 1024px)";
-
 export type UseInViewOptions = {
   threshold?: number;
   rootMargin?: string;
@@ -27,9 +25,8 @@ export function useInView<T extends HTMLElement = HTMLDivElement>(
     if (!el) return;
 
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const desktop = window.matchMedia(DESKTOP_MQ).matches;
 
-    if (reduced || !desktop || typeof IntersectionObserver === "undefined") {
+    if (reduced || typeof IntersectionObserver === "undefined") {
       setInView(true);
       return;
     }

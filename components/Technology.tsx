@@ -1,11 +1,12 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { AccentText } from "@/components/BrandName";
 import { Reveal } from "@/components/Reveal";
 import { assetPath } from "@/lib/asset";
 import { getAiTransformCopy } from "@/lib/i18n/ai-transform-copy";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
+import { useDesktopMotion } from "@/lib/motion";
 
 /** Demo series for Activity bars (px within h-14 / 56px track). */
 const ACTIVITY_BARS = [22, 38, 28, 48, 34, 44, 26, 40, 30, 46] as const;
@@ -168,25 +169,11 @@ function dataArcPath(x1: number, y1: number, x2: number, y2: number): string {
  return `M${x1} ${y1} Q${cx} ${cy} ${x2} ${y2}`;
 }
 
-function useDesktopLg() {
- const [isDesktop, setIsDesktop] = useState(false);
-
- useEffect(() => {
- const mq = window.matchMedia("(min-width: 1024px)");
- const sync = () => setIsDesktop(mq.matches);
- sync();
- mq.addEventListener("change", sync);
- return () => mq.removeEventListener("change", sync);
- }, []);
-
- return isDesktop;
-}
-
-/** Skip mounting the animated globe below lg — heavy SVG/CSS lags on mobile/tablet. */
+/** Skip mounting when prefers-reduced-motion — heavy SVG/CSS. */
 function DesktopNeuralSphere() {
- const isDesktop = useDesktopLg();
- if (!isDesktop) return null;
- return <NeuralSphere />;
+  const motion = useDesktopMotion();
+  if (!motion) return null;
+  return <NeuralSphere />;
 }
 
 function NeuralSphere() {

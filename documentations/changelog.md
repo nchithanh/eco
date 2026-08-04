@@ -14,6 +14,8 @@
 
 ## 2026-08-05
 
+- Mở **animation mọi thiết bị** (CSS float/fade/reveal/title + JS Reveal/IO + chat demos + NeuralSphere); chỉ tắt khi `prefers-reduced-motion`. Hover transform vẫn off dưới `lg`.
+- Hero: **parallax** nhẹ (`lib/use-parallax-scroll.ts`) trên glow / glass / mascot; copy + CTA đứng yên.
 - `AiChatWidget`: FAB dolphin luôn **bo tròn** (kiểu Samsung); nút **X** góc launcher ẩn chat trong phiên (toast + panel + avatar), giữ contact FAB; refresh hiện lại.
 - News: bài SEO/GEO **「Studio cưới cần website xem váy online」** — slug `studio-cuoi-website-xem-vay-online`; VI SoT nguyên văn từ content pack; body blocks thêm `h3` + inline `image`; FAQ 5 Q; hero `public/news/studio-cuoi-website-xem-vay-online.jpg` + catalog inline `studio-cuoi-catalog-vay-online.jpg`; sitemap entry.
 - Homepage `#news` carousel: slide animation on prev/next/dot; **drag/swipe ngang** (pointer + touch, `touch-action: pan-y`); chặn click card sau swipe.

@@ -25,7 +25,7 @@ Hero
 | # | Schema | Component | Anchor |
 | --- | --- | --- | --- |
 | — | Nav | `Nav` | |
-| 1 | Hero | `Hero` | `#top` — H1/subhead: LCP-safe `kuct-title-enter` (desktop) |
+| 1 | Hero | `Hero` | `#top` — H1/subhead: LCP-safe `kuct-title-enter`; parallax on glow/panels/mascot |
 | 2 | Outcomes | `SiteOutcomes` | `#stats` — section titles use `Reveal variant="title"` |
 | 3 | Why Dolphin | `WhyKuct` | `#why` |
 | 4 | How we help | `Capabilities` | `#capabilities` |
