@@ -5,7 +5,6 @@ import { useMemo, useRef, useState } from "react";
 import { AccentText } from "@/components/BrandName";
 import { LazyImage } from "@/components/LazyImage";
 import { Reveal } from "@/components/Reveal";
-import { usePagePreview } from "@/components/PagePreviewProvider";
 import { assetPath, themeAsset } from "@/lib/asset";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
 import type { Locale } from "@/lib/i18n/types";
@@ -57,13 +56,13 @@ function CarouselCard({
  categoryLabel,
  dateLabel,
  active,
- onOpen,
+ onNavigate,
 }: {
  item: NewsListItem;
  categoryLabel: string;
  dateLabel: string;
  active: boolean;
- onOpen: (href: string, event: MouseEvent<HTMLAnchorElement>) => void;
+ onNavigate: (event: MouseEvent<HTMLAnchorElement>) => void;
 }) {
  const { theme } = useTheme();
  const href = assetPath(`/news/${item.slug}/`);
@@ -73,7 +72,7 @@ function CarouselCard({
  <a
  href={href}
  draggable={false}
- onClick={(event) => onOpen(href, event)}
+ onClick={onNavigate}
  className={
  active
  ? "group relative flex w-[min(100%,18.5rem)] shrink-0 flex-col overflow-hidden rounded-xl bg-[var(--kuct-panel)] shadow-[0_8px_24px_rgb(26_21_32/0.08)] transition duration-500 sm:w-[20rem] lg:w-[21rem]"
@@ -129,7 +128,6 @@ function CarouselCard({
 
 export function HomeNews() {
  const { locale, t } = useLocale();
- const { openHref } = usePagePreview();
  const n = t.news;
 
  const items = useMemo(
@@ -178,13 +176,11 @@ export function HomeNews() {
  navigate(index, resolveSlideDirection(safeIndex, index, count));
  };
 
- const handleCardOpen = (href: string, event: MouseEvent<HTMLAnchorElement>) => {
+ const handleCardNavigate = (event: MouseEvent<HTMLAnchorElement>) => {
  if (dragRef.current.suppressClick) {
  event.preventDefault();
  dragRef.current.suppressClick = false;
- return;
  }
- openHref(href, event);
  };
 
  const finishDrag = (event: ReactPointerEvent<HTMLDivElement>) => {
@@ -304,7 +300,6 @@ export function HomeNews() {
  <a
  href={viewAllHref}
  className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--kuct-accent)] transition hover:text-[var(--kuct-text)]"
- onClick={(event) => openHref(viewAllHref, event)}
  >
  {n.viewAll}
  <span
@@ -357,7 +352,7 @@ export function HomeNews() {
  items[prevIndex]!.date,
  )}
  active={false}
- onOpen={handleCardOpen}
+ onNavigate={handleCardNavigate}
  />
  ) : null}
 
@@ -366,7 +361,7 @@ export function HomeNews() {
  categoryLabel={n.categories[items[safeIndex]!.category]}
  dateLabel={formatCarouselDate(locale, items[safeIndex]!.date)}
  active
- onOpen={handleCardOpen}
+ onNavigate={handleCardNavigate}
  />
 
  {showNextSide ? (
@@ -378,7 +373,7 @@ export function HomeNews() {
  items[nextIndex]!.date,
  )}
  active={false}
- onOpen={handleCardOpen}
+ onNavigate={handleCardNavigate}
  />
  ) : null}
  </div>

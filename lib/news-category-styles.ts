@@ -1,17 +1,17 @@
 import type { NewsCategory } from "@/lib/news-details";
 
-/** Dark-surface chips — muted fill + accent-readable text per category. */
+/** Light-canvas chips — stronger fill + darker text per category. */
 export const newsCategoryChipClass: Record<NewsCategory, string> = {
   process:
-    "border border-sky-400/25 bg-sky-500/10 text-sky-200",
+    "border border-sky-300 bg-sky-100 text-sky-900",
   product:
-    "border border-emerald-400/25 bg-emerald-500/10 text-emerald-200",
+    "border border-emerald-300 bg-emerald-100 text-emerald-900",
   tech:
-    "border border-amber-400/25 bg-amber-500/10 text-amber-200",
+    "border border-amber-300 bg-amber-100 text-amber-950",
   studio:
-    "border border-[rgba(var(--kuct-accent-rgb),0.35)] bg-[rgba(var(--kuct-accent-rgb),0.12)] text-[var(--kuct-accent)]",
+    "border border-[rgb(var(--kuct-accent-rgb)/0.45)] bg-[rgb(var(--kuct-accent-rgb)/0.14)] text-[var(--kuct-accent)]",
   cases:
-    "border border-white/15 bg-white/5 text-[var(--kuct-muted)]",
+    "border border-black/15 bg-black/[0.06] text-[var(--kuct-text)]",
 };
 
 export function newsCategoryChipClasses(category: NewsCategory): string {

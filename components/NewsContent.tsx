@@ -1,11 +1,9 @@
 "use client";
 
-import type { MouseEvent } from "react";
 import { useMemo, useState } from "react";
 import { AccentText } from "@/components/BrandName";
 import { LazyImage } from "@/components/LazyImage";
 import { Reveal } from "@/components/Reveal";
-import { usePagePreview } from "@/components/PagePreviewProvider";
 import { assetPath, themeAsset } from "@/lib/asset";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
 import { useTheme } from "@/lib/theme";
@@ -31,13 +29,11 @@ function FeaturedArticleBlock({
  categoryLabel,
  featuredLabel,
  readMoreLabel,
- onOpen,
 }: {
  item: NewsListItem;
  categoryLabel: string;
  featuredLabel: string;
  readMoreLabel: string;
- onOpen: (href: string, event: MouseEvent<HTMLAnchorElement>) => void;
 }) {
  const { locale } = useLocale();
  const { theme } = useTheme();
@@ -47,7 +43,7 @@ function FeaturedArticleBlock({
  <article>
  <a
  href={href}
- onClick={(event) => onOpen(href, event)}
+
         className="group grid overflow-hidden rounded-xl bg-[var(--kuct-panel)] transition duration-500 lg:grid-cols-2"
  >
  <div className="flex flex-col justify-center px-5 py-6 sm:px-7 sm:py-8 lg:px-8 lg:py-10">
@@ -107,12 +103,10 @@ function NewsGridCard({
  item,
  categoryLabel,
  readMoreLabel,
- onOpen,
 }: {
  item: NewsListItem;
  categoryLabel: string;
  readMoreLabel: string;
- onOpen: (href: string, event: MouseEvent<HTMLAnchorElement>) => void;
 }) {
  const { locale } = useLocale();
  const { theme } = useTheme();
@@ -123,7 +117,7 @@ function NewsGridCard({
  <article className="h-full">
  <a
  href={href}
- onClick={(event) => onOpen(href, event)}
+
  className="group flex h-full flex-col overflow-hidden rounded-xl bg-[var(--kuct-panel)] transition duration-500 hover:shadow-[0_0_1.75rem_rgb(26_21_32/0.09)]"
  >
  <div className="relative aspect-[16/10] overflow-hidden bg-[var(--kuct-panel)]">
@@ -172,7 +166,6 @@ function NewsGridCard({
 
 export function NewsContent({ embedded = false }: { embedded?: boolean }) {
  const { locale, t } = useLocale();
- const { openHref } = usePagePreview();
  const n = t.news;
  const [filter, setFilter] = useState<NewsCategory | "all">("all");
 
@@ -252,7 +245,6 @@ export function NewsContent({ embedded = false }: { embedded?: boolean }) {
  categoryLabel={n.categories[featured.category]}
  featuredLabel={n.featuredLabel}
  readMoreLabel={n.readMore}
- onOpen={(href, event) => openHref(href, event)}
  />
  </div>
  ) : null}
@@ -265,7 +257,6 @@ export function NewsContent({ embedded = false }: { embedded?: boolean }) {
  item={item}
  categoryLabel={n.categories[item.category]}
  readMoreLabel={n.readMore}
- onOpen={(href, event) => openHref(href, event)}
  />
  ))}
  </ul>

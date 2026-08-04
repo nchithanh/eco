@@ -15,6 +15,7 @@
 | GitHub `nchithanh` | `.cursor/rules/github-nchithanh.mdc` | Always |
 | Design Mode in-chat | `.cursor/rules/design-mode-chat.mdc` | Always |
 | Update documentations | `.cursor/rules/update-documentations.mdc` | Always |
+| Cookie consent bump | `.cursor/rules/cookie-consent-bump.mdc` | Always — bump `COOKIE_CONSENT_REVISION` on commit/push/build |
 | Responsive CSS units | `.cursor/rules/responsive-css-units.mdc` | Glob |
 
 ## Agents (personas)
@@ -53,3 +54,4 @@ Also: `AGENTS.md` — Next.js 16 may differ from training data; read local Next 
 - Hover transform effects stay off below `lg` (touch/tablet sticky-hover)
 - Do not invent brand “Dolphin Kich” for new copy — use **Dolphin Software**
 - Commits/deploy only when the user asks; push to `main` triggers Pages
+- On commit/push/Pages build: bump `COOKIE_CONSENT_REVISION` in `lib/cookie-consent.ts` (forces cookie banner again)

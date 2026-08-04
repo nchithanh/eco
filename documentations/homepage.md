@@ -35,7 +35,7 @@ Hero
 | 8 | Process | `Process` | `#process` |
 | 9 | Fit | `FitSection` | `#fit` (via homepage overlay; hidden if `t.fit` missing) |
 | 10 | Solutions | `PopularServices` | `#popular-services` — 50/50: left intro / right top tabs + detail |
-| 11 | News | `HomeNews` | `#news` — Canva page 4 carousel: header + horizontal cards + dots |
+| 11 | News | `HomeNews` | `#news` — carousel; click card → `/news/[slug]/` (full page, no popup) |
 | — | `/news/` list | `NewsContent` | Canva **pageNew** (page 2): eyebrow + title/filters row; featured split (copy \| image); grid cards ↗ |
 | 12 | FAQ | `Faq` | `#faq` |
 | 13 | CTA | `ContactForm` | `#contact` |

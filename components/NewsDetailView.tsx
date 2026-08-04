@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useId, useState } from "react";
+import { useCallback, useEffect, useId, useState } from "react";
 import { LazyImage } from "@/components/LazyImage";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
@@ -11,6 +11,7 @@ import { NewsBodyText } from "@/components/NewsBodyText";
 import { usePagePreview } from "@/components/PagePreviewProvider";
 import { assetPath, routePath, themeAsset } from "@/lib/asset";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
+import { absoluteUrl } from "@/lib/seo";
 import { useTheme } from "@/lib/theme";
 import { newsCategoryChipClasses } from "@/lib/news-category-styles";
 import {
@@ -46,7 +47,7 @@ function NewsBodyBlockView({ block }: { block: NewsBodyBlock }) {
 
  if (block.type === "lead") {
  return (
- <p className="rounded-xl bg-[rgba(var(--kuct-accent-rgb),0.08)] px-5 py-4 text-base leading-relaxed text-[var(--kuct-text)] sm:text-lg">
+ <p className="overflow-visible rounded-xl bg-[rgba(var(--kuct-accent-rgb),0.08)] px-5 py-4 text-base leading-relaxed text-[var(--kuct-text)] sm:text-lg">
  <NewsBodyText text={block.text} />
  </p>
  );
@@ -90,7 +91,39 @@ export function NewsDetailContent({
  const contactHref = assetPath("/#contact");
  const faqId = useId();
  const [openFaq, setOpenFaq] = useState<number | null>(0);
+ const [copied, setCopied] = useState(false);
  const faqItems = detail.faq ?? [];
+ const shareUrl = absoluteUrl(`/news/${slug}/`);
+
+ useEffect(() => {
+ if (!copied) return;
+ const id = window.setTimeout(() => setCopied(false), 2000);
+ return () => window.clearTimeout(id);
+ }, [copied]);
+
+ const shareOnFacebook = useCallback(() => {
+ const href = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`;
+ window.open(href, "_blank", "noopener,noreferrer,width=600,height=480");
+ }, [shareUrl]);
+
+ const copyLink = useCallback(async () => {
+ try {
+ await navigator.clipboard.writeText(shareUrl);
+ setCopied(true);
+ } catch {
+ try {
+ const input = document.createElement("input");
+ input.value = shareUrl;
+ document.body.appendChild(input);
+ input.select();
+ document.execCommand("copy");
+ document.body.removeChild(input);
+ setCopied(true);
+ } catch {
+ /* ignore */
+ }
+ }
+ }, [shareUrl]);
 
  return (
  <div>
@@ -160,6 +193,24 @@ export function NewsDetailContent({
  <p className="mt-4 text-sm leading-relaxed text-[var(--kuct-muted)] sm:text-base">
  {detail.excerpt}
  </p>
+
+ <div className="mt-5 flex flex-wrap items-center gap-3">
+ <button
+ type="button"
+ className="kuct-btn-ghost inline-flex items-center text-sm"
+ onClick={shareOnFacebook}
+ >
+ {ui.shareFacebook}
+ </button>
+ <button
+ type="button"
+ className="kuct-btn-ghost inline-flex items-center text-sm"
+ onClick={copyLink}
+ aria-live="polite"
+ >
+ {copied ? ui.copied : ui.copyLink}
+ </button>
+ </div>
  </div>
  </Reveal>
 
@@ -182,7 +233,7 @@ export function NewsDetailContent({
 
  <section className={embedded ? "py-10 sm:py-12" : "py-16 sm:py-20"}>
  <div className="mx-auto max-w-3xl px-6">
- <Reveal immediate={embedded}>
+ <Reveal immediate>
  <div className="space-y-5">
  {detail.body.map((block, index) => (
  <NewsBodyBlockView
@@ -194,7 +245,7 @@ export function NewsDetailContent({
  </Reveal>
 
  {faqItems.length > 0 ? (
- <Reveal delay={40} immediate={embedded}>
+ <Reveal delay={40} immediate>
  <aside className="mt-14 border-t pt-10">
  <h2 className="font-display text-lg font-semibold text-[var(--kuct-text)] sm:text-xl">
  {ui.faqTitle}
@@ -254,7 +305,6 @@ export function NewsDetailContent({
  <a
  href={href}
  className="group flex flex-wrap items-baseline gap-x-3 gap-y-1"
- onClick={(event) => openHref(href, event)}
  >
  <span className="font-medium text-[var(--kuct-text)] transition group-hover:text-[var(--kuct-accent)]">
  {item.title}

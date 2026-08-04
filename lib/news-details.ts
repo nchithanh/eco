@@ -63,6 +63,9 @@ export type NewsDetailUi = {
   breadcrumbNews: string;
   readMore: string;
   faqTitle: string;
+  shareFacebook: string;
+  copyLink: string;
+  copied: string;
 };
 
 type NewsMeta = {
@@ -539,6 +542,9 @@ const detailUi: Record<Locale, NewsDetailUi> = {
     breadcrumbNews: "Tin tức",
     readMore: "Đọc tiếp",
     faqTitle: "Câu hỏi thường gặp",
+    shareFacebook: "Chia sẻ Facebook",
+    copyLink: "Sao chép liên kết",
+    copied: "Đã sao chép",
   },
   en: {
     relatedTitle: "Related",
@@ -547,6 +553,9 @@ const detailUi: Record<Locale, NewsDetailUi> = {
     breadcrumbNews: "News",
     readMore: "Read more",
     faqTitle: "FAQ",
+    shareFacebook: "Share on Facebook",
+    copyLink: "Copy link",
+    copied: "Copied",
   },
   ja: {
     relatedTitle: "関連記事",
@@ -555,6 +564,9 @@ const detailUi: Record<Locale, NewsDetailUi> = {
     breadcrumbNews: "ニュース",
     readMore: "続きを読む",
     faqTitle: "よくある質問",
+    shareFacebook: "Facebookでシェア",
+    copyLink: "リンクをコピー",
+    copied: "コピーしました",
   },
 };
 

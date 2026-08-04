@@ -14,6 +14,10 @@
 
 ## 2026-08-05
 
+- News: click bài trên homepage + `/news/` **redirect** `/news/[slug]/` (không mở popup preview).
+- News detail: body + FAQ `Reveal immediate` (tránh content opacity 0); lead `overflow-visible`.
+- News detail: nút **Chia sẻ Facebook** + **Sao chép liên kết** dưới excerpt (`NewsDetailView` + i18n `getNewsDetailUi`).
+- Cookie consent: versioned keys via `COOKIE_CONSENT_REVISION` in `lib/cookie-consent.ts`; rule `.cursor/rules/cookie-consent-bump.mdc` — bump mỗi commit/push/build để popup hiện lại trên thiết bị cũ.
 - Mở **animation mọi thiết bị** (CSS float/fade/reveal/title + JS Reveal/IO + chat demos + NeuralSphere); chỉ tắt khi `prefers-reduced-motion`. Hover transform vẫn off dưới `lg`.
 - Hero: **parallax** nhẹ (`lib/use-parallax-scroll.ts`) trên glow / glass / mascot; copy + CTA đứng yên.
 - `AiChatWidget`: FAB dolphin luôn **bo tròn** (kiểu Samsung); nút **X** góc launcher ẩn chat trong phiên (toast + panel + avatar), giữ contact FAB; refresh hiện lại.

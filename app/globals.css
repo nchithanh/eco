@@ -649,6 +649,7 @@ html[data-theme="black"] .kuct-btn-ghost::after {
 .kuct-cookie-banner {
   background: var(--kuct-glass);
   border: none;
+  border-top: 4px solid var(--kuct-accent);
   box-shadow: var(--kuct-shadow);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
