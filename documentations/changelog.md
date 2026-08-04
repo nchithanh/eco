@@ -2,6 +2,7 @@
 
 ## 2026-08-04
 
+- Theme mặc định (`violet`): **dark → light** flat white; grid kẻ ô đen nhạt; **tím đậm** `#7c3aed`; announcement Samsung white; chữ `#000`/`#555`; block `#f7f7f7`; **bỏ hết viền tím**; header ẩn/hiện theo scroll; **giảm border-radius** site-wide (`2xl`→`xl`, `xl`→`lg`; giữ `rounded-full`); comment token dark cũ.
 - Gỡ `SiteGridRuns` — bỏ line phát sáng chạy ngẫu nhiên trên nền grid; giữ lưới ô vuông tĩnh `body::after`.
 - Homepage `#news` carousel: desktop click card mở popup (mouse không hijack drag pointer).
 - `/news/` layout Canva **pageNew** (page 2): eyebrow + title/blurb trái, filter pills phải; featured ngang; grid 3 cột; i18n `pageEyebrow`, `featuredLabel`.

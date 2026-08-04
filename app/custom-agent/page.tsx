@@ -10,16 +10,16 @@ const redirectTo = assetPath(canonical);
 
 /** Legacy Custom Agent product — prefer /ai-transform/. */
 export const metadata: Metadata = {
-  ...buildPageMetadata({
-    title: c.metaTitle,
-    description: c.metaDescription,
-    path: canonical,
-    noIndex: true,
-  }),
-  title: { absolute: c.metaTitle },
-  robots: { index: false, follow: true },
+ ...buildPageMetadata({
+ title: c.metaTitle,
+ description: c.metaDescription,
+ path: canonical,
+ noIndex: true,
+ }),
+ title: { absolute: c.metaTitle },
+ robots: { index: false, follow: true },
 };
 
 export default function Page() {
-  permanentRedirect(redirectTo);
+ permanentRedirect(redirectTo);
 }

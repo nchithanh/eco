@@ -10,96 +10,96 @@ import { useTheme } from "@/lib/theme";
 import { isWorkSlug } from "@/lib/works-details";
 
 const WORK_IMAGES: Record<string, string> = {
-  billiard: "/works/billiard.jpg",
-  badminton: "/works/badminton.jpg",
-  tickets: "/works/tickets.jpg",
-  beauty: "/works/beauty.jpg",
-  cafe: "/works/tickets.jpg",
-  clinic: "/works/beauty.jpg",
+ billiard: "/works/billiard.jpg",
+ badminton: "/works/badminton.jpg",
+ tickets: "/works/tickets.jpg",
+ beauty: "/works/beauty.jpg",
+ cafe: "/works/tickets.jpg",
+ clinic: "/works/beauty.jpg",
 };
 
 export function SitesShipped({
-  embedded = false,
+ embedded = false,
 }: {
-  embedded?: boolean;
+ embedded?: boolean;
 }) {
-  const { t } = useLocale();
-  const { theme } = useTheme();
-  const { openWork, close } = usePagePreview();
-  const w = t.works;
+ const { t } = useLocale();
+ const { theme } = useTheme();
+ const { openWork, close } = usePagePreview();
+ const w = t.works;
 
-  return (
-    <section
-      id="sites-shipped"
-      className={
-        embedded
-          ? "scroll-mt-20 border-t border-[var(--kuct-border)] py-14 sm:py-16"
-          : "scroll-mt-20 py-24"
-      }
-    >
-      <div className="mx-auto max-w-6xl px-6">
-        <Reveal variant="title">
-          <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
-            {w.eyebrow}
-          </p>
-          <h2 className="mt-4 max-w-3xl font-display text-3xl font-semibold leading-[1.12] tracking-tight sm:text-[2.15rem] lg:text-[2.35rem] lg:leading-[1.1]">
-            <AccentText>{w.title}</AccentText>
-          </h2>
-          <p className="mt-5 max-w-[46ch] text-base leading-[1.7] text-[var(--kuct-muted)]">
-            {w.support}
-          </p>
-        </Reveal>
+ return (
+ <section
+ id="sites-shipped"
+ className={
+ embedded
+ ? "scroll-mt-20 py-14 sm:py-16"
+ : "scroll-mt-20 py-24"
+ }
+ >
+ <div className="mx-auto max-w-6xl px-6">
+ <Reveal variant="title">
+ <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
+ {w.eyebrow}
+ </p>
+ <h2 className="mt-4 max-w-3xl font-display text-3xl font-semibold leading-[1.12] tracking-tight sm:text-[2.15rem] lg:text-[2.35rem] lg:leading-[1.1]">
+ <AccentText>{w.title}</AccentText>
+ </h2>
+ <p className="mt-5 max-w-[46ch] text-base leading-[1.7] text-[var(--kuct-muted)]">
+ {w.support}
+ </p>
+ </Reveal>
 
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
-          {w.items.map((item, index) => {
-            const slug = isWorkSlug(item.id) ? item.id : null;
-            const image = WORK_IMAGES[item.id] ?? "/works/billiard.jpg";
-            return (
-              <Reveal key={item.id} delay={index * 40}>
-                <button
-                  type="button"
-                  className="group flex w-full flex-col overflow-hidden rounded-2xl border border-[var(--kuct-border)] bg-[rgba(6,6,14,0.88)] text-left ring-1 ring-[var(--kuct-accent)]/10 transition hover:border-[var(--kuct-accent)]/35 hover:ring-[var(--kuct-accent)]/25"
-                  onClick={() => {
-                    if (!slug) return;
-                    if (embedded) close();
-                    openWork(slug);
-                  }}
-                >
-                  <div className="relative aspect-[16/10] overflow-hidden">
-                    <LazyImage
-                      src={themeAsset(image, theme)}
-                      alt={item.title}
-                      fill
-                      className="object-cover transition duration-500 group-hover:scale-[1.03]"
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 20rem"
-                    />
-                  </div>
-                  <div className="flex flex-1 flex-col gap-2 p-4 sm:p-5">
-                    <p className="text-[10px] font-semibold tracking-[0.14em] text-[var(--kuct-accent)] uppercase">
-                      {item.tag}
-                    </p>
-                    <h3 className="font-display text-base font-semibold tracking-tight text-[var(--kuct-text)] sm:text-lg">
-                      {item.title}
-                    </h3>
-                    <p className="text-sm leading-relaxed text-[var(--kuct-muted)]">
-                      {item.result}
-                    </p>
-                  </div>
-                </button>
-              </Reveal>
-            );
-          })}
-        </div>
+ <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
+ {w.items.map((item, index) => {
+ const slug = isWorkSlug(item.id) ? item.id : null;
+ const image = WORK_IMAGES[item.id] ?? "/works/billiard.jpg";
+ return (
+ <Reveal key={item.id} delay={index * 40}>
+ <button
+ type="button"
+ className="group flex w-full flex-col overflow-hidden rounded-xl bg-[var(--kuct-panel)] text-left transition "
+ onClick={() => {
+ if (!slug) return;
+ if (embedded) close();
+ openWork(slug);
+ }}
+ >
+ <div className="relative aspect-[16/10] overflow-hidden">
+ <LazyImage
+ src={themeAsset(image, theme)}
+ alt={item.title}
+ fill
+ className="object-cover transition duration-500 group-hover:scale-[1.03]"
+ sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 20rem"
+ />
+ </div>
+ <div className="flex flex-1 flex-col gap-2 p-4 sm:p-5">
+ <p className="text-[10px] font-semibold tracking-[0.14em] text-[var(--kuct-accent)] uppercase">
+ {item.tag}
+ </p>
+ <h3 className="font-display text-base font-semibold tracking-tight text-[var(--kuct-text)] sm:text-lg">
+ {item.title}
+ </h3>
+ <p className="text-sm leading-relaxed text-[var(--kuct-muted)]">
+ {item.result}
+ </p>
+ </div>
+ </button>
+ </Reveal>
+ );
+ })}
+ </div>
 
-        <Reveal className="mt-8 text-center sm:mt-10">
-          <a
-            href={`${assetPath("/")}#contact`}
-            className="kuct-btn-primary inline-flex items-center rounded-full px-7 py-3 text-sm font-semibold"
-          >
-            {w.cta}
-          </a>
-        </Reveal>
-      </div>
-    </section>
-  );
+ <Reveal className="mt-8 text-center sm:mt-10">
+ <a
+ href={`${assetPath("/")}#contact`}
+ className="kuct-btn-primary inline-flex items-center rounded-full px-7 py-3 text-sm font-semibold"
+ >
+ {w.cta}
+ </a>
+ </Reveal>
+ </div>
+ </section>
+ );
 }

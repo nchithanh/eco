@@ -8,20 +8,20 @@ import { buildPageMetadata, SEO_LOCALE } from "@/lib/seo";
 const c = newsByLocale[SEO_LOCALE];
 
 export const metadata: Metadata = {
-  ...buildPageMetadata({
-    title: c.meta.title,
-    description: c.meta.description,
-    path: "/news/",
-  }),
-  title: { absolute: c.meta.title },
+ ...buildPageMetadata({
+ title: c.meta.title,
+ description: c.meta.description,
+ path: "/news/",
+ }),
+ title: { absolute: c.meta.title },
 };
 
 export default function NewsPage() {
-  return (
-    <main>
-      <Nav />
-      <NewsContent />
-      <Footer />
-    </main>
-  );
+ return (
+ <main>
+ <Nav />
+ <NewsContent />
+ <Footer />
+ </main>
+ );
 }

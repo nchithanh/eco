@@ -23,24 +23,24 @@ import { Footer } from "@/components/Footer";
  * Process → Fit → Solutions → News → FAQ → CTA
  */
 export function HomePage() {
-  return (
-    <main>
-      <Nav />
-      <Hero />
-      <SiteOutcomes />
-      <WhyKuct />
-      <Capabilities />
-      <WorksShowcase />
-      <AgentDolphinHome />
-      <Technology />
-      <AiEdge />
-      <Process />
-      <FitSection />
-      <PopularServices />
-      <HomeNews />
-      <Faq />
-      <ContactForm />
-      <Footer />
-    </main>
-  );
+ return (
+ <main>
+ <Nav />
+ <Hero />
+ <SiteOutcomes />
+ <WhyKuct />
+ <Capabilities />
+ <WorksShowcase />
+ <AgentDolphinHome />
+ <Technology />
+ <AiEdge />
+ <Process />
+ <FitSection />
+ <PopularServices />
+ <HomeNews />
+ <Faq />
+ <ContactForm />
+ <Footer />
+ </main>
+ );
 }
