@@ -1042,13 +1042,11 @@ html[data-theme="violet"] .kuct-banner-cta:hover {
 /* Technology section — product dashboard shell */
 .kuct-tech-dashboard {
   background: var(--kuct-panel);
-  box-shadow: var(--kuct-shadow);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
+  box-shadow: none;
 }
 
 .kuct-tech-widget {
-  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.03);
+  box-shadow: 0 1px 2px rgb(26 21 32 / 0.04);
 }
 
 /* Floating glass panels in Hero */

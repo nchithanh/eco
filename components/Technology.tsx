@@ -459,112 +459,114 @@ function NeuralSphere() {
 }
 
 function TechnologyDashboard({
- tabs,
- live,
- widgets,
+  tabs,
+  live,
+  widgets,
 }: {
- tabs: string[];
- live: string;
- widgets: { activity: string; pulse: string; nodes: string };
+  tabs: string[];
+  live: string;
+  widgets: { activity: string; pulse: string; nodes: string };
 }) {
- const widgetClass =
- "kuct-tech-widget rounded-lg bg-[var(--kuct-panel)] p-2.5 backdrop-blur-md sm:p-3";
+  const widgetClass =
+    "kuct-tech-widget rounded-lg bg-[var(--kuct-panel-2)] p-2.5 sm:p-3";
 
- return (
- <div
- className="kuct-tech-dashboard relative overflow-hidden rounded-xl p-4 sm:p-5 md:p-6"
- aria-hidden
- >
- <div className="pointer-events-none absolute -right-16 -top-20 h-48 w-48 rounded-full bg-[var(--kuct-glow-1)] opacity-50 blur-3xl" />
+  return (
+    <div
+      className="kuct-tech-dashboard relative overflow-hidden rounded-xl p-4 sm:p-5 md:p-6"
+      aria-hidden
+    >
+      <div className="relative mb-4 flex flex-wrap items-center justify-between gap-2.5">
+        <div className="flex flex-wrap gap-1 rounded-lg bg-[var(--kuct-panel-2)] p-0.5">
+          {tabs.map((tab, index) => (
+            <span
+              key={tab}
+              className={
+                index === 0
+                  ? "rounded-md bg-[var(--kuct-accent)] px-2.5 py-1 text-[11px] font-semibold text-[var(--kuct-on-accent)]"
+                  : "rounded-md px-2.5 py-1 text-[11px] font-medium text-[var(--kuct-muted)]"
+              }
+            >
+              {tab}
+            </span>
+          ))}
+        </div>
+        <span className="inline-flex items-center gap-1.5 rounded-md bg-[var(--kuct-panel-2)] px-2.5 py-1 text-[0.6rem] font-semibold tracking-[0.14em] text-[var(--kuct-muted)] uppercase">
+          <span className="size-1.5 rounded-full bg-[var(--kuct-accent)]" />
+          {live}
+        </span>
+      </div>
 
- <div className="relative mb-4 flex flex-wrap items-center justify-between gap-2.5">
- <div className="flex flex-wrap gap-1 rounded-full bg-[var(--kuct-panel)] p-0.5">
- {tabs.map((tab, index) => (
- <span
- key={tab}
- className={
- index === 0
- ? "rounded-full bg-[var(--kuct-accent)] px-2.5 py-1 text-[11px] font-semibold text-[var(--kuct-on-accent)]"
- : "rounded-full px-2.5 py-1 text-[11px] font-medium text-[var(--kuct-muted)]"
- }
- >
- {tab}
- </span>
- ))}
- </div>
- <span className="inline-flex items-center gap-1.5 rounded-full bg-[var(--kuct-panel)] px-2.5 py-1 text-[0.6rem] font-semibold tracking-[0.14em] text-[var(--kuct-muted)] uppercase">
- <span className="size-1.5 rounded-full bg-[var(--kuct-accent)] shadow-[0_0_0.35rem_rgb(var(--kuct-accent-rgb)/0.55)]" />
- {live}
- </span>
- </div>
+      <div className="relative touch-pan-y">
+        <div className="pointer-events-none absolute inset-0 hidden items-center justify-center lg:flex">
+          <DesktopNeuralSphere />
+        </div>
 
- <div className="relative touch-pan-y">
- <div className="pointer-events-none absolute inset-0 hidden items-center justify-center lg:flex">
- <DesktopNeuralSphere />
- </div>
+        <div className="relative grid grid-cols-2 gap-2.5 lg:min-h-[19rem] lg:grid-cols-1 lg:gap-0">
+          <div
+            className={`${widgetClass} lg:absolute lg:left-0 lg:top-1 lg:w-[38%] lg:max-w-[9rem]`}
+          >
+            <p className="text-[0.6rem] font-semibold tracking-[0.12em] text-[var(--kuct-muted)] uppercase">
+              {widgets.activity}
+            </p>
+            <div className="mt-2 flex h-11 items-end gap-0.5 sm:h-12 sm:gap-1">
+              {ACTIVITY_BARS.map((h, i) => (
+                <span
+                  key={i}
+                  className="min-w-0 flex-1 rounded-t-sm bg-[var(--kuct-accent)]/80"
+                  style={{ height: `${Math.round(h * 0.85)}px` }}
+                />
+              ))}
+            </div>
+          </div>
 
- <div className="relative grid grid-cols-2 gap-2.5 lg:min-h-[19rem] lg:grid-cols-1 lg:gap-0">
- <div className={`${widgetClass} lg:absolute lg:left-0 lg:top-1 lg:w-[38%] lg:max-w-[9rem]`}>
- <p className="text-[0.6rem] font-semibold tracking-[0.12em] text-[var(--kuct-muted)] uppercase">
- {widgets.activity}
- </p>
- <div className="mt-2 flex h-11 items-end gap-0.5 sm:h-12 sm:gap-1">
- {ACTIVITY_BARS.map((h, i) => (
- <span
- key={i}
- className="min-w-0 flex-1 rounded-t-sm bg-gradient-to-t from-[var(--kuct-btn-from)] to-[var(--kuct-accent-3)] opacity-85"
- style={{ height: `${Math.round(h * 0.85)}px` }}
- />
- ))}
- </div>
- </div>
+          <div
+            className={`${widgetClass} text-center lg:absolute lg:right-0 lg:top-0 lg:w-auto lg:px-3.5 lg:py-2.5`}
+          >
+            <p className="font-display text-2xl font-semibold leading-none text-[var(--kuct-accent)] sm:text-[1.65rem]">
+              26
+            </p>
+            <p className="mt-1 text-[0.6rem] font-semibold tracking-[0.1em] text-[var(--kuct-muted)] uppercase">
+              {widgets.nodes}
+            </p>
+          </div>
 
- <div
- className={`${widgetClass} text-center lg:absolute lg:right-0 lg:top-0 lg:w-auto lg:px-3.5 lg:py-2.5`}
- >
- <p className="font-display text-2xl font-semibold leading-none text-[var(--kuct-accent)] sm:text-[1.65rem]">
- 26
- </p>
- <p className="mt-1 text-[0.6rem] font-semibold tracking-[0.1em] text-[var(--kuct-muted)] uppercase">
- {widgets.nodes}
- </p>
- </div>
+          <div
+            className={`${widgetClass} col-span-2 sm:col-span-1 lg:absolute lg:bottom-1 lg:left-0 lg:w-[42%] lg:max-w-[10rem]`}
+          >
+            <p className="text-[0.6rem] font-semibold tracking-[0.12em] text-[var(--kuct-muted)] uppercase">
+              {widgets.pulse}
+            </p>
+            <svg viewBox="0 0 120 36" className="mt-1.5 h-8 w-full" aria-hidden>
+              <path
+                d={pulseWavePath(PULSE_Y, 120, true)}
+                fill="rgb(var(--kuct-accent-rgb) / 0.1)"
+              />
+              <path
+                d={pulseWavePath(PULSE_Y)}
+                fill="none"
+                stroke="var(--kuct-accent)"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </div>
 
- <div className={`${widgetClass} col-span-2 sm:col-span-1 lg:absolute lg:bottom-1 lg:left-0 lg:w-[42%] lg:max-w-[10rem]`}>
- <p className="text-[0.6rem] font-semibold tracking-[0.12em] text-[var(--kuct-muted)] uppercase">
- {widgets.pulse}
- </p>
- <svg viewBox="0 0 120 36" className="mt-1.5 h-8 w-full" aria-hidden>
- <path
- d={pulseWavePath(PULSE_Y, 120, true)}
- fill="rgb(var(--kuct-accent-rgb) / 0.12)"
- />
- <path
- d={pulseWavePath(PULSE_Y)}
- fill="none"
- stroke="var(--kuct-accent)"
- strokeWidth="2"
- strokeLinecap="round"
- strokeLinejoin="round"
- />
- </svg>
- </div>
-
- <div className="col-span-2 flex items-center justify-end gap-1.5 sm:col-span-1 lg:absolute lg:bottom-2 lg:right-0 lg:flex-col lg:items-end lg:gap-1">
- {["API", "CI", "AI"].map((label) => (
- <span
- key={label}
- className="inline-flex items-center gap-1 rounded-full bg-[var(--kuct-panel)] px-2 py-0.5 text-[0.6rem] font-medium tracking-wide text-[var(--kuct-muted)]"
- >
- <span className="size-1 rounded-full bg-[var(--kuct-accent)]/80" />
- {label}
- </span>
- ))}
- </div>
- </div>
- </div>
- </div>
- );
+          <div className="col-span-2 flex items-center justify-end gap-1.5 sm:col-span-1 lg:absolute lg:bottom-2 lg:right-0 lg:flex-col lg:items-end lg:gap-1">
+            {["API", "CI", "AI"].map((label) => (
+              <span
+                key={label}
+                className="inline-flex items-center gap-1 rounded-md bg-[var(--kuct-panel-2)] px-2 py-0.5 text-[0.6rem] font-medium tracking-wide text-[var(--kuct-muted)]"
+              >
+                <span className="size-1 rounded-full bg-[var(--kuct-accent)]/80" />
+                {label}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export function Technology() {

@@ -193,7 +193,7 @@ export function QuoteEstimatorModal({
  role="dialog"
  aria-modal="true"
  aria-labelledby="kuct-quote-title"
- className="relative z-10 flex max-h-[min(92svh,52rem)] w-full max-w-2xl flex-col overflow-hidden rounded-xl bg-[var(--kuct-panel)] shadow-[0_1.5rem_4rem_rgba(0,0,0,0.55),0_0_0_1px_rgba(var(--kuct-accent-rgb),0.08)]"
+        className="relative z-10 flex max-h-[min(92svh,52rem)] w-full max-w-2xl flex-col overflow-hidden rounded-xl bg-[var(--kuct-panel)] shadow-[0_1.5rem_4rem_rgb(26_21_32/0.12)]"
  >
  <div className="flex shrink-0 items-start justify-between gap-3 px-5 py-4 sm:px-6">
  <div className="min-w-0">
@@ -435,7 +435,7 @@ export function QuoteEstimatorModal({
  </div>
  </div>
 
- <div className="shrink-0 border-t bg-[var(--kuct-panel)] px-5 py-4 sm:px-6">
+          <div className="shrink-0 bg-[var(--kuct-panel)] px-5 py-4 sm:px-6">
  <button
  type="submit"
  className="kuct-btn-primary inline-flex w-full items-center justify-center rounded-full px-7 py-3.5 text-sm font-semibold"
