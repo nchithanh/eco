@@ -74,7 +74,7 @@ export function AiEdge() {
  as="li"
  key={item.id}
  delay={index * 55}
- className="flex flex-col rounded-xl bg-[var(--kuct-panel)] p-5 backdrop-blur-md transition duration-300 hover:shadow-[0_16px_40px_rgb(var(--kuct-accent-rgb)/0.08)]"
+ className="flex flex-col rounded-xl bg-[var(--kuct-panel)] p-5 backdrop-blur-md transition duration-300 hover:shadow-[0_16px_40px_rgb(26_21_32/0.06)]"
  >
  <div className="flex items-start justify-between gap-3">
  <span className="grid size-10 place-items-center rounded-lg bg-[var(--kuct-panel-2)]">
@@ -97,7 +97,7 @@ export function AiEdge() {
  <Reveal delay={120} className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
  <Link
  href={routePath("/ai-transform/")}
- className="kuct-btn-primary inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold shadow-[0_10px_28px_rgb(var(--kuct-accent-rgb)/0.28)]"
+ className="kuct-btn-primary inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold shadow-[0_10px_28px_rgb(26_21_32/0.18)]"
  >
  {copy.ctaTransform}
  </Link>

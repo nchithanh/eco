@@ -138,7 +138,7 @@ function HeroChatCards({
 
  return (
  <div
- className="relative min-h-[22rem] overflow-hidden rounded-xl bg-[var(--kuct-panel)] shadow-[0_1rem_2.5rem_rgb(var(--kuct-accent-rgb)/0.12)] sm:min-h-[26rem] lg:min-h-[28rem]"
+ className="relative min-h-[22rem] overflow-hidden rounded-xl bg-[var(--kuct-panel)] shadow-[0_1rem_2.5rem_rgb(26_21_32/0.08)] sm:min-h-[26rem] lg:min-h-[28rem]"
  data-motion={motion ? "desktop" : "static"}
  >
  <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(var(--kuct-accent-rgb),0.18),transparent_55%),radial-gradient(ellipse_at_80%_80%,rgba(var(--kuct-accent-rgb),0.1),transparent_50%)]" />
@@ -230,7 +230,7 @@ function SectionImage({
 }) {
  return (
  <div
- className={`relative ${aspect} overflow-hidden rounded-xl bg-[var(--kuct-panel)] shadow-[0_1rem_2.5rem_rgb(var(--kuct-accent-rgb)/0.12)]`}
+ className={`relative ${aspect} overflow-hidden rounded-xl bg-[var(--kuct-panel)] shadow-[0_1rem_2.5rem_rgb(26_21_32/0.08)]`}
  >
  <LazyImage
  src={assetPath(src)}
@@ -259,7 +259,7 @@ function EmbedSiteMock({
 }) {
  return (
  <div
- className="relative flex h-full min-h-[22rem] flex-col overflow-hidden rounded-xl bg-[var(--kuct-panel)] shadow-[0_1rem_2.5rem_rgb(var(--kuct-accent-rgb)/0.12)]"
+ className="relative flex h-full min-h-[22rem] flex-col overflow-hidden rounded-xl bg-[var(--kuct-panel)] shadow-[0_1rem_2.5rem_rgb(26_21_32/0.08)]"
  aria-hidden
  >
  {/* Browser chrome */}
@@ -316,7 +316,7 @@ function EmbedSiteMock({
 
  {/* Chat overlay */}
  <div className="pointer-events-none absolute right-3 bottom-3 w-[min(13.5rem,68%)] sm:right-4 sm:bottom-4 sm:w-[15rem]">
- <div className="overflow-hidden rounded-xl bg-[var(--kuct-panel)] shadow-[0_12px_32px_rgba(0,0,0,0.45),0_0_20px_rgb(var(--kuct-accent-rgb)/0.18)] backdrop-blur-md">
+ <div className="overflow-hidden rounded-xl bg-[var(--kuct-panel)] shadow-[0_12px_32px_rgba(0,0,0,0.45),0_0_20px_rgb(26_21_32/0.13)] backdrop-blur-md">
  <div className="flex items-center gap-2 bg-gradient-to-r from-[var(--kuct-btn-from)] via-[var(--kuct-btn-mid)] to-[var(--kuct-btn-to)] px-2.5 py-2 text-white">
  <img
  src={assetPath(CHAT_AVATAR)}
@@ -354,7 +354,7 @@ function EmbedSiteMock({
  </div>
  </div>
  <div className="mt-2 flex justify-end">
- <span className="grid size-9 place-items-center overflow-hidden rounded-full border-2 border-white/90 bg-gradient-to-br from-[var(--kuct-fab-from)] to-[var(--kuct-fab-to)] shadow-[0_8px_20px_rgb(var(--kuct-accent-rgb)/0.45)]">
+ <span className="grid size-9 place-items-center overflow-hidden rounded-full border-2 border-white/90 bg-gradient-to-br from-[var(--kuct-fab-from)] to-[var(--kuct-fab-to)] shadow-[0_8px_20px_rgb(26_21_32/0.18)]">
  <img
  src={assetPath(CHAT_AVATAR)}
  alt=""
@@ -598,7 +598,7 @@ export function AgentDolphinContent({ embedded = false }: { embedded?: boolean }
  </Reveal>
  <Reveal
  delay={60}
- className="mx-auto mt-10 max-w-3xl divide-y divide-[var(--kuct-)] overflow-hidden rounded-xl bg-[var(--kuct-panel)] shadow-[0_1rem_2.5rem_rgb(var(--kuct-accent-rgb)/0.12)] backdrop-blur-md"
+ className="mx-auto mt-10 max-w-3xl divide-y divide-[var(--kuct-border)] overflow-hidden rounded-xl bg-[var(--kuct-panel)] shadow-[0_1rem_2.5rem_rgb(26_21_32/0.08)] backdrop-blur-md"
  >
  {c.faqItems.map((item, index) => {
  const open = openFaq === index;

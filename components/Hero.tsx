@@ -104,8 +104,8 @@ function GlassPanels() {
  <div
  className={
  panel.key === "web"
- ? "grid size-12 place-items-center rounded-xl bg-[var(--kuct-panel-2)] text-[var(--kuct-accent)] shadow-[0_0_16px_var(--kuct-accent),0_0_36px_rgb(var(--kuct-accent-rgb)/0.35)] sm:size-14"
- : "grid size-9 place-items-center rounded-lg bg-[var(--kuct-panel-2)] text-[var(--kuct-accent)] shadow-[0_0_10px_rgb(var(--kuct-accent-rgb)/0.25)] sm:size-10"
+ ? "grid size-12 place-items-center rounded-xl bg-[var(--kuct-panel-2)] text-[var(--kuct-accent)] shadow-[0_8px_20px_rgb(26_21_32/0.08)] sm:size-14"
+ : "grid size-9 place-items-center rounded-lg bg-[var(--kuct-panel-2)] text-[var(--kuct-accent)] shadow-[0_4px_12px_rgb(26_21_32/0.06)] sm:size-10"
  }
  >
  {panel.icon}
@@ -163,7 +163,7 @@ export function Hero() {
  <button
  type="button"
  onClick={openQuote}
- className="kuct-btn-primary inline-flex items-center rounded-full px-8 py-3.5 text-sm font-semibold shadow-[0_14px_36px_rgb(var(--kuct-accent-rgb)/0.42)]"
+ className="kuct-btn-primary inline-flex items-center rounded-full px-8 py-3.5 text-sm font-semibold shadow-[0_14px_36px_rgb(26_21_32/0.18)]"
  >
  {t.hero.ctaPrimary}
  </button>
@@ -187,7 +187,7 @@ export function Hero() {
  height={994}
  aria-hidden
  priority
- className="kuct-mascot-float pointer-events-none absolute -right-3 -bottom-2 z-20 h-40 w-auto max-w-[42%] object-contain drop-shadow-[0_16px_32px_rgba(var(--kuct-accent-rgb),0.22)] select-none sm:-right-4 sm:h-48 sm:max-w-[40%] lg:-right-10 lg:-bottom-3 lg:h-52 lg:max-w-[42%]"
+ className="kuct-mascot-float pointer-events-none absolute -right-3 -bottom-2 z-20 h-40 w-auto max-w-[42%] object-contain drop-shadow-[0_16px_32px_rgb(26_21_32/0.12)] select-none sm:-right-4 sm:h-48 sm:max-w-[40%] lg:-right-10 lg:-bottom-3 lg:h-52 lg:max-w-[42%]"
  />
  </div>
  </div>

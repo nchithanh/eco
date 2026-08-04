@@ -12,6 +12,7 @@ export type AiChatCopy = {
   open: string;
   close: string;
   closePanel: string;
+  dismissWidget: string;
   zalo: string;
   messenger: string;
   toastWelcome: string;
@@ -33,6 +34,7 @@ const vi: AiChatCopy = {
   open: "Mở chat Dolphin Assist",
   close: "Đóng chat Dolphin Assist",
   closePanel: "Đóng",
+  dismissWidget: "Ẩn trợ lý chat",
   zalo: "Chat Zalo",
   messenger: "Chat Messenger",
   toastWelcome:
@@ -94,6 +96,7 @@ const en: AiChatCopy = {
   open: "Open Dolphin Assist chat",
   close: "Close Dolphin Assist chat",
   closePanel: "Close",
+  dismissWidget: "Dismiss chat assistant",
   zalo: "Chat on Zalo",
   messenger: "Chat on Messenger",
   toastWelcome: "Hi! I’m Dolphin Assist — here when you need a hand.",
@@ -155,6 +158,7 @@ const ja: AiChatCopy = {
   open: "Dolphin Assist チャットを開く",
   close: "Dolphin Assist チャットを閉じる",
   closePanel: "閉じる",
+  dismissWidget: "チャットアシスタントを非表示",
   zalo: "Zaloでチャット",
   messenger: "Messengerでチャット",
   toastWelcome:

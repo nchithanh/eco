@@ -2,7 +2,7 @@
 
 ## 2026-08-04
 
-- Theme mặc định (`violet`): **dark → light** flat white; grid kẻ ô đen nhạt; **tím đậm** `#7c3aed`; announcement Samsung white; chữ `#000`/`#555`; block `#f7f7f7`; **bỏ hết viền tím**; header ẩn/hiện theo scroll; **giảm border-radius** site-wide (`2xl`→`xl`, `xl`→`lg`; giữ `rounded-full`); comment token dark cũ.
+- Theme mặc định (`violet`): **dark → light** flat white; grid kẻ ô đen nhạt; **tím đậm** `#7c3aed`; **bỏ shadow tím** (chỉ shadow xám trung tính); header scroll hide; giảm radius; comment token dark cũ.
 - Gỡ `SiteGridRuns` — bỏ line phát sáng chạy ngẫu nhiên trên nền grid; giữ lưới ô vuông tĩnh `body::after`.
 - Homepage `#news` carousel: desktop click card mở popup (mouse không hijack drag pointer).
 - `/news/` layout Canva **pageNew** (page 2): eyebrow + title/blurb trái, filter pills phải; featured ngang; grid 3 cột; i18n `pageEyebrow`, `featuredLabel`.
@@ -14,6 +14,7 @@
 
 ## 2026-08-05
 
+- `AiChatWidget`: FAB dolphin luôn **bo tròn** (kiểu Samsung); nút **X** góc launcher ẩn chat trong phiên (toast + panel + avatar), giữ contact FAB; refresh hiện lại.
 - News: bài SEO/GEO **「Studio cưới cần website xem váy online」** — slug `studio-cuoi-website-xem-vay-online`; VI SoT nguyên văn từ content pack; body blocks thêm `h3` + inline `image`; FAQ 5 Q; hero `public/news/studio-cuoi-website-xem-vay-online.jpg` + catalog inline `studio-cuoi-catalog-vay-online.jpg`; sitemap entry.
 - Homepage `#news` carousel: slide animation on prev/next/dot; **drag/swipe ngang** (pointer + touch, `touch-action: pan-y`); chặn click card sau swipe.
 - Rule **`.cursor/rules/seo-geo-html.mdc`** (always on): semantic HTML cho SEO/GEO — headings, `article`, `alt`, landmarks, carousel a11y; news UI aligned.

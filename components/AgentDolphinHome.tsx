@@ -196,7 +196,7 @@ function ChatCard({
  return (
  <div
  ref={panelRef}
- className="flex h-full flex-col overflow-hidden rounded-xl bg-[var(--kuct-panel)] shadow-[0_18px_48px_rgba(var(--kuct-accent-rgb),0.12)] backdrop-blur-xl"
+ className="flex h-full flex-col overflow-hidden rounded-xl bg-[var(--kuct-panel)] shadow-[0_18px_48px_rgb(26_21_32/0.07)] backdrop-blur-xl"
  aria-label={`${agentName} — ${card.context}`}
  >
  <header className="flex items-center gap-3 bg-gradient-to-r from-[var(--kuct-btn-from)] via-[var(--kuct-btn-mid)] to-[var(--kuct-btn-to)] px-3.5 py-2.5 text-white sm:px-4 sm:py-3">

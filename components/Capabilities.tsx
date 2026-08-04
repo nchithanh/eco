@@ -104,7 +104,7 @@ export function Capabilities() {
  <Link
  href={offer.href}
  onClick={(event) => onNav(offer.href, event)}
- className="group kuct-glass flex h-full flex-col rounded-xl p-5 shadow-[0_12px_40px_rgb(26_21_32/0.08)] transition duration-200 hover:bg-[rgba(var(--kuct-accent-rgb),0.04)]"
+ className="group kuct-glass flex h-full flex-col rounded-xl p-5 shadow-[0_12px_40px_rgb(26_21_32/0.08)] transition duration-200 hover:bg-[rgb(26_21_32/0.04)]"
  >
  <div className="grid size-10 place-items-center rounded-lg bg-[rgba(var(--kuct-accent-rgb),0.1)] text-[var(--kuct-accent)] ">
  {OFFER_ICONS[offer.id] ?? <IconLanding />}

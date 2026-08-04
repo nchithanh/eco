@@ -112,7 +112,7 @@ export function CareersContent({ embedded = false }: { embedded?: boolean }) {
  </Reveal>
  <Reveal
  delay={60}
- className="mx-auto mt-10 max-w-3xl divide-y divide-[var(--kuct-)] overflow-hidden rounded-xl bg-[var(--kuct-panel)] shadow-[0_1rem_2.5rem_rgb(var(--kuct-accent-rgb)/0.12)] backdrop-blur-md"
+ className="mx-auto mt-10 max-w-3xl divide-y divide-[var(--kuct-border)] overflow-hidden rounded-xl bg-[var(--kuct-panel)] shadow-[0_1rem_2.5rem_rgb(26_21_32/0.08)] backdrop-blur-md"
  >
  {c.faq.items.map((item, index) => {
  const open = openFaq === index;

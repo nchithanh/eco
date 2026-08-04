@@ -319,7 +319,7 @@ export function Nav() {
  </div>
  <a
  href={contactHref}
- className="kuct-btn-primary hidden rounded-full px-5 py-2.5 text-sm font-semibold shadow-[0_10px_28px_rgb(var(--kuct-accent-rgb)/0.38)] sm:inline-flex"
+ className="kuct-btn-primary hidden rounded-full px-5 py-2.5 text-sm font-semibold shadow-[0_10px_28px_rgb(26_21_32/0.18)] sm:inline-flex"
  >
  {t.nav.contact}
  </a>

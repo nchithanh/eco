@@ -218,13 +218,14 @@ export function AiChatWidget() {
  const toastTimerRef = useRef<number | null>(null);
  const hadOpenRef = useRef(false);
 
- const [open, setOpen] = useState(false);
- const [contactsOpen, setContactsOpen] = useState(false);
- const [toastIndex, setToastIndex] = useState(0);
- const [toastVisible, setToastVisible] = useState(false);
- const [draft, setDraft] = useState("");
- const [messages, setMessages] = useState<ChatMessage[]>([]);
- const contactsRef = useRef<HTMLDivElement>(null);
+  const [open, setOpen] = useState(false);
+  const [contactsOpen, setContactsOpen] = useState(false);
+  const [launcherHidden, setLauncherHidden] = useState(false);
+  const [toastIndex, setToastIndex] = useState(0);
+  const [toastVisible, setToastVisible] = useState(false);
+  const [draft, setDraft] = useState("");
+  const [messages, setMessages] = useState<ChatMessage[]>([]);
+  const contactsRef = useRef<HTMLDivElement>(null);
 
  const toastPool = useMemo(
  () => [c.toastWelcome, c.toastContinue, ...c.suggestions],
@@ -255,22 +256,28 @@ export function AiChatWidget() {
  }, TOAST_ROTATE_MS);
  };
 
- useEffect(() => {
- if (open) {
- hadOpenRef.current = true;
- clearToastTimer();
- setToastVisible(false);
- return;
- }
+  useEffect(() => {
+    if (launcherHidden) {
+      clearToastTimer();
+      setToastVisible(false);
+      return;
+    }
 
- if (hadOpenRef.current) {
- showToast();
- return;
- }
+    if (open) {
+      hadOpenRef.current = true;
+      clearToastTimer();
+      setToastVisible(false);
+      return;
+    }
 
- const id = window.setTimeout(() => showToast(), TOAST_INITIAL_DELAY_MS);
- return () => window.clearTimeout(id);
- }, [open]);
+    if (hadOpenRef.current) {
+      showToast();
+      return;
+    }
+
+    const id = window.setTimeout(() => showToast(), TOAST_INITIAL_DELAY_MS);
+    return () => window.clearTimeout(id);
+  }, [open, launcherHidden]);
 
  useEffect(() => () => clearToastTimer(), []);
 
@@ -297,14 +304,23 @@ export function AiChatWidget() {
  return () => releasePageScroll();
  }, [open]);
 
- const dismissToast = () => {
- scheduleNextToast();
- };
+  const dismissToast = () => {
+    scheduleNextToast();
+  };
 
- const openChat = () => {
- setContactsOpen(false);
- setOpen(true);
- };
+  const dismissLauncher = () => {
+    clearToastTimer();
+    setToastVisible(false);
+    setOpen(false);
+    setLauncherHidden(true);
+  };
+
+  const openChat = () => {
+    setContactsOpen(false);
+    setOpen(true);
+  };
+
+  const showLauncher = !launcherHidden;
 
  useEffect(() => {
  if (!contactsOpen) return;
@@ -383,9 +399,9 @@ export function AiChatWidget() {
  },
  ] as const;
 
- return (
+  return (
  <div className="kuct-ai-chat pointer-events-none fixed right-4 bottom-0 z-[120] flex items-end gap-3 sm:right-6">
- {open ? (
+ {showLauncher && open ? (
  <section
  id={panelId}
  role="dialog"
@@ -480,8 +496,8 @@ export function AiChatWidget() {
  </section>
  ) : null}
 
- <div className={`flex items-end gap-3 ${open ? "max-sm:hidden" : ""}`}>
- {toastVisible && !open ? (
+ <div className={`flex items-end gap-3 ${open && showLauncher ? "max-sm:hidden" : ""}`}>
+ {showLauncher && toastVisible && !open ? (
  <div className="pointer-events-auto mb-3 flex max-w-[min(18rem,calc(100vw-5.5rem))] flex-col gap-2 sm:mb-4 sm:max-w-[19rem]">
  <button
  type="button"
@@ -579,10 +595,20 @@ export function AiChatWidget() {
  </button>
  </div>
 
+ {showLauncher ? (
  <span className="kuct-ai-chat__avatar-wrap pointer-events-auto">
  <button
  type="button"
- className={`kuct-ai-chat__avatar${open ? " kuct-ai-chat__avatar--close" : ""}`}
+ className="kuct-ai-chat__dismiss"
+ aria-label={c.dismissWidget}
+ title={c.dismissWidget}
+ onClick={dismissLauncher}
+ >
+ <IconClose className="size-2.5" />
+ </button>
+ <button
+ type="button"
+ className="kuct-ai-chat__avatar"
  aria-expanded={open}
  aria-controls={panelId}
  aria-label={open ? c.close : c.open}
@@ -594,9 +620,6 @@ export function AiChatWidget() {
  }
  }}
  >
- {open ? (
- <IconClose className="size-5 text-white" />
- ) : (
  <img
  src={assetPath(CHAT_AVATAR)}
  alt=""
@@ -606,9 +629,9 @@ export function AiChatWidget() {
  decoding="async"
  className="size-full object-contain object-center"
  />
- )}
  </button>
  </span>
+ ) : null}
  </div>
  </div>
  </div>

@@ -51,7 +51,7 @@ export function ThemeSwitcher() {
  <div ref={rootRef} className="relative">
  <button
  type="button"
- className="inline-flex items-center gap-1.5 rounded-full border-white/60 bg-white/40 px-2.5 py-1 text-xs font-semibold tracking-wide text-[var(--kuct-text)] backdrop-blur-md transition duration-300 hover:-translate-y-0.5 hover:bg-white/70 hover:shadow-[0_8px_18px_rgb(var(--kuct-accent-rgb)/0.1)]"
+ className="inline-flex items-center gap-1.5 rounded-full border-white/60 bg-white/40 px-2.5 py-1 text-xs font-semibold tracking-wide text-[var(--kuct-text)] backdrop-blur-md transition duration-300 hover:-translate-y-0.5 hover:bg-white/70 hover:shadow-[0_8px_18px_rgb(26_21_32/0.07)]"
  aria-label={labels.aria}
  aria-haspopup="listbox"
  aria-expanded={open}
@@ -74,7 +74,7 @@ export function ThemeSwitcher() {
  id={listId}
  role="listbox"
  aria-label={labels.aria}
- className="absolute right-0 z-50 mt-2 min-w-[11rem] overflow-hidden rounded-lg border-white/70 bg-white/95 py-1 shadow-[0_12px_30px_rgb(var(--kuct-accent-rgb)/0.14)] backdrop-blur-xl"
+ className="absolute right-0 z-50 mt-2 min-w-[11rem] overflow-hidden rounded-lg border-white/70 bg-white/95 py-1 shadow-[0_12px_30px_rgb(26_21_32/0.10)] backdrop-blur-xl"
  >
  {SWITCHER_THEME_IDS.map((id) => (
  <li key={id} role="option" aria-selected={theme === id}>

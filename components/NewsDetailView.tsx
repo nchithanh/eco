@@ -199,7 +199,7 @@ export function NewsDetailContent({
  <h2 className="font-display text-lg font-semibold text-[var(--kuct-text)] sm:text-xl">
  {ui.faqTitle}
  </h2>
- <div className="mt-4 divide-y divide-[var(--kuct-)] overflow-hidden rounded-xl bg-[var(--kuct-panel)]">
+ <div className="mt-4 divide-y divide-[var(--kuct-border)] overflow-hidden rounded-xl bg-[var(--kuct-panel)]">
  {faqItems.map((item, index) => {
  const open = openFaq === index;
  const panelId = `${faqId}-panel-${index}`;

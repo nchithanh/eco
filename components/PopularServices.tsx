@@ -160,7 +160,7 @@ export function PopularServices({
  </p>
  {isSelected ? (
  <span
- className="absolute bottom-2 right-2 size-2 rounded-full bg-[var(--kuct-accent)] shadow-[0_0_0.4rem_rgb(var(--kuct-accent-rgb)/0.75)]"
+ className="absolute bottom-2 right-2 size-2 rounded-full bg-[var(--kuct-accent)] shadow-[0_0_0.4rem_rgb(26_21_32/0.18)]"
  aria-hidden
  />
  ) : null}
@@ -242,7 +242,7 @@ export function PopularServices({
  <button
  type="button"
  onClick={openQuote}
- className="kuct-btn-primary inline-flex w-full items-center justify-center rounded-full px-6 py-3 text-sm font-semibold shadow-[0_0_0_1px_rgb(var(--kuct-accent-rgb)/0.35),0_12px_36px_rgb(var(--kuct-accent-rgb)/0.28)] sm:w-auto"
+ className="kuct-btn-primary inline-flex w-full items-center justify-center rounded-full px-6 py-3 text-sm font-semibold shadow-[0_0_0_1px_rgb(26_21_32/0.18),0_12px_36px_rgb(26_21_32/0.15)] sm:w-auto"
  >
  {selected.cta}
  <span className="ml-1.5" aria-hidden>

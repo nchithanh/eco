@@ -92,7 +92,7 @@ function FeaturedArticleBlock({
  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[rgba(4,4,12,0.35)] via-transparent to-transparent lg:bg-gradient-to-l lg:from-[rgba(4,4,12,0.45)] lg:via-transparent lg:to-transparent" />
  <span
  aria-hidden
- className="absolute right-4 top-4 inline-flex size-10 items-center justify-center rounded-full bg-[rgba(var(--kuct-accent-rgb),0.14)] text-sm text-[var(--kuct-accent)] shadow-[0_0_1.25rem_rgba(var(--kuct-accent-rgb),0.35)] transition group-hover:bg-[rgba(var(--kuct-accent-rgb),0.22)]"
+ className="absolute right-4 top-4 inline-flex size-10 items-center justify-center rounded-full bg-[var(--kuct-menu-hover)] text-sm text-[var(--kuct-accent)] shadow-[0_4px_12px_rgb(26_21_32/0.08)] transition group-hover:bg-black/10"
  >
  ↗
  </span>
@@ -124,7 +124,7 @@ function NewsGridCard({
  <a
  href={href}
  onClick={(event) => onOpen(href, event)}
- className="group flex h-full flex-col overflow-hidden rounded-xl bg-[var(--kuct-panel)] transition duration-500 hover:shadow-[0_0_1.75rem_rgba(var(--kuct-accent-rgb),0.16)]"
+ className="group flex h-full flex-col overflow-hidden rounded-xl bg-[var(--kuct-panel)] transition duration-500 hover:shadow-[0_0_1.75rem_rgb(26_21_32/0.09)]"
  >
  <div className="relative aspect-[16/10] overflow-hidden bg-[var(--kuct-panel)]">
  <LazyImage

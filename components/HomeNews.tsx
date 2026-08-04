@@ -76,7 +76,7 @@ function CarouselCard({
  onClick={(event) => onOpen(href, event)}
  className={
  active
- ? "group relative flex w-[min(100%,18.5rem)] shrink-0 flex-col overflow-hidden rounded-xl bg-[var(--kuct-panel)] shadow-[0_0_2.5rem_rgba(var(--kuct-accent-rgb),0.28)] transition duration-500 sm:w-[20rem] lg:w-[21rem]"
+ ? "group relative flex w-[min(100%,18.5rem)] shrink-0 flex-col overflow-hidden rounded-xl bg-[var(--kuct-panel)] shadow-[0_8px_24px_rgb(26_21_32/0.08)] transition duration-500 sm:w-[20rem] lg:w-[21rem]"
  : "group relative flex w-[min(78vw,15rem)] shrink-0 flex-col overflow-hidden rounded-xl bg-[var(--kuct-panel)] opacity-55 transition duration-500 hover:opacity-75 sm:w-[16rem] lg:w-[17rem]"
  }
  aria-current={active ? "true" : undefined}
@@ -115,7 +115,7 @@ function CarouselCard({
  {active ? (
  <span
  aria-hidden
- className="inline-flex size-9 items-center justify-center rounded-full bg-[rgba(var(--kuct-accent-rgb),0.14)] text-[var(--kuct-accent)] shadow-[0_0_1.25rem_rgba(var(--kuct-accent-rgb),0.35)] transition group-hover:bg-[rgba(var(--kuct-accent-rgb),0.22)]"
+ className="inline-flex size-9 items-center justify-center rounded-full bg-[var(--kuct-menu-hover)] text-[var(--kuct-accent)] shadow-[0_4px_12px_rgb(26_21_32/0.08)] transition group-hover:bg-black/10"
  >
  ↗
  </span>
@@ -423,7 +423,7 @@ export function HomeNews() {
  onClick={() => goTo(index)}
  className={
  index === safeIndex
- ? "h-1.5 w-8 rounded-full bg-[var(--kuct-accent)] shadow-[0_0_0.75rem_rgba(var(--kuct-accent-rgb),0.55)] transition-all duration-500 ease-out"
+ ? "h-1.5 w-8 rounded-full bg-[var(--kuct-accent)] transition-all duration-500 ease-out"
  : "size-1.5 rounded-full bg-[var(--kuct-muted)]/40 transition-all duration-500 ease-out hover:bg-[var(--kuct-muted)] hover:scale-125"
  }
  />

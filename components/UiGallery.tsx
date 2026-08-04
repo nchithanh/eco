@@ -70,7 +70,7 @@ export function UiGallery() {
  onClick={() => setActive(id)}
  className={
  selected
- ? "rounded-full bg-[rgba(var(--kuct-accent-rgb),0.14)] px-3 py-1.5 text-xs font-semibold text-[var(--kuct-text)] shadow-[0_0_20px_rgb(var(--kuct-accent-rgb)/0.12)] sm:px-4 sm:py-2 sm:text-sm"
+ ? "rounded-full bg-[rgb(26_21_32/0.08)] px-3 py-1.5 text-xs font-semibold text-[var(--kuct-text)] shadow-[0_0_20px_rgb(26_21_32/0.08)] sm:px-4 sm:py-2 sm:text-sm"
  : "rounded-full bg-[var(--kuct-panel-2)] px-3 py-1.5 text-xs font-medium text-[var(--kuct-muted)] transition hover:text-[var(--kuct-text)] sm:px-4 sm:py-2 sm:text-sm"
  }
  >
@@ -103,8 +103,8 @@ export function UiGallery() {
  rel="noreferrer"
  className={
  featured
- ? "group flex h-full flex-col overflow-hidden rounded-lg bg-[var(--kuct-panel)] shadow-[0_12px_32px_rgba(0,0,0,0.35)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_40px_rgb(var(--kuct-accent-rgb)/0.12)]"
- : "group flex h-full flex-col overflow-hidden rounded-lg bg-[var(--kuct-panel)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_36px_rgb(var(--kuct-accent-rgb)/0.1)]"
+ ? "group flex h-full flex-col overflow-hidden rounded-lg bg-[var(--kuct-panel)] shadow-[0_12px_32px_rgba(0,0,0,0.35)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_40px_rgb(26_21_32/0.08)]"
+ : "group flex h-full flex-col overflow-hidden rounded-lg bg-[var(--kuct-panel)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_36px_rgb(26_21_32/0.07)]"
  }
  >
  <div className="relative aspect-[4/3] overflow-hidden bg-[var(--kuct-panel-2)]">
@@ -152,7 +152,7 @@ export function UiGallery() {
  <Reveal delay={120} className="mt-12 flex flex-col items-center justify-center gap-3 sm:flex-row">
  <a
  href="#capabilities"
- className="kuct-btn-primary inline-flex items-center justify-center rounded-full px-8 py-3 text-sm font-semibold shadow-[0_12px_32px_rgb(var(--kuct-accent-rgb)/0.32)]"
+ className="kuct-btn-primary inline-flex items-center justify-center rounded-full px-8 py-3 text-sm font-semibold shadow-[0_12px_32px_rgb(26_21_32/0.18)]"
  >
  {copy.ctaServices}
  </a>
