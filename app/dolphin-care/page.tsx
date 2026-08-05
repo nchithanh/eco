@@ -19,7 +19,7 @@ export const metadata: Metadata = {
  description: c.metaDescription,
  path,
  image: ogImage,
- imageAlt: "Dolphin Care — AI chăm sóc khách hàng trên website",
+ imageAlt: "Dolphin Care — AI chăm sóc khách hàng trên website + báo cáo insight hằng ngày",
  }),
  title: { absolute: c.metaTitle },
 };

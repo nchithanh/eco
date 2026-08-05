@@ -2,6 +2,7 @@
 
 import { useEffect, useId, useState } from "react";
 import { AccentText } from "@/components/BrandName";
+import { FaqAnswerText } from "@/components/FaqAnswerText";
 import { LazyImage } from "@/components/LazyImage";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
@@ -379,8 +380,9 @@ export function AgentDolphinContent({ embedded = false }: { embedded?: boolean }
  const faqId = useId();
  const [openFaq, setOpenFaq] = useState<number | null>(0);
  const homePath = assetPath("/").replace(/\/$/, "");
- const contactHref = embedded ? `${homePath}/#contact` : "#contact";
- const otherAgentsHref = assetPath("/ai-transform/");
+ const zaloHref = "https://zalo.me/0779937633";
+ const secondaryIsZalo = /zalo/i.test(c.ctaSecondary);
+ const secondaryHref = secondaryIsZalo ? zaloHref : assetPath("/ai-transform/");
 
  return (
  <div className={embedded ? "pb-6" : undefined}>
@@ -414,8 +416,11 @@ export function AgentDolphinContent({ embedded = false }: { embedded?: boolean }
  {c.ctaPrimary}
  </button>
  <a
- href={otherAgentsHref}
+ href={secondaryHref}
  className="kuct-btn-ghost inline-flex items-center "
+ {...(secondaryIsZalo
+ ? { target: "_blank", rel: "noopener noreferrer" }
+ : {})}
  >
  {c.ctaSecondary}
  </a>
@@ -439,76 +444,30 @@ export function AgentDolphinContent({ embedded = false }: { embedded?: boolean }
  </div>
  </section>
 
- <section className="scroll-mt-20 py-20">
- <div className="mx-auto max-w-6xl px-6">
- <Reveal variant="title">
- <p className="text-center text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
- {c.compareEyebrow}
- </p>
- <h2 className="mt-3 text-center font-display text-3xl font-semibold sm:text-4xl">
- <AccentText>{c.compareTitle}</AccentText>
- </h2>
- <p className="mx-auto mt-3 max-w-2xl text-center text-[var(--kuct-muted)]">
- {c.compareSupport}
- </p>
- </Reveal>
- <Reveal delay={60} className="mx-auto mt-10 max-w-4xl">
- <SectionImage src={IMG.compare} alt="" />
- </Reveal>
- <div className="mt-10 grid gap-6 lg:grid-cols-2 lg:items-stretch">
- <Reveal delay={40} className="h-full">
- <article className="kuct-glass flex h-full flex-col rounded-xl p-6 sm:p-8">
- <h3 className="font-display text-xl font-semibold text-[var(--kuct-muted)]">
- {c.oldTitle}
- </h3>
- <ul className="mt-5 flex-1 space-y-3 text-sm leading-relaxed text-[var(--kuct-muted)]">
- {c.oldItems.map((item) => (
- <li key={item} className="flex gap-2">
- <span aria-hidden className="text-[var(--kuct-accent)]/50">
- –
- </span>
- <span>{item}</span>
- </li>
- ))}
- </ul>
- </article>
- </Reveal>
- <Reveal delay={100} className="h-full">
- <article className="kuct-glass flex h-full flex-col rounded-xl p-6 sm:p-8 ">
- <h3 className="font-display text-xl font-semibold text-[var(--kuct-text)]">
- {c.newTitle}
- </h3>
- <ul className="mt-5 flex-1 space-y-3 text-sm leading-relaxed text-[var(--kuct-text)]">
- {c.newItems.map((item) => (
- <li key={item} className="flex gap-2">
- <span aria-hidden className="font-semibold text-[var(--kuct-accent)]">
- ✓
- </span>
- <span>{item}</span>
- </li>
- ))}
- </ul>
- </article>
- </Reveal>
- </div>
- </div>
- </section>
-
  <section className="kuct-section-wash scroll-mt-20 py-20">
  <div className="mx-auto max-w-6xl px-6">
- <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-14">
+ <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-14">
  <Reveal>
  <div>
  <p className="text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
- {c.pillarsEyebrow}
+ {c.whatEyebrow}
  </p>
  <h2 className="mt-3 font-display text-3xl font-semibold sm:text-4xl">
- <AccentText>{c.pillarsTitle}</AccentText>
+ <AccentText>{c.whatTitle}</AccentText>
  </h2>
  <p className="mt-3 max-w-xl text-[var(--kuct-muted)]">
+ {c.whatSupport}
+ </p>
+ <p className="mt-8 text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
+ {c.pillarsEyebrow}
+ </p>
+ <h3 className="mt-2 font-display text-xl font-semibold text-[var(--kuct-text)] sm:text-2xl">
+ <AccentText>{c.pillarsTitle}</AccentText>
+ </h3>
+ <p className="mt-2 max-w-xl text-sm text-[var(--kuct-muted)]">
  {c.pillarsSupport}
  </p>
- <ul className="mt-8 space-y-4">
+ <ul className="mt-6 space-y-4">
  {c.pillars.map((item, index) => (
  <li key={item.title} className="kuct-glass rounded-xl p-5">
  <span className="text-xs font-bold tracking-[0.14em] text-[var(--kuct-accent)]">
@@ -529,7 +488,7 @@ export function AgentDolphinContent({ embedded = false }: { embedded?: boolean }
  <SectionImage
  src={IMG.context}
  alt=""
- aspect="aspect-square max-w-lg mx-auto w-full lg:max-w-none"
+ aspect="aspect-square max-w-lg mx-auto w-full lg:max-w-none lg:sticky lg:top-28"
  />
  </Reveal>
  </div>
@@ -537,6 +496,136 @@ export function AgentDolphinContent({ embedded = false }: { embedded?: boolean }
  </section>
 
  <section className="scroll-mt-20 py-20">
+ <div className="mx-auto max-w-6xl px-6">
+ <Reveal variant="title">
+ <p className="text-center text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
+ {c.featuresEyebrow}
+ </p>
+ <h2 className="mt-3 text-center font-display text-3xl font-semibold sm:text-4xl">
+ <AccentText>{c.featuresTitle}</AccentText>
+ </h2>
+ </Reveal>
+ <ul className="mt-10 grid gap-5 sm:grid-cols-2">
+ {c.features.map((feature, index) => (
+ <Reveal as="li" key={feature.title} delay={index * 60}>
+ <article className="kuct-glass flex h-full flex-col rounded-xl p-6 sm:p-7">
+ <h3 className="font-display text-lg font-semibold text-[var(--kuct-text)] sm:text-xl">
+ {feature.title}
+ </h3>
+ <p className="mt-3 text-sm leading-relaxed text-[var(--kuct-muted)]">
+ {feature.body}
+ </p>
+ {feature.items?.length ? (
+ <ul className="mt-4 space-y-2 text-sm leading-relaxed text-[var(--kuct-text)]">
+ {feature.items.map((item) => (
+ <li key={item} className="flex gap-2">
+ <span aria-hidden className="text-[var(--kuct-accent)]">
+ •
+ </span>
+ <span>{item}</span>
+ </li>
+ ))}
+ </ul>
+ ) : null}
+ </article>
+ </Reveal>
+ ))}
+ </ul>
+ </div>
+ </section>
+
+ <section className="kuct-section-wash scroll-mt-20 py-20">
+ <div className="mx-auto max-w-6xl px-6">
+ <Reveal variant="title">
+ <p className="text-center text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
+ {c.compareEyebrow}
+ </p>
+ <h2 className="mt-3 text-center font-display text-3xl font-semibold sm:text-4xl">
+ <AccentText>{c.compareTitle}</AccentText>
+ </h2>
+ <p className="mx-auto mt-3 max-w-2xl text-center text-[var(--kuct-muted)]">
+ {c.compareSupport}
+ </p>
+ </Reveal>
+ <Reveal delay={60} className="mx-auto mt-10 max-w-4xl">
+ <SectionImage src={IMG.compare} alt="" />
+ </Reveal>
+ <Reveal delay={100} className="mt-10 overflow-x-auto">
+ <table className="w-full min-w-[36rem] border-collapse overflow-hidden rounded-xl bg-[var(--kuct-panel)] text-left text-sm shadow-[0_1rem_2.5rem_rgb(26_21_32/0.08)]">
+ <caption className="sr-only">{c.compareTitle.replace(/\[\[|\]\]/g, "")}</caption>
+ <thead>
+ <tr className="border-b border-[var(--kuct-border)] bg-[rgba(var(--kuct-accent-rgb),0.06)]">
+ {c.compareHeaders.map((header) => (
+ <th
+ key={header}
+ scope="col"
+ className="px-4 py-3 font-semibold text-[var(--kuct-text)] sm:px-5"
+ >
+ {header}
+ </th>
+ ))}
+ </tr>
+ </thead>
+ <tbody>
+ {c.compareRows.map((row) => (
+ <tr
+ key={row.criterion}
+ className="border-b border-[var(--kuct-border)] last:border-b-0"
+ >
+ <th
+ scope="row"
+ className="px-4 py-3.5 font-medium text-[var(--kuct-text)] sm:px-5"
+ >
+ {row.criterion}
+ </th>
+ <td className="px-4 py-3.5 text-[var(--kuct-muted)] sm:px-5">
+ {row.old}
+ </td>
+ <td className="px-4 py-3.5 font-medium text-[var(--kuct-text)] sm:px-5">
+ {row.care}
+ </td>
+ </tr>
+ ))}
+ </tbody>
+ </table>
+ </Reveal>
+ <p className="mx-auto mt-6 max-w-3xl text-center text-sm leading-relaxed text-[var(--kuct-muted)]">
+ {c.compareNote}
+ </p>
+ </div>
+ </section>
+
+ <section className="scroll-mt-20 py-20">
+ <div className="mx-auto max-w-6xl px-6">
+ <Reveal variant="title">
+ <p className="text-center text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
+ {c.industriesEyebrow}
+ </p>
+ <h2 className="mt-3 text-center font-display text-3xl font-semibold sm:text-4xl">
+ <AccentText>{c.industriesTitle}</AccentText>
+ </h2>
+ <p className="mx-auto mt-3 max-w-2xl text-center text-[var(--kuct-muted)]">
+ {c.industriesSupport}
+ </p>
+ </Reveal>
+ <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+ {c.industries.map((item, index) => (
+ <Reveal as="li" key={item.name} delay={index * 40}>
+ <article className="kuct-glass h-full rounded-xl p-5">
+ <h3 className="font-display text-base font-semibold text-[var(--kuct-text)] sm:text-lg">
+ {item.name}
+ </h3>
+ <p className="mt-2 text-sm leading-relaxed text-[var(--kuct-muted)]">
+ {item.body}
+ </p>
+ </article>
+ </Reveal>
+ ))}
+ </ul>
+ </div>
+ </section>
+
+ <section className="kuct-section-wash scroll-mt-20 py-20">
  <div className="mx-auto max-w-6xl px-6">
  <Reveal variant="title">
  <p className="text-center text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
@@ -586,7 +675,7 @@ export function AgentDolphinContent({ embedded = false }: { embedded?: boolean }
  </div>
  </section>
 
- <section className="kuct-section-wash scroll-mt-20 py-20">
+ <section className="scroll-mt-20 py-20">
  <div className="mx-auto max-w-6xl px-6">
  <Reveal variant="title">
  <p className="text-center text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
@@ -630,7 +719,7 @@ export function AgentDolphinContent({ embedded = false }: { embedded?: boolean }
  hidden={!open}
  className="px-5 pb-4 text-sm leading-relaxed text-[var(--kuct-muted)] sm:px-6"
  >
- {item.a}
+ <FaqAnswerText text={item.a} />
  </div>
  </div>
  );
@@ -641,7 +730,7 @@ export function AgentDolphinContent({ embedded = false }: { embedded?: boolean }
 
  <section
  id={embedded ? undefined : "contact"}
- className="scroll-mt-20 py-20"
+ className="kuct-section-wash scroll-mt-20 py-20"
  >
  <div className="mx-auto max-w-3xl px-6 text-center">
  <Reveal variant="title">
@@ -662,14 +751,28 @@ export function AgentDolphinContent({ embedded = false }: { embedded?: boolean }
  >
  {c.closeCta}
  </button>
- {!embedded ? (
+ {c.closeLinks.map((link) => {
+ const external = link.href.startsWith("http");
+ const href = external
+ ? link.href
+ : link.href.startsWith("/#")
+ ? embedded
+ ? `${homePath}${link.href}`
+ : link.href
+ : assetPath(link.href);
+ return (
  <a
- href={contactHref}
+ key={link.label}
+ href={href}
  className="kuct-btn-ghost inline-flex items-center "
+ {...(external
+ ? { target: "_blank", rel: "noopener noreferrer" }
+ : {})}
  >
- {c.ctaPrimary}
+ {link.label}
  </a>
- ) : null}
+ );
+ })}
  </div>
  </Reveal>
  </div>

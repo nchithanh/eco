@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-08-05 (d)
+
+- `/dolphin-care/` VI SEO/AEO/GEO rewriter: meta + hero nhấn **báo cáo insight hằng ngày**; 4 lớp (LLM / business / customer / daily report); features 24/7 + Zalo/CRM + embed; bảng so sánh 5 tiêu chí; ngành phù hợp; quy trình 4 bước; FAQ 6 Q; EN/JA sync; schema `agents/dolphin-care.json` + knowledge + Worker Care context; homepage teaser align insight.
+
 ## 2026-08-05 (c)
 
 - PageSpeed: bật `experimental.inlineCss` — inline CSS vào HTML, giảm render-blocking stylesheet chunks (~950 ms est.); Quicksand chỉ weight `400–700`; bump cookie `20260805f`.

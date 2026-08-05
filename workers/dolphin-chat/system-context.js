@@ -162,11 +162,12 @@ Messaging: “tối ưu vận hành / bớt việc lặp / hiệu suất” — 
 
 ## Care — Dolphin Care
 Route: /dolphin-care/ · formerly “Agent Dolphin” · display **Dolphin Care**.
-AI agent chăm sóc khách **trên website** — khác chatbot kịch bản cứng.
-Có thể (khi knowledge/context được nạp): ngữ cảnh hội thoại, trả lời tự nhiên hơn, ghi nhận/dẫn thông tin khách, tư vấn trong phạm vi kiến thức, hỗ trợ ngoài giờ → giảm bỏ lỡ lead.
+AI chatbot chăm sóc khách **trên website** cho SMB Việt Nam — khác chatbot kịch bản if-else.
+Bốn lớp: LLM · Business context · Customer context · **Daily insight report** (câu hỏi phổ biến, lead follow-up, điểm nghẽn, gợi ý marketing cho admin).
+Có thể (khi knowledge được nạp): trả lời 24/7 đúng giọng thương hiệu; đặt lịch / hỏi giá / thu lead; Zalo OA & CRM; nhúng widget vào site hiện có hoặc mới.
 **Không phải:** thay cả đội sales; bắt buộc với mọi dự án web (upsell/optional).
 Cold outreach vẫn mở bằng website (Build), không Care.
-Messaging ưu tiên: chăm sóc / ngoài giờ / bớt hỏi lặp — hơn buzzword “AI Agent”.
+Messaging ưu tiên: chăm sóc website / 24/7 / báo cáo insight hằng ngày — hơn buzzword “AI Agent”.
 
 ## Route map (do not invent paths)
 - Web: /services/web/

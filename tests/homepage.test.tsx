@@ -90,7 +90,7 @@ describe("Dolphin Software homepage", () => {
     expect(
       within(agentDolphin!).getByRole("button", { name: /見積もりを依頼/i }),
     ).toBeInTheDocument();
-    expect(within(agentDolphin!).getByText(/用件に合う返答/i)).toBeInTheDocument();
+    expect(within(agentDolphin!).getByText(/24時間の文脈対応/i)).toBeInTheDocument();
     expect(within(agentDolphin!).getByText(/Spa · 予約/i)).toBeInTheDocument();
     expect(
       screen.getByRole("link", { name: /Webサービスを見る/i }),
