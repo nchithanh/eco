@@ -710,7 +710,7 @@ const en: Dictionary = {
     ],
   },
   whatYouGet: {
-    eyebrow: "Engagement outputs",
+    eyebrow: "Project handover",
     title: "Every project [[ends with clear deliverables]]",
     support:
       "Clear handover — docs, ownership, and independent ops; no vendor lock-in.",
@@ -719,11 +719,11 @@ const en: Dictionary = {
     items: [
       {
         title: "Locked scope & milestones",
-        body: "Quotes tied to agreed outputs — periodic demos to course-correct early.",
+        body: "Quotes tied to agreed outputs — periodic demos to course-correct early; no vague hourly fog.",
       },
       {
         title: "Source & operating rights",
-        body: "Source / repo per agreement — you keep the right to run it onward.",
+        body: "Source / repo per agreement — you keep the right to run it onward, no contractor lock-in.",
       },
       {
         title: "Structure ready to extend",
@@ -738,7 +738,7 @@ const en: Dictionary = {
         body: "Docs / walkthrough so your team can run content and a basic deploy checklist.",
       },
       {
-        title: "3–6 month bug warranty",
+        title: "3–6 month technical warranty",
         body: "Within accepted scope — new features are a separate line item, quoted first.",
       },
     ],
@@ -1038,7 +1038,7 @@ const ja: Dictionary = {
   meta: {
     title: "Dolphin Software",
     description:
-      "SMB向けWeb & Appスタジオ。ウェブサイト、モバイル、業務自動化、AI連携 — 使いやすく運用しやすく、見積もり範囲が明確で、引き渡し後も伴走します。",
+      "SMB向けWeb & Appスタジオ。ビジネス課題から運用しやすいシステムまで — スコープ明確、成果を測れる、引き渡し後も伴走。",
   },
   nav: {
     ariaMain: "メイン",
@@ -1056,24 +1056,24 @@ const ja: Dictionary = {
     stack: "技術",
     news: newsNavLabel.ja,
     careers: careersNavLabel.ja,
-    about: "紹介",
+    about: "会社紹介",
     agents: "AI",
     agentDolphin: "Dolphin Care",
-    aiTransform: "企業の AI 変革",
+    aiTransform: "企業のAI変革",
     contact: "お問い合わせ",
   },
   banner: {
     aria: "お知らせ",
-    text: "Dolphin Softwareはフリーランス募集中 — Salesは急募、案件手数料50%。今すぐ応募！",
+    text: "Dolphin Softwareはフリーランスを募集中 — Salesを最優先で急募、成約手数料50%。今すぐ応募！",
     cta: "応募する",
   },
   hero: {
     eyebrow: "Dolphin Software",
     aiPill: "",
-    headline: "テクノロジーを事業の[[負担]]にしない",
-    subhead: "Web構築 · 既存システムの刷新 · 必要な場所だけのAI",
+    headline: "テクノロジーを企業の[[負担]]にさせない",
+    subhead: "Webサイト構築 · レガシーシステム刷新 · 適切な場所へのAI",
     support:
-      "ウェブサイトの構築、既存システムのアップグレード、そして本当に必要なところへのAI適用で、時間を節約し効率を高めます。",
+      "ウェブサイト構築、既存システムのアップグレード、本当に必要な場所へのAI適用で、時間を節約し効率を高めます。",
     trustLine: "課題を理解 · 見積もり明確 · 不要な提案はしない",
     ctaPrimary: "見積もりを依頼",
     ctaSecondary: "Webサービスを見る",
@@ -1224,8 +1224,8 @@ const ja: Dictionary = {
     ],
   },
   whatYouGet: {
-    eyebrow: "Engagement outputs",
-    title: "プロジェクトは[[明確な成果物で終わる]]",
+    eyebrow: "プロジェクト引き渡し",
+    title: "すべてのプロジェクトは[[明確な成果物で終わる]]",
     support:
       "明確な引き渡し — ドキュメント、所有権、自立運用。ベンダーロックなし。",
     groupOwn: "Own — 所有と基盤",
@@ -1233,11 +1233,11 @@ const ja: Dictionary = {
     items: [
       {
         title: "確定したスコープとマイルストーン",
-        body: "合意した成果物に紐づく見積もり — 定期デモで早期修正。",
+        body: "合意した成果物に紐づく見積もり — 定期デモで早期修正。曖昧な工数ベースではありません。",
       },
       {
         title: "ソースと運用権",
-        body: "契約どおりのソース／リポジトリ — 運用を続ける権利はあなた側。",
+        body: "契約どおりのソース／リポジトリ — 運用を続ける権利はあなた側。ベンダーロックなし。",
       },
       {
         title: "後から足せる構造",
@@ -1252,7 +1252,7 @@ const ja: Dictionary = {
         body: "ドキュメント／ウォークスルーで、コンテンツ運用と基本デプロイを自走。",
       },
       {
-        title: "技術不具合保証 3〜6か月",
+        title: "技術保証 3〜6か月",
         body: "検収範囲内 — 新機能は別項目として、先に見積もります。",
       },
     ],

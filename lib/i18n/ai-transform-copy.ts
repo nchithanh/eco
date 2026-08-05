@@ -257,7 +257,7 @@ const en: AiTransformCopy = {
   compareEyebrow: "Operating reality",
   compareTitle: "AI Seats vs Real AI Transformation: What’s the [[Difference]]?",
   compareSupport:
-    "Buying ChatGPT or Gemini for the whole team is not AI transformation. Real transformation means wiring machines into your operating flows — with systems, metrics, and human approval on sensitive steps.",
+    "Buying ChatGPT or Gemini for the whole team is not AI transformation. Real transformation means wiring machines into your company's operating flows — with system integrations, metrics, and human approval on sensitive steps.",
   offShelfTitle: "Seats / scattered tools",
   offShelfItems: [
     "Everyone uses AI differently — hard to standardize or measure hours saved",
@@ -442,7 +442,7 @@ const ja: AiTransformCopy = {
   compareEyebrow: "運営の現実",
   compareTitle: "AIシート vs 本当のAI変革：[[何が違う]]？",
   compareSupport:
-    "チーム全員にChatGPTやGeminiを買うことはAI変革ではありません。本当の変革とは、稼働中の業務フローに機械を組み込むこと — システム、指標、機密ステップでの人承認付きです。",
+    "チーム全員にChatGPTやGeminiを買うことはAI変革ではありません。本当の変革とは、企業の稼働フローに機械を組み込むこと — システム連携、指標、機密ステップでの人承認付きです。",
   offShelfTitle: "シート / 散在ツール",
   offShelfItems: [
     "各自が別々にAIを使う — 標準化や工数削減の測定ができない",

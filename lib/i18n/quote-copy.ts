@@ -125,7 +125,7 @@ const vi: QuoteCopy = {
 const en: QuoteCopy = {
   title: "Reference quote",
   disclaimer:
-    "Indicative only — formal quote after we align on scope, timeline, and needs.",
+    "Indicative only — formal quote after aligning on scope, timeline, and requirements.",
   estimateLabel: "Estimate",
   estimateUnit: "million VND",
   estimateEmpty: "Pick options to see a price range",
@@ -199,7 +199,7 @@ const en: QuoteCopy = {
 const ja: QuoteCopy = {
   title: "参考見積もり",
   disclaimer:
-    "参考値です。正式見積はスコープ・スケジュール・要件確認後に提示します。",
+    "参考値です。正式見積はスコープ・スケジュール・要件確認後にご提示します。",
   estimateLabel: "目安",
   estimateUnit: "百万 VND",
   estimateEmpty: "項目を選ぶと金額帯が表示されます",

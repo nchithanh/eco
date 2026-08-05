@@ -303,11 +303,11 @@ const en: AgentDolphinCopy = {
   whatEyebrow: "Definition",
   whatTitle: "What is [[Dolphin Care]]?",
   whatSupport:
-    "Dolphin Care is a website AI chatbot by Dolphin Software, built on four layers — not a rigid if-else script. It understands context, answers flexibly, and stays on-brand.",
+    "Dolphin Care is a website AI chatbot developed by Dolphin Software, operating on four layers — not a rigid if-else script. It understands context, answers flexibly, and stays on-brand.",
   pillarsEyebrow: "Four layers",
   pillarsTitle: "How [[Dolphin Care]] works",
   pillarsSupport:
-    "Four layers at once — right job, right person, right voice, plus actionable daily reports.",
+    "Four layers working together — so the agent answers the right job, to the right person, in the right voice, and turns conversations into actionable reports.",
   pillars: [
     {
       title: "LLM",
@@ -363,7 +363,7 @@ const en: AgentDolphinCopy = {
   compareEyebrow: "Compare",
   compareTitle: "Dolphin Care vs a [[Typical]] Script Chatbot",
   compareSupport:
-    "Script bots fit simple FAQs. Dolphin Care fits when you need business-aware answers, brand voice, and daily operational insight.",
+    "Script bots fit simple FAQs. Dolphin Care fits when you need AI that understands your business, keeps your brand voice, and delivers daily operational insights.",
   compareHeaders: ["Criterion", "Typical script chatbot", "Dolphin Care"],
   compareRows: [
     {
@@ -520,11 +520,11 @@ const ja: AgentDolphinCopy = {
   whatEyebrow: "定義",
   whatTitle: "Dolphin Careとは？",
   whatSupport:
-    "Dolphin Softwareが提供するWebサイト向けAIチャット。4層で動作し、硬いif-elseスクリプトではありません。",
+    "Dolphin Softwareが開発するWebサイト向けAIチャット。4層で動作し、硬いif-elseスクリプトではありません。文脈を理解し、柔軟に回答し、ブランドに沿います。",
   pillarsEyebrow: "4層",
   pillarsTitle: "[[Dolphin Care]]の仕組み",
   pillarsSupport:
-    "用件・相手・トーンに合う返答と、日次の行動可能なレポートを同時に提供します。",
+    "4層が連携して — 正しい用件に、正しい相手へ、正しいトーンで回答し、会話を行動可能なレポートに変えます。",
   pillars: [
     {
       title: "LLM",
@@ -580,7 +580,7 @@ const ja: AgentDolphinCopy = {
   compareEyebrow: "比較",
   compareTitle: "一般的なスクリプトボットとの[[違い]]",
   compareSupport:
-    "単純FAQならスクリプトボット。業務理解・ブランドボイス・日次インサイトが必要なら Dolphin Care。",
+    "単純FAQならスクリプトボット。業務を理解し、ブランドボイスを保ち、日次の運用インサイトを届けるAIが必要なら Dolphin Care。",
   compareHeaders: ["観点", "一般的なスクリプトボット", "Dolphin Care"],
   compareRows: [
     {
@@ -828,7 +828,7 @@ const homeEn: AgentDolphinHomeCopy = {
   eyebrow: "Dolphin Care",
   title: "Website AI care + [[daily]] insight reports",
   support:
-    "24/7 on-brand answers — plus daily admin reports with top questions, warm leads, and marketing ideas.",
+    "Answers 24/7 on-brand — plus daily admin reports with top questions, warm leads, and marketing ideas from real chats.",
   cta: "Explore Dolphin Care",
   ctaSecondary: "Get a quote",
   trustMicro: "Embed on new or existing sites · Zalo & CRM",
@@ -907,7 +907,7 @@ const homeJa: AgentDolphinHomeCopy = {
   eyebrow: "Dolphin Care",
   title: "サイト上のAIケア + [[日次]]インサイト",
   support:
-    "24時間ブランドに沿って回答 — 頻出質問・ホットリード・マーケ提案を管理者へ毎日レポート。",
+    "24時間ブランドに沿って回答 — 頻出質問・ホットリード・マーケ提案を実会話から管理者へ毎日レポート。",
   cta: "Dolphin Careを見る",
   ctaSecondary: "見積もりを依頼",
   trustMicro: "新規／既存サイトに埋め込み · Zalo & CRM",

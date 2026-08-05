@@ -9,8 +9,8 @@ export const homepageLangJa: HomepageLang = {
     aiPill: "",
     headline: "テクノロジーを企業の[[負担]]にさせない",
     subhead: "Webサイト構築 · レガシーシステム刷新 · 適切なAI統合",
-    support: "Dolphin Softwareは中小企業向けに、要件に応じたWebサイト設計、レガシーシステムの刷新、そして実用的なAI自動化を支援します。時間を節約し、運用効率を実質的に向上させます。",
-    trustLine: "まず理解 · 明確な見積り · 不要な営業なし",
+    support: "Dolphin Softwareは中小企業向けに、要件に応じたWebサイト設計、レガシーシステムの刷新、実用的なAI自動化を支援し、時間を節約し運用効率を実質的に向上させます。",
+    trustLine: "まず理解する · 明確な見積り · 不要な営業なし",
     ctaPrimary: "見積りを依頼",
     ctaSecondary: "Webサービスを見る",
     visual: {

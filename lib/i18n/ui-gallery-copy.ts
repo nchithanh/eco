@@ -135,7 +135,7 @@ const en: UiGallery = {
   eyebrow: "Showcase",
   title: "Explore [[layouts]] & solutions",
   support:
-    "Filter by need — browse popular layouts, pick a direction, or request a consult.",
+    "Quick filter by need — review popular layouts, then choose the right direction or get consultation.",
   filters: {
     all: "All",
     landing: "Landing Page",
@@ -149,8 +149,8 @@ const en: UiGallery = {
   previewAlt: "Layout sample",
   viewSample: "View sample",
   ctaServices: "View all services",
-  ctaConsult: "Get a consult",
-  empty: "No samples in this group — try another filter or contact us.",
+  ctaConsult: "Get consultation",
+  empty: "No samples in this group yet — try another filter or contact for consultation.",
   items: {
     "01": {
       label: "Landing",
@@ -262,22 +262,22 @@ const ja: UiGallery = {
   eyebrow: "ショーケース",
   title: "[[レイアウト]]とソリューションを探す",
   support:
-    "ニーズで絞り込み — 人気レイアウトを参照し、方向性を選ぶかご相談ください。",
+    "ニーズで素早く絞り込み — 人気レイアウトを参照し、適した方向性を選ぶかご相談ください。",
   filters: {
     all: "すべて",
-    landing: "ランディング",
+    landing: "ランディングページ",
     business: "ビジネスサイト",
     webapp: "カスタムWebアプリ",
-    ecommerce: "EC",
+    ecommerce: "E-commerce",
     corporate: "コーポレート",
     portfolio: "ポートフォリオ",
     startup: "スタートアップ",
   },
   previewAlt: "レイアウトサンプル",
   viewSample: "サンプルを見る",
-  ctaServices: "すべてのサービス",
+  ctaServices: "すべてのサービスを見る",
   ctaConsult: "相談する",
-  empty: "このカテゴリのサンプルはありません — 別のフィルターをお試しください。",
+  empty: "このグループにはサンプルがありません — 別のフィルターをお試しいただくか、ご相談ください。",
   items: {
     "01": {
       label: "LP",

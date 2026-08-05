@@ -10,6 +10,10 @@
 - Nav: utility + GNB cùng style chữ (size/weight/hover/active underline).
 - Nav: chữ **14px** (`0.875rem`).
 
+## 2026-08-06 (i18n)
+
+- Sync **VI → EN/JA** toàn site (SoT VI): homepage overlays + popular/ai-edge/ui-gallery/faq; about/careers/quote/ai-chat/ai-transform/agent-dolphin/service-details; works/tech/detail-extras/more-details; dictionaries chrome (meta/nav/banner/whatYouGet…); news articles EN/JA mở rộng khớp cấu trúc VI. Tone EN clear / JA polite SMB.
+
 ## 2026-08-05 (d)
 
 - `/dolphin-care/` VI SEO/AEO/GEO rewriter: meta + hero nhấn **báo cáo insight hằng ngày**; 4 lớp (LLM / business / customer / daily report); features 24/7 + Zalo/CRM + embed; bảng so sánh 5 tiêu chí; ngành phù hợp; quy trình 4 bước; FAQ 6 Q; EN/JA sync; schema `agents/dolphin-care.json` + knowledge + Worker Care context; homepage teaser align insight.

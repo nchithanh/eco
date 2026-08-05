@@ -33,29 +33,29 @@ const vi: AiEdge = {
 };
 
 const en: AiEdge = {
-  eyebrow: "Added edge",
-  badge: "AI capability",
-  title: "Websites first — [[AI]] as the smart layer",
+  eyebrow: "Ops AI",
+  badge: "Automate",
+  title: "Website as foundation — [[AI]] is the smart layer on top",
   support:
-    "Web & apps are our core. When it helps, we add chat, automation, and process agents — practical, not sci-fi.",
+    "Web & app are Dolphin Software's core. When genuinely useful, we add chat, automation, and process agents — real-world, not science fiction.",
   items: [
     {
       id: "chat",
       tag: "On-site",
-      title: "AI chat & FAQ on your site",
-      body: "Answer common questions and capture leads on the site you already run.",
+      title: "AI chat & FAQ on your website",
+      body: "Answer common questions and capture leads right on your live website.",
     },
     {
       id: "workflow",
       tag: "Automation",
-      title: "Smart workflows & forms",
-      body: "Automate booking, quotes, and lead routing — fewer manual steps.",
+      title: "Smart workflow & auto-forms",
+      body: "Automate booking, quotes, and lead routing — reduce manual steps.",
     },
     {
       id: "agent",
       tag: "Integration",
-      title: "Agents wired to CRM / Zalo",
-      body: "Business agents on real process, connected to live systems — measurable outcomes.",
+      title: "Agent connecting CRM / Zalo",
+      body: "Business agent tied into real workflow, connects live systems — measurable results.",
     },
   ],
   ctaTransform: "Enterprise AI transformation",
@@ -63,32 +63,32 @@ const en: AiEdge = {
 };
 
 const ja: AiEdge = {
-  eyebrow: "差別化ポイント",
-  badge: "AI capability",
-  title: "Websiteが本体 — [[AI]]は加速レイヤー",
+  eyebrow: "Ops AI",
+  badge: "Automate",
+  title: "Webサイトが基盤 — [[AI]]はその上のスマートレイヤー",
   support:
-    "Web・アプリが中心です。必要ならチャット、自動化、業務エージェントを実務向けに追加 — 派手な演出ではなく運用に効く形で。",
+    "Web & アプリがDolphin Softwareの核心です。実際に有益な場合、チャット、自動化、プロセスエージェントを追加します — 現実的で、SF小説ではありません。",
   items: [
     {
       id: "chat",
       tag: "On-site",
-      title: "サイト内AIチャット / FAQ",
-      body: "よくある質問への回答とリード獲得を、既存サイトに組み込み。",
+      title: "御社のWebサイト上のAIチャット & FAQ",
+      body: "よくある質問に回答し、稼働中のWebサイトで直接リードを獲得。",
     },
     {
       id: "workflow",
       tag: "Automation",
-      title: "スマートワークフロー",
-      body: "予約・見積・リード振り分けを自動化 — 手作業を削減。",
+      title: "スマートワークフロー & 自動フォーム",
+      body: "予約、見積り、リード振り分けを自動化 — 手動ステップを削減。",
     },
     {
       id: "agent",
       tag: "Integration",
       title: "CRM / Zalo連携エージェント",
-      body: "実プロセスに沿ったエージェントを既存システムと接続 — 成果を測定。",
+      body: "ビジネスエージェントが実際のワークフローと統合、ライブシステムに接続 — 測定可能な結果。",
     },
   ],
-  ctaTransform: "企業のAI変革",
+  ctaTransform: "企業AI変革",
   ctaAgent: "Dolphin Careを見る",
 };
 

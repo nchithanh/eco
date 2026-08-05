@@ -152,7 +152,7 @@ const en: AiChatCopy = {
 
 
 const ja: AiChatCopy = {
-  ...en,
+  agentName: "Dolphin Assist",
   online: "オンライン",
   justNow: "たった今",
   open: "Dolphin Assist チャットを開く",
@@ -162,21 +162,55 @@ const ja: AiChatCopy = {
   zalo: "Zaloでチャット",
   messenger: "Messengerでチャット",
   toastWelcome:
-    "こんにちは！Dolphin Assist です。必要なときすぐサポートします。",
+    "こんにちは！Dolphin Assist です。必要なときすぐサポートいたします。",
   toastContinue:
-    "Web・カスタム AI Agent・企業の AI 変革のご相談は、こちらか Zalo へ。",
+    "Web・カスタム AI Agent・企業の AI 変革のご相談は、こちらまたは Zalo へどうぞ。",
   dismissToasts: "ヒントを閉じる",
   placeholder: "メッセージを入力…",
   send: "送信",
   greeting:
-    "こんにちは！Dolphin Software の Dolphin Assist です。Web/アプリ、カスタム AI Agent、企業の AI 変革のどれをご相談ですか？",
+    "こんにちは！Dolphin Software の Dolphin Assist です。Web/アプリ、カスタム AI Agent、または企業の AI 変革について、どのようなご相談でしょうか？",
   suggestions: [
-    "見積もり",
+    "見積もり依頼",
     "カスタム AI Agent",
     "AI 変革",
-    "Zaloで人と話す",
+    "Zaloで担当者と話す",
   ],
-  escalateHint: "人と話したい場合は、横の Zalo ボタンを押してください。",
+  rules: [
+    {
+      keywords: ["zalo", "人", "電話", "担当", "連絡"],
+      reply:
+        "ウィジェット横の Zalo ボタンから Dolphin へ直接チャットいただくか、0779 937 633 までお電話ください。こちらで簡単にご要件を伺うことも可能です。",
+    },
+    {
+      keywords: ["見積", "料金", "価格", "費用", "予算"],
+      reply:
+        "正確な見積もりには、目的・期限・概要が必要です。こちらで簡単にご説明いただくか、サイトの「見積もり依頼」フォームをご利用ください。または Zalo で直接ご相談も可能です。",
+    },
+    {
+      keywords: ["agent", "エージェント", "チャットボット", "カスタム"],
+      reply:
+        "業務に組み込むカスタム AI Agent（CRM・Zalo・カレンダーなど実システムと連携）は AI 変革ロードマップの一部です。/ai-transform/ をご覧いただくか、自動化したい業務をお聞かせください。",
+    },
+    {
+      keywords: ["変革", "transformation", "企業", "ロードマップ"],
+      reply:
+        "AI 変革とは、ChatGPT のアカウントを配るだけではなく、AI を運用の中核に組み込むことです。/ai-transform/ をご覧いただくか、時間やコストがかかっている業務をお聞かせください。",
+    },
+    {
+      keywords: ["web", "website", "サイト", "アプリ", "app", "プロジェクト"],
+      reply:
+        "Dolphin はビジネス成果に沿って Web/アプリを構築します。明確な範囲と運用しやすい引き渡しを重視しています。必要なもの（LP・予約・社内ツールなど）をお聞かせください。",
+    },
+    {
+      keywords: ["こんにちは", "hello", "hi", "はじめまして"],
+      reply:
+        "こんにちは！ご用件をお聞かせください — 見積もり、AI Agent、変革ロードマップ、または Zalo での担当者連絡など。",
+    },
+  ],
+  fallback:
+    "承知いたしました。より適切にご案内するため、Web/アプリ、AI Agent、AI 変革、または Zalo での担当者連絡のうち、どれに近いかお聞かせいただけますか？",
+  escalateHint: "担当者と直接お話しされたい場合は、ウィジェット横の Zalo ボタンをご利用ください。",
 };
 
 

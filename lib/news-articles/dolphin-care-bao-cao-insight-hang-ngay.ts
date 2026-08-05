@@ -252,24 +252,92 @@ const en: NewsArticleCopy = {
     },
     {
       type: "p",
-      text: "Most businesses deploy a chatbot and treat it as the finish line for customer care. Response time drops from hours to seconds. Staff pressure eases. It sounds fine — until a new question appears: what are all those conversations actually telling you?",
+      text: "Most businesses deploy a chatbot and treat it as the finish line for customer care. Response time drops from hours to seconds. Customers stop waiting. Staff pressure eases. It sounds fine.",
     },
     {
       type: "p",
-      text: "Typical AI chatbots stop there: they handle chats, then silence. No synthesis, no trends, no next steps — just logs nobody has time to read. Dolphin Care from Dolphin Software closes that gap with a second layer: structured daily insight for operators and marketers.",
+      text: "But after a few weeks, a new question appears: what are all those conversations actually telling you?",
+    },
+    {
+      type: "p",
+      text: "This is where typical AI chatbots go silent. They handle interactions, then stop. No synthesis, no trend detection, no next steps. The result is a massive log nobody has time to read — and the most valuable customer insight gets ignored every day.",
+    },
+    {
+      type: "p",
+      text: "Dolphin Care — a product from Dolphin Software (dolphin-software.io.vn) — is built to solve exactly this problem. More than an auto-reply chatbot, Dolphin Care operates as an insight synthesis system, converting real conversation data into daily admin reports — clear, structured, and ready to act on.",
+    },
+    {
+      type: "p",
+      text: "This article breaks down how Dolphin Care works, what the daily report includes, and why that is the difference most typical chatbots do not have.",
     },
     {
       type: "h2",
-      text: "Two AI layers: real-time care + daily insight",
+      text: "The real problem: interaction without insight",
     },
     {
       type: "p",
-      text: "Layer 1 answers FAQs, captures leads, guides product choice, and escalates complex chats — with natural-language intent, not rigid keyword trees. Layer 2 classifies every conversation and surfaces patterns into an end-of-day report admins can act on today.",
+      text: "Picture a small e-commerce business running a chatbot on its website. Every day, the bot handles over 200 conversations — customers asking about shipping times, return policies, product compatibility, promo codes, and dozens of other topics.",
+    },
+    {
+      type: "p",
+      text: "All that data exists. But without a system to filter and highlight what matters, it is just raw text. Ops does not know 40 customers asked the same question about a missing feature. Marketing does not know one product is attracting triple the usual questions. Content keeps guessing what topics to write about.",
+    },
+    {
+      type: "p",
+      text: "This is the real cost of a reply-only chatbot: it accumulates data without converting it into decisions. The business has more interactions — but does not understand customers any better.",
+    },
+    {
+      type: "h2",
+      text: "What admins actually need: reports that tell you the next step",
+    },
+    {
+      type: "p",
+      text: "A chatbot that answers questions is a support tool. A chatbot that answers questions and tells you what those questions reveal — that is a real operational asset.",
+    },
+    {
+      type: "p",
+      text: "Admins do not need transcripts. Admins need to know: what did customers ask most about today? Which leads need urgent follow-up? What part of the website is causing confusion? What topic should we post about next week?",
+    },
+    {
+      type: "p",
+      text: "This is the gap Dolphin Care fills. Instead of leaving conversation data idle in logs, Dolphin Care processes, classifies, and summarizes everything — then sends admins a structured report at the end of each day.",
+    },
+    {
+      type: "h2",
+      text: "How Dolphin Care works: two-layer AI system",
+    },
+    {
+      type: "h3",
+      text: "Layer 1: Real-time AI customer care",
+    },
+    {
+      type: "p",
+      text: "The first layer of Dolphin Care handles all incoming conversations on the website or integrated channels — answering FAQs, capturing lead information, guiding customers through product selection, and handing off complex conversations to the right staff member.",
+    },
+    {
+      type: "p",
+      text: "Unlike rigid decision-tree chatbots, Dolphin Care uses natural-language understanding to recognize customer intent, even when the same question is phrased many different ways. The bot does not just match keywords — it understands context.",
+    },
+    {
+      type: "p",
+      text: "Result: customers get accurate responses 24/7, even outside business hours. No lead is missed because it is after hours. No repeat questions burn staff time.",
     },
     {
       type: "image",
       src: "/news/dolphin-care-ai-realtime-chat.jpg",
       alt: "Dolphin Care AI chat widget on a business website",
+    },
+    {
+      type: "h3",
+      text: "Layer 2: Daily insight synthesis for admins",
+    },
+    {
+      type: "p",
+      text: "This is the core difference of Dolphin Care. Alongside handling conversations, the AI system analyzes, classifies, and detects recurring patterns across all interaction data. At the end of each day, admins receive a synthesis report — not a list of raw transcripts, but structured insights ready for decision-making.",
+    },
+    {
+      type: "p",
+      text: "This is not data \"for reference.\" This is information to act on today.",
     },
     {
       type: "image",
@@ -281,8 +349,44 @@ const en: NewsArticleCopy = {
       text: "What the daily report includes",
     },
     {
+      type: "h3",
+      text: "Top questions of the day",
+    },
+    {
       type: "p",
-      text: "Top questions of the day, high-intent leads to follow up, recurring bottlenecks, and content/marketing suggestions drawn from real customer language — not guesswork.",
+      text: "The report identifies which questions appeared most across all conversations. If 30% of customers asked about shipping time this week, that is a clear signal: the FAQ page needs updating, or the site needs proactive shipping notices to reduce similar questions.",
+    },
+    {
+      type: "p",
+      text: "This information helps ops teams distinguish normal questions from escalating issues that need immediate handling.",
+    },
+    {
+      type: "h3",
+      text: "High-intent leads to follow up",
+    },
+    {
+      type: "p",
+      text: "Not every customer who chats converts immediately. Dolphin Care flags conversations where customers showed high purchase intent but did not convert — creating a priority list for sales or customer care to follow up manually. Instead of letting leads go cold, admins know exactly who needs re-contact and why.",
+    },
+    {
+      type: "h3",
+      text: "Recurring bottlenecks and issues",
+    },
+    {
+      type: "p",
+      text: "When the same complaint or confusion point appears repeatedly across conversations, it is rarely coincidence. Dolphin Care highlights these recurring patterns so ops can address the root cause instead of treating symptoms. A confusing product page, a policy triggering complaints, a checkout flow generating many questions — all surface clearly in the report.",
+    },
+    {
+      type: "h3",
+      text: "Content and marketing suggestions from real conversations",
+    },
+    {
+      type: "p",
+      text: "This is one of the least exploited features of Dolphin Care, yet the most valuable for marketing and content teams.",
+    },
+    {
+      type: "p",
+      text: "Because the AI chatbot is listening to customers every day, the system can detect clear topics on customer minds — topics not yet answered well on the website, in emails, or on social media. Admins receive specific suggestions: write a blog post about topic X, clarify landing-page copy about Y, consider running a promo for group Z. This is not guesswork. This is direct insight from what customers actually ask.",
     },
     {
       type: "image",
@@ -291,41 +395,85 @@ const en: NewsArticleCopy = {
     },
     {
       type: "h2",
-      text: "How teams use it",
+      text: "Real use cases: what businesses do with this data",
+    },
+    {
+      type: "h3",
+      text: "Adjust operations in real time",
     },
     {
       type: "p",
-      text: "Ops spots fulfillment issues early. Marketing reallocates budget toward products with rising questions. Content teams get briefs from actual customer asks. Web teams fix gaps on product pages when the same question repeats.",
+      text: "When Dolphin Care flags a repeat question about order status, ops managers can immediately check whether a fulfillment delay is causing a surge in questions — and handle it before it becomes a negative review. Customer conversation insight, in this case, acts as an early-warning system.",
+    },
+    {
+      type: "h3",
+      text: "Optimize marketing based on real data",
     },
     {
       type: "p",
-      text: "See [Dolphin Care](/dolphin-care/) or [contact us](/#contact) for a free consult.",
+      text: "A marketing team that knows which products are generating the most questions can reallocate ad budget precisely. If Dolphin Care weekly reports consistently show high interest in a specific product category, that data directly informs campaign priorities — no separate survey or deep tool analysis needed.",
+    },
+    {
+      type: "h3",
+      text: "Content ideas from real conversations",
+    },
+    {
+      type: "p",
+      text: "Content teams often struggle with what topics to write about. Dolphin Care removes that problem by converting real customer questions into content briefs. If customers keep asking \"What is the difference between product A and B?\" — that is a comparison post waiting to be written. Chatbot AI conversation data becomes a real content calendar.",
+    },
+    {
+      type: "h3",
+      text: "Improve website and product pages",
+    },
+    {
+      type: "p",
+      text: "Repeat questions often point to gaps in existing content. If customers keep asking for information that should already be on the product page, that is a direct signal for the web team. Dolphin Care daily insight reports make those gaps visible and trackable over time — so improvements are measurable, not just assumptions.",
+    },
+    {
+      type: "h2",
+      text: "Do not let customer conversations become forgotten data",
+    },
+    {
+      type: "p",
+      text: "Every conversation your business receives is a data point. In a week, that is hundreds of data points. In a month, that is a detailed map of what customers want, where they get stuck, and what will make them more likely to buy.",
+    },
+    {
+      type: "p",
+      text: "Most businesses let that map go unread. Dolphin Care turns it into a daily briefing for admins.",
+    },
+    {
+      type: "p",
+      text: "If you are using an AI chatbot to handle customer conversations, the question worth asking is: what happens to those conversations afterward? If the answer is nothing — it is time to see how Dolphin Care makes the difference.",
+    },
+    {
+      type: "p",
+      text: "Contact Dolphin Software at dolphin-software.io.vn to learn more about [Dolphin Care](/dolphin-care/) and get a free consultation for your business.",
     },
   ],
   faq: [
     {
       q: "How is Dolphin Care different from a normal AI chatbot?",
-      a: "Most bots only reply. Dolphin Care adds daily insight synthesis — operational and marketing reports for admins.",
+      a: "Most AI chatbots only focus on answering customer conversations. Dolphin Care combines two layers: real-time AI customer care and daily insight synthesis — converting conversation data into specific operational and marketing reports for admins. This is the core difference between typical chatbots (reply only) and Dolphin Care (reply + insight synthesis + action suggestions).",
     },
     {
       q: "How is the daily report generated?",
-      a: "AI classifies the day's chats by topic and intent, detects repeats and high-intent leads, and delivers a structured summary.",
+      a: "Dolphin Care AI analyzes all conversations of the day, classifies by topic and intent, then detects recurring patterns — top questions, repeat complaints, and high-intent leads. These findings are synthesized into a structured report sent to admins at day's end.",
     },
     {
       q: "Does it help marketing decisions?",
-      a: "Yes — content topics, landing copy gaps, and campaign ideas from what customers actually ask.",
+      a: "Yes. By tracking what customers ask most, Dolphin Care suggests specific content topics and campaigns based on actual customer behavior — not assumptions. These suggestions appear in the daily report and can directly inform social posts, blog topics, email campaigns, and ad targeting.",
     },
     {
       q: "Is it suitable for small businesses?",
-      a: "Yes — automation plus daily insight replaces a separate analytics function for lean teams.",
+      a: "Dolphin Care is designed to be useful at any scale. For small businesses with few staff, automating customer care combined with daily insight replaces the need for a separate analytics function. Daily reports let admins grasp information without spending time reviewing raw data.",
     },
     {
       q: "Who benefits most?",
-      a: "E-commerce, clinics, spas, restaurants, real estate, education — any business with meaningful inbound questions online.",
+      a: "Any business receiving significant inbound questions from customers — e-commerce, spas, clinics, restaurants, real estate, education, or businesses with an online presence — can benefit from Dolphin Care. The more conversations the AI chatbot handles, the richer and more accurate the daily insight becomes.",
     },
     {
       q: "Can it integrate with an existing site?",
-      a: "Yes — add to a live website or bundle with a new build from Dolphin Software.",
+      a: "Yes. Dolphin Care can be added to a live website or integrated with a new website project from Dolphin Software.",
     },
   ],
 };
@@ -343,68 +491,228 @@ const ja: NewsArticleCopy = {
     },
     {
       type: "p",
-      text: "多くの企業はチャットbot導入で顧客対応を完了とみなします。しかし「会話データが何を示すか」は見えません。Dolphin Careは2層AIでその空白を埋めます。",
-    },
-    {
-      type: "h2",
-      text: "2層のAI：リアルタイム対応 + 日次インサイト",
+      text: "多くの企業はチャットbotを導入し、それで顧客対応が完了したと考えます。応答時間は数時間から数秒に短縮され、顧客を待たせず、スタッフの負担も軽減されます。一見良さそうに聞こえます。",
     },
     {
       type: "p",
-      text: "第1層はFAQ・リード獲得・商品案内・エスカレーション。第2層は分類とパターン検出で、構造化レポートを毎日配信。",
+      text: "しかし数週間後、新たな疑問が浮かびます：これらの会話は実際に何を伝えているのでしょうか？",
+    },
+    {
+      type: "p",
+      text: "ここで大半のAIチャットbotは沈黙します。会話を処理して終わり。要約なし、トレンド検出なし、次のステップなし。結果として、誰も読む時間のない膨大なログが残り、最も価値のある顧客インサイトが毎日無視されることになります。",
+    },
+    {
+      type: "p",
+      text: "Dolphin Care — Dolphin Software（dolphin-software.io.vn）の製品 — は、まさにこの問題を解決するために構築されました。単なる自動返信チャットbotではなく、Dolphin Careはインサイト統合システムとして機能し、実際の会話データを管理者向けの日次レポートに変換します — 明確で構造化され、すぐに行動できる形で。",
+    },
+    {
+      type: "p",
+      text: "この記事では、Dolphin Careの仕組み、日次レポートの内容、そしてそれが一般的なチャットbotにはない差別化要因である理由を詳しく説明します。",
+    },
+    {
+      type: "h2",
+      text: "本当の問題：インサイトのないインタラクション",
+    },
+    {
+      type: "p",
+      text: "Webサイトでチャットbotを運用している中小規模のEコマース企業を想像してください。毎日、botは200件以上の会話を処理しています — 顧客は配送時間、返品ポリシー、商品の互換性、プロモコード、その他数十のトピックについて質問します。",
+    },
+    {
+      type: "p",
+      text: "そのデータはすべて存在します。しかし、重要なものをフィルタリングして強調表示するシステムがなければ、それは単なる生のテキストです。運用チームは、40人の顧客が欠落している機能について同じ質問をしていることを知りません。マーケティングチームは、ある商品が通常の3倍の質問を集めていることを知りません。コンテンツチームは書くべきトピックを推測し続けます。",
+    },
+    {
+      type: "p",
+      text: "これが返信のみのチャットbotの本当のコストです：データは蓄積されますが、意思決定には変換されません。ビジネスはより多くのインタラクションを持ちますが、顧客をより深く理解することはできません。",
+    },
+    {
+      type: "h2",
+      text: "管理者が本当に必要としているもの：次のステップを示すレポート",
+    },
+    {
+      type: "p",
+      text: "質問に答えるチャットbotはサポートツールです。質問に答え、その質問が何を明らかにするかを教えてくれるチャットbot — それこそが真の運用資産です。",
+    },
+    {
+      type: "p",
+      text: "管理者はトランスクリプトを必要としていません。管理者が知る必要があるのは：今日、顧客は何について最も多く質問しましたか？ どのリードが緊急のフォローアップを必要としていますか？ Webサイトのどの部分が混乱を引き起こしていますか？ 来週、どのトピックについて投稿すべきですか？",
+    },
+    {
+      type: "p",
+      text: "これがDolphin Careが埋めるギャップです。会話データをログに放置する代わりに、Dolphin Careはすべてを処理、分類、要約し、毎日の終わりに管理者に構造化されたレポートを送信します。",
+    },
+    {
+      type: "h2",
+      text: "Dolphin Careの仕組み：2層AIシステム",
+    },
+    {
+      type: "h3",
+      text: "第1層：リアルタイムAI顧客対応",
+    },
+    {
+      type: "p",
+      text: "Dolphin Careの第1層は、WebサイトまたはChatbot統合チャネルでのすべての受信会話を処理します — FAQへの回答、リード情報の取得、商品選択のガイド、複雑な会話の適切なスタッフへの引き継ぎ。",
+    },
+    {
+      type: "p",
+      text: "硬直した決定木型チャットbotとは異なり、Dolphin Careは自然言語理解を使用して顧客の意図を認識します。同じ質問が多様な方法でフレーズされても対応できます。botはキーワードをマッチングするだけでなく、コンテキストを理解します。",
+    },
+    {
+      type: "p",
+      text: "結果：顧客は営業時間外でも24時間365日正確な応答を受け取ります。営業時間外のためにリードを逃すことはありません。繰り返しの質問がスタッフの時間を消費することもありません。",
     },
     {
       type: "image",
       src: "/news/dolphin-care-ai-realtime-chat.jpg",
-      alt: "Dolphin CareのAIチャットウィジェット",
+      alt: "企業WebサイトのDolphin Care AIチャットウィジェット",
+    },
+    {
+      type: "h3",
+      text: "第2層：管理者向け日次インサイト統合",
+    },
+    {
+      type: "p",
+      text: "これがDolphin Careの中核的な差別化要因です。会話を処理すると同時に、AIシステムはすべてのインタラクションデータ全体で分析、分類、繰り返しパターンを検出します。毎日の終わりに、管理者は統合レポートを受け取ります — 生のトランスクリプトのリストではなく、意思決定に使える構造化されたインサイトです。",
+    },
+    {
+      type: "p",
+      text: "これは「参考用」のデータではありません。今日行動するための情報です。",
     },
     {
       type: "image",
       src: "/news/dolphin-care-daily-report-dashboard.jpg",
-      alt: "Dolphin Care日次インサイトダッシュボード",
+      alt: "管理者向けDolphin Care日次インサイトダッシュボード",
     },
     {
       type: "h2",
       text: "日次レポートの内容",
     },
     {
+      type: "h3",
+      text: "その日の最頻出質問",
+    },
+    {
       type: "p",
-      text: "頻出質問、フォローアップリード、繰り返し障害、実際の会話からのコンテンツ・マーケ提案。",
+      text: "レポートは、すべての会話で最も多く出現した質問を特定します。今週、顧客の30%が配送時間について質問した場合、それは明確なシグナルです：FAQページの更新が必要か、類似の質問を減らすために配送に関する積極的な通知がサイトに必要です。",
+    },
+    {
+      type: "p",
+      text: "この情報は、運用チームが通常の質問と即時対応が必要なエスカレーション問題を区別するのに役立ちます。",
+    },
+    {
+      type: "h3",
+      text: "フォローアップが必要な高意向リード",
+    },
+    {
+      type: "p",
+      text: "チャットをするすべての顧客がすぐに購入するわけではありません。Dolphin Careは、顧客が高い購入意向を示したが購入しなかった会話にフラグを立てます — セールスまたはカスタマーケアチームが手動でフォローアップするための優先リストを作成します。リードが冷めていくのを許す代わりに、管理者は誰に再連絡が必要で、その理由を正確に把握できます。",
+    },
+    {
+      type: "h3",
+      text: "繰り返しのボトルネックと問題",
+    },
+    {
+      type: "p",
+      text: "同じ苦情や混乱ポイントが会話全体で繰り返し出現する場合、それはめったに偶然ではありません。Dolphin Careはこれらの繰り返しパターンを強調表示し、運用チームが症状を治療する代わりに根本原因に対処できるようにします。混乱を招く商品ページ、苦情を引き起こすポリシー、多くの質問を生成するチェックアウトフロー — すべてがレポートで明確に浮上します。",
+    },
+    {
+      type: "h3",
+      text: "実際の会話からのコンテンツとマーケティング提案",
+    },
+    {
+      type: "p",
+      text: "これはDolphin Careの最も活用されていない機能の1つですが、マーケティングおよびコンテンツチームにとって最も価値があります。",
+    },
+    {
+      type: "p",
+      text: "AIチャットbotが毎日顧客の話を聞いているため、システムは顧客の心にある明確なトピックを検出できます — Webサイト、メール、ソーシャルメディアでまだ十分に回答されていないトピック。管理者は具体的な提案を受け取ります：トピックXについてのブログ投稿を書く、トピックYについてのランディングページのコピーを明確にする、グループZ向けのプロモを検討する。これは推測ではありません。顧客が実際に尋ねていることからの直接的なインサイトです。",
     },
     {
       type: "image",
       src: "/news/dolphin-care-marketing-content-insights.jpg",
-      alt: "会話インサイトからのマーケ・コンテンツ提案",
+      alt: "Dolphin Care会話インサイトからのマーケティングおよびコンテンツ提案",
+    },
+    {
+      type: "h2",
+      text: "実用例：企業がこのデータで何をするか",
+    },
+    {
+      type: "h3",
+      text: "リアルタイムでの運用調整",
     },
     {
       type: "p",
-      text: "[Dolphin Care](/dolphin-care/) または [お問い合わせ](/#contact)",
+      text: "Dolphin Careが注文ステータスに関する繰り返しの質問にフラグを立てたとき、運用マネージャーはすぐに、フルフィルメントの遅延が質問の急増を引き起こしているかどうかを確認し、それが否定的なレビューになる前に対処できます。この場合、顧客会話インサイトは早期警告システムとして機能します。",
+    },
+    {
+      type: "h3",
+      text: "実際のデータに基づくマーケティング最適化",
+    },
+    {
+      type: "p",
+      text: "どの製品が最も多くの質問を生成しているかを知っているマーケティングチームは、広告予算を正確に再配分できます。Dolphin Careの週次レポートが特定の製品カテゴリへの高い関心を一貫して示している場合、そのデータはキャンペーンの優先順位を直接通知します — 別途の調査や深いツール分析は必要ありません。",
+    },
+    {
+      type: "h3",
+      text: "実際の会話からのコンテンツアイデア",
+    },
+    {
+      type: "p",
+      text: "コンテンツチームは、どのトピックについて書くべきかに苦労することがよくあります。Dolphin Careは、実際の顧客の質問をコンテンツブリーフに変換することで、この問題を解消します。顧客が「製品AとBの違いは何ですか？」と繰り返し尋ねる場合 — それは書かれるのを待っている比較記事です。チャットbot AIの会話データは実際のコンテンツカレンダーになります。",
+    },
+    {
+      type: "h3",
+      text: "Webサイトと製品ページの改善",
+    },
+    {
+      type: "p",
+      text: "繰り返しの質問は、既存のコンテンツのギャップを指し示すことがよくあります。顧客が製品ページに既にあるはずの情報を繰り返し尋ねる場合、それはWebチームへの直接的なシグナルです。Dolphin Careの日次インサイトレポートは、これらのギャップを可視化し、時間の経過とともに追跡可能にします — したがって、改善は測定可能であり、単なる仮定ではありません。",
+    },
+    {
+      type: "h2",
+      text: "顧客会話を忘れられたデータにしないでください",
+    },
+    {
+      type: "p",
+      text: "あなたのビジネスが受け取るすべての会話はデータポイントです。1週間で数百のデータポイント。1か月で、顧客が何を望み、どこで行き詰まり、何が購入の可能性を高めるかについての詳細なマップです。",
+    },
+    {
+      type: "p",
+      text: "ほとんどのビジネスはそのマップを読まれないままにしています。Dolphin Careはそれを管理者向けの日次ブリーフィングに変えます。",
+    },
+    {
+      type: "p",
+      text: "顧客会話を処理するためにAIチャットbotを使用している場合、尋ねる価値のある質問は：その後、それらの会話に何が起こるのか？ 答えが何もないなら — Dolphin Careがどのように違いを生むかを見る時です。",
+    },
+    {
+      type: "p",
+      text: "dolphin-software.io.vnでDolphin Softwareに連絡して、[Dolphin Care](/dolphin-care/)について詳しく学び、ビジネスに対する無料コンサルテーションを受けてください。",
     },
   ],
   faq: [
     {
       q: "通常のAIチャットbotとの違いは？",
-      a: "返答に加え、日次インサイトレポートで運用・マーケ判断を支援。",
+      a: "ほとんどのAIチャットbotは顧客会話への返信のみに集中しています。Dolphin Careは2つの層を組み合わせます：リアルタイムAI顧客対応と日次インサイト統合 — 会話データを管理者向けの具体的な運用およびマーケティングレポートに変換します。これは、一般的なチャットbot（返信のみ）とDolphin Care（返信 + インサイト統合 + アクション提案）の中核的な違いです。",
     },
     {
       q: "日次レポートの仕組みは？",
-      a: "当日の会話を分類し、パターンと高意向リードを構造化して配信。",
+      a: "Dolphin Care AIはその日のすべての会話を分析し、トピックと意図で分類した後、繰り返しパターンを検出します — 頻出質問、繰り返しの苦情、高意向リード。これらの発見は構造化されたレポートに統合され、1日の終わりに管理者に送信されます。",
     },
     {
       q: "マーケ判断に使える？",
-      a: "はい。顧客の実際の質問からコンテンツ・キャンペーン案を提示。",
+      a: "はい。顧客が最も多く尋ねることを追跡することで、Dolphin Careは実際の顧客行動に基づいた具体的なコンテンツトピックとキャンペーンを提案します — 推測ではありません。これらの提案は日次レポートに表示され、ソーシャル投稿、ブログトピック、メールキャンペーン、広告ターゲティングを直接情報提供できます。",
     },
     {
       q: "小規模事業者向け？",
-      a: "はい。少人数でも分析部門なしで日次把握が可能。",
+      a: "Dolphin Careはあらゆる規模で有用になるよう設計されています。少人数の小規模ビジネスにとって、顧客対応の自動化と日次インサイトの組み合わせは、別個の分析機能の必要性を置き換えます。日次レポートにより、管理者は生データを確認するのに時間を費やすことなく情報を把握できます。",
     },
     {
       q: "どの業種に効く？",
-      a: "EC、クリニック、飲食、不動産、教育などオンライン問い合わせが多い業種。",
+      a: "顧客からかなりの受信質問を受けているあらゆるビジネス — Eコマース、スパ、クリニック、レストラン、不動産、教育、またはオンラインプレゼンスのあるビジネス — はDolphin Careから恩恵を受けることができます。AIチャットbotが処理する会話が多いほど、日次インサイトはより豊かで正確になります。",
     },
     {
       q: "既存サイトに組み込める？",
-      a: "はい。稼働中サイトまたは新規構築プロジェクトに追加可能。",
+      a: "はい。Dolphin Careは稼働中のWebサイトに追加するか、Dolphin Softwareからの新しいWebサイトプロジェクトと統合できます。",
     },
   ],
 };

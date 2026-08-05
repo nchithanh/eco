@@ -175,15 +175,15 @@ const vi: AboutCopy = {
 
 const en: AboutCopy = {
   metaTitle:
-    "What is Dolphin Software? | Web design & AI studio for Vietnamese SMBs",
+    "What is Dolphin Software? | Web & AI development studio for Vietnamese SMBs",
   metaDescription:
-    "Dolphin Software is a software studio in Vietnam — custom websites, AI automation, full source handover. Transparent quotes and post-handover support.",
+    "Dolphin Software is a software development studio in Vietnam — custom websites, AI automation, full source handover. Transparent quotes and post-handover support.",
   eyebrow: "Studio",
   title: "Dolphin Software",
   motto:
     "Software development studio & [[AI automation]] for Vietnamese businesses",
   support:
-    "Dolphin Software is a software studio in Vietnam that builds custom websites, apps, and AI automation for small and mid-size businesses (SMBs). We hand over full source, ops guidance, and post-launch support — no vendor lock-in, no fees outside the locked scope. From business goals to operable systems: clear scope, on-time delivery, and partnership until your team can run it.",
+    "Dolphin Software is a software development studio in Vietnam that builds custom websites, apps, and AI automation for small and mid-size businesses (SMBs). Dolphin Software hands over full source, ops guidance, and post-launch support — no vendor lock-in, no scope overruns. From business goals to operable systems: Dolphin Software defines clear scope, delivers on time, and partners until your team can run it.",
   ctaPrimary: "Get a quote",
   ctaSecondary: "View services",
   mindsetEyebrow: "Approach",
@@ -207,7 +207,7 @@ const en: AboutCopy = {
   buildEyebrow: "Capabilities",
   buildTitle: "What does Dolphin Software build?",
   buildSupport:
-    "Dolphin Software develops four core capability groups for SMBs, forged on real edtech and SaaS products that already ran under production load.",
+    "Dolphin Software develops four core capability groups for SMBs, forged from real experience on edtech and SaaS products that ran under production load.",
   buildItems: [
     {
       title: "01 · Web & App",
@@ -304,15 +304,15 @@ const en: AboutCopy = {
 
 const ja: AboutCopy = {
   metaTitle:
-    "Dolphin Softwareとは？ | ベトナムSMB向けWebデザイン＆AIスタジオ",
+    "Dolphin Softwareとは？ | ベトナムSMB向けWeb・AI開発スタジオ",
   metaDescription:
-    "Dolphin Softwareはベトナムのソフトウェアスタジオ — オーダーメイドWeb、AI自動化、ソース一式納品。見積もり明確、納品後サポートあり。",
+    "Dolphin Softwareはベトナムのソフトウェア開発スタジオ — オーダーメイドWeb、AI自動化、ソース一式納品。見積もり明確、納品後サポートあり。",
   eyebrow: "Studio",
   title: "Dolphin Software",
   motto:
     "ベトナム企業向けソフトウェア開発スタジオ & [[AI automation]]",
   support:
-    "Dolphin Softwareはベトナムのソフトウェアスタジオで、中小企業（SMB）向けにオーダーメイドWeb、アプリ、AI自動化を構築します。ソース一式、運用ガイド、本番後サポートまで — ベンダーロックインなし、合意スコープ外の費用なし。ビジネス目標から運用できるシステムへ：スコープ明確、期日どおりの納品、自走できるまで伴走します。",
+    "Dolphin Softwareはベトナムのソフトウェア開発スタジオで、中小企業（SMB）向けにオーダーメイドWeb、アプリ、AI自動化を構築します。ソース一式、運用ガイド、本番後サポートまで — ベンダーロックインなし、合意スコープ外の追加費用なし。ビジネス目標から運用できるシステムへ：Dolphin Softwareはスコープを明確に定義し、期日どおりに納品し、御社チームが自走できるまで伴走します。",
   ctaPrimary: "見積もりを依頼",
   ctaSecondary: "サービスを見る",
   mindsetEyebrow: "アプローチ",
@@ -336,7 +336,7 @@ const ja: AboutCopy = {
   buildEyebrow: "できること",
   buildTitle: "Dolphin Softwareは何を作りますか？",
   buildSupport:
-    "Dolphin SoftwareはSMB向けの4つの中核能力を、本番負荷下で動いてきたEdTech・SaaSの実戦経験から鍛えています。",
+    "Dolphin SoftwareはSMB向けの4つの中核能力を、本番負荷下で動いてきたEdTech・SaaSでの実経験から鍛えています。",
   buildItems: [
     {
       title: "01 · Web & アプリ",

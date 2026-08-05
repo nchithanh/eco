@@ -72,120 +72,120 @@ const vi: FaqCopy = {
 
 const en: FaqCopy = {
   eyebrow: "FAQ",
-  title: "Frequently asked [[questions]]",
-  support: "Timeline · quotes · warranty · security — before we start.",
+  title: "[[Frequently asked]] questions",
+  support: "Timeline · quotes · warranty · security — answered before starting.",
   items: [
     {
       q: "What does Dolphin Software do?",
-      a: "Dolphin Software helps SMBs go from business problems to operable systems — websites, mobile, automation, and AI. Tell us the goal; we propose a fitting scope.",
+      a: "Dolphin Software helps small and medium businesses (SMB) go from business problem to operational system — website, mobile, automation, and AI. You just state the goal; Dolphin Software proposes the right scope.",
     },
     {
-      q: "We aren't technical — can we still work together?",
-      a: "Yes. Most clients don't code. Share an idea or short brief — we scope in business language, deliver end-to-end, and hand over with an ops walkthrough.",
+      q: "Can non-technical businesses work with you?",
+      a: "Yes. Most of Dolphin Software's clients don't code. You just share an idea or short brief — the team defines scope in business language, delivers end-to-end, and guides operations after completion.",
     },
     {
-      q: "How does the process work?",
-      a: "Clarify goals → lock scope & estimate → sprint with deliverables → acceptance → handover & support. You always know the next step.",
+      q: "How does the workflow happen?",
+      a: "Clarify goals → Lock scope & estimate → Sprint with deliverables → UAT → Handoff & Support. You always know what's next.",
     },
     {
       q: "How does quoting work? Any hidden fees?",
-      a: "Send a short brief via Contact, \"Get a quote\", or Zalo. We reply with estimated scope and next steps — no fees outside the agreed scope.",
+      a: "Send a short brief via Contact, 'Get a quote,' or Zalo. Dolphin Software responds with expected scope and next steps — no fees beyond agreed scope.",
     },
     {
-      q: "Typical timeline?",
-      a: "Landing page: ~3–5 days. Business website: ~7–14 days. Shop / e-commerce: ~3–4 weeks. Apps/workflows: by scope. Exact dates in the quote once scope is locked.",
+      q: "What's a typical timeline?",
+      a: "Landing page: ~3–5 days. Business website: ~7–14 days. Shop / e-commerce: ~3–4 weeks. App / workflow: based on scope. Specific dates in quote after locking scope.",
     },
     {
-      q: "Is SEO and mobile included?",
-      a: "Responsive by default with clear heading/meta and solid on-page SEO basics. Long-term content SEO or large ad campaigns can be scoped separately.",
+      q: "Does it include SEO and mobile?",
+      a: "Responsive by default with clear heading/meta and foundational on-page SEO. Long-term SEO content or large ad campaigns can be added in separate scope.",
     },
     {
       q: "Can you work remotely?",
-      a: "Yes — chat/calls, regular demos, and clear handover docs. Nationwide clients welcome.",
+      a: "Yes — chat/call, regular demos, and clear handoff documentation. Clients nationwide can collaborate.",
     },
     {
-      q: "How is post-handover maintenance different from new features?",
-      a: "After handover: ops walkthrough plus technical-bug warranty (typically 3–6 months) within accepted scope. New features are separate — quoted first, not covered by warranty.",
+      q: "How is post-handoff maintenance different from new features?",
+      a: "After handoff: operations guide plus technical bug warranty (typically 3–6 months) within accepted scope. New features are separate — quoted first, not covered by warranty.",
     },
     {
-      q: "How do you handle security and data?",
-      a: "HTTPS, access control, env vars, no committed secrets. Your data stays yours. Audit / SSO / compliance can be added to scope.",
+      q: "How are security and data handled?",
+      a: "HTTPS, access control, environment variables, no committed secrets. Your data is yours. Audit / SSO / compliance can be added to scope.",
     },
     {
-      q: "Will scope inflate mid-project?",
-      a: "Scope locks at the quote step. Out-of-scope requests are logged, re-estimated, and only built after you approve.",
+      q: "Does scope balloon mid-project?",
+      a: "Scope is locked at the quote step. Out-of-scope requests are logged, re-estimated, and only executed when you agree.",
     },
     {
-      q: "Can we ship an MVP in stages?",
-      a: "Yes. Dolphin Software prioritizes a runnable MVP first, then expands by milestone — early validation and budget control.",
+      q: "Do you do MVP in stages?",
+      a: "Yes. Dolphin Software prioritizes MVP enough to run, then expands by milestone — validate early and control budget.",
     },
     {
       q: "How is an AI agent different from a marketing chatbot?",
-      a: "Marketing chatbots answer FAQ/scripts. Dolphin Software's agents attach to workflows, tools, and internal context — ops help, not just a sales widget.",
+      a: "Marketing chatbots answer FAQ from scripts. Dolphin Software's agents tie into business workflow, tools, and internal context — support operations, not just sales chat.",
     },
     {
-      q: "How do we start?",
-      a: "Hit \"Get a quote\", chat on Zalo, or send the Contact form with goals, deadline, and rough budget if you have one.",
+      q: "How do I get started?",
+      a: "Click 'Get a quote,' chat Zalo, or send Contact form with goal, deadline, and estimated budget if available.",
     },
   ],
 };
 
 const ja: FaqCopy = {
   eyebrow: "FAQ",
-  title: "よくある[[質問]]",
-  support: "期間・見積もり・保証・セキュリティ — 開始前の要点。",
+  title: "[[よくある]]質問",
+  support: "タイムライン · 見積り · 保証 · セキュリティ — 開始前に回答。",
   items: [
     {
-      q: "どんなサービスがありますか？",
-      a: "Dolphin Software は事業課題から運用しやすいシステムへ — Web・モバイル・自動化・AI。ゴールを教えていただければ、範囲を提案します。",
+      q: "Dolphin Softwareは何をしますか？",
+      a: "Dolphin Softwareは中小企業（SMB）がビジネス課題から運用可能なシステムへ移行するのを支援します — Webサイト、モバイル、自動化、AI。目標を述べるだけで、Dolphin Softwareが適切な範囲を提案します。",
     },
     {
-      q: "技術が分からなくても大丈夫？",
-      a: "大丈夫です。アイデアや短い概要を共有いただければ、事業の言葉で範囲を整理し、一気通貫で納品、運用ガイド付きで引き渡します。",
+      q: "技術に詳しくない企業でも協力できますか？",
+      a: "はい。Dolphin Softwareのクライアントのほとんどはコーディングしません。アイデアまたは短いブリーフを共有するだけ — チームはビジネス言語で範囲を定義し、エンドツーエンドで納品し、完了後の運用をガイドします。",
     },
     {
-      q: "進め方は？",
-      a: "目的の明確化 → 範囲と見積もり → 成果物付きスプリント → 受け入れ → 引き渡しとサポート。次の一歩が常に見えます。",
+      q: "ワークフローはどのように進みますか？",
+      a: "目標明確化 → 範囲とコスト確定 → 納品物を伴うスプリント → UAT → 納品とサポート。次のステップが常に明確です。",
     },
     {
-      q: "見積もりの流れは？隠れた費用は？",
-      a: "Contact、「見積もりを依頼」、または Zalo から概要を。概算スコープと次のステップで返信 — 合意範囲外の費用はありません。",
+      q: "見積りはどう機能しますか？隠れた費用はありますか？",
+      a: "Contact、「見積りを依頼」、またはZalo経由で短いブリーフを送信。Dolphin Softwareが予想範囲と次のステップで回答 — 合意範囲外の費用はありません。",
     },
     {
-      q: "期間の目安は？",
-      a: "LP：約3〜5日。一般サイト：約7〜14日。ショップ / EC：約3〜4週間。アプリ/業務：スコープ次第。確定日は範囲合意後の見積もりに含めます。",
+      q: "一般的なタイムラインは？",
+      a: "ランディングページ：約3〜5日。企業サイト：約7〜14日。ショップ/EC：約3〜4週間。アプリ/ワークフロー：範囲による。範囲確定後の見積りに具体的な日付。",
     },
     {
-      q: "SEO / モバイル対応は？",
-      a: "標準でレスポンシブ、見出し/メタ整備、オンページSEOの基本付き。長期コンテンツSEOや大規模広告は別途スコープ可。",
+      q: "SEOとモバイル対応は含まれますか？",
+      a: "デフォルトでレスポンシブ対応、明確な見出し/メタ、基本的なオンページSEOを含む。長期SEOコンテンツまたは大規模広告キャンペーンは別範囲として追加可能。",
     },
     {
-      q: "リモート対応は可能？",
-      a: "可能です。チャット/通話、定期デモ、引き渡しドキュメントで協業します。",
+      q: "リモート作業は可能ですか？",
+      a: "はい — チャット/通話、定期デモ、明確な納品ドキュメント。全国のクライアントと協力可能。",
     },
     {
-      q: "公開後の保守と新機能の違いは？",
-      a: "引き渡し後は運用ガイドと技術不具合保証（通常3〜6ヶ月、検収範囲内）。新機能は別見積もりで、保証外です。",
+      q: "納品後のメンテナンスと新機能の違いは？",
+      a: "納品後：運用ガイドと受入範囲内の技術バグ保証（通常3〜6ヶ月）。新機能は別 — 見積り優先、保証対象外。",
     },
     {
-      q: "セキュリティとデータは？",
-      a: "HTTPS、権限、環境変数、シークレット非コミット。データはお客様のもの。監査/SSO/コンプライアンスはスコープ追加可。",
+      q: "セキュリティとデータはどう処理されますか？",
+      a: "HTTPS、アクセス制御、環境変数、シークレットコミットなし。データは御社のものです。監査/SSO/コンプライアンスは範囲に追加可能。",
     },
     {
-      q: "途中でスコープが膨らみませんか？",
-      a: "見積もりでスコープ固定。範囲外は記録・再見積もりし、合意後にのみ着手します。",
+      q: "プロジェクト途中で範囲が膨らみませんか？",
+      a: "範囲は見積りステップで確定。範囲外の要求は記録され、再見積りされ、御社の同意時のみ実行されます。",
     },
     {
       q: "段階的なMVPは可能ですか？",
-      a: "可能です。Dolphin Software はまず動くMVPを優先し、その後マイルストーンで拡張 — 早期検証と予算管理向きです。",
+      a: "はい。Dolphin Softwareは実行可能なMVPを優先し、マイルストーンごとに拡張 — 早期検証と予算管理。",
     },
     {
-      q: "AIエージェントとマーケ用チャットボットの違いは？",
-      a: "マーケ用は主にFAQ/スクリプト。Dolphin Software のエージェントは業務フロー・tool・社内コンテキストに接続し、運用を支援します。",
+      q: "AIエージェントとマーケティングチャットボットの違いは？",
+      a: "マーケティングチャットボットはスクリプトからFAQに回答。Dolphin Softwareのエージェントはビジネスワークフロー、ツール、社内コンテキストと統合 — 運用サポート、販売チャットだけではありません。",
     },
     {
-      q: "始め方は？",
-      a: "「見積もりを依頼」、Zalo、または Contact から、目的・期限・予算感があれば添えてご連絡ください。",
+      q: "どうやって始めますか？",
+      a: "「見積りを依頼」をクリック、Zaloチャット、または目標、期限、推定予算（あれば）を記載したContactフォームを送信。",
     },
   ],
 };

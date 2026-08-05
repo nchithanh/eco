@@ -221,107 +221,107 @@ const copyByLocale: Record<Locale, Record<WorkSlug, WorkCopy>> = {
   },
   en: {
     billiard: {
-      title: "Billiard shop operations",
+      title: "Billiard shop management",
       tag: "Website · Booking",
       intro:
-        "A delivered billiard-shop website: table booking, play-time tracking, live status, and shift revenue — built for real operations.",
+        "Delivered billiard-shop website: table booking, play-time tracking, live status, shift revenue — built for real shop operations.",
       problem:
-        "Owners tracked tables in notebooks or spreadsheets: hard to see vacancies, end times, and end-of-day totals without errors.",
+        "Owners track tables in notebooks or Excel: hard to see which tables are free, when sessions end, and manual end-of-day totals invite errors.",
       scope:
-        "An ops website already built: open/close tables, timers, live status, and shift summaries — staff can run it from a phone or counter PC.",
+        "Built ops website: open/close tables, time tracking, realtime status, shift summaries — staff operate it from phone or counter PC.",
       highlights: [
-        "Table map with playing / free / maintenance states",
-        "Per-table timers and near-end alerts",
-        "Add-ons (drinks, snacks) tied to a session",
-        "Daily / shift revenue snapshot",
+        "Table map with playing / free / maintenance status",
+        "Per-table timer with near-end alerts",
+        "Record session add-ons (drinks, snacks)",
+        "Daily and shift revenue reports",
       ],
       outcomes: [
-        "Fewer missed play sessions and customer disputes via table timers + status",
-        "Faster staff onboarding with a clear open/close flow on phone",
-        "Owners see shift status and add-on revenue without end-of-day manual totals",
+        "Fewer missed hours and customer disputes thanks to timer and table status",
+        "Faster staff onboarding with clear open/close flow on phone",
+        "Owners see shift status and add-on revenue without end-of-day manual sums",
       ]
     },
     badminton: {
       title: "Badminton court website",
       tag: "Booking",
       intro:
-        "Court intro + availability booking — following sports-facility booking patterns: see slots, hold a court, confirm clearly.",
+        "Court intro site plus slot booking — following sports-facility patterns: view slots, hold a court, confirm clearly.",
       problem:
-        "Customers called to ask for free slots; admins juggled overlapping calendars and double-booked peak hours.",
+        "Customers call to ask about free slots; admins check multiple calendars; easy to double-book peak hours.",
       scope:
-        "Marketing site plus booking calendar: pick court/time, see pricing, request a hold; staff confirm from one console.",
+        "Marketing page plus booking calendar: customers pick court/time, see pricing, submit hold request; admin confirms from one dashboard.",
       highlights: [
-        "Availability by day and time slot",
-        "Facility, pricing, and house rules",
+        "Availability calendar by day and time slot",
+        "Facility intro, pricing, and house rules",
         "Booking form with status confirmation",
-        "Contact / directions front and center",
+        "Contact info and directions prominent",
       ],
       outcomes: [
-        "Fewer availability phone calls thanks to live court schedule on the web",
-        "Less double-booking with a single clear booking path",
-        "More confirmed holds on the right slot",
+        "Fewer availability phone calls thanks to web calendar",
+        "Fewer double-bookings with one clear booking flow",
+        "More holds confirmed for the correct slot",
       ]
     },
     tickets: {
       title: "Ticket booking & conversion",
       tag: "Convert",
       intro:
-        "A conversion-focused ticket flow — from event browse to completed booking — inspired by clear ticketing UX: strong hierarchy, strong CTA, fewer steps.",
+        "Conversion-optimized ticket flow — from event view to booking completion — following ticketing UX best practices: clear hierarchy, strong CTA, few steps.",
       problem:
-        "Long event landings with weak CTAs; visitors dropped when stock, price, or payment next steps were unclear.",
+        "Long event landing, weak CTA; visitors drop when they cannot see remaining tickets, pricing, or payment steps clearly.",
       scope:
-        "A tight event page: sharp hero, schedule/pricing, short booking steps, confirmation state — convert first, fluff later.",
+        "Compact event page: clear hero, schedule/pricing, short booking steps, confirmation status — focused on conversion over fluff.",
       highlights: [
-        "Event hero with sticky book CTA",
-        "Fast ticket type / quantity selection",
-        "Minimal contact form",
-        "Confirmation screen with next steps",
+        "Event hero with fixed book-ticket CTA",
+        "Quick ticket type and quantity selection",
+        "Minimal info-capture form",
+        "Confirmation screen with next-step instructions",
       ],
       outcomes: [
-        "Fewer steps from browsing an event to a completed booking",
-        "Less mid-funnel drop-off with clearer CTAs and convert flow",
-        "Easier to measure conversion at each ticket-booking step",
+        "Shorter path from event view to completed booking",
+        "Less mid-funnel abandonment thanks to clear CTA and conversion flow",
+        "Easier to measure conversion at each step of the ticket funnel",
       ]
     },
     beauty: {
-      title: "Beauty appointment booking",
+      title: "Beauty salon booking",
       tag: "Beauty",
       intro:
-        "Nail, makeup, and beauty slots — following common salon booking models: service → slot → confirm.",
+        "Nail, makeup, and beauty service booking by slot — following common salon booking models: service → stylist/slot → confirm.",
       problem:
-        "Messy chat inboxes, missed appointments, overlapping arrivals; hard to upsell packages on social alone.",
+        "Messy message inboxes, missed appointments, overlapping client arrivals; hard to upsell service packages on social pages alone.",
       scope:
-        "Service catalog + slot calendar: clients pick a package and duration, request a hold; the salon manages and confirms in one UI.",
+        "Service catalog plus slot calendar: clients pick package and duration, submit hold request; salon manages and confirms appointments from one dashboard.",
       highlights: [
-        "Service menu with duration / price",
-        "Day-based slot picking",
-        "Notes (stylist, allergies…)",
-        "Pending / confirmed / done statuses",
+        "Service menu with duration and pricing",
+        "Day-based slot selection",
+        "Notes field for requests (stylist preference, allergies, etc.)",
+        "Pending / confirmed / completed status",
       ],
       outcomes: [
-        "Fewer missed appointments and double-books via slots + confirmation",
-        "Customers can self-hold outside office hours",
-        "Reception handles the calendar faster on one screen",
+        "Fewer missed appointments and double-books thanks to slots and confirmation",
+        "Clients can self-book outside business hours",
+        "Reception processes schedule faster on one screen",
       ]
     },
     cafe: {
       title: "Cafe QR ordering",
       tag: "QR · Order",
       intro:
-        "Table QR menu + order without waving staff down — cafe / F&B pattern: scan → pick items → send to kitchen / cashier.",
+        "Table QR menu plus order-without-calling-staff — following cafe/F&B pattern: scan code → pick items → send to kitchen/cashier.",
       problem:
-        "Peak-hour orders slow and error-prone on paper; guests wait while staff juggle many tables.",
+        "Peak-hour orders slow and error-prone with paper tickets; customers wait while staff run between many tables.",
       scope:
-        "Per-table QR digital menu, cart, notes (less ice, allergies…), push orders to counter/kitchen with clear status.",
+        "Digital menu via QR per table, shopping cart, notes (less ice, allergies, etc.), orders push to kitchen/counter with clear status.",
       highlights: [
-        "QR per table / zone",
-        "Photo menu with prices and categories",
-        "Item notes and add-ons",
-        "Preparing / ready statuses",
+        "QR code per table or zone",
+        "Photo menu with pricing and categories",
+        "Notes field and add-on items",
+        "Preparing and ready statuses",
       ],
       outcomes: [
-        "Faster ordering at peak hours",
-        "Fewer wrong items vs handwritten tickets",
+        "Shorter order time at peak hours",
+        "Fewer wrong items compared to handwritten tickets",
         "Staff focus on service instead of running order pads",
       ]
     },
@@ -329,149 +329,149 @@ const copyByLocale: Record<Locale, Record<WorkSlug, WorkCopy>> = {
       title: "Clinic appointment booking",
       tag: "Clinic",
       intro:
-        "Small-clinic site: services intro + doctor-slot booking — fewer phone calls and paper diaries.",
+        "Small clinic site: service intro plus doctor-slot booking — reduces phone calls and paper appointment books.",
       problem:
-        "Patients call for free slots; reception juggles notebooks/Excel; easy double-books and missed follow-up reminders.",
+        "Patients call to ask about free slots; reception cross-checks notebooks/Excel; easy to double-book slots and forget follow-up reminders.",
       scope:
-        "Service pages plus doctor/time calendar: patients request a hold; the clinic confirms and reminds from one board.",
+        "Service pages plus doctor/time calendar: patients submit hold requests; clinic confirms and sends reminders from one dashboard.",
       highlights: [
-        "Service / specialty catalog",
-        "Slots by doctor and day",
-        "Minimal intake form + visit reason",
-        "Confirm / remind before appointment",
+        "Service and specialty catalog",
+        "Slots by doctor and date",
+        "Minimal intake form plus visit reason",
+        "Confirmation and pre-visit reminders",
       ],
       outcomes: [
         "Fewer availability phone calls",
-        "Less double-booking with one calendar source",
-        "Patients remember visits via reminders",
+        "Less double-booking thanks to single calendar source",
+        "Patients remember appointments via reminders",
       ]
     },
   },
   ja: {
     billiard: {
-      title: "ビリヤード店オペレーション",
+      title: "ビリヤード店管理",
       tag: "Website · 予約",
       intro:
-        "制作済みのビリヤード店サイト：卓予約、プレイ時間の追跡、リアルタイム状態、シフト売上 — 現場運用向けに実装済み。",
+        "納品済みビリヤード店サイト：台予約・プレイ時間追跡・リアルタイム状態・シフト売上 — 実際の店舗運用向けです。",
       problem:
-        "ノートや Excel 管理では空き状況や終了時刻が分かりにくく、日次集計でミスが起きやすい。",
+        "ノートや Excel で管理すると、空き台・終了時刻が把握しづらく、日次集計も手作業でミスが起きやすい状況でした。",
       scope:
-        "すでに構築した Ops サイト：開閉・タイマー・リアルタイム状態・シフト要約。スマホやカウンター PC で操作できます。",
+        "構築済み運用サイト：台の開閉・時間追跡・リアルタイム状態・シフトサマリー。スマホやカウンター PC から操作可能です。",
       highlights: [
-        "プレイ中 / 空き / メンテのテーブルマップ",
-        "テーブル別タイマーと終了間近アラート",
-        "セッションに紐づく追加注文",
-        "日次 / シフト売上スナップショット",
+        "プレイ中 / 空き / メンテナンスの台マップ",
+        "台別タイマーと終了間近アラート",
+        "セッション単位の追加注文（ドリンク・軽食）記録",
+        "日次およびシフト売上レポート",
       ],
       outcomes: [
-        "タイマーと卓状態で取りこぼし・トラブルを減らす",
-        "スマホの開閉フローでスタッフ習熟が早い",
-        "シフト状況と付帯売上を手集計なしで把握",
+        "タイマーと台状態で取りこぼしや顧客トラブルを削減",
+        "スマホでの開閉フローが明確でスタッフ習熟が早い",
+        "店主は手集計なしでシフト状況と付帯売上を把握",
       ]
     },
     badminton: {
       title: "バドミントンコートサイト",
       tag: "Booking",
       intro:
-        "コート紹介と空き予約。スポーツ施設予約の定番 UX（スロット確認→仮押さえ→確定）に沿っています。",
+        "コート紹介＋空き枠予約サイト。スポーツ施設予約の定番パターン（スロット確認→仮押さえ→確定）に沿っています。",
       problem:
-        "電話での空き確認が続き、ピーク時のダブルブッキングが起きやすい。",
+        "電話で空き確認が続き、複数カレンダーの照合が必要。ピーク時のダブルブッキングが起きやすい状況でした。",
       scope:
-        "紹介サイト＋予約カレンダー。コート/時間・料金を選び、管理画面で確定します。",
+        "紹介ページ＋予約カレンダー。お客様がコート/時間・料金を選んで仮押さえ送信し、管理画面で確定します。",
       highlights: [
-        "日・時間帯ごとの空き",
-        "施設・料金・利用ルール",
-        "予約フォームとステータス",
-        "連絡先 / アクセスを前面に",
+        "日付・時間帯別の空き状況カレンダー",
+        "施設紹介・料金・利用ルール",
+        "予約フォームとステータス確認",
+        "連絡先とアクセス情報を前面に配置",
       ],
       outcomes: [
-        "Webの空き状況で電話確認が減る",
-        "一本化した予約導線でダブルブッキングを抑制",
-        "正しい枠の確定予約が増える",
+        "Web上の空き状況で電話確認を削減",
+        "一本化した予約フローでダブルブッキングを抑制",
+        "正しい枠での確定予約が増加",
       ]
     },
     tickets: {
       title: "チケット予約とコンバージョン",
       tag: "Convert",
       intro:
-        "イベント閲覧から予約完了までの転換重視フロー。明確な階層・強い CTA・少ないステップのチケット UX を参考。",
+        "イベント閲覧から予約完了までのコンバージョン重視フロー。明確な階層・強いCTA・少ないステップのチケットUXベストプラクティスに沿っています。",
       problem:
-        "長い LP と弱い CTA、在庫・価格・支払いの次アクションが不明で離脱。",
+        "長いイベントLP・弱いCTA。残りチケット数・料金・支払い手順が不明確で離脱が発生していました。",
       scope:
-        "シャープなヒーロー、日程/料金、短い予約ステップ、確認画面に絞ったイベントページ。",
+        "コンパクトなイベントページ：明確なヒーロー・日程/料金・短い予約ステップ・確認ステータス。装飾より転換を優先した構成です。",
       highlights: [
-        "固定 Book CTA 付きヒーロー",
-        "券種 / 枚数の素早い選択",
-        "最小限の連絡フォーム",
-        "次の案内付き確認画面",
+        "固定チケット予約CTA付きイベントヒーロー",
+        "券種と枚数の素早い選択",
+        "最小限の情報取得フォーム",
+        "次のステップ案内付き確認画面",
       ],
       outcomes: [
-        "イベント閲覧から予約完了までの手数を削減",
-        "明確なCTAで途中離脱を減らす",
-        "予約ファネルの各段コンバージョンを測りやすい",
+        "イベント閲覧から予約完了までの経路を短縮",
+        "明確なCTAと転換フローで途中離脱を削減",
+        "チケットファネルの各ステップでコンバージョン計測が容易に",
       ]
     },
     beauty: {
-      title: "ビューティー予約",
+      title: "ビューティーサロン予約",
       tag: "Beauty",
       intro:
-        "ネイル・メイク等のスロット予約。サロン予約の定番（サービス→スロット→確定）モデルです。",
+        "ネイル・メイク・美容サービスのスロット予約。サロン予約の定番モデル（サービス→担当者/スロット→確定）です。",
       problem:
-        "チャットが散乱し、予約漏れや時間重複が発生。SNS だけではアップセルしづらい。",
+        "メッセージ受信箱が煩雑になり、予約漏れや来店時間の重複が発生。ソーシャルページだけではサービスパッケージのアップセルが困難でした。",
       scope:
-        "サービスカタログ＋スロット。パッケージと時間を選び、サロン側で一画面管理・確定。",
+        "サービスカタログ＋スロットカレンダー。顧客がパッケージと時間を選んで仮押さえ送信し、サロンは一つのダッシュボードで管理・確定します。",
       highlights: [
-        "所要時間 / 価格付きメニュー",
+        "所要時間と料金付きサービスメニュー",
         "日付ベースのスロット選択",
-        "要望メモ（担当・アレルギー等）",
+        "要望記入欄（担当者希望・アレルギーなど）",
         "保留 / 確定 / 完了ステータス",
       ],
       outcomes: [
-        "スロット＋確認で予約漏れ/ダブルブッキングを削減",
-        "営業時間外でも顧客が自己確保できる",
-        "受付が1画面でスケジュール処理しやすい",
+        "スロットと確認機能で予約漏れとダブルブッキングを削減",
+        "営業時間外でも顧客が自己予約可能に",
+        "受付が一画面でスケジュールを効率処理",
       ]
     },
     cafe: {
-      title: "カフェ QR 注文",
+      title: "カフェQR注文",
       tag: "QR · Order",
       intro:
-        "卓の QR メニュー＋スタッフ呼び出し不要の注文。カフェ / F&B 定番：スキャン → 選択 → 厨房/会計へ。",
+        "テーブルQRメニュー＋スタッフ呼び出し不要の注文。カフェ/F&Bの定番パターン：スキャン → 選択 → 厨房/会計へ送信。",
       problem:
-        "ピーク時は手書き注文が遅く誤りやすい。スタッフが多卓対応で客が待つ。",
+        "ピーク時は紙伝票が遅くミスも起きやすい。お客様は待ち、スタッフは複数テーブルを走り回る状況でした。",
       scope:
-        "卓別 QR デジタルメニュー、カート、メモ（氷少なめ・アレルギー等）、厨房/カウンターへ送信とステータス表示。",
+        "テーブル別QRのデジタルメニュー、カート、メモ（氷少なめ・アレルギー等）、注文を厨房/カウンターへ送信し明確なステータス表示。",
       highlights: [
-        "卓 / ゾーン別 QR",
-        "写真メニューとカテゴリ",
-        "商品メモと追加注文",
-        "調理中 / 準備完了ステータス",
+        "テーブルまたはゾーン別QRコード",
+        "写真付きメニューと価格・カテゴリ",
+        "商品メモと追加注文フィールド",
+        "調理中・準備完了ステータス",
       ],
       outcomes: [
         "ピーク時の注文リードタイム短縮",
-        "手書きより誤注文が減る",
-        "スタッフが伝票回しより接客に集中",
+        "手書き伝票と比べて誤注文を削減",
+        "スタッフは伝票回しより接客に集中",
       ]
     },
     clinic: {
       title: "クリニック予約",
       tag: "Clinic",
       intro:
-        "小規模クリニック向け：サービス紹介＋医師スロット予約。電話と紙の予約帳を減らします。",
+        "小規模クリニック向けサイト：サービス紹介＋医師スロット予約で、電話と紙の予約帳を削減します。",
       problem:
-        "空き確認の電話が続き、受付がノート/Excel を照合。枠重複や再診リマインド漏れが起きやすい。",
+        "患者からの空き確認電話が続き、受付はノート/Excelを照合。スロット重複や再診リマインド漏れが起きやすい状況でした。",
       scope:
-        "サービスページ＋医師/時間カレンダー。患者が仮押さえを送り、クリニックが一画面で確定・リマインド。",
+        "サービスページ＋医師/日時カレンダー。患者が仮押さえを送信し、クリニックは一つのダッシュボードで確定とリマインド送信を行います。",
       highlights: [
-        "診療科 / サービス一覧",
-        "医師・日別スロット",
+        "診療科・サービスカタログ",
+        "医師・日付別スロット",
         "最小限の問診フォーム＋来院理由",
-        "確定 / 予約前リマインド",
+        "確定および来院前リマインダー",
       ],
       outcomes: [
-        "空き確認電話が減る",
-        "単一カレンダーでダブルブッキング抑制",
-        "リマインドで来院忘れを減らす",
+        "空き確認電話の削減",
+        "単一カレンダー元でダブルブッキングを抑制",
+        "リマインダーで来院忘れを削減",
       ]
     },
   },

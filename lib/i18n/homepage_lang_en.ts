@@ -9,7 +9,7 @@ export const homepageLangEn: HomepageLang = {
     aiPill: "",
     headline: "Don't let technology become a [[burden]] for your business",
     subhead: "Build websites · Modernize legacy systems · Integrate AI where it matters",
-    support: "Dolphin Software helps small and medium businesses design custom websites, modernize legacy systems, and apply AI automation — to save time and genuinely improve operational efficiency.",
+    support: "Dolphin Software helps small and medium businesses design custom websites, modernize legacy systems, and apply AI automation — saving time and genuinely improving operational efficiency.",
     trustLine: "Understand first · Clear quotes · No unnecessary upselling",
     ctaPrimary: "Get a quote",
     ctaSecondary: "View website services",

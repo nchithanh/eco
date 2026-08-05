@@ -252,13 +252,13 @@ const en: CareersCopy = {
     eyebrow: "Careers",
     headline: "Freelance with Dolphin Software",
     support:
-      "Dolphin Software hires flexible freelance collaborators per project — not full-time. About USD 1,000/mo full-capacity equivalent, paid hourly or by deliverable. We build web, mobile, and AI products. Freelancers work remote, own their schedule, and are paid for outcomes — not office hours.",
+      "Dolphin Software hires flexible freelance collaborators per project — not full-time. About USD 1,000/mo full-capacity equivalent, paid hourly or by deliverable depending on role. Dolphin Software is a software development company that builds websites, mobile apps, and AI solutions. Freelancers work remote, own their schedule, and are paid for outcomes — not office hours.",
   },
   model: {
     eyebrow: "Model",
     title: "What is Dolphin Software’s freelance model?",
     support:
-      "These roles are not full-time employment. Dolphin Software partners with freelancers per project or product phase — flexible, remote-friendly, and built for people who want ownership of their time while shipping real products.",
+      "Dolphin Software does not hire full-time employees for these roles. Instead, Dolphin Software partners with freelancers per project or product phase — flexible, remote-friendly, built for people who want ownership of their time while shipping real products.",
     bullets: [
       "100% remote — no office required",
       "Paid hourly or by deliverable, depending on the role",
@@ -490,13 +490,13 @@ const ja: CareersCopy = {
     eyebrow: "Careers",
     headline: "Dolphin Softwareとフリーランスで働く",
     support:
-      "Dolphin Softwareはプロジェクト単位のフリーランス協業を募集します — 正社員ではありません。フル稼働換算で約1,000 USD/月、時間単価または成果物ベース。Web・モバイル・AIを開発。リモートでスケジュールを自分で管理し、成果に応じて報酬を受け取ります。",
+      "Dolphin Softwareはプロジェクト単位のフリーランス協業を募集します — 正社員ではありません。フル稼働換算で約1,000 USD/月、役割に応じて時間単価または成果物ベースでお支払いします。Dolphin Softwareは、Webサイト、モバイルアプリ、AIソリューションを開発するソフトウェア開発会社です。リモートでスケジュールを自分で管理し、成果に応じて報酬を受け取ります — オフィス時間ではありません。",
   },
   model: {
     eyebrow: "モデル",
     title: "Dolphin Softwareのフリーランスモデルとは？",
     support:
-      "これらのポジションは正社員採用ではありません。プロジェクトまたはプロダクトフェーズ単位でフリーランスと協業します。柔軟・リモート歓迎で、時間を自分で管理しながら実プロダクトに関わりたい方に適しています。",
+      "Dolphin Softwareはこれらのポジションで正社員を採用していません。代わりに、プロジェクトまたはプロダクトフェーズ単位でフリーランスと協業します。柔軟・リモート歓迎で、時間を自分で管理しながら実プロダクトに関わりたい方に適しています。",
     bullets: [
       "完全リモート — 出社不要",
       "時間単価または成果物ベース（ポジションによる）",

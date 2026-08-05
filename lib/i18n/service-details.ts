@@ -249,7 +249,7 @@ const vi: Record<ServiceSlug, ServiceDetail> = {
 
 const en: Record<ServiceSlug, ServiceDetail> = {
   web: {
-    title: "Website design & development",
+    title: "Website design & development for small and mid-size businesses",
     metaTitle: "Custom website design & development | Dolphin Software",
     metaDescription:
       "Dolphin Software builds business websites, landing pages, and e-commerce sites to order — clear quotes, on-time delivery, easy to scale later. See packages.",
@@ -322,7 +322,7 @@ const en: Record<ServiceSlug, ServiceDetail> = {
     metaDescription:
       "Dolphin Software builds Node.js backends, APIs, payments, and third-party integrations for Vietnam SMBs — transparent quotes, full docs, post-handover support.",
     intro:
-      "Dolphin Software builds solid backends — clear APIs, secure auth, payments, and third-party connections — so your business can scale without endless patches. Weak backends commonly cause slow web/mobile apps, data loss, or broken payment/email/CRM links; Dolphin Software designs for production from day one.",
+      "Dolphin Software builds solid backends — clear APIs, secure auth, payments, and third-party connections — so your business can scale without endless patches. Weak backends commonly cause slow web/mobile apps, data loss, or broken payment/email/CRM connections; Dolphin Software designs for production from day one.",
     highlightsTitle: "What do you get from Dolphin Software backend development?",
     highlightsLead:
       "Dolphin Software’s backend service covers the full technical layer a digital product needs to run reliably.",
@@ -496,7 +496,7 @@ const ja: Record<ServiceSlug, ServiceDetail> = {
     metaDescription:
       "Dolphin SoftwareはベトナムSMB向けにNode.jsバックエンド、API連携、決済・外部サービス統合を構築。透明な見積もり、ドキュメント完備、納品後サポート。",
     intro:
-      "Dolphin Softwareは堅牢なバックエンド基盤を構築します — 明確なAPI、安全な認証、決済と外部連携 — 継ぎ接ぎだらけの拡張を避けます。弱いバックエンドはWeb/モバイルの遅延、データ欠落、決済・メール・CRM接続不良の原因になりやすく、Dolphin Softwareは最初から本番品質で設計します。",
+      "Dolphin Softwareは堅牢なバックエンド基盤を構築します — 明確なAPI、安全な認証、決済と外部連携 — 継ぎ接ぎだらけの拡張を避けます。弱いバックエンドはWeb/モバイルの遅延、データ欠落、決済・メール・CRMの接続不良の原因になりやすく、Dolphin Softwareは最初から本番品質で設計します。",
     highlightsTitle: "Dolphin Softwareのバックエンド開発で得られるものは？",
     highlightsLead:
       "Dolphin Softwareのバックエンドサービスは、デジタルプロダクトが安定運用するために必要な技術レイヤーを一通りカバーします。",

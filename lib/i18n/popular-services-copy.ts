@@ -101,12 +101,12 @@ const vi: PopularServices = {
 
 const en: PopularServices = {
   eyebrow: "Pricing",
-  title: "Popular [[services]]",
+  title: "[[Popular]] services",
   support:
-    "Compare four flagship packages — pick the fit, then request a quote or chat on Zalo.",
+    "Compare four main packages — choose the fit, then request a quote or chat on Zalo for consultation.",
   categoryLabel: "Item",
   rowLabels: {
-    price: "From",
+    price: "Promo price",
     timeline: "Timeline",
     fit: "Best for",
     ui: "UI",
@@ -116,15 +116,15 @@ const en: PopularServices = {
     warranty: "Support",
     highlight: "Highlight",
   },
-  priceNote: "Promo by scope · approx. FX (ref. 2026-07-30)",
+  priceNote: "Promo by scope",
   fromPrefix: "From",
   includedLabel: "Included",
-  consultPrompt: "Not sure which package? Free Zalo consult →",
+  consultPrompt: "Not sure which package? Consult Zalo →",
   commitments: ["Price locked first", "No hidden fees", "Clear scope"],
   priceBundleLabel: "Package price",
   noHiddenLabel: "No hidden costs",
   footerNote:
-    "Need a custom scope, legacy integrations, or industry SEO? Dolphin Software breaks down items before quoting.",
+    "Need custom scope, legacy system integration, or industry-specific SEO? Dolphin Software analyzes each item in detail before quoting — no upselling, no hidden fees.",
   footerCta: "Free Zalo consult",
   packages: [
     {
@@ -198,30 +198,30 @@ const en: PopularServices = {
 
 const ja: PopularServices = {
   eyebrow: "料金",
-  title: "人気の[[サービス]]",
+  title: "[[人気]]サービス",
   support:
-    "主力4パッケージを比較 — 合うものを選び、見積もりまたはZalo相談へ。",
+    "主要4パッケージを比較 — 適したものを選び、見積りを依頼またはZaloで相談してください。",
   categoryLabel: "項目",
   rowLabels: {
-    price: "価格（から）",
+    price: "特別価格",
     timeline: "期間",
     fit: "向いている用途",
     ui: "UI",
     seo: "SEO",
     admin: "管理",
-    measure: "計測",
-    warranty: "サポート",
-    highlight: "ハイライト",
+    measure: "Analytics",
+    warranty: "保証",
+    highlight: "特徴",
   },
-  priceNote: "スコープ別特別価格 · 概算為替（基準 2026-07-30）",
+  priceNote: "範囲別特別価格",
   fromPrefix: "",
   includedLabel: "含む",
-  consultPrompt: "どのプランか迷ったら？ Zaloで無料相談 →",
+  consultPrompt: "どのパッケージか迷いましたか？ Zaloで相談 →",
   commitments: ["価格は先に確定", "追加費用なし", "範囲を明確に"],
   priceBundleLabel: "パッケージ価格",
   noHiddenLabel: "隠れた費用なし",
   footerNote:
-    "個別スコープ、既存連携、業種SEOが必要ですか？ Dolphin Softwareは見積前に項目を整理します。",
+    "カスタム範囲、レガシーシステム統合、業界特化SEOが必要ですか？Dolphin Softwareは見積り前に各項目を詳細に分析します — 不要な営業なし、隠れた費用なし。",
   footerCta: "Zaloで無料相談",
   packages: [
     {
