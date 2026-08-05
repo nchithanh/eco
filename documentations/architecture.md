@@ -49,6 +49,7 @@ At Mat Bao: set nameservers to the two Cloudflare NS (replace `ns1/ns2.matbao.vn
 
 - SSL/TLS mode: **Full** (not Flexible); Always Use HTTPS
 - Enable Brotli, HTTP/3 when available
+- Next.js: `experimental.inlineCss: true` — CSS inlined into HTML to cut PageSpeed **Render-blocking requests** (stylesheet chunks)
 
 ### Cache Rules (examples)
 

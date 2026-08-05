@@ -12,6 +12,10 @@ const nextConfig: NextConfig = {
         trailingSlash: true,
       }
     : {}),
+  // Inline CSS into <style> to remove render-blocking stylesheet requests (PSI).
+  experimental: {
+    inlineCss: true,
+  },
   env: {
     NEXT_PUBLIC_BASE_PATH: basePath,
   },

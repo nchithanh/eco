@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-08-05 (c)
+
+- PageSpeed: bật `experimental.inlineCss` — inline CSS vào HTML, giảm render-blocking stylesheet chunks (~950 ms est.); Quicksand chỉ weight `400–700`; bump cookie `20260805f`.
+
 ## 2026-08-04
 
 - Theme mặc định (`violet`): **dark → light** flat white; grid kẻ ô đen nhạt; **tím đậm** `#7c3aed`; **bỏ shadow tím** (chỉ shadow xám trung tính); header scroll hide; giảm radius; comment token dark cũ.

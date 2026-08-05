@@ -9,6 +9,7 @@ import "./globals.css";
 const quicksand = Quicksand({
  subsets: ["latin", "latin-ext", "vietnamese"],
  variable: "--font-quicksand",
+ weight: ["400", "500", "600", "700"],
  display: "swap",
 });
 
