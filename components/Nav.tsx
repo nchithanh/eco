@@ -54,11 +54,19 @@ export function Nav() {
   const [servicesOpenMobile, setServicesOpenMobile] = useState(false);
   const [agentOpenMobile, setAgentOpenMobile] = useState(false);
   const [headerHidden, setHeaderHidden] = useState(false);
+  const [hash, setHash] = useState("");
   const lastScrollY = useRef(0);
   const sectionBase = pathname === "/" ? "" : `${BASE_PATH}/`;
   const contactHref = `${sectionBase}#contact`;
   const homeHref = pathname === "/" ? "#top" : assetPath("/");
   const current = normalizePath(pathname);
+
+  useEffect(() => {
+    const syncHash = () => setHash(window.location.hash.replace(/^#/, ""));
+    syncHash();
+    window.addEventListener("hashchange", syncHash);
+    return () => window.removeEventListener("hashchange", syncHash);
+  }, [pathname]);
 
   useEffect(() => {
     lastScrollY.current = window.scrollY;
@@ -123,11 +131,23 @@ export function Nav() {
   ];
 
   const desktopGnbLinks: NavLink[] = [...serviceItems, ...agentItems];
+  const allNavLinks = [...serviceItems, ...agentItems, ...pageLinks];
 
   const isPageActive = (href: string) => {
-    const pathOnly = href.split("#")[0] ?? href;
-    return normalizePath(pathOnly) === current;
+    const [pathPart, hashPart] = href.split("#");
+    const path = normalizePath(pathPart || href);
+    if (path !== current) return false;
+    if (hashPart) return hash === hashPart;
+    const hashOwnedBySibling = allNavLinks.some((item) => {
+      const [p, h] = item.href.split("#");
+      return Boolean(h) && normalizePath(p || item.href) === path && hash === h;
+    });
+    return !hashOwnedBySibling;
   };
+
+  const isHomeActive =
+    current === "/" && hash !== "contact" && (hash === "" || hash === "top");
+  const isContactActive = hash === "contact";
 
   useEffect(() => {
     if (typeof window.matchMedia !== "function") return;
@@ -152,11 +172,16 @@ export function Nav() {
   }, [pathname]);
 
   const gnbLinkClass =
-    "kuct-gnb-link inline-flex h-[2.75rem] shrink-0 items-center border-b-[3px] border-transparent text-[0.875rem] leading-none tracking-[-0.02em] text-[var(--kuct-text)] transition-colors hover:text-[var(--kuct-accent)]";
-  const gnbLinkActiveClass =
-    " border-[var(--kuct-accent)] text-[var(--kuct-accent)]";
+    "kuct-gnb-link inline-flex h-[2.75rem] shrink-0 items-center text-[0.875rem] leading-none tracking-[-0.02em] text-[var(--kuct-text)] transition-colors hover:text-[var(--kuct-accent)]";
+  const gnbLinkActiveClass = " text-[var(--kuct-accent)]";
   const utilityLinkClass =
-    "kuct-nav-utility kuct-gnb-link inline-flex h-[2.75rem] shrink-0 items-center border-b-[3px] border-transparent text-[0.875rem] leading-none tracking-[-0.02em] text-[var(--kuct-text)] transition-colors hover:text-[var(--kuct-accent)]";
+    "kuct-nav-utility kuct-gnb-link inline-flex h-[2.75rem] shrink-0 items-center text-[0.875rem] leading-none tracking-[-0.02em] text-[var(--kuct-text)] transition-colors hover:text-[var(--kuct-accent)]";
+  const logoLinkClass =
+    "inline-flex h-[2.75rem] shrink-0 items-center text-[var(--kuct-text)] transition hover:opacity-85";
+  const logoActiveWordmark =
+    "font-display text-base font-bold leading-none tracking-tight text-[var(--kuct-accent)] sm:text-lg";
+  const logoActiveTagline =
+    "text-[9px] font-medium tracking-[0.34em] text-[var(--kuct-accent)] uppercase opacity-80 sm:text-[10px]";
 
   return (
     <div
@@ -188,7 +213,13 @@ export function Nav() {
                   </a>
                 );
               })}
-              <a href={contactHref} className={utilityLinkClass}>
+              <a
+                href={contactHref}
+                aria-current={isContactActive ? "page" : undefined}
+                className={`${utilityLinkClass}${
+                  isContactActive ? gnbLinkActiveClass : ""
+                }`}
+              >
                 {t.nav.contact}
               </a>
               <div className="kuct-nav-utility kuct-gnb-link flex h-[2.75rem] items-center text-[0.875rem]">
@@ -199,10 +230,21 @@ export function Nav() {
             <div className="flex min-h-[3.65rem] items-center gap-6 pb-3 xl:gap-8">
               <a
                 href={homeHref}
-                className="flex shrink-0 items-center text-[var(--kuct-text)] transition hover:opacity-85"
+                className={`${logoLinkClass}${
+                  isHomeActive ? gnbLinkActiveClass : ""
+                }`}
                 aria-label="Dolphin Software"
+                aria-current={isHomeActive ? "page" : undefined}
               >
-                <Logo showWordmark />
+                <Logo
+                  showWordmark
+                  wordmarkClassName={
+                    isHomeActive ? logoActiveWordmark : undefined
+                  }
+                  wordmarkTaglineClassName={
+                    isHomeActive ? logoActiveTagline : undefined
+                  }
+                />
               </a>
 
               <ul className="flex min-w-0 flex-1 flex-wrap items-center gap-x-4 gap-y-1 xl:gap-x-5">
@@ -230,10 +272,21 @@ export function Nav() {
           <div className="flex h-14 items-center justify-between gap-4 sm:h-[3.75rem] lg:hidden">
             <a
               href={homeHref}
-              className="flex shrink-0 items-center text-[var(--kuct-text)] transition hover:opacity-85"
+              className={`${logoLinkClass}${
+                isHomeActive ? gnbLinkActiveClass : ""
+              }`}
               aria-label="Dolphin Software"
+              aria-current={isHomeActive ? "page" : undefined}
             >
-              <Logo showWordmark />
+              <Logo
+                showWordmark
+                wordmarkClassName={
+                  isHomeActive ? logoActiveWordmark : undefined
+                }
+                wordmarkTaglineClassName={
+                  isHomeActive ? logoActiveTagline : undefined
+                }
+              />
             </a>
 
             <div className="flex shrink-0 items-center gap-2 text-[0.875rem]">

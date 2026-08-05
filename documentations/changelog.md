@@ -4,11 +4,17 @@
 
 - Nav desktop: layout 2 tầng kiểu commerce (utility Contact + ngôn ngữ trên; logo + GNB trái dưới); chữ GNB 16px/700, bỏ pill hover và border header; mobile giữ 1 hàng.
 - Nav desktop: **bỏ dropdown** — hiện thẳng mọi link dịch vụ / AI / news / about / careers trên GNB; mobile vẫn accordion.
-- Nav: `max-width: 90%`; GNB weight **600**; active item `border-bottom` accent.
+- Nav: `max-width: 90%`; GNB weight **600**; active = màu chữ accent.
 - Nav: trả `max-w-7xl`; utility = Tin tức / Giới thiệu / Tuyển dụng / Liên hệ + locale; GNB chỉ dịch vụ + AI.
 - Nav: `max-w-6xl px-6` khớp lề page (Hero/sections).
 - Nav: utility + GNB cùng style chữ (size/weight/hover/active underline).
 - Nav: chữ **14px** (`0.875rem`).
+- Nav active: màu chữ tím (accent), không border-bottom; **homepage** → logo active; `#contact` → Liên hệ active.
+
+## 2026-08-06 (chat)
+
+- Dolphin Assist: prompt thêm **emoji + `**bold**` keyword** (cá nhân hóa); UI `renderChatRichText`; fallback `ai-chat-copy` VI/EN/JA; regenerate `paste-for-dashboard.js` (cần Deploy Worker).
+- Chat: autolink `http(s)://` + path nội bộ (`/dolphin-care/`, `/services/…`, …) — click được trong bubble.
 
 ## 2026-08-06 (i18n)
 

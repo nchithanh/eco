@@ -11,6 +11,7 @@ import {
 } from "react";
 import { assetPath } from "@/lib/asset";
 import { fetchChatReply, type ChatApiMessage } from "@/lib/chat-api";
+import { renderChatRichText } from "@/lib/chat-rich-text";
 import {
  getAiChatCopy,
  matchAiChatReply,
@@ -553,7 +554,7 @@ export function AiChatWidget() {
  : "mr-6 self-start rounded-xl rounded-bl-md bg-[var(--kuct-menu-hover)] px-3.5 py-2.5 text-sm font-medium leading-relaxed whitespace-pre-wrap text-[var(--kuct-text)]"
  }
  >
- {m.text}
+ {renderChatRichText(m.text, { isUserBubble: m.role === "user" })}
  {isStreaming ? (
  <span
  className="ml-0.5 inline-block animate-pulse text-[var(--kuct-muted)]"

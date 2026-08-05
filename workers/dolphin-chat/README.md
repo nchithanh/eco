@@ -6,7 +6,7 @@ Proxy Groq for site chat. **No paid Workers plan.** Key never in the Next.js cli
 
 | File | Role |
 | --- | --- |
-| `system-context.js` | **SoT** system prompt (company / services / Care / AI) |
+| `system-context.js` | **SoT** system prompt (company / services / Care / AI / formatting: emoji + bold) |
 | `worker.js` | Runtime (imports context) |
 | `paste-for-dashboard.js` | **1 file** để Ctrl+A paste vào Cloudflare Quick Edit |
 
