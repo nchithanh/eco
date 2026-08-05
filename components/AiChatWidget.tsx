@@ -550,7 +550,7 @@ export function AiChatWidget() {
  className={
  m.role === "user"
  ? "ml-8 self-end rounded-xl rounded-br-md bg-[var(--kuct-accent)] px-3.5 py-2.5 text-sm leading-relaxed text-white"
- : "mr-6 self-start rounded-xl rounded-bl-md bg-[var(--kuct-menu-hover)] px-3.5 py-2.5 text-sm leading-relaxed whitespace-pre-wrap text-[var(--kuct-text)]"
+ : "mr-6 self-start rounded-xl rounded-bl-md bg-[var(--kuct-menu-hover)] px-3.5 py-2.5 text-sm font-medium leading-relaxed whitespace-pre-wrap text-[var(--kuct-text)]"
  }
  >
  {m.text}

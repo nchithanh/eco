@@ -33,9 +33,8 @@ function NavItemLink({
  onClick?: () => void;
  className?: string;
 }) {
- const tone = active
- ? "text-sm font-semibold text-[var(--kuct-text)] transition hover:text-[var(--kuct-accent)]"
- : "text-sm font-medium text-[var(--kuct-muted)] transition hover:text-[var(--kuct-text)]";
+ const tone =
+ "text-sm font-medium text-[var(--kuct-text)] transition hover:text-[var(--kuct-accent)]";
  return (
  <a
  href={href}
@@ -68,7 +67,7 @@ function DropdownMenu({
  hidden={!open}
  className="absolute top-full left-1/2 z-50 w-64 -translate-x-1/2 pt-2"
  >
- <ul className="overflow-hidden rounded-xl bg-[var(--kuct-surface)] py-1.5 shadow-[0_16px_40px_rgb(26_21_32/0.1)] backdrop-blur-xl">
+ <ul className="overflow-hidden rounded-xl bg-white py-1.5 shadow-[0_16px_40px_rgb(26_21_32/0.1)]">
  {items.map((item) => {
  const active = isPageActive(item.href);
  return (
@@ -78,9 +77,7 @@ function DropdownMenu({
  href={item.href}
  aria-current={active ? "page" : undefined}
  className={
- active
- ? "block px-4 py-2.5 text-sm font-semibold text-[var(--kuct-accent)]"
- : "block px-4 py-2.5 text-sm font-medium text-[var(--kuct-muted)] transition hover:bg-[rgba(var(--kuct-accent-rgb),0.1)] hover:text-[var(--kuct-text)]"
+ "block px-4 py-2.5 text-sm font-medium text-[var(--kuct-text)] transition hover:bg-[rgba(var(--kuct-accent-rgb),0.1)] hover:text-[var(--kuct-accent)]"
  }
  onClick={onClose}
  >
@@ -207,10 +204,8 @@ export function Nav() {
  setAgentOpenDesktop(false);
  }, [pathname]);
 
- const dropdownTriggerClass = (active: boolean) =>
- active
- ? "inline-flex items-center gap-1 rounded-full px-3 py-1.5 text-sm font-semibold text-[var(--kuct-text)] transition hover:bg-[rgba(var(--kuct-accent-rgb),0.08)]"
- : "inline-flex items-center gap-1 rounded-full px-3 py-1.5 text-sm font-medium text-[var(--kuct-muted)] transition hover:bg-[rgba(var(--kuct-accent-rgb),0.08)] hover:text-[var(--kuct-text)]";
+ const dropdownTriggerClass =
+ "inline-flex items-center gap-1 rounded-full px-3 py-1.5 text-sm font-medium text-[var(--kuct-text)] transition hover:bg-[rgba(var(--kuct-accent-rgb),0.08)]";
 
  return (
  <div
@@ -219,7 +214,7 @@ export function Nav() {
  }`}
  >
  <AnnouncementBar />
- <header className="border-b border-black/8 bg-white/90 backdrop-blur-xl supports-[backdrop-filter]:bg-white/80">
+ <header className="border-b border-black/8 bg-white">
  <nav
  className="mx-auto flex h-14 max-w-6xl items-center justify-between gap-4 px-6 sm:h-[3.75rem]"
  aria-label={t.nav.ariaMain}
@@ -240,17 +235,14 @@ export function Nav() {
  >
  <button
  type="button"
- className={dropdownTriggerClass(isServicesActive)}
+ className={dropdownTriggerClass}
  aria-expanded={servicesOpenDesktop}
  aria-haspopup="true"
  aria-controls={servicesMenuId}
  onClick={() => setServicesOpenDesktop((open) => !open)}
  >
  {t.nav.services}
- <span
- aria-hidden
- className={`text-[0.65rem] transition ${servicesOpenDesktop ? "text-[var(--kuct-accent)]" : ""}`}
- >
+ <span aria-hidden className="text-[0.65rem] text-[var(--kuct-text)]">
  ▾
  </span>
  </button>
@@ -270,17 +262,14 @@ export function Nav() {
  >
  <button
  type="button"
- className={dropdownTriggerClass(isAgentActive)}
+ className={dropdownTriggerClass}
  aria-expanded={agentOpenDesktop}
  aria-haspopup="true"
  aria-controls={agentMenuId}
  onClick={() => setAgentOpenDesktop((open) => !open)}
  >
  {t.nav.agents}
- <span
- aria-hidden
- className={`text-[0.65rem] transition ${agentOpenDesktop ? "text-[var(--kuct-accent)]" : ""}`}
- >
+ <span aria-hidden className="text-[0.65rem] text-[var(--kuct-text)]">
  ▾
  </span>
  </button>
@@ -300,11 +289,7 @@ export function Nav() {
  <a
  href={link.href}
  aria-current={active ? "page" : undefined}
- className={
- active
- ? "inline-flex rounded-full px-3 py-1.5 text-sm font-semibold text-[var(--kuct-text)] transition hover:bg-[rgba(var(--kuct-accent-rgb),0.08)]"
- : "inline-flex rounded-full px-3 py-1.5 text-sm font-medium text-[var(--kuct-muted)] transition hover:bg-[rgba(var(--kuct-accent-rgb),0.08)] hover:text-[var(--kuct-text)]"
- }
+ className="inline-flex rounded-full px-3 py-1.5 text-sm font-medium text-[var(--kuct-text)] transition hover:bg-[rgba(var(--kuct-accent-rgb),0.08)] hover:text-[var(--kuct-accent)]"
  >
  {link.label}
  </a>
@@ -317,12 +302,6 @@ export function Nav() {
  <div className="hidden md:block">
  <ThemeSwitcher />
  </div>
- <a
- href={contactHref}
- className="kuct-btn-primary hidden rounded-full px-5 py-2.5 text-sm font-semibold shadow-[0_10px_28px_rgb(26_21_32/0.18)] sm:inline-flex"
- >
- {t.nav.contact}
- </a>
  <LanguageSwitcher />
  <button
  type="button"
@@ -343,22 +322,18 @@ export function Nav() {
  <nav
  id="mobile-nav"
  aria-label={t.nav.ariaMobile}
-            className="border-t border-black/10 bg-white px-6 py-4 backdrop-blur-xl lg:hidden"
+            className="border-t border-black/10 bg-white px-6 py-4 lg:hidden"
  >
  <ul className="mx-auto flex max-w-6xl flex-col">
  <li>
  <button
  type="button"
- className={
- isServicesActive
- ? "flex w-full items-center justify-between py-2 text-sm font-semibold text-[var(--kuct-text)]"
- : "flex w-full items-center justify-between py-2 text-sm font-medium text-[var(--kuct-muted)]"
- }
+ className="flex w-full items-center justify-between py-2 text-sm font-medium text-[var(--kuct-text)]"
  aria-expanded={servicesOpenMobile}
  onClick={() => setServicesOpenMobile((open) => !open)}
  >
  <span>{t.nav.services}</span>
- <span aria-hidden className="text-[var(--kuct-accent)]/80">
+ <span aria-hidden className="text-[var(--kuct-text)]">
  {servicesOpenMobile ? "−" : "+"}
  </span>
  </button>
@@ -385,16 +360,12 @@ export function Nav() {
  <li>
  <button
  type="button"
- className={
- isAgentActive
- ? "flex w-full items-center justify-between py-2 text-sm font-semibold text-[var(--kuct-text)]"
- : "flex w-full items-center justify-between py-2 text-sm font-medium text-[var(--kuct-muted)]"
- }
+ className="flex w-full items-center justify-between py-2 text-sm font-medium text-[var(--kuct-text)]"
  aria-expanded={agentOpenMobile}
  onClick={() => setAgentOpenMobile((open) => !open)}
  >
  <span>{t.nav.agents}</span>
- <span aria-hidden className="text-[var(--kuct-accent)]/80">
+ <span aria-hidden className="text-[var(--kuct-text)]">
  {agentOpenMobile ? "−" : "+"}
  </span>
  </button>
@@ -437,7 +408,7 @@ export function Nav() {
  <li className="pt-2">
  <a
  href={contactHref}
- className="kuct-btn-primary inline-flex w-full items-center justify-center rounded-full px-5 py-3 text-sm font-semibold"
+ className="kuct-btn-primary inline-flex w-full items-center justify-center rounded-full px-5 py-3 text-sm"
  onClick={() => setIsMenuOpen(false)}
  >
  {t.nav.contact}

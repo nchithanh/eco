@@ -12,7 +12,13 @@
 
 - News: bài SEO/GEO **「Website giới thiệu xe: Showroom cần gì…」** — slug `website-gioi-thieu-xe-showroom`; VI SoT nguyên văn; FAQ 5 Q; hero + 2 inline images; Canva prompts `documentations/news-website-gioi-thieu-xe-showroom-canva-prompts.md`; sitemap entry.
 
-## 2026-08-05
+## 2026-08-07
+
+- News SEO/GEO: **「Dolphin Care: Không Chỉ Chatbot AI — Còn Báo Cáo Insight Hằng Ngày」** — slug `dolphin-care-bao-cao-insight-hang-ngay`; VI SoT từ content pack; FAQ 6 Q; hero + 3 inline images; Canva prompts `documentations/news-dolphin-care-bao-cao-insight-hang-ngay-canva-prompts.md`; sitemap entry.
+
+## 2026-08-05 (b)
+
+- Detail links (services, tech, works, capabilities, sites shipped): click **redirect** trang detail thay vì mở `PagePreviewModal` popup; `PagePreviewProvider` dùng `location.assign`.
 
 - AI chat: client gọi Cloudflare Worker Free `dolphin-chat` (`lib/chat-api.ts`); source `workers/dolphin-chat/` + **system-context** đầy đủ (company/services/Care/AI + personality/consultant voice); secret `GROQ_API_KEY` trên dashboard; fallback keyword `matchAiChatReply` nếu Worker lỗi.
 - `AiChatWidget`: reply assistant **typewriter** (chữ chạy ra); `prefers-reduced-motion` → hiện full ngay.

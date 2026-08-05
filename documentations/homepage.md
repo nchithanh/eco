@@ -62,5 +62,5 @@ Non-VI locales use their `homepage_lang_*` overlays when registered; otherwise f
 
 ## Global overlays
 
-- `AiChatWidget`, `QuoteEstimatorModal`, `CookieConsent`, `PagePreviewModal`, `DesignViewerModal`
+- `AiChatWidget`, `QuoteEstimatorModal`, `CookieConsent`, `DesignViewerModal` (detail pages: full navigation, không còn `PagePreviewModal` trên homepage)
 - Chat: `AiChatWidget` → Worker `dolphin-chat` (Groq proxy Free) via `lib/chat-api.ts`; keyword fallback `matchAiChatReply` — see `architecture.md` / `workers/dolphin-chat/`

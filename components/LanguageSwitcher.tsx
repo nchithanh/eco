@@ -41,7 +41,7 @@ export function LanguageSwitcher() {
  <div ref={rootRef} className="relative">
  <button
  type="button"
- className="inline-flex items-center gap-1.5 px-1 py-1.5 text-xs font-semibold tracking-wide text-[var(--kuct-muted)] transition hover:text-[var(--kuct-text)]"
+ className="inline-flex items-center gap-1.5 px-1 py-1.5 text-xs font-medium tracking-wide text-[var(--kuct-text)] transition hover:text-[var(--kuct-accent)]"
  aria-label="Language"
  aria-haspopup="listbox"
  aria-expanded={open}
@@ -50,7 +50,7 @@ export function LanguageSwitcher() {
  >
  <FlagIcon locale={current.code} className="h-3 w-[1.125rem]" />
  <span>{current.label}</span>
- <span aria-hidden className="text-[var(--kuct-muted)]">
+ <span aria-hidden className="text-[var(--kuct-text)]">
  {open ? "▴" : "▾"}
  </span>
  </button>
@@ -60,17 +60,13 @@ export function LanguageSwitcher() {
  id={listId}
  role="listbox"
  aria-label="Language"
- className="absolute right-0 z-50 mt-2 min-w-[11rem] overflow-hidden rounded-lg bg-[var(--kuct-surface)] py-1 shadow-[0_12px_30px_rgb(26_21_32/0.1)] backdrop-blur-xl"
+ className="absolute right-0 z-50 mt-2 min-w-[11rem] overflow-hidden rounded-lg bg-white py-1 shadow-[0_12px_30px_rgb(26_21_32/0.1)]"
  >
  {LOCALES.map((item) => (
  <li key={item.code} role="option" aria-selected={locale === item.code}>
  <button
  type="button"
- className={
- locale === item.code
- ? "flex w-full items-center gap-2.5 px-3 py-2 text-left text-xs font-semibold text-[var(--kuct-accent)]"
- : "flex w-full items-center gap-2.5 px-3 py-2 text-left text-xs font-semibold text-[var(--kuct-muted)] transition hover:bg-[rgba(var(--kuct-accent-rgb),0.1)] hover:text-[var(--kuct-text)]"
- }
+ className="flex w-full items-center gap-2.5 px-3 py-2 text-left text-xs font-medium text-[var(--kuct-text)] transition hover:bg-[rgba(var(--kuct-accent-rgb),0.1)] hover:text-[var(--kuct-accent)]"
  onClick={() => choose(item.code)}
  >
  <FlagIcon locale={item.code} className="h-3.5 w-[1.3125rem]" />

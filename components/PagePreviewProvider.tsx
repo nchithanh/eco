@@ -4,9 +4,7 @@ import {
  createContext,
  useCallback,
  useContext,
- useEffect,
  useMemo,
- useState,
  type MouseEvent,
  type ReactNode,
 } from "react";
@@ -16,8 +14,6 @@ import { isMoreSlug, type MoreSlug } from "@/lib/more-details";
 import { isNewsSlug, type NewsSlug } from "@/lib/news-details";
 import { isTechSlug, type TechSlug } from "@/lib/tech-stack";
 import { isWorkSlug, type WorkSlug } from "@/lib/works-details";
-import { PagePreviewModal } from "@/components/PagePreviewModal";
-import { acquirePageScroll, releasePageScroll } from "@/lib/scroll-lock";
 
 export type PreviewTarget =
  | { kind: "service"; slug: ServiceSlug; href: string }
@@ -41,6 +37,10 @@ type PagePreviewContextValue = {
 };
 
 const PagePreviewContext = createContext<PagePreviewContextValue | null>(null);
+
+function navigatePreview(href: string) {
+ window.location.assign(href);
+}
 
 function normalizePath(href: string): string {
  try {
@@ -131,52 +131,32 @@ function resolveTarget(href: string): PreviewTarget | null {
 }
 
 export function PagePreviewProvider({ children }: { children: ReactNode }) {
- const [target, setTarget] = useState<PreviewTarget | null>(null);
-
- const close = useCallback(() => setTarget(null), []);
+ const close = useCallback(() => {
+ /* modal removed — kept for embedded breadcrumb compat */
+ }, []);
 
  const openService = useCallback((slug: ServiceSlug) => {
- setTarget({
- kind: "service",
- slug,
- href: assetPath(`/services/${slug}/`),
- });
+ navigatePreview(assetPath(`/services/${slug}/`));
  }, []);
 
  const openTech = useCallback((slug: TechSlug) => {
- setTarget({
- kind: "tech",
- slug,
- href: assetPath(`/tech/${slug}/`),
- });
+ navigatePreview(assetPath(`/tech/${slug}/`));
  }, []);
 
  const openWork = useCallback((slug: WorkSlug) => {
- setTarget({
- kind: "work",
- slug,
- href: assetPath(`/works/${slug}/`),
- });
+ navigatePreview(assetPath(`/works/${slug}/`));
  }, []);
 
  const openMore = useCallback((slug: MoreSlug) => {
- setTarget({
- kind: "more",
- slug,
- href: assetPath(`/more/${slug}/`),
- });
+ navigatePreview(assetPath(`/more/${slug}/`));
  }, []);
 
  const openNews = useCallback(() => {
- setTarget({ kind: "news", href: assetPath("/news/") });
+ navigatePreview(assetPath("/news/"));
  }, []);
 
  const openNewsDetail = useCallback((slug: NewsSlug) => {
- setTarget({
- kind: "news-detail",
- slug,
- href: assetPath(`/news/${slug}/`),
- });
+ navigatePreview(assetPath(`/news/${slug}/`));
  }, []);
 
  const openHref = useCallback(
@@ -184,23 +164,10 @@ export function PagePreviewProvider({ children }: { children: ReactNode }) {
  const next = resolveTarget(href);
  if (!next) return;
  event?.preventDefault();
- setTarget(next);
+ navigatePreview(next.href);
  },
  [],
  );
-
- useEffect(() => {
- if (!target) return;
- const onKey = (event: KeyboardEvent) => {
- if (event.key === "Escape") close();
- };
- document.addEventListener("keydown", onKey);
- acquirePageScroll();
- return () => {
- document.removeEventListener("keydown", onKey);
- releasePageScroll();
- };
- }, [target, close]);
 
  const value = useMemo(
  () => ({
@@ -226,10 +193,7 @@ export function PagePreviewProvider({ children }: { children: ReactNode }) {
  );
 
  return (
- <PagePreviewContext.Provider value={value}>
- {children}
- <PagePreviewModal target={target} onClose={close} />
- </PagePreviewContext.Provider>
+ <PagePreviewContext.Provider value={value}>{children}</PagePreviewContext.Provider>
  );
 }
 

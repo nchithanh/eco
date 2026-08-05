@@ -516,6 +516,15 @@ html[data-theme="violet"] .kuct-feature-card {
   transform: translateY(0);
   transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
   will-change: transform;
+  background: #ffffff;
+}
+
+/* Nav sits inside <main> — beat main { font-weight: 600 !important } */
+.kuct-site-header nav a,
+.kuct-site-header nav button,
+.kuct-site-header nav [role="menuitem"] {
+  font-weight: 500 !important;
+  color: var(--kuct-text) !important;
 }
 
 .kuct-site-header.is-hidden {
@@ -536,15 +545,7 @@ html[data-theme="violet"] .kuct-feature-card {
 .font-serif-accent {
   font-family: var(--font-serif), "Instrument Serif", Georgia, serif;
   font-style: italic;
-  background: linear-gradient(
-    120deg,
-    var(--kuct-serif-a) 0%,
-    var(--kuct-serif-b) 45%,
-    var(--kuct-serif-c) 100%
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: inherit;
 }
 
 .kuct-tech-ribbon {
@@ -565,23 +566,29 @@ html[data-theme="violet"] .kuct-feature-card {
 }
 
 .kuct-btn-primary {
-  background: linear-gradient(
-    135deg,
-    var(--kuct-btn-from) 0%,
-    var(--kuct-btn-mid) 45%,
-    var(--kuct-btn-to) 100%
-  );
-  color: var(--kuct-on-accent);
-  box-shadow: 0 10px 28px rgb(26 21 32 / 0.16);
+  background: transparent;
+  color: var(--kuct-accent);
+  border: 1px solid var(--kuct-accent);
+  box-shadow: none;
+  font-weight: 500;
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease,
-    filter 0.2s ease;
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .kuct-btn-primary:active {
   transform: translateY(0);
-  filter: brightness(0.98);
+  background: var(--kuct-accent);
+  color: var(--kuct-on-accent);
+  border-color: var(--kuct-accent);
+}
+
+/* Tailwind font-semibold on same node — keep primary at 500 */
+.kuct-btn-primary.font-semibold {
+  font-weight: 500;
 }
 
 /* Secondary CTA — Samsung-style black underline + arrow */
@@ -881,9 +888,17 @@ html[data-theme="violet"] .kuct-banner-cta:hover {
 @media (hover: hover) and (pointer: fine) {
   @media (min-width: 1024px) {
     .kuct-btn-primary:hover {
-      filter: brightness(1.06);
+      background: linear-gradient(
+        135deg,
+        var(--kuct-btn-from) 0%,
+        var(--kuct-btn-mid) 45%,
+        var(--kuct-btn-to) 100%
+      );
+      color: var(--kuct-on-accent);
+      border-color: transparent;
+      filter: none;
       transform: translateY(-2px);
-      box-shadow: 0 16px 36px rgb(26 21 32 / 0.16);
+      box-shadow: 0 10px 28px rgb(26 21 32 / 0.12);
     }
 
     .kuct-btn-ghost:hover {

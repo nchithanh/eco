@@ -1,10 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import type { MouseEvent, ReactNode } from "react";
+import type { ReactNode } from "react";
 import { AccentText } from "@/components/BrandName";
 import { Reveal } from "@/components/Reveal";
-import { usePagePreview } from "@/components/PagePreviewProvider";
 import { useQuote } from "@/components/QuoteProvider";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
 
@@ -75,13 +74,8 @@ const OFFER_ICONS: Record<string, ReactNode> = {
 
 export function Capabilities() {
  const { t } = useLocale();
- const { openHref } = usePagePreview();
  const { openQuote } = useQuote();
  const c = t.capabilities;
-
- const onNav = (href: string, event: MouseEvent<HTMLElement>) => {
- openHref(href, event);
- };
 
  return (
  <section id="capabilities" className="scroll-mt-20 py-20 sm:py-24">
@@ -103,7 +97,6 @@ export function Capabilities() {
  <Reveal as="li" key={offer.id} delay={index * 60} className="h-full">
  <Link
  href={offer.href}
- onClick={(event) => onNav(offer.href, event)}
  className="group kuct-glass flex h-full flex-col rounded-xl p-5 shadow-[0_12px_40px_rgb(26_21_32/0.08)] transition duration-200 hover:bg-[rgb(26_21_32/0.04)]"
  >
  <div className="grid size-10 place-items-center rounded-lg bg-[rgba(var(--kuct-accent-rgb),0.1)] text-[var(--kuct-accent)] ">
@@ -133,7 +126,6 @@ export function Capabilities() {
  <Link
  key={`${item.label}-${item.href}`}
  href={item.href}
- onClick={(event) => onNav(item.href, event)}
  className="rounded-full px-3 py-1.5 text-xs font-medium text-[var(--kuct-muted)] transition hover:text-[var(--kuct-text)]"
  >
  {item.label}

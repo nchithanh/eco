@@ -1,6 +1,5 @@
 "use client";
 
-import { usePagePreview } from "@/components/PagePreviewProvider";
 import { Reveal } from "@/components/Reveal";
 import { assetPath } from "@/lib/asset";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
@@ -29,7 +28,6 @@ const LOGO_COLORS: Record<string, string> = {
 
 export function TechStack() {
  const { t } = useLocale();
- const { openTech } = usePagePreview();
  const { eyebrow, titleLead, titleHighlight, support, logos } = t.stack;
 
  return (
@@ -72,10 +70,6 @@ export function TechStack() {
  href={href}
  title={name}
  aria-label={name}
- onClick={(event) => {
- event.preventDefault();
- openTech(slug);
- }}
  className="group flex touch-pan-y items-center gap-2 text-base font-semibold text-[var(--kuct-text)]/80 transition duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:text-[var(--kuct-text)]"
  >
  <span

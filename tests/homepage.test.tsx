@@ -286,7 +286,7 @@ describe("Dolphin Software homepage", () => {
     expect(news).toBeTruthy();
     expect(
       within(news!).getByRole("link", {
-        name: /車販売店ウェブサイト：来店前に必要な機能/i,
+        name: /Dolphin Care：チャットbotだけではない/i,
       }),
     ).toHaveAttribute("aria-current", "true");
     expect(
@@ -294,26 +294,20 @@ describe("Dolphin Software homepage", () => {
     ).toHaveAttribute("href", expect.stringMatching(/\/news\/?$/));
   });
 
-  it("opens news article preview when clicking the active carousel card", async () => {
+  it("links active news carousel card to article detail page", () => {
     window.localStorage.setItem("kuct-locale", "vi");
-    const user = userEvent.setup();
     renderHome();
 
     const news = document.getElementById("news");
     expect(news).toBeTruthy();
 
-    await user.click(
-      within(news!).getByRole("link", {
-        name: /Website giới thiệu xe: Showroom cần gì/i,
-      }),
-    );
-
-    const dialog = await screen.findByRole("dialog");
     expect(
-      within(dialog).getByRole("link", { name: /Xem full/i }),
+      within(news!).getByRole("link", {
+        name: /Dolphin Care: Không Chỉ Chatbot AI/i,
+      }),
     ).toHaveAttribute(
       "href",
-      expect.stringMatching(/website-gioi-thieu-xe-showroom/),
+      expect.stringMatching(/dolphin-care-bao-cao-insight-hang-ngay/),
     );
   });
 

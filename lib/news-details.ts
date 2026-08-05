@@ -1,4 +1,5 @@
 import type { Locale } from "@/lib/i18n/types";
+import { dolphinCareBaoCaoInsightHangNgayCopy } from "@/lib/news-articles/dolphin-care-bao-cao-insight-hang-ngay";
 import { studioCuoiWebsiteXemVayOnlineCopy } from "@/lib/news-articles/studio-cuoi-website-xem-vay-online";
 import { websiteGioiThieuXeShowroomCopy } from "@/lib/news-articles/website-gioi-thieu-xe-showroom";
 
@@ -13,6 +14,7 @@ export const NEWS_CATEGORIES = [
 export type NewsCategory = (typeof NEWS_CATEGORIES)[number];
 
 export const NEWS_SLUGS = [
+  "dolphin-care-bao-cao-insight-hang-ngay",
   "website-gioi-thieu-xe-showroom",
   "studio-cuoi-website-xem-vay-online",
   "5-dau-hieu-website-lam-mat-khach",
@@ -74,6 +76,10 @@ type NewsMeta = {
 };
 
 const metaBySlug: Record<NewsSlug, NewsMeta> = {
+  "dolphin-care-bao-cao-insight-hang-ngay": {
+    category: "product",
+    date: "2026-08-07",
+  },
   "website-gioi-thieu-xe-showroom": {
     category: "cases",
     date: "2026-08-06",
@@ -97,6 +103,8 @@ const categoryImages: Record<NewsCategory, string> = {
 };
 
 const slugImages: Partial<Record<NewsSlug, string>> = {
+  "dolphin-care-bao-cao-insight-hang-ngay":
+    "/news/dolphin-care-bao-cao-insight-hang-ngay.jpg",
   "website-gioi-thieu-xe-showroom":
     "/news/website-gioi-thieu-xe-showroom.jpg",
   "studio-cuoi-website-xem-vay-online":
@@ -110,6 +118,8 @@ export function getNewsImage(slug: NewsSlug): string {
 
 const copyByLocale: Record<Locale, Record<NewsSlug, NewsArticleCopy>> = {
   vi: {
+    "dolphin-care-bao-cao-insight-hang-ngay":
+      dolphinCareBaoCaoInsightHangNgayCopy.vi,
     "website-gioi-thieu-xe-showroom": websiteGioiThieuXeShowroomCopy.vi,
     "studio-cuoi-website-xem-vay-online":
       studioCuoiWebsiteXemVayOnlineCopy.vi,
@@ -281,6 +291,8 @@ const copyByLocale: Record<Locale, Record<NewsSlug, NewsArticleCopy>> = {
     },
   },
   en: {
+    "dolphin-care-bao-cao-insight-hang-ngay":
+      dolphinCareBaoCaoInsightHangNgayCopy.en,
     "website-gioi-thieu-xe-showroom": websiteGioiThieuXeShowroomCopy.en,
     "studio-cuoi-website-xem-vay-online":
       studioCuoiWebsiteXemVayOnlineCopy.en,
@@ -380,6 +392,8 @@ const copyByLocale: Record<Locale, Record<NewsSlug, NewsArticleCopy>> = {
     },
   },
   ja: {
+    "dolphin-care-bao-cao-insight-hang-ngay":
+      dolphinCareBaoCaoInsightHangNgayCopy.ja,
     "website-gioi-thieu-xe-showroom": websiteGioiThieuXeShowroomCopy.ja,
     "studio-cuoi-website-xem-vay-online":
       studioCuoiWebsiteXemVayOnlineCopy.ja,

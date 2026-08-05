@@ -11,7 +11,6 @@ import {
 import { AccentText } from "@/components/BrandName";
 import { LazyImage } from "@/components/LazyImage";
 import { Reveal } from "@/components/Reveal";
-import { usePagePreview } from "@/components/PagePreviewProvider";
 import { assetPath, themeAsset } from "@/lib/asset";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
 import { useTheme } from "@/lib/theme";
@@ -32,7 +31,6 @@ const SWIPE_THRESHOLD = 48;
 export function WorksShowcase() {
  const { t } = useLocale();
  const { theme } = useTheme();
- const { openWork } = usePagePreview();
  const w = t.works;
  const { prevPage, nextPage } = t.capabilities;
 
@@ -170,11 +168,6 @@ export function WorksShowcase() {
  <Reveal as="li" key={item.id} delay={index * 60}>
  <a
  href={href}
- onClick={(event) => {
- if (!slug) return;
- event.preventDefault();
- openWork(slug);
- }}
  className="group flex h-full touch-pan-y flex-col overflow-hidden rounded-xl bg-[var(--kuct-panel)] text-left backdrop-blur-md transition duration-300 "
  >
  <div className="relative aspect-[16/10] overflow-hidden">

@@ -3,7 +3,6 @@
 import { AccentText } from "@/components/BrandName";
 import { LazyImage } from "@/components/LazyImage";
 import { Reveal } from "@/components/Reveal";
-import { usePagePreview } from "@/components/PagePreviewProvider";
 import { assetPath, themeAsset } from "@/lib/asset";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
 import { useTheme } from "@/lib/theme";
@@ -25,7 +24,6 @@ export function SitesShipped({
 }) {
  const { t } = useLocale();
  const { theme } = useTheme();
- const { openWork, close } = usePagePreview();
  const w = t.works;
 
  return (
@@ -53,17 +51,13 @@ export function SitesShipped({
  <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
  {w.items.map((item, index) => {
  const slug = isWorkSlug(item.id) ? item.id : null;
+ const href = slug ? assetPath(`/works/${slug}/`) : `${assetPath("/")}#contact`;
  const image = WORK_IMAGES[item.id] ?? "/works/billiard.jpg";
  return (
  <Reveal key={item.id} delay={index * 40}>
- <button
- type="button"
+ <a
+ href={href}
  className="group flex w-full flex-col overflow-hidden rounded-xl bg-[var(--kuct-panel)] text-left transition "
- onClick={() => {
- if (!slug) return;
- if (embedded) close();
- openWork(slug);
- }}
  >
  <div className="relative aspect-[16/10] overflow-hidden">
  <LazyImage
@@ -85,7 +79,7 @@ export function SitesShipped({
  {item.result}
  </p>
  </div>
- </button>
+ </a>
  </Reveal>
  );
  })}
