@@ -20,19 +20,19 @@
   "trustLine": "LLM · Nghiệp vụ doanh nghiệp · Ngữ cảnh khách hàng · Báo cáo insight hằng ngày",
   "layers": [
     {
-      "title": "01 — LLM (Mô hình ngôn ngữ lớn)",
+      "title": "LLM (Mô hình ngôn ngữ lớn)",
       "body": "Hiểu và tạo ra câu trả lời tự nhiên, linh hoạt theo ngữ cảnh."
     },
     {
-      "title": "02 — Business context (Nghiệp vụ doanh nghiệp)",
+      "title": "Business context (Nghiệp vụ doanh nghiệp)",
       "body": "Được nạp knowledge base theo đặc thù từng doanh nghiệp, đảm bảo trả lời đúng việc."
     },
     {
-      "title": "03 — Customer context (Ngữ cảnh khách hàng)",
+      "title": "Customer context (Ngữ cảnh khách hàng)",
       "body": "Ghi nhớ ngữ cảnh hội thoại để phản hồi phù hợp với từng khách."
     },
     {
-      "title": "04 — Daily insight report (Báo cáo insight hằng ngày)",
+      "title": "Daily insight report (Báo cáo insight hằng ngày)",
       "body": "Tổng hợp dữ liệu hội thoại thực tế, gửi báo cáo hằng ngày cho admin."
     }
   ],

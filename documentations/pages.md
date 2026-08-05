@@ -25,4 +25,4 @@
 | `/works/[slug]/` | `app/works/[slug]/page.tsx` | `WorkDetailView` + `lib/works-details.ts` |
 | `/more/[slug]/` | `app/more/[slug]/page.tsx` | `MoreDetailView` + `lib/more-details.ts` |
 
-Nav: dropdown **Dịch vụ** (web / landing / mobile / backend) + **AI** dropdown (Dolphin Care, AI Transform); News / About / Careers. Process & Tech removed from nav/footer. `/services/design/` still exists but is not linked from nav/footer.
+Nav: desktop 2-tier (utility: News / About / Careers / Contact + locale; GNB flat — web / landing / mobile / backend / Dolphin Care / AI Transform, no dropdown). Mobile giữ accordion Dịch vụ + AI. Process & Tech removed from nav/footer. `/services/design/` still exists but is not linked from nav/footer.

@@ -41,7 +41,7 @@ export function LanguageSwitcher() {
  <div ref={rootRef} className="relative">
  <button
  type="button"
- className="inline-flex items-center gap-1.5 px-1 py-1.5 text-xs font-medium tracking-wide text-[var(--kuct-text)] transition hover:text-[var(--kuct-accent)]"
+ className="inline-flex items-center gap-1.5 px-1 py-1.5 text-[inherit] font-medium tracking-[-0.02em] text-[var(--kuct-text)] transition hover:text-[var(--kuct-accent)]"
  aria-label="Language"
  aria-haspopup="listbox"
  aria-expanded={open}

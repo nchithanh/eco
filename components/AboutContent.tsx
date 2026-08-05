@@ -174,7 +174,7 @@ export function AboutContent() {
  <div className="mx-auto max-w-6xl px-6">
  <Reveal className="grid items-center gap-10 rounded-xl bg-[var(--kuct-panel)] p-8 backdrop-blur-md sm:p-10 lg:grid-cols-[220px_1fr] lg:gap-12 lg:p-12">
  <div className="relative mx-auto w-full max-w-[200px] lg:max-w-none">
- <div className="relative aspect-[3/4] overflow-hidden rounded-xl bg-[var(--kuct-panel-2)]">
+ <div className="relative aspect-[3/4] overflow-hidden border-2 border-black bg-[var(--kuct-panel-2)]">
  <LazyImage
  src={assetPath("/about/founder.png")}
  alt={`${a.founderName} — ${a.founderRole}`}

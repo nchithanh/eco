@@ -467,18 +467,31 @@ export function AgentDolphinContent({ embedded = false }: { embedded?: boolean }
  <p className="mt-2 max-w-xl text-sm text-[var(--kuct-muted)]">
  {c.pillarsSupport}
  </p>
- <ul className="mt-6 space-y-4">
+ <ul className="mt-6 space-y-0">
  {c.pillars.map((item, index) => (
- <li key={item.title} className="kuct-glass rounded-xl p-5">
- <span className="text-xs font-bold tracking-[0.14em] text-[var(--kuct-accent)]">
+ <li key={item.title} className="relative flex gap-3 pb-5 last:pb-0">
+ <div className="relative flex w-6 shrink-0 flex-col items-center">
+ <span
+ aria-hidden
+ className="relative z-[1] grid size-6 place-items-center rounded-full bg-white text-[10px] font-bold leading-none tabular-nums text-[var(--kuct-accent)] ring-2 ring-[rgba(var(--kuct-accent-rgb),0.35)]"
+ >
  {String(index + 1).padStart(2, "0")}
  </span>
- <h3 className="mt-2 font-display text-lg font-semibold text-[var(--kuct-text)]">
+ {index < c.pillars.length - 1 ? (
+ <span
+ aria-hidden
+ className="absolute top-6 bottom-[-1.25rem] w-px bg-[rgba(var(--kuct-accent-rgb),0.28)]"
+ />
+ ) : null}
+ </div>
+ <div className="min-w-0 pt-0.5">
+ <h3 className="font-display text-[0.95rem] font-semibold leading-snug text-[var(--kuct-text)] sm:text-base">
  {item.title}
  </h3>
- <p className="mt-2 text-sm leading-relaxed text-[var(--kuct-muted)]">
+ <p className="mt-1 text-sm leading-relaxed text-[var(--kuct-muted)]">
  {item.body}
  </p>
+ </div>
  </li>
  ))}
  </ul>

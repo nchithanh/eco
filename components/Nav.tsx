@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useId, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { AnnouncementBar } from "@/components/AnnouncementBar";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
@@ -10,99 +10,51 @@ import { BASE_PATH, assetPath } from "@/lib/asset";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
 
 type NavLink = {
- href: string;
- label: string;
+  href: string;
+  label: string;
 };
 
 function normalizePath(path: string) {
- const stripped = path.replace(BASE_PATH, "") || "/";
- const clean = stripped.replace(/\/$/, "") || "/";
- return clean;
+  const stripped = path.replace(BASE_PATH, "") || "/";
+  const clean = stripped.replace(/\/$/, "") || "/";
+  return clean;
 }
 
 function NavItemLink({
- href,
- label,
- active,
- onClick,
- className,
+  href,
+  label,
+  active,
+  onClick,
+  className,
 }: {
- href: string;
- label: string;
- active?: boolean;
- onClick?: () => void;
- className?: string;
+  href: string;
+  label: string;
+  active?: boolean;
+  onClick?: () => void;
+  className?: string;
 }) {
- const tone =
- "text-sm font-medium text-[var(--kuct-text)] transition hover:text-[var(--kuct-accent)]";
- return (
- <a
- href={href}
- onClick={onClick}
- aria-current={active ? "page" : undefined}
- className={className ? `${tone} ${className}` : tone}
- >
- {label}
- </a>
- );
-}
-
-function DropdownMenu({
- items,
- open,
- menuId,
- onClose,
- isPageActive,
-}: {
- items: NavLink[];
- open: boolean;
- menuId: string;
- onClose: () => void;
- isPageActive: (href: string) => boolean;
-}) {
- return (
- <div
- id={menuId}
- role="menu"
- hidden={!open}
- className="absolute top-full left-1/2 z-50 w-64 -translate-x-1/2 pt-2"
- >
- <ul className="overflow-hidden rounded-xl bg-white py-1.5 shadow-[0_16px_40px_rgb(26_21_32/0.1)]">
- {items.map((item) => {
- const active = isPageActive(item.href);
- return (
- <li key={item.href + item.label} role="none">
- <a
- role="menuitem"
- href={item.href}
- aria-current={active ? "page" : undefined}
- className={
- "block px-4 py-2.5 text-sm font-medium text-[var(--kuct-text)] transition hover:bg-[rgba(var(--kuct-accent-rgb),0.1)] hover:text-[var(--kuct-accent)]"
- }
- onClick={onClose}
- >
- {item.label}
- </a>
- </li>
- );
- })}
- </ul>
- </div>
- );
+  const tone =
+    "text-sm font-medium text-[var(--kuct-text)] transition hover:text-[var(--kuct-accent)]";
+  return (
+    <a
+      href={href}
+      onClick={onClick}
+      aria-current={active ? "page" : undefined}
+      className={className ? `${tone} ${className}` : tone}
+    >
+      {label}
+    </a>
+  );
 }
 
 export function Nav() {
- const { t } = useLocale();
- const pathname = usePathname();
+  const { t } = useLocale();
+  const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [servicesOpenMobile, setServicesOpenMobile] = useState(false);
   const [agentOpenMobile, setAgentOpenMobile] = useState(false);
-  const [servicesOpenDesktop, setServicesOpenDesktop] = useState(false);
-  const [agentOpenDesktop, setAgentOpenDesktop] = useState(false);
   const [headerHidden, setHeaderHidden] = useState(false);
   const lastScrollY = useRef(0);
-  const servicesMenuId = useId();
-  const agentMenuId = useId();
   const sectionBase = pathname === "/" ? "" : `${BASE_PATH}/`;
   const contactHref = `${sectionBase}#contact`;
   const homeHref = pathname === "/" ? "#top" : assetPath("/");
@@ -119,8 +71,6 @@ export function Nav() {
         setHeaderHidden(false);
       } else if (delta > 8) {
         setHeaderHidden(true);
-        setServicesOpenDesktop(false);
-        setAgentOpenDesktop(false);
       } else if (delta < -8) {
         setHeaderHidden(false);
       }
@@ -136,288 +86,274 @@ export function Nav() {
     if (isMenuOpen) setHeaderHidden(false);
   }, [isMenuOpen]);
 
- const serviceItems: NavLink[] = [
- {
- href: assetPath("/services/web/"),
- label: t.nav.serviceWeb,
- },
- {
- href: `${assetPath("/services/web/")}#web-pricing`,
- label: t.nav.serviceLanding,
- },
- {
- href: assetPath("/services/mobile/"),
- label: t.nav.serviceMobile,
- },
- {
- href: assetPath("/services/backend/"),
- label: t.nav.serviceBackend,
- },
- ];
+  const serviceItems: NavLink[] = [
+    {
+      href: assetPath("/services/web/"),
+      label: t.nav.serviceWeb,
+    },
+    {
+      href: `${assetPath("/services/web/")}#web-pricing`,
+      label: t.nav.serviceLanding,
+    },
+    {
+      href: assetPath("/services/mobile/"),
+      label: t.nav.serviceMobile,
+    },
+    {
+      href: assetPath("/services/backend/"),
+      label: t.nav.serviceBackend,
+    },
+  ];
 
- const agentItems: NavLink[] = [
- {
- href: assetPath("/dolphin-care/"),
- label: t.nav.agentDolphin,
- },
- {
- href: assetPath("/ai-transform/"),
- label: t.nav.aiTransform,
- },
- ];
+  const agentItems: NavLink[] = [
+    {
+      href: assetPath("/dolphin-care/"),
+      label: t.nav.agentDolphin,
+    },
+    {
+      href: assetPath("/ai-transform/"),
+      label: t.nav.aiTransform,
+    },
+  ];
 
- const pageLinks: NavLink[] = [
- { href: assetPath("/news/"), label: t.nav.news },
- { href: assetPath("/about/"), label: t.nav.about },
- { href: assetPath("/careers/"), label: t.nav.careers },
- ];
+  const pageLinks: NavLink[] = [
+    { href: assetPath("/news/"), label: t.nav.news },
+    { href: assetPath("/about/"), label: t.nav.about },
+    { href: assetPath("/careers/"), label: t.nav.careers },
+  ];
 
- const isPageActive = (href: string) => {
- const pathOnly = href.split("#")[0] ?? href;
- return normalizePath(pathOnly) === current;
- };
+  const desktopGnbLinks: NavLink[] = [...serviceItems, ...agentItems];
 
- const isServicesActive = serviceItems.some((item) => isPageActive(item.href));
- const isAgentActive = agentItems.some((item) => isPageActive(item.href));
+  const isPageActive = (href: string) => {
+    const pathOnly = href.split("#")[0] ?? href;
+    return normalizePath(pathOnly) === current;
+  };
 
- useEffect(() => {
- if (typeof window.matchMedia !== "function") return;
+  useEffect(() => {
+    if (typeof window.matchMedia !== "function") return;
 
- const mq = window.matchMedia("(min-width: 768px)");
- const onChange = () => {
- if (mq.matches) {
- setIsMenuOpen(false);
- setServicesOpenMobile(false);
- setAgentOpenMobile(false);
- }
- };
- onChange();
- mq.addEventListener("change", onChange);
- return () => mq.removeEventListener("change", onChange);
- }, []);
+    const mq = window.matchMedia("(min-width: 768px)");
+    const onChange = () => {
+      if (mq.matches) {
+        setIsMenuOpen(false);
+        setServicesOpenMobile(false);
+        setAgentOpenMobile(false);
+      }
+    };
+    onChange();
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
 
- useEffect(() => {
- setIsMenuOpen(false);
- setServicesOpenMobile(false);
- setAgentOpenMobile(false);
- setServicesOpenDesktop(false);
- setAgentOpenDesktop(false);
- }, [pathname]);
+  useEffect(() => {
+    setIsMenuOpen(false);
+    setServicesOpenMobile(false);
+    setAgentOpenMobile(false);
+  }, [pathname]);
 
- const dropdownTriggerClass =
- "inline-flex items-center gap-1 rounded-full px-3 py-1.5 text-sm font-medium text-[var(--kuct-text)] transition hover:bg-[rgba(var(--kuct-accent-rgb),0.08)]";
+  const gnbLinkClass =
+    "kuct-gnb-link inline-flex h-[2.75rem] shrink-0 items-center border-b-[3px] border-transparent text-[0.875rem] leading-none tracking-[-0.02em] text-[var(--kuct-text)] transition-colors hover:text-[var(--kuct-accent)]";
+  const gnbLinkActiveClass =
+    " border-[var(--kuct-accent)] text-[var(--kuct-accent)]";
+  const utilityLinkClass =
+    "kuct-nav-utility kuct-gnb-link inline-flex h-[2.75rem] shrink-0 items-center border-b-[3px] border-transparent text-[0.875rem] leading-none tracking-[-0.02em] text-[var(--kuct-text)] transition-colors hover:text-[var(--kuct-accent)]";
 
- return (
- <div
- className={`kuct-site-header sticky top-0 z-50 ${
- headerHidden ? "is-hidden" : ""
- }`}
- >
- <AnnouncementBar />
- <header className="border-b border-black/8 bg-white">
- <nav
- className="mx-auto flex h-14 max-w-6xl items-center justify-between gap-4 px-6 sm:h-[3.75rem]"
- aria-label={t.nav.ariaMain}
- >
- <a
- href={homeHref}
- className="relative flex h-full shrink-0 items-center text-[var(--kuct-text)] transition hover:opacity-85 after:absolute after:inset-x-0 after:bottom-0 after:h-[3px] after:bg-[var(--kuct-accent)] after:content-['']"
- aria-label="Dolphin Software"
- >
- <Logo showWordmark />
- </a>
+  return (
+    <div
+      className={`kuct-site-header sticky top-0 z-50 ${
+        headerHidden ? "is-hidden" : ""
+      }`}
+    >
+      <AnnouncementBar />
+      <header className="bg-white">
+        <nav
+          className="mx-auto max-w-6xl px-6"
+          aria-label={t.nav.ariaMain}
+        >
+          {/* Desktop — two-tier, flat GNB (no dropdowns) */}
+          <div className="hidden lg:block">
+            <div className="flex items-center justify-end gap-5">
+              {pageLinks.map((link) => {
+                const active = isPageActive(link.href);
+                return (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    aria-current={active ? "page" : undefined}
+                    className={`${utilityLinkClass}${
+                      active ? gnbLinkActiveClass : ""
+                    }`}
+                  >
+                    {link.label}
+                  </a>
+                );
+              })}
+              <a href={contactHref} className={utilityLinkClass}>
+                {t.nav.contact}
+              </a>
+              <div className="kuct-nav-utility kuct-gnb-link flex h-[2.75rem] items-center text-[0.875rem]">
+                <LanguageSwitcher />
+              </div>
+            </div>
 
- <ul className="hidden min-w-0 flex-1 items-center justify-center gap-1 lg:flex xl:gap-1.5">
- <li
- className="relative"
- onMouseEnter={() => setServicesOpenDesktop(true)}
- onMouseLeave={() => setServicesOpenDesktop(false)}
- >
- <button
- type="button"
- className={dropdownTriggerClass}
- aria-expanded={servicesOpenDesktop}
- aria-haspopup="true"
- aria-controls={servicesMenuId}
- onClick={() => setServicesOpenDesktop((open) => !open)}
- >
- {t.nav.services}
- <span aria-hidden className="text-[0.65rem] text-[var(--kuct-text)]">
- ▾
- </span>
- </button>
- <DropdownMenu
- items={serviceItems}
- open={servicesOpenDesktop}
- menuId={servicesMenuId}
- onClose={() => setServicesOpenDesktop(false)}
- isPageActive={isPageActive}
- />
- </li>
+            <div className="flex min-h-[3.65rem] items-center gap-6 pb-3 xl:gap-8">
+              <a
+                href={homeHref}
+                className="flex shrink-0 items-center text-[var(--kuct-text)] transition hover:opacity-85"
+                aria-label="Dolphin Software"
+              >
+                <Logo showWordmark />
+              </a>
 
- <li
- className="relative"
- onMouseEnter={() => setAgentOpenDesktop(true)}
- onMouseLeave={() => setAgentOpenDesktop(false)}
- >
- <button
- type="button"
- className={dropdownTriggerClass}
- aria-expanded={agentOpenDesktop}
- aria-haspopup="true"
- aria-controls={agentMenuId}
- onClick={() => setAgentOpenDesktop((open) => !open)}
- >
- {t.nav.agents}
- <span aria-hidden className="text-[0.65rem] text-[var(--kuct-text)]">
- ▾
- </span>
- </button>
- <DropdownMenu
- items={agentItems}
- open={agentOpenDesktop}
- menuId={agentMenuId}
- onClose={() => setAgentOpenDesktop(false)}
- isPageActive={isPageActive}
- />
- </li>
+              <ul className="flex min-w-0 flex-1 flex-wrap items-center gap-x-4 gap-y-1 xl:gap-x-5">
+                {desktopGnbLinks.map((link) => {
+                  const active = isPageActive(link.href);
+                  return (
+                    <li key={link.href + link.label}>
+                      <a
+                        href={link.href}
+                        aria-current={active ? "page" : undefined}
+                        className={`${gnbLinkClass}${
+                          active ? gnbLinkActiveClass : ""
+                        }`}
+                      >
+                        {link.label}
+                      </a>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          </div>
 
- {pageLinks.map((link) => {
- const active = isPageActive(link.href);
- return (
- <li key={link.href}>
- <a
- href={link.href}
- aria-current={active ? "page" : undefined}
- className="inline-flex rounded-full px-3 py-1.5 text-sm font-medium text-[var(--kuct-text)] transition hover:bg-[rgba(var(--kuct-accent-rgb),0.08)] hover:text-[var(--kuct-accent)]"
- >
- {link.label}
- </a>
- </li>
- );
- })}
- </ul>
+          {/* Mobile / tablet — single compact row */}
+          <div className="flex h-14 items-center justify-between gap-4 sm:h-[3.75rem] lg:hidden">
+            <a
+              href={homeHref}
+              className="flex shrink-0 items-center text-[var(--kuct-text)] transition hover:opacity-85"
+              aria-label="Dolphin Software"
+            >
+              <Logo showWordmark />
+            </a>
 
- <div className="flex shrink-0 items-center gap-2 sm:gap-2.5">
- <div className="hidden md:block">
- <ThemeSwitcher />
- </div>
- <LanguageSwitcher />
- <button
- type="button"
- className="grid size-9 place-items-center text-[var(--kuct-text)] transition hover:text-[var(--kuct-accent)] lg:hidden"
- aria-label={isMenuOpen ? t.nav.closeMenu : t.nav.openMenu}
- aria-controls="mobile-nav"
- aria-expanded={isMenuOpen}
- onClick={() => setIsMenuOpen((isOpen) => !isOpen)}
- >
- <span aria-hidden="true" className="text-lg leading-none">
- {isMenuOpen ? "×" : "≡"}
- </span>
- </button>
- </div>
- </nav>
+            <div className="flex shrink-0 items-center gap-2 text-[0.875rem]">
+              <LanguageSwitcher />
+              <button
+                type="button"
+                className="grid size-9 place-items-center text-[var(--kuct-text)] transition hover:text-[var(--kuct-accent)]"
+                aria-label={isMenuOpen ? t.nav.closeMenu : t.nav.openMenu}
+                aria-controls="mobile-nav"
+                aria-expanded={isMenuOpen}
+                onClick={() => setIsMenuOpen((isOpen) => !isOpen)}
+              >
+                <span aria-hidden="true" className="text-lg leading-none">
+                  {isMenuOpen ? "×" : "≡"}
+                </span>
+              </button>
+            </div>
+          </div>
+        </nav>
 
- {isMenuOpen ? (
- <nav
- id="mobile-nav"
- aria-label={t.nav.ariaMobile}
+        {isMenuOpen ? (
+          <nav
+            id="mobile-nav"
+            aria-label={t.nav.ariaMobile}
             className="border-t border-black/10 bg-white px-6 py-4 lg:hidden"
- >
- <ul className="mx-auto flex max-w-6xl flex-col">
- <li>
- <button
- type="button"
- className="flex w-full items-center justify-between py-2 text-sm font-medium text-[var(--kuct-text)]"
- aria-expanded={servicesOpenMobile}
- onClick={() => setServicesOpenMobile((open) => !open)}
- >
- <span>{t.nav.services}</span>
- <span aria-hidden className="text-[var(--kuct-text)]">
- {servicesOpenMobile ? "−" : "+"}
- </span>
- </button>
- {servicesOpenMobile ? (
- <ul className="mb-1 space-y-0 pl-3">
- {serviceItems.map((item) => (
- <li key={item.href + item.label}>
- <NavItemLink
- href={item.href}
- label={item.label}
- active={isPageActive(item.href)}
- className="block w-full py-1.5"
- onClick={() => {
- setIsMenuOpen(false);
- setServicesOpenMobile(false);
- }}
- />
- </li>
- ))}
- </ul>
- ) : null}
- </li>
+          >
+            <ul className="mx-auto flex max-w-6xl flex-col">
+              <li>
+                <button
+                  type="button"
+                  className="flex w-full items-center justify-between py-2 text-sm font-medium text-[var(--kuct-text)]"
+                  aria-expanded={servicesOpenMobile}
+                  onClick={() => setServicesOpenMobile((open) => !open)}
+                >
+                  <span>{t.nav.services}</span>
+                  <span aria-hidden className="text-[var(--kuct-text)]">
+                    {servicesOpenMobile ? "−" : "+"}
+                  </span>
+                </button>
+                {servicesOpenMobile ? (
+                  <ul className="mb-1 space-y-0 pl-3">
+                    {serviceItems.map((item) => (
+                      <li key={item.href + item.label}>
+                        <NavItemLink
+                          href={item.href}
+                          label={item.label}
+                          active={isPageActive(item.href)}
+                          className="block w-full py-1.5"
+                          onClick={() => {
+                            setIsMenuOpen(false);
+                            setServicesOpenMobile(false);
+                          }}
+                        />
+                      </li>
+                    ))}
+                  </ul>
+                ) : null}
+              </li>
 
- <li>
- <button
- type="button"
- className="flex w-full items-center justify-between py-2 text-sm font-medium text-[var(--kuct-text)]"
- aria-expanded={agentOpenMobile}
- onClick={() => setAgentOpenMobile((open) => !open)}
- >
- <span>{t.nav.agents}</span>
- <span aria-hidden className="text-[var(--kuct-text)]">
- {agentOpenMobile ? "−" : "+"}
- </span>
- </button>
- {agentOpenMobile ? (
- <ul className="mb-1 space-y-0 pl-3">
- {agentItems.map((item) => (
- <li key={item.href}>
- <NavItemLink
- href={item.href}
- label={item.label}
- active={isPageActive(item.href)}
- className="block w-full py-1.5"
- onClick={() => {
- setIsMenuOpen(false);
- setAgentOpenMobile(false);
- }}
- />
- </li>
- ))}
- </ul>
- ) : null}
- </li>
+              <li>
+                <button
+                  type="button"
+                  className="flex w-full items-center justify-between py-2 text-sm font-medium text-[var(--kuct-text)]"
+                  aria-expanded={agentOpenMobile}
+                  onClick={() => setAgentOpenMobile((open) => !open)}
+                >
+                  <span>{t.nav.agents}</span>
+                  <span aria-hidden className="text-[var(--kuct-text)]">
+                    {agentOpenMobile ? "−" : "+"}
+                  </span>
+                </button>
+                {agentOpenMobile ? (
+                  <ul className="mb-1 space-y-0 pl-3">
+                    {agentItems.map((item) => (
+                      <li key={item.href}>
+                        <NavItemLink
+                          href={item.href}
+                          label={item.label}
+                          active={isPageActive(item.href)}
+                          className="block w-full py-1.5"
+                          onClick={() => {
+                            setIsMenuOpen(false);
+                            setAgentOpenMobile(false);
+                          }}
+                        />
+                      </li>
+                    ))}
+                  </ul>
+                ) : null}
+              </li>
 
- {pageLinks.map((link) => (
- <li key={link.href}>
- <NavItemLink
- href={link.href}
- label={link.label}
- active={isPageActive(link.href)}
- className="block w-full py-2"
- onClick={() => setIsMenuOpen(false)}
- />
- </li>
- ))}
+              {pageLinks.map((link) => (
+                <li key={link.href}>
+                  <NavItemLink
+                    href={link.href}
+                    label={link.label}
+                    active={isPageActive(link.href)}
+                    className="block w-full py-2"
+                    onClick={() => setIsMenuOpen(false)}
+                  />
+                </li>
+              ))}
 
- <li className="flex items-center gap-2 pt-3">
- <ThemeSwitcher />
- </li>
+              <li className="flex items-center gap-2 pt-3">
+                <ThemeSwitcher />
+              </li>
 
- <li className="pt-2">
- <a
- href={contactHref}
- className="kuct-btn-primary inline-flex w-full items-center justify-center rounded-full px-5 py-3 text-sm"
- onClick={() => setIsMenuOpen(false)}
- >
- {t.nav.contact}
- </a>
- </li>
- </ul>
- </nav>
- ) : null}
- </header>
- </div>
- );
+              <li className="pt-2">
+                <a
+                  href={contactHref}
+                  className="kuct-btn-primary inline-flex w-full items-center justify-center rounded-full px-5 py-3 text-sm"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {t.nav.contact}
+                </a>
+              </li>
+            </ul>
+          </nav>
+        ) : null}
+      </header>
+    </div>
+  );
 }

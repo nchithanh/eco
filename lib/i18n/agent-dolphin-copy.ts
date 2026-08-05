@@ -88,19 +88,19 @@ const vi: AgentDolphinCopy = {
     "Bốn lớp xử lý đồng thời — giúp agent trả lời đúng việc, đúng người, đúng giọng, và chuyển hội thoại thành báo cáo hành động được.",
   pillars: [
     {
-      title: "01 — LLM (Mô hình ngôn ngữ lớn)",
+      title: "LLM (Mô hình ngôn ngữ lớn)",
       body: "Hiểu và tạo ra câu trả lời tự nhiên, linh hoạt theo ngữ cảnh.",
     },
     {
-      title: "02 — Business context (Nghiệp vụ doanh nghiệp)",
+      title: "Business context (Nghiệp vụ doanh nghiệp)",
       body: "Được nạp knowledge base theo đặc thù từng doanh nghiệp, đảm bảo trả lời đúng việc.",
     },
     {
-      title: "03 — Customer context (Ngữ cảnh khách hàng)",
+      title: "Customer context (Ngữ cảnh khách hàng)",
       body: "Ghi nhớ ngữ cảnh hội thoại để phản hồi phù hợp với từng khách.",
     },
     {
-      title: "04 — Daily insight report (Báo cáo insight hằng ngày)",
+      title: "Daily insight report (Báo cáo insight hằng ngày)",
       body: "Tổng hợp dữ liệu hội thoại thực tế, gửi báo cáo hằng ngày cho admin.",
     },
   ],
@@ -310,19 +310,19 @@ const en: AgentDolphinCopy = {
     "Four layers at once — right job, right person, right voice, plus actionable daily reports.",
   pillars: [
     {
-      title: "01 — LLM",
+      title: "LLM",
       body: "Natural, context-aware replies.",
     },
     {
-      title: "02 — Business context",
+      title: "Business context",
       body: "Your knowledge base so answers match how you operate.",
     },
     {
-      title: "03 — Customer context",
+      title: "Customer context",
       body: "Conversation memory for each visitor.",
     },
     {
-      title: "04 — Daily insight report",
+      title: "Daily insight report",
       body: "Structured daily summaries for admins from real chats.",
     },
   ],
@@ -527,19 +527,19 @@ const ja: AgentDolphinCopy = {
     "用件・相手・トーンに合う返答と、日次の行動可能なレポートを同時に提供します。",
   pillars: [
     {
-      title: "01 — LLM",
+      title: "LLM",
       body: "自然で文脈に沿った返答。",
     },
     {
-      title: "02 — 業務コンテキスト",
+      title: "業務コンテキスト",
       body: "ナレッジベースで正しい業務回答を担保。",
     },
     {
-      title: "03 — 顧客コンテキスト",
+      title: "顧客コンテキスト",
       body: "会話の文脈を保持して個別に応答。",
     },
     {
-      title: "04 — 日次インサイトレポート",
+      title: "日次インサイトレポート",
       body: "実会話を集約し管理者へ毎日配信。",
     },
   ],

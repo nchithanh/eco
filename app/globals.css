@@ -520,11 +520,18 @@ html[data-theme="violet"] .kuct-feature-card {
 }
 
 /* Nav sits inside <main> — beat main { font-weight: 600 !important } */
-.kuct-site-header nav a,
-.kuct-site-header nav button,
+.kuct-site-header .kuct-gnb-link {
+  font-weight: 600 !important;
+}
+
+.kuct-site-header .kuct-nav-utility,
+.kuct-site-header .kuct-nav-utility a,
+.kuct-site-header .kuct-nav-utility button {
+  font-weight: 600 !important;
+}
+
 .kuct-site-header nav [role="menuitem"] {
   font-weight: 500 !important;
-  color: var(--kuct-text) !important;
 }
 
 .kuct-site-header.is-hidden {

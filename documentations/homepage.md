@@ -24,7 +24,7 @@ Hero
 
 | # | Schema | Component | Anchor |
 | --- | --- | --- | --- |
-| — | Nav | `Nav` | |
+| — | Nav | `Nav` | Desktop 2-tier: utility (news/about/careers/contact) + GNB services/AI; mobile accordion |
 | 1 | Hero | `Hero` | `#top` — H1/subhead: LCP-safe `kuct-title-enter`; parallax on glow/panels/mascot |
 | 2 | Outcomes | `SiteOutcomes` | `#stats` — section titles use `Reveal variant="title"` |
 | 3 | Why Dolphin | `WhyKuct` | `#why` |

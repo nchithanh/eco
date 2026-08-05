@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-08-05 (e)
+
+- Nav desktop: layout 2 tầng kiểu commerce (utility Contact + ngôn ngữ trên; logo + GNB trái dưới); chữ GNB 16px/700, bỏ pill hover và border header; mobile giữ 1 hàng.
+- Nav desktop: **bỏ dropdown** — hiện thẳng mọi link dịch vụ / AI / news / about / careers trên GNB; mobile vẫn accordion.
+- Nav: `max-width: 90%`; GNB weight **600**; active item `border-bottom` accent.
+- Nav: trả `max-w-7xl`; utility = Tin tức / Giới thiệu / Tuyển dụng / Liên hệ + locale; GNB chỉ dịch vụ + AI.
+- Nav: `max-w-6xl px-6` khớp lề page (Hero/sections).
+- Nav: utility + GNB cùng style chữ (size/weight/hover/active underline).
+- Nav: chữ **14px** (`0.875rem`).
+
 ## 2026-08-05 (d)
 
 - `/dolphin-care/` VI SEO/AEO/GEO rewriter: meta + hero nhấn **báo cáo insight hằng ngày**; 4 lớp (LLM / business / customer / daily report); features 24/7 + Zalo/CRM + embed; bảng so sánh 5 tiêu chí; ngành phù hợp; quy trình 4 bước; FAQ 6 Q; EN/JA sync; schema `agents/dolphin-care.json` + knowledge + Worker Care context; homepage teaser align insight.

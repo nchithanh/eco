@@ -136,16 +136,18 @@ export function renderMaybeBrand(
  return <BrandText {...opts}>{text}</BrandText>;
 }
 
-/** Marks accent words in copy: `[[keyword]]` → serif gradient accent (TechStack-style). */
+/** Marks accent words in copy: `[[keyword]]` → plain text (markers stripped). */
 type AccentTextProps = {
  children: string;
  className?: string;
 };
 
-const ACCENT_TITLE_CLASS = "font-serif-accent font-normal";
-
-/** Renders dictionary titles with optional `[[accent]]` markers. */
+/** Renders dictionary titles with optional `[[accent]]` markers (no special style). */
 export function AccentText({ children, className }: AccentTextProps) {
+ if (!className) {
+ return <>{stripAccentMarks(children)}</>;
+ }
+
  const nodes: ReactNode[] = [];
  const re = /\[\[(.+?)\]\]/g;
  let lastIndex = 0;
@@ -157,12 +159,7 @@ export function AccentText({ children, className }: AccentTextProps) {
  nodes.push(children.slice(lastIndex, match.index));
  }
  nodes.push(
- <span
- key={`accent-${accentIndex++}`}
- className={
- className ? `${ACCENT_TITLE_CLASS} ${className}` : ACCENT_TITLE_CLASS
- }
- >
+ <span key={`accent-${accentIndex++}`} className={className}>
  {match[1]}
  </span>,
  );
