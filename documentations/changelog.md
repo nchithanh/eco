@@ -14,6 +14,7 @@
 
 ## 2026-08-05
 
+- Desktop: **Lenis** smooth wheel scroll (`SmoothScroll`, `lg+` only; off khi `prefers-reduced-motion`).
 - News: click bài trên homepage + `/news/` **redirect** `/news/[slug]/` (không mở popup preview).
 - News detail: body + FAQ `Reveal immediate` (tránh content opacity 0); lead `overflow-visible`.
 - News detail: nút **Chia sẻ Facebook** + **Sao chép liên kết** dưới excerpt (`NewsDetailView` + i18n `getNewsDetailUi`).

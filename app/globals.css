@@ -285,6 +285,12 @@ html {
   scrollbar-color: var(--kuct-accent) var(--kuct-bg);
 }
 
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 html::-webkit-scrollbar {
   width: 10px;
   height: 10px;

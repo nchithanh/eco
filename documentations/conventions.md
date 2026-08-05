@@ -50,6 +50,7 @@ Also: `AGENTS.md` — Next.js 16 may differ from training data; read local Next 
 - Use `Reveal` for scroll motion on all viewports; disable only under `prefers-reduced-motion`
 - JS motion demos (typewriter / chat cards / NeuralSphere): gate with `useDesktopMotion` (`lib/motion.ts` — reduced-motion only)
 - Hero parallax: `useParallaxScrollY` on glow / glass / mascot wrappers (`transform`); LCP copy stays fixed
+- Desktop smooth wheel: `SmoothScroll` + Lenis (`lg+`, respects `prefers-reduced-motion`)
 - Prefer CSS `transform`/`opacity` for motion; keep SEO copy in DOM; avoid long opacity fades on LCP headline
 - Hover transform effects stay off below `lg` (touch/tablet sticky-hover)
 - Do not invent brand “Dolphin Kich” for new copy — use **Dolphin Software**
