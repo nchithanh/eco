@@ -14,6 +14,9 @@
 
 ## 2026-08-05
 
+- AI chat: client gọi Cloudflare Worker Free `dolphin-chat` (`lib/chat-api.ts`); source `workers/dolphin-chat/` + **system-context** đầy đủ (company/services/Care/AI + personality/consultant voice); secret `GROQ_API_KEY` trên dashboard; fallback keyword `matchAiChatReply` nếu Worker lỗi.
+- `AiChatWidget`: reply assistant **typewriter** (chữ chạy ra); `prefers-reduced-motion` → hiện full ngay.
+- `AiChatWidget`: `data-lenis-prevent` / `data-lenis-prevent-wheel` trên panel + list — wheel cuộn trong popup (không bị Lenis bắt).
 - Desktop: **Lenis** smooth wheel scroll (`SmoothScroll`, `lg+` only; off khi `prefers-reduced-motion`).
 - News: click bài trên homepage + `/news/` **redirect** `/news/[slug]/` (không mở popup preview).
 - News detail: body + FAQ `Reveal immediate` (tránh content opacity 0); lead `overflow-visible`.

@@ -10,6 +10,7 @@ import {
  type KeyboardEvent,
 } from "react";
 import { assetPath } from "@/lib/asset";
+import { fetchChatReply, type ChatApiMessage } from "@/lib/chat-api";
 import {
  getAiChatCopy,
  matchAiChatReply,
@@ -29,6 +30,21 @@ const TOAST_INITIAL_DELAY_MS = 800;
 const TOAST_ROTATE_MS = 5000;
 const TOAST_TYPEWRITER_CHAR_MS = 34;
 const TOAST_TYPEWRITER_PAUSE_MS = 5000;
+const REPLY_TYPEWRITER_BASE_MS = 16;
+
+function prefersReducedMotion(): boolean {
+  return (
+    typeof window !== "undefined" &&
+    typeof window.matchMedia === "function" &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  );
+}
+
+function replyTypewriterDelayMs(charCount: number): number {
+  if (charCount > 400) return 6;
+  if (charCount > 220) return 10;
+  return REPLY_TYPEWRITER_BASE_MS;
+}
 
 function useTypewriterLoop(
  text: string,
@@ -225,7 +241,9 @@ export function AiChatWidget() {
   const [toastVisible, setToastVisible] = useState(false);
   const [draft, setDraft] = useState("");
   const [messages, setMessages] = useState<ChatMessage[]>([]);
+  const [sending, setSending] = useState(false);
   const contactsRef = useRef<HTMLDivElement>(null);
+  const abortRef = useRef<AbortController | null>(null);
 
  const toastPool = useMemo(
  () => [c.toastWelcome, c.toastContinue, ...c.suggestions],
@@ -345,33 +363,99 @@ export function AiChatWidget() {
  };
  }, [contactsOpen]);
 
- const pushUserAndReply = (text: string) => {
+ const pushUserAndReply = async (text: string) => {
  const trimmed = text.trim();
- if (!trimmed) return;
+ if (!trimmed || sending) return;
+
  const userMsg: ChatMessage = {
  id: nextId("u"),
  role: "user",
  text: trimmed,
  };
- const reply = matchAiChatReply(trimmed, c);
- const assistantMsg: ChatMessage = {
- id: nextId("a"),
- role: "assistant",
- text: reply,
- };
- setMessages((prev) => [...prev, userMsg, assistantMsg]);
+ setMessages((prev) => [...prev, userMsg]);
  setDraft("");
+ setSending(true);
+
+ abortRef.current?.abort();
+ const ac = new AbortController();
+ abortRef.current = ac;
+
+ const history: ChatApiMessage[] = [...messages, userMsg]
+ .filter((m) => m.role === "user" || m.role === "assistant")
+ .slice(-12)
+ .map((m) => ({ role: m.role, content: m.text }));
+
+ let reply = await fetchChatReply(history, ac.signal);
+ if (!reply) {
+ reply = matchAiChatReply(trimmed, c);
+ }
+
+ if (ac.signal.aborted) {
+ setSending(false);
+ return;
+ }
+
+ const assistantId = nextId("a");
+ const full = reply;
+ const chars = Array.from(full);
+
+ if (prefersReducedMotion() || chars.length === 0) {
+ setMessages((prev) => [
+ ...prev,
+ { id: assistantId, role: "assistant", text: full },
+ ]);
+ setSending(false);
+ return;
+ }
+
+ setMessages((prev) => [
+ ...prev,
+ { id: assistantId, role: "assistant", text: "" },
+ ]);
+
+ const delayMs = replyTypewriterDelayMs(chars.length);
+ let i = 0;
+ await new Promise<void>((resolve) => {
+ const tick = () => {
+ if (ac.signal.aborted) {
+ resolve();
+ return;
+ }
+ i += 1;
+ const next = chars.slice(0, i).join("");
+ setMessages((prev) =>
+ prev.map((m) =>
+ m.id === assistantId ? { ...m, text: next } : m,
+ ),
+ );
+ if (i < chars.length) {
+ window.setTimeout(tick, delayMs);
+ } else {
+ resolve();
+ }
+ };
+ window.setTimeout(tick, delayMs);
+ });
+
+ if (!ac.signal.aborted) {
+ setMessages((prev) =>
+ prev.map((m) =>
+ m.id === assistantId ? { ...m, text: full } : m,
+ ),
+ );
+ }
+ setSending(false);
  };
 
  const onSubmit = (event: FormEvent) => {
  event.preventDefault();
- pushUserAndReply(draft);
+ void pushUserAndReply(draft);
  };
 
  const onKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
  if (event.key === "Enter" && !event.shiftKey) {
  event.preventDefault();
- pushUserAndReply(draft);
+ void pushUserAndReply(draft);
  }
  };
 
@@ -407,6 +491,8 @@ export function AiChatWidget() {
  role="dialog"
  aria-label={c.agentName}
  className="kuct-ai-chat__panel pointer-events-auto flex w-[min(22.5rem,calc(100vw-2rem))] flex-col overflow-hidden rounded-xl bg-[var(--kuct-surface)] shadow-[0_18px_48px_rgb(26_21_32/0.12)] backdrop-blur-xl max-sm:fixed max-sm:inset-0 max-sm:z-[200] max-sm:h-dvh max-sm:w-full max-sm:max-w-none max-sm:rounded-none max-sm:border-0 max-sm:shadow-none"
+ data-lenis-prevent
+ data-lenis-prevent-wheel
  >
  <header className="flex shrink-0 items-center gap-3 bg-gradient-to-r from-[var(--kuct-btn-from)] via-[var(--kuct-btn-mid)] to-[var(--kuct-btn-to)] px-4 py-3 text-white max-sm:pt-[max(0.75rem,env(safe-area-inset-top))]">
  <span className="relative shrink-0">
@@ -440,20 +526,56 @@ export function AiChatWidget() {
 
  <div
  ref={listRef}
- className="flex max-h-[min(22rem,48svh)] min-h-[14rem] flex-col gap-3 overflow-y-auto px-4 py-4 max-sm:min-h-0 max-sm:max-h-none max-sm:flex-1"
+ className="flex max-h-[min(22rem,48svh)] min-h-[14rem] flex-col gap-3 overflow-y-auto overscroll-contain px-4 py-4 max-sm:min-h-0 max-sm:max-h-none max-sm:flex-1"
+ data-lenis-prevent
+ data-lenis-prevent-wheel
  >
- {messages.map((m) => (
+ {messages.map((m) => {
+ if (
+ m.role === "assistant" &&
+ !m.text &&
+ sending &&
+ m.id === messages[messages.length - 1]?.id
+ ) {
+ return null;
+ }
+ const isStreaming =
+ sending &&
+ m.role === "assistant" &&
+ m.id === messages[messages.length - 1]?.id &&
+ m.text.length > 0;
+ return (
  <div
  key={m.id}
  className={
  m.role === "user"
  ? "ml-8 self-end rounded-xl rounded-br-md bg-[var(--kuct-accent)] px-3.5 py-2.5 text-sm leading-relaxed text-white"
- : "mr-6 self-start rounded-xl rounded-bl-md bg-[var(--kuct-menu-hover)] px-3.5 py-2.5 text-sm leading-relaxed text-[var(--kuct-text)]"
+ : "mr-6 self-start rounded-xl rounded-bl-md bg-[var(--kuct-menu-hover)] px-3.5 py-2.5 text-sm leading-relaxed whitespace-pre-wrap text-[var(--kuct-text)]"
  }
  >
  {m.text}
+ {isStreaming ? (
+ <span
+ className="ml-0.5 inline-block animate-pulse text-[var(--kuct-muted)]"
+ aria-hidden
+ >
+ ▍
+ </span>
+ ) : null}
  </div>
- ))}
+ );
+ })}
+ {sending &&
+ (messages[messages.length - 1]?.role === "user" ||
+ (messages[messages.length - 1]?.role === "assistant" &&
+ !messages[messages.length - 1]?.text)) ? (
+ <div
+ className="mr-6 self-start rounded-xl rounded-bl-md bg-[var(--kuct-menu-hover)] px-3.5 py-2.5 text-sm text-[var(--kuct-muted)]"
+ aria-live="polite"
+ >
+ …
+ </div>
+ ) : null}
  <p className="text-[0.7rem] leading-snug text-[var(--kuct-muted)]">
  {c.escalateHint}
  </p>
@@ -464,8 +586,9 @@ export function AiChatWidget() {
  <button
  key={s}
  type="button"
- className="rounded-full bg-[var(--kuct-menu-hover)] px-3 py-1 text-[0.7rem] font-medium text-[var(--kuct-muted)] transition hover:text-[var(--kuct-accent)]"
- onClick={() => pushUserAndReply(s)}
+ disabled={sending}
+ className="rounded-full bg-[var(--kuct-menu-hover)] px-3 py-1 text-[0.7rem] font-medium text-[var(--kuct-muted)] transition hover:text-[var(--kuct-accent)] disabled:opacity-50"
+ onClick={() => void pushUserAndReply(s)}
  >
  {s}
  </button>
@@ -483,11 +606,13 @@ export function AiChatWidget() {
  onKeyDown={onKeyDown}
  placeholder={c.placeholder}
  aria-label={c.placeholder}
- className="min-w-0 flex-1 rounded-full bg-[var(--kuct-bg)] px-4 py-2.5 text-base text-[var(--kuct-text)] outline-none placeholder:text-[var(--kuct-muted)]/60 sm:text-sm"
+ disabled={sending}
+ className="min-w-0 flex-1 rounded-full bg-[var(--kuct-bg)] px-4 py-2.5 text-base text-[var(--kuct-text)] outline-none placeholder:text-[var(--kuct-muted)]/60 disabled:opacity-60 sm:text-sm"
  />
  <button
  type="submit"
- className="kuct-btn-primary grid size-10 shrink-0 place-items-center rounded-full"
+ disabled={sending}
+ className="kuct-btn-primary grid size-10 shrink-0 place-items-center rounded-full disabled:opacity-60"
  aria-label={c.send}
  >
  <IconSend className="size-4" />

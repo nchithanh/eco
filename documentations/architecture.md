@@ -66,6 +66,20 @@ curl -sI https://dolphin-software.io.vn/ | rg -i 'cf-ray|cf-cache|server|age'
 
 Expect `cf-ray` and later `cf-cache-status: HIT` on static paths. Keep GitHub Pages custom domain + Enforce HTTPS unchanged.
 
+## AI chat — Cloudflare Worker (Free)
+
+Static Pages cannot keep a Groq API key. Chat calls a **Workers Free** proxy:
+
+| | |
+| --- | --- |
+| Worker | `dolphin-chat` |
+| URL | `https://dolphin-chat.nchithanh9999.workers.dev` |
+| Source | `workers/dolphin-chat/` — `system-context.js` (prompt SoT), `worker.js`, `paste-for-dashboard.js` (Quick Edit) |
+| Secret | `GROQ_API_KEY` (dashboard **Secret** only; never `NEXT_PUBLIC_*`) |
+| Client | `lib/chat-api.ts` → `AiChatWidget`; fallback `matchAiChatReply` |
+
+Optional env: `NEXT_PUBLIC_CHAT_API_URL` (Worker URL). No paid Workers plan required for chat volume on Free.
+
 ## Top folders
 
 | Path | Role |
@@ -73,6 +87,7 @@ Expect `cf-ray` and later `cf-cache-status: HIT` on static paths. Keep GitHub Pa
 | `app/` | Routes & root layout |
 | `components/` | UI sections & shared chrome |
 | `lib/` | i18n, estimators, `pricing-fx` (locale package prices), content data, theme, assets |
+| `workers/` | Cloudflare Worker sources (e.g. `dolphin-chat` Groq proxy) |
 | `public/` | Static assets (mascot, brand, about, tech, themes) |
 | `tests/` | Vitest suites |
 | `documentations/` | Canonical project docs (this tree) |
