@@ -49,7 +49,7 @@ describe("Dolphin Software careers page", () => {
     expect(screen.getAllByText(/^Freelance$/i).length).toBeGreaterThanOrEqual(5);
     expect(screen.getAllByText(/1\.000 USD/i).length).toBeGreaterThanOrEqual(1);
     expect(
-      screen.getByText(/Hoa hồng 50% · không lương cứng/i),
+      screen.getByText(/Hoa hồng 40% · không lương cứng/i),
     ).toBeInTheDocument();
     expect(screen.getByText(/Ưu tiên · Khẩn cấp/i)).toBeInTheDocument();
   });

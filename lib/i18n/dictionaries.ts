@@ -37,7 +37,7 @@ const vi: Dictionary = {
   },
   banner: {
     aria: "Thông báo",
-    text: "Dolphin Software đang tuyển freelancer — Sales ưu tiên gấp, hoa hồng 50% deal. Ứng tuyển ngay!",
+    text: "Dolphin Software đang tuyển freelancer — Sales ưu tiên gấp, hoa hồng 40% deal. Ứng tuyển ngay!",
     cta: "Ứng tuyển",
   },
   hero: {
@@ -550,7 +550,7 @@ const en: Dictionary = {
   },
   banner: {
     aria: "Announcement",
-    text: "Dolphin Software is hiring freelancers — Sales is urgent priority, 50% deal commission. Apply today!",
+    text: "Dolphin Software is hiring freelancers — Sales is urgent priority, 40% deal commission. Apply today!",
     cta: "Apply now",
   },
   hero: {
@@ -1064,7 +1064,7 @@ const ja: Dictionary = {
   },
   banner: {
     aria: "お知らせ",
-    text: "Dolphin Softwareはフリーランスを募集中 — Salesを最優先で急募、成約手数料50%。今すぐ応募！",
+    text: "Dolphin Softwareはフリーランスを募集中 — Salesを最優先で急募、成約手数料40%。今すぐ応募！",
     cta: "応募する",
   },
   hero: {

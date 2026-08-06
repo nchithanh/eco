@@ -1,5 +1,6 @@
 import type { Locale } from "@/lib/i18n/types";
 import { dolphinCareBaoCaoInsightHangNgayCopy } from "@/lib/news-articles/dolphin-care-bao-cao-insight-hang-ngay";
+import { dolphinCareChatbotAiTangChuyenDoiCopy } from "@/lib/news-articles/dolphin-care-chatbot-ai-tang-chuyen-doi";
 import { studioCuoiWebsiteXemVayOnlineCopy } from "@/lib/news-articles/studio-cuoi-website-xem-vay-online";
 import { websiteGioiThieuXeShowroomCopy } from "@/lib/news-articles/website-gioi-thieu-xe-showroom";
 
@@ -14,6 +15,7 @@ export const NEWS_CATEGORIES = [
 export type NewsCategory = (typeof NEWS_CATEGORIES)[number];
 
 export const NEWS_SLUGS = [
+  "dolphin-care-chatbot-ai-tang-chuyen-doi",
   "dolphin-care-bao-cao-insight-hang-ngay",
   "website-gioi-thieu-xe-showroom",
   "studio-cuoi-website-xem-vay-online",
@@ -76,6 +78,10 @@ type NewsMeta = {
 };
 
 const metaBySlug: Record<NewsSlug, NewsMeta> = {
+  "dolphin-care-chatbot-ai-tang-chuyen-doi": {
+    category: "product",
+    date: "2026-08-08",
+  },
   "dolphin-care-bao-cao-insight-hang-ngay": {
     category: "product",
     date: "2026-08-07",
@@ -103,6 +109,8 @@ const categoryImages: Record<NewsCategory, string> = {
 };
 
 const slugImages: Partial<Record<NewsSlug, string>> = {
+  "dolphin-care-chatbot-ai-tang-chuyen-doi":
+    "/news/dolphin-care-chatbot-ai-tang-chuyen-doi.jpg",
   "dolphin-care-bao-cao-insight-hang-ngay":
     "/news/dolphin-care-bao-cao-insight-hang-ngay.jpg",
   "website-gioi-thieu-xe-showroom":
@@ -118,6 +126,8 @@ export function getNewsImage(slug: NewsSlug): string {
 
 const copyByLocale: Record<Locale, Record<NewsSlug, NewsArticleCopy>> = {
   vi: {
+    "dolphin-care-chatbot-ai-tang-chuyen-doi":
+      dolphinCareChatbotAiTangChuyenDoiCopy.vi,
     "dolphin-care-bao-cao-insight-hang-ngay":
       dolphinCareBaoCaoInsightHangNgayCopy.vi,
     "website-gioi-thieu-xe-showroom": websiteGioiThieuXeShowroomCopy.vi,
@@ -291,6 +301,8 @@ const copyByLocale: Record<Locale, Record<NewsSlug, NewsArticleCopy>> = {
     },
   },
   en: {
+    "dolphin-care-chatbot-ai-tang-chuyen-doi":
+      dolphinCareChatbotAiTangChuyenDoiCopy.en,
     "dolphin-care-bao-cao-insight-hang-ngay":
       dolphinCareBaoCaoInsightHangNgayCopy.en,
     "website-gioi-thieu-xe-showroom": websiteGioiThieuXeShowroomCopy.en,
@@ -392,6 +404,8 @@ const copyByLocale: Record<Locale, Record<NewsSlug, NewsArticleCopy>> = {
     },
   },
   ja: {
+    "dolphin-care-chatbot-ai-tang-chuyen-doi":
+      dolphinCareChatbotAiTangChuyenDoiCopy.ja,
     "dolphin-care-bao-cao-insight-hang-ngay":
       dolphinCareBaoCaoInsightHangNgayCopy.ja,
     "website-gioi-thieu-xe-showroom": websiteGioiThieuXeShowroomCopy.ja,

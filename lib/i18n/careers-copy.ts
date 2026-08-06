@@ -6,7 +6,7 @@ const vi: CareersCopy = {
   meta: {
     title: "Tuyển dụng freelance IT | Dolphin Software tuyển dụng 2026",
     description:
-      "Dolphin Software tuyển freelance IT tại Việt Nam — Sales hoa hồng 50%, AI Engineer, Backend Node.js, Marketing và nhiều vị trí khác. Remote-friendly, thanh toán theo giờ. Ứng tuyển ngay!",
+      "Dolphin Software tuyển freelance IT tại Việt Nam — Sales hoa hồng 40%, AI Engineer, Backend Node.js, Marketing và nhiều vị trí khác. Remote-friendly, thanh toán theo giờ. Ứng tuyển ngay!",
   },
   hero: {
     eyebrow: "Careers",
@@ -23,7 +23,7 @@ const vi: CareersCopy = {
       "Làm việc từ xa 100%, không cần lên văn phòng",
       "Thanh toán theo giờ hoặc theo deliverable, tùy từng vị trí",
       "Mức tham chiếu: ~1.000 USD/tháng khi làm full-capacity",
-      "Sales/BD: hoa hồng 50% trên mỗi deal chốt thành công, không lương cứng",
+      "Sales/BD: hoa hồng 40% trên mỗi deal chốt thành công, không lương cứng",
       "Phù hợp freelancer có kinh nghiệm, sinh viên cuối khóa hoặc fresher muốn tích lũy thực chiến",
     ],
   },
@@ -58,7 +58,7 @@ const vi: CareersCopy = {
       },
       {
         q: "Mức thu nhập khi làm freelance tại Dolphin Software là bao nhiêu?",
-        a: "Các vị trí kỹ thuật (AI Engineer, Backend Developer) có mức tham chiếu khoảng 1.000 USD/tháng khi làm full-capacity, thanh toán theo giờ linh hoạt. Vị trí Sales/BD hoạt động theo hoa hồng 50% trên mỗi deal chốt thành công — không có lương cứng. Marketing/Growth được thanh toán theo deliverable hoặc giờ tùy thỏa thuận.",
+        a: "Các vị trí kỹ thuật (AI Engineer, Backend Developer) có mức tham chiếu khoảng 1.000 USD/tháng khi làm full-capacity, thanh toán theo giờ linh hoạt. Vị trí Sales/BD hoạt động theo hoa hồng 40% trên mỗi deal chốt thành công — không có lương cứng. Marketing/Growth được thanh toán theo deliverable hoặc giờ tùy thỏa thuận.",
       },
       {
         q: "Có cần lên văn phòng không?",
@@ -99,12 +99,12 @@ const vi: CareersCopy = {
       bullets: [
         "Chủ động tìm kiếm leads và networking với khách hàng SME và startup",
         "Đủ hiểu biết sản phẩm để pitch web, app, backend một cách thuyết phục",
-        "Hoa hồng 50% trên mỗi deal chốt thành công",
+        "Hoa hồng 40% trên mỗi deal chốt thành công",
         "Không có lương cứng — thu nhập hoàn toàn dựa trên hiệu suất",
         "Đây là vị trí ưu tiên và khẩn cấp nhất hiện tại",
       ],
       tags: ["Sales", "BD", "Commission"],
-      comp: "Hoa hồng 50% · không lương cứng",
+      comp: "Hoa hồng 40% · không lương cứng",
       priority: "Ưu tiên · Khẩn cấp",
     },
     {
@@ -246,7 +246,7 @@ const en: CareersCopy = {
   meta: {
     title: "Freelance IT careers | Dolphin Software hiring 2026",
     description:
-      "Dolphin Software hires freelance IT talent in Vietnam — 50% sales commission, AI Engineer, Backend Node.js, Marketing, and more. Remote-friendly, hourly pay. Apply now!",
+      "Dolphin Software hires freelance IT talent in Vietnam — 40% sales commission, AI Engineer, Backend Node.js, Marketing, and more. Remote-friendly, hourly pay. Apply now!",
   },
   hero: {
     eyebrow: "Careers",
@@ -263,7 +263,7 @@ const en: CareersCopy = {
       "100% remote — no office required",
       "Paid hourly or by deliverable, depending on the role",
       "Reference rate: ~USD 1,000/mo at full capacity",
-      "Sales/BD: 50% commission per closed deal, no base salary",
+      "Sales/BD: 40% commission per closed deal, no base salary",
       "Fit for experienced freelancers, final-year students, or freshers seeking real production work",
     ],
   },
@@ -298,7 +298,7 @@ const en: CareersCopy = {
       },
       {
         q: "What is the pay for freelancing at Dolphin Software?",
-        a: "Technical roles (AI Engineer, Backend) reference about USD 1,000/mo at full capacity, billed hourly. Sales/BD is 50% commission per closed deal with no base salary. Marketing/Growth is paid by deliverable or hour by agreement.",
+        a: "Technical roles (AI Engineer, Backend) reference about USD 1,000/mo at full capacity, billed hourly. Sales/BD is 40% commission per closed deal with no base salary. Marketing/Growth is paid by deliverable or hour by agreement.",
       },
       {
         q: "Do I need to come to an office?",
@@ -339,12 +339,12 @@ const en: CareersCopy = {
       bullets: [
         "Hunt leads and network with SME & startup clients",
         "Know the product enough to pitch web, app, and backend",
-        "50% commission on each closed deal",
+        "40% commission on each closed deal",
         "No base salary — income is performance-based",
         "Highest priority / urgent role right now",
       ],
       tags: ["Sales", "BD", "Commission"],
-      comp: "50% commission · no base salary",
+      comp: "40% commission · no base salary",
       priority: "Priority · Urgent",
     },
     {
@@ -484,7 +484,7 @@ const ja: CareersCopy = {
   meta: {
     title: "フリーランスIT採用 | Dolphin Software 2026",
     description:
-      "Dolphin SoftwareはベトナムでフリーランスITを募集 — Salesコミッション50%、AI Engineer、Backend Node.js、Marketingなど。リモート可・時間単価。今すぐ応募！",
+      "Dolphin SoftwareはベトナムでフリーランスITを募集 — Salesコミッション40%、AI Engineer、Backend Node.js、Marketingなど。リモート可・時間単価。今すぐ応募！",
   },
   hero: {
     eyebrow: "Careers",
@@ -501,7 +501,7 @@ const ja: CareersCopy = {
       "完全リモート — 出社不要",
       "時間単価または成果物ベース（ポジションによる）",
       "目安: フル稼働換算で約1,000 USD/月",
-      "Sales/BD: 成約ごとにコミッション50%、基本給なし",
+      "Sales/BD: 成約ごとにコミッション40%、基本給なし",
       "経験者フリーランス、最終学年、実務経験を積みたいフレッシャー向け",
     ],
   },
@@ -536,7 +536,7 @@ const ja: CareersCopy = {
       },
       {
         q: "報酬の目安は？",
-        a: "技術職（AI Engineer、Backend）はフル稼働換算で約1,000 USD/月、時間単価。Sales/BDは成約コミッション50%で基本給なし。Marketing/Growthは成果物または時間単価で合意します。",
+        a: "技術職（AI Engineer、Backend）はフル稼働換算で約1,000 USD/月、時間単価。Sales/BDは成約コミッション40%で基本給なし。Marketing/Growthは成果物または時間単価で合意します。",
       },
       {
         q: "出社は必要ですか？",
@@ -577,12 +577,12 @@ const ja: CareersCopy = {
       bullets: [
         "SME・スタートアップ向けリード獲得 / ネットワーク",
         "Web・App・バックエンドを説明できる程度の理解",
-        "成約案件ごとに手数料50%",
+        "成約案件ごとに手数料40%",
         "基本給なし — 成果報酬",
         "現在もっとも優先・緊急のポジション",
       ],
       tags: ["Sales", "BD", "Commission"],
-      comp: "コミッション50% · 基本給なし",
+      comp: "コミッション40% · 基本給なし",
       priority: "優先 · 緊急",
     },
     {

@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-08-06 (news)
+
+- Bài news mới: `/news/dolphin-care-chatbot-ai-tang-chuyen-doi/` — Dolphin Care chatbot AI tăng chuyển đổi (VI/EN/JA, FAQ, internal link Care + bài insight); Canva prompts + hero placeholder.
+
+## 2026-08-06 (careers)
+
+- Sales/BD commission: **50% → 40%** trên mỗi deal (careers copy VI/EN/JA, announcement bar, careers test).
+
 ## 2026-08-05 (e)
 
 - Nav desktop: layout 2 tầng kiểu commerce (utility Contact + ngôn ngữ trên; logo + GNB trái dưới); chữ GNB 16px/700, bỏ pill hover và border header; mobile giữ 1 hàng.
