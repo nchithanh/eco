@@ -35,6 +35,7 @@ export const SLATE_THEME_ASSETS: ReadonlySet<string> = new Set([
   "/services/mobile/hero.jpg",
   "/services/integrations/hero.jpg",
   "/services/web/hero.jpg",
+  "/services/landing/hero.jpg",
   "/services/agents/hero.jpg",
   "/services/custom-agent/hero.jpg",
   "/services/backend/hero.jpg",

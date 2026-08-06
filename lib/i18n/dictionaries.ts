@@ -89,7 +89,7 @@ const vi: Dictionary = {
         title: "Landing Page",
         body: "Một trang rõ CTA — campaign, dịch vụ, thu lead nhanh.",
         meta: "Thường 3–5 ngày",
-        href: "/services/web",
+        href: "/services/landing",
       },
       {
         id: "business",
@@ -602,7 +602,7 @@ const en: Dictionary = {
         title: "Landing page",
         body: "One focused page with a clear CTA — campaigns, services, quick leads.",
         meta: "Usually 3–5 days",
-        href: "/services/web",
+        href: "/services/landing",
       },
       {
         id: "business",
@@ -1116,7 +1116,7 @@ const ja: Dictionary = {
         title: "ランディングページ",
         body: "CTAが明確な1ページ — キャンペーン、サービス紹介、リード獲得。",
         meta: "目安 3–5日",
-        href: "/services/web",
+        href: "/services/landing",
       },
       {
         id: "business",

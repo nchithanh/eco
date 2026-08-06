@@ -4,7 +4,7 @@
     "schemaPath": "/schema/services/",
     "rawPath": "/schema/services/index.json",
     "brand": "Dolphin Software",
-    "updated": "2026-08-02"
+    "updated": "2026-08-06"
   },
   "umbrella": [
     "Build",
@@ -20,6 +20,14 @@
       "productRoute": "/services/web/",
       "schemaPath": "/schema/services/web/",
       "rawPath": "/schema/services/web.json"
+    },
+    {
+      "id": "landing",
+      "title": "Thiết kế Landing Page",
+      "pillar": "Build",
+      "productRoute": "/services/landing/",
+      "schemaPath": "/schema/services/landing/",
+      "rawPath": "/schema/services/landing.json"
     },
     {
       "id": "mobile",

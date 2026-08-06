@@ -186,7 +186,7 @@ describe("service detail pages", () => {
       screen.getByText(/Dolphin Software là công ty gì/i),
     ).toBeInTheDocument();
     expect(
-      screen.getAllByText(/Nguyễn Chí Thanh/i).length,
+      screen.getAllByText(/Nguyễn Chí Thành/i).length,
     ).toBeGreaterThanOrEqual(1);
     expect(
       screen.getByRole("link", { name: /01 · Web & App/i }),

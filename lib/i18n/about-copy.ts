@@ -126,9 +126,9 @@ const vi: AboutCopy = {
   founderEyebrow: "Đội ngũ",
   founderTitle: "Người sáng lập Dolphin Software là ai?",
   founderRole: "Founder · Product Backend / Tech Lead",
-  founderName: "Nguyễn Chí Thanh",
+  founderName: "Nguyễn Chí Thành",
   founderBody:
-    "Nguyễn Chí Thanh có hơn 7 năm kinh nghiệm backend trên các sản phẩm live: Marathon, Myspa, và Splus. Anh đảm nhiệm vai trò team lead, xử lý sự cố production, và thiết kế hệ thống — tư duy production được áp dụng trực tiếp vào mọi dự án tại Dolphin Software.",
+    "Nguyễn Chí Thành có hơn 7 năm kinh nghiệm backend trên các sản phẩm live: Marathon, Myspa, và Splus. Anh đảm nhiệm vai trò team lead, xử lý sự cố production, và thiết kế hệ thống — tư duy production được áp dụng trực tiếp vào mọi dự án tại Dolphin Software.",
   founderStack: [
     "Golang",
     "NestJS",
@@ -255,9 +255,9 @@ const en: AboutCopy = {
   founderEyebrow: "Team",
   founderTitle: "Who founded Dolphin Software?",
   founderRole: "Founder · Product Backend / Tech Lead",
-  founderName: "Nguyễn Chí Thanh",
+  founderName: "Nguyễn Chí Thành",
   founderBody:
-    "Nguyễn Chí Thanh has 7+ years of backend experience on live products: Marathon, Myspa, and Splus. He has led teams, handled production incidents, and designed systems — production thinking applied directly to every Dolphin Software project.",
+    "Nguyễn Chí Thành has 7+ years of backend experience on live products: Marathon, Myspa, and Splus. He has led teams, handled production incidents, and designed systems — production thinking applied directly to every Dolphin Software project.",
   founderStack: [
     "Golang",
     "NestJS",
@@ -384,9 +384,9 @@ const ja: AboutCopy = {
   founderEyebrow: "チーム",
   founderTitle: "Dolphin Softwareの創業者は誰ですか？",
   founderRole: "Founder · Product Backend / Tech Lead",
-  founderName: "Nguyễn Chí Thanh",
+  founderName: "Nguyễn Chí Thành",
   founderBody:
-    "Nguyễn Chí Thanhはライブプロダクト（Marathon、Myspa、Splus）で7年以上のバックエンド経験を持ちます。チームリード、本番インシデント対応、システム設計 — 本番視点をDolphin Softwareの全プロジェクトに直接活かしています。",
+    "Nguyễn Chí Thànhはライブプロダクト（Marathon、Myspa、Splus）で7年以上のバックエンド経験を持ちます。チームリード、本番インシデント対応、システム設計 — 本番視点をDolphin Softwareの全プロジェクトに直接活かしています。",
   founderStack: [
     "Golang",
     "NestJS",

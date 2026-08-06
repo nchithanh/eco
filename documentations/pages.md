@@ -21,6 +21,7 @@
 | `/news/` | `app/news/page.tsx` | `NewsContent` — Canva **pageNew** (page 2): eyebrow + title/filters row; featured split; 3-col grid cards; click → full `/news/[slug]/` |
 | `/news/[slug]/` | `app/news/[slug]/page.tsx` | `NewsDetailView` — hero split: meta + title + excerpt trái, ảnh chính phải; share Facebook + copy link; body + FAQ |
 | `/services/[slug]/` | `app/services/[slug]/page.tsx` | `ServiceDetailView` + `lib/i18n/service-details.ts` — premium dark hero (CTA in hero), 3 outcome cards (+ optional AEO lead), Best for + FAQ, closing quote CTA. **`/services/web/`**, **`/services/mobile/`**, **`/services/backend/`** bake VI meta + Service/FAQ JSON-LD (Jasper SEO/AEO/GEO). Web: FAQ 7 Q, `#web-pricing`, Sites shipped 6 cases. Mobile: FAQ 6 Q, Flutter/RN, MVP 8–14 tuần. Backend: FAQ 6 Q (stack, OpenAPI, VN payments → `/services/integrations/`, no IT team, warranty, timeline 2–4 tuần). |
+| `/services/landing/` | `app/services/landing/page.tsx` | **Landing Page** detail — `LandingPageContent` + `landing-copy.ts`; VI SEO/AEO/GEO (meta chuyên nghiệp, FAQ 7 Q, bảng ngành + giá, quy trình 5 bước); Service/FAQ JSON-LD; Nav GNB + capabilities `landing` → đây. |
 | `/tech/[slug]/` | `app/tech/[slug]/page.tsx` | `TechDetailView` + `lib/tech-stack.ts` / extras |
 | `/works/[slug]/` | `app/works/[slug]/page.tsx` | `WorkDetailView` + `lib/works-details.ts` |
 | `/more/[slug]/` | `app/more/[slug]/page.tsx` | `MoreDetailView` + `lib/more-details.ts` |

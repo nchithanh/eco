@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-08-06 (landing)
+
+- Page mới `/services/landing/` — SEO/AEO/GEO rewriter (VI + EN/JA): hero, when/why/include, bảng ngành & giá, quy trình 5 bước, FAQ 7 Q, JSON-LD; Nav + capabilities `landing` trỏ về đây; schema `services/landing.json`.
+- Giá Landing theo locale qua `pricing-fx` (VI `1.000.000đ` / EN `$38` / JA `¥6,200`) — bảng giá + FAQ + schema VI.
+
+## 2026-08-06 (about)
+
+- Founder name: **Nguyễn Chí Thanh → Nguyễn Chí Thành** (about copy VI/EN/JA, schema `company.json`, test).
+
 ## 2026-08-06 (news)
 
 - Bài news mới: `/news/dolphin-care-chatbot-ai-tang-chuyen-doi/` — Dolphin Care chatbot AI tăng chuyển đổi (VI/EN/JA, FAQ, internal link Care + bài insight); Canva prompts + hero placeholder.

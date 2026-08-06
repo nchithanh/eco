@@ -1,0 +1,77 @@
+{
+  "meta": {
+    "kind": "service",
+    "id": "landing",
+    "locale": "vi",
+    "brand": "Dolphin Software",
+    "schemaPath": "/schema/services/landing/",
+    "rawPath": "/schema/services/landing.json",
+    "updated": "2026-08-06"
+  },
+  "pillar": "Build",
+  "productRoute": "/services/landing/",
+  "title": "Dịch vụ thiết kế Landing Page cho doanh nghiệp vừa và nhỏ",
+  "metaTitle": "Thiết Kế Landing Page Chuyên Nghiệp | Dolphin Software",
+  "metaDescription": "Dịch vụ thiết kế landing page cho SMB Việt Nam — bàn giao trong 3–5 ngày, CTA rõ ràng, tối ưu chuyển đổi. Báo giá cố định, không phát sinh chi phí ngoài scope.",
+  "intro": "Dolphin Software thiết kế landing page với một mục tiêu duy nhất: biến người truy cập thành khách hàng tiềm năng. Mỗi trang được bàn giao trong 3–5 ngày làm việc, có CTA rõ ràng, responsive trên mọi thiết bị, và đi kèm hướng dẫn vận hành sau bàn giao.",
+  "tech": "Next.js · React · GA4 · Form / CRM",
+  "highlights": [
+    "Bàn giao 3–5 ngày sau khi chốt scope",
+    "Báo giá cố định, không phát sinh ngoài scope",
+    "CTA rõ, form ngắn, tối ưu chuyển đổi",
+    "Responsive + SEO on-page cơ bản + GA4"
+  ],
+  "process": [
+    "Lắng nghe & xác định mục tiêu",
+    "Lên phương án & báo giá cố định",
+    "Thiết kế & phát triển + demo duyệt",
+    "QA & nghiệm thu",
+    "Bàn giao source, hướng dẫn, bảo hành"
+  ],
+  "deliverables": [
+    "UI theo brand + layout convert",
+    "Form thu lead / CRM theo yêu cầu",
+    "GA4 + tracking sự kiện cơ bản",
+    "Source code thuộc khách hàng + hướng dẫn vận hành"
+  ],
+  "pricing": [
+    {
+      "name": "Landing Page cơ bản",
+      "priceFrom": "1.000.000đ",
+      "timeline": "3–5 ngày",
+      "fit": "Thu lead, quảng bá dịch vụ"
+    },
+    {
+      "name": "Landing Page nâng cao",
+      "priceFrom": "Báo giá theo scope",
+      "timeline": "5–7 ngày",
+      "fit": "CRM, payment, Zalo OA"
+    }
+  ],
+  "industries": [
+    { "sector": "Spa / Thẩm mỹ", "goal": "Thu lead, đặt lịch dịch vụ" },
+    { "sector": "Nhà hàng / F&B", "goal": "Quảng bá khuyến mãi, đặt bàn online" },
+    { "sector": "Giáo dục", "goal": "Đăng ký khóa học, tư vấn tuyển sinh" },
+    { "sector": "Y tế / Phòng khám", "goal": "Đặt lịch khám, tư vấn sức khỏe" },
+    { "sector": "Bất động sản", "goal": "Thu thập thông tin khách hàng tiềm năng" },
+    { "sector": "Sự kiện", "goal": "Đăng ký tham dự, bán vé online" }
+  ],
+  "faq": [
+    {
+      "q": "Thiết kế landing page mất bao lâu?",
+      "a": "Landing page tiêu chuẩn tại Dolphin Software được bàn giao trong 3–5 ngày làm việc sau khi chốt scope và nhận đủ nội dung từ khách hàng. Trang có tích hợp phức tạp hơn (CRM, payment) có thể cần 5–7 ngày."
+    },
+    {
+      "q": "Landing page có khác website không?",
+      "a": "Có. Website là hệ thống nhiều trang phục vụ nhiều mục đích. Landing page là một trang duy nhất tập trung vào một hành động cụ thể. Xem thêm /services/web/."
+    },
+    {
+      "q": "Chi phí thiết kế landing page tại Dolphin Software là bao nhiêu?",
+      "a": "Landing page cơ bản bắt đầu từ 1.000.000đ. Các gói nâng cao (CRM, payment, Zalo OA) báo giá theo scope."
+    },
+    {
+      "q": "Dolphin Software có hỗ trợ tích hợp chatbot AI vào landing page không?",
+      "a": "Có — Dolphin Care có thể bổ sung vào scope. Chi tiết tại /dolphin-care/."
+    }
+  ]
+}

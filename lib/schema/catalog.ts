@@ -1,6 +1,7 @@
 import company from "../../public/schema/company.json";
 import servicesIndex from "../../public/schema/services/index.json";
 import web from "../../public/schema/services/web.json";
+import landing from "../../public/schema/services/landing.json";
 import mobile from "../../public/schema/services/mobile.json";
 import backend from "../../public/schema/services/backend.json";
 import design from "../../public/schema/services/design.json";
@@ -26,6 +27,7 @@ import homepageContact from "../../public/schema/homepage/contact.json";
 
 export const SCHEMA_SERVICE_SLUGS = [
   "web",
+  "landing",
   "mobile",
   "backend",
   "design",
@@ -78,6 +80,7 @@ export const schemaHomepageIndex = homepageIndex;
 
 export const schemaServicesBySlug: Record<SchemaServiceSlug, object> = {
   web,
+  landing,
   mobile,
   backend,
   design,

@@ -100,7 +100,7 @@ export function Nav() {
       label: t.nav.serviceWeb,
     },
     {
-      href: `${assetPath("/services/web/")}#web-pricing`,
+      href: assetPath("/services/landing/"),
       label: t.nav.serviceLanding,
     },
     {

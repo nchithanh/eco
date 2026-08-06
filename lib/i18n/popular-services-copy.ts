@@ -45,7 +45,7 @@ const vi: PopularServices = {
       warranty: "Bảo hành 12 tháng",
       highlight: "Tặng hosting 1 năm",
       cta: "Nhận báo giá Landing",
-      detailHref: "/services/web",
+      detailHref: "/services/landing",
     },
     {
       id: "business",
@@ -142,7 +142,7 @@ const en: PopularServices = {
       warranty: "12-month warranty",
       highlight: "1 year hosting included",
       cta: "Quote Landing",
-      detailHref: "/services/web",
+      detailHref: "/services/landing",
     },
     {
       id: "business",
@@ -239,7 +239,7 @@ const ja: PopularServices = {
       warranty: "12ヶ月保証",
       highlight: "ホスティング1年付き",
       cta: "LP見積もり",
-      detailHref: "/services/web",
+      detailHref: "/services/landing",
     },
     {
       id: "business",
