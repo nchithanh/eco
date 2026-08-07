@@ -209,7 +209,7 @@ export function QuoteEstimatorModal({
  </div>
  <button
  type="button"
- className="grid size-8 shrink-0 place-items-center rounded-full bg-[var(--kuct-panel-2)] text-[var(--kuct-muted)] transition hover:text-[var(--kuct-text)]"
+ className="grid size-8 shrink-0 place-items-center rounded-[10px] bg-[var(--kuct-panel-2)] text-[var(--kuct-muted)] transition hover:text-[var(--kuct-text)]"
  aria-label={q.close}
  onClick={onClose}
  >
@@ -438,7 +438,7 @@ export function QuoteEstimatorModal({
           <div className="shrink-0 bg-[var(--kuct-panel)] px-5 py-4 sm:px-6">
  <button
  type="submit"
- className="kuct-btn-primary inline-flex w-full items-center justify-center rounded-full px-7 py-3.5 text-sm font-semibold"
+ className="kuct-btn-primary inline-flex w-full items-center justify-center rounded-lg px-5 py-3.5 text-sm font-semibold"
  >
  {q.submit}
  </button>

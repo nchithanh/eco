@@ -88,7 +88,7 @@ export function SitesShipped({
  <Reveal className="mt-8 text-center sm:mt-10">
  <a
  href={`${assetPath("/")}#contact`}
- className="kuct-btn-primary inline-flex items-center rounded-full px-7 py-3 text-sm font-semibold"
+ className="kuct-btn-primary inline-flex items-center rounded-lg px-5 py-3 text-sm font-semibold"
  >
  {w.cta}
  </a>

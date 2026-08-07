@@ -39,6 +39,7 @@ const vi: Dictionary = {
     aria: "Thông báo",
     text: "Dolphin Software đang tuyển freelancer — Sales ưu tiên gấp, hoa hồng 40% deal. Ứng tuyển ngay!",
     cta: "Ứng tuyển",
+    ctaQuote: "Nhận báo giá",
   },
   hero: {
     eyebrow: "Dolphin Software",
@@ -83,6 +84,8 @@ const vi: Dictionary = {
     learnMore: "Tìm hiểu thêm",
     prevPage: "Trang trước",
     nextPage: "Trang sau",
+    pauseCarousel: "Tạm dừng carousel",
+    playCarousel: "Phát carousel",
     offers: [
       {
         id: "landing",
@@ -169,30 +172,70 @@ const vi: Dictionary = {
     title: "Sau bàn giao, bạn [[chạy được những việc này]]",
     support:
       "Sau bàn giao — lead, lịch, nội dung, thanh toán và vận hành chạy được; không phải catalog tính năng.",
+    ctaPrimary: "Nhận báo giá",
+    ctaSecondary: "Xem dịch vụ website",
+    ctaSecondaryHref: "#capabilities",
+    learnMore: "Tìm hiểu thêm",
     items: [
       {
         title: "Thu lead và chuyển đổi rõ",
         body: "Form/CTA và luồng liên hệ gọn — khách hiểu rồi hành động; đội bạn theo dõi được nguồn.",
+        bullets: [
+          "Form và CTA rõ trên trang",
+          "Luồng liên hệ gọn — khách hành động",
+          "Theo dõi được nguồn lead",
+        ],
+        href: "/services/landing/",
       },
       {
         title: "Đặt lịch / giữ chỗ ổn định",
         body: "Slot trống, xác nhận và nhắc lịch — giảm gọi hỏi giờ và double-book.",
+        bullets: [
+          "Slot trống theo thời gian thực",
+          "Xác nhận và nhắc lịch",
+          "Giảm gọi hỏi và đặt trùng",
+        ],
+        href: "/services/web/",
       },
       {
         title: "Thương hiệu dễ tin, dễ nhớ",
         body: "Landing hoặc corporate đúng trọng tâm — responsive, nội dung quét nhanh, xây dựng niềm tin.",
+        bullets: [
+          "Landing hoặc corporate đúng trọng tâm",
+          "Responsive, quét nội dung nhanh",
+          "Xây dựng niềm tin",
+        ],
+        href: "/services/landing/",
       },
       {
         title: "Đội bạn tự cập nhật nội dung",
         body: "CMS/admin trong phạm vi — sửa bài, ảnh, giá mà không gọi studio mỗi lần.",
+        bullets: [
+          "CMS/admin trong phạm vi bàn giao",
+          "Sửa bài, ảnh, giá không cần studio",
+          "Đội bạn tự vận hành nội dung",
+        ],
+        href: "/services/web/",
       },
       {
         title: "Thanh toán và kênh nhắn tin vào luồng thật",
         body: "Gắn MoMo / ZaloPay / VNPay / Zalo OA khi cần — ít sai sót vận hành hơn so với gắn tay.",
+        bullets: [
+          "MoMo / ZaloPay / VNPay khi cần",
+          "Zalo OA trong luồng liên hệ",
+          "Ít sai sót hơn gắn tay",
+        ],
+        href: "/services/integrations/",
       },
       {
         title: "Vận hành nội bộ bớt rời rạc",
         body: "Dashboard, agent nghiệp vụ hoặc vòng Collect → Govern — một bức tranh thay vì mười công cụ.",
+        bullets: [
+          "Dashboard hoặc agent nghiệp vụ",
+          "Vòng Collect → Govern",
+          "Một bức tranh thay vì mười tool",
+        ],
+        href: "/dolphin-care/",
       },
     ],
   },
@@ -552,6 +595,7 @@ const en: Dictionary = {
     aria: "Announcement",
     text: "Dolphin Software is hiring freelancers — Sales is urgent priority, 40% deal commission. Apply today!",
     cta: "Apply now",
+    ctaQuote: "Get a quote",
   },
   hero: {
     eyebrow: "Dolphin Software",
@@ -596,6 +640,8 @@ const en: Dictionary = {
     learnMore: "Learn more",
     prevPage: "Previous page",
     nextPage: "Next page",
+    pauseCarousel: "Pause carousel",
+    playCarousel: "Play carousel",
     offers: [
       {
         id: "landing",
@@ -682,30 +728,70 @@ const en: Dictionary = {
     title: "After handover, you can [[run these jobs]]",
     support:
       "After handover — leads, bookings, content, payments, and ops you can run; not a feature catalog.",
+    ctaPrimary: "Get a quote",
+    ctaSecondary: "View website services",
+    ctaSecondaryHref: "#capabilities",
+    learnMore: "Learn more",
     items: [
       {
         title: "Capture leads and convert clearly",
         body: "Forms/CTAs and a short contact path — visitors act; your team can track sources.",
+        bullets: [
+          "Clear forms and CTAs on the page",
+          "Short contact path — visitors act",
+          "Track lead sources",
+        ],
+        href: "/services/landing/",
       },
       {
         title: "Stable bookings and holds",
         body: "Open slots, confirmation, and reminders — fewer availability calls and double-books.",
+        bullets: [
+          "Open slots in real time",
+          "Confirmation and reminders",
+          "Fewer availability calls and double-books",
+        ],
+        href: "/services/web/",
       },
       {
         title: "A brand visitors trust and remember",
         body: "Landing or corporate pages with focused copy — responsive, easy to scan, trust-building.",
+        bullets: [
+          "Focused landing or corporate pages",
+          "Responsive and easy to scan",
+          "Trust-building copy",
+        ],
+        href: "/services/landing/",
       },
       {
         title: "Your team updates content",
         body: "CMS/admin in scope — edit posts, images, prices without calling the studio every time.",
+        bullets: [
+          "CMS/admin in handoff scope",
+          "Edit posts, images, prices yourself",
+          "Your team runs daily content",
+        ],
+        href: "/services/web/",
       },
       {
         title: "Payments and messaging in real flows",
         body: "Wire MoMo / ZaloPay / VNPay / Zalo OA when needed — fewer ops mistakes than ad-hoc wiring.",
+        bullets: [
+          "MoMo / ZaloPay / VNPay when needed",
+          "Zalo OA in the contact flow",
+          "Fewer mistakes than ad-hoc wiring",
+        ],
+        href: "/services/integrations/",
       },
       {
         title: "Internal ops less scattered",
         body: "Dashboards, business agents, or a Collect → Govern loop — one picture instead of ten tools.",
+        bullets: [
+          "Dashboards or business agents",
+          "Collect → Govern loop",
+          "One picture instead of ten tools",
+        ],
+        href: "/dolphin-care/",
       },
     ],
   },
@@ -1066,6 +1152,7 @@ const ja: Dictionary = {
     aria: "お知らせ",
     text: "Dolphin Softwareはフリーランスを募集中 — Salesを最優先で急募、成約手数料40%。今すぐ応募！",
     cta: "応募する",
+    ctaQuote: "見積もりを依頼",
   },
   hero: {
     eyebrow: "Dolphin Software",
@@ -1110,6 +1197,8 @@ const ja: Dictionary = {
     learnMore: "詳しく見る",
     prevPage: "前のページ",
     nextPage: "次のページ",
+    pauseCarousel: "カルーセルを一時停止",
+    playCarousel: "カルーセルを再生",
     offers: [
       {
         id: "landing",
@@ -1196,30 +1285,70 @@ const ja: Dictionary = {
     title: "引き渡し後に[[回せる仕事]]",
     support:
       "引き渡し後 — リード・予約・コンテンツ・決済・運用が回る。機能カタログではありません。",
+    ctaPrimary: "見積もりを依頼",
+    ctaSecondary: "ウェブサイトサービスを見る",
+    ctaSecondaryHref: "#capabilities",
+    learnMore: "詳しく見る",
     items: [
       {
         title: "リード獲得と転換をはっきり",
         body: "フォーム／CTAと短い連絡導線 — 訪問者が動き、チームが流入元を追えます。",
+        bullets: [
+          "明確なフォームとCTA",
+          "短い連絡導線 — 訪問者が動く",
+          "流入元を追跡可能",
+        ],
+        href: "/services/landing/",
       },
       {
         title: "安定した予約・枠押さえ",
         body: "空き枠、確認、リマインド — 空き確認の電話とダブルブッキングを減らします。",
+        bullets: [
+          "空き枠のリアルタイム表示",
+          "確認とリマインド",
+          "空き確認電話と重複予約を削減",
+        ],
+        href: "/services/web/",
       },
       {
         title: "信頼され、覚えられるブランド",
         body: "要点が伝わるランディング／コーポレート — レスポンシブで、信頼を積み上げます。",
+        bullets: [
+          "要点が伝わるLP／コーポレート",
+          "レスポンシブで読みやすい",
+          "信頼を積み上げる",
+        ],
+        href: "/services/landing/",
       },
       {
         title: "チーム自身でコンテンツ更新",
         body: "スコープ内のCMS／管理画面 — 記事・画像・価格をスタジオなしで更新。",
+        bullets: [
+          "スコープ内のCMS／管理画面",
+          "記事・画像・価格を自社更新",
+          "日常コンテンツをチームが運用",
+        ],
+        href: "/services/web/",
       },
       {
         title: "決済・メッセージを実フローへ",
         body: "必要なら MoMo / ZaloPay / VNPay / Zalo OA を接続 — 場当たり接続より運用ミスが減ります。",
+        bullets: [
+          "必要時にMoMo / ZaloPay / VNPay",
+          "問い合わせ導線にZalo OA",
+          "場当たり接続よりミス削減",
+        ],
+        href: "/services/integrations/",
       },
       {
         title: "社内運用の散らばりを抑える",
         body: "ダッシュボード、業務エージェント、Collect → Govern — 十のツールではなく一枚の絵。",
+        bullets: [
+          "ダッシュボードまたは業務エージェント",
+          "Collect → Governループ",
+          "十のツールではなく一枚の絵",
+        ],
+        href: "/dolphin-care/",
       },
     ],
   },

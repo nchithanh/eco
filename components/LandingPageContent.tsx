@@ -63,7 +63,7 @@ export function LandingPageContent() {
               <div className="mt-8 flex flex-wrap items-center gap-3">
                 <button
                   type="button"
-                  className="kuct-btn-primary inline-flex items-center rounded-full px-8 py-3.5 text-sm font-semibold shadow-[0_14px_36px_rgb(26_21_32/0.18)]"
+                  className="kuct-btn-primary inline-flex items-center rounded-lg px-5 py-3.5 text-sm font-semibold shadow-[0_14px_36px_rgb(26_21_32/0.18)]"
                   onClick={openQuote}
                 >
                   {c.ctaPrimary}
@@ -386,7 +386,7 @@ export function LandingPageContent() {
           <div className="mt-8">
             <button
               type="button"
-              className="kuct-btn-primary inline-flex items-center rounded-full px-8 py-3.5 text-sm font-semibold"
+              className="kuct-btn-primary inline-flex items-center rounded-lg px-5 py-3.5 text-sm font-semibold"
               onClick={openQuote}
             >
               {c.pricingCta}
@@ -505,7 +505,7 @@ export function LandingPageContent() {
                     <button
                       key={link.label}
                       type="button"
-                      className="kuct-btn-primary inline-flex items-center rounded-full px-7 py-3 text-sm font-semibold"
+                      className="kuct-btn-primary inline-flex items-center rounded-lg px-5 py-3 text-sm font-semibold"
                       onClick={openQuote}
                     >
                       {link.label}
@@ -517,7 +517,7 @@ export function LandingPageContent() {
                     <Link
                       key={link.label}
                       href={assetPath(link.href)}
-                      className="kuct-btn-ghost inline-flex items-center rounded-full px-6 py-3 text-sm font-semibold"
+                      className="kuct-btn-ghost inline-flex items-center rounded-[10px] px-6 py-3 text-sm font-semibold"
                     >
                       {link.label}
                     </Link>
@@ -529,7 +529,7 @@ export function LandingPageContent() {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="kuct-btn-ghost inline-flex items-center rounded-full px-6 py-3 text-sm font-semibold"
+                    className="kuct-btn-ghost inline-flex items-center rounded-[10px] px-6 py-3 text-sm font-semibold"
                   >
                     {link.label}
                   </a>

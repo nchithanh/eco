@@ -52,34 +52,75 @@ export const homepageLangVi: HomepageLang = {
   siteOutcomes: {
     eyebrow: "Outcomes",
     title: "Sau bàn giao, doanh nghiệp bạn có thể [[tự chạy]] các việc này",
-    support: "Không phải danh sách tính năng — đây là kết quả thực tế sau khi bàn giao: khách hàng tiềm năng, đặt lịch, nội dung, thanh toán và vận hành đều nằm trong tầm kiểm soát của bạn.",
+    support:
+      "Không phải danh sách tính năng — đây là kết quả thực tế sau khi bàn giao: khách hàng tiềm năng, đặt lịch, nội dung, thanh toán và vận hành đều nằm trong tầm kiểm soát của bạn.",
     painLead: "Kết quả vận hành",
+    ctaPrimary: "Nhận báo giá",
+    ctaSecondary: "Xem dịch vụ website",
+    ctaSecondaryHref: "#capabilities",
+    learnMore: "Tìm hiểu thêm",
     items: [
       {
         title: "Thu hút và chuyển đổi khách hàng tiềm năng",
-        body: "Form/CTA và hành trình liên hệ ngắn gọn — khách truy cập hành động; đội nhóm của bạn theo dõi được nguồn."
+        body: "Form/CTA và hành trình liên hệ ngắn gọn — khách truy cập hành động; đội nhóm của bạn theo dõi được nguồn.",
+        bullets: [
+          "Form và CTA rõ ràng trên trang",
+          "Hành trình liên hệ ngắn — khách hành động ngay",
+          "Đội bạn theo dõi được nguồn lead",
+        ],
+        href: "/services/landing/",
       },
       {
         title: "Đặt lịch ổn định, không nhầm chỗ",
-        body: "Hiển thị slot trống, xác nhận và nhắc lịch tự động — giảm cuộc gọi hỏi chỗ trống và đặt trùng."
+        body: "Hiển thị slot trống, xác nhận và nhắc lịch tự động — giảm cuộc gọi hỏi chỗ trống và đặt trùng.",
+        bullets: [
+          "Hiển thị slot trống theo thời gian thực",
+          "Xác nhận và nhắc lịch tự động",
+          "Giảm gọi hỏi chỗ trống và đặt trùng",
+        ],
+        href: "/services/web/",
       },
       {
         title: "Thương hiệu được khách tin tưởng và nhớ đến",
-        body: "Trang landing hoặc website doanh nghiệp với nội dung tập trung — responsive, dễ đọc, xây dựng niềm tin."
+        body: "Trang landing hoặc website doanh nghiệp với nội dung tập trung — responsive, dễ đọc, xây dựng niềm tin.",
+        bullets: [
+          "Landing hoặc website doanh nghiệp tập trung",
+          "Responsive, dễ đọc trên mọi thiết bị",
+          "Nội dung xây dựng niềm tin nhanh",
+        ],
+        href: "/services/landing/",
       },
       {
         title: "Đội nhóm tự cập nhật nội dung",
-        body: "CMS/admin đưa vào phạm vi — chỉnh bài viết, hình ảnh, giá mà không cần gọi lại studio."
+        body: "CMS/admin đưa vào phạm vi — chỉnh bài viết, hình ảnh, giá mà không cần gọi lại studio.",
+        bullets: [
+          "CMS/admin nằm trong phạm vi bàn giao",
+          "Sửa bài, ảnh, giá không cần gọi studio",
+          "Đội bạn tự vận hành nội dung hàng ngày",
+        ],
+        href: "/services/web/",
       },
       {
         title: "Thanh toán và nhắn tin trong quy trình thực",
-        body: "Tích hợp MoMo / ZaloPay / VNPay / Zalo OA khi cần — ít sai sót vận hành hơn so với kết nối thủ công."
+        body: "Tích hợp MoMo / ZaloPay / VNPay / Zalo OA khi cần — ít sai sót vận hành hơn so với kết nối thủ công.",
+        bullets: [
+          "MoMo / ZaloPay / VNPay khi cần",
+          "Zalo OA gắn vào luồng liên hệ",
+          "Ít sai sót hơn gắn tay thủ công",
+        ],
+        href: "/services/integrations/",
       },
       {
         title: "Vận hành nội bộ gọn gàng hơn",
-        body: "Dashboard, business agent hoặc vòng lặp Thu thập → Quản trị — một bức tranh thay vì mười công cụ rời rạc."
-      }
-    ]
+        body: "Dashboard, business agent hoặc vòng lặp Thu thập → Quản trị — một bức tranh thay vì mười công cụ rời rạc.",
+        bullets: [
+          "Dashboard hoặc agent nghiệp vụ",
+          "Vòng Thu thập → Quản trị gọn",
+          "Một bức tranh thay vì mười tool",
+        ],
+        href: "/dolphin-care/",
+      },
+    ],
   },
   why: {
     eyebrow: "Why Dolphin",
@@ -111,37 +152,39 @@ export const homepageLangVi: HomepageLang = {
     ctaPrimary: "Nhận báo giá",
     ctaSecondary: "Xem gói dịch vụ",
     ctaSecondaryHref: "#popular-services",
-    learnMore: "Xem thêm",
+    learnMore: "Tìm hiểu thêm",
     prevPage: "Trang trước",
     nextPage: "Trang sau",
+    pauseCarousel: "Tạm dừng carousel",
+    playCarousel: "Phát carousel",
     offers: [
       {
         id: "landing",
         title: "Landing Page",
         body: "Một trang tập trung với CTA rõ ràng — chiến dịch, dịch vụ, thu lead nhanh.",
         meta: "Thường 3–5 ngày",
-        href: "/services/web"
+        href: "/services/landing/"
       },
       {
         id: "business",
         title: "Website Doanh Nghiệp",
         body: "Profile công ty, dịch vụ, SEO dài hạn — cập nhật nội dung dễ dàng.",
         meta: "Thường 7–14 ngày",
-        href: "/services/web"
+        href: "/services/web/"
       },
       {
         id: "shop",
         title: "Cửa Hàng Online",
         body: "Danh mục, giỏ hàng, thanh toán — bán hàng online không rối rắm.",
         meta: "Thường 3–4 tuần",
-        href: "/services/web"
+        href: "/services/web/"
       },
       {
         id: "webapp",
         title: "Web App",
         body: "Quy trình tùy chỉnh — đặt lịch, portal, công cụ nội bộ đội nhóm tự vận hành được.",
         meta: "Theo phạm vi dự án",
-        href: "/services/web"
+        href: "/services/web/"
       }
     ],
     moreServices: [

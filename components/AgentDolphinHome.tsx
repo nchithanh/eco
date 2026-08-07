@@ -257,9 +257,9 @@ function ChatCard({
  </div>
 
  <div className="px-3 py-2.5 sm:px-3.5 sm:py-3">
- <div className="flex items-center gap-2 rounded-full bg-[var(--kuct-panel-2)] px-3.5 py-2 text-xs text-[var(--kuct-muted)]/60 sm:text-sm">
+ <div className="flex items-center gap-2 rounded-[10px] bg-[var(--kuct-panel-2)] px-3.5 py-2 text-xs text-[var(--kuct-muted)]/60 sm:text-sm">
  <span className="min-w-0 flex-1 truncate">{inputPlaceholder}</span>
- <span className="grid size-7 shrink-0 place-items-center rounded-full bg-[var(--kuct-accent)]/80 text-white sm:size-8">
+ <span className="grid size-7 shrink-0 place-items-center rounded-[10px] bg-[var(--kuct-accent)]/80 text-white sm:size-8">
  <svg className="size-3 sm:size-3.5" viewBox="0 0 24 24" fill="none" aria-hidden>
  <path
  d="M5 12h12M13 6l6 6-6 6"
@@ -330,7 +330,7 @@ export function AgentDolphinHome() {
  {c.situations.map((item) => (
  <li
  key={item}
- className="rounded-full bg-[var(--kuct-panel)] px-3 py-1.5 text-xs font-medium text-[var(--kuct-text)]"
+ className="rounded-[10px] bg-[var(--kuct-panel)] px-3 py-1.5 text-xs font-medium text-[var(--kuct-text)]"
  >
  ✓ {item}
  </li>
@@ -348,7 +348,7 @@ export function AgentDolphinHome() {
  {c.industries.map((item) => (
  <li
  key={item}
- className="rounded-full px-3 py-1 text-xs font-medium text-[var(--kuct-muted)]"
+ className="rounded-[10px] px-3 py-1 text-xs font-medium text-[var(--kuct-muted)]"
  >
  {item}
  </li>
@@ -361,7 +361,7 @@ export function AgentDolphinHome() {
  <div className="flex flex-wrap items-center gap-3 sm:gap-4">
  <Link
  href={routePath("/dolphin-care/")}
- className="kuct-btn-primary inline-flex w-full items-center justify-center rounded-full px-7 py-3.5 text-sm font-semibold sm:w-auto"
+ className="kuct-btn-primary inline-flex w-full items-center justify-center rounded-lg px-5 py-3.5 text-sm font-semibold sm:w-auto"
  >
  {c.cta}
  </Link>

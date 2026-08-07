@@ -75,7 +75,7 @@ export function SchemaJsonView({
  <button
  type="button"
  onClick={onCopy}
- className="kuct-btn-primary inline-flex items-center rounded-full px-6 py-2.5 text-sm font-semibold"
+ className="kuct-btn-primary inline-flex items-center rounded-lg px-4 py-2.5 text-sm font-semibold"
  >
  {copied ? "Đã copy" : "Copy JSON"}
  </button>

@@ -88,7 +88,7 @@ export function ServiceDetailContent({
  {card.tags.map((tag) => (
  <li
  key={tag}
- className="rounded-full bg-[var(--kuct-panel-2)] px-3 py-1.5 text-xs font-semibold text-[var(--kuct-muted)]"
+ className="rounded-[10px] bg-[var(--kuct-panel-2)] px-3 py-1.5 text-xs font-semibold text-[var(--kuct-muted)]"
  >
  {tag}
  </li>
@@ -99,7 +99,7 @@ export function ServiceDetailContent({
  <div className="mt-8 flex flex-wrap items-center gap-3">
  <button
  type="button"
- className="kuct-btn-primary inline-flex items-center rounded-full px-8 py-3.5 text-sm font-semibold shadow-[0_14px_36px_rgb(26_21_32/0.18)]"
+ className="kuct-btn-primary inline-flex items-center rounded-lg px-5 py-3.5 text-sm font-semibold shadow-[0_14px_36px_rgb(26_21_32/0.18)]"
  onClick={openQuoteFlow}
  >
  {ui.cta}
@@ -212,7 +212,7 @@ export function ServiceDetailContent({
  <Reveal className="mt-12 rounded-xl bg-[var(--kuct-panel)] px-6 py-8 text-center sm:mt-14 sm:px-10 sm:py-10">
  <button
  type="button"
- className="kuct-btn-primary inline-flex items-center rounded-full px-8 py-3.5 text-sm font-semibold shadow-[0_14px_36px_rgb(26_21_32/0.18)]"
+ className="kuct-btn-primary inline-flex items-center rounded-lg px-5 py-3.5 text-sm font-semibold shadow-[0_14px_36px_rgb(26_21_32/0.18)]"
  onClick={openQuoteFlow}
  >
  {ui.cta}

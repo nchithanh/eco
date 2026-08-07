@@ -125,7 +125,7 @@ export function WorkDetailContent({
  {extras.stack.map((item) => (
  <span
  key={item}
- className="rounded-full bg-[var(--kuct-panel)] px-3 py-1 text-xs font-semibold text-[var(--kuct-muted)]"
+ className="rounded-[10px] bg-[var(--kuct-panel)] px-3 py-1 text-xs font-semibold text-[var(--kuct-muted)]"
  >
  {item}
  </span>
@@ -140,7 +140,7 @@ export function WorkDetailContent({
  <button
  type="button"
  onClick={() => setViewerOpen(true)}
- className="kuct-btn-primary inline-flex items-center rounded-full px-7 py-3 text-sm font-semibold"
+ className="kuct-btn-primary inline-flex items-center rounded-lg px-5 py-3 text-sm font-semibold"
  >
  {ui.viewDesign}
  </button>
@@ -150,7 +150,7 @@ export function WorkDetailContent({
  className={
  showDesign
  ? "kuct-btn-ghost inline-flex items-center "
- : "kuct-btn-primary inline-flex items-center rounded-full px-7 py-3 text-sm font-semibold"
+ : "kuct-btn-primary inline-flex items-center rounded-lg px-5 py-3 text-sm font-semibold"
  }
  onClick={() => {
  if (embedded) close();

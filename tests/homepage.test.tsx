@@ -73,12 +73,11 @@ describe("Dolphin Software homepage", () => {
     expect(agentDolphin!.compareDocumentPosition(technology!) & following).toBeTruthy();
     expect(technology!.compareDocumentPosition(aiEdge!) & following).toBeTruthy();
     expect(aiEdge!.compareDocumentPosition(process!) & following).toBeTruthy();
-    // Fit is VI-only; default test locale may omit `#fit`
+    expect(process!.compareDocumentPosition(popular!) & following).toBeTruthy();
+    // Fit sits immediately under Hero when present
     if (fit) {
-      expect(process!.compareDocumentPosition(fit) & following).toBeTruthy();
-      expect(fit.compareDocumentPosition(popular!) & following).toBeTruthy();
-    } else {
-      expect(process!.compareDocumentPosition(popular!) & following).toBeTruthy();
+      expect(top!.compareDocumentPosition(fit) & following).toBeTruthy();
+      expect(fit.compareDocumentPosition(stats!) & following).toBeTruthy();
     }
     expect(popular!.compareDocumentPosition(news!) & following).toBeTruthy();
     expect(news!.compareDocumentPosition(faq!) & following).toBeTruthy();
@@ -236,6 +235,10 @@ describe("Dolphin Software homepage", () => {
         name: /納品後、御社が自ら運用できる業務/i,
       }),
     ).toBeInTheDocument();
+    expect(
+      within(stats!).getAllByRole("heading", { level: 3 }).length,
+    ).toBeGreaterThanOrEqual(6);
+    expect(within(stats!).getAllByText(/詳しく見る/i).length).toBeGreaterThanOrEqual(6);
   });
 
   it("does not render handover strip on homepage", () => {

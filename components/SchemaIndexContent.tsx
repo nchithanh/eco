@@ -90,7 +90,7 @@ export function SchemaIndexContent() {
  <li key={child.href}>
  <Link
  href={assetPath(child.href)}
- className="inline-flex rounded-full px-3 py-1.5 text-xs font-medium text-[var(--kuct-muted)] transition hover:text-[var(--kuct-text)]"
+ className="inline-flex rounded-[10px] px-3 py-1.5 text-xs font-medium text-[var(--kuct-muted)] transition hover:text-[var(--kuct-text)]"
  >
  {child.label}
  </Link>

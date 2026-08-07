@@ -164,10 +164,10 @@ export function AgentLoader({
  className="kuct-loader-node flex flex-col items-center gap-1.5"
  style={{ animationDelay: agent.delay }}
  >
- <span className="kuct-loader-node__badge grid size-9 place-items-center rounded-full text-[10px] font-bold tracking-wide">
+ <span className="kuct-loader-node__badge grid size-9 place-items-center rounded-[10px] text-[10px] font-bold tracking-wide">
  {agents[agent.key].slice(0, 1)}
  </span>
- <span className="kuct-loader-node__label rounded-full px-2 py-0.5 text-[10px] font-semibold tracking-[0.08em] uppercase shadow-sm">
+ <span className="kuct-loader-node__label rounded-[10px] px-2 py-0.5 text-[10px] font-semibold tracking-[0.08em] uppercase shadow-sm">
  {agents[agent.key]}
  </span>
  </div>

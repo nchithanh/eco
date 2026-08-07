@@ -189,7 +189,7 @@ export function Hero() {
               {t.hero.eyebrow}
             </p>
             {t.hero.aiPill ? (
-              <span className="rounded-full bg-[rgba(var(--kuct-accent-rgb),0.1)] px-2.5 py-0.5 text-[10px] font-semibold tracking-wide text-[var(--kuct-accent)] uppercase">
+              <span className="rounded-[10px] bg-[rgba(var(--kuct-accent-rgb),0.1)] px-2.5 py-0.5 text-[10px] font-semibold tracking-wide text-[var(--kuct-accent)] uppercase">
                 {t.hero.aiPill}
               </span>
             ) : null}
@@ -207,7 +207,7 @@ export function Hero() {
             <button
               type="button"
               onClick={openQuote}
-              className="kuct-btn-primary inline-flex items-center rounded-full px-8 py-3.5 text-sm font-semibold shadow-[0_14px_36px_rgb(26_21_32/0.18)]"
+              className="kuct-btn-primary inline-flex items-center rounded-lg px-5 py-3.5 text-sm font-semibold shadow-[0_14px_36px_rgb(26_21_32/0.18)]"
             >
               {t.hero.ctaPrimary}
             </button>

@@ -5,7 +5,7 @@
     "overviewRawPath": "/schema/homepage/overview.json",
     "brand": "Dolphin Software",
     "locale": "vi",
-    "updated": "2026-08-03",
+    "updated": "2026-08-07",
     "seo": {
       "title": "Dolphin Software – Thiết Kế Website & AI Cho Doanh Nghiệp Vừa Và Nhỏ",
       "description": "Dolphin Software xây dựng website theo yêu cầu, nâng cấp hệ thống cũ và tích hợp AI automation cho doanh nghiệp vừa và nhỏ tại Việt Nam. Báo giá minh bạch, bàn giao đúng hạn.",
@@ -31,6 +31,12 @@
       "anchor": "#top",
       "schemaPath": "/schema/homepage/hero/",
       "rawPath": "/schema/homepage/hero.json"
+    },
+    {
+      "id": "fit",
+      "anchor": "#fit",
+      "schemaPath": "/schema/homepage/fit/",
+      "rawPath": "/schema/homepage/fit.json"
     },
     {
       "id": "stats",
@@ -79,12 +85,6 @@
       "anchor": "#process",
       "schemaPath": "/schema/homepage/process/",
       "rawPath": "/schema/homepage/process.json"
-    },
-    {
-      "id": "fit",
-      "anchor": "#fit",
-      "schemaPath": "/schema/homepage/fit/",
-      "rawPath": "/schema/homepage/fit.json"
     },
     {
       "id": "popular-services",

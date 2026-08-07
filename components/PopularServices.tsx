@@ -144,7 +144,7 @@ export function PopularServices({
  {pkg.title}
  </h3>
  {pkg.featured ? (
- <span className="inline-flex rounded-full bg-[rgba(var(--kuct-accent-rgb),0.16)] px-1.5 py-0.5 text-[8px] font-semibold tracking-[0.08em] text-[var(--kuct-accent)] uppercase">
+ <span className="inline-flex rounded-[10px] bg-[rgba(var(--kuct-accent-rgb),0.16)] px-1.5 py-0.5 text-[8px] font-semibold tracking-[0.08em] text-[var(--kuct-accent)] uppercase">
  {pkg.badge}
  </span>
  ) : null}
@@ -242,7 +242,7 @@ export function PopularServices({
  <button
  type="button"
  onClick={openQuote}
- className="kuct-btn-primary inline-flex w-full items-center justify-center rounded-full px-6 py-3 text-sm font-semibold shadow-[0_0_0_1px_rgb(26_21_32/0.18),0_12px_36px_rgb(26_21_32/0.15)] sm:w-auto"
+ className="kuct-btn-primary inline-flex w-full items-center justify-center rounded-lg px-4 py-3 text-sm font-semibold shadow-[0_0_0_1px_rgb(26_21_32/0.18),0_12px_36px_rgb(26_21_32/0.15)] sm:w-auto"
  >
  {selected.cta}
  <span className="ml-1.5" aria-hidden>

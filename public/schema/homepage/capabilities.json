@@ -4,7 +4,7 @@
     "id": "capabilities",
     "locale": "vi",
     "brand": "Dolphin Software",
-    "updated": "2026-08-03",
+    "updated": "2026-08-07",
     "schemaPath": "/schema/homepage/capabilities/",
     "rawPath": "/schema/homepage/capabilities.json",
     "productRoute": "/"
@@ -12,37 +12,46 @@
   "content": {
     "order": 4,
     "id": "capabilities",
-    "section_label": "Website & App",
+    "section_label": "How we help",
     "headline": "Website rõ ràng, doanh nghiệp thực sự vận hành được",
     "subheadline": "Một brief ngắn là đủ để bắt đầu. Chọn loại dự án gần nhất — Dolphin Software sẽ đề xuất hướng tiếp cận và báo giá cụ thể.",
+    "layout": "header-hub-cta-carousel",
+    "hub_cta": {
+      "label": "Xem gói dịch vụ",
+      "href": "#popular-services"
+    },
     "services": [
       {
         "id": "landing-page",
         "title": "Landing Page",
         "description": "Một trang tập trung với CTA rõ ràng — chiến dịch, dịch vụ, thu lead nhanh.",
         "timeline": "Thường 3–5 ngày",
-        "href": "https://dolphin-software.io.vn/services/web/"
+        "href": "https://dolphin-software.io.vn/services/landing/",
+        "image": "/capabilities/web.jpg"
       },
       {
         "id": "business-website",
         "title": "Website Doanh Nghiệp",
         "description": "Profile công ty, dịch vụ, SEO dài hạn — cập nhật nội dung dễ dàng.",
         "timeline": "Thường 7–14 ngày",
-        "href": "https://dolphin-software.io.vn/services/web/"
+        "href": "https://dolphin-software.io.vn/services/web/",
+        "image": "/capabilities/design.jpg"
       },
       {
         "id": "online-shop",
         "title": "Cửa Hàng Online",
         "description": "Danh mục, giỏ hàng, thanh toán — bán hàng online không rối rắm.",
         "timeline": "Thường 3–4 tuần",
-        "href": "https://dolphin-software.io.vn/services/web/"
+        "href": "https://dolphin-software.io.vn/services/web/",
+        "image": "/capabilities/integrations.jpg"
       },
       {
         "id": "web-app",
         "title": "Web App",
         "description": "Quy trình tùy chỉnh — đặt lịch, portal, công cụ nội bộ đội nhóm tự vận hành được.",
         "timeline": "Theo phạm vi dự án",
-        "href": "https://dolphin-software.io.vn/services/web/"
+        "href": "https://dolphin-software.io.vn/services/web/",
+        "image": "/capabilities/backend.jpg"
       }
     ],
     "secondary_links": [

@@ -72,7 +72,7 @@ export function ContactForm() {
  href="https://zalo.me/0779937633"
  target="_blank"
  rel="noopener noreferrer"
- className="kuct-btn-primary inline-flex items-center rounded-full px-7 py-3 text-sm font-semibold"
+ className="kuct-btn-primary inline-flex items-center rounded-lg px-5 py-3 text-sm font-semibold"
  >
  {c.ctaZalo}
  </a>

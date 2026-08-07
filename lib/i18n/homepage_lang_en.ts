@@ -22,34 +22,75 @@ export const homepageLangEn: HomepageLang = {
   siteOutcomes: {
     eyebrow: "Outcomes",
     title: "After handoff, your business can [[run]] these operations independently",
-    support: "Not a feature list — these are real outcomes after handoff: leads, bookings, content, payments, and operations all under your control.",
+    support:
+      "Not a feature list — these are real outcomes after handoff: leads, bookings, content, payments, and operations all under your control.",
     painLead: "Operational results",
+    ctaPrimary: "Get a quote",
+    ctaSecondary: "View website services",
+    ctaSecondaryHref: "#capabilities",
+    learnMore: "Learn more",
     items: [
       {
         title: "Attract and convert leads",
-        body: "Forms/CTAs and a short contact journey — visitors take action; your team can track the source."
+        body: "Forms/CTAs and a short contact journey — visitors take action; your team can track the source.",
+        bullets: [
+          "Clear forms and CTAs on the page",
+          "Short contact path — visitors act now",
+          "Your team can track lead sources",
+        ],
+        href: "/services/landing/",
       },
       {
         title: "Stable booking without conflicts",
-        body: "Display available slots, auto-confirm, and send reminders — fewer calls asking about availability and double-bookings."
+        body: "Display available slots, auto-confirm, and send reminders — fewer calls asking about availability and double-bookings.",
+        bullets: [
+          "Live available-slot display",
+          "Auto confirm and reminders",
+          "Fewer availability calls and double-books",
+        ],
+        href: "/services/web/",
       },
       {
         title: "Brand customers trust and remember",
-        body: "Landing page or business website with focused content — responsive, readable, trust-building."
+        body: "Landing page or business website with focused content — responsive, readable, trust-building.",
+        bullets: [
+          "Focused landing or business site",
+          "Responsive and easy to read",
+          "Copy that builds trust quickly",
+        ],
+        href: "/services/landing/",
       },
       {
         title: "Team can update content themselves",
-        body: "CMS/admin included in scope — edit posts, images, pricing without calling the studio back."
+        body: "CMS/admin included in scope — edit posts, images, pricing without calling the studio back.",
+        bullets: [
+          "CMS/admin included in handoff scope",
+          "Edit posts, images, prices without us",
+          "Your team runs daily content",
+        ],
+        href: "/services/web/",
       },
       {
         title: "Payments and messaging in actual workflow",
-        body: "Integrate MoMo / ZaloPay / VNPay / Zalo OA when needed — fewer operational errors than manual connections."
+        body: "Integrate MoMo / ZaloPay / VNPay / Zalo OA when needed — fewer operational errors than manual connections.",
+        bullets: [
+          "MoMo / ZaloPay / VNPay when needed",
+          "Zalo OA in the contact flow",
+          "Fewer errors than manual wiring",
+        ],
+        href: "/services/integrations/",
       },
       {
         title: "Cleaner internal operations",
-        body: "Dashboard, business agent, or Collect → Manage loop — one picture instead of ten scattered tools."
-      }
-    ]
+        body: "Dashboard, business agent, or Collect → Manage loop — one picture instead of ten scattered tools.",
+        bullets: [
+          "Dashboard or business agent",
+          "Collect → Manage loop",
+          "One picture instead of ten tools",
+        ],
+        href: "/dolphin-care/",
+      },
+    ],
   },
   why: {
     eyebrow: "Why Dolphin",
@@ -84,34 +125,36 @@ export const homepageLangEn: HomepageLang = {
     learnMore: "Learn more",
     prevPage: "Previous",
     nextPage: "Next",
+    pauseCarousel: "Pause carousel",
+    playCarousel: "Play carousel",
     offers: [
       {
         id: "landing",
         title: "Landing Page",
         body: "One focused page with clear CTA — campaign, service, quick lead capture.",
         meta: "Typically 3–5 days",
-        href: "/services/web"
+        href: "/services/landing/"
       },
       {
         id: "business",
         title: "Business Website",
         body: "Company profile, services, long-term SEO — easy content updates.",
         meta: "Typically 7–14 days",
-        href: "/services/web"
+        href: "/services/web/"
       },
       {
         id: "shop",
         title: "Online Shop",
         body: "Catalog, cart, checkout — sell online without confusion.",
         meta: "Typically 3–4 weeks",
-        href: "/services/web"
+        href: "/services/web/"
       },
       {
         id: "webapp",
         title: "Web App",
         body: "Custom workflow — booking, portal, internal tool your team can operate.",
         meta: "Based on project scope",
-        href: "/services/web"
+        href: "/services/web/"
       }
     ],
     moreServices: [

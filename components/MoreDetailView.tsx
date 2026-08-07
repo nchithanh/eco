@@ -120,7 +120,7 @@ export function MoreDetailContent({
  <Reveal className="mx-auto mt-12 max-w-6xl px-6">
  <Link
  href="/#contact"
- className="kuct-btn-primary inline-flex items-center rounded-full px-7 py-3 text-sm font-semibold"
+ className="kuct-btn-primary inline-flex items-center rounded-lg px-5 py-3 text-sm font-semibold"
  onClick={() => {
  if (embedded) close();
  }}

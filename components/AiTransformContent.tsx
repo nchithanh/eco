@@ -49,7 +49,7 @@ export function AiTransformContent({ embedded = false }: { embedded?: boolean })
  <button
  type="button"
  onClick={openQuote}
- className="kuct-btn-primary inline-flex items-center rounded-full px-7 py-3 text-sm font-semibold"
+ className="kuct-btn-primary inline-flex items-center rounded-lg px-5 py-3 text-sm font-semibold"
  >
  {c.ctaPrimary}
  </button>
@@ -181,7 +181,7 @@ export function AiTransformContent({ embedded = false }: { embedded?: boolean })
  >
  <span
  aria-hidden
- className="grid size-10 shrink-0 place-items-center rounded-full text-sm font-bold text-white"
+ className="grid size-10 shrink-0 place-items-center rounded-[10px] text-sm font-bold text-white"
  style={{ background: "var(--kuct-accent)" }}
  >
  {index + 1}
@@ -412,7 +412,7 @@ export function AiTransformContent({ embedded = false }: { embedded?: boolean })
  <button
  type="button"
  onClick={openQuote}
- className="kuct-btn-primary inline-flex items-center rounded-full px-7 py-3 text-sm font-semibold"
+ className="kuct-btn-primary inline-flex items-center rounded-lg px-5 py-3 text-sm font-semibold"
  >
  {c.closeCta}
  </button>

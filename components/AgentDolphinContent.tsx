@@ -270,7 +270,7 @@ function EmbedSiteMock({
  <span className="size-2.5 rounded-full bg-[#febc2e]" />
  <span className="size-2.5 rounded-full bg-[#28c840]" />
  </div>
- <div className="mx-auto flex h-7 min-w-0 max-w-[14rem] flex-1 items-center justify-center rounded-full bg-[var(--kuct-panel)] px-3 text-[0.65rem] text-[var(--kuct-muted)] sm:max-w-[18rem]">
+ <div className="mx-auto flex h-7 min-w-0 max-w-[14rem] flex-1 items-center justify-center rounded-[10px] bg-[var(--kuct-panel)] px-3 text-[0.65rem] text-[var(--kuct-muted)] sm:max-w-[18rem]">
  <span className="truncate">{url}</span>
  </div>
  <div className="hidden shrink-0 items-center gap-2 sm:flex">
@@ -344,18 +344,18 @@ function EmbedSiteMock({
  ))}
  </ul>
  </div>
- <div className="flex items-center gap-1.5 rounded-full bg-[var(--kuct-panel)] px-2 py-1.5">
+ <div className="flex items-center gap-1.5 rounded-[10px] bg-[var(--kuct-panel)] px-2 py-1.5">
  <span className="min-w-0 flex-1 truncate text-[0.55rem] text-[var(--kuct-muted)]/70">
  {inputPlaceholder}
  </span>
- <span className="grid size-5 shrink-0 place-items-center rounded-full bg-[var(--kuct-accent)] text-[0.55rem] text-white">
+ <span className="grid size-5 shrink-0 place-items-center rounded-[10px] bg-[var(--kuct-accent)] text-[0.55rem] text-white">
  →
  </span>
  </div>
  </div>
  </div>
  <div className="mt-2 flex justify-end">
- <span className="grid size-9 place-items-center overflow-hidden rounded-full border-2 border-white/90 bg-gradient-to-br from-[var(--kuct-fab-from)] to-[var(--kuct-fab-to)] shadow-[0_8px_20px_rgb(26_21_32/0.18)]">
+ <span className="grid size-9 place-items-center overflow-hidden rounded-[10px] border-2 border-white/90 bg-gradient-to-br from-[var(--kuct-fab-from)] to-[var(--kuct-fab-to)] shadow-[0_8px_20px_rgb(26_21_32/0.18)]">
  <img
  src={assetPath(CHAT_AVATAR)}
  alt=""
@@ -411,7 +411,7 @@ export function AgentDolphinContent({ embedded = false }: { embedded?: boolean }
  <button
  type="button"
  onClick={openQuote}
- className="kuct-btn-primary inline-flex items-center rounded-full px-7 py-3 text-sm font-semibold"
+ className="kuct-btn-primary inline-flex items-center rounded-lg px-5 py-3 text-sm font-semibold"
  >
  {c.ctaPrimary}
  </button>
@@ -473,7 +473,7 @@ export function AgentDolphinContent({ embedded = false }: { embedded?: boolean }
  <div className="relative flex w-6 shrink-0 flex-col items-center">
  <span
  aria-hidden
- className="relative z-[1] grid size-6 place-items-center rounded-full bg-white text-[10px] font-bold leading-none tabular-nums text-[var(--kuct-accent)] ring-2 ring-[rgba(var(--kuct-accent-rgb),0.35)]"
+ className="relative z-[1] grid size-6 place-items-center rounded-[10px] bg-white text-[10px] font-bold leading-none tabular-nums text-[var(--kuct-accent)] ring-2 ring-[rgba(var(--kuct-accent-rgb),0.35)]"
  >
  {String(index + 1).padStart(2, "0")}
  </span>
@@ -664,7 +664,7 @@ export function AgentDolphinContent({ embedded = false }: { embedded?: boolean }
  >
  <span
  aria-hidden
- className="grid size-10 shrink-0 place-items-center rounded-full text-sm font-bold text-white"
+ className="grid size-10 shrink-0 place-items-center rounded-[10px] text-sm font-bold text-white"
  style={{ background: "var(--kuct-accent)" }}
  >
  {index + 1}
@@ -760,7 +760,7 @@ export function AgentDolphinContent({ embedded = false }: { embedded?: boolean }
  <button
  type="button"
  onClick={openQuote}
- className="kuct-btn-primary inline-flex items-center rounded-full px-7 py-3 text-sm font-semibold"
+ className="kuct-btn-primary inline-flex items-center rounded-lg px-5 py-3 text-sm font-semibold"
  >
  {c.closeCta}
  </button>

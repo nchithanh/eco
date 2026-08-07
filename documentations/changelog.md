@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-08-07 (ui)
+
+- CTA primary (`.kuct-btn-primary`): filled tím + chữ trắng (bỏ outline); radius **10px**; `font-weight: 700`; padding ngang nhỏ hơn.
+- Radius site: `@theme` map `rounded-sm`…`2xl` → **10px**; giữ `rounded-full` cho avatar/chấm tròn.
+- Banner CTA **Ứng tuyển**: nền tím + chữ trắng (violet theme).
+- Homepage **Outcomes** (`#stats`): layout 2 cột sticky trái + stack card phải (scroll hết card mới sang section sau); bullets + learn-more; schema `stats.json` sync.
+- Homepage **How we help** (`#capabilities`): header badge + dashed + hub CTA; title\|support; carousel card giữa (ảnh + learn more), autoplay/pause; schema `capabilities.json` sync.
+- Homepage **Fit** (`#fit`): chuyển ngay dưới Hero; layout header canh giữa + carousel 2 cột (copy \| ảnh); ảnh `public/fit/slide-0*.jpg` (AI generate).
+- Buttons / CTA: `border-radius` thống nhất **10px** (CSS `button` + class CTA; `rounded-full` trên control → `rounded-[10px]`; giữ tròn avatar/dot/spinner).
+
 ## 2026-08-06 (landing)
 
 - Page mới `/services/landing/` — SEO/AEO/GEO rewriter (VI + EN/JA): hero, when/why/include, bảng ngành & giá, quy trình 5 bước, FAQ 7 Q, JSON-LD; Nav + capabilities `landing` trỏ về đây; schema `services/landing.json`.

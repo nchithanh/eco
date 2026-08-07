@@ -46,7 +46,7 @@ export function CoFounder() {
  {c.stack.map((item) => (
  <li
  key={item}
- className="rounded-full bg-[var(--kuct-panel-2)] px-3 py-1.5 text-xs font-semibold text-[var(--kuct-muted)]"
+ className="rounded-[10px] bg-[var(--kuct-panel-2)] px-3 py-1.5 text-xs font-semibold text-[var(--kuct-muted)]"
  >
  {item}
  </li>

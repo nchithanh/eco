@@ -517,7 +517,7 @@ export function AiChatWidget() {
  </div>
  <button
  type="button"
- className="grid size-8 place-items-center rounded-full bg-white/15 text-white transition hover:bg-white/25"
+ className="grid size-8 place-items-center rounded-[10px] bg-white/15 text-white transition hover:bg-white/25"
  aria-label={c.closePanel}
  onClick={() => setOpen(false)}
  >
@@ -588,7 +588,7 @@ export function AiChatWidget() {
  key={s}
  type="button"
  disabled={sending}
- className="rounded-full bg-[var(--kuct-menu-hover)] px-3 py-1 text-[0.7rem] font-medium text-[var(--kuct-muted)] transition hover:text-[var(--kuct-accent)] disabled:opacity-50"
+ className="rounded-[10px] bg-[var(--kuct-menu-hover)] px-3 py-1 text-[0.7rem] font-medium text-[var(--kuct-muted)] transition hover:text-[var(--kuct-accent)] disabled:opacity-50"
  onClick={() => void pushUserAndReply(s)}
  >
  {s}
@@ -608,12 +608,12 @@ export function AiChatWidget() {
  placeholder={c.placeholder}
  aria-label={c.placeholder}
  disabled={sending}
- className="min-w-0 flex-1 rounded-full bg-[var(--kuct-bg)] px-4 py-2.5 text-base text-[var(--kuct-text)] outline-none placeholder:text-[var(--kuct-muted)]/60 disabled:opacity-60 sm:text-sm"
+ className="min-w-0 flex-1 rounded-[10px] bg-[var(--kuct-bg)] px-4 py-2.5 text-base text-[var(--kuct-text)] outline-none placeholder:text-[var(--kuct-muted)]/60 disabled:opacity-60 sm:text-sm"
  />
  <button
  type="submit"
  disabled={sending}
- className="kuct-btn-primary grid size-10 shrink-0 place-items-center rounded-full disabled:opacity-60"
+ className="kuct-btn-primary grid size-10 shrink-0 place-items-center rounded-lg disabled:opacity-60"
  aria-label={c.send}
  >
  <IconSend className="size-4" />

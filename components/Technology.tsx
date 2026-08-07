@@ -607,7 +607,7 @@ export function Technology() {
  )}
  <a
  href={assetPath("/ai-transform/")}
- className="kuct-btn-primary mt-8 inline-flex items-center rounded-full px-8 py-3.5 text-sm font-semibold shadow-[0_12px_32px_rgb(26_21_32/0.18)]"
+ className="kuct-btn-primary mt-8 inline-flex items-center rounded-lg px-5 py-3.5 text-sm font-semibold shadow-[0_12px_32px_rgb(26_21_32/0.18)]"
  >
  {tech.cta}
  </a>

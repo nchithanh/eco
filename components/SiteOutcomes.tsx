@@ -1,111 +1,200 @@
 "use client";
 
-import { useId, useState } from "react";
 import { AccentText } from "@/components/BrandName";
 import { Reveal } from "@/components/Reveal";
+import { useQuote } from "@/components/QuoteProvider";
+import { assetPath } from "@/lib/asset";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
 
+function OutcomeCheckIcon() {
+  return (
+    <svg
+      aria-hidden
+      viewBox="0 0 20 20"
+      className="mt-0.5 size-4 shrink-0 text-[var(--kuct-accent)]"
+      fill="none"
+    >
+      <path
+        d="M16.5 5.5 8.25 14 3.5 9.25"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function OutcomeCardIcon({ index }: { index: number }) {
+  const common = {
+    "aria-hidden": true as const,
+    viewBox: "0 0 24 24",
+    className: "size-6 text-[var(--kuct-accent)]",
+    fill: "none" as const,
+  };
+  const stroke = {
+    stroke: "currentColor",
+    strokeWidth: 1.75,
+    strokeLinecap: "round" as const,
+    strokeLinejoin: "round" as const,
+  };
+
+  switch (index % 6) {
+    case 0:
+      return (
+        <svg {...common}>
+          <path d="M4 19V5h10l6 7-6 7H4Z" {...stroke} />
+          <path d="M8 9h5M8 13h3" {...stroke} />
+        </svg>
+      );
+    case 1:
+      return (
+        <svg {...common}>
+          <rect x="4" y="5" width="16" height="15" rx="2" {...stroke} />
+          <path d="M8 3v4M16 3v4M4 10h16" {...stroke} />
+        </svg>
+      );
+    case 2:
+      return (
+        <svg {...common}>
+          <circle cx="12" cy="8" r="3.25" {...stroke} />
+          <path d="M5 19c1.6-3.2 4-4.8 7-4.8s5.4 1.6 7 4.8" {...stroke} />
+        </svg>
+      );
+    case 3:
+      return (
+        <svg {...common}>
+          <path d="M5 19V5h9l5 5v9H5Z" {...stroke} />
+          <path d="M14 5v5h5M8 13h6M8 16h4" {...stroke} />
+        </svg>
+      );
+    case 4:
+      return (
+        <svg {...common}>
+          <rect x="3.5" y="6" width="17" height="12" rx="2" {...stroke} />
+          <path d="M3.5 10h17M8 14h3" {...stroke} />
+        </svg>
+      );
+    default:
+      return (
+        <svg {...common}>
+          <circle cx="12" cy="12" r="8" {...stroke} />
+          <path d="M12 8v4l2.5 2.5" {...stroke} />
+        </svg>
+      );
+  }
+}
+
 export function SiteOutcomes() {
- const { t } = useLocale();
- const { eyebrow, title, support, painLead, items } = t.siteOutcomes;
- const baseId = useId();
- const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const { t } = useLocale();
+  const { openQuote } = useQuote();
+  const {
+    eyebrow,
+    title,
+    support,
+    ctaPrimary,
+    ctaSecondary,
+    ctaSecondaryHref,
+    learnMore,
+    items,
+  } = t.siteOutcomes;
 
- return (
- <section id="stats" className="scroll-mt-20 py-24">
- <div className="mx-auto max-w-6xl px-6">
- <Reveal variant="title">
- <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
- {eyebrow}
- </p>
- <h2 className="mt-4 max-w-3xl font-display text-3xl font-semibold leading-[1.12] tracking-tight sm:text-[2.15rem] lg:text-[2.35rem] lg:leading-[1.1]">
- <AccentText>{title}</AccentText>
- </h2>
- <p className="mt-5 max-w-[48ch] text-base leading-[1.7] text-[var(--kuct-muted)]">
- {support}
- </p>
- </Reveal>
+  const secondaryHref = ctaSecondaryHref.startsWith("#")
+    ? ctaSecondaryHref
+    : assetPath(ctaSecondaryHref);
 
- {painLead ? (
- <Reveal className="mt-10">
- <p className="max-w-[40ch] text-base font-medium leading-snug text-[var(--kuct-text)] sm:text-lg">
- {painLead}
- </p>
- </Reveal>
- ) : null}
+  return (
+    <section
+      id="stats"
+      className="scroll-mt-20 py-24"
+      aria-labelledby="home-outcomes-heading"
+    >
+      <div className="mx-auto max-w-6xl px-6">
+        <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-14 xl:gap-16">
+          {/* Left: sticky while right cards scroll */}
+          <div className="lg:sticky lg:top-28 lg:self-start">
+            <Reveal variant="title">
+              <p className="inline-flex items-center gap-2 rounded-[10px] border border-[var(--kuct-border)] bg-[var(--kuct-panel-2)] px-3 py-1.5 text-[11px] font-semibold tracking-[0.18em] text-[var(--kuct-accent)] uppercase sm:text-xs">
+                <span
+                  aria-hidden
+                  className="inline-block size-1.5 rounded-full bg-[var(--kuct-accent)]"
+                />
+                {eyebrow}
+              </p>
+              <h2
+                id="home-outcomes-heading"
+                className="mt-5 max-w-[22ch] font-display text-3xl font-semibold leading-[1.12] tracking-tight sm:text-[2.15rem] lg:text-[2.35rem] lg:leading-[1.1]"
+              >
+                <AccentText>{title}</AccentText>
+              </h2>
+              <p className="mt-5 max-w-[40ch] text-base leading-[1.7] text-[var(--kuct-muted)]">
+                {support}
+              </p>
+              <div className="mt-8 flex flex-wrap items-center gap-3">
+                <button
+                  type="button"
+                  onClick={openQuote}
+                  className="kuct-btn-primary inline-flex items-center rounded-lg px-5 py-3 text-sm"
+                >
+                  {ctaPrimary}
+                </button>
+                <a
+                  href={secondaryHref}
+                  className="inline-flex items-center rounded-lg border border-[var(--kuct-accent)] bg-[var(--kuct-panel-2)] px-5 py-3 text-sm font-bold text-[var(--kuct-accent)] transition hover:bg-[rgba(var(--kuct-accent-rgb),0.06)]"
+                >
+                  {ctaSecondary}
+                </a>
+              </div>
+            </Reveal>
+          </div>
 
- <ol className="mt-8 grid list-none grid-cols-1 gap-0 p-0 max-sm:rounded-xl max-sm:bg-[var(--kuct-panel)]/90 max-sm:px-4 max-sm:backdrop-blur-md max-sm:shadow-[inset_0_0_0_1px_rgb(0_0_0/0.04)] sm:mt-10 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
- {items.map((item, index) => {
- const open = openIndex === index;
- const panelId = `${baseId}-panel-${index}`;
- const buttonId = `${baseId}-btn-${index}`;
+          {/* Right: stacked cards — section height drives sticky pin */}
+          <ul className="flex list-none flex-col gap-4 p-0 sm:gap-5">
+            {items.map((item, index) => {
+              const href = item.href.startsWith("#")
+                ? item.href
+                : assetPath(item.href);
 
- return (
- <Reveal
- as="li"
- key={item.title}
- delay={index * 50}
- className={[
- "max-sm:border-b max-sm:border-black/10 max-sm:last:border-b-0",
- "sm:rounded-xl sm:bg-[var(--kuct-panel)] sm:p-5 sm:backdrop-blur-md sm:transition sm:duration-300",
- ].join(" ")}
- >
- <div className="flex gap-3.5 max-sm:py-5 sm:gap-4">
- <span
- aria-hidden
- className="mt-1 shrink-0 font-display text-xs font-semibold tabular-nums tracking-wide text-[var(--kuct-accent)]/80"
- >
- {String(index + 1).padStart(2, "0")}
- </span>
- <div className="min-w-0 flex-1">
- <h3 className="font-display text-lg font-semibold leading-snug text-[var(--kuct-text)]">
- <button
- type="button"
- id={buttonId}
- aria-expanded={open}
- aria-controls={panelId}
- className="flex w-full items-start justify-between gap-3 text-left sm:hidden"
- onClick={() =>
- setOpenIndex((current) =>
- current === index ? null : index,
- )
- }
- >
- <span>{item.title}</span>
- <span
- aria-hidden
- className={`mt-0.5 shrink-0 text-sm text-[var(--kuct-muted)] transition-transform duration-300 ease-out ${
- open ? "rotate-180" : ""
- }`}
- >
- ▾
- </span>
- </button>
- <span className="hidden sm:inline">{item.title}</span>
- </h3>
- <div
- id={panelId}
- role="region"
- aria-labelledby={buttonId}
- className={`kuct-accordion-panel ${open ? "is-open" : ""}`}
- >
- <div className="kuct-accordion-panel__inner">
- <p
- className={`pt-2 text-sm leading-relaxed text-[var(--kuct-muted)] transition-opacity duration-300 ease-out max-sm:pb-1 ${
- open ? "opacity-100" : "opacity-0 sm:opacity-100"
- }`}
- >
- {item.body}
- </p>
- </div>
- </div>
- </div>
- </div>
- </Reveal>
- );
- })}
- </ol>
- </div>
- </section>
- );
+              return (
+                <Reveal as="li" key={item.title} delay={Math.min(index * 40, 160)}>
+                  <article className="rounded-[10px] border border-[var(--kuct-border)] bg-[var(--kuct-panel-2)] p-5 shadow-[0_8px_24px_rgb(26_21_32/0.04)] sm:p-6">
+                    <div className="flex items-start gap-3">
+                      <span className="mt-0.5 grid size-10 shrink-0 place-items-center rounded-[10px] bg-[rgba(var(--kuct-accent-rgb),0.1)]">
+                        <OutcomeCardIcon index={index} />
+                      </span>
+                      <h3 className="pt-1.5 font-display text-lg font-semibold leading-snug text-[var(--kuct-text)] sm:text-xl">
+                        {item.title}
+                      </h3>
+                    </div>
+
+                    <ul className="mt-4 space-y-2.5 pl-0 sm:mt-5">
+                      {item.bullets.map((bullet) => (
+                        <li
+                          key={bullet}
+                          className="flex list-none items-start gap-2.5 text-sm leading-relaxed text-[var(--kuct-text)]"
+                        >
+                          <OutcomeCheckIcon />
+                          <span>{bullet}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <div className="mt-5 border-t border-dashed border-[var(--kuct-border)] pt-4">
+                      <a
+                        href={href}
+                        className="inline-flex items-center gap-1.5 text-sm font-bold text-[var(--kuct-text)] transition hover:text-[var(--kuct-accent)]"
+                      >
+                        {learnMore}
+                        <span aria-hidden>→</span>
+                      </a>
+                    </div>
+                  </article>
+                </Reveal>
+              );
+            })}
+          </ul>
+        </div>
+      </div>
+    </section>
+  );
 }

@@ -4,7 +4,7 @@
     "id": "stats",
     "locale": "vi",
     "brand": "Dolphin Software",
-    "updated": "2026-08-03",
+    "updated": "2026-08-07",
     "schemaPath": "/schema/homepage/stats/",
     "rawPath": "/schema/homepage/stats.json",
     "productRoute": "/"
@@ -12,39 +12,80 @@
   "content": {
     "order": 2,
     "id": "stats",
-    "section_label": "Kết quả vận hành",
+    "section_label": "Outcomes",
     "headline": "Sau bàn giao, doanh nghiệp bạn có thể tự chạy các việc này",
     "subheadline": "Không phải danh sách tính năng — đây là kết quả thực tế sau khi bàn giao: khách hàng tiềm năng, đặt lịch, nội dung, thanh toán và vận hành đều nằm trong tầm kiểm soát của bạn.",
+    "cta_primary": "Nhận báo giá",
+    "cta_secondary": "Xem dịch vụ website",
+    "cta_secondary_href": "#capabilities",
+    "learn_more": "Tìm hiểu thêm",
+    "layout": "sticky-left-cards-right",
     "items": [
       {
         "number": "01",
         "title": "Thu hút và chuyển đổi khách hàng tiềm năng",
-        "body": "Form/CTA và hành trình liên hệ ngắn gọn — khách truy cập hành động; đội nhóm của bạn theo dõi được nguồn."
+        "body": "Form/CTA và hành trình liên hệ ngắn gọn — khách truy cập hành động; đội nhóm của bạn theo dõi được nguồn.",
+        "bullets": [
+          "Form và CTA rõ ràng trên trang",
+          "Hành trình liên hệ ngắn — khách hành động ngay",
+          "Đội bạn theo dõi được nguồn lead"
+        ],
+        "href": "/services/landing/"
       },
       {
         "number": "02",
         "title": "Đặt lịch ổn định, không nhầm chỗ",
-        "body": "Hiển thị slot trống, xác nhận và nhắc lịch tự động — giảm cuộc gọi hỏi chỗ trống và đặt trùng."
+        "body": "Hiển thị slot trống, xác nhận và nhắc lịch tự động — giảm cuộc gọi hỏi chỗ trống và đặt trùng.",
+        "bullets": [
+          "Hiển thị slot trống theo thời gian thực",
+          "Xác nhận và nhắc lịch tự động",
+          "Giảm gọi hỏi chỗ trống và đặt trùng"
+        ],
+        "href": "/services/web/"
       },
       {
         "number": "03",
         "title": "Thương hiệu được khách tin tưởng và nhớ đến",
-        "body": "Trang landing hoặc website doanh nghiệp với nội dung tập trung — responsive, dễ đọc, xây dựng niềm tin."
+        "body": "Trang landing hoặc website doanh nghiệp với nội dung tập trung — responsive, dễ đọc, xây dựng niềm tin.",
+        "bullets": [
+          "Landing hoặc website doanh nghiệp tập trung",
+          "Responsive, dễ đọc trên mọi thiết bị",
+          "Nội dung xây dựng niềm tin nhanh"
+        ],
+        "href": "/services/landing/"
       },
       {
         "number": "04",
         "title": "Đội nhóm tự cập nhật nội dung",
-        "body": "CMS/admin đưa vào phạm vi — chỉnh bài viết, hình ảnh, giá mà không cần gọi lại studio."
+        "body": "CMS/admin đưa vào phạm vi — chỉnh bài viết, hình ảnh, giá mà không cần gọi lại studio.",
+        "bullets": [
+          "CMS/admin nằm trong phạm vi bàn giao",
+          "Sửa bài, ảnh, giá không cần gọi studio",
+          "Đội bạn tự vận hành nội dung hàng ngày"
+        ],
+        "href": "/services/web/"
       },
       {
         "number": "05",
         "title": "Thanh toán và nhắn tin trong quy trình thực",
-        "body": "Tích hợp MoMo / ZaloPay / VNPay / Zalo OA khi cần — ít sai sót vận hành hơn so với kết nối thủ công."
+        "body": "Tích hợp MoMo / ZaloPay / VNPay / Zalo OA khi cần — ít sai sót vận hành hơn so với kết nối thủ công.",
+        "bullets": [
+          "MoMo / ZaloPay / VNPay khi cần",
+          "Zalo OA gắn vào luồng liên hệ",
+          "Ít sai sót hơn gắn tay thủ công"
+        ],
+        "href": "/services/integrations/"
       },
       {
         "number": "06",
         "title": "Vận hành nội bộ gọn gàng hơn",
-        "body": "Dashboard, business agent hoặc vòng lặp Thu thập → Quản trị — một bức tranh thay vì mười công cụ rời rạc."
+        "body": "Dashboard, business agent hoặc vòng lặp Thu thập → Quản trị — một bức tranh thay vì mười công cụ rời rạc.",
+        "bullets": [
+          "Dashboard hoặc agent nghiệp vụ",
+          "Vòng Thu thập → Quản trị gọn",
+          "Một bức tranh thay vì mười tool"
+        ],
+        "href": "/dolphin-care/"
       }
     ]
   }

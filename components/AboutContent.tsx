@@ -39,7 +39,7 @@ export function AboutContent() {
  <button
  type="button"
  onClick={openQuote}
- className="kuct-btn-primary inline-flex items-center rounded-full px-8 py-3.5 text-sm font-semibold"
+ className="kuct-btn-primary inline-flex items-center rounded-lg px-5 py-3.5 text-sm font-semibold"
  >
  {a.ctaPrimary}
  </button>
@@ -205,7 +205,7 @@ export function AboutContent() {
  {a.founderStack.map((item) => (
  <li
  key={item}
- className="rounded-full bg-[var(--kuct-panel-2)] px-3 py-1.5 text-xs font-semibold text-[var(--kuct-muted)]"
+ className="rounded-[10px] bg-[var(--kuct-panel-2)] px-3 py-1.5 text-xs font-semibold text-[var(--kuct-muted)]"
  >
  {item}
  </li>
@@ -288,7 +288,7 @@ export function AboutContent() {
  <button
  type="button"
  onClick={openQuote}
- className="kuct-btn-primary inline-flex items-center rounded-full px-8 py-3.5 text-sm font-semibold"
+ className="kuct-btn-primary inline-flex items-center rounded-lg px-5 py-3.5 text-sm font-semibold"
  >
  {a.ctaPrimary}
  </button>

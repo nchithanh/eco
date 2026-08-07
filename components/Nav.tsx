@@ -397,7 +397,7 @@ export function Nav() {
               <li className="pt-2">
                 <a
                   href={contactHref}
-                  className="kuct-btn-primary inline-flex w-full items-center justify-center rounded-full px-5 py-3 text-sm"
+                  className="kuct-btn-primary inline-flex w-full items-center justify-center rounded-lg px-4 py-3 text-sm"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {t.nav.contact}

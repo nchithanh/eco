@@ -43,6 +43,8 @@ export type Dictionary = {
     aria: string;
     text: string;
     cta: string;
+    /** Quote CTA on announcement bar */
+    ctaQuote: string;
   };
   hero: {
     eyebrow: string;
@@ -163,6 +165,10 @@ export type Dictionary = {
     learnMore: string;
     prevPage: string;
     nextPage: string;
+    /** Pause autoplay control (carousel) */
+    pauseCarousel: string;
+    /** Resume autoplay control (carousel) */
+    playCarousel: string;
     offers: {
       id: string;
       title: string;
@@ -185,7 +191,16 @@ export type Dictionary = {
     support: string;
     /** Optional line before cards — owner pain framing (VI homepage) */
     painLead?: string;
-    items: { title: string; body: string }[];
+    ctaPrimary: string;
+    ctaSecondary: string;
+    ctaSecondaryHref: string;
+    learnMore: string;
+    items: {
+      title: string;
+      body: string;
+      bullets: string[];
+      href: string;
+    }[];
   };
   whatYouGet: {
     eyebrow: string;

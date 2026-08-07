@@ -151,7 +151,7 @@ export function TechDetailContent({
  href={detail.officialUrl}
  target="_blank"
  rel="noopener noreferrer"
- className="kuct-btn-primary inline-flex items-center rounded-full px-7 py-3 text-sm font-semibold"
+ className="kuct-btn-primary inline-flex items-center rounded-lg px-5 py-3 text-sm font-semibold"
  >
  {ui.visitOfficial}
  </a>

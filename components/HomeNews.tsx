@@ -114,7 +114,7 @@ function CarouselCard({
  {active ? (
  <span
  aria-hidden
- className="inline-flex size-9 items-center justify-center rounded-full bg-[var(--kuct-menu-hover)] text-[var(--kuct-accent)] shadow-[0_4px_12px_rgb(26_21_32/0.08)] transition group-hover:bg-black/10"
+ className="inline-flex size-9 items-center justify-center rounded-[10px] bg-[var(--kuct-menu-hover)] text-[var(--kuct-accent)] shadow-[0_4px_12px_rgb(26_21_32/0.08)] transition group-hover:bg-black/10"
  >
  ↗
  </span>
@@ -320,7 +320,7 @@ export function HomeNews() {
  type="button"
  onClick={goPrev}
  aria-label={n.prevPage}
- className="hidden shrink-0 rounded-full bg-[var(--kuct-panel)] p-2.5 text-[var(--kuct-muted)] transition hover:text-[var(--kuct-text)] sm:inline-flex"
+ className="hidden shrink-0 rounded-[10px] bg-[var(--kuct-panel)] p-2.5 text-[var(--kuct-muted)] transition hover:text-[var(--kuct-text)] sm:inline-flex"
  >
  <span aria-hidden className="text-lg leading-none">
  ←
@@ -384,7 +384,7 @@ export function HomeNews() {
  type="button"
  onClick={goNext}
  aria-label={n.nextPage}
- className="hidden shrink-0 rounded-full bg-[var(--kuct-panel)] p-2.5 text-[var(--kuct-muted)] transition hover:text-[var(--kuct-text)] sm:inline-flex"
+ className="hidden shrink-0 rounded-[10px] bg-[var(--kuct-panel)] p-2.5 text-[var(--kuct-muted)] transition hover:text-[var(--kuct-text)] sm:inline-flex"
  >
  <span aria-hidden className="text-lg leading-none">
  →
@@ -399,7 +399,7 @@ export function HomeNews() {
  type="button"
  onClick={goPrev}
  aria-label={n.prevPage}
- className="inline-flex rounded-full bg-[var(--kuct-panel)] p-2 text-[var(--kuct-muted)] transition hover:text-[var(--kuct-text)] sm:hidden"
+ className="inline-flex rounded-[10px] bg-[var(--kuct-panel)] p-2 text-[var(--kuct-muted)] transition hover:text-[var(--kuct-text)] sm:hidden"
  >
  ←
  </button>
@@ -428,7 +428,7 @@ export function HomeNews() {
  type="button"
  onClick={goNext}
  aria-label={n.nextPage}
- className="inline-flex rounded-full bg-[var(--kuct-panel)] p-2 text-[var(--kuct-muted)] transition hover:text-[var(--kuct-text)] sm:hidden"
+ className="inline-flex rounded-[10px] bg-[var(--kuct-panel)] p-2 text-[var(--kuct-muted)] transition hover:text-[var(--kuct-text)] sm:hidden"
  >
  →
  </button>

@@ -45,7 +45,7 @@ function JobCountdown({
 
  if (!parts) {
  return (
- <span className="rounded-full bg-[var(--kuct-accent)]/10 px-3 py-1 text-[var(--kuct-accent)]">
+ <span className="rounded-[10px] bg-[var(--kuct-accent)]/10 px-3 py-1 text-[var(--kuct-accent)]">
  {labels.countdown}…
  </span>
  );
@@ -53,7 +53,7 @@ function JobCountdown({
 
  if (parts.expired) {
  return (
- <span className="rounded-full bg-[var(--kuct-text)]/10 px-3 py-1 text-[var(--kuct-muted)]">
+ <span className="rounded-[10px] bg-[var(--kuct-text)]/10 px-3 py-1 text-[var(--kuct-muted)]">
  {labels.expired}
  </span>
  );
@@ -61,7 +61,7 @@ function JobCountdown({
 
  return (
  <span
- className="inline-flex flex-wrap items-center gap-x-2 gap-y-1 rounded-full bg-[var(--kuct-accent)]/10 px-3 py-1 tabular-nums text-[var(--kuct-accent)]"
+ className="inline-flex flex-wrap items-center gap-x-2 gap-y-1 rounded-[10px] bg-[var(--kuct-accent)]/10 px-3 py-1 tabular-nums text-[var(--kuct-accent)]"
  aria-live="polite"
  >
  <span className="font-semibold">{labels.countdown}</span>
@@ -109,18 +109,18 @@ function JobCard({
 >
  <div className="flex flex-wrap items-center gap-2 text-xs font-semibold">
  {job.priority && !closed ? (
- <span className="rounded-full bg-rose-600 px-3 py-1 text-white">
+ <span className="rounded-[10px] bg-rose-600 px-3 py-1 text-white">
  {job.priority}
  </span>
  ) : null}
  {closed ? (
- <span className="rounded-full bg-[var(--kuct-menu-hover)] px-3 py-1 text-[var(--kuct-muted)]">
+ <span className="rounded-[10px] bg-[var(--kuct-menu-hover)] px-3 py-1 text-[var(--kuct-muted)]">
  {hiring.closed}
  </span>
  ) : deadline ? (
  <JobCountdown deadline={deadline} labels={hiring} />
  ) : null}
- <span className="rounded-full bg-[var(--kuct-accent)]/10 px-3 py-1 text-[var(--kuct-accent)]">
+ <span className="rounded-[10px] bg-[var(--kuct-accent)]/10 px-3 py-1 text-[var(--kuct-accent)]">
  {engagement}
  </span>
  <span className="text-[var(--kuct-muted)]">
@@ -140,7 +140,7 @@ function JobCard({
  {job.tags.map((tag) => (
  <span
  key={tag}
- className="kuct-chip rounded-full bg-[var(--kuct-panel-2)] px-2.5 py-0.5 text-xs text-[var(--kuct-muted)]"
+ className="kuct-chip rounded-[10px] bg-[var(--kuct-panel-2)] px-2.5 py-0.5 text-xs text-[var(--kuct-muted)]"
  >
  {tag}
  </span>
@@ -149,7 +149,7 @@ function JobCard({
  <button
  type="button"
  disabled={closed}
- className="kuct-btn-primary mt-6 self-start rounded-full px-5 py-2.5 text-sm font-semibold disabled:cursor-not-allowed disabled:opacity-45"
+ className="kuct-btn-primary mt-6 self-start rounded-lg px-4 py-2.5 text-sm font-semibold disabled:cursor-not-allowed disabled:opacity-45"
  onClick={() => {
  if (!closed) onApply(job.id);
  }}

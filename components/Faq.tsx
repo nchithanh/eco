@@ -58,7 +58,7 @@ export function Faq() {
  <span>{item.q}</span>
  <span
  aria-hidden
- className="grid size-8 shrink-0 place-items-center rounded-full bg-[var(--kuct-menu-hover)] text-sm text-[var(--kuct-accent)]"
+ className="grid size-8 shrink-0 place-items-center rounded-[10px] bg-[var(--kuct-menu-hover)] text-sm text-[var(--kuct-accent)]"
  >
  {open ? "−" : "+"}
  </span>

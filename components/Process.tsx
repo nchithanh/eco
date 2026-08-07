@@ -31,8 +31,8 @@ function ProcessStep({
  aria-hidden
  className={
  isLead
- ? "absolute top-5 left-0 z-10 grid size-9 place-items-center rounded-full bg-[var(--kuct-panel-2)] font-display text-xs font-semibold tabular-nums text-[var(--kuct-accent)] sm:size-10"
- : "absolute top-5 left-0 z-10 grid size-9 place-items-center rounded-full bg-[var(--kuct-panel)] font-display text-xs font-semibold tabular-nums text-[var(--kuct-accent)]/80 sm:size-10"
+ ? "absolute top-5 left-0 z-10 grid size-9 place-items-center rounded-[10px] bg-[var(--kuct-panel-2)] font-display text-xs font-semibold tabular-nums text-[var(--kuct-accent)] sm:size-10"
+ : "absolute top-5 left-0 z-10 grid size-9 place-items-center rounded-[10px] bg-[var(--kuct-panel)] font-display text-xs font-semibold tabular-nums text-[var(--kuct-accent)]/80 sm:size-10"
  }
  >
  {String(index + 1).padStart(2, "0")}

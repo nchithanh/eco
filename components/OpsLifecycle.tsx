@@ -27,7 +27,7 @@ function OpsVisualScene({
  {chips.map((chip) => (
  <span
  key={chip}
- className="inline-flex items-center rounded-full bg-[rgba(10,10,20,0.9)] px-3 py-1 text-[11px] font-semibold tracking-wide text-[var(--kuct-muted)]"
+ className="inline-flex items-center rounded-[10px] bg-[rgba(10,10,20,0.9)] px-3 py-1 text-[11px] font-semibold tracking-wide text-[var(--kuct-muted)]"
  >
  <span className="mr-2 size-1.5 rounded-full bg-[var(--kuct-accent)]/80" />
  {chip}
@@ -50,8 +50,8 @@ function OpsVisualScene({
  <span
  className={
  isLead
- ? "relative z-[1] grid size-8 shrink-0 place-items-center rounded-full bg-[var(--kuct-panel-2)] text-[0.65rem] font-semibold tabular-nums text-[var(--kuct-accent)] "
- : "relative z-[1] grid size-8 shrink-0 place-items-center rounded-full bg-[var(--kuct-panel)] text-[0.65rem] font-semibold tabular-nums text-[var(--kuct-muted)]"
+ ? "relative z-[1] grid size-8 shrink-0 place-items-center rounded-[10px] bg-[var(--kuct-panel-2)] text-[0.65rem] font-semibold tabular-nums text-[var(--kuct-accent)] "
+ : "relative z-[1] grid size-8 shrink-0 place-items-center rounded-[10px] bg-[var(--kuct-panel)] text-[0.65rem] font-semibold tabular-nums text-[var(--kuct-muted)]"
  }
  >
  {String(index + 1).padStart(2, "0")}
@@ -159,7 +159,7 @@ export function OpsLifecycle() {
  <Reveal className="md:col-start-1 md:row-start-3">
  <a
  href="#contact"
- className="kuct-btn-primary inline-flex items-center rounded-full px-7 py-3 text-sm font-semibold"
+ className="kuct-btn-primary inline-flex items-center rounded-lg px-5 py-3 text-sm font-semibold"
  >
  {o.cta}
  </a>

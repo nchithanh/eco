@@ -201,7 +201,7 @@ function CareersApplyFormInner({ initialRole }: Props) {
  </div>
  <button
  type="submit"
- className="kuct-btn-primary rounded-full px-7 py-3 text-sm font-semibold"
+ className="kuct-btn-primary rounded-lg px-5 py-3 text-sm font-semibold"
  >
  {a.submit}
  </button>

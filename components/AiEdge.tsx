@@ -56,7 +56,7 @@ export function AiEdge() {
  <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
  {copy.eyebrow}
  </p>
- <span className="rounded-full bg-[rgba(var(--kuct-accent-rgb),0.1)] px-2.5 py-0.5 text-[10px] font-semibold tracking-wide text-[var(--kuct-accent)] uppercase">
+ <span className="rounded-[10px] bg-[rgba(var(--kuct-accent-rgb),0.1)] px-2.5 py-0.5 text-[10px] font-semibold tracking-wide text-[var(--kuct-accent)] uppercase">
  {copy.badge}
  </span>
  </div>
@@ -80,7 +80,7 @@ export function AiEdge() {
  <span className="grid size-10 place-items-center rounded-lg bg-[var(--kuct-panel-2)]">
  <CardIcon id={item.id} />
  </span>
- <span className="rounded-full bg-[var(--kuct-panel-2)] px-2 py-0.5 text-[10px] font-semibold tracking-wide text-[var(--kuct-muted)] uppercase">
+ <span className="rounded-[10px] bg-[var(--kuct-panel-2)] px-2 py-0.5 text-[10px] font-semibold tracking-wide text-[var(--kuct-muted)] uppercase">
  {item.tag}
  </span>
  </div>
@@ -97,7 +97,7 @@ export function AiEdge() {
  <Reveal delay={120} className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
  <Link
  href={routePath("/ai-transform/")}
- className="kuct-btn-primary inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold shadow-[0_10px_28px_rgb(26_21_32/0.18)]"
+ className="kuct-btn-primary inline-flex items-center justify-center rounded-lg px-4 py-3 text-sm font-semibold shadow-[0_10px_28px_rgb(26_21_32/0.18)]"
  >
  {copy.ctaTransform}
  </Link>

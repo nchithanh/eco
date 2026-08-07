@@ -74,7 +74,7 @@ function PreviewLoading({ label }: { label: string }) {
  aria-hidden
  className="h-1 w-40 overflow-hidden rounded-full bg-[rgba(var(--kuct-accent-rgb),0.15)] "
  >
- <div className="h-full w-1/2 animate-kuct-glow rounded-full bg-gradient-to-r from-[var(--kuct-btn-from)] via-[var(--kuct-btn-mid)] to-[var(--kuct-btn-to)]" />
+ <div className="h-full w-1/2 animate-kuct-glow rounded-[10px] bg-gradient-to-r from-[var(--kuct-btn-from)] via-[var(--kuct-btn-mid)] to-[var(--kuct-btn-to)]" />
  </div>
  </div>
  );
@@ -127,7 +127,7 @@ export function PagePreviewModal({
  </button>
  <a
  href={target.href}
- className="kuct-btn-primary rounded-full px-4 py-2 text-sm font-semibold"
+ className="kuct-btn-primary rounded-lg px-4 py-2 text-sm font-semibold"
  >
  {p.viewFull}
  </a>

@@ -70,8 +70,8 @@ export function UiGallery() {
  onClick={() => setActive(id)}
  className={
  selected
- ? "rounded-full bg-[rgb(26_21_32/0.08)] px-3 py-1.5 text-xs font-semibold text-[var(--kuct-text)] shadow-[0_0_20px_rgb(26_21_32/0.08)] sm:px-4 sm:py-2 sm:text-sm"
- : "rounded-full bg-[var(--kuct-panel-2)] px-3 py-1.5 text-xs font-medium text-[var(--kuct-muted)] transition hover:text-[var(--kuct-text)] sm:px-4 sm:py-2 sm:text-sm"
+ ? "rounded-[10px] bg-[rgb(26_21_32/0.08)] px-3 py-1.5 text-xs font-semibold text-[var(--kuct-text)] shadow-[0_0_20px_rgb(26_21_32/0.08)] sm:px-4 sm:py-2 sm:text-sm"
+ : "rounded-[10px] bg-[var(--kuct-panel-2)] px-3 py-1.5 text-xs font-medium text-[var(--kuct-muted)] transition hover:text-[var(--kuct-text)] sm:px-4 sm:py-2 sm:text-sm"
  }
  >
  {copy.filters[id]}
@@ -152,7 +152,7 @@ export function UiGallery() {
  <Reveal delay={120} className="mt-12 flex flex-col items-center justify-center gap-3 sm:flex-row">
  <a
  href="#capabilities"
- className="kuct-btn-primary inline-flex items-center justify-center rounded-full px-8 py-3 text-sm font-semibold shadow-[0_12px_32px_rgb(26_21_32/0.18)]"
+ className="kuct-btn-primary inline-flex items-center justify-center rounded-lg px-5 py-3 text-sm font-semibold shadow-[0_12px_32px_rgb(26_21_32/0.18)]"
  >
  {copy.ctaServices}
  </a>

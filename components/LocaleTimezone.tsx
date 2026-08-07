@@ -62,7 +62,7 @@ export function LocaleTimezone() {
 
  return (
  <span
- className="kuct-banner-chip inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[0.65rem] font-medium tracking-wide sm:text-[0.7rem]"
+ className="kuct-banner-chip inline-flex items-center gap-1 rounded-[10px] px-2 py-0.5 text-[0.65rem] font-medium tracking-wide sm:text-[0.7rem]"
  title={`${label} (${zone.timeZone})`}
  aria-label={`${label} ${time}`}
  >

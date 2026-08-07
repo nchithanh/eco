@@ -22,34 +22,75 @@ export const homepageLangJa: HomepageLang = {
   siteOutcomes: {
     eyebrow: "Outcomes",
     title: "納品後、御社が[[自ら運用]]できる業務",
-    support: "機能リストではありません。納品後の実際の成果です：見込み客、予約、コンテンツ、決済、運用——すべてが御社の管理下に。",
+    support:
+      "機能リストではありません。納品後の実際の成果です：見込み客、予約、コンテンツ、決済、運用——すべてが御社の管理下に。",
     painLead: "運用成果",
+    ctaPrimary: "見積もりを依頼",
+    ctaSecondary: "ウェブサイトサービスを見る",
+    ctaSecondaryHref: "#capabilities",
+    learnMore: "詳しく見る",
     items: [
       {
         title: "見込み客の獲得とコンバージョン",
-        body: "フォーム/CTAとシンプルな問い合わせ導線——訪問者が行動し、チームがソースを追跡できます。"
+        body: "フォーム/CTAとシンプルな問い合わせ導線——訪問者が行動し、チームがソースを追跡できます。",
+        bullets: [
+          "明確なフォームとCTA",
+          "短い問い合わせ導線——すぐ行動",
+          "チームが流入元を追跡可能",
+        ],
+        href: "/services/landing/",
       },
       {
         title: "安定した予約管理、重複なし",
-        body: "空き枠の表示、自動確認、リマインダー送信——問い合わせ電話とダブルブッキングを削減。"
+        body: "空き枠の表示、自動確認、リマインダー送信——問い合わせ電話とダブルブッキングを削減。",
+        bullets: [
+          "空き枠のリアルタイム表示",
+          "自動確認とリマインダー",
+          "空き確認電話と重複予約を削減",
+        ],
+        href: "/services/web/",
       },
       {
         title: "顧客に信頼され、記憶に残るブランド",
-        body: "ランディングページまたは企業サイトに集約されたコンテンツ——レスポンシブで読みやすく、信頼構築。"
+        body: "ランディングページまたは企業サイトに集約されたコンテンツ——レスポンシブで読みやすく、信頼構築。",
+        bullets: [
+          "集約されたLP／企業サイト",
+          "レスポンシブで読みやすい",
+          "信頼を早く築くコンテンツ",
+        ],
+        href: "/services/landing/",
       },
       {
         title: "チームが自らコンテンツを更新",
-        body: "CMS/管理画面を範囲に含む——記事、画像、価格をスタジオに依頼せず編集。"
+        body: "CMS/管理画面を範囲に含む——記事、画像、価格をスタジオに依頼せず編集。",
+        bullets: [
+          "納品範囲にCMS／管理画面",
+          "記事・画像・価格を自社で更新",
+          "日常コンテンツをチームが運用",
+        ],
+        href: "/services/web/",
       },
       {
         title: "実際のワークフロー内で決済とメッセージング",
-        body: "必要に応じてMoMo / ZaloPay / VNPay / Zalo OAを統合——手動接続より運用ミス削減。"
+        body: "必要に応じてMoMo / ZaloPay / VNPay / Zalo OAを統合——手動接続より運用ミス削減。",
+        bullets: [
+          "必要時にMoMo / ZaloPay / VNPay",
+          "問い合わせ導線にZalo OA",
+          "手動接続よりミスが少ない",
+        ],
+        href: "/services/integrations/",
       },
       {
         title: "社内運用の整理",
-        body: "ダッシュボード、ビジネスエージェント、または収集→管理ループ——10個のばらばらなツールではなく、1つの全体像。"
-      }
-    ]
+        body: "ダッシュボード、ビジネスエージェント、または収集→管理ループ——10個のばらばらなツールではなく、1つの全体像。",
+        bullets: [
+          "ダッシュボードまたは業務エージェント",
+          "収集→管理ループ",
+          "10ツールではなく1つの全体像",
+        ],
+        href: "/dolphin-care/",
+      },
+    ],
   },
   why: {
     eyebrow: "Why Dolphin",
@@ -84,34 +125,36 @@ export const homepageLangJa: HomepageLang = {
     learnMore: "詳細を見る",
     prevPage: "前へ",
     nextPage: "次へ",
+    pauseCarousel: "カルーセルを一時停止",
+    playCarousel: "カルーセルを再生",
     offers: [
       {
         id: "landing",
         title: "ランディングページ",
         body: "1ページで集中したCTA——キャンペーン、サービス、迅速なリード獲得。",
         meta: "通常3〜5日",
-        href: "/services/web"
+        href: "/services/landing/"
       },
       {
         id: "business",
         title: "企業サイト",
         body: "企業プロフィール、サービス、長期SEO——コンテンツ更新が簡単。",
         meta: "通常7〜14日",
-        href: "/services/web"
+        href: "/services/web/"
       },
       {
         id: "shop",
         title: "オンラインショップ",
         body: "カタログ、カート、決済——混乱なくオンライン販売。",
         meta: "通常3〜4週間",
-        href: "/services/web"
+        href: "/services/web/"
       },
       {
         id: "webapp",
         title: "Webアプリ",
         body: "カスタムワークフロー——予約、ポータル、チームが運用できる社内ツール。",
         meta: "プロジェクト範囲による",
-        href: "/services/web"
+        href: "/services/web/"
       }
     ],
     moreServices: [

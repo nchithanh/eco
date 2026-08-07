@@ -327,7 +327,7 @@ export function NewsDetailContent({
  <Reveal className="mt-12" immediate={embedded}>
  <a
  href={contactHref}
- className="kuct-btn-primary inline-flex items-center rounded-full px-7 py-3 text-sm font-semibold"
+ className="kuct-btn-primary inline-flex items-center rounded-lg px-5 py-3 text-sm font-semibold"
  onClick={() => {
  if (embedded) close();
  }}

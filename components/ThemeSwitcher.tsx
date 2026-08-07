@@ -51,7 +51,7 @@ export function ThemeSwitcher() {
  <div ref={rootRef} className="relative">
  <button
  type="button"
- className="inline-flex items-center gap-1.5 rounded-full border-white/60 bg-white/40 px-2.5 py-1 text-xs font-semibold tracking-wide text-[var(--kuct-text)] backdrop-blur-md transition duration-300 hover:-translate-y-0.5 hover:bg-white/70 hover:shadow-[0_8px_18px_rgb(26_21_32/0.07)]"
+ className="inline-flex items-center gap-1.5 rounded-[10px] border-white/60 bg-white/40 px-2.5 py-1 text-xs font-semibold tracking-wide text-[var(--kuct-text)] backdrop-blur-md transition duration-300 hover:-translate-y-0.5 hover:bg-white/70 hover:shadow-[0_8px_18px_rgb(26_21_32/0.07)]"
  aria-label={labels.aria}
  aria-haspopup="listbox"
  aria-expanded={open}

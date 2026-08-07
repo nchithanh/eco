@@ -4,13 +4,13 @@
     "id": "fit",
     "locale": "vi",
     "brand": "Dolphin Software",
-    "updated": "2026-08-03",
+    "updated": "2026-08-07",
     "schemaPath": "/schema/homepage/fit/",
     "rawPath": "/schema/homepage/fit.json",
     "productRoute": "/"
   },
   "content": {
-    "order": 10,
+    "order": 2,
     "id": "fit",
     "section_label": "Ai phù hợp với Dolphin Software?",
     "headline": "Dolphin Software phù hợp nhất với ai?",
@@ -36,6 +36,13 @@
         "recommended": "Nâng cấp hệ thống + AI Agent tùy chỉnh",
         "note": "Dolphin Software phân tích hệ thống hiện tại trước khi báo giá — không đẩy thêm tính năng không cần."
       }
+    ],
+    "layout": "centered-header-carousel",
+    "images": [
+      "/fit/slide-01.jpg",
+      "/fit/slide-02.jpg",
+      "/fit/slide-03.jpg",
+      "/fit/slide-04.jpg"
     ]
   }
 }

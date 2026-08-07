@@ -113,7 +113,7 @@ export function CookieConsent() {
           <div className="flex shrink-0 flex-wrap items-center gap-3">
             <button
               type="button"
-              className="kuct-btn-primary rounded-full px-5 py-2.5 text-sm font-semibold"
+              className="kuct-btn-primary rounded-lg px-4 py-2.5 text-sm font-semibold"
               onClick={() => choose("accepted")}
             >
               {c.accept}

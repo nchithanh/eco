@@ -19,14 +19,15 @@ import { Footer } from "@/components/Footer";
 
 /**
  * Homepage story (outcome-first):
- * Hero → Outcomes → Why → How we help → Projects → Care → Ops AI →
- * Process → Fit → Solutions → News → FAQ → CTA
+ * Hero → Fit → Outcomes → Why → How we help → Projects → Care → Ops AI →
+ * Process → Solutions → News → FAQ → CTA
  */
 export function HomePage() {
  return (
  <main>
  <Nav />
  <Hero />
+ <FitSection />
  <SiteOutcomes />
  <WhyKuct />
  <Capabilities />
@@ -35,7 +36,6 @@ export function HomePage() {
  <Technology />
  <AiEdge />
  <Process />
- <FitSection />
  <PopularServices />
  <HomeNews />
  <Faq />

@@ -19,8 +19,8 @@ import {
 
 function filterButtonClass(active: boolean) {
  return active
- ? "rounded-full bg-[var(--kuct-accent)]/10 px-4 py-1.5 text-sm font-medium text-[var(--kuct-text)]"
- : "rounded-full bg-[var(--kuct-panel)] px-4 py-1.5 text-sm font-medium text-[var(--kuct-muted)] transition hover:text-[var(--kuct-text)]";
+ ? "rounded-[10px] bg-[var(--kuct-accent)]/10 px-4 py-1.5 text-sm font-medium text-[var(--kuct-text)]"
+ : "rounded-[10px] bg-[var(--kuct-panel)] px-4 py-1.5 text-sm font-medium text-[var(--kuct-muted)] transition hover:text-[var(--kuct-text)]";
 }
 
 /** Canva pageNew — featured split: copy left, image right + ↗ overlay. */
@@ -88,7 +88,7 @@ function FeaturedArticleBlock({
  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[rgba(4,4,12,0.35)] via-transparent to-transparent lg:bg-gradient-to-l lg:from-[rgba(4,4,12,0.45)] lg:via-transparent lg:to-transparent" />
  <span
  aria-hidden
- className="absolute right-4 top-4 inline-flex size-10 items-center justify-center rounded-full bg-[var(--kuct-menu-hover)] text-sm text-[var(--kuct-accent)] shadow-[0_4px_12px_rgb(26_21_32/0.08)] transition group-hover:bg-black/10"
+ className="absolute right-4 top-4 inline-flex size-10 items-center justify-center rounded-[10px] bg-[var(--kuct-menu-hover)] text-sm text-[var(--kuct-accent)] shadow-[0_4px_12px_rgb(26_21_32/0.08)] transition group-hover:bg-black/10"
  >
  ↗
  </span>
