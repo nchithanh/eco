@@ -20,7 +20,7 @@ export function AboutContent() {
  return (
  <>
  <section className="relative isolate overflow-hidden py-20 sm:py-24">
- <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[rgba(var(--kuct-accent-rgb),0.1)] via-transparent to-[rgba(var(--kuct-accent-rgb),0.04)]" />
+ <div className="pointer-events-none absolute inset-0 kuct-hero-wash" aria-hidden />
  <div className="relative mx-auto max-w-6xl px-6">
  <Reveal variant="title" className="max-w-5xl text-left">
  <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">

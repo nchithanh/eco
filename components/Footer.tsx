@@ -24,7 +24,7 @@ export function Footer() {
  {
  label: f.groupStudio,
  links: [
- { href: assetPath("/services/backend/"), label: t.nav.serviceBackend },
+ { href: assetPath("/services/software/"), label: t.nav.serviceBackend },
  { href: assetPath("/about/"), label: t.nav.about },
  ],
  },

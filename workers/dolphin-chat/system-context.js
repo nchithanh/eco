@@ -168,7 +168,7 @@ Offers (starting points — confirm timeline/price on site or Zalo):
 Chi tiết trang: /services/web/ · homepage #popular-services · quote modal.
 
 ## Build — Custom software
-Phần mềm / web app theo nghiệp vụ khi scope rõ. Liên quan: /services/web/, /services/backend/, /services/integrations/, /services/design/ (UI), /services/mobile/ (mobile hiring may be closed — don’t invent open roles).
+Phần mềm / web app theo nghiệp vụ khi scope rõ. Liên quan: /services/web/, /services/software/, /services/integrations/, /services/design/ (UI), /services/mobile/ (mobile hiring may be closed — don’t invent open roles).
 
 ## Modernize
 Nhiều DN dùng hệ thống cũ. Ưu tiên phân tích → tối ưu → bổ sung tính năng → hiện đại hóa → giảm bảo trì — **tận dụng cái đang có** trước khi rebuild toàn bộ.
@@ -191,7 +191,7 @@ Messaging ưu tiên: chăm sóc website / 24/7 / báo cáo insight hằng ngày 
 ## Route map (do not invent paths)
 - Web: /services/web/
 - Mobile: /services/mobile/
-- Backend: /services/backend/
+- Backend: /services/software/
 - Design/UI: /services/design/
 - Integrations: /services/integrations/
 - Agents ecosystem: /services/agents/

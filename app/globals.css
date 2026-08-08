@@ -900,6 +900,16 @@ html[data-theme="violet"] .kuct-banner-cta-outline:hover {
   );
 }
 
+/* Page hero wash — canonical from Dolphin Care */
+.kuct-hero-wash {
+  background: linear-gradient(
+    to bottom right,
+    rgba(var(--kuct-accent-rgb), 0.08),
+    transparent,
+    rgba(var(--kuct-accent-rgb), 0.05)
+  );
+}
+
 /* Radial accent glow (Hero GlassPanels, OpsLifecycle) */
 .kuct-glow-orb {
   background: radial-gradient(
@@ -957,6 +967,101 @@ html[data-theme="black"] .kuct-glass-panel {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* EmbedSiteMock — stagger enter + mouse-scroll through tall page (web hero) */
+@keyframes kuct-site-mock-enter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes kuct-site-mock-url {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 7s: pause → scroll → pause → scroll → pause → scroll back up */
+@keyframes kuct-site-mock-scroll {
+  0%,
+  14% {
+    transform: translateY(0);
+  }
+  28% {
+    transform: translateY(-33.333%);
+  }
+  28%,
+  42% {
+    transform: translateY(-33.333%);
+  }
+  56% {
+    transform: translateY(-66.666%);
+  }
+  56%,
+  74% {
+    transform: translateY(-66.666%);
+  }
+  92%,
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes kuct-site-mock-thumb {
+  0%,
+  14% {
+    top: 4%;
+  }
+  28%,
+  42% {
+    top: 36%;
+  }
+  56%,
+  74% {
+    top: 68%;
+  }
+  92%,
+  100% {
+    top: 4%;
+  }
+}
+
+.kuct-site-mock__enter {
+  animation: kuct-site-mock-enter 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: var(--kuct-mock-delay, 0ms);
+}
+
+.kuct-site-mock__url {
+  display: inline-block;
+  animation: kuct-site-mock-url 0.28s ease both;
+}
+
+.kuct-site-mock__pane {
+  height: 33.333%;
+  min-height: 0;
+  box-sizing: border-box;
+  padding-bottom: 0.15rem;
+}
+
+.kuct-site-mock__scroll {
+  height: 300%;
+  animation: kuct-site-mock-scroll 7s cubic-bezier(0.33, 0.1, 0.25, 1) infinite;
+}
+
+.kuct-site-mock__thumb {
+  height: 22%;
+  animation: kuct-site-mock-thumb 7s cubic-bezier(0.33, 0.1, 0.25, 1) infinite;
 }
 
 /* Hero title — LCP-safe (no opacity hide); desktop settle only */
@@ -1901,6 +2006,17 @@ html[data-theme="black"] .kuct-loader-progress {
 
 /* Kill motion only when user prefers reduced motion */
 @media (prefers-reduced-motion: reduce) {
+  .kuct-site-mock__enter,
+  .kuct-site-mock__url,
+  .kuct-site-mock__scroll,
+  .kuct-site-mock__thumb {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    top: 4% !important;
+  }
+
   .animate-kuct-fade,
   .animate-kuct-float,
   .animate-kuct-float-delay,

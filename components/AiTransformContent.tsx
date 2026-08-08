@@ -68,7 +68,7 @@ export function AiTransformContent({ embedded = false }: { embedded?: boolean })
  : "relative overflow-hidden py-20 sm:py-28"
  }
  >
- <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[rgba(var(--kuct-accent-rgb),0.08)] via-transparent to-[rgba(var(--kuct-accent-rgb),0.05)]" />
+ <div className="pointer-events-none absolute inset-0 kuct-hero-wash" aria-hidden />
  <div className="relative mx-auto max-w-6xl px-6">
  <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-12">
  <Reveal variant="title" className="max-w-5xl text-left">

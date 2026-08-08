@@ -4,7 +4,7 @@
     "schemaPath": "/schema/services/",
     "rawPath": "/schema/services/index.json",
     "brand": "Dolphin Software",
-    "updated": "2026-08-06"
+    "updated": "2026-08-08"
   },
   "umbrella": [
     "Build",
@@ -38,12 +38,12 @@
       "rawPath": "/schema/services/mobile.json"
     },
     {
-      "id": "backend",
-      "title": "Backend & tích hợp hệ thống",
+      "id": "software",
+      "title": "Phát triển phần mềm theo yêu cầu",
       "pillar": "Build",
-      "productRoute": "/services/backend/",
-      "schemaPath": "/schema/services/backend/",
-      "rawPath": "/schema/services/backend.json"
+      "productRoute": "/services/software/",
+      "schemaPath": "/schema/services/software/",
+      "rawPath": "/schema/services/software.json"
     },
     {
       "id": "design",

@@ -3,7 +3,7 @@ import servicesIndex from "../../public/schema/services/index.json";
 import web from "../../public/schema/services/web.json";
 import landing from "../../public/schema/services/landing.json";
 import mobile from "../../public/schema/services/mobile.json";
-import backend from "../../public/schema/services/backend.json";
+import software from "../../public/schema/services/software.json";
 import design from "../../public/schema/services/design.json";
 import integrations from "../../public/schema/services/integrations.json";
 import agentsService from "../../public/schema/services/agents.json";
@@ -29,7 +29,7 @@ export const SCHEMA_SERVICE_SLUGS = [
   "web",
   "landing",
   "mobile",
-  "backend",
+  "software",
   "design",
   "integrations",
   "agents",
@@ -82,7 +82,7 @@ export const schemaServicesBySlug: Record<SchemaServiceSlug, object> = {
   web,
   landing,
   mobile,
-  backend,
+  software,
   design,
   integrations,
   agents: agentsService,

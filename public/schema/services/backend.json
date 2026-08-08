@@ -9,7 +9,8 @@
     "updated": "2026-08-03"
   },
   "pillar": "Build",
-  "productRoute": "/services/backend/",
+  "productRoute": "/services/software/",
+  "deprecatedNote": "Legacy schema file. Canonical service is software at /services/software/; /services/backend/ redirects.",
   "title": "Backend & tích hợp hệ thống",
   "metaTitle": "Phát Triển Backend & Tích Hợp Hệ Thống | Dolphin Software",
   "metaDescription": "Dolphin Software xây dựng backend Node.js, tích hợp API, thanh toán và bên thứ ba cho SMB Việt Nam. Báo giá minh bạch, tài liệu đầy đủ, hỗ trợ sau bàn giao.",

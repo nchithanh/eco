@@ -86,9 +86,9 @@ const vi: AboutCopy = {
       href: "/services/web/",
     },
     {
-      title: "02 · Backend & Hệ thống",
+      title: "02 · Phát triển phần mềm",
       body: "API, admin, tích hợp (Zalo, thanh toán, CRM…) — thiết kế để mở rộng và bảo trì lâu dài.",
-      href: "/services/backend/",
+      href: "/services/software/",
     },
     {
       title: "03 · AI & Automation",
@@ -215,9 +215,9 @@ const en: AboutCopy = {
       href: "/services/web/",
     },
     {
-      title: "02 · Backend & Systems",
+      title: "02 · Custom software",
       body: "APIs, admin, integrations (Zalo, payments, CRM…) — designed to scale and maintain long-term.",
-      href: "/services/backend/",
+      href: "/services/software/",
     },
     {
       title: "03 · AI & Automation",
@@ -344,9 +344,9 @@ const ja: AboutCopy = {
       href: "/services/web/",
     },
     {
-      title: "02 · バックエンド & システム",
+      title: "02 · ソフトウェア開発 & システム",
       body: "API、管理画面、連携（Zalo、決済、CRMなど） — 長期のスケールと保守を見据えた設計。",
-      href: "/services/backend/",
+      href: "/services/software/",
     },
     {
       title: "03 · AI & 自動化",

@@ -7,7 +7,7 @@
 | `/schema/homepage/` | `app/schema/homepage/page.tsx` | List section homepage; overview raw `homepage/overview.json` |
 | `/schema/homepage/[slug]/` | `app/schema/homepage/[slug]/page.tsx` | JSON từng section (hero, stats, why, …) |
 | `/schema/services/` | `app/schema/services/page.tsx` | Services index JSON |
-| `/schema/services/[slug]/` | `app/schema/services/[slug]/page.tsx` | Per-service JSON (`web`, `mobile`, `backend`, `design`, `integrations`, `agents`) |
+| `/schema/services/[slug]/` | `app/schema/services/[slug]/page.tsx` | Per-service JSON (`web`, `landing`, `mobile`, `software`, `design`, `integrations`, `agents`) |
 | `/schema/agents/` | `app/schema/agents/page.tsx` | Agents index JSON |
 | `/schema/agents/[slug]/` | `app/schema/agents/[slug]/page.tsx` | Agent product JSON (`dolphin-care`, `ai-transform`) |
 | `/company_value/` | `app/company_value/page.tsx` | Legacy redirect → `/schema/company/` |
@@ -20,10 +20,10 @@
 | `/ai-transform/` | `app/ai-transform/page.tsx` | `AiTransformContent` + `ai-transform-copy.ts`; VI Jasper SEO/AEO/GEO (meta “Lộ Trình Triển Khai AI”; custom AI agent = building block in roadmap, not a separate product; sections What We Build / Use Cases / internal proof “Builds With AI”; ROI + governance; FAQ 6 Q + links Care/about); section images under `public/services/ai-transform/` |
 | `/news/` | `app/news/page.tsx` | `NewsContent` — Canva **pageNew** (page 2): eyebrow + title/filters row; featured split; 3-col grid cards; click → full `/news/[slug]/` |
 | `/news/[slug]/` | `app/news/[slug]/page.tsx` | `NewsDetailView` — hero split: meta + title + excerpt trái, ảnh chính phải; share Facebook + copy link; body + FAQ |
-| `/services/[slug]/` | `app/services/[slug]/page.tsx` | `ServiceDetailView` + `lib/i18n/service-details.ts` — premium dark hero (CTA in hero), 3 outcome cards (+ optional AEO lead), Best for + FAQ, closing quote CTA. **`/services/web/`**, **`/services/mobile/`**, **`/services/backend/`** bake VI meta + Service/FAQ JSON-LD (Jasper SEO/AEO/GEO). Web: FAQ 7 Q, `#web-pricing`, Sites shipped 6 cases. Mobile: FAQ 6 Q, Flutter/RN, MVP 8–14 tuần. Backend: FAQ 6 Q (stack, OpenAPI, VN payments → `/services/integrations/`, no IT team, warranty, timeline 2–4 tuần). |
+| `/services/[slug]/` | `app/services/[slug]/page.tsx` | `ServiceDetailView` + `service-details.ts`. **`/services/web/`** hero = `EmbedSiteMock` wireframe (`showChat={false}` `animate`) — auto scroll chuột qua trang. Care how-section: mock + chat, tĩnh. **`/services/software/`** long-form `SoftwareServiceContent`. **`/services/backend/`** legacy redirect → software. Web/mobile bake VI meta + FAQ JSON-LD. |
 | `/services/landing/` | `app/services/landing/page.tsx` | **Landing Page** detail — `LandingPageContent` + `landing-copy.ts`; VI SEO/AEO/GEO (meta chuyên nghiệp, FAQ 7 Q, bảng ngành + giá, quy trình 5 bước); Service/FAQ JSON-LD; Nav GNB + capabilities `landing` → đây. |
 | `/tech/[slug]/` | `app/tech/[slug]/page.tsx` | `TechDetailView` + `lib/tech-stack.ts` / extras |
 | `/works/[slug]/` | `app/works/[slug]/page.tsx` | `WorkDetailView` + `lib/works-details.ts` |
 | `/more/[slug]/` | `app/more/[slug]/page.tsx` | `MoreDetailView` + `lib/more-details.ts` |
 
-Nav: desktop 2-tier (utility: News / About / Careers / Contact + locale; GNB flat — web / landing / mobile / backend / Dolphin Care / AI Transform, no dropdown). Mobile giữ accordion Dịch vụ + AI. Process & Tech removed from nav/footer. `/services/design/` still exists but is not linked from nav/footer.
+Nav: desktop 2-tier (utility: News / About / Careers / Contact + locale; GNB flat — web / landing / mobile / software / Dolphin Care / AI Transform, no dropdown). Mobile giữ accordion Dịch vụ + AI. Process & Tech removed from nav/footer. `/services/design/` still exists but is not linked from nav/footer.

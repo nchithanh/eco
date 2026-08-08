@@ -10,7 +10,7 @@ export function CareersHero() {
 
  return (
  <section className="relative overflow-hidden py-20 sm:py-28">
- <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[rgba(var(--kuct-accent-rgb),0.08)] via-transparent to-[rgba(var(--kuct-accent-rgb),0.05)]" />
+ <div className="pointer-events-none absolute inset-0 kuct-hero-wash" aria-hidden />
  <div className="relative mx-auto max-w-6xl px-6 text-left">
  <Reveal variant="title" className="max-w-5xl">
  <p className="text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">

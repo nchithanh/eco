@@ -163,8 +163,8 @@ export const homepageLangJa: HomepageLang = {
         href: "/services/mobile/"
       },
       {
-        label: "バックエンド",
-        href: "/services/backend/"
+        label: "ソフトウェア",
+        href: "/services/software/"
       },
       {
         label: "UI/UX",

@@ -193,8 +193,8 @@ export const homepageLangVi: HomepageLang = {
         href: "/services/mobile/"
       },
       {
-        label: "Backend",
-        href: "/services/backend/"
+        label: "Phần mềm",
+        href: "/services/software/"
       },
       {
         label: "UI/UX",

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { EmbedSiteMock } from "@/components/EmbedSiteMock";
 import { LazyImage } from "@/components/LazyImage";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
@@ -9,6 +10,7 @@ import { FaqAnswerText } from "@/components/FaqAnswerText";
 import { PopularServices } from "@/components/PopularServices";
 import { Reveal } from "@/components/Reveal";
 import { SitesShipped } from "@/components/SitesShipped";
+import { SoftwareServiceContent } from "@/components/SoftwareServiceContent";
 import { usePagePreview } from "@/components/PagePreviewProvider";
 import { useQuote } from "@/components/QuoteProvider";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
@@ -41,11 +43,16 @@ export function ServiceDetailContent({
  const xui = getDetailExtrasUi(locale);
  const card = t.capabilities.items.find((item) => item.id === slug);
  const hero = serviceHero(slug, theme);
+ const useWebSiteMock = slug === "web";
 
  const openQuoteFlow = () => {
  if (embedded) close();
  openQuote();
  };
+
+ if (slug === "software") {
+ return <SoftwareServiceContent embedded={embedded} />;
+ }
 
  return (
  <div>
@@ -56,7 +63,7 @@ export function ServiceDetailContent({
  : "relative overflow-hidden py-16 sm:py-20 lg:py-24"
  }
  >
- <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[rgba(var(--kuct-accent-rgb),0.12)] via-transparent to-[rgba(var(--kuct-accent-rgb),0.04)]" />
+ <div className="pointer-events-none absolute inset-0 kuct-hero-wash" aria-hidden />
  <div className="pointer-events-none absolute top-[-20%] right-[-10%] h-[28rem] w-[28rem] rounded-full bg-[rgba(var(--kuct-accent-rgb),0.08)] blur-3xl" />
 
  <div className="relative mx-auto max-w-6xl px-6">
@@ -115,7 +122,10 @@ export function ServiceDetailContent({
  </div>
  </Reveal>
 
- <Reveal variant="right" delay={80} className="relative">
+ <Reveal variant="right" delay={80} className="relative min-w-0">
+ {useWebSiteMock ? (
+ <EmbedSiteMock url="yourbusiness.com" showChat={false} animate />
+ ) : (
  <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-[var(--kuct-panel)] sm:aspect-[16/11]">
  <div className="pointer-events-none absolute inset-[18%] rounded-full opacity-50 blur-3xl kuct-glow-orb" />
  <LazyImage
@@ -127,6 +137,7 @@ export function ServiceDetailContent({
  priority={!embedded}
  />
  </div>
+ )}
  </Reveal>
  </div>
  </div>

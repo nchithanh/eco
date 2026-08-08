@@ -108,7 +108,7 @@ export function Nav() {
       label: t.nav.serviceMobile,
     },
     {
-      href: assetPath("/services/backend/"),
+      href: assetPath("/services/software/"),
       label: t.nav.serviceBackend,
     },
   ];

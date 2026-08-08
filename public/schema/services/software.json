@@ -1,0 +1,81 @@
+{
+  "meta": {
+    "kind": "service",
+    "id": "software",
+    "locale": "vi",
+    "brand": "Dolphin Software",
+    "schemaPath": "/schema/services/software/",
+    "rawPath": "/schema/services/software.json",
+    "updated": "2026-08-08"
+  },
+  "pillar": "Build",
+  "productRoute": "/services/software/",
+  "title": "Phát triển phần mềm theo yêu cầu",
+  "metaTitle": "Phát Triển Phần Mềm Theo Yêu Cầu | Dolphin Software",
+  "metaDescription": "Dolphin Software phát triển phần mềm theo yêu cầu cho doanh nghiệp: website, web app, hệ thống nội bộ, backend, API và tích hợp bên thứ ba. Phạm vi rõ ràng, bàn giao đầy đủ, hỗ trợ sau triển khai.",
+  "intro": "Dolphin Software xây dựng phần mềm theo yêu cầu dựa trên bài toán thực tế của doanh nghiệp — từ website, web app và hệ thống nội bộ đến backend, API và tích hợp bên thứ ba. Dolphin Software tập trung vào phạm vi rõ ràng, kiến trúc phù hợp và sản phẩm có thể vận hành, mở rộng sau khi bàn giao.",
+  "highlightsTitle": "Dolphin Software có thể xây dựng những gì?",
+  "highlightsLead": "Dịch vụ phát triển phần mềm của Dolphin Software bao gồm các lớp cần thiết để biến một yêu cầu kinh doanh thành sản phẩm phần mềm có thể sử dụng và phát triển tiếp.",
+  "processTitle": "Quy trình phát triển phần mềm của Dolphin Software",
+  "processLead": "Dolphin Software bắt đầu từ bài toán và phạm vi thực tế, sau đó thiết kế, phát triển, kiểm thử và bàn giao theo từng giai đoạn rõ ràng.",
+  "deliverablesTitle": "Bàn giao phần mềm bao gồm những gì?",
+  "deliverablesLead": "Bạn nhận sản phẩm có thể triển khai và tiếp tục vận hành — cùng source code, tài liệu và hướng dẫn cần thiết để không phụ thuộc hoàn toàn vào Dolphin Software.",
+  "highlights": [
+    "Website và web application — xây dựng giao diện và hệ thống phía sau phù hợp với nhu cầu kinh doanh",
+    "Phần mềm quản lý và hệ thống nội bộ — dashboard, công cụ vận hành và workflow theo quy trình thực tế",
+    "Backend và API — REST API, xác thực, phân quyền, xử lý dữ liệu và nền tảng cho web hoặc mobile",
+    "Tích hợp hệ thống — kết nối CRM, email, thanh toán, lưu trữ, webhooks và các dịch vụ bên thứ ba",
+    "Cơ sở dữ liệu và vận hành — PostgreSQL, logging và monitoring cơ bản để hệ thống có nền tảng ổn định"
+  ],
+  "process": [
+    "Làm rõ bài toán và phạm vi — xác định mục tiêu kinh doanh, người dùng, chức năng và các hệ thống cần kết nối",
+    "Thiết kế giải pháp — lựa chọn kiến trúc, mô hình dữ liệu, API và luồng trải nghiệm trước khi phát triển",
+    "Phát triển và tích hợp — triển khai từng phần, kết nối các dịch vụ cần thiết và kiểm tra trong quá trình xây dựng",
+    "Kiểm thử, triển khai và bàn giao — hoàn thiện sản phẩm, tài liệu, môi trường và hướng dẫn vận hành"
+  ],
+  "deliverables": [
+    "Phần mềm và các service cần thiết sẵn sàng triển khai lên môi trường của bạn",
+    "Source code và tài liệu kỹ thuật — để đội kỹ thuật hoặc đối tác sau này có thể tiếp tục phát triển",
+    "Tài liệu API, env samples và runbook phù hợp với phạm vi dự án",
+    "Hướng dẫn bàn giao và hỗ trợ kỹ thuật sau triển khai theo phạm vi đã thống nhất"
+  ],
+  "audience": "Doanh nghiệp, startup và SMB cần xây dựng hoặc nâng cấp phần mềm theo yêu cầu — từ website và web app đến hệ thống nội bộ, backend, API và tích hợp — mà không muốn tự duy trì đội kỹ thuật toàn thời gian.",
+  "useCases": [
+    "Website và web application — xây dựng sản phẩm số phục vụ khách hàng hoặc hoạt động kinh doanh",
+    "Phần mềm nội bộ — dashboard, công cụ quản lý và workflow giúp đội ngũ vận hành hiệu quả hơn",
+    "Backend và API — một backend phục vụ web, mobile hoặc các hệ thống khác",
+    "Tích hợp thanh toán và dịch vụ bên thứ ba — MoMo, ZaloPay, VNPay, Stripe, email, CRM và các API phổ biến",
+    "Hệ thống kết nối dữ liệu — webhooks, lưu trữ file, đồng bộ dữ liệu và kết nối nhiều công cụ trong cùng một quy trình"
+  ],
+  "faq": [
+    {
+      "q": "Dolphin Software nhận phát triển những loại phần mềm nào?",
+      "a": "Dolphin Software có thể phát triển website, web application, phần mềm quản lý, hệ thống nội bộ, backend, API và các giải pháp cần tích hợp với hệ thống bên thứ ba. Phạm vi cụ thể được xác định dựa trên bài toán và nhu cầu thực tế."
+    },
+    {
+      "q": "Tôi chỉ có ý tưởng, chưa có đặc tả kỹ thuật thì có thể làm việc với Dolphin không?",
+      "a": "Có. Bạn có thể bắt đầu từ bài toán kinh doanh và nhu cầu của người dùng. Dolphin Software sẽ cùng làm rõ phạm vi, đề xuất hướng triển khai và xác định các phần cần phát triển trước khi bắt đầu."
+    },
+    {
+      "q": "Dolphin Software có phát triển backend và API không?",
+      "a": "Có. Backend và API là một phần trong năng lực phát triển phần mềm của Dolphin Software, bao gồm REST API, xác thực, phân quyền, cơ sở dữ liệu, webhooks và các kết nối cần thiết cho web, mobile hoặc hệ thống nội bộ."
+    },
+    {
+      "q": "Dolphin Software có hỗ trợ tích hợp thanh toán và dịch vụ bên thứ ba không?",
+      "a": "Có. Dolphin Software có thể tích hợp các cổng thanh toán và dịch vụ phổ biến như MoMo, ZaloPay, VNPay, Stripe, email, CRM và các API bên thứ ba tùy theo yêu cầu của dự án."
+    },
+    {
+      "q": "Tôi không có đội kỹ thuật nội bộ thì có thể thuê Dolphin phát triển phần mềm không?",
+      "a": "Có. Dolphin Software có thể làm việc từ bài toán và yêu cầu kinh doanh, sau đó phụ trách phần phân tích, thiết kế, phát triển, kiểm thử và bàn giao trong phạm vi đã thống nhất."
+    },
+    {
+      "q": "Sau khi bàn giao, Dolphin Software có tiếp tục hỗ trợ không?",
+      "a": "Có. Các lỗi thuộc phạm vi đã nghiệm thu được xử lý theo chính sách bảo hành của dự án. Các tính năng hoặc thay đổi mới sẽ được xác định phạm vi và báo giá trước khi thực hiện."
+    },
+    {
+      "q": "Dolphin Software sử dụng công nghệ gì?",
+      "a": "Dolphin Software lựa chọn công nghệ dựa trên yêu cầu của từng dự án. Với backend, Node.js cùng NestJS hoặc Express và PostgreSQL là những lựa chọn phổ biến. Dolphin Software không ép một stack duy nhất nếu hệ thống hiện tại yêu cầu công nghệ khác."
+    }
+  ],
+  "copySource": "lib/i18n/service-details.ts + lib/detail-extras.ts"
+}

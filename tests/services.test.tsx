@@ -126,27 +126,29 @@ describe("service detail pages", () => {
     ).toBeInTheDocument();
   });
 
-  it("renders backend service detail content", () => {
+  it("renders software service detail content", () => {
     render(
       <AppProviders>
-        <ServiceDetailView slug="backend" />
+        <ServiceDetailView slug="software" />
       </AppProviders>,
     );
 
     expect(
       screen.getByRole("heading", {
-        name: /Backend & tích hợp hệ thống/i,
+        level: 1,
+        name: /Phát triển phần mềm theo yêu cầu/i,
       }),
     ).toBeInTheDocument();
     expect(
-      screen.getByText(/Bạn nhận được gì từ dịch vụ phát triển backend/i),
+      screen.getByRole("heading", {
+        name: /Dolphin Software có thể xây dựng những gì/i,
+      }),
     ).toBeInTheDocument();
     expect(
-      screen.getByText(/Dolphin Software hỗ trợ tích hợp thanh toán Việt Nam không/i),
+      screen.getByRole("heading", {
+        name: /Dolphin Software nhận phát triển những loại phần mềm nào/i,
+      }),
     ).toBeInTheDocument();
-    expect(
-      screen.getByRole("link", { name: /\/services\/integrations\//i }),
-    ).toHaveAttribute("href", expect.stringMatching(/\/services\/integrations\/?$/));
   });
 
   it("renders dolphin-care landing content", () => {

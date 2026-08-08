@@ -1,5 +1,21 @@
 # Changelog
 
+## 2026-08-08 (web-hero-mock)
+
+- Extract `EmbedSiteMock` → `components/EmbedSiteMock.tsx` (Care how-section keeps chat overlay).
+- `/services/web/` hero → browser + store wireframe only (`showChat={false}`), no Care chat — thay ảnh cứng.
+- Web hero `animate`: auto mouse-scroll dọc qua 3 block wireframe (~7s/vòng, pause ngắn + scroll back); URL + scrollbar thumb; respects `prefers-reduced-motion`.
+
+## 2026-08-08 (hero-wash)
+
+- Canonical page-hero gradient `.kuct-hero-wash` (from Dolphin Care) applied site-wide: homepage Hero + Care / Software / AI Transform / Landing / About / Careers / service & detail heroes.
+
+## 2026-08-08 (software)
+
+- Reposition `/services/backend/` → umbrella **`/services/software/`** (“Phát triển phần mềm theo yêu cầu”). Schema `software.json`; catalog/index updated; legacy `/services/backend/` 301 redirect + noindex.
+- Long-form page `SoftwareServiceContent` + section images under `public/services/software/`.
+- Nav/Footer/homepage/about/popular-services/sitemap/internal links → `/services/software/`.
+
 ## 2026-08-08 (ai-transform)
 
 - Additive upgrade `/ai-transform/`: sections **What We Build**, **Use Cases**, **Dolphin Builds With AI** (internal proof only — Overview/Content/Designer/Developer agents). Copy VI/EN/JA in `ai-transform-copy.ts`; schema `agents/ai-transform.json` adds `whatWeBuild`, `useCases`, `proof`. Meta/FAQ/process/route unchanged.

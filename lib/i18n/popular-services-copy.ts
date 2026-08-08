@@ -94,7 +94,7 @@ const vi: PopularServices = {
       warranty: "Phân tích giải pháp",
       highlight: "Phân tích giải pháp miễn phí",
       cta: "Trao đổi giải pháp",
-      detailHref: "/services/backend",
+      detailHref: "/services/software",
     },
   ],
 };
@@ -191,7 +191,7 @@ const en: PopularServices = {
       warranty: "Solution analysis",
       highlight: "Free solution analysis",
       cta: "Discuss solution",
-      detailHref: "/services/backend",
+      detailHref: "/services/software",
     },
   ],
 };
@@ -288,7 +288,7 @@ const ja: PopularServices = {
       warranty: "ソリューション分析",
       highlight: "無料ソリューション分析",
       cta: "要件を相談",
-      detailHref: "/services/backend",
+      detailHref: "/services/software",
     },
   ],
 };

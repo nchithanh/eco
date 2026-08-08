@@ -26,7 +26,7 @@ Chi tiết: `website.md`, homepage `#popular-services`, `/services/web/`.
 
 Phát triển phần mềm / web app theo nghiệp vụ (booking, portal, ops) khi scope rõ.
 
-Routes liên quan: `/services/web/`, `/services/backend/`, `/services/mobile/` (mobile hiring closed — xem careers), `/services/design/`, `/services/integrations/`.
+Routes liên quan: `/services/web/`, `/services/software/`, `/services/mobile/` (mobile hiring closed — xem careers), `/services/design/`, `/services/integrations/`.
 
 ---
 
@@ -86,12 +86,12 @@ Route: `/dolphin-care/`. Full notes: `dolphin-care.md`.
 | --- | --- |
 | Web (primary ICP) | `/services/web/` |
 | Mobile | `/services/mobile/` |
-| Backend | `/services/backend/` |
+| Custom software | `/services/software/` |
 | Design / UI | `/services/design/` |
 | Integrations | `/services/integrations/` |
 | Agents ecosystem | `/services/agents/` |
 | AI transform (agents as building blocks) | `/ai-transform/` |
 | Dolphin Care | `/dolphin-care/` |
 
-Nav “Dịch vụ” nhấn web / landing / app / backend / UI.  
+Nav “Dịch vụ” nhấn web / landing / app / software / UI.  
 Hiring: Mobile & Design closed; Marketing/Growth open — careers copy, không bịa role.
