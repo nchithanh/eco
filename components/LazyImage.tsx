@@ -9,7 +9,7 @@ type LazyImageProps = Omit<ImageProps, "loading"> & {
  loading?: ImageProps["loading"];
  /** Extra classes for the loading overlay shell. */
  overlayClassName?: string;
- /** Show KU mark watermark (default true for content images). */
+ /** Show Dolphin logo watermark (default true for content images). */
  watermark?: boolean;
 };
 

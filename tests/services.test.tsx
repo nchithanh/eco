@@ -231,6 +231,24 @@ describe("service detail pages", () => {
     ).toHaveAttribute("href", expect.stringMatching(/\/dolphin-care\/?$/));
     expect(
       screen.getByRole("heading", {
+        level: 2,
+        name: /Dolphin Xây Gì Trong Lộ Trình Chuyển Đổi AI/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { level: 3, name: /^Sales$/i }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", {
+        level: 2,
+        name: /Dolphin Builds With AI/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { level: 3, name: /Overview Agent/i }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", {
         name: /Chi phí triển khai AI transformation là bao nhiêu/i,
       }),
     ).toBeInTheDocument();

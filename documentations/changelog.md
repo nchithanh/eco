@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-08-08 (ai-transform)
+
+- Additive upgrade `/ai-transform/`: sections **What We Build**, **Use Cases**, **Dolphin Builds With AI** (internal proof only — Overview/Content/Designer/Developer agents). Copy VI/EN/JA in `ai-transform-copy.ts`; schema `agents/ai-transform.json` adds `whatWeBuild`, `useCases`, `proof`. Meta/FAQ/process/route unchanged.
+- Section images (Care-style): `public/services/ai-transform/{hero,compare,when,what-we-build,process,use-cases,proof}.jpg` wired via `SectionImage` in `AiTransformContent`.
+- Regenerated AI Transform section images (violet `#7c3aed`, editorial B2B diagrams — workflow/friction/layers/process/use-cases/internal agents; no robot/neon).
+- Brand assets champagne bronze (keep purple originals): `logo-dolphin-champagne.webp`, `dolphin-{chat,contact,eco}-champagne.webp` — Logo/SEO/chat widget/Hero/Contact/Care UI point to champagne.
+
 ## 2026-08-07 (ui)
 
 - CTA primary (`.kuct-btn-primary`): filled tím + chữ trắng (bỏ outline); radius **10px**; `font-weight: 700`; padding ngang nhỏ hơn.

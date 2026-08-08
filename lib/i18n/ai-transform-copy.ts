@@ -21,6 +21,10 @@ export type AiTransformCopy = {
   whenTitle: string;
   whenSupport: string;
   whenItems: { title: string; body: string }[];
+  whatWeBuildEyebrow: string;
+  whatWeBuildTitle: string;
+  whatWeBuildSupport: string;
+  whatWeBuildItems: { title: string; body: string }[];
   processEyebrow: string;
   processTitle: string;
   processSupport: string;
@@ -31,6 +35,10 @@ export type AiTransformCopy = {
   agentFit: string;
   agentItems: string[];
   agentNote: string;
+  useCasesEyebrow: string;
+  useCasesTitle: string;
+  useCasesSupport: string;
+  useCases: { title: string; body: string }[];
   industriesEyebrow: string;
   industriesTitle: string;
   industriesSupport: string;
@@ -43,6 +51,12 @@ export type AiTransformCopy = {
   govTitle: string;
   govSupport: string;
   govItems: string[];
+  proofEyebrow: string;
+  proofTitle: string;
+  proofSupport: string;
+  proofTypeLabel: string;
+  proofNote: string;
+  proofAgents: { title: string; body: string }[];
   faqEyebrow: string;
   faqTitle: string;
   faqItems: { q: string; a: string }[];
@@ -104,6 +118,24 @@ const vi: AiTransformCopy = {
       body: "Không nêu được tiết kiệm bao nhiêu giờ, giảm bao nhiêu lỗi — chỉ thấy hóa đơn AI tăng mỗi tháng.",
     },
   ],
+  whatWeBuildEyebrow: "Khả năng triển khai",
+  whatWeBuildTitle: "Dolphin [[Xây Gì]] Trong Lộ Trình Chuyển Đổi AI?",
+  whatWeBuildSupport:
+    "Dolphin không chỉ tư vấn doanh nghiệp dùng AI — mà thiết kế và triển khai hệ thống AI như một phần của lộ trình có kiểm soát. Các mục dưới đây là khả năng tiêu biểu trong quá trình chuyển đổi, không phải sản phẩm tách riêng.",
+  whatWeBuildItems: [
+    {
+      title: "AI Agents",
+      body: "Custom agents được thiết kế cho từng workflow và vai trò cụ thể.",
+    },
+    {
+      title: "AI Automation",
+      body: "Tự động hóa các bước lặp lại trong quy trình vận hành.",
+    },
+    {
+      title: "AI Integration",
+      body: "Kết nối AI với CRM, chat, lịch và các hệ thống doanh nghiệp hiện có.",
+    },
+  ],
   processEyebrow: "Cách Dolphin Software làm",
   processTitle: "Lộ Trình Triển Khai AI Có Kiểm Soát — [[5 Bước]] Cụ Thể",
   processSupport:
@@ -145,6 +177,28 @@ const vi: AiTransformCopy = {
   ],
   agentNote:
     "Nếu bạn cần AI hỗ trợ chăm sóc khách hàng trực tiếp tại website (FAQ tự động, booking, xử lý yêu cầu thường gặp), Dolphin Software cung cấp giải pháp chuyên biệt tại /dolphin-care/ — thiết kế riêng cho on-site customer support, không trùng với lộ trình AI transformation ở trang này. Custom AI agent là một building block trong lộ trình này, không phải sản phẩm tách riêng.",
+  useCasesEyebrow: "Use case",
+  useCasesTitle: "Ứng Dụng Thực Tế trong [[Vận Hành]] SMB",
+  useCasesSupport:
+    "Các khu vực dưới đây là điểm bắt đầu phổ biến cho chuyển đổi AI. Phạm vi cụ thể phụ thuộc quy trình và dữ liệu của từng doanh nghiệp — không phải cam kết kết quả cố định.",
+  useCases: [
+    {
+      title: "Sales",
+      body: "Capture và phân loại lead, nhắc follow-up, trả lời đa kênh theo quy tắc đã thống nhất.",
+    },
+    {
+      title: "Customer Support",
+      body: "FAQ theo kịch bản, định tuyến yêu cầu, bàn giao người khi vượt phạm vi agent.",
+    },
+    {
+      title: "Operations",
+      body: "Tổng hợp báo cáo, nhắc lịch/công việc lặp, giảm copy-paste giữa các hệ thống.",
+    },
+    {
+      title: "Internal Knowledge",
+      body: "Tra cứu tài liệu nội bộ có kiểm soát — hỗ trợ onboarding và hỏi quy trình.",
+    },
+  ],
   industriesEyebrow: "Điểm khởi đầu",
   industriesTitle: "Điểm Khởi Đầu [[Phổ Biến]] cho SMB",
   industriesSupport:
@@ -198,6 +252,31 @@ const vi: AiTransformCopy = {
     "Log đầy đủ — mọi hành động của agent đều có thể truy vết",
     "Quyền truy cập được bàn giao cho đội ngũ nội bộ sau triển khai",
     "Không vendor lock-in — doanh nghiệp toàn quyền kiểm soát sau bàn giao",
+  ],
+  proofEyebrow: "Bằng chứng nội bộ",
+  proofTitle: "Dolphin [[Builds With AI]]",
+  proofSupport:
+    "Dolphin áp dụng AI agent workflow vào chính hoạt động nội bộ — từ điều phối công việc, sản xuất nội dung, thiết kế đến phát triển software. Đây là bằng chứng năng lực nội bộ đang xây dựng, không phải case study khách hàng.",
+  proofTypeLabel: "Internal",
+  proofNote:
+    "Hệ thống đang được phát triển theo từng giai đoạn — dùng để điều phối strategy, content, design và software development trong đội ngũ Dolphin.",
+  proofAgents: [
+    {
+      title: "Overview Agent",
+      body: "Điều phối chiến lược và phân công công việc giữa các agent.",
+    },
+    {
+      title: "Content Agent",
+      body: "Hỗ trợ sản xuất và chuẩn hóa nội dung trong luồng nội bộ.",
+    },
+    {
+      title: "Designer Agent",
+      body: "Hỗ trợ thiết kế trong quy trình làm việc nội bộ.",
+    },
+    {
+      title: "Developer Agent",
+      body: "Hỗ trợ phát triển software trong quy trình nội bộ.",
+    },
   ],
   faqEyebrow: "FAQ",
   faqTitle: "Câu Hỏi Thường Gặp về Triển Khai AI cho [[Doanh Nghiệp]]",
@@ -290,6 +369,24 @@ const en: AiTransformCopy = {
       body: "You can’t name hours saved or errors cut — only a rising AI bill each month.",
     },
   ],
+  whatWeBuildEyebrow: "What we implement",
+  whatWeBuildTitle: "What Dolphin [[Builds]] in an AI Transformation Roadmap",
+  whatWeBuildSupport:
+    "Dolphin does not only advise businesses to use AI — we design and implement AI systems as part of a controlled transformation process. The items below are capabilities inside that process, not separate products.",
+  whatWeBuildItems: [
+    {
+      title: "AI Agents",
+      body: "Custom agents designed for specific workflows and roles.",
+    },
+    {
+      title: "AI Automation",
+      body: "Automating repetitive steps in operating processes.",
+    },
+    {
+      title: "AI Integration",
+      body: "Connecting AI to CRM, chat, calendars, and systems you already run.",
+    },
+  ],
   processEyebrow: "How Dolphin Software works",
   processTitle: "A Controlled AI Implementation Roadmap — [[5 Concrete]] Steps",
   processSupport:
@@ -331,6 +428,28 @@ const en: AiTransformCopy = {
   ],
   agentNote:
     "If you need AI for on-site customer care (FAQ, booking, common requests), Dolphin Software offers a dedicated product at /dolphin-care/ — built for website support, separate from this AI transformation roadmap. A custom AI agent is a building block in this roadmap, not a standalone product.",
+  useCasesEyebrow: "Use cases",
+  useCasesTitle: "Practical Applications in [[SMB Operations]]",
+  useCasesSupport:
+    "These areas are common starting points for AI transformation. Exact scope depends on each company’s processes and data — not a fixed outcome promise.",
+  useCases: [
+    {
+      title: "Sales",
+      body: "Capture and qualify leads, follow-up nudges, consistent multi-channel replies under agreed rules.",
+    },
+    {
+      title: "Customer Support",
+      body: "Scripted FAQ, request routing, and human handoff when the case leaves agent scope.",
+    },
+    {
+      title: "Operations",
+      body: "Report assembly, recurring reminders, less copy-paste between systems.",
+    },
+    {
+      title: "Internal Knowledge",
+      body: "Controlled lookup of internal docs — onboarding help and process Q&A.",
+    },
+  ],
   industriesEyebrow: "Entry points",
   industriesTitle: "Common [[Starting Points]] for SMBs",
   industriesSupport:
@@ -384,6 +503,31 @@ const en: AiTransformCopy = {
     "Full logs — every agent action is traceable",
     "Access rights handed to your internal team after launch",
     "No vendor lock-in — you keep full control after handover",
+  ],
+  proofEyebrow: "Internal proof",
+  proofTitle: "Dolphin [[Builds With AI]]",
+  proofSupport:
+    "Dolphin applies an AI agent workflow to its own internal work — from coordinating tasks, content production, and design to software development. This is internal capability evidence under construction, not a customer case study.",
+  proofTypeLabel: "Internal",
+  proofNote:
+    "The system is being developed in stages — used to coordinate strategy, content, design, and software development inside the Dolphin team.",
+  proofAgents: [
+    {
+      title: "Overview Agent",
+      body: "Coordinates strategy and task handoffs across agents.",
+    },
+    {
+      title: "Content Agent",
+      body: "Supports content production and consistency in internal flows.",
+    },
+    {
+      title: "Designer Agent",
+      body: "Supports design work inside internal workflows.",
+    },
+    {
+      title: "Developer Agent",
+      body: "Supports software development in internal processes.",
+    },
   ],
   faqEyebrow: "FAQ",
   faqTitle: "FAQ on AI Implementation for [[Business]]",
@@ -475,6 +619,24 @@ const ja: AiTransformCopy = {
       body: "何時間節約したか、ミスがどれだけ減ったか言えない — 見えるのは毎月増えるAI請求だけ。",
     },
   ],
+  whatWeBuildEyebrow: "実装できること",
+  whatWeBuildTitle: "AI変革ロードマップでDolphinが[[作るもの]]",
+  whatWeBuildSupport:
+    "Dolphinは「AIを使え」と助言するだけではありません — 制御可能な変革プロセスの一部として、AIシステムを設計・実装します。以下は別製品ではなく、そのプロセス内の代表的な能力です。",
+  whatWeBuildItems: [
+    {
+      title: "AI Agents",
+      body: "特定のワークフローと役割向けに設計したカスタムエージェント。",
+    },
+    {
+      title: "AI Automation",
+      body: "運用プロセス内の反復ステップを自動化。",
+    },
+    {
+      title: "AI Integration",
+      body: "CRM・チャット・カレンダーなど既存の業務システムへAIを接続。",
+    },
+  ],
   processEyebrow: "Dolphin Softwareの進め方",
   processTitle: "制御可能なAI導入ロードマップ — [[5つの具体]]ステップ",
   processSupport:
@@ -516,6 +678,28 @@ const ja: AiTransformCopy = {
   ],
   agentNote:
     "サイト上の顧客ケアAI（FAQ、予約、よくある依頼）が必要なら、Dolphin Softwareは /dolphin-care/ の専用製品を提供します — オンサイトサポート向けで、本ページのAI変革ロードマップとは別です。カスタムAIエージェントはこのロードマップ内のビルディングブロックであり、独立した製品ではありません。",
+  useCasesEyebrow: "ユースケース",
+  useCasesTitle: "SMB運用での[[実践的な適用]]",
+  useCasesSupport:
+    "以下はAI変革のよくある開始領域です。具体的な範囲は各社のプロセスとデータ次第 — 固定成果の約束ではありません。",
+  useCases: [
+    {
+      title: "Sales",
+      body: "リード獲得・選別、フォローリマインド、合意ルールに沿ったマルチチャネル応答。",
+    },
+    {
+      title: "Customer Support",
+      body: "シナリオFAQ、依頼の振り分け、範囲外は人へ引き継ぎ。",
+    },
+    {
+      title: "Operations",
+      body: "レポート集約、定例リマインド、システム間コピペの削減。",
+    },
+    {
+      title: "Internal Knowledge",
+      body: "社内ドキュメントの制御付き検索 — オンボーディングと手順Q&Aを支援。",
+    },
+  ],
   industriesEyebrow: "起点",
   industriesTitle: "SMBに多い[[スタート地点]]",
   industriesSupport:
@@ -569,6 +753,31 @@ const ja: AiTransformCopy = {
     "完全なログ — エージェントの全動作を追跡可能",
     "導入後は社内チームへアクセス権限を引き渡す",
     "ベンダーロックインなし — 納品後は企業が完全に制御",
+  ],
+  proofEyebrow: "社内の証跡",
+  proofTitle: "Dolphin [[Builds With AI]]",
+  proofSupport:
+    "Dolphinは自社の社内業務にAIエージェント・ワークフローを適用しています — 仕事の調整、コンテンツ制作、デザインからソフトウェア開発まで。顧客ケーススタディではなく、構築中の社内能力の証跡です。",
+  proofTypeLabel: "Internal",
+  proofNote:
+    "段階的に開発中 — Dolphinチーム内でstrategy・content・design・software developmentの調整に用います。",
+  proofAgents: [
+    {
+      title: "Overview Agent",
+      body: "戦略とエージェント間のタスク引き継ぎを調整。",
+    },
+    {
+      title: "Content Agent",
+      body: "社内フローでのコンテンツ制作と一貫性を支援。",
+    },
+    {
+      title: "Designer Agent",
+      body: "社内ワークフローでのデザイン作業を支援。",
+    },
+    {
+      title: "Developer Agent",
+      body: "社内プロセスでのソフトウェア開発を支援。",
+    },
   ],
   faqEyebrow: "FAQ",
   faqTitle: "企業向けAI導入について[[よくある質問]]",

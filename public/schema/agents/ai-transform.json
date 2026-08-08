@@ -6,7 +6,7 @@
     "brand": "Dolphin Software",
     "schemaPath": "/schema/agents/ai-transform/",
     "rawPath": "/schema/agents/ai-transform.json",
-    "updated": "2026-08-03"
+    "updated": "2026-08-08"
   },
   "pillar": "Automate",
   "displayName": "Chuyển đổi AI doanh nghiệp",
@@ -28,6 +28,20 @@
     {
       "title": "Không đo được ROI",
       "body": "Không biết giờ tiết kiệm / lỗi giảm — chỉ thấy hóa đơn AI tăng."
+    }
+  ],
+  "whatWeBuild": [
+    {
+      "title": "AI Agents",
+      "body": "Custom agents được thiết kế cho từng workflow và vai trò cụ thể."
+    },
+    {
+      "title": "AI Automation",
+      "body": "Tự động hóa các bước lặp lại trong quy trình vận hành."
+    },
+    {
+      "title": "AI Integration",
+      "body": "Kết nối AI với CRM, chat, lịch và các hệ thống doanh nghiệp hiện có."
     }
   ],
   "processSteps": [
@@ -52,6 +66,47 @@
       "body": "Use case tiếp; bàn giao vận hành và checklist mở rộng."
     }
   ],
+  "useCases": [
+    {
+      "title": "Sales",
+      "body": "Capture và phân loại lead, nhắc follow-up, trả lời đa kênh theo quy tắc đã thống nhất."
+    },
+    {
+      "title": "Customer Support",
+      "body": "FAQ theo kịch bản, định tuyến yêu cầu, bàn giao người khi vượt phạm vi agent."
+    },
+    {
+      "title": "Operations",
+      "body": "Tổng hợp báo cáo, nhắc lịch/công việc lặp, giảm copy-paste giữa các hệ thống."
+    },
+    {
+      "title": "Internal Knowledge",
+      "body": "Tra cứu tài liệu nội bộ có kiểm soát — hỗ trợ onboarding và hỏi quy trình."
+    }
+  ],
+  "proof": {
+    "title": "Dolphin Builds With AI",
+    "body": "Dolphin áp dụng AI agent workflow vào chính hoạt động nội bộ — từ điều phối công việc, sản xuất nội dung, thiết kế đến phát triển software.",
+    "type": "internal",
+    "agents": [
+      {
+        "title": "Overview Agent",
+        "body": "Điều phối chiến lược và phân công công việc giữa các agent."
+      },
+      {
+        "title": "Content Agent",
+        "body": "Hỗ trợ sản xuất và chuẩn hóa nội dung trong luồng nội bộ."
+      },
+      {
+        "title": "Designer Agent",
+        "body": "Hỗ trợ thiết kế trong quy trình làm việc nội bộ."
+      },
+      {
+        "title": "Developer Agent",
+        "body": "Hỗ trợ phát triển software trong quy trình nội bộ."
+      }
+    ]
+  },
   "faq": [
     {
       "q": "Chuyển đổi AI khác mua ChatGPT seats như thế nào?",
