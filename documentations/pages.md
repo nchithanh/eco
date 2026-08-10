@@ -2,7 +2,7 @@
 
 | Route | Page file | Main content |
 | --- | --- | --- |
-| `/schema/` | `app/schema/page.tsx` | List clickable → company / homepage / services / agents (+ slug chips); `noindex` |
+| `/demos/brokerage/` | `app/demos/brokerage/page.tsx` | Demo LP môi giới **Nguyễn Văn A Invest** (noindex) — tông SSI-inspired; lợi ích kiểu CTCK lớn; social strip; mock P&L/chart; parallax; copy `lib/demos/brokerage-copy.ts` |
 | `/schema/company/` | `app/schema/company/page.tsx` | Overview JSON (`public/schema/company.json`); `noindex` |
 | `/schema/homepage/` | `app/schema/homepage/page.tsx` | List section homepage; overview raw `homepage/overview.json` |
 | `/schema/homepage/[slug]/` | `app/schema/homepage/[slug]/page.tsx` | JSON từng section (hero, stats, why, …) |

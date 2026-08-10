@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-08-10 (brokerage demo LP)
+
+- Demo `/demos/brokerage/` — LP marketing môi giới **Nguyễn Văn A Invest** (noindex): trust/products/platform/research/fees/security/open account; Market Flow CSS; disclaimer; strip “Demo bởi Dolphin Software”.
+- Enrich mock UI: hardcode P&L danh mục, win/loss rate, lịch tư vấn 14:30, holdings/watchlist/alerts, biểu phí số; nhãn *Demo data*.
+- Motion: parallax Market Flow + hero mock; scroll reveal section lớn (`Reveal`); section **Hiệu suất** chart P&L 12 tháng animate khi vào viewport (`prefers-reduced-motion` tắt).
+- Palette SSI-inspired (đỏ `#c8102e` / trắng / xám); section lợi ích tham chiếu CTCK đầu ngành (vd. SSI) + strip Zalo/TikTok/Live/Facebook demo.
+- Platform desktop panel: layout 2 cột (NAV/metrics/spark + holdings/lịch) — đỡ trống.
+
 ## 2026-08-10 (news AI transformation)
 
 - News: `chuyen-doi-ai-doanh-nghiep-lo-trinh-5-buoc` — lộ trình chuyển đổi AI 5 bước (VI/EN/JA); ảnh cover/silos (ChatGPT·Claude·Kimi)/roadmap/outcomes; links `/ai-transform/`, `/dolphin-care/`, `/#contact`.
