@@ -45,8 +45,10 @@ Also: `AGENTS.md` — Next.js 16 may differ from training data; read local Next 
 
 ## Coding habits for this repo
 
-- Prefer dark sketch UI tokens: `--kuct-*` in `globals.css`
+- Prefer light B2B tokens: `--kuct-*` in `globals.css` (mist bg, soft lavender accent `#6b56d6`, charcoal text — see [homepage-anti-vibe-code.md](./homepage-anti-vibe-code.md) Phase 0)
+- Type helpers: `.kuct-type-h1` / `.kuct-type-h2` / `.kuct-type-body` / `.kuct-type-eyebrow`; surface `.kuct-surface-card` / `.kuct-badge`
 - Section intros: eyebrow 11px uppercase accent → H2 display → support `leading-[1.7]`
+- Radius site ~10px; avoid pill / heavy glass / neon glow on new UI
 - Use `Reveal` for scroll motion on all viewports; disable only under `prefers-reduced-motion`
 - JS motion demos (typewriter / chat cards / NeuralSphere): gate with `useDesktopMotion` (`lib/motion.ts` — reduced-motion only)
 - Hero parallax: `useParallaxScrollY` on glow / glass / mascot wrappers (`transform`); LCP copy stays fixed

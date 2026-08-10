@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-08-10 (phase-0-tokens)
+
+- Phase 0 / Sprint A anti-vibe-code: soft lavender tokens (`#6b56d6`), mist bg, charcoal text; type helpers `.kuct-type-*`; `.kuct-surface-card` / `.kuct-badge`. Docs: `homepage-anti-vibe-code.md` status, `conventions.md`, `homepage.md`.
+
+## 2026-08-10 (docs)
+
+- Added `documentations/homepage-anti-vibe-code.md` — plan thoát vibe-code (premium B2B, signature Hero, sprint A–E, checklist 15). Indexed in `README.md`.
+
 ## 2026-08-10 (ask-ai-drawer)
 
 - Site chat: right-side **Ask AI** drawer (Cloudflare-style empty state: dolphin mascot, day greeting, suggestion cards). Trigger: banner **Ask AI** to the right of Apply now (`AnnouncementBar`). FAB dolphin + Nav Ask AI removed; contact FAB kept.

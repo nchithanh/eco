@@ -13,6 +13,7 @@ Update these when code changes (see `.cursor/rules/update-documentations.mdc`).
 | [overview.md](./overview.md) | Product, brand, deploy URL |
 | [architecture.md](./architecture.md) | Stack, folders, static export, Cloudflare CDN checklist |
 | [homepage.md](./homepage.md) | Homepage section order & components |
+| [homepage-anti-vibe-code.md](./homepage-anti-vibe-code.md) | Plan: thoát vibe-code — system, Hero signature, nhịp section, checklist 15 |
 | [pages.md](./pages.md) | Routes beyond home |
 | [i18n.md](./i18n.md) | Locales & copy modules |
 | [conventions.md](./conventions.md) | Agent rules & coding notes |
