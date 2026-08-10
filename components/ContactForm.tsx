@@ -5,6 +5,7 @@ import { AccentText, BrandText } from "@/components/BrandName";
 import { Reveal } from "@/components/Reveal";
 import { assetPath } from "@/lib/asset";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
+import { MASCOT } from "@/lib/mascot";
 
 /** Contact panel visual — lg+ only. */
 function ContactVisualScene() {
@@ -18,7 +19,7 @@ function ContactVisualScene() {
  aria-hidden
  >
  <Image
- src={assetPath("/mascot/dolphin-contact.webp")}
+ src={assetPath(MASCOT.contact)}
  alt=""
  width={800}
  height={994}

@@ -4,6 +4,7 @@
 **Phase 0 / Sprint A:** Done  
 **Phase 1 / Sprint B:** Done  
 **Phase 2 / Sprint C:** Done  
+**Phase 3:** Done  
 **Next:** Sprint D (Works case depth + Process) 
 
 Plan thiết kế hệ thống cho homepage Dolphin Software: không chỉ đổi màu/font — đổi **design system**, nhịp layout, và signature nhận diện.
@@ -24,8 +25,8 @@ Hero → Fit → Outcomes → Why → Capabilities → Works → Care → Tech/A
 
 **Rủi ro vibe-code còn lại:**
 
-- Works chưa đậm problem → scope → result
-- Care / Tech chưa đủ signature #2 / callout nền tảng
+- Works chưa đậm problem → scope → result (Sprint D)
+- Works thiếu ảnh cafe/clinic riêng (placeholder)
 - Process / Pricing nhịp deliverable (Sprint D/E)
 
 ---
@@ -122,15 +123,18 @@ Hero → Fit → Outcomes → Why → Capabilities → Works → Care
 
 ## Phase 3 — Ảnh & signature thống nhất
 
+**Status:** Done (2026-08-10)
+
+- SoT mascot: `lib/mascot.ts` — `eco` (Hero) · `chat` (Care / Ask AI / EmbedSiteMock) · `contact` (Contact)
 - Ưu tiên: `EmbedSiteMock`, screenshot case thật, Care UI, Ask AI drawer
-- Mascot: `dolphin-eco` / `dolphin-chat` đúng ngữ cảnh
-- Không gen dashboard stock “AI generic”
+- Technology: giảm glow SVG + surface border (không “AI dashboard” stock)
+- Works: 4 ảnh thật; **TODO** `cafe.jpg` / `clinic.jpg` (đang placeholder tickets/beauty)
 
 **Signature (tối đa 3):**
 
-1. Hero console / browser mock  
-2. Ask AI drawer (đã có)  
-3. Mascot + lavender accent tiết chế  
+1. Hero console / browser mock (`EmbedSiteMock`)  
+2. Ask AI drawer + Care chat (`dolphin-chat`)  
+3. Mascot + lavender accent tiết chế (`dolphin-eco` / `dolphin-contact`)  
 
 ---
 

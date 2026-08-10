@@ -12,9 +12,10 @@ import {
  type AgentDolphinHomeMessage,
 } from "@/lib/i18n/agent-dolphin-copy";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
+import { MASCOT } from "@/lib/mascot";
 import { useDesktopMotion } from "@/lib/motion";
 
-const CHAT_AVATAR = "/mascot/dolphin-chat.webp";
+const CHAT_AVATAR = MASCOT.chat;
 const CHAR_MS = 28;
 const USER_GAP_MS = 480;
 const BEFORE_TYPE_MS = 420;
@@ -283,17 +284,17 @@ export function AgentDolphinHome() {
  const motion = useDesktopMotion();
 
  return (
- <section id="dolphin-care" className="scroll-mt-20 py-20 sm:py-24">
+ <section id="dolphin-care" className="scroll-mt-20 py-20 sm:py-24" aria-labelledby="home-care-heading">
  <div className="mx-auto grid max-w-6xl items-center gap-10 px-6 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-14">
  <div className="min-w-0">
  <Reveal variant="title" className="max-w-xl">
- <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
+ <p className="kuct-type-eyebrow text-[11px] sm:text-xs">
  {c.eyebrow}
  </p>
- <h2 className="mt-4 font-display text-3xl font-semibold leading-[1.12] tracking-tight text-[var(--kuct-text)] sm:text-[2.15rem] lg:text-[2.35rem] lg:leading-[1.1]">
+ <h2 id="home-care-heading" className="kuct-type-h2 mt-4 text-3xl text-[var(--kuct-text)] sm:text-[2.15rem] lg:text-[2.35rem]">
  <AccentText>{c.title}</AccentText>
  </h2>
- <p className="mt-5 max-w-[46ch] text-base leading-[1.7] text-[var(--kuct-muted)]">
+ <p className="kuct-type-body mt-5 max-w-[46ch] text-base">
  {c.support}
  </p>
  </Reveal>
@@ -303,9 +304,9 @@ export function AgentDolphinHome() {
  {c.benefits.map((benefit, index) => (
  <li
  key={benefit.title}
- className="flex items-start gap-3 rounded-xl bg-[var(--kuct-panel)] px-4 py-3"
+ className="kuct-surface-card flex items-start gap-3 px-4 py-3"
  >
- <span className="mt-0.5 grid size-9 shrink-0 place-items-center rounded-lg bg-[rgba(var(--kuct-accent-rgb),0.1)] text-[var(--kuct-accent)] ">
+ <span className="mt-0.5 grid size-9 shrink-0 place-items-center rounded-[10px] border border-[var(--kuct-border)] bg-white text-[var(--kuct-accent)]">
  {BENEFIT_ICONS[index] ?? BENEFIT_ICONS[0]}
  </span>
  <div className="min-w-0">
@@ -323,15 +324,12 @@ export function AgentDolphinHome() {
 
  {c.situations && c.situations.length > 0 ? (
  <Reveal delay={90} className="mt-7">
- <p className="text-[11px] font-semibold tracking-[0.14em] text-[var(--kuct-muted)] uppercase">
+ <p className="kuct-type-eyebrow text-[11px] text-[var(--kuct-muted)]">
  {c.situationsLabel}
  </p>
  <ul className="mt-3 flex list-none flex-wrap gap-2 p-0">
  {c.situations.map((item) => (
- <li
- key={item}
- className="rounded-[10px] bg-[var(--kuct-panel)] px-3 py-1.5 text-xs font-medium text-[var(--kuct-text)]"
- >
+ <li key={item} className="kuct-badge text-[var(--kuct-text)]">
  ✓ {item}
  </li>
  ))}
@@ -341,7 +339,7 @@ export function AgentDolphinHome() {
 
  {c.industries && c.industries.length > 0 ? (
  <Reveal delay={110} className="mt-6">
- <p className="text-[11px] font-semibold tracking-[0.14em] text-[var(--kuct-muted)] uppercase">
+ <p className="kuct-type-eyebrow text-[11px] text-[var(--kuct-muted)]">
  {c.industriesLabel}
  </p>
  <ul className="mt-3 flex list-none flex-wrap gap-2 p-0">
@@ -386,8 +384,8 @@ export function AgentDolphinHome() {
  animate={motion}
  />
  {c.pipeline && c.pipeline.length > 0 ? (
- <div className="mt-4 rounded-xl bg-[var(--kuct-panel)] px-4 py-3.5">
- <p className="text-[11px] font-semibold tracking-[0.14em] text-[var(--kuct-accent)] uppercase">
+ <div className="kuct-surface-card mt-4 px-4 py-3.5">
+ <p className="kuct-type-eyebrow text-[11px]">
  {c.pipelineLabel}
  </p>
  <p className="mt-2 text-sm leading-relaxed text-[var(--kuct-muted)]">

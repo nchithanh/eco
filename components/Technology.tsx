@@ -265,13 +265,13 @@ function NeuralSphere() {
  />
  </radialGradient>
  <radialGradient id="kuct-tech-core-glow" cx="50%" cy="50%" r="50%">
- <stop offset="0%" stopColor="var(--kuct-accent)" stopOpacity="0.35" />
- <stop offset="50%" stopColor="var(--kuct-accent-2)" stopOpacity="0.1" />
+ <stop offset="0%" stopColor="var(--kuct-accent)" stopOpacity="0.12" />
+ <stop offset="55%" stopColor="var(--kuct-accent-2)" stopOpacity="0.04" />
  <stop offset="100%" stopColor="var(--kuct-accent)" stopOpacity="0" />
  </radialGradient>
  <radialGradient id="kuct-tech-limb" cx="28%" cy="24%" r="70%">
- <stop offset="0%" stopColor="var(--kuct-accent-3)" stopOpacity="0.45" />
- <stop offset="55%" stopColor="var(--kuct-accent)" stopOpacity="0.08" />
+ <stop offset="0%" stopColor="var(--kuct-accent-3)" stopOpacity="0.2" />
+ <stop offset="55%" stopColor="var(--kuct-accent)" stopOpacity="0.04" />
  <stop offset="100%" stopColor="var(--kuct-accent)" stopOpacity="0" />
  </radialGradient>
  <linearGradient id="kuct-tech-ring" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -281,25 +281,12 @@ function NeuralSphere() {
  </linearGradient>
  <filter
  id="kuct-tech-node-glow"
- x="-120%"
- y="-120%"
- width="340%"
- height="340%"
+ x="-80%"
+ y="-80%"
+ width="260%"
+ height="260%"
  >
- <feGaussianBlur stdDeviation="1.6" result="blur" />
- <feMerge>
- <feMergeNode in="blur" />
- <feMergeNode in="SourceGraphic" />
- </feMerge>
- </filter>
- <filter
- id="kuct-tech-line-glow"
- x="-40%"
- y="-40%"
- width="180%"
- height="180%"
- >
- <feGaussianBlur stdDeviation="0.9" result="blur" />
+ <feGaussianBlur stdDeviation="0.6" result="blur" />
  <feMerge>
  <feMergeNode in="blur" />
  <feMergeNode in="SourceGraphic" />
@@ -357,7 +344,6 @@ function NeuralSphere() {
  <g
  fill="none"
  strokeLinecap="round"
- filter="url(#kuct-tech-line-glow)"
  >
  {GLOBE_LINKS.map(([a, b]) => {
  const n1 = GLOBE_NODES[a];
@@ -455,11 +441,11 @@ function TechnologyDashboard({
   widgets: { activity: string; pulse: string; nodes: string };
 }) {
   const widgetClass =
-    "kuct-tech-widget rounded-lg bg-[var(--kuct-panel-2)] p-2.5 sm:p-3";
+    "kuct-tech-widget rounded-lg border border-[var(--kuct-border)] bg-[var(--kuct-surface)] p-2.5 sm:p-3";
 
   return (
     <div
-      className="kuct-tech-dashboard relative overflow-hidden rounded-xl p-4 sm:p-5 md:p-6"
+      className="kuct-tech-dashboard relative overflow-hidden rounded-xl border border-[var(--kuct-border)] bg-[var(--kuct-surface)] p-4 sm:p-5 md:p-6"
       aria-hidden
     >
       <div className="relative mb-4 flex flex-wrap items-center justify-between gap-2.5">
@@ -576,13 +562,13 @@ export function Technology() {
  </Reveal>
 
  <Reveal className="max-w-lg lg:justify-self-end" variant="title">
- <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
+ <p className="kuct-type-eyebrow text-[11px] sm:text-xs">
  {tech.eyebrow}
  </p>
- <h2 className="mt-4 max-w-[16ch] font-display text-3xl font-semibold leading-[1.12] tracking-tight text-[var(--kuct-text)] sm:max-w-[18ch] sm:text-[2.15rem] lg:text-[2.35rem] lg:leading-[1.1]">
+ <h2 className="kuct-type-h2 mt-4 max-w-[16ch] text-3xl text-[var(--kuct-text)] sm:max-w-[18ch] sm:text-[2.15rem] lg:text-[2.35rem]">
  <AccentText>{tech.title}</AccentText>
  </h2>
- <p className="mt-5 max-w-[42ch] text-base leading-[1.7] text-[var(--kuct-muted)]">
+ <p className="kuct-type-body mt-5 max-w-[42ch] text-base">
  {tech.support}
  </p>
  {tech.principles && tech.principles.length > 0 ? (

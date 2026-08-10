@@ -30,9 +30,9 @@ Hero
 | 3 | Outcomes | `SiteOutcomes` | `#stats` — sticky left + stacked `.kuct-surface-card`; type helpers; secondary = ghost CTA |
 | 4 | Why Dolphin | `WhyKuct` | `#why` — icon-line 4 pillars + delivery `promise`; no glass cards |
 | 5 | How we help | `Capabilities` | `#capabilities` — hub + carousel **Build·Modernize·Automate·Care**; surface cards + accent active |
-| 6 | Projects | `WorksShowcase` | `#works` |
-| 7 | Dolphin Care | `AgentDolphinHome` | `#dolphin-care` |
-| 8 | Ops AI | `Technology`, `AiEdge` | `#technology` (AI Philosophy + principles VI), `#ai-edge` |
+| 6 | Projects | `WorksShowcase` | `#works` — case screenshots; TODO cafe/clinic dedicated assets |
+| 7 | Dolphin Care | `AgentDolphinHome` | `#dolphin-care` — split benefits \| chat demo (`MASCOT.chat`); surface cards |
+| 8 | Ops AI | `Technology`, `AiEdge` | `#technology` quiet surface + soft sphere (less glow); `#ai-edge` |
 | 9 | Process | `Process` | `#process` |
 | 10 | Solutions | `PopularServices` | `#popular-services` — 50/50: left intro / right top tabs + detail |
 | 11 | News | `HomeNews` | `#news` — carousel; click card → `/news/[slug]/` (full page, no popup) |

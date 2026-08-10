@@ -2,9 +2,10 @@
 
 import { useEffect, useState, type CSSProperties } from "react";
 import { assetPath } from "@/lib/asset";
+import { MASCOT } from "@/lib/mascot";
 import { useDesktopMotion } from "@/lib/motion";
 
-const CHAT_AVATAR = "/mascot/dolphin-chat.webp";
+const CHAT_AVATAR = MASCOT.chat;
 /** Full scroll cycle (down with pauses + quick return). */
 const SCROLL_CYCLE_MS = 7000;
 

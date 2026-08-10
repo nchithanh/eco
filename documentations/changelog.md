@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-08-10 (phase-3-signature)
+
+- Phase 3: `lib/mascot.ts` context map; Ask AI welcome → chat mascot; Care/Tech surface polish; Technology glow toned down; Works cafe/clinic asset TODO documented.
+
 ## 2026-08-10 (phase-2-sprint-c)
 
 - Sprint C rhythm: Why icon-line + promise; Outcomes lighter surface cards; Capabilities carousel back to Build·Modernize·Automate·Care (+ schema/docs).

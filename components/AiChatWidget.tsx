@@ -18,6 +18,7 @@ import {
  dayPartHello,
 } from "@/lib/i18n/ai-chat-copy";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
+import { MASCOT } from "@/lib/mascot";
 import { acquirePageScroll, releasePageScroll } from "@/lib/scroll-lock";
 
 const CONTACTS = {
@@ -26,7 +27,7 @@ const CONTACTS = {
  email: "nchithanh9999@gmail.com",
 } as const;
 
-const WELCOME_MASCOT = "/mascot/dolphin-eco.webp";
+const WELCOME_MASCOT = MASCOT.chat;
 
 const REPLY_TYPEWRITER_BASE_MS = 16;
 

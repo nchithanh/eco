@@ -6,6 +6,7 @@ import { EmbedSiteMock } from "@/components/EmbedSiteMock";
 import { useQuote } from "@/components/QuoteProvider";
 import { assetPath } from "@/lib/asset";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
+import { MASCOT } from "@/lib/mascot";
 
 function HeroSignature() {
   const { t } = useLocale();
@@ -42,7 +43,7 @@ function HeroSignature() {
 
         <div className="pointer-events-none absolute -right-2 -bottom-3 z-20 max-w-[38%] sm:-right-4 sm:max-w-[36%] lg:-right-6 lg:-bottom-4 lg:max-w-[40%]">
           <Image
-            src={assetPath("/mascot/dolphin-eco.webp")}
+            src={assetPath(MASCOT.eco)}
             alt=""
             width={800}
             height={994}

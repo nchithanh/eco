@@ -11,6 +11,7 @@ import { Reveal } from "@/components/Reveal";
 import { assetPath } from "@/lib/asset";
 import { getAgentDolphinCopy } from "@/lib/i18n/agent-dolphin-copy";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
+import { MASCOT } from "@/lib/mascot";
 import { useDesktopMotion } from "@/lib/motion";
 import { useQuote } from "@/components/QuoteProvider";
 
@@ -20,7 +21,7 @@ const IMG = {
  care: "/services/agent-dolphin/care.jpg",
 } as const;
 
-const CHAT_AVATAR = "/mascot/dolphin-chat.webp";
+const CHAT_AVATAR = MASCOT.chat;
 const CHAR_MS = 26;
 const BEFORE_TYPE_MS = 420;
 const AFTER_CARD_MS = 700;

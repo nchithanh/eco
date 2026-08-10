@@ -16,11 +16,13 @@ import { useLocale } from "@/lib/i18n/LocaleProvider";
 import { useTheme } from "@/lib/theme";
 import { isWorkSlug } from "@/lib/works-details";
 
+/** Case previews — real screenshots only; TODO: dedicated cafe.jpg / clinic.jpg */
 const WORK_IMAGES: Record<string, string> = {
   billiard: "/works/billiard.jpg",
   badminton: "/works/badminton.jpg",
   tickets: "/works/tickets.jpg",
   beauty: "/works/beauty.jpg",
+  // Placeholder until dedicated assets land (Phase 3 note)
   cafe: "/works/tickets.jpg",
   clinic: "/works/beauty.jpg",
 };
