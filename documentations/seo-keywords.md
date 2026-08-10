@@ -36,7 +36,7 @@ Liên quan: [growth-reach-users.md](./growth-reach-users.md) §4 & §12 B.
 | 3 | thiết kế web | comm | `/services/web/` | Biến thể | [ ] |
 | 4 | báo giá website | comm | `/news/` checklist hoặc quote CTA | Lead magnet | [ ] |
 | 5 | báo giá thiết kế website | comm | `/news/` + `#contact` | | [ ] |
-| 6 | làm landing page | comm | `/services/web/` | | [ ] |
+| 6 | làm landing page | comm | `/services/web/` · `/news/landing-page-sales-o-to-ca-nhan/` | | [x] |
 | 7 | thiết kế landing page | comm | `/services/web/` | | [ ] |
 | 8 | làm website doanh nghiệp | comm | `/services/web/` | | [ ] |
 | 9 | làm website bán hàng | comm | `/services/web/` | | [ ] |

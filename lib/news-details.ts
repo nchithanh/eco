@@ -2,6 +2,7 @@ import type { Locale } from "@/lib/i18n/types";
 import { chuyenDoiAiDoanhNghiepLoTrinh5BuocCopy } from "@/lib/news-articles/chuyen-doi-ai-doanh-nghiep-lo-trinh-5-buoc";
 import { dolphinCareBaoCaoInsightHangNgayCopy } from "@/lib/news-articles/dolphin-care-bao-cao-insight-hang-ngay";
 import { dolphinCareChatbotAiTangChuyenDoiCopy } from "@/lib/news-articles/dolphin-care-chatbot-ai-tang-chuyen-doi";
+import { landingPageSalesOToCaNhanCopy } from "@/lib/news-articles/landing-page-sales-o-to-ca-nhan";
 import { studioCuoiWebsiteXemVayOnlineCopy } from "@/lib/news-articles/studio-cuoi-website-xem-vay-online";
 import { websiteGioiThieuXeShowroomCopy } from "@/lib/news-articles/website-gioi-thieu-xe-showroom";
 
@@ -16,6 +17,7 @@ export const NEWS_CATEGORIES = [
 export type NewsCategory = (typeof NEWS_CATEGORIES)[number];
 
 export const NEWS_SLUGS = [
+  "landing-page-sales-o-to-ca-nhan",
   "chuyen-doi-ai-doanh-nghiep-lo-trinh-5-buoc",
   "dolphin-care-chatbot-ai-tang-chuyen-doi",
   "dolphin-care-bao-cao-insight-hang-ngay",
@@ -80,6 +82,10 @@ type NewsMeta = {
 };
 
 const metaBySlug: Record<NewsSlug, NewsMeta> = {
+  "landing-page-sales-o-to-ca-nhan": {
+    category: "cases",
+    date: "2026-08-11",
+  },
   "chuyen-doi-ai-doanh-nghiep-lo-trinh-5-buoc": {
     category: "process",
     date: "2026-08-10",
@@ -115,6 +121,8 @@ const categoryImages: Record<NewsCategory, string> = {
 };
 
 const slugImages: Partial<Record<NewsSlug, string>> = {
+  "landing-page-sales-o-to-ca-nhan":
+    "/news/landing-page-sales-o-to-cover.jpg",
   "chuyen-doi-ai-doanh-nghiep-lo-trinh-5-buoc":
     "/news/chuyen-doi-ai-cover.jpg",
   "dolphin-care-chatbot-ai-tang-chuyen-doi":
@@ -134,6 +142,7 @@ export function getNewsImage(slug: NewsSlug): string {
 
 const copyByLocale: Record<Locale, Record<NewsSlug, NewsArticleCopy>> = {
   vi: {
+    "landing-page-sales-o-to-ca-nhan": landingPageSalesOToCaNhanCopy.vi,
     "chuyen-doi-ai-doanh-nghiep-lo-trinh-5-buoc":
       chuyenDoiAiDoanhNghiepLoTrinh5BuocCopy.vi,
     "dolphin-care-chatbot-ai-tang-chuyen-doi":
@@ -311,6 +320,7 @@ const copyByLocale: Record<Locale, Record<NewsSlug, NewsArticleCopy>> = {
     },
   },
   en: {
+    "landing-page-sales-o-to-ca-nhan": landingPageSalesOToCaNhanCopy.en,
     "chuyen-doi-ai-doanh-nghiep-lo-trinh-5-buoc":
       chuyenDoiAiDoanhNghiepLoTrinh5BuocCopy.en,
     "dolphin-care-chatbot-ai-tang-chuyen-doi":
@@ -416,6 +426,7 @@ const copyByLocale: Record<Locale, Record<NewsSlug, NewsArticleCopy>> = {
     },
   },
   ja: {
+    "landing-page-sales-o-to-ca-nhan": landingPageSalesOToCaNhanCopy.ja,
     "chuyen-doi-ai-doanh-nghiep-lo-trinh-5-buoc":
       chuyenDoiAiDoanhNghiepLoTrinh5BuocCopy.ja,
     "dolphin-care-chatbot-ai-tang-chuyen-doi":
