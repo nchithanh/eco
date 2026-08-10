@@ -1,4 +1,5 @@
 import type { Locale } from "@/lib/i18n/types";
+import { chuyenDoiAiDoanhNghiepLoTrinh5BuocCopy } from "@/lib/news-articles/chuyen-doi-ai-doanh-nghiep-lo-trinh-5-buoc";
 import { dolphinCareBaoCaoInsightHangNgayCopy } from "@/lib/news-articles/dolphin-care-bao-cao-insight-hang-ngay";
 import { dolphinCareChatbotAiTangChuyenDoiCopy } from "@/lib/news-articles/dolphin-care-chatbot-ai-tang-chuyen-doi";
 import { studioCuoiWebsiteXemVayOnlineCopy } from "@/lib/news-articles/studio-cuoi-website-xem-vay-online";
@@ -15,6 +16,7 @@ export const NEWS_CATEGORIES = [
 export type NewsCategory = (typeof NEWS_CATEGORIES)[number];
 
 export const NEWS_SLUGS = [
+  "chuyen-doi-ai-doanh-nghiep-lo-trinh-5-buoc",
   "dolphin-care-chatbot-ai-tang-chuyen-doi",
   "dolphin-care-bao-cao-insight-hang-ngay",
   "website-gioi-thieu-xe-showroom",
@@ -78,6 +80,10 @@ type NewsMeta = {
 };
 
 const metaBySlug: Record<NewsSlug, NewsMeta> = {
+  "chuyen-doi-ai-doanh-nghiep-lo-trinh-5-buoc": {
+    category: "process",
+    date: "2026-08-10",
+  },
   "dolphin-care-chatbot-ai-tang-chuyen-doi": {
     category: "product",
     date: "2026-08-08",
@@ -109,6 +115,8 @@ const categoryImages: Record<NewsCategory, string> = {
 };
 
 const slugImages: Partial<Record<NewsSlug, string>> = {
+  "chuyen-doi-ai-doanh-nghiep-lo-trinh-5-buoc":
+    "/news/chuyen-doi-ai-cover.jpg",
   "dolphin-care-chatbot-ai-tang-chuyen-doi":
     "/news/dolphin-care-chatbot-ai-tang-chuyen-doi.jpg",
   "dolphin-care-bao-cao-insight-hang-ngay":
@@ -126,6 +134,8 @@ export function getNewsImage(slug: NewsSlug): string {
 
 const copyByLocale: Record<Locale, Record<NewsSlug, NewsArticleCopy>> = {
   vi: {
+    "chuyen-doi-ai-doanh-nghiep-lo-trinh-5-buoc":
+      chuyenDoiAiDoanhNghiepLoTrinh5BuocCopy.vi,
     "dolphin-care-chatbot-ai-tang-chuyen-doi":
       dolphinCareChatbotAiTangChuyenDoiCopy.vi,
     "dolphin-care-bao-cao-insight-hang-ngay":
@@ -301,6 +311,8 @@ const copyByLocale: Record<Locale, Record<NewsSlug, NewsArticleCopy>> = {
     },
   },
   en: {
+    "chuyen-doi-ai-doanh-nghiep-lo-trinh-5-buoc":
+      chuyenDoiAiDoanhNghiepLoTrinh5BuocCopy.en,
     "dolphin-care-chatbot-ai-tang-chuyen-doi":
       dolphinCareChatbotAiTangChuyenDoiCopy.en,
     "dolphin-care-bao-cao-insight-hang-ngay":
@@ -404,6 +416,8 @@ const copyByLocale: Record<Locale, Record<NewsSlug, NewsArticleCopy>> = {
     },
   },
   ja: {
+    "chuyen-doi-ai-doanh-nghiep-lo-trinh-5-buoc":
+      chuyenDoiAiDoanhNghiepLoTrinh5BuocCopy.ja,
     "dolphin-care-chatbot-ai-tang-chuyen-doi":
       dolphinCareChatbotAiTangChuyenDoiCopy.ja,
     "dolphin-care-bao-cao-insight-hang-ngay":

@@ -24,7 +24,7 @@ Prefer these over inventing facts. Missing → **TODO**.
 | Kind | Name | When |
 | --- | --- | --- |
 | Router | `.claude/agents/_router.md` (mirror `.cursor/agents/`) | Pick primary persona |
-| Content pack | `.claude/rules/content-*.md`, **seo-geo-html**, `.cursor/knowledge/`, `.cursor/examples/`, skills | News / social / landing + semantic HTML |
+| Content pack | `.claude/rules/content-*.md`, **seo-geo-html**, **news-image-gen**, `.cursor/knowledge/`, `.cursor/examples/`, skills | News / social / landing + semantic HTML + news art |
 | Mode | skill `mode-news` | Write / edit `/news/` blog |
 | Mode | skill `mode-social` | FB / Zalo / TikTok / Instagram copy |
 | Skill | `lang` | Locale tone (vi, en, ja) |

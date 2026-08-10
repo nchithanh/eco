@@ -29,7 +29,12 @@ describe("Dolphin Software news page", () => {
     expect(screen.getByText(/^Nổi bật$/i)).toBeInTheDocument();
     expect(
       screen.getByRole("link", {
-        name: /Dolphin Care: Không Chỉ Chatbot AI/i,
+        name: /Chuyển Đổi AI Doanh Nghiệp: Vì Sao SMB Việt Nam Mua AI Nhưng Vẫn Làm Tay/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("link", {
+        name: /Dolphin Care: Khi AI biến mỗi cuộc trò chuyện/i,
       }),
     ).toBeInTheDocument();
     expect(

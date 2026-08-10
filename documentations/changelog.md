@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-08-10 (news AI transformation)
+
+- News: `chuyen-doi-ai-doanh-nghiep-lo-trinh-5-buoc` — lộ trình chuyển đổi AI 5 bước (VI/EN/JA); ảnh cover/silos (ChatGPT·Claude·Kimi)/roadmap/outcomes; links `/ai-transform/`, `/dolphin-care/`, `/#contact`.
+
 ## 2026-08-10 (technology ops AI)
 
 - `#technology`: thay console/philosophy bằng **Giải pháp AI cho vận hành** (3 cards Agents/Automation/Integration + dual CTA `/ai-transform/`); bỏ dashboard mock; schema + copy VI/EN/JA.
