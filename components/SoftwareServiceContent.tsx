@@ -82,7 +82,7 @@ function SectionImage({
 }) {
   return (
     <div
-      className={`relative ${aspect} overflow-hidden rounded-xl bg-[var(--kuct-panel)] shadow-[0_1rem_2.5rem_rgb(26_21_32/0.08)]`}
+      className={`relative ${aspect} overflow-hidden kuct-surface-card`}
     >
       <LazyImage
         src={assetPath(src)}
@@ -141,10 +141,10 @@ export function SoftwareServiceContent({
         <div className="relative mx-auto max-w-6xl px-6">
           <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-12">
             <Reveal variant="title" className="max-w-5xl text-left">
-              <p className="text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
+              <p className="kuct-type-eyebrow">
                 {card?.category ?? "Build"}
               </p>
-              <h1 className="mt-4 max-w-[48rem] font-display text-3xl font-semibold tracking-tight text-[var(--kuct-text)] sm:text-5xl">
+              <h1 className="kuct-type-h1 mt-4 max-w-[22ch] font-display text-3xl text-[var(--kuct-text)] sm:text-4xl lg:text-[2.75rem]">
                 <AccentText>{detail.title}</AccentText>
               </h1>
               <p className="mt-5 max-w-[78ch] text-base leading-relaxed text-[var(--kuct-muted)] sm:text-lg lg:max-w-4xl">
@@ -274,7 +274,7 @@ export function SoftwareServiceContent({
                     key={step}
                     as="li"
                     delay={40 + index * 40}
-                    className="kuct-glass flex gap-4 rounded-xl p-5 sm:p-6"
+                    className="kuct-surface-card flex gap-4 rounded-xl p-5 sm:p-6"
                   >
                     <span
                       aria-hidden
@@ -336,7 +336,7 @@ export function SoftwareServiceContent({
           </Reveal>
           <div className="mt-12 grid items-start gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-12">
             <Reveal delay={40}>
-              <ul className="kuct-glass space-y-3 rounded-xl p-6 sm:p-8">
+              <ul className="kuct-surface-card space-y-3 rounded-xl p-6 sm:p-8">
                 {detail.deliverables.map((item) => (
                   <li
                     key={item}
@@ -389,7 +389,7 @@ export function SoftwareServiceContent({
                     key={item}
                     as="li"
                     delay={40 + index * 30}
-                    className="kuct-glass rounded-xl p-5 sm:p-6"
+                    className="kuct-surface-card rounded-xl p-5 sm:p-6"
                   >
                     {heading ? (
                       <>
@@ -435,7 +435,7 @@ export function SoftwareServiceContent({
           </Reveal>
           <div className="mt-12 grid items-start gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-12">
             <Reveal delay={40}>
-              <div className="kuct-glass rounded-xl p-6 sm:p-8">
+              <div className="kuct-surface-card rounded-xl p-6 sm:p-8">
                 <p className="text-base leading-relaxed text-[var(--kuct-muted)] sm:text-lg">
                   {extras.audience}
                 </p>
@@ -467,7 +467,7 @@ export function SoftwareServiceContent({
           </Reveal>
           <Reveal
             delay={60}
-            className="mx-auto mt-10 max-w-3xl divide-y divide-[var(--kuct-border)] overflow-hidden rounded-xl bg-[var(--kuct-panel)] shadow-[0_1rem_2.5rem_rgb(26_21_32/0.08)] backdrop-blur-md"
+            className="mx-auto mt-10 max-w-3xl divide-y divide-[var(--kuct-border)] overflow-hidden kuct-surface-card"
           >
             {extras.faq.map((item, index) => {
               const open = openFaq === index;
@@ -512,7 +512,7 @@ export function SoftwareServiceContent({
         <section id="contact" className="scroll-mt-20 py-20">
           <div className="mx-auto max-w-3xl px-6 text-center">
             <Reveal variant="title">
-              <p className="text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
+              <p className="kuct-type-eyebrow">
                 {closeCopy.eyebrow}
               </p>
               <h2 className="mt-3 font-display text-3xl font-semibold sm:text-4xl">

@@ -405,6 +405,10 @@ export type Dictionary = {
     engagement: string;
     comp: string;
     applyCta: string;
+    viewDetailCta: string;
+    detailClose: string;
+    share: string;
+    shareCopied: string;
     hiring: {
       closed: string;
       expired: string;
@@ -427,12 +431,21 @@ export type Dictionary = {
         | "fresher-tester";
       title: string;
       summary: string;
+      /** Overview bullets (optional); full copy may live in `detail`. */
       bullets: string[];
       tags: string[];
       /** Overrides careers.comp when set (e.g. sales commission). */
       comp?: string;
       /** Urgent / priority tab label when hiring is time-sensitive. */
       priority?: string;
+      /** Rich sections for job detail popup (sales BD pack, etc.). */
+      detail?: {
+        sections: {
+          title: string;
+          paragraphs?: string[];
+          bullets?: string[];
+        }[];
+      };
     }[];
     apply: {
       eyebrow: string;

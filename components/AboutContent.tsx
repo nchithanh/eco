@@ -23,16 +23,16 @@ export function AboutContent() {
  <div className="pointer-events-none absolute inset-0 kuct-hero-wash" aria-hidden />
  <div className="relative mx-auto max-w-6xl px-6">
  <Reveal variant="title" className="max-w-5xl text-left">
- <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
+ <p className="kuct-type-eyebrow">
  {a.eyebrow}
  </p>
- <h1 className="mt-4 font-display text-4xl font-semibold leading-[1.08] tracking-tight text-[var(--kuct-text)] sm:text-5xl lg:text-[3.25rem]">
+ <h1 className="kuct-type-h1 mt-4 font-display text-4xl text-[var(--kuct-text)] sm:text-5xl lg:text-[3.25rem]">
  <BrandName size="md" />
  </h1>
  <p className="mt-6 max-w-[60ch] font-display text-xl font-semibold leading-snug tracking-tight text-[var(--kuct-text)] sm:max-w-none sm:text-2xl lg:max-w-[48rem]">
  <AccentText>{a.motto}</AccentText>
  </p>
- <p className="mt-5 max-w-[70ch] text-base leading-[1.7] text-[var(--kuct-muted)] sm:max-w-[78ch] lg:max-w-4xl">
+ <p className="kuct-type-body mt-5 max-w-[70ch] sm:max-w-[78ch] lg:max-w-4xl">
  {a.support}
  </p>
  <div className="mt-9 flex flex-wrap items-center justify-start gap-3">
@@ -57,10 +57,10 @@ export function AboutContent() {
  <section className="scroll-mt-20 py-24">
  <div className="mx-auto max-w-6xl px-6">
  <Reveal variant="title" className="max-w-2xl">
- <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
+ <p className="kuct-type-eyebrow">
  {a.mindsetEyebrow}
  </p>
- <h2 className="mt-4 font-display text-3xl font-semibold leading-[1.12] tracking-tight sm:text-[2.15rem]">
+ <h2 className="kuct-type-h2 mt-4 font-display text-3xl sm:text-[2.15rem]">
  <AccentText>{a.mindsetTitle}</AccentText>
  </h2>
  <p className="mt-5 max-w-[48ch] text-base leading-[1.7] text-[var(--kuct-muted)]">
@@ -74,8 +74,8 @@ export function AboutContent() {
  delay={index * 60}
  className={
  index === 2
- ? "rounded-xl bg-[var(--kuct-panel)] p-5 backdrop-blur-md sm:p-6"
- : "rounded-xl bg-[var(--kuct-panel)] p-5 backdrop-blur-md sm:p-6"
+ ? "kuct-surface-card p-5 sm:p-6"
+ : "kuct-surface-card p-5 sm:p-6"
  }
  >
  <h3 className="font-display text-sm font-semibold tracking-wide text-[var(--kuct-text)]">
@@ -93,10 +93,10 @@ export function AboutContent() {
  <section className="scroll-mt-20 py-24">
  <div className="mx-auto max-w-6xl px-6">
  <Reveal variant="title" className="max-w-2xl">
- <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
+ <p className="kuct-type-eyebrow">
  {a.buildEyebrow}
  </p>
- <h2 className="mt-4 font-display text-3xl font-semibold leading-[1.12] tracking-tight sm:text-[2.15rem]">
+ <h2 className="kuct-type-h2 mt-4 font-display text-3xl sm:text-[2.15rem]">
  <AccentText>{a.buildTitle}</AccentText>
  </h2>
  <p className="mt-5 max-w-[48ch] text-base leading-[1.7] text-[var(--kuct-muted)]">
@@ -110,8 +110,8 @@ export function AboutContent() {
  delay={index * 50}
  className={
  index === 0 || index === 3
- ? "rounded-xl bg-[var(--kuct-panel)] p-5 backdrop-blur-md sm:p-6"
- : "rounded-xl bg-[var(--kuct-panel)] p-5 backdrop-blur-md sm:p-6"
+ ? "kuct-surface-card p-5 sm:p-6"
+ : "kuct-surface-card p-5 sm:p-6"
  }
  >
  <p className="text-[11px] font-semibold tabular-nums tracking-wide text-[var(--kuct-accent)]/80">
@@ -141,10 +141,10 @@ export function AboutContent() {
  <section className="scroll-mt-20 py-24">
  <div className="mx-auto max-w-6xl px-6">
  <Reveal variant="title" className="max-w-2xl">
- <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
+ <p className="kuct-type-eyebrow">
  {a.proofEyebrow}
  </p>
- <h2 className="mt-4 font-display text-3xl font-semibold leading-[1.12] tracking-tight sm:text-[2.15rem]">
+ <h2 className="kuct-type-h2 mt-4 font-display text-3xl sm:text-[2.15rem]">
  <AccentText>{a.proofTitle}</AccentText>
  </h2>
  <p className="mt-5 max-w-[48ch] text-base leading-[1.7] text-[var(--kuct-muted)]">
@@ -156,7 +156,7 @@ export function AboutContent() {
  <Reveal
  key={item.title}
  delay={index * 50}
- className="rounded-xl bg-[var(--kuct-panel)] p-5 backdrop-blur-md sm:p-6"
+ className="kuct-surface-card p-5 sm:p-6"
  >
  <h3 className="font-display text-sm font-semibold tracking-wide text-[var(--kuct-text)]">
  {item.title}
@@ -172,7 +172,7 @@ export function AboutContent() {
 
  <section className="scroll-mt-20 py-24">
  <div className="mx-auto max-w-6xl px-6">
- <Reveal className="grid items-center gap-10 rounded-xl bg-[var(--kuct-panel)] p-8 backdrop-blur-md sm:p-10 lg:grid-cols-[220px_1fr] lg:gap-12 lg:p-12">
+ <Reveal className="kuct-surface-card grid items-center gap-10 p-8 sm:p-10 lg:grid-cols-[220px_1fr] lg:gap-12 lg:p-12">
  <div className="relative mx-auto w-full max-w-[200px] lg:max-w-none">
  <div className="relative aspect-[3/4] overflow-hidden border-2 border-black bg-[var(--kuct-panel-2)]">
  <LazyImage
@@ -186,7 +186,7 @@ export function AboutContent() {
  </div>
  </div>
  <div className="min-w-0 text-left">
- <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
+ <p className="kuct-type-eyebrow">
  {a.founderEyebrow}
  </p>
  <h2 className="mt-3 font-display text-2xl font-semibold tracking-tight text-[var(--kuct-text)] sm:text-[1.75rem]">
@@ -221,17 +221,17 @@ export function AboutContent() {
  className="scroll-mt-20 py-24"
  >
  <div className="mx-auto max-w-6xl px-6">
- <Reveal variant="title" className="max-w-2xl">
- <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
+ <Reveal variant="title" className="mx-auto max-w-2xl text-center">
+ <p className="kuct-type-eyebrow">
  {a.faqEyebrow}
  </p>
- <h2 className="mt-4 font-display text-3xl font-semibold leading-[1.12] tracking-tight sm:text-[2.15rem]">
+ <h2 className="kuct-type-h2 mt-4 font-display text-3xl sm:text-[2.15rem]">
  <AccentText>{a.faqTitle}</AccentText>
  </h2>
  </Reveal>
  <Reveal
  delay={60}
- className="mx-auto mt-10 max-w-3xl divide-y divide-[var(--kuct-border)] overflow-hidden rounded-xl bg-[var(--kuct-panel)] shadow-[0_1rem_2.5rem_rgb(26_21_32/0.08)] backdrop-blur-md"
+ className="mx-auto mt-10 max-w-3xl divide-y divide-[var(--kuct-border)] overflow-hidden kuct-surface-card"
  >
  {a.faqItems.map((item, index) => {
  const open = openFaq === index;
@@ -274,8 +274,8 @@ export function AboutContent() {
 
  <section className="scroll-mt-20 py-24">
  <div className="mx-auto max-w-6xl px-6">
- <Reveal variant="title" className="rounded-xl bg-[var(--kuct-panel)] px-6 py-10 text-center backdrop-blur-md sm:px-10 sm:py-12">
- <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
+ <Reveal variant="title" className="kuct-surface-card px-6 py-10 text-center sm:px-10 sm:py-12">
+ <p className="kuct-type-eyebrow">
  {a.ctaEyebrow}
  </p>
  <h2 className="mx-auto mt-4 max-w-[28ch] font-display text-3xl font-semibold leading-[1.12] tracking-tight sm:text-[2.15rem]">

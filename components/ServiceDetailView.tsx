@@ -43,7 +43,8 @@ export function ServiceDetailContent({
  const xui = getDetailExtrasUi(locale);
  const card = t.capabilities.items.find((item) => item.id === slug);
  const hero = serviceHero(slug, theme);
- const useWebSiteMock = slug === "web";
+ const useSiteMock = slug === "web" || slug === "mobile";
+ const useDevicesMock = slug === "mobile";
 
  const openQuoteFlow = () => {
  if (embedded) close();
@@ -64,7 +65,6 @@ export function ServiceDetailContent({
  }
  >
  <div className="pointer-events-none absolute inset-0 kuct-hero-wash" aria-hidden />
- <div className="pointer-events-none absolute top-[-20%] right-[-10%] h-[28rem] w-[28rem] rounded-full bg-[rgba(var(--kuct-accent-rgb),0.08)] blur-3xl" />
 
  <div className="relative mx-auto max-w-6xl px-6">
  {!embedded ? (
@@ -80,13 +80,13 @@ export function ServiceDetailContent({
  className={`${embedded ? "mt-0" : "mt-8"} grid items-center gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-14`}
  >
  <Reveal variant="title" className="min-w-0">
- <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
+ <p className="kuct-type-eyebrow">
  {card?.category ?? t.capabilities.eyebrow}
  </p>
- <h1 className="mt-4 max-w-[18ch] font-display text-3xl font-semibold leading-[1.1] tracking-tight text-[var(--kuct-text)] sm:text-4xl lg:text-[2.75rem] lg:leading-[1.08]">
+ <h1 className="kuct-type-h1 mt-4 max-w-[18ch] font-display text-3xl text-[var(--kuct-text)] sm:text-4xl lg:text-[2.75rem]">
  <AccentText>{detail.title}</AccentText>
  </h1>
- <p className="mt-5 max-w-[42ch] text-base leading-[1.7] text-[var(--kuct-muted)] sm:text-[1.0625rem]">
+ <p className="kuct-type-body mt-5 max-w-[42ch]">
  <BrandText size="sm">{detail.intro}</BrandText>
  </p>
 
@@ -95,7 +95,7 @@ export function ServiceDetailContent({
  {card.tags.map((tag) => (
  <li
  key={tag}
- className="rounded-[10px] bg-[var(--kuct-panel-2)] px-3 py-1.5 text-xs font-semibold text-[var(--kuct-muted)]"
+ className="kuct-badge"
  >
  {tag}
  </li>
@@ -106,7 +106,7 @@ export function ServiceDetailContent({
  <div className="mt-8 flex flex-wrap items-center gap-3">
  <button
  type="button"
- className="kuct-btn-primary inline-flex items-center rounded-lg px-5 py-3.5 text-sm font-semibold shadow-[0_14px_36px_rgb(26_21_32/0.18)]"
+ className="kuct-btn-primary inline-flex items-center rounded-lg px-5 py-3.5 text-sm font-semibold"
  onClick={openQuoteFlow}
  >
  {ui.cta}
@@ -123,11 +123,12 @@ export function ServiceDetailContent({
  </Reveal>
 
  <Reveal variant="right" delay={80} className="relative min-w-0">
- {useWebSiteMock ? (
+ {useDevicesMock ? (
+ <EmbedSiteMock variant="devices" showChat={false} animate />
+ ) : useSiteMock ? (
  <EmbedSiteMock url="yourbusiness.com" showChat={false} animate />
  ) : (
  <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-[var(--kuct-panel)] sm:aspect-[16/11]">
- <div className="pointer-events-none absolute inset-[18%] rounded-full opacity-50 blur-3xl kuct-glow-orb" />
  <LazyImage
  src={hero}
  alt={detail.title}
@@ -198,8 +199,8 @@ export function ServiceDetailContent({
  </ul>
  </Reveal>
 
- <Reveal delay={60} className="rounded-xl bg-[var(--kuct-panel)] p-5 backdrop-blur-md sm:p-6">
- <h2 className="text-[11px] font-semibold tracking-[0.16em] text-[var(--kuct-accent)] uppercase">
+ <Reveal delay={60} className="kuct-surface-card p-5 sm:p-6">
+ <h2 className="kuct-type-eyebrow text-center">
  {xui.faqTitle}
  </h2>
  <ul className="mt-4 list-none space-y-3 p-0">
@@ -223,7 +224,7 @@ export function ServiceDetailContent({
  <Reveal className="mt-12 rounded-xl bg-[var(--kuct-panel)] px-6 py-8 text-center sm:mt-14 sm:px-10 sm:py-10">
  <button
  type="button"
- className="kuct-btn-primary inline-flex items-center rounded-lg px-5 py-3.5 text-sm font-semibold shadow-[0_14px_36px_rgb(26_21_32/0.18)]"
+ className="kuct-btn-primary inline-flex items-center rounded-lg px-5 py-3.5 text-sm font-semibold"
  onClick={openQuoteFlow}
  >
  {ui.cta}

@@ -77,7 +77,7 @@ export function MoreDetailContent({
  <section className={embedded ? "py-10 sm:py-12" : "py-16 sm:py-20"}>
  <div className="mx-auto grid max-w-6xl gap-8 px-6 lg:grid-cols-2 lg:items-stretch">
  <Reveal className="h-full">
- <div className="kuct-glass h-full rounded-xl p-6">
+ <div className="kuct-surface-card h-full rounded-xl p-6">
  <h2 className="font-display text-lg font-semibold text-[var(--kuct-text)]">
  {ui.highlightsTitle}
  </h2>
@@ -89,7 +89,7 @@ export function MoreDetailContent({
  </div>
  </Reveal>
  <Reveal delay={60} className="h-full">
- <div className="kuct-glass h-full rounded-xl p-6">
+ <div className="kuct-surface-card h-full rounded-xl p-6">
  <h2 className="font-display text-lg font-semibold text-[var(--kuct-text)]">
  {ui.processTitle}
  </h2>
@@ -104,7 +104,7 @@ export function MoreDetailContent({
 
  <div className="mx-auto mt-10 max-w-6xl px-6">
  <Reveal>
- <div className="kuct-glass rounded-xl p-6">
+ <div className="kuct-surface-card rounded-xl p-6">
  <h2 className="font-display text-lg font-semibold text-[var(--kuct-text)]">
  {ui.notesTitle}
  </h2>

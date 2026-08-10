@@ -35,7 +35,7 @@ function SectionImage({
 }) {
   return (
     <div
-      className={`relative ${aspect} overflow-hidden rounded-xl bg-[var(--kuct-panel)] shadow-[0_1rem_2.5rem_rgb(26_21_32/0.08)]`}
+      className={`relative ${aspect} overflow-hidden kuct-surface-card`}
     >
       <LazyImage
         src={assetPath(src)}
@@ -72,10 +72,10 @@ export function AiTransformContent({ embedded = false }: { embedded?: boolean })
  <div className="relative mx-auto max-w-6xl px-6">
  <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-12">
  <Reveal variant="title" className="max-w-5xl text-left">
- <p className="text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
+ <p className="kuct-type-eyebrow">
  {c.eyebrow}
  </p>
- <h1 className="mt-4 max-w-[48rem] font-display text-3xl font-semibold tracking-tight text-[var(--kuct-text)] sm:text-5xl">
+ <h1 className="kuct-type-h1 mt-4 max-w-[48rem] font-display text-3xl text-[var(--kuct-text)] sm:text-5xl">
  <AccentText>{c.headline}</AccentText>
  </h1>
  <p className="mt-5 max-w-[78ch] text-base leading-relaxed text-[var(--kuct-muted)] sm:text-lg lg:max-w-4xl">
@@ -120,7 +120,7 @@ export function AiTransformContent({ embedded = false }: { embedded?: boolean })
  <p className="text-center text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
  {c.compareEyebrow}
  </p>
- <h2 className="mt-3 text-center font-display text-3xl font-semibold sm:text-4xl">
+ <h2 className="kuct-type-h2 mt-3 text-center font-display text-3xl sm:text-4xl">
  <AccentText>{c.compareTitle}</AccentText>
  </h2>
  <p className="mx-auto mt-3 max-w-2xl text-center text-[var(--kuct-muted)]">
@@ -132,7 +132,7 @@ export function AiTransformContent({ embedded = false }: { embedded?: boolean })
  </Reveal>
  <div className="mt-12 grid gap-6 lg:grid-cols-2 lg:items-stretch">
  <Reveal delay={40} className="h-full">
- <article className="kuct-glass flex h-full flex-col rounded-xl p-6 sm:p-8">
+ <article className="kuct-surface-card flex h-full flex-col rounded-xl p-6 sm:p-8">
  <h3 className="font-display text-xl font-semibold text-[var(--kuct-muted)]">
  {c.offShelfTitle}
  </h3>
@@ -149,7 +149,7 @@ export function AiTransformContent({ embedded = false }: { embedded?: boolean })
  </article>
  </Reveal>
  <Reveal delay={100} className="h-full">
- <article className="kuct-glass flex h-full flex-col rounded-xl p-6 sm:p-8 ">
+ <article className="kuct-surface-card flex h-full flex-col rounded-xl p-6 sm:p-8 ">
  <h3 className="font-display text-xl font-semibold text-[var(--kuct-text)]">
  {c.customTitle}
  </h3>
@@ -178,7 +178,7 @@ export function AiTransformContent({ embedded = false }: { embedded?: boolean })
  <p className="text-center text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
  {c.whenEyebrow}
  </p>
- <h2 className="mt-3 text-center font-display text-3xl font-semibold sm:text-4xl">
+ <h2 className="kuct-type-h2 mt-3 text-center font-display text-3xl sm:text-4xl">
  <AccentText>{c.whenTitle}</AccentText>
  </h2>
  <p className="mx-auto mt-3 max-w-2xl text-center text-[var(--kuct-muted)]">
@@ -194,7 +194,7 @@ export function AiTransformContent({ embedded = false }: { embedded?: boolean })
  key={item.title}
  as="li"
  delay={40 + index * 40}
- className="kuct-glass rounded-xl p-6"
+ className="kuct-surface-card rounded-xl p-6"
  >
  <span className="text-xs font-bold tracking-[0.14em] text-[var(--kuct-accent)]">
  {String(index + 1).padStart(2, "0")}
@@ -223,7 +223,7 @@ export function AiTransformContent({ embedded = false }: { embedded?: boolean })
  </p>
  <h2
  id="ai-transform-what-we-build"
- className="mt-3 text-center font-display text-3xl font-semibold sm:text-4xl"
+ className="kuct-type-h2 mt-3 text-center font-display text-3xl sm:text-4xl"
  >
  <AccentText>{c.whatWeBuildTitle}</AccentText>
  </h2>
@@ -245,7 +245,7 @@ export function AiTransformContent({ embedded = false }: { embedded?: boolean })
  key={item.title}
  as="li"
  delay={40 + index * 40}
- className="kuct-glass rounded-xl p-6"
+ className="kuct-surface-card rounded-xl p-6"
  >
  <h3 className="font-display text-lg font-semibold text-[var(--kuct-text)]">
  {item.title}
@@ -266,7 +266,7 @@ export function AiTransformContent({ embedded = false }: { embedded?: boolean })
  <p className="text-center text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
  {c.processEyebrow}
  </p>
- <h2 className="mt-3 text-center font-display text-3xl font-semibold sm:text-4xl">
+ <h2 className="kuct-type-h2 mt-3 text-center font-display text-3xl sm:text-4xl">
  <AccentText>{c.processTitle}</AccentText>
  </h2>
  <p className="mx-auto mt-3 max-w-2xl text-center text-[var(--kuct-muted)]">
@@ -282,7 +282,7 @@ export function AiTransformContent({ embedded = false }: { embedded?: boolean })
  key={step.title}
  as="li"
  delay={40 + index * 40}
- className="kuct-glass flex gap-4 rounded-xl p-5 sm:p-6"
+ className="kuct-surface-card flex gap-4 rounded-xl p-5 sm:p-6"
  >
  <span
  aria-hidden
@@ -311,7 +311,7 @@ export function AiTransformContent({ embedded = false }: { embedded?: boolean })
  <p className="text-center text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
  {c.agentEyebrow}
  </p>
- <h2 className="mt-3 text-center font-display text-3xl font-semibold sm:text-4xl">
+ <h2 className="kuct-type-h2 mt-3 text-center font-display text-3xl sm:text-4xl">
  <AccentText>{c.agentTitle}</AccentText>
  </h2>
  <p className="mx-auto mt-3 max-w-3xl text-center text-[var(--kuct-muted)]">
@@ -322,7 +322,7 @@ export function AiTransformContent({ embedded = false }: { embedded?: boolean })
  </p>
  </Reveal>
  <Reveal delay={60} className="mx-auto mt-10 max-w-3xl">
- <ul className="kuct-glass space-y-3 rounded-xl p-6 sm:p-8">
+ <ul className="kuct-surface-card space-y-3 rounded-xl p-6 sm:p-8">
  {c.agentItems.map((item) => (
  <li
  key={item}
@@ -357,7 +357,7 @@ export function AiTransformContent({ embedded = false }: { embedded?: boolean })
  </p>
  <h2
  id="ai-transform-use-cases"
- className="mt-3 text-center font-display text-3xl font-semibold sm:text-4xl"
+ className="kuct-type-h2 mt-3 text-center font-display text-3xl sm:text-4xl"
  >
  <AccentText>{c.useCasesTitle}</AccentText>
  </h2>
@@ -374,7 +374,7 @@ export function AiTransformContent({ embedded = false }: { embedded?: boolean })
  key={item.title}
  as="li"
  delay={40 + (index % 2) * 40}
- className="kuct-glass rounded-xl p-6"
+ className="kuct-surface-card rounded-xl p-6"
  >
  <h3 className="font-display text-lg font-semibold text-[var(--kuct-text)]">
  {item.title}
@@ -394,7 +394,7 @@ export function AiTransformContent({ embedded = false }: { embedded?: boolean })
  <p className="text-center text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
  {c.industriesEyebrow}
  </p>
- <h2 className="mt-3 text-center font-display text-3xl font-semibold sm:text-4xl">
+ <h2 className="kuct-type-h2 mt-3 text-center font-display text-3xl sm:text-4xl">
  <AccentText>{c.industriesTitle}</AccentText>
  </h2>
  <p className="mx-auto mt-3 max-w-2xl text-center text-[var(--kuct-muted)]">
@@ -407,7 +407,7 @@ export function AiTransformContent({ embedded = false }: { embedded?: boolean })
  key={item.name}
  as="li"
  delay={40 + (index % 3) * 40}
- className="kuct-glass rounded-xl p-5"
+ className="kuct-surface-card rounded-xl p-5"
  >
  <h3 className="font-display text-base font-semibold text-[var(--kuct-text)]">
  {item.name}
@@ -427,7 +427,7 @@ export function AiTransformContent({ embedded = false }: { embedded?: boolean })
  <p className="text-center text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
  {c.roiEyebrow}
  </p>
- <h2 className="mt-3 text-center font-display text-3xl font-semibold sm:text-4xl">
+ <h2 className="kuct-type-h2 mt-3 text-center font-display text-3xl sm:text-4xl">
  <AccentText>{c.roiTitle}</AccentText>
  </h2>
  <p className="mx-auto mt-3 max-w-2xl text-center text-[var(--kuct-muted)]">
@@ -440,7 +440,7 @@ export function AiTransformContent({ embedded = false }: { embedded?: boolean })
  key={item.title}
  as="li"
  delay={40 + index * 40}
- className="kuct-glass rounded-xl p-6"
+ className="kuct-surface-card rounded-xl p-6"
  >
  <h3 className="font-display text-lg font-semibold text-[var(--kuct-text)]">
  {item.title}
@@ -460,7 +460,7 @@ export function AiTransformContent({ embedded = false }: { embedded?: boolean })
  <p className="text-center text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
  {c.govEyebrow}
  </p>
- <h2 className="mt-3 text-center font-display text-3xl font-semibold sm:text-4xl">
+ <h2 className="kuct-type-h2 mt-3 text-center font-display text-3xl sm:text-4xl">
  <AccentText>{c.govTitle}</AccentText>
  </h2>
  <p className="mx-auto mt-3 max-w-3xl text-center text-[var(--kuct-muted)]">
@@ -468,7 +468,7 @@ export function AiTransformContent({ embedded = false }: { embedded?: boolean })
  </p>
  </Reveal>
  <Reveal delay={60} className="mx-auto mt-10 max-w-3xl">
- <ul className="kuct-glass space-y-3 rounded-xl p-6 sm:p-8">
+ <ul className="kuct-surface-card space-y-3 rounded-xl p-6 sm:p-8">
  {c.govItems.map((item) => (
  <li
  key={item}
@@ -500,7 +500,7 @@ export function AiTransformContent({ embedded = false }: { embedded?: boolean })
  </p>
  <h2
  id="ai-transform-proof"
- className="mt-3 text-center font-display text-3xl font-semibold sm:text-4xl"
+ className="kuct-type-h2 mt-3 text-center font-display text-3xl sm:text-4xl"
  >
  <AccentText>{c.proofTitle}</AccentText>
  </h2>
@@ -522,7 +522,7 @@ export function AiTransformContent({ embedded = false }: { embedded?: boolean })
  key={item.title}
  as="li"
  delay={40 + (index % 2) * 40}
- className="kuct-glass rounded-xl p-5 sm:p-6"
+ className="kuct-surface-card rounded-xl p-5 sm:p-6"
  >
  <h3 className="font-display text-base font-semibold text-[var(--kuct-text)]">
  {item.title}
@@ -545,7 +545,7 @@ export function AiTransformContent({ embedded = false }: { embedded?: boolean })
  <p className="text-center text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
  {c.faqEyebrow}
  </p>
- <h2 className="mt-3 text-center font-display text-3xl font-semibold sm:text-4xl">
+ <h2 className="kuct-type-h2 mt-3 text-center font-display text-3xl sm:text-4xl">
  <AccentText>{c.faqTitle}</AccentText>
  </h2>
  </Reveal>
@@ -598,10 +598,10 @@ export function AiTransformContent({ embedded = false }: { embedded?: boolean })
  >
  <div className="mx-auto max-w-3xl px-6 text-center">
  <Reveal variant="title">
- <p className="text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
+ <p className="kuct-type-eyebrow">
  {c.closeEyebrow}
  </p>
- <h2 className="mt-3 font-display text-3xl font-semibold sm:text-4xl">
+ <h2 className="kuct-type-h2 mt-3 font-display text-3xl sm:text-4xl">
  <AccentText>{c.closeTitle}</AccentText>
  </h2>
  <p className="mx-auto mt-4 max-w-xl text-[var(--kuct-muted)]">

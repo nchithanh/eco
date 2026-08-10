@@ -1,12 +1,13 @@
 # Homepage — thoát vibe-code (premium B2B)
 
-**Status:** In progress  
+**Status:** In progress (homepage Done; **site-wide Nav pages** started 2026-08-10)  
 **Phase 0 / Sprint A:** Done  
 **Phase 1 / Sprint B:** Done  
 **Phase 2 / Sprint C:** Done  
 **Phase 3:** Done  
 **Phase 4:** Done  
-**Next:** Sprint D (Works case depth + Process) 
+**Site-wide (Nav pages):** In progress — glass→surface, type helpers on service/Care/AI/About/Careers/News/Works  
+**Next:** Sprint D (Works case depth + Process); Sprint E mobile polish Care/AiEdge  
 
 Plan thiết kế hệ thống cho homepage Dolphin Software: không chỉ đổi màu/font — đổi **design system**, nhịp layout, và signature nhận diện.
 

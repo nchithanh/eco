@@ -100,7 +100,7 @@ export function TechDetailContent({
 
  <div className="mt-10 grid gap-6 lg:grid-cols-2 lg:items-stretch">
  <Reveal className="h-full">
- <div className="kuct-glass h-full rounded-xl p-6">
+ <div className="kuct-surface-card h-full rounded-xl p-6">
  <h2 className="font-display text-lg font-semibold text-[var(--kuct-text)]">
  {xui.whenToUseTitle}
  </h2>
@@ -112,7 +112,7 @@ export function TechDetailContent({
  </div>
  </Reveal>
  <Reveal delay={60} className="h-full">
- <div className="kuct-glass h-full rounded-xl p-6">
+ <div className="kuct-surface-card h-full rounded-xl p-6">
  <h2 className="font-display text-lg font-semibold text-[var(--kuct-text)]">
  {xui.stackFitTitle}
  </h2>
@@ -134,7 +134,7 @@ export function TechDetailContent({
  key={feature.title}
  as="li"
  delay={40 + index * 40}
- className="kuct-glass kuct-card-hover rounded-xl p-5"
+ className="kuct-surface-card kuct-card-hover rounded-xl p-5"
  >
  <h3 className="font-display text-base font-semibold text-[var(--kuct-text)]">
  {feature.title}

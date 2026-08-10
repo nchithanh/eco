@@ -1,5 +1,22 @@
 # Changelog
 
+## 2026-08-10 (careers share)
+
+- Popup chi tiết job: nút **Share** (Web Share API / copy link); deep link `/careers/?job=<id>` mở lại popup.
+
+## 2026-08-10 (careers BD)
+
+- Sales → **Business Development Partner** (FB post); card overview + popup detail; hoa hồng **40% → 30%** (careers copy + announcement, VI/EN/JA).
+
+## 2026-08-10 (mobile hero mock)
+
+- `/services/mobile/` hero: `EmbedSiteMock variant="devices"` — **1 phone + 1 iPad**, trong cùng wireframe scroll như homepage/web (không browser desktop, không ảnh cứng).
+
+## 2026-08-10 (anti-vibe site-wide)
+
+- Áp Phase 0 design language lên **trang Nav** (+ `/works/[slug]/`): `kuct-glass` → `kuct-surface-card`; `.kuct-type-*` trên hero/section; bớt glow orb & shadow CTA nặng (services, Care, AI, about, careers, news, works).
+- SoT: [homepage-anti-vibe-code.md](./homepage-anti-vibe-code.md) (site-wide in progress).
+
 ## 2026-08-10 (claude-handoff)
 
 - Claude Code pack: `CLAUDE.md` project brief; `.claude/rules|agents|skills` mirrored from Cursor; `documentations/claude-handoff.md` + agent-ops dual-IDE table.

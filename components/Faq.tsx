@@ -15,13 +15,13 @@ export function Faq() {
  <section id="faq" className="scroll-mt-20 py-24">
  <div className="mx-auto max-w-6xl px-6">
  <Reveal variant="title" className="mx-auto max-w-2xl text-center">
- <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
+ <p className="kuct-type-eyebrow">
  {f.eyebrow}
  </p>
- <h2 className="mt-4 font-display text-3xl font-semibold leading-[1.12] tracking-tight text-[var(--kuct-text)] sm:text-[2.15rem] lg:text-[2.35rem] lg:leading-[1.1]">
+ <h2 className="kuct-type-h2 mt-4 font-display text-3xl text-[var(--kuct-text)] sm:text-[2.15rem] lg:text-[2.35rem]">
  <AccentText>{f.title}</AccentText>
  </h2>
- <p className="mx-auto mt-5 max-w-[68ch] text-base leading-[1.7] text-[var(--kuct-muted)] sm:whitespace-nowrap">
+ <p className="kuct-type-body mx-auto mt-5 max-w-[68ch] sm:whitespace-nowrap">
  {f.support}
  </p>
  </Reveal>

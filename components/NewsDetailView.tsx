@@ -186,7 +186,7 @@ export function NewsDetailContent({
  </time>
  </div>
 
- <h1 className="mt-3 font-display text-3xl font-semibold tracking-tight text-[var(--kuct-text)] sm:text-4xl lg:text-[2.65rem] lg:leading-tight">
+ <h1 className="kuct-type-h1 mt-3 font-display text-3xl text-[var(--kuct-text)] sm:text-4xl lg:text-[2.65rem]">
  {detail.title}
  </h1>
 
@@ -215,7 +215,7 @@ export function NewsDetailContent({
  </Reveal>
 
  <Reveal delay={80} variant="right" immediate={embedded}>
- <div className="relative aspect-[16/10] overflow-hidden rounded-xl bg-[var(--kuct-panel)] shadow-[0_1rem_2.5rem_rgba(139,92,246,0.12)] lg:aspect-auto lg:min-h-[18rem]">
+ <div className="relative aspect-[16/10] overflow-hidden rounded-xl bg-[var(--kuct-panel)]  lg:aspect-auto lg:min-h-[18rem]">
  <LazyImage
  src={themeAsset(detail.image, theme)}
  alt={detail.title}
@@ -247,7 +247,7 @@ export function NewsDetailContent({
  {faqItems.length > 0 ? (
  <Reveal delay={40} immediate>
  <aside className="mt-14 border-t pt-10">
- <h2 className="font-display text-lg font-semibold text-[var(--kuct-text)] sm:text-xl">
+ <h2 className="text-center font-display text-lg font-semibold text-[var(--kuct-text)] sm:text-xl">
  {ui.faqTitle}
  </h2>
  <div className="mt-4 divide-y divide-[var(--kuct-border)] overflow-hidden rounded-xl bg-[var(--kuct-panel)]">

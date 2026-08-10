@@ -38,8 +38,7 @@ export function LandingPageContent() {
 
       <section className="relative isolate overflow-hidden py-16 sm:py-20 lg:py-24">
         <div className="pointer-events-none absolute inset-0 kuct-hero-wash" aria-hidden />
-        <div className="pointer-events-none absolute top-[-20%] right-[-10%] h-[28rem] w-[28rem] rounded-full bg-[rgba(var(--kuct-accent-rgb),0.08)] blur-3xl" />
-        <div className="relative mx-auto max-w-6xl px-6">
+               <div className="relative mx-auto max-w-6xl px-6">
           <Link
             href="/#popular-services"
             className="inline-flex text-sm font-medium text-[var(--kuct-muted)] transition hover:text-[var(--kuct-accent)]"
@@ -48,13 +47,13 @@ export function LandingPageContent() {
           </Link>
           <div className="mt-8 grid items-center gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-14">
             <Reveal variant="title" className="min-w-0">
-              <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
+              <p className="kuct-type-eyebrow">
                 {c.eyebrow}
               </p>
-              <h1 className="mt-4 max-w-[22ch] font-display text-3xl font-semibold leading-[1.1] tracking-tight text-[var(--kuct-text)] sm:text-4xl lg:text-[2.75rem] lg:leading-[1.08]">
+              <h1 className="kuct-type-h1 mt-4 max-w-[22ch] font-display text-3xl text-[var(--kuct-text)] sm:text-4xl lg:text-[2.75rem]">
                 <AccentText>{c.title}</AccentText>
               </h1>
-              <p className="mt-5 max-w-[46ch] text-base leading-[1.7] text-[var(--kuct-muted)] sm:text-[1.0625rem]">
+              <p className="kuct-type-body mt-5 max-w-[46ch]">
                 {c.lead}
               </p>
               <p className="mt-4 max-w-[46ch] text-sm leading-[1.65] text-[var(--kuct-text)]/85">
@@ -63,7 +62,7 @@ export function LandingPageContent() {
               <div className="mt-8 flex flex-wrap items-center gap-3">
                 <button
                   type="button"
-                  className="kuct-btn-primary inline-flex items-center rounded-lg px-5 py-3.5 text-sm font-semibold shadow-[0_14px_36px_rgb(26_21_32/0.18)]"
+                  className="kuct-btn-primary inline-flex items-center rounded-lg px-5 py-3.5 text-sm font-semibold"
                   onClick={openQuote}
                 >
                   {c.ctaPrimary}
@@ -77,9 +76,8 @@ export function LandingPageContent() {
               </div>
             </Reveal>
             <Reveal variant="right" delay={80} className="relative">
-              <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-[var(--kuct-panel)] sm:aspect-[16/11]">
-                <div className="pointer-events-none absolute inset-[18%] rounded-full opacity-50 blur-3xl kuct-glow-orb" />
-                <LazyImage
+              <div className="relative aspect-[4/3] overflow-hidden kuct-surface-card sm:aspect-[16/11]">
+                                <LazyImage
                   src={hero}
                   alt={c.title}
                   fill
@@ -96,11 +94,11 @@ export function LandingPageContent() {
       <section
         id="landing-what"
         aria-labelledby="landing-what-heading"
-        className="scroll-mt-20 py-16 sm:py-20"
+        className="scroll-mt-20 py-20 sm:py-24"
       >
         <div className="mx-auto max-w-6xl px-6">
           <Reveal variant="title" className="max-w-3xl">
-            <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
+            <p className="kuct-type-eyebrow">
               {c.whatEyebrow}
             </p>
             <h2
@@ -113,7 +111,7 @@ export function LandingPageContent() {
               {c.whatBody}
             </p>
           </Reveal>
-          <Reveal className="mt-10 rounded-xl bg-[var(--kuct-panel)] p-5 sm:p-6">
+          <Reveal className="mt-10 kuct-surface-card p-5 sm:p-6">
             <h3 className="font-display text-sm font-semibold tracking-wide text-[var(--kuct-text)]">
               {c.whenTitle}
             </h3>
@@ -138,11 +136,11 @@ export function LandingPageContent() {
       <section
         id="landing-why"
         aria-labelledby="landing-why-heading"
-        className="scroll-mt-20 py-16 sm:py-20"
+        className="scroll-mt-20 py-20 sm:py-24"
       >
         <div className="mx-auto max-w-6xl px-6">
           <Reveal variant="title" className="max-w-3xl">
-            <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
+            <p className="kuct-type-eyebrow">
               {c.whyEyebrow}
             </p>
             <h2
@@ -160,7 +158,7 @@ export function LandingPageContent() {
               <Reveal
                 key={item.title}
                 delay={index * 40}
-                className="rounded-xl bg-[var(--kuct-panel)] p-5 backdrop-blur-md sm:p-6"
+                className="kuct-surface-card p-5 sm:p-6"
               >
                 <p className="text-[11px] font-semibold tabular-nums tracking-wide text-[var(--kuct-accent)]/80">
                   {String(index + 1).padStart(2, "0")}
@@ -180,11 +178,11 @@ export function LandingPageContent() {
       <section
         id="landing-include"
         aria-labelledby="landing-include-heading"
-        className="scroll-mt-20 py-16 sm:py-20"
+        className="scroll-mt-20 py-20 sm:py-24"
       >
         <div className="mx-auto max-w-6xl px-6">
           <Reveal variant="title" className="max-w-3xl">
-            <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
+            <p className="kuct-type-eyebrow">
               {c.includeEyebrow}
             </p>
             <h2
@@ -202,7 +200,7 @@ export function LandingPageContent() {
               <Reveal
                 key={group.title}
                 delay={index * 50}
-                className="rounded-xl bg-[var(--kuct-panel)] p-5 backdrop-blur-md sm:p-6"
+                className="kuct-surface-card p-5 sm:p-6"
               >
                 <h3 className="font-display text-base font-semibold tracking-wide text-[var(--kuct-text)]">
                   {group.title}
@@ -230,11 +228,11 @@ export function LandingPageContent() {
       <section
         id="landing-industries"
         aria-labelledby="landing-industries-heading"
-        className="scroll-mt-20 py-16 sm:py-20"
+        className="scroll-mt-20 py-20 sm:py-24"
       >
         <div className="mx-auto max-w-6xl px-6">
           <Reveal variant="title" className="max-w-3xl">
-            <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
+            <p className="kuct-type-eyebrow">
               {c.industriesEyebrow}
             </p>
             <h2
@@ -247,7 +245,7 @@ export function LandingPageContent() {
               {c.industriesIntro}
             </p>
           </Reveal>
-          <Reveal className="mt-10 overflow-hidden rounded-xl bg-[var(--kuct-panel)]">
+          <Reveal className="mt-10 overflow-hidden kuct-surface-card">
             <div className="overflow-x-auto">
               <table className="w-full min-w-[28rem] border-collapse text-left text-sm">
                 <thead>
@@ -284,11 +282,11 @@ export function LandingPageContent() {
       <section
         id="landing-process"
         aria-labelledby="landing-process-heading"
-        className="scroll-mt-20 py-16 sm:py-20"
+        className="scroll-mt-20 py-20 sm:py-24"
       >
         <div className="mx-auto max-w-6xl px-6">
           <Reveal variant="title" className="max-w-3xl">
-            <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
+            <p className="kuct-type-eyebrow">
               {c.processEyebrow}
             </p>
             <h2
@@ -303,7 +301,7 @@ export function LandingPageContent() {
               <Reveal
                 key={step.title}
                 delay={index * 40}
-                className="rounded-xl bg-[var(--kuct-panel)] p-5 sm:p-6"
+                className="kuct-surface-card p-5 sm:p-6"
               >
                 <div className="flex gap-4">
                   <span className="font-display text-sm font-semibold tabular-nums text-[var(--kuct-accent)]">
@@ -327,11 +325,11 @@ export function LandingPageContent() {
       <section
         id="landing-pricing"
         aria-labelledby="landing-pricing-heading"
-        className="scroll-mt-20 py-16 sm:py-20"
+        className="scroll-mt-20 py-20 sm:py-24"
       >
         <div className="mx-auto max-w-6xl px-6">
           <Reveal variant="title" className="max-w-3xl">
-            <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
+            <p className="kuct-type-eyebrow">
               {c.pricingEyebrow}
             </p>
             <h2
@@ -344,7 +342,7 @@ export function LandingPageContent() {
               {c.pricingNote}
             </p>
           </Reveal>
-          <Reveal className="mt-10 overflow-hidden rounded-xl bg-[var(--kuct-panel)]">
+          <Reveal className="mt-10 overflow-hidden kuct-surface-card">
             <div className="overflow-x-auto">
               <table className="w-full min-w-[36rem] border-collapse text-left text-sm">
                 <thead>
@@ -398,11 +396,11 @@ export function LandingPageContent() {
       <section
         id="landing-faq"
         aria-labelledby="landing-faq-heading"
-        className="scroll-mt-20 py-16 sm:py-20"
+        className="scroll-mt-20 py-20 sm:py-24"
       >
         <div className="mx-auto max-w-6xl px-6">
-          <Reveal variant="title" className="max-w-3xl">
-            <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
+          <Reveal variant="title" className="mx-auto max-w-3xl text-center">
+            <p className="kuct-type-eyebrow">
               {c.faqEyebrow}
             </p>
             <h2
@@ -421,7 +419,7 @@ export function LandingPageContent() {
                 <li key={item.q}>
                   <Reveal
                     delay={index * 30}
-                    className="rounded-xl bg-[var(--kuct-panel)] backdrop-blur-md"
+                    className="kuct-surface-card"
                   >
                     <h3>
                       <button
@@ -470,8 +468,8 @@ export function LandingPageContent() {
         className="scroll-mt-20 py-16 sm:py-20 lg:pb-24"
       >
         <div className="mx-auto max-w-6xl px-6">
-          <Reveal className="rounded-xl bg-[var(--kuct-panel)] px-6 py-10 text-center sm:px-10 sm:py-12">
-            <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
+          <Reveal className="kuct-surface-card px-6 py-10 text-center sm:px-10 sm:py-12">
+            <p className="kuct-type-eyebrow">
               {c.closeEyebrow}
             </p>
             <h2

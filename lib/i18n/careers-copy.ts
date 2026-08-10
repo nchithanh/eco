@@ -6,7 +6,7 @@ const vi: CareersCopy = {
   meta: {
     title: "Tuyển dụng freelance IT | Dolphin Software tuyển dụng 2026",
     description:
-      "Dolphin Software tuyển freelance IT tại Việt Nam — Sales hoa hồng 40%, AI Engineer, Backend Node.js, Marketing và nhiều vị trí khác. Remote-friendly, thanh toán theo giờ. Ứng tuyển ngay!",
+      "Dolphin Software tuyển freelance IT tại Việt Nam — Sales hoa hồng 30%, AI Engineer, Backend Node.js, Marketing và nhiều vị trí khác. Remote-friendly, thanh toán theo giờ. Ứng tuyển ngay!",
   },
   hero: {
     eyebrow: "Careers",
@@ -23,7 +23,7 @@ const vi: CareersCopy = {
       "Làm việc từ xa 100%, không cần lên văn phòng",
       "Thanh toán theo giờ hoặc theo deliverable, tùy từng vị trí",
       "Mức tham chiếu: ~1.000 USD/tháng khi làm full-capacity",
-      "Sales/BD: hoa hồng 40% trên mỗi deal chốt thành công, không lương cứng",
+      "Sales/BD: hoa hồng 30% trên mỗi deal chốt thành công, không lương cứng",
       "Phù hợp freelancer có kinh nghiệm, sinh viên cuối khóa hoặc fresher muốn tích lũy thực chiến",
     ],
   },
@@ -58,7 +58,7 @@ const vi: CareersCopy = {
       },
       {
         q: "Mức thu nhập khi làm freelance tại Dolphin Software là bao nhiêu?",
-        a: "Các vị trí kỹ thuật (AI Engineer, Backend Developer) có mức tham chiếu khoảng 1.000 USD/tháng khi làm full-capacity, thanh toán theo giờ linh hoạt. Vị trí Sales/BD hoạt động theo hoa hồng 40% trên mỗi deal chốt thành công — không có lương cứng. Marketing/Growth được thanh toán theo deliverable hoặc giờ tùy thỏa thuận.",
+        a: "Các vị trí kỹ thuật (AI Engineer, Backend Developer) có mức tham chiếu khoảng 1.000 USD/tháng khi làm full-capacity, thanh toán theo giờ linh hoạt. Vị trí Sales/BD hoạt động theo hoa hồng 30% trên mỗi deal chốt thành công — không có lương cứng. Marketing/Growth được thanh toán theo deliverable hoặc giờ tùy thỏa thuận.",
       },
       {
         q: "Có cần lên văn phòng không?",
@@ -81,6 +81,10 @@ const vi: CareersCopy = {
   engagement: "Freelance",
   comp: "~1.000 USD/tháng tương đương · linh hoạt theo giờ",
   applyCta: "Ứng tuyển",
+  viewDetailCta: "Xem chi tiết",
+  detailClose: "Đóng",
+  share: "Chia sẻ",
+  shareCopied: "Đã copy link",
   hiring: {
     closed: "Đã đóng",
     expired: "Hết hạn ứng tuyển",
@@ -93,19 +97,53 @@ const vi: CareersCopy = {
   jobs: [
     {
       id: "sales",
-      title: "Sales / Business Development",
+      title: "Business Development Partner",
       summary:
-        "Tìm kiếm và chốt hợp đồng web/app cho Dolphin Software — hình thức freelance, hoa hồng trên từng deal.",
-      bullets: [
-        "Chủ động tìm kiếm leads và networking với khách hàng SME và startup",
-        "Đủ hiểu biết sản phẩm để pitch web, app, backend một cách thuyết phục",
-        "Hoa hồng 40% trên mỗi deal chốt thành công",
-        "Không có lương cứng — thu nhập hoàn toàn dựa trên hiệu suất",
-        "Đây là vị trí ưu tiên và khẩn cấp nhất hiện tại",
-      ],
-      tags: ["Sales", "BD", "Commission"],
-      comp: "Hoa hồng 40% · không lương cứng",
-      priority: "Ưu tiên · Khẩn cấp",
+        "Dolphin Software đang tìm Business Development Partner — làm việc từ xa, hoa hồng theo doanh thu thực thu. Nếu bạn có mạng lưới khách hàng doanh nghiệp và muốn kiếm thêm thu nhập từ đúng năng lực của mình — đây là cơ hội đáng xem xét.",
+      bullets: [],
+      tags: ["Sales", "BD", "Remote"],
+      comp: "Hoa hồng 30% · không lương cứng",
+      priority: "Ưu tiên",
+      detail: {
+        sections: [
+          {
+            title: "Vai trò này làm gì?",
+            paragraphs: [
+              "Bạn sẽ giúp Dolphin tiếp cận và kết nối với các khách hàng B2B tại Việt Nam — chủ yếu là doanh nghiệp vừa và nhỏ có nhu cầu về website, phần mềm tùy chỉnh, giải pháp AI hoặc tích hợp hệ thống.",
+              "Nhiệm vụ của bạn: tìm kiếm và đánh giá cơ hội. Phần còn lại — từ tư vấn kỹ thuật đến báo giá và triển khai — Dolphin lo.",
+            ],
+          },
+          {
+            title: "Hoa hồng hoạt động như thế nào?",
+            bullets: [
+              "30% trên doanh thu thực thu từ dự án bạn đem về",
+              "Ví dụ: dự án 30 triệu đồng → hoa hồng 9 triệu đồng",
+              "Không giới hạn số dự án, không giới hạn thu nhập",
+              "Thanh toán theo từng hợp đồng được thu tiền thực tế",
+              "Không có lương cứng. Không có KPI hành chính. Thu nhập phản ánh đúng kết quả bạn tạo ra.",
+            ],
+          },
+          {
+            title: "Dolphin hỗ trợ gì?",
+            paragraphs: ["Bạn không phải tự xây từ đầu:"],
+            bullets: [
+              "Hồ sơ năng lực và tài liệu giới thiệu dịch vụ",
+              "Danh sách khách hàng mục tiêu và gợi ý tiếp cận",
+              "Hỗ trợ kỹ thuật trong các buổi tư vấn hoặc họp với khách",
+              "Quy trình phối hợp rõ ràng giữa bạn và đội ngũ Dolphin",
+            ],
+          },
+          {
+            title: "Phù hợp với bạn nếu:",
+            bullets: [
+              "Bạn đang làm sales, marketing, freelance hoặc tư vấn kinh doanh",
+              "Bạn có mạng lưới với các doanh nghiệp SMB và biết cách tạo dựng quan hệ",
+              "Bạn muốn làm thêm một vai trò linh hoạt — không ràng buộc giờ giấc cố định",
+              "Bạn thích làm việc dựa trên kết quả, không phải quy trình",
+            ],
+          },
+        ],
+      },
     },
     {
       id: "marketing",
@@ -246,7 +284,7 @@ const en: CareersCopy = {
   meta: {
     title: "Freelance IT careers | Dolphin Software hiring 2026",
     description:
-      "Dolphin Software hires freelance IT talent in Vietnam — 40% sales commission, AI Engineer, Backend Node.js, Marketing, and more. Remote-friendly, hourly pay. Apply now!",
+      "Dolphin Software hires freelance IT talent in Vietnam — 30% sales commission, AI Engineer, Backend Node.js, Marketing, and more. Remote-friendly, hourly pay. Apply now!",
   },
   hero: {
     eyebrow: "Careers",
@@ -263,7 +301,7 @@ const en: CareersCopy = {
       "100% remote — no office required",
       "Paid hourly or by deliverable, depending on the role",
       "Reference rate: ~USD 1,000/mo at full capacity",
-      "Sales/BD: 40% commission per closed deal, no base salary",
+      "Sales/BD: 30% commission per closed deal, no base salary",
       "Fit for experienced freelancers, final-year students, or freshers seeking real production work",
     ],
   },
@@ -298,7 +336,7 @@ const en: CareersCopy = {
       },
       {
         q: "What is the pay for freelancing at Dolphin Software?",
-        a: "Technical roles (AI Engineer, Backend) reference about USD 1,000/mo at full capacity, billed hourly. Sales/BD is 40% commission per closed deal with no base salary. Marketing/Growth is paid by deliverable or hour by agreement.",
+        a: "Technical roles (AI Engineer, Backend) reference about USD 1,000/mo at full capacity, billed hourly. Sales/BD is 30% commission per closed deal with no base salary. Marketing/Growth is paid by deliverable or hour by agreement.",
       },
       {
         q: "Do I need to come to an office?",
@@ -321,6 +359,10 @@ const en: CareersCopy = {
   engagement: "Freelance",
   comp: "~USD 1,000/mo equivalent · hourly flexible",
   applyCta: "Apply",
+  viewDetailCta: "View details",
+  detailClose: "Close",
+  share: "Share",
+  shareCopied: "Link copied",
   hiring: {
     closed: "Closed",
     expired: "Application period ended",
@@ -333,19 +375,53 @@ const en: CareersCopy = {
   jobs: [
     {
       id: "sales",
-      title: "Sales / Business Development",
+      title: "Business Development Partner",
       summary:
-        "Source and close web/app deals for Dolphin Software — freelance, commission per deal.",
-      bullets: [
-        "Hunt leads and network with SME & startup clients",
-        "Know the product enough to pitch web, app, and backend",
-        "40% commission on each closed deal",
-        "No base salary — income is performance-based",
-        "Highest priority / urgent role right now",
-      ],
-      tags: ["Sales", "BD", "Commission"],
-      comp: "40% commission · no base salary",
-      priority: "Priority · Urgent",
+        "Dolphin Software is looking for a Business Development Partner — remote, commission on collected revenue. If you have a network of business clients and want extra income from that strength — this role is worth a look.",
+      bullets: [],
+      tags: ["Sales", "BD", "Remote"],
+      comp: "30% commission · no base salary",
+      priority: "Priority",
+      detail: {
+        sections: [
+          {
+            title: "What does this role do?",
+            paragraphs: [
+              "You help Dolphin reach and connect with B2B customers in Vietnam — mainly SMBs that need a website, custom software, AI solutions, or system integrations.",
+              "Your job: find and qualify opportunities. Everything else — technical consulting, quotes, and delivery — Dolphin handles.",
+            ],
+          },
+          {
+            title: "How does commission work?",
+            bullets: [
+              "30% of collected revenue from projects you bring in",
+              "Example: a ₫30M project → ₫9M commission",
+              "No cap on deals or income",
+              "Paid when each contract is actually collected",
+              "No base salary. No admin KPIs. Pay reflects results you create.",
+            ],
+          },
+          {
+            title: "What does Dolphin provide?",
+            paragraphs: ["You do not start from scratch:"],
+            bullets: [
+              "Capability deck and service intro materials",
+              "Target-customer lists and outreach tips",
+              "Technical support in client consults or meetings",
+              "A clear collaboration process with the Dolphin team",
+            ],
+          },
+          {
+            title: "A fit if you:",
+            bullets: [
+              "Work in sales, marketing, freelance, or business consulting",
+              "Have an SMB network and know how to build relationships",
+              "Want a flexible side role — no fixed hours",
+              "Prefer results-based work over process theater",
+            ],
+          },
+        ],
+      },
     },
     {
       id: "marketing",
@@ -484,7 +560,7 @@ const ja: CareersCopy = {
   meta: {
     title: "フリーランスIT採用 | Dolphin Software 2026",
     description:
-      "Dolphin SoftwareはベトナムでフリーランスITを募集 — Salesコミッション40%、AI Engineer、Backend Node.js、Marketingなど。リモート可・時間単価。今すぐ応募！",
+      "Dolphin SoftwareはベトナムでフリーランスITを募集 — Salesコミッション30%、AI Engineer、Backend Node.js、Marketingなど。リモート可・時間単価。今すぐ応募！",
   },
   hero: {
     eyebrow: "Careers",
@@ -501,7 +577,7 @@ const ja: CareersCopy = {
       "完全リモート — 出社不要",
       "時間単価または成果物ベース（ポジションによる）",
       "目安: フル稼働換算で約1,000 USD/月",
-      "Sales/BD: 成約ごとにコミッション40%、基本給なし",
+      "Sales/BD: 成約ごとにコミッション30%、基本給なし",
       "経験者フリーランス、最終学年、実務経験を積みたいフレッシャー向け",
     ],
   },
@@ -536,7 +612,7 @@ const ja: CareersCopy = {
       },
       {
         q: "報酬の目安は？",
-        a: "技術職（AI Engineer、Backend）はフル稼働換算で約1,000 USD/月、時間単価。Sales/BDは成約コミッション40%で基本給なし。Marketing/Growthは成果物または時間単価で合意します。",
+        a: "技術職（AI Engineer、Backend）はフル稼働換算で約1,000 USD/月、時間単価。Sales/BDは成約コミッション30%で基本給なし。Marketing/Growthは成果物または時間単価で合意します。",
       },
       {
         q: "出社は必要ですか？",
@@ -559,6 +635,10 @@ const ja: CareersCopy = {
   engagement: "Freelance",
   comp: "約1,000 USD/月相当 · 時間単価で柔軟",
   applyCta: "応募する",
+  viewDetailCta: "詳細を見る",
+  detailClose: "閉じる",
+  share: "共有",
+  shareCopied: "リンクをコピーしました",
   hiring: {
     closed: "募集終了",
     expired: "応募期間終了",
@@ -571,19 +651,53 @@ const ja: CareersCopy = {
   jobs: [
     {
       id: "sales",
-      title: "Sales / Business Development",
+      title: "Business Development Partner",
       summary:
-        "Dolphin SoftwareのWeb/App案件を開拓・成約 — フリーランス、案件ごとのコミッション。",
-      bullets: [
-        "SME・スタートアップ向けリード獲得 / ネットワーク",
-        "Web・App・バックエンドを説明できる程度の理解",
-        "成約案件ごとに手数料40%",
-        "基本給なし — 成果報酬",
-        "現在もっとも優先・緊急のポジション",
-      ],
-      tags: ["Sales", "BD", "Commission"],
-      comp: "コミッション40% · 基本給なし",
-      priority: "優先 · 緊急",
+        "Dolphin SoftwareはBusiness Development Partnerを募集しています — リモート、実回収売上に基づくコミッション。企業顧客のネットワークがあり、その強みで副収入を得たい方に。",
+      bullets: [],
+      tags: ["Sales", "BD", "Remote"],
+      comp: "コミッション30% · 基本給なし",
+      priority: "優先",
+      detail: {
+        sections: [
+          {
+            title: "この役割は何をするか？",
+            paragraphs: [
+              "ベトナムのB2B顧客 — 主にウェブサイト、カスタムソフト、AI、システム連携を必要とするSMB — への接点づくりを支援します。",
+              "あなたの仕事は機会の探索と見極め。技術相談・見積・実装はDolphinが担当します。",
+            ],
+          },
+          {
+            title: "コミッションの仕組み",
+            bullets: [
+              "持ち込んだ案件の実回収売上の30%",
+              "例: 3,000万VNDの案件 → コミッション900万VND",
+              "案件数・収入に上限なし",
+              "契約ごとに実入金後に支払い",
+              "基本給なし。管理KPIなし。成果が収入に直結します。",
+            ],
+          },
+          {
+            title: "Dolphinのサポート",
+            paragraphs: ["ゼロから作る必要はありません:"],
+            bullets: [
+              "会社概要・サービス紹介資料",
+              "ターゲット顧客リストとアプローチのヒント",
+              "顧客ミーティングでの技術サポート",
+              "Dolphinチームとの明確な連携プロセス",
+            ],
+          },
+          {
+            title: "こんな方に向いています",
+            bullets: [
+              "営業・マーケ・フリーランス・ビジネスコンサル経験がある",
+              "SMBネットワークがあり関係構築ができる",
+              "固定時間のない柔軟な副業を求める",
+              "プロセスより成果ベースで働きたい",
+            ],
+          },
+        ],
+      },
     },
     {
       id: "marketing",

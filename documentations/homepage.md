@@ -47,7 +47,7 @@ Hero
 
 Eyebrows stay English (`Outcomes`, `Why Dolphin`, `How we help`, `Projects`, `Ops AI`, `Fit`, `Solutions`, `Next step`). Display name always **Dolphin Software**. Titles/support/body in VI via `homepage_lang_vi.ts` (SEO/AEO/GEO rewriter SoT mirrored in `public/schema/homepage/`). Projects `#works`: 6 cases (bida, cầu lông, vé, beauty, cafe QR, clinic).
 
-**Visual system (Phase 0):** mist canvas `#fcfcfd`, soft lavender accent `#6b56d6`, charcoal text — plan [homepage-anti-vibe-code.md](./homepage-anti-vibe-code.md). Type helpers `.kuct-type-*`, card `.kuct-surface-card`, badge `.kuct-badge`.
+**Visual system (Phase 0):** mist canvas `#fcfcfd`, soft lavender accent `#6b56d6`, charcoal text — plan [homepage-anti-vibe-code.md](./homepage-anti-vibe-code.md). Type helpers `.kuct-type-*`, card `.kuct-surface-card`, badge `.kuct-badge`. **Cùng language đã áp lên trang Nav** (services / Care / AI / about / careers / news / works).
 
 Homepage `<title>` / description (VI): from `homepageLangVi.seo` in `app/page.tsx`. JSON-LD: `WebPage` + `FAQPage` on `/` (Organization/WebSite remain in root layout).
 

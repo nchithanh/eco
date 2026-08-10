@@ -1739,6 +1739,23 @@ html[data-theme="black"] .kuct-loader-progress {
   animation: kuct-ai-chat-drawer-in 0.28s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
+.kuct-ai-chat__drawer--out {
+  animation: kuct-ai-chat-drawer-out 0.28s cubic-bezier(0.4, 0, 0.2, 1) both;
+  pointer-events: none;
+}
+
+/* Chat transcript: small square grid as dots only (no line grid). */
+.kuct-ai-chat__dots {
+  background-color: #ffffff;
+  background-image: radial-gradient(
+    circle,
+    rgba(26, 22, 37, 0.14) 1px,
+    transparent 1.2px
+  );
+  background-size: 12px 12px;
+  background-position: 0 0;
+}
+
 @keyframes kuct-ai-chat-drawer-in {
   from {
     opacity: 0.65;
@@ -1748,6 +1765,141 @@ html[data-theme="black"] .kuct-loader-progress {
     opacity: 1;
     transform: translateX(0);
   }
+}
+
+@keyframes kuct-ai-chat-drawer-out {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(1.35rem);
+  }
+}
+
+@keyframes kuct-ai-chat-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(0.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes kuct-ai-chat-backdrop-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes kuct-ai-chat-backdrop-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes kuct-ai-chat-bubble-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.4rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes kuct-ai-chat-typing-dot {
+  0%,
+  80%,
+  100% {
+    opacity: 0.35;
+    transform: translateY(0);
+  }
+  40% {
+    opacity: 1;
+    transform: translateY(-0.15rem);
+  }
+}
+
+.kuct-ai-chat__backdrop {
+  animation: kuct-ai-chat-backdrop-in 0.22s ease-out both;
+}
+
+.kuct-ai-chat__backdrop--out {
+  animation: kuct-ai-chat-backdrop-out 0.22s ease-in both;
+  pointer-events: none;
+}
+
+.kuct-ai-chat__welcome-mascot {
+  animation: kuct-ai-chat-fade-up 0.38s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.kuct-ai-chat__welcome-title {
+  animation: kuct-ai-chat-fade-up 0.36s cubic-bezier(0.22, 1, 0.36, 1) 0.08s both;
+}
+
+.kuct-ai-chat__welcome-sub {
+  animation: kuct-ai-chat-fade-up 0.36s cubic-bezier(0.22, 1, 0.36, 1) 0.14s both;
+}
+
+.kuct-ai-chat__welcome-banner {
+  animation: kuct-ai-chat-fade-up 0.32s cubic-bezier(0.22, 1, 0.36, 1) 0.04s both;
+}
+
+.kuct-ai-chat__suggest-item {
+  animation: kuct-ai-chat-fade-up 0.34s cubic-bezier(0.22, 1, 0.36, 1)
+    var(--kuct-chat-delay, 0.16s) both;
+}
+
+.kuct-ai-chat__suggest {
+  transition:
+    transform 0.18s ease,
+    border-color 0.18s ease,
+    background-color 0.18s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .kuct-ai-chat__suggest:hover:not(:disabled) {
+    transform: translateY(-1px);
+  }
+}
+
+.kuct-ai-chat__bubble {
+  animation: kuct-ai-chat-bubble-in 0.26s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.kuct-ai-chat__typing {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.28rem;
+  min-height: 1.25rem;
+}
+
+.kuct-ai-chat__typing-dot {
+  display: block;
+  width: 0.35rem;
+  height: 0.35rem;
+  border-radius: 999px;
+  background: currentColor;
+  animation: kuct-ai-chat-typing-dot 1s ease-in-out infinite;
+}
+
+.kuct-ai-chat__typing-dot:nth-child(2) {
+  animation-delay: 0.14s;
+}
+
+.kuct-ai-chat__typing-dot:nth-child(3) {
+  animation-delay: 0.28s;
 }
 
 .kuct-whale-swim {
@@ -2120,6 +2272,14 @@ html[data-theme="black"] .kuct-loader-progress {
   .kuct-ai-chat__toast,
   .kuct-ai-chat__panel,
   .kuct-ai-chat__drawer,
+  .kuct-ai-chat__backdrop,
+  .kuct-ai-chat__welcome-mascot,
+  .kuct-ai-chat__welcome-title,
+  .kuct-ai-chat__welcome-sub,
+  .kuct-ai-chat__welcome-banner,
+  .kuct-ai-chat__suggest-item,
+  .kuct-ai-chat__bubble,
+  .kuct-ai-chat__typing-dot,
   .kuct-ai-chat__avatar-wrap--pulse .kuct-ai-chat__avatar,
   .kuct-ai-chat__avatar-wrap--pulse::before,
   .kuct-ai-chat__avatar-wrap--pulse::after,
@@ -2139,6 +2299,10 @@ html[data-theme="black"] .kuct-loader-progress {
   .kuct-data-line,
   .kuct-satellite {
     animation: none !important;
+  }
+
+  .kuct-ai-chat__suggest:hover:not(:disabled) {
+    transform: none !important;
   }
 
   .kuct-globe-tilt {

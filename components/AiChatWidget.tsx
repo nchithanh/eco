@@ -5,6 +5,7 @@ import {
  useId,
  useRef,
  useState,
+ type CSSProperties,
  type FormEvent,
  type KeyboardEvent,
 } from "react";
@@ -27,9 +28,10 @@ const CONTACTS = {
  email: "nchithanh9999@gmail.com",
 } as const;
 
-const WELCOME_MASCOT = MASCOT.chat;
+const WELCOME_MASCOT = MASCOT.contact;
 
 const REPLY_TYPEWRITER_BASE_MS = 16;
+const AI_CHAT_PANEL_MS = 280;
 
 function prefersReducedMotion(): boolean {
   return (
@@ -190,12 +192,31 @@ export function AiChatWidget() {
   const [draft, setDraft] = useState("");
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [sending, setSending] = useState(false);
+  const [panelPresent, setPanelPresent] = useState(false);
   const contactsRef = useRef<HTMLDivElement>(null);
   const abortRef = useRef<AbortController | null>(null);
+
+  const panelMounted = open || panelPresent;
+  const panelClosing = !open && panelPresent;
 
  useEffect(() => {
  setMessages([{ id: nextId("a"), role: "assistant", text: c.greeting }]);
  }, [c.greeting]);
+
+ useEffect(() => {
+ if (open) {
+ setPanelPresent(true);
+ return;
+ }
+ if (prefersReducedMotion()) {
+ setPanelPresent(false);
+ return;
+ }
+ const timer = window.setTimeout(() => {
+ setPanelPresent(false);
+ }, AI_CHAT_PANEL_MS);
+ return () => window.clearTimeout(timer);
+ }, [open]);
 
  useEffect(() => {
  if (!open) return;
@@ -376,20 +397,21 @@ export function AiChatWidget() {
 
   return (
  <>
- {open ? (
+ {panelMounted ? (
  <>
  <button
  type="button"
- className="pointer-events-auto fixed inset-0 z-[190] bg-[rgb(26_21_32/0.28)] backdrop-blur-[2px] lg:pointer-events-none lg:bg-transparent lg:backdrop-blur-none"
+ className={`kuct-ai-chat__backdrop pointer-events-auto fixed inset-0 z-[190] bg-[rgb(26_21_32/0.28)] backdrop-blur-[2px] lg:pointer-events-none lg:bg-transparent lg:backdrop-blur-none${panelClosing ? " kuct-ai-chat__backdrop--out" : ""}`}
  aria-label={c.closePanel}
  onClick={closeChat}
+ disabled={panelClosing}
  />
  <section
  id={panelId}
  role="dialog"
  aria-modal="true"
  aria-label={c.agentName}
- className="kuct-ai-chat__drawer pointer-events-auto fixed inset-y-0 right-0 z-[200] flex w-full max-w-[24rem] flex-col border-l border-black/[0.08] bg-white shadow-[-16px_0_48px_rgb(26_21_32/0.1)] sm:max-w-[26rem]"
+ className={`kuct-ai-chat__drawer pointer-events-auto fixed inset-y-0 right-0 z-[200] flex w-full max-w-[30rem] flex-col border-l border-black/[0.08] bg-white shadow-[-16px_0_48px_rgb(26_21_32/0.1)] sm:max-w-[32rem]${panelClosing ? " kuct-ai-chat__drawer--out" : ""}`}
  data-lenis-prevent
  data-lenis-prevent-wheel
  >
@@ -422,13 +444,13 @@ export function AiChatWidget() {
 
  <div
  ref={listRef}
- className="flex min-h-0 flex-1 flex-col overflow-y-auto overscroll-contain bg-white"
+ className="kuct-ai-chat__dots flex min-h-0 flex-1 flex-col overflow-y-auto overscroll-contain"
  data-lenis-prevent
  data-lenis-prevent-wheel
  >
  {showWelcome ? (
- <div className="flex flex-1 flex-col px-4 py-4 sm:px-5">
- <div className="mb-5 flex items-center justify-between gap-3 rounded-[10px] bg-[var(--kuct-bg)] px-3 py-2.5">
+ <div className="kuct-ai-chat__welcome flex flex-1 flex-col px-4 py-4 sm:px-5">
+ <div className="kuct-ai-chat__welcome-banner mb-5 flex items-center justify-between gap-3 rounded-[10px] bg-[var(--kuct-bg)] px-3 py-2.5">
  <p className="text-sm text-[var(--kuct-muted)]">{c.helpBanner}</p>
  <a
  href={contactPageHref}
@@ -447,21 +469,27 @@ export function AiChatWidget() {
  height={120}
  loading="lazy"
  decoding="async"
- className="mb-4 size-[5.5rem] object-contain drop-shadow-[0_12px_28px_rgb(26_21_32/0.12)] sm:size-28"
+ className="kuct-ai-chat__welcome-mascot mb-4 size-[5.5rem] object-contain drop-shadow-[0_12px_28px_rgb(26_21_32/0.12)] sm:size-28"
  />
- <h2 className="font-display text-2xl font-semibold tracking-tight text-[var(--kuct-text)] sm:text-[1.65rem]">
+ <h2 className="kuct-ai-chat__welcome-title font-display text-2xl font-semibold tracking-tight text-[var(--kuct-text)] sm:text-[1.65rem]">
  {hello}
  </h2>
- <p className="mt-1.5 text-sm text-[var(--kuct-muted)]">{c.welcomeSub}</p>
+ <p className="kuct-ai-chat__welcome-sub mt-1.5 text-sm text-[var(--kuct-muted)]">
+ {c.welcomeSub}
+ </p>
  </div>
 
- <ul className="mt-8 flex list-none flex-col gap-2.5 p-0">
+ <ul className="mx-auto mt-8 flex w-full max-w-sm list-none flex-col gap-2.5 p-0">
  {c.suggestionCards.map((card, index) => (
- <li key={card.title}>
+ <li
+ key={card.title}
+ className="kuct-ai-chat__suggest-item"
+ style={{ "--kuct-chat-delay": `${120 + index * 70}ms` } as CSSProperties}
+ >
  <button
  type="button"
  disabled={sending}
- className="flex w-full items-start gap-3 rounded-xl border border-black/[0.06] bg-[var(--kuct-bg)] px-3.5 py-3 text-left transition hover:border-[rgba(var(--kuct-accent-rgb),0.28)] hover:bg-white disabled:opacity-50"
+ className="kuct-ai-chat__suggest flex w-full items-start gap-3 rounded-xl border border-black/[0.06] bg-[var(--kuct-bg)] px-3.5 py-3 text-left transition hover:border-[rgba(var(--kuct-accent-rgb),0.28)] hover:bg-white disabled:opacity-50"
  onClick={() => void pushUserAndReply(card.prompt)}
  >
  <span
@@ -504,8 +532,8 @@ export function AiChatWidget() {
  key={m.id}
  className={
  m.role === "user"
- ? "ml-8 self-end rounded-xl rounded-br-md bg-[var(--kuct-accent)] px-3.5 py-2.5 text-sm leading-relaxed text-white"
- : "mr-4 self-start rounded-xl rounded-bl-md border border-black/[0.05] bg-white px-3.5 py-2.5 text-sm font-medium leading-relaxed whitespace-pre-wrap text-[var(--kuct-text)] shadow-[0_1px_2px_rgb(26_21_32/0.04)]"
+ ? "kuct-ai-chat__bubble kuct-ai-chat__bubble--user ml-8 self-end rounded-xl rounded-br-md bg-[var(--kuct-accent)] px-3.5 py-2.5 text-sm leading-relaxed text-white"
+ : "kuct-ai-chat__bubble kuct-ai-chat__bubble--assistant mr-4 self-start rounded-xl rounded-bl-md border border-black/[0.05] bg-white px-3.5 py-2.5 text-sm font-medium leading-relaxed whitespace-pre-wrap text-[var(--kuct-text)] shadow-[0_1px_2px_rgb(26_21_32/0.04)]"
  }
  >
  {renderChatRichText(m.text, { isUserBubble: m.role === "user" })}
@@ -525,10 +553,13 @@ export function AiChatWidget() {
  (messages[messages.length - 1]?.role === "assistant" &&
  !messages[messages.length - 1]?.text)) ? (
  <div
- className="mr-4 self-start rounded-xl rounded-bl-md border border-black/[0.05] bg-white px-3.5 py-2.5 text-sm text-[var(--kuct-muted)]"
+ className="kuct-ai-chat__bubble kuct-ai-chat__bubble--assistant kuct-ai-chat__typing mr-4 self-start rounded-xl rounded-bl-md border border-black/[0.05] bg-white px-3.5 py-2.5 text-sm text-[var(--kuct-muted)]"
  aria-live="polite"
+ aria-label="…"
  >
- …
+ <span className="kuct-ai-chat__typing-dot" />
+ <span className="kuct-ai-chat__typing-dot" />
+ <span className="kuct-ai-chat__typing-dot" />
  </div>
  ) : null}
  <p className="mt-auto pt-2 text-[0.7rem] leading-snug text-[var(--kuct-muted)]">
@@ -582,7 +613,7 @@ export function AiChatWidget() {
  ) : null}
 
  <div className="kuct-ai-chat pointer-events-none fixed right-4 bottom-0 z-[120] flex items-end gap-3 sm:right-6">
- <div className={`flex flex-col items-center gap-3 ${open ? "max-sm:hidden" : ""}`}>
+ <div className={`flex flex-col items-center gap-3 ${panelMounted ? "max-sm:hidden" : ""}`}>
  <div ref={contactsRef} className="pointer-events-auto flex flex-col items-center gap-3">
  {contactsOpen ? (
  <ul className="flex flex-col items-center gap-3">

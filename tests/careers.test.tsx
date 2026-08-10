@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { beforeEach, describe, expect, it } from "vitest";
 import CareersPage from "@/app/careers/page";
@@ -40,7 +40,7 @@ describe("Dolphin Software careers page", () => {
       screen.getByRole("heading", { name: /UI\/UX Designer/i }),
     ).toBeInTheDocument();
     expect(
-      screen.getByRole("heading", { name: /Sales \/ Business Development/i }),
+      screen.getByRole("heading", { name: /Business Development Partner/i }),
     ).toBeInTheDocument();
     expect(
       screen.getByRole("heading", { name: /Marketing \/ Growth/i }),
@@ -49,24 +49,36 @@ describe("Dolphin Software careers page", () => {
     expect(screen.getAllByText(/^Freelance$/i).length).toBeGreaterThanOrEqual(5);
     expect(screen.getAllByText(/1\.000 USD/i).length).toBeGreaterThanOrEqual(1);
     expect(
-      screen.getByText(/Hoa hồng 40% · không lương cứng/i),
+      screen.getByText(/Hoa hồng 30% · không lương cứng/i),
     ).toBeInTheDocument();
-    expect(screen.getByText(/Ưu tiên · Khẩn cấp/i)).toBeInTheDocument();
+    expect(screen.getAllByText(/^Ưu tiên$/i).length).toBeGreaterThanOrEqual(1);
   });
 
-  it("Apply on a job selects that role in the form", async () => {
+  it("opens sales detail popup then apply selects role in the form", async () => {
     const user = userEvent.setup();
     renderCareers();
-    const applyButtons = screen.getAllByRole("button", { name: /Ứng tuyển/i });
-    // First card is priority Sales
-    await user.click(applyButtons[0]);
+    await user.click(
+      screen.getByRole("heading", { name: /Business Development Partner/i }),
+    );
+    const dialog = screen.getByRole("dialog");
+    expect(
+      within(dialog).getByRole("heading", {
+        name: /Vai trò này làm gì\?/i,
+      }),
+    ).toBeInTheDocument();
+    await user.click(
+      within(dialog).getByRole("button", { name: /Ứng tuyển/i }),
+    );
     expect(screen.getByLabelText(/Vị trí/i)).toHaveValue("sales");
   });
 
   it("switches careers copy to English", async () => {
     const user = userEvent.setup();
     renderCareers();
-    await user.click(screen.getByRole("button", { name: /^Language$/i }));
+    const languageButtons = screen.getAllByRole("button", {
+      name: /^Language$/i,
+    });
+    await user.click(languageButtons[0]!);
     await user.click(screen.getByRole("button", { name: /English/i }));
     expect(
       screen.getByRole("heading", { name: /Freelance with Dolphin Software/i }),

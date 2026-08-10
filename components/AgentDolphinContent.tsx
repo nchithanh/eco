@@ -272,10 +272,10 @@ export function AgentDolphinContent({ embedded = false }: { embedded?: boolean }
  <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-12 xl:gap-16">
  <Reveal variant="title">
  <div className="text-left">
- <p className="text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
+ <p className="kuct-type-eyebrow">
  {c.eyebrow}
  </p>
- <h1 className="mt-4 max-w-xl font-display text-3xl font-semibold tracking-tight text-[var(--kuct-text)] sm:text-4xl lg:text-[2.65rem] lg:leading-[1.12]">
+ <h1 className="kuct-type-h1 mt-4 max-w-xl font-display text-3xl text-[var(--kuct-text)] sm:text-4xl lg:text-[2.65rem]">
  <AccentText>{c.headline}</AccentText>
  </h1>
  <p className="mt-5 max-w-lg text-base leading-relaxed text-[var(--kuct-muted)] sm:text-lg">
@@ -323,10 +323,10 @@ export function AgentDolphinContent({ embedded = false }: { embedded?: boolean }
  <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-14">
  <Reveal>
  <div>
- <p className="text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
+ <p className="kuct-type-eyebrow">
  {c.whatEyebrow}
  </p>
- <h2 className="mt-3 font-display text-3xl font-semibold sm:text-4xl">
+ <h2 className="kuct-type-h2 mt-3 font-display text-3xl sm:text-4xl">
  <AccentText>{c.whatTitle}</AccentText>
  </h2>
  <p className="mt-3 max-w-xl text-[var(--kuct-muted)]">
@@ -388,14 +388,14 @@ export function AgentDolphinContent({ embedded = false }: { embedded?: boolean }
  <p className="text-center text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
  {c.featuresEyebrow}
  </p>
- <h2 className="mt-3 text-center font-display text-3xl font-semibold sm:text-4xl">
+ <h2 className="kuct-type-h2 mt-3 text-center font-display text-3xl sm:text-4xl">
  <AccentText>{c.featuresTitle}</AccentText>
  </h2>
  </Reveal>
  <ul className="mt-10 grid gap-5 sm:grid-cols-2">
  {c.features.map((feature, index) => (
  <Reveal as="li" key={feature.title} delay={index * 60}>
- <article className="kuct-glass flex h-full flex-col rounded-xl p-6 sm:p-7">
+ <article className="kuct-surface-card flex h-full flex-col rounded-xl p-6 sm:p-7">
  <h3 className="font-display text-lg font-semibold text-[var(--kuct-text)] sm:text-xl">
  {feature.title}
  </h3>
@@ -427,7 +427,7 @@ export function AgentDolphinContent({ embedded = false }: { embedded?: boolean }
  <p className="text-center text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
  {c.compareEyebrow}
  </p>
- <h2 className="mt-3 text-center font-display text-3xl font-semibold sm:text-4xl">
+ <h2 className="kuct-type-h2 mt-3 text-center font-display text-3xl sm:text-4xl">
  <AccentText>{c.compareTitle}</AccentText>
  </h2>
  <p className="mx-auto mt-3 max-w-2xl text-center text-[var(--kuct-muted)]">
@@ -488,7 +488,7 @@ export function AgentDolphinContent({ embedded = false }: { embedded?: boolean }
  <p className="text-center text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
  {c.industriesEyebrow}
  </p>
- <h2 className="mt-3 text-center font-display text-3xl font-semibold sm:text-4xl">
+ <h2 className="kuct-type-h2 mt-3 text-center font-display text-3xl sm:text-4xl">
  <AccentText>{c.industriesTitle}</AccentText>
  </h2>
  <p className="mx-auto mt-3 max-w-2xl text-center text-[var(--kuct-muted)]">
@@ -498,7 +498,7 @@ export function AgentDolphinContent({ embedded = false }: { embedded?: boolean }
  <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
  {c.industries.map((item, index) => (
  <Reveal as="li" key={item.name} delay={index * 40}>
- <article className="kuct-glass h-full rounded-xl p-5">
+ <article className="kuct-surface-card h-full rounded-xl p-5">
  <h3 className="font-display text-base font-semibold text-[var(--kuct-text)] sm:text-lg">
  {item.name}
  </h3>
@@ -518,7 +518,7 @@ export function AgentDolphinContent({ embedded = false }: { embedded?: boolean }
  <p className="text-center text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
  {c.howEyebrow}
  </p>
- <h2 className="mt-3 text-center font-display text-3xl font-semibold sm:text-4xl">
+ <h2 className="kuct-type-h2 mt-3 text-center font-display text-3xl sm:text-4xl">
  <AccentText>{c.howTitle}</AccentText>
  </h2>
  <p className="mx-auto mt-3 max-w-2xl text-center text-[var(--kuct-muted)]">
@@ -534,7 +534,7 @@ export function AgentDolphinContent({ embedded = false }: { embedded?: boolean }
  {c.howSteps.map((step, index) => (
  <li
  key={step.title}
- className="kuct-glass flex flex-1 gap-4 rounded-xl p-5 sm:p-6"
+ className="kuct-surface-card flex flex-1 gap-4 rounded-xl p-5 sm:p-6"
  >
  <span
  aria-hidden
@@ -568,7 +568,7 @@ export function AgentDolphinContent({ embedded = false }: { embedded?: boolean }
  <p className="text-center text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
  {c.faqEyebrow}
  </p>
- <h2 className="mt-3 text-center font-display text-3xl font-semibold sm:text-4xl">
+ <h2 className="kuct-type-h2 mt-3 text-center font-display text-3xl sm:text-4xl">
  <AccentText>{c.faqTitle}</AccentText>
  </h2>
  </Reveal>
@@ -621,10 +621,10 @@ export function AgentDolphinContent({ embedded = false }: { embedded?: boolean }
  >
  <div className="mx-auto max-w-3xl px-6 text-center">
  <Reveal variant="title">
- <p className="text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
+ <p className="kuct-type-eyebrow">
  {c.closeEyebrow}
  </p>
- <h2 className="mt-3 font-display text-3xl font-semibold sm:text-4xl">
+ <h2 className="kuct-type-h2 mt-3 font-display text-3xl sm:text-4xl">
  <AccentText>{c.closeTitle}</AccentText>
  </h2>
  <p className="mx-auto mt-4 max-w-xl text-[var(--kuct-muted)]">

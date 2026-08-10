@@ -19,7 +19,7 @@ const SECTION_URLS = [
 const URL_AT_MS = [0, 2100, 4200] as const;
 
 export type EmbedSiteMockProps = {
-  url: string;
+  url?: string;
   agentName?: string;
   userMsg?: string;
   agentLines?: readonly [string, string, string];
@@ -28,6 +28,8 @@ export type EmbedSiteMockProps = {
   showChat?: boolean;
   /** Auto mouse-scroll through tall wireframe (web hero). */
   animate?: boolean;
+  /** `browser` desktop chrome (default); `devices` = 1 phone + 1 iPad with same wireframe. */
+  variant?: "browser" | "devices";
   className?: string;
 };
 
@@ -185,17 +187,162 @@ function ChatOverlay({
   );
 }
 
+function WireframeScroll({ live }: { live: boolean }) {
+  return (
+    <div className="relative h-full min-h-0 flex-1 overflow-hidden">
+      {live ? (
+        <>
+          <div className="kuct-site-mock__scroll absolute inset-x-0 top-0 flex flex-col will-change-transform">
+            <div className="kuct-site-mock__pane">
+              <BlockHome />
+            </div>
+            <div className="kuct-site-mock__pane">
+              <BlockServices />
+            </div>
+            <div className="kuct-site-mock__pane">
+              <BlockContact />
+            </div>
+          </div>
+          <div className="pointer-events-none absolute top-1 right-1 bottom-1 w-1 rounded-full bg-black/8">
+            <span className="kuct-site-mock__thumb absolute left-0 w-full rounded-full bg-[var(--kuct-accent)]/55" />
+          </div>
+        </>
+      ) : (
+        <div className="flex h-full min-h-0 flex-col">
+          <BlockHome />
+        </div>
+      )}
+    </div>
+  );
+}
+
+function DevicePhoneFrame({ live }: { live: boolean }) {
+  return (
+    <div
+      className={`relative w-[min(36%,7.5rem)] shrink-0 self-end sm:w-[8rem] ${live ? "kuct-site-mock__enter" : ""}`}
+      style={
+        live ? ({ "--kuct-mock-delay": "40ms" } as CSSProperties) : undefined
+      }
+    >
+      <div className="rounded-[1.4rem] bg-[#1a1625] p-[0.38rem] shadow-[0_1rem_2.5rem_rgb(26_21_32/0.18)] ring-1 ring-black/20">
+        <div className="relative aspect-[9/19.5] overflow-hidden rounded-[1.12rem] bg-[var(--kuct-panel)]">
+          <div className="absolute inset-x-0 top-0 z-10 flex justify-center pt-1.5">
+            <span className="h-1.5 w-10 rounded-full bg-[#1a1625]/90" />
+          </div>
+          <div className="absolute inset-0 overflow-hidden pt-3.5 pb-2.5">
+            <div className="h-full origin-top scale-[0.72] px-0.5">
+              <div className="h-[138%]">
+                <WireframeScroll live={live} />
+              </div>
+            </div>
+          </div>
+          <div className="absolute inset-x-0 bottom-1.5 z-10 flex justify-center">
+            <span className="h-1 w-8 rounded-full bg-black/20" />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function DeviceIpadFrame({ live }: { live: boolean }) {
+  return (
+    <div
+      className={`relative min-w-0 flex-1 self-end ${live ? "kuct-site-mock__enter" : ""}`}
+      style={
+        live ? ({ "--kuct-mock-delay": "110ms" } as CSSProperties) : undefined
+      }
+    >
+      <div className="rounded-[1.2rem] bg-[#1a1625] p-[0.42rem] shadow-[0_1rem_2.5rem_rgb(26_21_32/0.16)] ring-1 ring-black/20 sm:rounded-[1.3rem] sm:p-[0.48rem]">
+        <div className="relative aspect-[4/3] overflow-hidden rounded-[0.9rem] bg-[var(--kuct-panel)] sm:rounded-[1rem]">
+          <div className="absolute left-1/2 top-1.5 z-10 size-1.5 -translate-x-1/2 rounded-full bg-black/25" />
+          <div className="absolute inset-0 p-2 pt-3.5 sm:p-2.5 sm:pt-4">
+            <WireframeScroll live={live} />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function EmbedDevicesMock({
+  animate,
+  className,
+}: {
+  animate: boolean;
+  className?: string;
+}) {
+  const motion = useDesktopMotion();
+  const live = animate && motion;
+
+  return (
+    <div
+      className={
+        className ??
+        "relative flex h-full min-h-[18rem] items-end justify-center gap-3 overflow-hidden rounded-xl bg-[var(--kuct-panel)] px-3 py-5 shadow-[0_1rem_2.5rem_rgb(26_21_32/0.08)] sm:min-h-[22rem] sm:gap-4 sm:px-5 sm:py-6"
+      }
+      data-motion={live ? "on" : "off"}
+      aria-hidden
+    >
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_55%_35%,rgba(var(--kuct-accent-rgb),0.08),transparent_65%)]"
+      />
+      <DevicePhoneFrame live={live} />
+      <DeviceIpadFrame live={live} />
+    </div>
+  );
+}
+
 /** Browser chrome + fake site wireframes (+ optional Care chat). Decorative. */
 export function EmbedSiteMock({
-  url,
+  url = "yourbusiness.com",
   agentName = "Dolphin Care",
   userMsg = "",
   agentLines = ["", "", ""] as const,
   inputPlaceholder = "",
   showChat = true,
   animate = false,
+  variant = "browser",
   className,
 }: EmbedSiteMockProps) {
+  if (variant === "devices") {
+    return <EmbedDevicesMock animate={animate} className={className} />;
+  }
+
+  return (
+    <EmbedBrowserMock
+      url={url}
+      agentName={agentName}
+      userMsg={userMsg}
+      agentLines={agentLines}
+      inputPlaceholder={inputPlaceholder}
+      showChat={showChat}
+      animate={animate}
+      className={className}
+    />
+  );
+}
+
+function EmbedBrowserMock({
+  url,
+  agentName,
+  userMsg,
+  agentLines,
+  inputPlaceholder,
+  showChat,
+  animate,
+  className,
+}: {
+  url: string;
+  agentName: string;
+  userMsg: string;
+  agentLines: readonly [string, string, string];
+  inputPlaceholder: string;
+  showChat: boolean;
+  animate: boolean;
+  className?: string;
+}) {
   const motion = useDesktopMotion();
   const live = animate && motion;
   const [section, setSection] = useState(0);
@@ -258,30 +405,7 @@ export function EmbedSiteMock({
           live ? ({ "--kuct-mock-delay": "80ms" } as CSSProperties) : undefined
         }
       >
-        <div className="relative min-h-0 flex-1 overflow-hidden">
-          {live ? (
-            <>
-              <div className="kuct-site-mock__scroll absolute inset-x-0 top-0 flex flex-col will-change-transform">
-                <div className="kuct-site-mock__pane">
-                  <BlockHome />
-                </div>
-                <div className="kuct-site-mock__pane">
-                  <BlockServices />
-                </div>
-                <div className="kuct-site-mock__pane">
-                  <BlockContact />
-                </div>
-              </div>
-              <div className="pointer-events-none absolute top-1 right-1 bottom-1 w-1 rounded-full bg-black/8">
-                <span className="kuct-site-mock__thumb absolute left-0 w-full rounded-full bg-[var(--kuct-accent)]/55" />
-              </div>
-            </>
-          ) : (
-            <div className="flex h-full min-h-0 flex-col">
-              <BlockHome />
-            </div>
-          )}
-        </div>
+        <WireframeScroll live={live} />
 
         {showChat ? (
           <ChatOverlay

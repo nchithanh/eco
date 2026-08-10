@@ -32,10 +32,10 @@ export function CareersContent({ embedded = false }: { embedded?: boolean }) {
  >
  <div className="mx-auto max-w-6xl px-6">
  <Reveal variant="title" className="max-w-2xl">
- <p className="text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
+ <p className="kuct-type-eyebrow">
  {c.model.eyebrow}
  </p>
- <h2 className="mt-3 font-display text-3xl font-semibold leading-[1.12] tracking-tight sm:text-4xl">
+ <h2 className="kuct-type-h2 mt-3 font-display text-3xl sm:text-4xl">
  <AccentText>{c.model.title}</AccentText>
  </h2>
  <p className="mt-5 max-w-[52ch] text-base leading-[1.7] text-[var(--kuct-muted)]">
@@ -68,10 +68,10 @@ export function CareersContent({ embedded = false }: { embedded?: boolean }) {
  >
  <div className="mx-auto max-w-6xl px-6">
  <Reveal variant="title" className="max-w-2xl">
- <p className="text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
+ <p className="kuct-type-eyebrow">
  {c.howToApply.eyebrow}
  </p>
- <h2 className="mt-3 font-display text-3xl font-semibold leading-[1.12] tracking-tight sm:text-4xl">
+ <h2 className="kuct-type-h2 mt-3 font-display text-3xl sm:text-4xl">
  <AccentText>{c.howToApply.title}</AccentText>
  </h2>
  <p className="mt-5 text-base leading-[1.7] text-[var(--kuct-muted)]">
@@ -102,17 +102,17 @@ export function CareersContent({ embedded = false }: { embedded?: boolean }) {
  className="scroll-mt-20 py-20 sm:py-24"
  >
  <div className="mx-auto max-w-6xl px-6">
- <Reveal variant="title" className="max-w-2xl">
- <p className="text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
+ <Reveal variant="title" className="mx-auto max-w-2xl text-center">
+ <p className="kuct-type-eyebrow">
  {c.faq.eyebrow}
  </p>
- <h2 className="mt-3 font-display text-3xl font-semibold leading-[1.12] tracking-tight sm:text-4xl">
+ <h2 className="kuct-type-h2 mt-3 font-display text-3xl sm:text-4xl">
  <AccentText>{c.faq.title}</AccentText>
  </h2>
  </Reveal>
  <Reveal
  delay={60}
- className="mx-auto mt-10 max-w-3xl divide-y divide-[var(--kuct-border)] overflow-hidden rounded-xl bg-[var(--kuct-panel)] shadow-[0_1rem_2.5rem_rgb(26_21_32/0.08)] backdrop-blur-md"
+ className="mx-auto mt-10 max-w-3xl divide-y divide-[var(--kuct-border)] overflow-hidden kuct-surface-card"
  >
  {c.faq.items.map((item, index) => {
  const open = openFaq === index;

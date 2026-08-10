@@ -44,7 +44,7 @@ function FeaturedArticleBlock({
  <a
  href={href}
 
-        className="group grid overflow-hidden rounded-xl bg-[var(--kuct-panel)] transition duration-500 lg:grid-cols-2"
+        className="group grid overflow-hidden kuct-surface-card transition duration-500 lg:grid-cols-2"
  >
  <div className="flex flex-col justify-center px-5 py-6 sm:px-7 sm:py-8 lg:px-8 lg:py-10">
  <p className="text-[10px] font-semibold tracking-[0.18em] text-[var(--kuct-accent)] uppercase">
@@ -118,7 +118,7 @@ function NewsGridCard({
  <a
  href={href}
 
- className="group flex h-full flex-col overflow-hidden rounded-xl bg-[var(--kuct-panel)] transition duration-500 hover:shadow-[0_0_1.75rem_rgb(26_21_32/0.09)]"
+ className="group kuct-surface-card flex h-full flex-col overflow-hidden transition duration-500"
  >
  <div className="relative aspect-[16/10] overflow-hidden bg-[var(--kuct-panel)]">
  <LazyImage

@@ -57,7 +57,7 @@ export function SitesShipped({
  <Reveal key={item.id} delay={index * 40}>
  <a
  href={href}
- className="group flex w-full flex-col overflow-hidden rounded-xl bg-[var(--kuct-panel)] text-left transition "
+ className="group flex w-full flex-col overflow-hidden kuct-surface-card text-left transition "
  >
  <div className="relative aspect-[16/10] overflow-hidden">
  <LazyImage
