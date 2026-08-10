@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-08-10 (phase-1-hero)
+
+- Sprint B Hero signature: replace GlassPanels with `EmbedSiteMock` + eco mascot + floating metrics; hero tags badges; schema `hero.json` / overview sync. Plan status Phase 1 Done.
+
 ## 2026-08-10 (phase-0-tokens)
 
 - Phase 0 / Sprint A anti-vibe-code: soft lavender tokens (`#6b56d6`), mist bg, charcoal text; type helpers `.kuct-type-*`; `.kuct-surface-card` / `.kuct-badge`. Docs: `homepage-anti-vibe-code.md` status, `conventions.md`, `homepage.md`.

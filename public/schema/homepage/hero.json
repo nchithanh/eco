@@ -4,7 +4,7 @@
     "id": "hero",
     "locale": "vi",
     "brand": "Dolphin Software",
-    "updated": "2026-08-03",
+    "updated": "2026-08-10",
     "schemaPath": "/schema/homepage/hero/",
     "rawPath": "/schema/homepage/hero.json",
     "productRoute": "/"
@@ -30,10 +30,11 @@
         "style": "secondary"
       }
     ],
-    "tags": [
-      "Automation",
-      "Web & App",
-      "Tích hợp AI"
-    ]
+    "tags": ["Automation", "Web & App", "AI đúng chỗ"],
+    "metrics": [
+      { "value": "6+", "label": "Case trên site" },
+      { "value": "Build", "label": "Ưu tiên SMB cold" }
+    ],
+    "visual": "EmbedSiteMock browser wireframe + dolphin-eco mascot"
   }
 }

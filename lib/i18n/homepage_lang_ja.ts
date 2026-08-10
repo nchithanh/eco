@@ -13,6 +13,11 @@ export const homepageLangJa: HomepageLang = {
     trustLine: "まず理解する · 明確な見積り · 不要な営業なし",
     ctaPrimary: "見積りを依頼",
     ctaSecondary: "Webサービスを見る",
+    tags: ["Automation", "Web & App", "適切なAI"],
+    metrics: [
+      { value: "6+", label: "掲載ケース" },
+      { value: "Build", label: "SMB向け優先" },
+    ],
     visual: {
       web: "Web & App",
       automation: "Automation",

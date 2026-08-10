@@ -52,6 +52,11 @@ const vi: Dictionary = {
     trustLine: "Hiểu vấn đề · Báo giá rõ · Không bán thừa",
     ctaPrimary: "Nhận báo giá",
     ctaSecondary: "Xem dịch vụ website",
+    tags: ["Automation", "Web & App", "AI đúng chỗ"],
+    metrics: [
+      { value: "6+", label: "Case trên site" },
+      { value: "Build", label: "Ưu tiên SMB cold" },
+    ],
     visual: {
       web: "Web & App",
       automation: "Tự động hóa",
@@ -609,6 +614,11 @@ const en: Dictionary = {
     trustLine: "Understand first · Clear quotes · No upsell you don't need",
     ctaPrimary: "Get a quote",
     ctaSecondary: "See website services",
+    tags: ["Automation", "Web & App", "AI where it fits"],
+    metrics: [
+      { value: "6+", label: "Cases on site" },
+      { value: "Build", label: "SMB cold-first" },
+    ],
     visual: {
       web: "Web & App",
       automation: "Automation",
@@ -1167,6 +1177,11 @@ const ja: Dictionary = {
     trustLine: "課題を理解 · 見積もり明確 · 不要な提案はしない",
     ctaPrimary: "見積もりを依頼",
     ctaSecondary: "Webサービスを見る",
+    tags: ["Automation", "Web & App", "適切なAI"],
+    metrics: [
+      { value: "6+", label: "掲載ケース" },
+      { value: "Build", label: "SMB向け優先" },
+    ],
     visual: {
       web: "Web & App",
       automation: "業務自動化",

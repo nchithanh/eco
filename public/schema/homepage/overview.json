@@ -127,11 +127,12 @@
           "style": "secondary"
         }
       ],
-      "tags": [
-        "Automation",
-        "Web & App",
-        "Tích hợp AI"
-      ]
+      "tags": ["Automation", "Web & App", "AI đúng chỗ"],
+      "metrics": [
+        { "value": "6+", "label": "Case trên site" },
+        { "value": "Build", "label": "Ưu tiên SMB cold" }
+      ],
+      "visual": "EmbedSiteMock browser wireframe + dolphin-eco mascot"
     },
     "stats": {
       "order": 2,

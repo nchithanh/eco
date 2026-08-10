@@ -57,6 +57,10 @@ export type Dictionary = {
     trustLine: string;
     ctaPrimary: string;
     ctaSecondary: string;
+    /** Hero signature badges under eyebrow */
+    tags: string[];
+    /** Floating metrics on hero visual */
+    metrics: { value: string; label: string }[];
     visual: {
       web: string;
       automation: string;

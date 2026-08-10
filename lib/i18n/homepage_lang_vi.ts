@@ -43,6 +43,11 @@ export const homepageLangVi: HomepageLang = {
     trustLine: "Hiểu trước · Báo giá rõ ràng · Không đẩy dịch vụ không cần thiết",
     ctaPrimary: "Nhận báo giá",
     ctaSecondary: "Xem dịch vụ website",
+    tags: ["Automation", "Web & App", "AI đúng chỗ"],
+    metrics: [
+      { value: "6+", label: "Case trên site" },
+      { value: "Build", label: "Ưu tiên SMB cold" },
+    ],
     visual: {
       web: "Web & App",
       automation: "Automation",

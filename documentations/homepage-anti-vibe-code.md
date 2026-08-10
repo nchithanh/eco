@@ -2,7 +2,8 @@
 
 **Status:** In progress  
 **Phase 0 / Sprint A:** Done  
-**Next:** Sprint B (Hero signature) 
+**Phase 1 / Sprint B:** Done  
+**Next:** Sprint C (Why / Outcomes / Capabilities nhịp) 
 
 Plan thiết kế hệ thống cho homepage Dolphin Software: không chỉ đổi màu/font — đổi **design system**, nhịp layout, và signature nhận diện.
 
@@ -22,11 +23,10 @@ Hero → Fit → Outcomes → Why → Capabilities → Works → Care → Tech/A
 
 **Rủi ro vibe-code còn lại:**
 
-- Hero glass panel quen thuộc
 - Nhiều section kiểu card đều
-- Accent tím còn “AI startup”
-- Motion (glow/float) nhiều hơn cần
+- Accent tím còn “AI startup” (đã soft lavender Phase 0)
 - Works chưa đậm problem → scope → result
+- Care / Tech chưa đủ signature #2 / callout nền tảng
 
 ---
 
@@ -83,13 +83,14 @@ Docs: `conventions.md`, `homepage.md`.
 
 ## Phase 1 — Signature Hero
 
+**Status:** Done (2026-08-10)
+
 File: `components/Hero.tsx`
 
-- Trái: định vị SMB · Build trước · vận hành được + 2 CTA + trust strip + 3 tag (vd. Automation · Web & App · AI đúng chỗ)
-- Phải: signature = browser/console mock (`EmbedSiteMock` `showChat={false}` + scroll) **hoặc** panel system + mascot `dolphin-eco` — không glass 3 tấm generic
-- Floating metrics card nhỏ (số từ SoT — không bịa KPI)
-- Giảm parallax/glow; motion chỉ enter nhẹ
-- Giữ `.kuct-hero-wash`
+- Trái: eyebrow + 3 tag (`.kuct-badge`) + CTA + trust line; type helpers
+- Phải: `EmbedSiteMock` (`showChat={false}` `animate`) + floating metrics + mascot `dolphin-eco`
+- Bỏ GlassPanels / glow orb / parallax nặng
+- Copy tags/metrics: `homepage_lang_*` + `dictionaries` + `public/schema/homepage/hero.json`
 
 ---
 
@@ -165,14 +166,14 @@ Hero → Fit → Outcomes → Why → Capabilities → Works → Care
 | Sprint | Scope | File chính | Status |
 | --- | --- | --- | --- |
 | **A** | Tokens + component language + typography scale | `globals.css`, `theme.tsx`, docs | **Done** |
-| **B** | Hero signature + trust/tags + giảm motion | `Hero.tsx`, `EmbedSiteMock` | Pending |
+| **B** | Hero signature + trust/tags + giảm motion | `Hero.tsx`, `EmbedSiteMock` | **Done** |
 | **C** | Why / Outcomes / Capabilities nhịp layout | `WhyKuct`, `SiteOutcomes`, `Capabilities` | Pending |
 | **D** | Works case depth + Process deliverable UI | `WorksShowcase`, `Process` | Pending |
 | **E** | Polish Care/Tech callout + QA mobile | `AgentDolphinHome`, `AiEdge`, `Technology` | Pending |
 
 Mỗi sprint: cập nhật [homepage.md](./homepage.md) + [changelog.md](./changelog.md); bump cookie consent khi commit/push.
 
-**Next:** Sprint **B** (Hero signature).
+**Next:** Sprint **C** (Why / Outcomes / Capabilities).
 
 ---
 

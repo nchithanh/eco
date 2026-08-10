@@ -13,6 +13,11 @@ export const homepageLangEn: HomepageLang = {
     trustLine: "Understand first · Clear quotes · No unnecessary upselling",
     ctaPrimary: "Get a quote",
     ctaSecondary: "View website services",
+    tags: ["Automation", "Web & App", "AI where it fits"],
+    metrics: [
+      { value: "6+", label: "Cases on site" },
+      { value: "Build", label: "SMB cold-first" },
+    ],
     visual: {
       web: "Web & App",
       automation: "Automation",

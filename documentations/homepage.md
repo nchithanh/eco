@@ -25,7 +25,7 @@ Hero
 | # | Schema | Component | Anchor |
 | --- | --- | --- | --- |
 | — | Nav | `Nav` | Desktop 2-tier: utility (news/about/careers/contact) + GNB services/AI; mobile accordion |
-| 1 | Hero | `Hero` | `#top` — H1/subhead: LCP-safe `kuct-title-enter`; parallax on glow/panels/mascot |
+| 1 | Hero | `Hero` | `#top` — signature: tags + `EmbedSiteMock` wireframe scroll + metrics + mascot eco; H1 LCP `kuct-title-enter`; wash `.kuct-hero-wash` |
 | 2 | Fit | `FitSection` | `#fit` — centered header + 2-col carousel (copy \| image); images `public/fit/slide-0*.jpg` |
 | 3 | Outcomes | `SiteOutcomes` | `#stats` — desktop sticky left + stacked cards right; section titles use `Reveal variant="title"` |
 | 4 | Why Dolphin | `WhyKuct` | `#why` |
