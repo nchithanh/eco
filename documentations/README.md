@@ -1,12 +1,13 @@
 # Documentations — Dolphin Software
 
-Canonical project docs for AI agents and humans. **This folder is the full Dolphin context** for Cursor modes/skills (see [agent-ops.md](./agent-ops.md)).
+Canonical project docs for AI agents and humans. **This folder is the full Dolphin context** for Cursor and Claude Code (see [agent-ops.md](./agent-ops.md), [claude-handoff.md](./claude-handoff.md)).
 
-Update these when code changes (see `.cursor/rules/update-documentations.mdc`).
+Update these when code changes (see `.cursor/rules/update-documentations.mdc` / `.claude/rules/update-documentations.md`).
 
 | Doc | Contents |
 | --- | --- |
-| [agent-ops.md](./agent-ops.md) | Agents router + Content pack + modes/skills, how to invoke |
+| [agent-ops.md](./agent-ops.md) | Agents router + Content pack + modes/skills (Cursor + Claude) |
+| [claude-handoff.md](./claude-handoff.md) | Claude Code session setup — `.claude/` map, dual-IDE policy |
 | [brand-voice.md](./brand-voice.md) | Brand name, Build/Modernize/Automate/Care, tone by locale |
 | [geo-japan.md](./geo-japan.md) | Japan priority / GEO notes |
 | [social-playbook.md](./social-playbook.md) | FB / Zalo / TikTok / IG templates |

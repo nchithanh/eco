@@ -1,26 +1,28 @@
 # Conventions
 
+Claude Code mirrors: `.claude/rules|agents|skills` — see [claude-handoff.md](./claude-handoff.md). When changing policy, update **both** Cursor and Claude packs.
+
 ## Agent rules
 
 | Rule | Path | Apply |
 | --- | --- | --- |
-| Dolphin core | `.cursor/rules/dolphin-core.mdc` | Always — brand, ICP, docs pointer |
-| Content brand / writing / forbidden / seo | `.cursor/rules/content-*.mdc` | Copy tasks |
-| Mode news | `.cursor/rules/mode-news.mdc` | Blog `/news/` |
-| Mode social | `.cursor/rules/mode-social.mdc` | Social captions |
-| Reply Vietnamese | `.cursor/rules/reply-vietnamese.mdc` | Always — chat replies VI regardless of user language |
-| Schema JSON sync | `.cursor/rules/schema-json-sync.mdc` | Always — content/product changes → update `public/schema/` |
-| Confirm before acting | `.cursor/rules/confirm-before-acting.mdc` | Always |
-| Workspace only | `.cursor/rules/workspace-only.mdc` | Always |
-| GitHub `nchithanh` | `.cursor/rules/github-nchithanh.mdc` | Always |
-| Design Mode in-chat | `.cursor/rules/design-mode-chat.mdc` | Always |
-| Update documentations | `.cursor/rules/update-documentations.mdc` | Always |
-| Cookie consent bump | `.cursor/rules/cookie-consent-bump.mdc` | Always — bump `COOKIE_CONSENT_REVISION` on commit/push/build |
-| Responsive CSS units | `.cursor/rules/responsive-css-units.mdc` | Glob |
+| Dolphin core | `.cursor/rules/dolphin-core.mdc` (+ `.claude/rules/dolphin-core.md`) | Always — brand, ICP, docs pointer |
+| Content brand / writing / forbidden / seo | `.cursor/rules/content-*.mdc` (+ `.claude/rules/`) | Copy tasks |
+| Mode news | `.cursor/rules/mode-news.mdc` → Claude skill `mode-news` | Blog `/news/` |
+| Mode social | `.cursor/rules/mode-social.mdc` → Claude skill `mode-social` | Social captions |
+| Reply Vietnamese | `.cursor/rules/reply-vietnamese.mdc` (+ `.claude/`) | Always — chat replies VI regardless of user language |
+| Schema JSON sync | `.cursor/rules/schema-json-sync.mdc` (+ `.claude/`) | Always — content/product changes → update `public/schema/` |
+| Confirm before acting | `.cursor/rules/confirm-before-acting.mdc` (+ `.claude/`) | Always |
+| Workspace only | `.cursor/rules/workspace-only.mdc` (+ `.claude/`) | Always |
+| GitHub `nchithanh` | `.cursor/rules/github-nchithanh.mdc` (+ `.claude/`) | Always |
+| Design Mode in-chat | `.cursor/rules/design-mode-chat.mdc` (+ `.claude/`) | Always |
+| Update documentations | `.cursor/rules/update-documentations.mdc` (+ `.claude/`) | Always |
+| Cookie consent bump | `.cursor/rules/cookie-consent-bump.mdc` (+ `.claude/`) | Always — bump `COOKIE_CONSENT_REVISION` on commit/push/build |
+| Responsive CSS units | `.cursor/rules/responsive-css-units.mdc` (+ `.claude/`) | Glob |
 
 ## Agents (personas)
 
-Router: `.cursor/agents/_router.md` — personas: content, seo, frontend, reviewer, tester, devops.
+Router: `.cursor/agents/_router.md` / `.claude/agents/_router.md` — personas: content, seo, frontend, reviewer, tester, devops.
 
 ## Content Agent pack
 
@@ -28,7 +30,7 @@ Router: `.cursor/agents/_router.md` — personas: content, seo, frontend, review
 | --- | --- |
 | `.cursor/knowledge/` | Company SoT — start at `README.md` / `company.md` |
 | `.cursor/examples/` | Tone samples |
-| `.cursor/prompts/` | create-blog, create-social, pipeline |
+| `.cursor/prompts/` | create-blog, create-social, pipeline (Claude: `.claude/skills/create-*`, `content-pipeline`) |
 
 ## Skills (project)
 

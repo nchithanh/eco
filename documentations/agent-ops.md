@@ -1,25 +1,26 @@
 # Agent ops — Dolphin Software
 
-How Cursor **agents**, **Content Agent pack**, modes/skills, and **`documentations/`** work together.
+How **Cursor** and **Claude Code** agents, Content pack, modes/skills, and **`documentations/`** work together.
+
+Claude-specific handoff: [claude-handoff.md](./claude-handoff.md). Root brief: `CLAUDE.md`.
 
 ## Layers
 
-| Layer | Path | Role |
-| --- | --- | --- |
-| Core rule | `.cursor/rules/dolphin-core.mdc` | Always on — brand, ICP, docs pointer |
-| Agent router | `.cursor/agents/_router.md` | Pick primary persona (content / seo / frontend / …) |
-| Personas | `.cursor/agents/*.md` | Role briefs |
-| Content rules | `.cursor/rules/content-*.mdc`, **`seo-geo-html.mdc`** | Brand, writing, forbidden, SEO copy + **semantic HTML** |
-| Knowledge pack | `.cursor/knowledge/` | Company source of truth (company, opinion, values, services, pains…) — not customer RAG |
-| Examples | `.cursor/examples/` | Tone references (blog / FB / Zalo / landing) |
-| Prompts | `.cursor/prompts/` | `create-blog`, `create-social`, `pipeline` |
-| Mode news | `.cursor/rules/mode-news.mdc` | Blog `/news/` |
-| Mode social | `.cursor/rules/mode-social.mdc` | FB / Zalo / TikTok / IG |
-| Skill lang | `.cursor/skills/lang/` | vi · en · ja |
-| Skill seo | `.cursor/skills/seo/` | Keywords, meta, links |
-| Canonical docs | `documentations/*` | Product truth, routes, deploy, changelog |
+| Layer | Cursor | Claude Code | Role |
+| --- | --- | --- | --- |
+| Project brief | (rules) | `CLAUDE.md` | Always-on context |
+| Core / ops rules | `.cursor/rules/*.mdc` | `.claude/rules/*.md` | Brand, confirm-`ok`, cookie, docs… |
+| Agent router | `.cursor/agents/_router.md` | `.claude/agents/_router.md` | Pick persona |
+| Personas | `.cursor/agents/*.md` | `.claude/agents/*.md` | content / seo / frontend / … |
+| Content rules | `.cursor/rules/content-*.mdc`, `seo-geo-html` | `.claude/rules/content-*.md` (+ paths) | Brand, writing, forbidden, SEO HTML |
+| Knowledge pack | `.cursor/knowledge/` | same (SoT, do not fork) | Company truth |
+| Examples | `.cursor/examples/` | same | Tone references |
+| Prompts | `.cursor/prompts/` | `.claude/skills/{create-blog,create-social,content-pipeline}/` | Workflows |
+| Mode news / social | `.cursor/rules/mode-*.mdc` | `.claude/skills/mode-*/` | Blog / social |
+| Skill lang / seo | `.cursor/skills/` | `.claude/skills/` | Locale + SEO |
+| Canonical docs | `documentations/*` | same | Product / routes / changelog |
 
-Existing rules (confirm-before-acting, workspace-only, update-documentations, …) still apply.
+When changing **policy**, update Cursor + Claude mirrors in the same task. Knowledge + `documentations/` stay single SoT.
 
 ## How to call
 
@@ -42,7 +43,7 @@ Or describe the task; agent should route via `_router.md`, attach mode/skill, an
 ## Checklist — news
 
 1. Router → **content** (+ **seo**)  
-2. Read company knowledge (above) + `prompts/create-blog.md` / `pipeline.md` + content rules  
+2. Read company knowledge (above) + `create-blog` / `content-pipeline` + content rules  
 3. Docs: `seo-keywords.md`, `growth-reach-users.md`, `brand-voice.md`  
 4. Plan keyword + slug + locale → **`ok`**  
 5. Edit `lib/news-details.ts` / locale copy only as needed  
@@ -51,7 +52,7 @@ Or describe the task; agent should route via `_router.md`, attach mode/skill, an
 ## Checklist — social
 
 1. Router → **content**  
-2. Read company knowledge (above) + `prompts/create-social.md`; `social-playbook.md`, `brand-voice.md`, examples  
+2. Read company knowledge (above) + `create-social`; `social-playbook.md`, `brand-voice.md`, examples  
 3. Plan channels + CTA → **`ok`**  
 4. Deliver per-channel copy (no fake metrics)  
 
@@ -62,4 +63,4 @@ Docs: `homepage.md`, `architecture.md`, `conventions.md`, `i18n.md`.
 
 ## Deploy
 
-Router → **devops**. Commit/push only when user asks; identity `nchithanh`.
+Router → **devops**. Commit/push only when user asks; identity `nchithanh`; bump cookie consent revision.

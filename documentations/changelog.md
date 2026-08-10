@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-08-10 (claude-handoff)
+
+- Claude Code pack: `CLAUDE.md` project brief; `.claude/rules|agents|skills` mirrored from Cursor; `documentations/claude-handoff.md` + agent-ops dual-IDE table.
+
 ## 2026-08-10 (phase-4-motion)
 
 - Phase 4 intentional motion: Contact static mascot; Technology no mouse tilt / quieter globe; `data-motion` + reduced-motion CSS; docs Done.

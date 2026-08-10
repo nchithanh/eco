@@ -1,0 +1,39 @@
+---
+description: Keep documentations/ in sync whenever code or product behavior changes
+---
+
+# Update documentations/
+
+Whenever you **change product behavior, routes, copy structure, branding, deploy, or architecture**, update `documentations/` in the **same task** (before commit/deploy when those are requested).
+
+## Do
+
+- Edit the matching doc under `documentations/` (see index in `documentations/README.md`).
+- Add a short dated note to `documentations/changelog.md` for non-trivial changes.
+- Prefer updating existing docs over inventing parallel files.
+- Keep docs factual and short — mirror the codebase, not marketing fluff.
+
+## Do not
+
+- Skip docs because the change “feels small” if it alters routes, i18n keys, brand name, Pages deploy, or homepage section order.
+- Write secrets, tokens, or private keys into docs.
+- Duplicate large copy dumps from `lib/i18n/*` — link to files / summarize structure instead.
+- Touch `docs/` (legacy) unless the user asks; canonical AI docs live in **`documentations/`**.
+
+## Map (where to edit)
+
+| Change type | Update |
+| --- | --- |
+| Brand / display name | `overview.md` |
+| Routes / pages | `architecture.md`, `pages.md` |
+| Homepage sections | `homepage.md` |
+| Locale / copy files | `i18n.md` |
+| Deploy / Pages / basePath | `overview.md`, `architecture.md` |
+| Agent / project conventions | `conventions.md`, `agent-ops.md` |
+| Schema JSON (`/schema/`) | `public/schema/*` (+ `schema-json-sync` rule); routes in `pages.md` |
+| Brand voice / social / JP GEO | `brand-voice.md`, `social-playbook.md`, `geo-japan.md` |
+| Any of the above | + `changelog.md` entry |
+
+## Confirm-before-acting
+
+Still present a plan and wait for **`ok`** before mutating. Include documentation updates **in that plan**.

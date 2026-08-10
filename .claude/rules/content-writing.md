@@ -1,0 +1,27 @@
+---
+description: Content Agent — writing craft (human tone, 60/30/10 mix, short sentences).
+paths:
+  - "lib/i18n/**"
+  - "lib/news*"
+  - "lib/**/*copy*"
+---
+
+# Content — writing
+
+## Write like a person
+
+- Light emotion is ok; do not force motivation  
+- Short sentences; questions; examples; light storytelling  
+- Mix roughly: **60% share / experience**, **30% knowledge**, **10% CTA**
+
+## Prefer
+
+- Concrete scenes (shop owner at night answering Messenger…)  
+- One idea per paragraph  
+- Scannable H2s  
+
+## Avoid
+
+- Essay walls with no breaks  
+- Feature dumps without a human problem  
+- Ending every piece with a loud sales pitch

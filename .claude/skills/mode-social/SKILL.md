@@ -1,0 +1,41 @@
+---
+name: mode-social
+description: >-
+  MODE social — write Facebook, Zalo, TikTok, Instagram posts for Dolphin Software; web-first CTA.
+---
+
+# Mode: social
+
+Use when the user asks for **social captions / post drafts** for Facebook, Zalo, TikTok, Instagram (or similar).
+
+## Before drafting (required reads)
+
+1. Persona: `.cursor/agents/content.md`; prompt `.cursor/prompts/create-social.md`
+2. Content rules: `content-brand`, `content-writing`, `content-forbidden`
+3. Tone: `.cursor/examples/facebook/` or `zalo/` (and knowledge if product facts needed)
+4. `documentations/agent-ops.md`
+5. `documentations/social-playbook.md`
+6. `documentations/brand-voice.md`
+7. `documentations/growth-reach-users.md` — USP order: website first, Care optional
+8. Optional: `documentations/seo-keywords.md` for hook phrases; `documentations/geo-japan.md` if JA / Japan
+
+Skills:
+
+- **lang** — channel language (vi default for VN channels; ja for JP)
+- **seo** — light: one clear keyword / CTA URL, no keyword stuffing
+
+## Workflow
+
+1. Plan: channel(s), locale, hook, CTA URL → wait for **`ok`**
+2. Deliver per-channel variants (length fits platform)
+3. CTA: site page or Zalo — not “AI Agent” cold open
+4. Do not claim fake follower counts or case results
+
+## Output shape
+
+Per channel:
+
+- Hook (1 line)  
+- Body (short)  
+- CTA + URL or Zalo  
+- Optional hashtags (IG/TikTok only; spare)
