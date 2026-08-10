@@ -23,7 +23,7 @@ function ContactVisualScene() {
  alt=""
  width={800}
  height={994}
- className="kuct-mascot-float relative z-[1] h-auto max-h-48 w-auto max-w-[min(14rem,55%)] object-contain drop-shadow-[0_12px_28px_rgb(26_21_32/0.1)] select-none"
+ className="relative z-[1] h-auto max-h-48 w-auto max-w-[min(14rem,55%)] object-contain drop-shadow-[0_12px_28px_rgb(26_21_32/0.1)] select-none"
  sizes="(min-width: 1024px) 12rem, 0px"
  />
  </div>

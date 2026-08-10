@@ -5,6 +5,7 @@
 **Phase 1 / Sprint B:** Done  
 **Phase 2 / Sprint C:** Done  
 **Phase 3:** Done  
+**Phase 4:** Done  
 **Next:** Sprint D (Works case depth + Process) 
 
 Plan thiết kế hệ thống cho homepage Dolphin Software: không chỉ đổi màu/font — đổi **design system**, nhịp layout, và signature nhận diện.
@@ -27,7 +28,8 @@ Hero → Fit → Outcomes → Why → Capabilities → Works → Care → Tech/A
 
 - Works chưa đậm problem → scope → result (Sprint D)
 - Works thiếu ảnh cafe/clinic riêng (placeholder)
-- Process / Pricing nhịp deliverable (Sprint D/E)
+- Process deliverable UI (Sprint D)
+- Care/AiEdge polish mobile (Sprint E)
 
 ---
 
@@ -140,10 +142,14 @@ Hero → Fit → Outcomes → Why → Capabilities → Works → Care
 
 ## Phase 4 — Motion có chủ đích
 
-- Giữ Reveal sequence; bỏ float/glow thừa trên homepage
-- Stats count-up optional; tôn trọng `prefers-reduced-motion`
-- Care / Ask AI: animate theo bước nội dung
-- Không parallax nặng trên Hero mới
+**Status:** Done (2026-08-10)
+
+- Giữ Reveal sequence + Care/Ask AI typewriter (`useDesktopMotion`)
+- Contact mascot: **static** (bỏ `kuct-mascot-float`)
+- Technology: bỏ mouse-tilt parallax; satellite/node pulse off; globe chậm; `data-motion="off"` khi reduced-motion (vẫn hiện sphere)
+- EmbedSiteMock scroll đã tôn trọng `useDesktopMotion`
+- Không thêm Outcomes count-up
+- `prefers-reduced-motion`: reveal/title/site-mock/globe đã kill trong `globals.css`
 
 ---
 

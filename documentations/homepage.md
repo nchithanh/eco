@@ -32,13 +32,13 @@ Hero
 | 5 | How we help | `Capabilities` | `#capabilities` — hub + carousel **Build·Modernize·Automate·Care**; surface cards + accent active |
 | 6 | Projects | `WorksShowcase` | `#works` — case screenshots; TODO cafe/clinic dedicated assets |
 | 7 | Dolphin Care | `AgentDolphinHome` | `#dolphin-care` — split benefits \| chat demo (`MASCOT.chat`); surface cards |
-| 8 | Ops AI | `Technology`, `AiEdge` | `#technology` quiet surface + soft sphere (less glow); `#ai-edge` |
+| 8 | Ops AI | `Technology`, `AiEdge` | `#technology` quiet surface + slow/static sphere (no tilt); `#ai-edge` |
 | 9 | Process | `Process` | `#process` |
 | 10 | Solutions | `PopularServices` | `#popular-services` — 50/50: left intro / right top tabs + detail |
 | 11 | News | `HomeNews` | `#news` — carousel; click card → `/news/[slug]/` (full page, no popup) |
 | — | `/news/` list | `NewsContent` | Canva **pageNew** (page 2): eyebrow + title/filters row; featured split (copy \| image); grid cards ↗ |
 | 12 | FAQ | `Faq` | `#faq` |
-| 13 | CTA | `ContactForm` | `#contact` |
+| 13 | CTA | `ContactForm` | `#contact` — static `MASCOT.contact` (no float bob) |
 | — | Footer | `Footer` | |
 
 **Deferred:** Testimonials. **Not on homepage:** WhatYouGet, TrustStrip, TechStack, OpsLifecycle, CoFounder, UiGallery.

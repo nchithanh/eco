@@ -1899,7 +1899,7 @@ html[data-theme="black"] .kuct-loader-progress {
   }
 }
 
-/* Mascot float — all viewports */
+/* Mascot float — opt-in only; homepage Contact is static (Phase 4) */
 .kuct-mascot-float {
   animation: kuct-mascot-bob 4.5s ease-in-out infinite;
 }
@@ -1912,42 +1912,42 @@ html[data-theme="black"] .kuct-loader-progress {
   animation: kuct-mascot-tail 2.8s ease-in-out infinite;
 }
 
-/* Technology NeuralSphere globe — follows site accent tokens */
+/* Technology NeuralSphere — Phase 4: quiet motion, no mouse tilt */
 .kuct-globe-bloom {
   background: radial-gradient(
     circle,
-    rgba(var(--kuct-accent-rgb), 0.42) 0%,
-    rgba(var(--kuct-accent-rgb), 0.18) 42%,
+    rgba(var(--kuct-accent-rgb), 0.22) 0%,
+    rgba(var(--kuct-accent-rgb), 0.08) 42%,
     transparent 70%
   );
-  filter: blur(28px);
+  filter: blur(20px);
   pointer-events: none;
 }
 
 .kuct-globe-bloom--core {
   background: radial-gradient(
     circle,
-    color-mix(in srgb, var(--kuct-accent-3) 55%, transparent) 0%,
-    rgba(var(--kuct-accent-rgb), 0.22) 45%,
+    color-mix(in srgb, var(--kuct-accent-3) 35%, transparent) 0%,
+    rgba(var(--kuct-accent-rgb), 0.1) 45%,
     transparent 72%
   );
-  filter: blur(16px);
-  opacity: 0.85;
+  filter: blur(12px);
+  opacity: 0.7;
 }
 
 .kuct-globe-svg {
-  filter: drop-shadow(0 0 1.75rem rgb(26 21 32 / 0.16));
+  filter: drop-shadow(0 0 1rem rgb(26 21 32 / 0.1));
 }
 
 .kuct-globe-stage {
-  perspective: 720px;
-  transform-style: preserve-3d;
+  perspective: none;
+  transform-style: flat;
 }
 
 .kuct-globe-tilt {
-  transform-style: preserve-3d;
-  transition: transform 0.2s ease-out;
-  will-change: transform;
+  transform-style: flat;
+  transition: none;
+  will-change: auto;
 }
 
 /* Deep accent-tinted disc under sphere gradients */
@@ -1963,11 +1963,11 @@ html[data-theme="black"] .kuct-loader-progress {
 }
 
 .kuct-globe {
-  animation: kuct-rotate-globe 40s linear infinite;
+  animation: kuct-rotate-globe 72s linear infinite;
 }
 
 .kuct-orbit {
-  animation: kuct-orbit 12s linear infinite;
+  animation: none;
 }
 
 /* Lat/long wireframe — soft accent grid */
@@ -2005,7 +2005,7 @@ html[data-theme="black"] .kuct-loader-progress {
   stroke: var(--kuct-accent-2);
   transform-origin: center;
   transform-box: fill-box;
-  animation: kuct-globe-pulse 2.5s ease-in-out infinite;
+  animation: none;
 }
 
 .kuct-node--halo {
@@ -2020,14 +2020,22 @@ html[data-theme="black"] .kuct-loader-progress {
 
 .kuct-data-line {
   fill: none;
-  stroke: rgba(var(--kuct-accent-rgb), 0.55);
+  stroke: rgba(var(--kuct-accent-rgb), 0.4);
   stroke-width: 0.95;
-  stroke-dasharray: 8 12;
-  animation: kuct-data-flow 3s linear infinite;
+  stroke-dasharray: 8 14;
+  animation: kuct-data-flow 6s linear infinite;
 }
 
 .kuct-satellite {
-  animation: kuct-satellite-orbit 10s linear infinite;
+  animation: none;
+}
+
+/* Static when reduced-motion or data-motion=off */
+[data-motion="off"] .kuct-globe,
+[data-motion="off"] .kuct-data-line,
+[data-motion="off"] .kuct-satellite,
+[data-motion="off"] .kuct-node {
+  animation: none !important;
 }
 
 @keyframes kuct-rotate-globe {
@@ -2136,6 +2144,12 @@ html[data-theme="black"] .kuct-loader-progress {
   .kuct-globe-tilt {
     transition: none;
     will-change: auto;
+  }
+
+  .kuct-globe-bloom,
+  .kuct-globe-bloom--core {
+    filter: none;
+    opacity: 0.45;
   }
 
   .kuct-reveal,

@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-08-10 (phase-4-motion)
+
+- Phase 4 intentional motion: Contact static mascot; Technology no mouse tilt / quieter globe; `data-motion` + reduced-motion CSS; docs Done.
+
 ## 2026-08-10 (phase-3-signature)
 
 - Phase 3: `lib/mascot.ts` context map; Ask AI welcome → chat mascot; Care/Tech surface polish; Technology glow toned down; Works cafe/clinic asset TODO documented.

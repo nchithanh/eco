@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import { AccentText } from "@/components/BrandName";
 import { Reveal } from "@/components/Reveal";
 import { assetPath } from "@/lib/asset";
@@ -169,77 +168,30 @@ function dataArcPath(x1: number, y1: number, x2: number, y2: number): string {
  return `M${x1} ${y1} Q${cx} ${cy} ${x2} ${y2}`;
 }
 
-/** Skip mounting when prefers-reduced-motion — heavy SVG/CSS. */
+/** Always mount; motion off = static sphere (no mouse tilt / CSS loops). */
 function DesktopNeuralSphere() {
   const motion = useDesktopMotion();
-  if (!motion) return null;
-  return <NeuralSphere />;
+  return <NeuralSphere animated={motion} />;
 }
 
-function NeuralSphere() {
- const tiltRef = useRef<HTMLDivElement>(null);
- const svgRef = useRef<SVGSVGElement>(null);
-
- useEffect(() => {
- const svg = svgRef.current;
- if (svg) {
- svg.querySelectorAll<SVGGeometryElement>(".kuct-data-line").forEach((line) => {
- if (typeof line.getTotalLength !== "function") return;
- const length = line.getTotalLength();
- // Visible dash packet + gap (avoid offset=length which hid the arcs)
- const dash = Math.max(10, length / 5);
- const gap = Math.max(14, length / 4);
- line.style.strokeDasharray = `${dash} ${gap}`;
- });
- }
-
- const reduceMq = window.matchMedia("(prefers-reduced-motion: reduce)");
- const fineMq = window.matchMedia("(pointer: fine)");
- const tiltEl = tiltRef.current;
-
- const onMove = (e: MouseEvent) => {
- if (reduceMq.matches || !fineMq.matches || !tiltEl) return;
- const x = (e.clientX / window.innerWidth - 0.5) * 16;
- const y = (e.clientY / window.innerHeight - 0.5) * -16;
- tiltEl.style.transform = `rotateX(${y}deg) rotateY(${x}deg)`;
- };
-
- const resetTilt = () => {
- if (tiltEl) tiltEl.style.transform = "rotateX(0deg) rotateY(0deg)";
- };
-
- if (reduceMq.matches) {
- resetTilt();
- return;
- }
-
- window.addEventListener("mousemove", onMove);
- const onReduceChange = () => {
- if (reduceMq.matches) resetTilt();
- };
- reduceMq.addEventListener("change", onReduceChange);
-
- return () => {
- window.removeEventListener("mousemove", onMove);
- reduceMq.removeEventListener("change", onReduceChange);
- };
- }, []);
-
+function NeuralSphere({ animated }: { animated: boolean }) {
  return (
- <div className="relative mx-auto aspect-square w-[78%] max-w-[18rem]">
- {/* Soft accent bloom */}
+ <div
+ className="relative mx-auto aspect-square w-[78%] max-w-[18rem]"
+ data-motion={animated ? "on" : "off"}
+ >
+ {/* Soft accent bloom — static, low intensity */}
  <div
  aria-hidden
- className="kuct-globe-bloom absolute inset-[-22%] rounded-full opacity-95"
+ className="kuct-globe-bloom absolute inset-[-18%] rounded-full opacity-70"
  />
  <div
  aria-hidden
- className="kuct-globe-bloom kuct-globe-bloom--core absolute inset-[-6%] rounded-full"
+ className="kuct-globe-bloom kuct-globe-bloom--core absolute inset-[-4%] rounded-full opacity-60"
  />
  <div className="kuct-globe-stage relative h-full w-full">
- <div ref={tiltRef} className="kuct-globe-tilt h-full w-full">
+ <div className="kuct-globe-tilt h-full w-full">
  <svg
- ref={svgRef}
  viewBox="0 0 200 200"
  className="kuct-globe-svg relative h-full w-full"
  aria-hidden
