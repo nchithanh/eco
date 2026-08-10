@@ -291,6 +291,8 @@ export type Dictionary = {
     eyebrow: string;
     title: string;
     support: string;
+    /** Optional delivery promise strip under support */
+    promise?: string;
     reasons: { title: string; body: string }[];
   };
   /** Optional homepage “fit” block (VI via homepage_lang). */

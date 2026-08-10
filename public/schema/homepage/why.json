@@ -4,7 +4,7 @@
     "id": "why",
     "locale": "vi",
     "brand": "Dolphin Software",
-    "updated": "2026-08-03",
+    "updated": "2026-08-10",
     "schemaPath": "/schema/homepage/why/",
     "rawPath": "/schema/homepage/why.json",
     "productRoute": "/"
@@ -15,24 +15,26 @@
     "section_label": "Tại sao chọn Dolphin Software",
     "headline": "Đối tác dài hạn, không chỉ giao code",
     "subheadline": "Timeline rõ ràng, phạm vi cam kết và hỗ trợ sau bàn giao — không có sương mù kỹ thuật.",
+    "promise": "Hiểu trước · Báo giá rõ · Bàn giao đúng phạm vi",
+    "layout": "icon-line-pillars",
     "pillars": [
       {
-        "icon": "shield",
+        "icon": "experience",
         "title": "Kinh nghiệm thực chiến",
         "body": "7 năm vận hành thực tế — đáng tin cậy, có khả năng quan sát, bàn giao end-to-end cho doanh nghiệp SMB."
       },
       {
-        "icon": "layers",
+        "icon": "delivery",
         "title": "Bàn giao end-to-end",
         "body": "Từ discovery đến deploy — một đội chịu trách nhiệm; cấu trúc để mở rộng về sau."
       },
       {
-        "icon": "eye",
+        "icon": "process",
         "title": "Quy trình minh bạch",
         "body": "Milestone, demo định kỳ, báo giá theo phạm vi — đo lường bằng sản phẩm bàn giao thực tế."
       },
       {
-        "icon": "headset",
+        "icon": "support",
         "title": "Hỗ trợ sau bàn giao",
         "body": "Hướng dẫn vận hành, bảo hành lỗi theo thỏa thuận, tối ưu khi thực tế phát sinh."
       }

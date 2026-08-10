@@ -27,9 +27,9 @@ Hero
 | — | Nav | `Nav` | Desktop 2-tier: utility (news/about/careers/contact) + GNB services/AI; mobile accordion |
 | 1 | Hero | `Hero` | `#top` — signature: tags + `EmbedSiteMock` wireframe scroll + metrics + mascot eco; H1 LCP `kuct-title-enter`; wash `.kuct-hero-wash` |
 | 2 | Fit | `FitSection` | `#fit` — centered header + 2-col carousel (copy \| image); images `public/fit/slide-0*.jpg` |
-| 3 | Outcomes | `SiteOutcomes` | `#stats` — desktop sticky left + stacked cards right; section titles use `Reveal variant="title"` |
-| 4 | Why Dolphin | `WhyKuct` | `#why` |
-| 5 | How we help | `Capabilities` | `#capabilities` — hub header + center carousel (peek sides, autoplay/pause) |
+| 3 | Outcomes | `SiteOutcomes` | `#stats` — sticky left + stacked `.kuct-surface-card`; type helpers; secondary = ghost CTA |
+| 4 | Why Dolphin | `WhyKuct` | `#why` — icon-line 4 pillars + delivery `promise`; no glass cards |
+| 5 | How we help | `Capabilities` | `#capabilities` — hub + carousel **Build·Modernize·Automate·Care**; surface cards + accent active |
 | 6 | Projects | `WorksShowcase` | `#works` |
 | 7 | Dolphin Care | `AgentDolphinHome` | `#dolphin-care` |
 | 8 | Ops AI | `Technology`, `AiEdge` | `#technology` (AI Philosophy + principles VI), `#ai-edge` |

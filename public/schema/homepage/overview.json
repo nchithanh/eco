@@ -179,24 +179,26 @@
       "section_label": "Tại sao chọn Dolphin Software",
       "headline": "Đối tác dài hạn, không chỉ giao code",
       "subheadline": "Timeline rõ ràng, phạm vi cam kết và hỗ trợ sau bàn giao — không có sương mù kỹ thuật.",
+      "promise": "Hiểu trước · Báo giá rõ · Bàn giao đúng phạm vi",
+      "layout": "icon-line-pillars",
       "pillars": [
         {
-          "icon": "shield",
+          "icon": "experience",
           "title": "Kinh nghiệm thực chiến",
           "body": "7 năm vận hành thực tế — đáng tin cậy, có khả năng quan sát, bàn giao end-to-end cho doanh nghiệp SMB."
         },
         {
-          "icon": "layers",
+          "icon": "delivery",
           "title": "Bàn giao end-to-end",
           "body": "Từ discovery đến deploy — một đội chịu trách nhiệm; cấu trúc để mở rộng về sau."
         },
         {
-          "icon": "eye",
+          "icon": "process",
           "title": "Quy trình minh bạch",
           "body": "Milestone, demo định kỳ, báo giá theo phạm vi — đo lường bằng sản phẩm bàn giao thực tế."
         },
         {
-          "icon": "headset",
+          "icon": "support",
           "title": "Hỗ trợ sau bàn giao",
           "body": "Hướng dẫn vận hành, bảo hành lỗi theo thỏa thuận, tối ưu khi thực tế phát sinh."
         }
@@ -205,47 +207,48 @@
     "capabilities": {
       "order": 4,
       "id": "capabilities",
-      "section_label": "Website & App",
+      "section_label": "How we help",
       "headline": "Website rõ ràng, doanh nghiệp thực sự vận hành được",
-      "subheadline": "Một brief ngắn là đủ để bắt đầu. Chọn loại dự án gần nhất — Dolphin Software sẽ đề xuất hướng tiếp cận và báo giá cụ thể.",
+      "subheadline": "Một brief ngắn là đủ để bắt đầu. Chọn outcome gần nhất — Dolphin Software sẽ đề xuất hướng tiếp cận và báo giá cụ thể.",
+      "positioning": ["Build", "Modernize", "Automate", "Care"],
       "services": [
         {
-          "id": "landing-page",
-          "title": "Landing Page",
-          "description": "Một trang tập trung với CTA rõ ràng — chiến dịch, dịch vụ, thu lead nhanh.",
-          "timeline": "Thường 3–5 ngày",
+          "id": "build",
+          "title": "Build",
+          "description": "Xây website và phần mềm theo nhu cầu — để bán hàng và vận hành, không chỉ giới thiệu.",
+          "timeline": "Ưu tiên SMB",
           "href": "https://dolphin-software.io.vn/services/web/"
         },
         {
-          "id": "business-website",
-          "title": "Website Doanh Nghiệp",
-          "description": "Profile công ty, dịch vụ, SEO dài hạn — cập nhật nội dung dễ dàng.",
-          "timeline": "Thường 7–14 ngày",
-          "href": "https://dolphin-software.io.vn/services/web/"
+          "id": "modernize",
+          "title": "Modernize",
+          "description": "Nâng cấp, mở rộng, tối ưu hệ thống hiện có trước khi nghĩ tới làm mới toàn bộ.",
+          "timeline": "Hệ thống đang chạy",
+          "href": "https://dolphin-software.io.vn/services/software/"
         },
         {
-          "id": "online-shop",
-          "title": "Cửa Hàng Online",
-          "description": "Danh mục, giỏ hàng, thanh toán — bán hàng online không rối rắm.",
-          "timeline": "Thường 3–4 tuần",
-          "href": "https://dolphin-software.io.vn/services/web/"
+          "id": "automate",
+          "title": "Automate",
+          "description": "AI hóa việc lặp lại khi có giá trị thật — không thay người, giảm tay chân.",
+          "timeline": "Quy trình lặp",
+          "href": "https://dolphin-software.io.vn/ai-transform/"
         },
         {
-          "id": "web-app",
-          "title": "Web App",
-          "description": "Quy trình tùy chỉnh — đặt lịch, portal, công cụ nội bộ đội nhóm tự vận hành được.",
-          "timeline": "Theo phạm vi dự án",
-          "href": "https://dolphin-software.io.vn/services/web/"
+          "id": "care",
+          "title": "Care",
+          "description": "Dolphin Care — chăm sóc khách trên website, ghi nhận lead, hỗ trợ ngoài giờ trong phạm vi kiến thức.",
+          "timeline": "Trên website",
+          "href": "https://dolphin-software.io.vn/dolphin-care/"
         }
       ],
       "secondary_links": [
         {
-          "label": "Mobile App",
-          "href": "https://dolphin-software.io.vn/services/mobile/"
+          "label": "Landing Page",
+          "href": "https://dolphin-software.io.vn/services/landing/"
         },
         {
-          "label": "Phần mềm",
-          "href": "https://dolphin-software.io.vn/services/software/"
+          "label": "Mobile App",
+          "href": "https://dolphin-software.io.vn/services/mobile/"
         },
         {
           "label": "UI/UX",

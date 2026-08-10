@@ -4,7 +4,7 @@
     "id": "capabilities",
     "locale": "vi",
     "brand": "Dolphin Software",
-    "updated": "2026-08-07",
+    "updated": "2026-08-10",
     "schemaPath": "/schema/homepage/capabilities/",
     "rawPath": "/schema/homepage/capabilities.json",
     "productRoute": "/"
@@ -14,54 +14,55 @@
     "id": "capabilities",
     "section_label": "How we help",
     "headline": "Website rõ ràng, doanh nghiệp thực sự vận hành được",
-    "subheadline": "Một brief ngắn là đủ để bắt đầu. Chọn loại dự án gần nhất — Dolphin Software sẽ đề xuất hướng tiếp cận và báo giá cụ thể.",
+    "subheadline": "Một brief ngắn là đủ để bắt đầu. Chọn outcome gần nhất — Dolphin Software sẽ đề xuất hướng tiếp cận và báo giá cụ thể.",
     "layout": "header-hub-cta-carousel",
+    "positioning": ["Build", "Modernize", "Automate", "Care"],
     "hub_cta": {
       "label": "Xem gói dịch vụ",
       "href": "#popular-services"
     },
     "services": [
       {
-        "id": "landing-page",
-        "title": "Landing Page",
-        "description": "Một trang tập trung với CTA rõ ràng — chiến dịch, dịch vụ, thu lead nhanh.",
-        "timeline": "Thường 3–5 ngày",
-        "href": "https://dolphin-software.io.vn/services/landing/",
+        "id": "build",
+        "title": "Build",
+        "description": "Xây website và phần mềm theo nhu cầu — để bán hàng và vận hành, không chỉ giới thiệu.",
+        "timeline": "Ưu tiên SMB",
+        "href": "https://dolphin-software.io.vn/services/web/",
         "image": "/capabilities/web.jpg"
       },
       {
-        "id": "business-website",
-        "title": "Website Doanh Nghiệp",
-        "description": "Profile công ty, dịch vụ, SEO dài hạn — cập nhật nội dung dễ dàng.",
-        "timeline": "Thường 7–14 ngày",
-        "href": "https://dolphin-software.io.vn/services/web/",
+        "id": "modernize",
+        "title": "Modernize",
+        "description": "Nâng cấp, mở rộng, tối ưu hệ thống hiện có trước khi nghĩ tới làm mới toàn bộ.",
+        "timeline": "Hệ thống đang chạy",
+        "href": "https://dolphin-software.io.vn/services/software/",
         "image": "/capabilities/design.jpg"
       },
       {
-        "id": "online-shop",
-        "title": "Cửa Hàng Online",
-        "description": "Danh mục, giỏ hàng, thanh toán — bán hàng online không rối rắm.",
-        "timeline": "Thường 3–4 tuần",
-        "href": "https://dolphin-software.io.vn/services/web/",
+        "id": "automate",
+        "title": "Automate",
+        "description": "AI hóa việc lặp lại khi có giá trị thật — không thay người, giảm tay chân.",
+        "timeline": "Quy trình lặp",
+        "href": "https://dolphin-software.io.vn/ai-transform/",
         "image": "/capabilities/integrations.jpg"
       },
       {
-        "id": "web-app",
-        "title": "Web App",
-        "description": "Quy trình tùy chỉnh — đặt lịch, portal, công cụ nội bộ đội nhóm tự vận hành được.",
-        "timeline": "Theo phạm vi dự án",
-        "href": "https://dolphin-software.io.vn/services/web/",
-        "image": "/capabilities/backend.jpg"
+        "id": "care",
+        "title": "Care",
+        "description": "Dolphin Care — chăm sóc khách trên website, ghi nhận lead, hỗ trợ ngoài giờ trong phạm vi kiến thức.",
+        "timeline": "Trên website",
+        "href": "https://dolphin-software.io.vn/dolphin-care/",
+        "image": "/capabilities/agent-dolphin.jpg"
       }
     ],
     "secondary_links": [
       {
-        "label": "Mobile App",
-        "href": "https://dolphin-software.io.vn/services/mobile/"
+        "label": "Landing Page",
+        "href": "https://dolphin-software.io.vn/services/landing/"
       },
       {
-        "label": "Phần mềm",
-        "href": "https://dolphin-software.io.vn/services/software/"
+        "label": "Mobile App",
+        "href": "https://dolphin-software.io.vn/services/mobile/"
       },
       {
         "label": "UI/UX",
@@ -77,11 +78,6 @@
         "label": "Nhận báo giá",
         "href": "#contact",
         "style": "primary"
-      },
-      {
-        "label": "Xem gói dịch vụ",
-        "href": "#popular-services",
-        "style": "secondary"
       }
     ]
   }

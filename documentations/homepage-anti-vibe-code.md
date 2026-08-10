@@ -3,7 +3,8 @@
 **Status:** In progress  
 **Phase 0 / Sprint A:** Done  
 **Phase 1 / Sprint B:** Done  
-**Next:** Sprint C (Why / Outcomes / Capabilities nhịp) 
+**Phase 2 / Sprint C:** Done  
+**Next:** Sprint D (Works case depth + Process) 
 
 Plan thiết kế hệ thống cho homepage Dolphin Software: không chỉ đổi màu/font — đổi **design system**, nhịp layout, và signature nhận diện.
 
@@ -23,10 +24,9 @@ Hero → Fit → Outcomes → Why → Capabilities → Works → Care → Tech/A
 
 **Rủi ro vibe-code còn lại:**
 
-- Nhiều section kiểu card đều
-- Accent tím còn “AI startup” (đã soft lavender Phase 0)
 - Works chưa đậm problem → scope → result
 - Care / Tech chưa đủ signature #2 / callout nền tảng
+- Process / Pricing nhịp deliverable (Sprint D/E)
 
 ---
 
@@ -95,6 +95,8 @@ File: `components/Hero.tsx`
 ---
 
 ## Phase 2 — Nhịp section
+
+**Status:** Sprint C Done (2026-08-10) — Why / Outcomes / Capabilities. Fit nhẹ giữ; Works·Care·Process → Sprint D/E.
 
 Giữ **outcome-first** và **Capabilities = Build · Modernize · Automate · Care** (không đổi thành 4 product cards — trùng Pricing / lệch ICP).
 
@@ -167,13 +169,13 @@ Hero → Fit → Outcomes → Why → Capabilities → Works → Care
 | --- | --- | --- | --- |
 | **A** | Tokens + component language + typography scale | `globals.css`, `theme.tsx`, docs | **Done** |
 | **B** | Hero signature + trust/tags + giảm motion | `Hero.tsx`, `EmbedSiteMock` | **Done** |
-| **C** | Why / Outcomes / Capabilities nhịp layout | `WhyKuct`, `SiteOutcomes`, `Capabilities` | Pending |
+| **C** | Why / Outcomes / Capabilities nhịp layout | `WhyKuct`, `SiteOutcomes`, `Capabilities` | **Done** |
 | **D** | Works case depth + Process deliverable UI | `WorksShowcase`, `Process` | Pending |
 | **E** | Polish Care/Tech callout + QA mobile | `AgentDolphinHome`, `AiEdge`, `Technology` | Pending |
 
 Mỗi sprint: cập nhật [homepage.md](./homepage.md) + [changelog.md](./changelog.md); bump cookie consent khi commit/push.
 
-**Next:** Sprint **C** (Why / Outcomes / Capabilities).
+**Next:** Sprint **D** (Works case depth + Process).
 
 ---
 

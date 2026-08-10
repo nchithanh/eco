@@ -80,8 +80,8 @@ function OfferCard({
         onClick={onNavigate}
         className={
           active
-            ? "group relative flex w-[min(100%,18.5rem)] shrink-0 flex-col overflow-hidden rounded-[10px] bg-[var(--kuct-panel-2)] shadow-[0_12px_36px_rgb(26_21_32/0.1)] transition duration-500 sm:w-[20rem] lg:w-[21.5rem]"
-            : "group relative flex w-[min(78vw,14.5rem)] shrink-0 flex-col overflow-hidden rounded-[10px] bg-[var(--kuct-panel-2)] opacity-55 shadow-[0_8px_24px_rgb(26_21_32/0.06)] transition duration-500 hover:opacity-75 sm:w-[15.5rem] lg:w-[16.5rem]"
+            ? "group relative flex w-[min(100%,18.5rem)] shrink-0 flex-col overflow-hidden rounded-[10px] border border-[var(--kuct-accent)]/35 bg-[var(--kuct-surface)] shadow-[0_14px_36px_rgb(26_21_32/0.08)] transition duration-500 sm:w-[20rem] lg:w-[21.5rem]"
+            : "group relative flex w-[min(78vw,14.5rem)] shrink-0 flex-col overflow-hidden rounded-[10px] border border-[var(--kuct-border)] bg-[var(--kuct-surface)] opacity-60 transition duration-500 hover:opacity-80 sm:w-[15.5rem] lg:w-[16.5rem]"
         }
         aria-current={active ? "true" : undefined}
       >
@@ -98,7 +98,7 @@ function OfferCard({
               className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[rgba(4,4,12,0.35)] via-transparent to-transparent"
               aria-hidden
             />
-            <span className="absolute left-3 top-3 rounded-[10px] bg-[var(--kuct-panel-2)] px-2.5 py-1 text-[10px] font-semibold tracking-[0.1em] text-[var(--kuct-muted)] uppercase backdrop-blur-sm">
+            <span className="absolute left-3 top-3 kuct-badge bg-[var(--kuct-panel-2)]/95 backdrop-blur-sm">
               {offer.meta}
             </span>
           </div>
@@ -282,22 +282,10 @@ export function Capabilities() {
     >
       <div className="relative mx-auto max-w-6xl px-6">
         <Reveal variant="title">
-          <div className="flex items-center gap-3 sm:gap-4">
+          <div className="flex flex-wrap items-center gap-3 sm:gap-4">
+            <p className="kuct-type-eyebrow text-[11px] sm:text-xs">{c.eyebrow}</p>
             <span
-              className="grid size-9 shrink-0 place-items-center rounded-[10px] border border-[var(--kuct-border)] bg-[var(--kuct-panel-2)] text-[var(--kuct-accent)] shadow-[0_4px_12px_rgb(26_21_32/0.06)]"
-              aria-hidden
-            >
-              <svg viewBox="0 0 24 24" className="size-4" fill="none">
-                <path
-                  d="M5 7h14M5 12h10M5 17h12"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                />
-              </svg>
-            </span>
-            <span
-              className="hidden h-px min-w-0 flex-1 border-t border-dashed border-[var(--kuct-border)] sm:block"
+              className="hidden h-px min-w-[3rem] flex-1 border-t border-dashed border-[var(--kuct-border)] sm:block"
               aria-hidden
             />
             <a
@@ -311,11 +299,11 @@ export function Capabilities() {
           <div className="mt-8 grid gap-5 lg:grid-cols-2 lg:items-end lg:gap-12">
             <h2
               id="home-capabilities-heading"
-              className="max-w-[20ch] font-display text-3xl font-semibold leading-[1.12] tracking-tight text-[var(--kuct-text)] sm:text-[2.15rem] lg:text-[2.35rem] lg:leading-[1.1]"
+              className="kuct-type-h2 max-w-[20ch] text-3xl text-[var(--kuct-text)] sm:text-[2.15rem] lg:text-[2.35rem]"
             >
               <AccentText>{c.title}</AccentText>
             </h2>
-            <p className="max-w-[46ch] text-base leading-[1.7] text-[var(--kuct-muted)] lg:justify-self-end">
+            <p className="kuct-type-body max-w-[46ch] text-base lg:justify-self-end">
               {c.support}
             </p>
           </div>

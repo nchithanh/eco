@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-08-10 (phase-2-sprint-c)
+
+- Sprint C rhythm: Why icon-line + promise; Outcomes lighter surface cards; Capabilities carousel back to Build·Modernize·Automate·Care (+ schema/docs).
+
 ## 2026-08-10 (phase-1-hero)
 
 - Sprint B Hero signature: replace GlassPanels with `EmbedSiteMock` + eco mascot + floating metrics; hero tags badges; schema `hero.json` / overview sync. Plan status Phase 1 Done.

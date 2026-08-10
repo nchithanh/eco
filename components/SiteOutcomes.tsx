@@ -114,7 +114,7 @@ export function SiteOutcomes() {
           {/* Left: sticky while right cards scroll */}
           <div className="lg:sticky lg:top-28 lg:self-start">
             <Reveal variant="title">
-              <p className="inline-flex items-center gap-2 rounded-[10px] border border-[var(--kuct-border)] bg-[var(--kuct-panel-2)] px-3 py-1.5 text-[11px] font-semibold tracking-[0.18em] text-[var(--kuct-accent)] uppercase sm:text-xs">
+              <p className="kuct-type-eyebrow inline-flex items-center gap-2 text-[11px] sm:text-xs">
                 <span
                   aria-hidden
                   className="inline-block size-1.5 rounded-full bg-[var(--kuct-accent)]"
@@ -123,11 +123,11 @@ export function SiteOutcomes() {
               </p>
               <h2
                 id="home-outcomes-heading"
-                className="mt-5 max-w-[22ch] font-display text-3xl font-semibold leading-[1.12] tracking-tight sm:text-[2.15rem] lg:text-[2.35rem] lg:leading-[1.1]"
+                className="kuct-type-h2 mt-5 max-w-[22ch] text-3xl sm:text-[2.15rem] lg:text-[2.35rem]"
               >
                 <AccentText>{title}</AccentText>
               </h2>
-              <p className="mt-5 max-w-[40ch] text-base leading-[1.7] text-[var(--kuct-muted)]">
+              <p className="kuct-type-body mt-5 max-w-[40ch] text-base">
                 {support}
               </p>
               <div className="mt-8 flex flex-wrap items-center gap-3">
@@ -140,7 +140,7 @@ export function SiteOutcomes() {
                 </button>
                 <a
                   href={secondaryHref}
-                  className="inline-flex items-center rounded-lg border border-[var(--kuct-accent)] bg-[var(--kuct-panel-2)] px-5 py-3 text-sm font-bold text-[var(--kuct-accent)] transition hover:bg-[rgba(var(--kuct-accent-rgb),0.06)]"
+                  className="kuct-btn-ghost inline-flex items-center self-center"
                 >
                   {ctaSecondary}
                 </a>
@@ -157,9 +157,9 @@ export function SiteOutcomes() {
 
               return (
                 <Reveal as="li" key={item.title} delay={Math.min(index * 40, 160)}>
-                  <article className="rounded-[10px] border border-[var(--kuct-border)] bg-[var(--kuct-panel-2)] p-5 shadow-[0_8px_24px_rgb(26_21_32/0.04)] sm:p-6">
+                  <article className="kuct-surface-card p-5 sm:p-6">
                     <div className="flex items-start gap-3">
-                      <span className="mt-0.5 grid size-10 shrink-0 place-items-center rounded-[10px] bg-[rgba(var(--kuct-accent-rgb),0.1)]">
+                      <span className="mt-0.5 grid size-9 shrink-0 place-items-center rounded-[10px] border border-[var(--kuct-border)] bg-white">
                         <OutcomeCardIcon index={index} />
                       </span>
                       <h3 className="pt-1.5 font-display text-lg font-semibold leading-snug text-[var(--kuct-text)] sm:text-xl">

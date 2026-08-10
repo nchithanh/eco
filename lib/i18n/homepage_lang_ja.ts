@@ -101,6 +101,7 @@ export const homepageLangJa: HomepageLang = {
     eyebrow: "Why Dolphin",
     title: "長期パートナー、コードを渡すだけ[[ではない]]",
     support: "明確なタイムライン、確約された範囲、納品後サポート——技術的な霧はありません。",
+    promise: "まず理解 · 明確な見積り · 範囲どおり納品",
     reasons: [
       {
         title: "実戦経験",
@@ -123,7 +124,7 @@ export const homepageLangJa: HomepageLang = {
   capabilities: {
     eyebrow: "How we help",
     title: "明確なWebサイト、企業が[[実際に]]運用できる",
-    support: "短いブリーフで十分です。最も近いプロジェクトタイプを選択——Dolphin Softwareがアプローチと具体的な見積りを提案します。",
+    support: "短いブリーフで十分です。最も近いアウトカムを選択——Dolphin Softwareがアプローチと具体的な見積りを提案します。",
     ctaPrimary: "見積りを依頼",
     ctaSecondary: "サービスパッケージを見る",
     ctaSecondaryHref: "#popular-services",
@@ -134,42 +135,42 @@ export const homepageLangJa: HomepageLang = {
     playCarousel: "カルーセルを再生",
     offers: [
       {
-        id: "landing",
-        title: "ランディングページ",
-        body: "1ページで集中したCTA——キャンペーン、サービス、迅速なリード獲得。",
-        meta: "通常3〜5日",
-        href: "/services/landing/"
-      },
-      {
-        id: "business",
-        title: "企業サイト",
-        body: "企業プロフィール、サービス、長期SEO——コンテンツ更新が簡単。",
-        meta: "通常7〜14日",
+        id: "build",
+        title: "Build",
+        body: "販売・運用に合うWebサイトとソフトウェアを要件どおり構築——紹介だけのサイトではありません。",
+        meta: "SMB優先",
         href: "/services/web/"
       },
       {
-        id: "shop",
-        title: "オンラインショップ",
-        body: "カタログ、カート、決済——混乱なくオンライン販売。",
-        meta: "通常3〜4週間",
-        href: "/services/web/"
+        id: "modernize",
+        title: "Modernize",
+        body: "一から作り直す前に、稼働中のシステムを拡張・最適化・モダナイズ。",
+        meta: "既存システム",
+        href: "/services/software/"
       },
       {
-        id: "webapp",
-        title: "Webアプリ",
-        body: "カスタムワークフロー——予約、ポータル、チームが運用できる社内ツール。",
-        meta: "プロジェクト範囲による",
-        href: "/services/web/"
+        id: "automate",
+        title: "Automate",
+        body: "価値がある反復作業にAI——人の代わりではなく、手作業を減らす。",
+        meta: "反復ワークフロー",
+        href: "/ai-transform/"
+      },
+      {
+        id: "care",
+        title: "Care",
+        body: "Dolphin Care — サイト上の顧客対応、リード記録、知識範囲内の時間外サポート。",
+        meta: "サイト上",
+        href: "/dolphin-care/"
       }
     ],
     moreServices: [
       {
-        label: "モバイルアプリ",
-        href: "/services/mobile/"
+        label: "ランディング",
+        href: "/services/landing/"
       },
       {
-        label: "ソフトウェア",
-        href: "/services/software/"
+        label: "モバイルアプリ",
+        href: "/services/mobile/"
       },
       {
         label: "UI/UX",
@@ -182,39 +183,39 @@ export const homepageLangJa: HomepageLang = {
     ],
     items: [
       {
-        id: "landing-page",
-        category: "ランディングページ",
-        title: "ランディングページ",
-        body: "1ページで集中したCTA——キャンペーン、サービス、迅速なリード獲得。",
+        id: "build",
+        category: "Build",
+        title: "Build",
+        body: "販売・運用に合うWebサイトとソフトウェアを要件どおり構築——紹介だけのサイトではありません。",
         tags: [
-          "通常3〜5日"
+          "SMB優先"
         ]
       },
       {
-        id: "business-website",
-        category: "企業サイト",
-        title: "企業サイト",
-        body: "企業プロフィール、サービス、長期SEO——コンテンツ更新が簡単。",
+        id: "modernize",
+        category: "Modernize",
+        title: "Modernize",
+        body: "一から作り直す前に、稼働中のシステムを拡張・最適化・モダナイズ。",
         tags: [
-          "通常7〜14日"
+          "既存システム"
         ]
       },
       {
-        id: "online-shop",
-        category: "オンラインショップ",
-        title: "オンラインショップ",
-        body: "カタログ、カート、決済——混乱なくオンライン販売。",
+        id: "automate",
+        category: "Automate",
+        title: "Automate",
+        body: "価値がある反復作業にAI——人の代わりではなく、手作業を減らす。",
         tags: [
-          "通常3〜4週間"
+          "反復ワークフロー"
         ]
       },
       {
-        id: "web-app",
-        category: "Webアプリ",
-        title: "Webアプリ",
-        body: "カスタムワークフロー——予約、ポータル、チームが運用できる社内ツール。",
+        id: "care",
+        category: "Care",
+        title: "Care",
+        body: "Dolphin Care — サイト上の顧客対応、リード記録、知識範囲内の時間外サポート。",
         tags: [
-          "プロジェクト範囲による"
+          "サイト上"
         ]
       }
     ]

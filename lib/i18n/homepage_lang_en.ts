@@ -101,6 +101,7 @@ export const homepageLangEn: HomepageLang = {
     eyebrow: "Why Dolphin",
     title: "Long-term partner, [[not just]] delivering code",
     support: "Clear timeline, committed scope, and post-handoff support — no technical fog.",
+    promise: "Understand first · Clear quotes · Scope-true handoff",
     reasons: [
       {
         title: "Real-world experience",
@@ -123,7 +124,7 @@ export const homepageLangEn: HomepageLang = {
   capabilities: {
     eyebrow: "How we help",
     title: "Clear website, business can [[actually]] operate it",
-    support: "A short brief is enough to start. Choose the closest project type — Dolphin Software will propose an approach and specific quote.",
+    support: "A short brief is enough to start. Pick the closest outcome — Dolphin Software will propose an approach and a concrete quote.",
     ctaPrimary: "Get a quote",
     ctaSecondary: "View service packages",
     ctaSecondaryHref: "#popular-services",
@@ -134,42 +135,42 @@ export const homepageLangEn: HomepageLang = {
     playCarousel: "Play carousel",
     offers: [
       {
-        id: "landing",
-        title: "Landing Page",
-        body: "One focused page with clear CTA — campaign, service, quick lead capture.",
-        meta: "Typically 3–5 days",
-        href: "/services/landing/"
-      },
-      {
-        id: "business",
-        title: "Business Website",
-        body: "Company profile, services, long-term SEO — easy content updates.",
-        meta: "Typically 7–14 days",
+        id: "build",
+        title: "Build",
+        body: "Custom websites and software for how you sell and operate — not brochure-only sites.",
+        meta: "SMB first",
         href: "/services/web/"
       },
       {
-        id: "shop",
-        title: "Online Shop",
-        body: "Catalog, cart, checkout — sell online without confusion.",
-        meta: "Typically 3–4 weeks",
-        href: "/services/web/"
+        id: "modernize",
+        title: "Modernize",
+        body: "Upgrade, extend, and tune what you already run before rebuilding from scratch.",
+        meta: "Living systems",
+        href: "/services/software/"
       },
       {
-        id: "webapp",
-        title: "Web App",
-        body: "Custom workflow — booking, portal, internal tool your team can operate.",
-        meta: "Based on project scope",
-        href: "/services/web/"
+        id: "automate",
+        title: "Automate",
+        body: "AI on repeatable work when it earns its keep — assist people, cut manual steps.",
+        meta: "Repeat workflows",
+        href: "/ai-transform/"
+      },
+      {
+        id: "care",
+        title: "Care",
+        body: "Dolphin Care — website customer care, lead capture, after-hours help within knowledge scope.",
+        meta: "On your site",
+        href: "/dolphin-care/"
       }
     ],
     moreServices: [
       {
-        label: "Mobile App",
-        href: "/services/mobile/"
+        label: "Landing Page",
+        href: "/services/landing/"
       },
       {
-        label: "Phần mềm",
-        href: "/services/software/"
+        label: "Mobile App",
+        href: "/services/mobile/"
       },
       {
         label: "UI/UX",
@@ -182,39 +183,39 @@ export const homepageLangEn: HomepageLang = {
     ],
     items: [
       {
-        id: "landing-page",
-        category: "Landing Page",
-        title: "Landing Page",
-        body: "One focused page with clear CTA — campaign, service, quick lead capture.",
+        id: "build",
+        category: "Build",
+        title: "Build",
+        body: "Custom websites and software for how you sell and operate — not brochure-only sites.",
         tags: [
-          "Typically 3–5 days"
+          "SMB first"
         ]
       },
       {
-        id: "business-website",
-        category: "Business Website",
-        title: "Business Website",
-        body: "Company profile, services, long-term SEO — easy content updates.",
+        id: "modernize",
+        category: "Modernize",
+        title: "Modernize",
+        body: "Upgrade, extend, and tune what you already run before rebuilding from scratch.",
         tags: [
-          "Typically 7–14 days"
+          "Living systems"
         ]
       },
       {
-        id: "online-shop",
-        category: "Online Shop",
-        title: "Online Shop",
-        body: "Catalog, cart, checkout — sell online without confusion.",
+        id: "automate",
+        category: "Automate",
+        title: "Automate",
+        body: "AI on repeatable work when it earns its keep — assist people, cut manual steps.",
         tags: [
-          "Typically 3–4 weeks"
+          "Repeat workflows"
         ]
       },
       {
-        id: "web-app",
-        category: "Web App",
-        title: "Web App",
-        body: "Custom workflow — booking, portal, internal tool your team can operate.",
+        id: "care",
+        category: "Care",
+        title: "Care",
+        body: "Dolphin Care — website customer care, lead capture, after-hours help within knowledge scope.",
         tags: [
-          "Based on project scope"
+          "On your site"
         ]
       }
     ]

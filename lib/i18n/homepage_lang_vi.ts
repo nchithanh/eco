@@ -131,6 +131,7 @@ export const homepageLangVi: HomepageLang = {
     eyebrow: "Why Dolphin",
     title: "Đối tác dài hạn, [[không chỉ]] giao code",
     support: "Timeline rõ ràng, phạm vi cam kết và hỗ trợ sau bàn giao — không có sương mù kỹ thuật.",
+    promise: "Hiểu trước · Báo giá rõ · Bàn giao đúng phạm vi",
     reasons: [
       {
         title: "Kinh nghiệm thực chiến",
@@ -153,7 +154,7 @@ export const homepageLangVi: HomepageLang = {
   capabilities: {
     eyebrow: "How we help",
     title: "Website rõ ràng, doanh nghiệp [[thực sự]] vận hành được",
-    support: "Một brief ngắn là đủ để bắt đầu. Chọn loại dự án gần nhất — Dolphin Software sẽ đề xuất hướng tiếp cận và báo giá cụ thể.",
+    support: "Một brief ngắn là đủ để bắt đầu. Chọn outcome gần nhất — Dolphin Software sẽ đề xuất hướng tiếp cận và báo giá cụ thể.",
     ctaPrimary: "Nhận báo giá",
     ctaSecondary: "Xem gói dịch vụ",
     ctaSecondaryHref: "#popular-services",
@@ -164,42 +165,42 @@ export const homepageLangVi: HomepageLang = {
     playCarousel: "Phát carousel",
     offers: [
       {
-        id: "landing",
-        title: "Landing Page",
-        body: "Một trang tập trung với CTA rõ ràng — chiến dịch, dịch vụ, thu lead nhanh.",
-        meta: "Thường 3–5 ngày",
-        href: "/services/landing/"
-      },
-      {
-        id: "business",
-        title: "Website Doanh Nghiệp",
-        body: "Profile công ty, dịch vụ, SEO dài hạn — cập nhật nội dung dễ dàng.",
-        meta: "Thường 7–14 ngày",
+        id: "build",
+        title: "Build",
+        body: "Xây website và phần mềm theo nhu cầu — để bán hàng và vận hành, không chỉ giới thiệu.",
+        meta: "Ưu tiên SMB",
         href: "/services/web/"
       },
       {
-        id: "shop",
-        title: "Cửa Hàng Online",
-        body: "Danh mục, giỏ hàng, thanh toán — bán hàng online không rối rắm.",
-        meta: "Thường 3–4 tuần",
-        href: "/services/web/"
+        id: "modernize",
+        title: "Modernize",
+        body: "Nâng cấp, mở rộng, tối ưu hệ thống hiện có trước khi nghĩ tới làm mới toàn bộ.",
+        meta: "Hệ thống đang chạy",
+        href: "/services/software/"
       },
       {
-        id: "webapp",
-        title: "Web App",
-        body: "Quy trình tùy chỉnh — đặt lịch, portal, công cụ nội bộ đội nhóm tự vận hành được.",
-        meta: "Theo phạm vi dự án",
-        href: "/services/web/"
+        id: "automate",
+        title: "Automate",
+        body: "AI hóa việc lặp lại khi có giá trị thật — không thay người, giảm tay chân.",
+        meta: "Quy trình lặp",
+        href: "/ai-transform/"
+      },
+      {
+        id: "care",
+        title: "Care",
+        body: "Dolphin Care — chăm sóc khách trên website, ghi nhận lead, hỗ trợ ngoài giờ trong phạm vi kiến thức.",
+        meta: "Trên website",
+        href: "/dolphin-care/"
       }
     ],
     moreServices: [
       {
-        label: "Mobile App",
-        href: "/services/mobile/"
+        label: "Landing Page",
+        href: "/services/landing/"
       },
       {
-        label: "Phần mềm",
-        href: "/services/software/"
+        label: "Mobile App",
+        href: "/services/mobile/"
       },
       {
         label: "UI/UX",
@@ -212,39 +213,39 @@ export const homepageLangVi: HomepageLang = {
     ],
     items: [
       {
-        id: "landing-page",
-        category: "Landing Page",
-        title: "Landing Page",
-        body: "Một trang tập trung với CTA rõ ràng — chiến dịch, dịch vụ, thu lead nhanh.",
+        id: "build",
+        category: "Build",
+        title: "Build",
+        body: "Xây website và phần mềm theo nhu cầu — để bán hàng và vận hành, không chỉ giới thiệu.",
         tags: [
-          "Thường 3–5 ngày"
+          "Ưu tiên SMB"
         ]
       },
       {
-        id: "business-website",
-        category: "Website Doanh Nghiệp",
-        title: "Website Doanh Nghiệp",
-        body: "Profile công ty, dịch vụ, SEO dài hạn — cập nhật nội dung dễ dàng.",
+        id: "modernize",
+        category: "Modernize",
+        title: "Modernize",
+        body: "Nâng cấp, mở rộng, tối ưu hệ thống hiện có trước khi nghĩ tới làm mới toàn bộ.",
         tags: [
-          "Thường 7–14 ngày"
+          "Hệ thống đang chạy"
         ]
       },
       {
-        id: "online-shop",
-        category: "Cửa Hàng Online",
-        title: "Cửa Hàng Online",
-        body: "Danh mục, giỏ hàng, thanh toán — bán hàng online không rối rắm.",
+        id: "automate",
+        category: "Automate",
+        title: "Automate",
+        body: "AI hóa việc lặp lại khi có giá trị thật — không thay người, giảm tay chân.",
         tags: [
-          "Thường 3–4 tuần"
+          "Quy trình lặp"
         ]
       },
       {
-        id: "web-app",
-        category: "Web App",
-        title: "Web App",
-        body: "Quy trình tùy chỉnh — đặt lịch, portal, công cụ nội bộ đội nhóm tự vận hành được.",
+        id: "care",
+        category: "Care",
+        title: "Care",
+        body: "Dolphin Care — chăm sóc khách trên website, ghi nhận lead, hỗ trợ ngoài giờ trong phạm vi kiến thức.",
         tags: [
-          "Theo phạm vi dự án"
+          "Trên website"
         ]
       }
     ]
