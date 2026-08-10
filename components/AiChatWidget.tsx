@@ -317,7 +317,11 @@ export function AiChatWidget() {
 
  let reply = await fetchChatReply(history, ac.signal);
  if (!reply) {
- reply = matchAiChatReply(trimmed, c);
+ const recentTranscript = [...messages, userMsg]
+ .slice(-8)
+ .map((m) => m.text)
+ .join("\n");
+ reply = matchAiChatReply(trimmed, c, { recentTranscript });
  }
 
  if (ac.signal.aborted) {

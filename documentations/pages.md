@@ -2,7 +2,9 @@
 
 | Route | Page file | Main content |
 | --- | --- | --- |
-| `/demos/brokerage/` | `app/demos/brokerage/page.tsx` | Demo LP môi giới **Nguyễn Văn A Invest** (noindex) — tông SSI-inspired; lợi ích kiểu CTCK lớn; social strip; mock P&L/chart; parallax; copy `lib/demos/brokerage-copy.ts` |
+| `/demos/` | `app/demos/page.tsx` | Danh sách demo (noindex) — **password gate** `dolphincaheo` (sessionStorage); catalog `lib/demos/catalog.ts` |
+| `/demos/brokerage/` | `app/demos/brokerage/page.tsx` | Demo LP môi giới **Nguyễn Văn A Invest** (noindex) — tông SSI-inspired; lợi ích kiểu CTCK lớn; social strip; mock P&L/chart; parallax; copy `lib/demos/brokerage-copy.ts` · cùng gate `/demos/` |
+| `/demos/automotive/` | `app/demos/automotive/page.tsx` | Demo LP sales ô tô cá nhân **Quân Auto Concierge** (noindex) — hero cinematic, gallery, variants, pricing, financing calc, test-drive, sticky mobile CTA; copy `lib/demos/automotive-copy.ts` · cùng gate `/demos/` |
 | `/schema/company/` | `app/schema/company/page.tsx` | Overview JSON (`public/schema/company.json`); `noindex` |
 | `/schema/homepage/` | `app/schema/homepage/page.tsx` | List section homepage; overview raw `homepage/overview.json` |
 | `/schema/homepage/[slug]/` | `app/schema/homepage/[slug]/page.tsx` | JSON từng section (hero, stats, why, …) |

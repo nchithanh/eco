@@ -12,6 +12,19 @@
 
 - Bảng giá `#popular-services`: Landing **1.500.000đ**; Business **4–10tr**; Shop **7–15tr**; Web App giữ **Từ 10tr**. `pricing-fx` hỗ trợ `nowMax`; sync schema landing.
 
+## 2026-08-10 (chat fallback ví dụ)
+
+- `matchAiChatReply` đọc transcript gần đây: “cho ví dụ” sau Care → ví dụ spa/shop; worker `system-context` + `paste-for-dashboard.js` bổ sung Care examples + follow-up rule (cần Deploy lại trên Cloudflare nếu muốn Worker live).
+
+## 2026-08-10 (automotive demo LP)
+
+- Demo `/demos/automotive/` — personal car sales experience (**Quân Auto Concierge** / Aether S7): Drive Flow, gallery, why scenes, variants, pricing, financing calculator, salesperson, trust, test-drive form, FAQ, mobile sticky bar; placeholder data + Unsplash; noindex.
+- Parallax mạnh hơn: hero multi-layer + fade, Drive Flow ngang, gallery/scenes/final drift theo scroll (`prefers-reduced-motion` tắt).
+
+## 2026-08-11 (demos vault gate)
+
+- `/demos/` index + password gate **`dolphincaheo`** (`DemoGate`, sessionStorage) bọc mọi route dưới `/demos/*` — noindex; không phải auth server.
+
 ## 2026-08-10 (news AI transformation)
 
 - News: `chuyen-doi-ai-doanh-nghiep-lo-trinh-5-buoc` — lộ trình chuyển đổi AI 5 bước (VI/EN/JA); ảnh cover/silos (ChatGPT·Claude·Kimi)/roadmap/outcomes; links `/ai-transform/`, `/dolphin-care/`, `/#contact`.

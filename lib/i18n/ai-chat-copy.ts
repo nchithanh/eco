@@ -41,6 +41,12 @@ export type AiChatCopy = {
   suggestionCards: AiChatSuggestionCard[];
   rules: AiChatRule[];
   fallback: string;
+  /** Follow-up “cho ví dụ” when recent context is Dolphin Care */
+  exampleCare: string;
+  /** Follow-up example when recent context is website / Build */
+  exampleWeb: string;
+  /** Follow-up example when topic unclear */
+  exampleGeneric: string;
   escalateHint: string;
 };
 
@@ -135,6 +141,12 @@ const vi: AiChatCopy = {
   ],
   fallback:
     "Em đã nhận tin 👍 Để trả lời sát hơn, anh/chị nói rõ: **website**/app, AI Agent, chuyển đổi AI, hay muốn gặp người Dolphin qua **Zalo**?",
+  exampleCare:
+    "Ví dụ nhanh 💡 Spa / phòng khám: khách vào web ngoài giờ hỏi “còn lịch chiều mai?”, **Dolphin Care** trả lời theo giờ mở cửa + gợi ý để lại SĐT — sáng staff thấy lead trong báo cáo insight, khỏi trả lời cùng một câu hỏi hàng trăm lần. Shop: hỏi phí ship / size → Care trả theo bảng giá đã nạp, escalate Zalo khi phức tạp. Xem /dolphin-care/ hoặc nhắn **Zalo** để gắn vào site anh/chị.",
+  exampleWeb:
+    "Ví dụ nhanh 💡 Studio cưới cần khách xem váy online trước khi đến: làm **website** catalog + form tư vấn (thường gói business / shop tùy scope). Campaign ra mắt dịch vụ mới: **landing** 3–5 ngày, CTA + form lead. Anh/chị đang nghiêng website giới thiệu, bán hàng, hay landing?",
+  exampleGeneric:
+    "Ví dụ em có thể kể: (1) **Dolphin Care** — chatbot site trả lời lịch/giá 24/7 + báo cáo insight; (2) **website** SMB — landing hoặc site doanh nghiệp theo scope. Anh/chị muốn ví dụ theo **Care** hay **website**?",
   escalateHint: "Cần người thật? Bấm nút liên hệ góc dưới (Zalo / gọi / email).",
 };
 
@@ -228,6 +240,12 @@ const en: AiChatCopy = {
   ],
   fallback:
     "Got it 👍 To help better, tell me if you need **website**/app, an AI agent, AI transformation, or a human on **Zalo**.",
+  exampleCare:
+    "Quick example 💡 Spa / clinic: a visitor asks after hours “any slots tomorrow afternoon?” — **Dolphin Care** answers from your hours + offers a callback number; next morning staff see the lead in the daily insight report instead of repeating the same FAQ. Shop: shipping / size questions → Care answers from your loaded price sheet, escalates to Zalo when needed. See /dolphin-care/ or ping **Zalo** to embed on your site.",
+  exampleWeb:
+    "Quick example 💡 Wedding studio wants clients to browse dresses before visiting → **business / shop** site with catalog + consult form. New service launch → **landing** in ~3–5 days with CTA + lead form. Are you closer to a company site, e-commerce, or a landing?",
+  exampleGeneric:
+    "I can give an example for: (1) **Dolphin Care** — 24/7 site answers + daily insight; (2) **website** — landing or business site by scope. Which one — **Care** or **website**?",
   escalateHint: "Need a human? Use the contact button (Zalo / call / email).",
 };
 
@@ -322,6 +340,12 @@ const ja: AiChatCopy = {
   ],
   fallback:
     "承知いたしました 👍 より適切にご案内するため、**Web**/アプリ、AI Agent、AI 変革、または **Zalo** での担当者連絡のうち、どれに近いかお聞かせいただけますか？",
+  exampleCare:
+    "例 💡 スパ／クリニック：営業時間外に「明日の午後は空いていますか？」→ **Dolphin Care** が営業時間に沿って回答し電話番号も案内。翌朝スタッフは insight レポートでリードを確認し、同じFAQを何度も返さずに済みます。ショップ：送料／サイズ質問は登録済みの料金表で回答し、複雑な場合は Zalo へ。詳しくは /dolphin-care/ または **Zalo** へ。",
+  exampleWeb:
+    "例 💡 衣装スタジオが来店前にドレスを見せたい → カタログ＋相談フォームの **企業／ECサイト**。新サービス告知 → CTA＋リードフォームの **LP**（目安3–5日）。企業サイト、EC、LPのどれに近いですか？",
+  exampleGeneric:
+    "例として：(1) **Dolphin Care** — サイトで24/7回答＋日次insight、(2) **Web** — LPまたは企業サイト。**Care** と **Web** のどちらがよいですか？",
   escalateHint: "担当者と直接お話しされたい場合は、右下の連絡ボタン（Zalo / 電話 / メール）をご利用ください。",
 };
 
@@ -335,9 +359,39 @@ export function getAiChatCopy(locale: Locale): AiChatCopy {
   return aiChatCopy[locale];
 }
 
-export function matchAiChatReply(input: string, copy: AiChatCopy): string {
+export function matchAiChatReply(
+  input: string,
+  copy: AiChatCopy,
+  opts?: { recentTranscript?: string },
+): string {
   const q = input.trim().toLowerCase();
   if (!q) return copy.fallback;
+
+  const recent = (opts?.recentTranscript ?? "").toLowerCase();
+  const asksExample =
+    q.includes("ví dụ") ||
+    q.includes("vi du") ||
+    q.includes("cho vd") ||
+    q.includes("example") ||
+    q.includes("たとえば") ||
+    q.includes("例") ||
+    /(^|\s)vd(\s|$|[?.!])/i.test(q);
+
+  if (asksExample) {
+    const careCtx =
+      /dolphin care|\bcare\b|chăm sóc|cham soc|chatbot|agent|insight|24\/7/.test(
+        recent,
+      ) || /dolphin care|\bcare\b|chăm sóc/.test(q);
+    const webCtx =
+      /website|\bweb\b|landing|bán hàng|e-?com|shop|giá|báo giá|quote/.test(
+        recent,
+      ) || /website|\bweb\b|landing/.test(q);
+
+    if (careCtx) return copy.exampleCare;
+    if (webCtx) return copy.exampleWeb;
+    return copy.exampleGeneric;
+  }
+
   for (const rule of copy.rules) {
     if (rule.keywords.some((k) => q.includes(k.toLowerCase()))) {
       return rule.reply;
