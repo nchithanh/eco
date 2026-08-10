@@ -6,7 +6,7 @@
     "brand": "Dolphin Software",
     "schemaPath": "/schema/services/landing/",
     "rawPath": "/schema/services/landing.json",
-    "updated": "2026-08-06"
+    "updated": "2026-08-10"
   },
   "pillar": "Build",
   "productRoute": "/services/landing/",
@@ -37,7 +37,7 @@
   "pricing": [
     {
       "name": "Landing Page cơ bản",
-      "priceFrom": "1.000.000đ",
+      "priceFrom": "1.500.000đ",
       "timeline": "3–5 ngày",
       "fit": "Thu lead, quảng bá dịch vụ"
     },
@@ -67,7 +67,7 @@
     },
     {
       "q": "Chi phí thiết kế landing page tại Dolphin Software là bao nhiêu?",
-      "a": "Landing page cơ bản bắt đầu từ 1.000.000đ. Các gói nâng cao (CRM, payment, Zalo OA) báo giá theo scope."
+      "a": "Landing page cơ bản bắt đầu từ 1.500.000đ. Các gói nâng cao (CRM, payment, Zalo OA) báo giá theo scope."
     },
     {
       "q": "Dolphin Software có hỗ trợ tích hợp chatbot AI vào landing page không?",

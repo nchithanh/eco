@@ -6,7 +6,7 @@
     "brand": "Dolphin Software",
     "schemaPath": "/schema/services/web/",
     "rawPath": "/schema/services/web.json",
-    "updated": "2026-08-03"
+    "updated": "2026-08-10"
   },
   "pillar": "Build",
   "productRoute": "/services/web/",
@@ -79,7 +79,7 @@
   "faq": [
     {
       "q": "Thiết kế website theo yêu cầu giá bao nhiêu?",
-      "a": "Giá phụ thuộc vào phạm vi: số trang, thiết kế tùy chỉnh hay dùng template, có CMS không, và các tích hợp như form hoặc thanh toán. Gói khởi điểm từ $38 (landing page) đến $380 (e-commerce). Báo giá chính xác được cung cấp sau khi xác nhận mục tiêu."
+      "a": "Giá phụ thuộc phạm vi: Landing ~1.500.000đ; website doanh nghiệp khoảng 4–10 triệu; website bán hàng khoảng 7–15 triệu; web app từ 10 triệu. Báo giá chính xác sau khi chốt mục tiêu và scope."
     },
     {
       "q": "Làm website doanh nghiệp mất bao lâu?",

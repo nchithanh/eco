@@ -148,10 +148,10 @@ describe("Dolphin Software homepage", () => {
     expect(section.getByRole("heading", { name: /企業サイト/i })).toBeInTheDocument();
     expect(section.getByRole("heading", { name: /ECサイト|オンラインショップ/i })).toBeInTheDocument();
     expect(section.getByRole("heading", { name: /カスタムWebアプリ|Webアプリ/i })).toBeInTheDocument();
-    expect(section.getByText("￥6,200")).toBeInTheDocument();
+    expect(section.getByText("￥9,300")).toBeInTheDocument();
     await user.click(section.getByRole("radio", { name: /ランディングページ/i }));
     expect(section.getByRole("button", { name: /LP見積もり|LP見積り/i })).toBeInTheDocument();
-    expect(section.getByRole("link", { name: /Zaloで無料相談/i })).toHaveAttribute(
+    expect(section.getByRole("link", { name: /Zaloで相談/i })).toHaveAttribute(
       "href",
       "https://zalo.me/0779937633",
     );
@@ -161,19 +161,19 @@ describe("Dolphin Software homepage", () => {
     const user = userEvent.setup();
     renderHome();
     const popular = document.getElementById("popular-services") as HTMLElement;
-    expect(within(popular).getByText("￥6,200")).toBeInTheDocument();
+    expect(within(popular).getByText("￥9,300")).toBeInTheDocument();
 
     await user.click(screen.getByRole("button", { name: /^Language$/i }));
     await user.click(screen.getByRole("button", { name: /English/i }));
-    expect(within(popular).getByText("$38")).toBeInTheDocument();
+    expect(within(popular).getByText("$57")).toBeInTheDocument();
 
     await user.click(screen.getByRole("button", { name: /^Language$/i }));
     await user.click(screen.getByRole("button", { name: /Tiếng Việt/i }));
-    expect(within(popular).getByText("1.000.000đ")).toBeInTheDocument();
+    expect(within(popular).getByText("1.500.000đ")).toBeInTheDocument();
 
     await user.click(screen.getByRole("button", { name: /^Language$/i }));
     await user.click(screen.getByRole("button", { name: /日本語/i }));
-    expect(within(popular).getByText("￥6,200")).toBeInTheDocument();
+    expect(within(popular).getByText("￥9,300")).toBeInTheDocument();
   });
 
   it("renders projects and care before solutions (packages near end)", () => {

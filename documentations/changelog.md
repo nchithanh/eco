@@ -8,6 +8,10 @@
 - Palette SSI-inspired (đỏ `#c8102e` / trắng / xám); section lợi ích tham chiếu CTCK đầu ngành (vd. SSI) + strip Zalo/TikTok/Live/Facebook demo.
 - Platform desktop panel: layout 2 cột (NAV/metrics/spark + holdings/lịch) — đỡ trống.
 
+## 2026-08-10 (package pricing)
+
+- Bảng giá `#popular-services`: Landing **1.500.000đ**; Business **4–10tr**; Shop **7–15tr**; Web App giữ **Từ 10tr**. `pricing-fx` hỗ trợ `nowMax`; sync schema landing.
+
 ## 2026-08-10 (news AI transformation)
 
 - News: `chuyen-doi-ai-doanh-nghiep-lo-trinh-5-buoc` — lộ trình chuyển đổi AI 5 bước (VI/EN/JA); ảnh cover/silos (ChatGPT·Claude·Kimi)/roadmap/outcomes; links `/ai-transform/`, `/dolphin-care/`, `/#contact`.
