@@ -5,6 +5,12 @@ export type AiChatRule = {
   reply: string;
 };
 
+export type AiChatSuggestionCard = {
+  title: string;
+  body: string;
+  prompt: string;
+};
+
 export type AiChatCopy = {
   agentName: string;
   online: string;
@@ -20,8 +26,19 @@ export type AiChatCopy = {
   dismissToasts: string;
   placeholder: string;
   send: string;
+  ask: string;
   greeting: string;
   suggestions: string[];
+  /** Cloudflare-style empty state */
+  helloMorning: string;
+  helloAfternoon: string;
+  helloEvening: string;
+  welcomeSub: string;
+  helpBanner: string;
+  helpSupport: string;
+  newChat: string;
+  chatRecorded: string;
+  suggestionCards: AiChatSuggestionCard[];
   rules: AiChatRule[];
   fallback: string;
   escalateHint: string;
@@ -42,8 +59,9 @@ const vi: AiChatCopy = {
   toastContinue:
     "Cần tư vấn web, AI Agent hay chuyển đổi AI doanh nghiệp? Nhắn em tại đây hoặc qua Zalo.",
   dismissToasts: "Ẩn gợi ý",
-  placeholder: "Nhập tin nhắn…",
+  placeholder: "Nhập tin nhắn hoặc hỏi Dolphin…",
   send: "Gửi",
+  ask: "Ask",
   greeting:
     "Xin chào! 👋 Em là **Dolphin Assist** của Dolphin Software. Anh/chị đang cần tư vấn **website**, app, **Dolphin Care**, hay chuyển đổi AI cho doanh nghiệp?",
   suggestions: [
@@ -52,11 +70,42 @@ const vi: AiChatCopy = {
     "Chuyển đổi AI",
     "Chat Zalo với người thật",
   ],
+  helloMorning: "Chào buổi sáng.",
+  helloAfternoon: "Chào buổi chiều.",
+  helloEvening: "Chào buổi tối.",
+  welcomeSub: "Hôm nay anh/chị cần gì?",
+  helpBanner: "Cần hỗ trợ thêm?",
+  helpSupport: "Liên hệ",
+  newChat: "Hội thoại mới",
+  chatRecorded:
+    "Hội thoại có thể được ghi nhận để cải thiện dịch vụ. Không gửi thông tin nhạy cảm.",
+  suggestionCards: [
+    {
+      title: "Báo giá dự án",
+      body: "Phạm vi, timeline và bước tiếp theo",
+      prompt: "Tôi muốn nhận báo giá dự án website/app",
+    },
+    {
+      title: "Thiết kế website",
+      body: "Landing, website doanh nghiệp, e-com",
+      prompt: "Tôi cần tư vấn thiết kế website cho doanh nghiệp",
+    },
+    {
+      title: "Dolphin Care",
+      body: "AI chăm sóc khách trên website",
+      prompt: "Giới thiệu Dolphin Care và cách tích hợp",
+    },
+    {
+      title: "Chuyển đổi AI",
+      body: "Lộ trình gắn AI vào vận hành",
+      prompt: "Tôi muốn tìm hiểu chuyển đổi AI cho doanh nghiệp",
+    },
+  ],
   rules: [
     {
       keywords: ["zalo", "người thật", "gọi", "phone", "điện thoại"],
       reply:
-        "Anh/chị bấm nút **Zalo** bên cạnh để chat trực tiếp với Dolphin, hoặc gọi **0779 937 633** 🤝 Em cũng có thể ghi nhận nhu cầu trước nếu anh/chị mô tả ngắn tại đây.",
+        "Anh/chị bấm nút **liên hệ** góc dưới để chat **Zalo**, hoặc gọi **0779 937 633** 🤝 Em cũng có thể ghi nhận nhu cầu trước nếu anh/chị mô tả ngắn tại đây.",
     },
     {
       keywords: ["báo giá", "quote", "giá", "chi phí", "ngân sách"],
@@ -86,7 +135,7 @@ const vi: AiChatCopy = {
   ],
   fallback:
     "Em đã nhận tin 👍 Để trả lời sát hơn, anh/chị nói rõ: **website**/app, AI Agent, chuyển đổi AI, hay muốn gặp người Dolphin qua **Zalo**?",
-  escalateHint: "Cần người thật? Bấm nút **Zalo** bên cạnh widget.",
+  escalateHint: "Cần người thật? Bấm nút liên hệ góc dưới (Zalo / gọi / email).",
 };
 
 const en: AiChatCopy = {
@@ -103,8 +152,9 @@ const en: AiChatCopy = {
   toastContinue:
     "Looking for web, a custom AI agent, or enterprise AI transformation? Message me here or on Zalo.",
   dismissToasts: "Dismiss tips",
-  placeholder: "Type a message…",
+  placeholder: "Type a message or ask Dolphin…",
   send: "Send",
+  ask: "Ask",
   greeting:
     "Hello! 👋 I’m **Dolphin Assist** from Dolphin Software. Need help with a **website**/app, **Dolphin Care**, or enterprise AI transformation?",
   suggestions: [
@@ -113,11 +163,42 @@ const en: AiChatCopy = {
     "AI transformation",
     "Talk to a human on Zalo",
   ],
+  helloMorning: "Good morning.",
+  helloAfternoon: "Good afternoon.",
+  helloEvening: "Good evening.",
+  welcomeSub: "What are we doing today?",
+  helpBanner: "Need more help?",
+  helpSupport: "Contact",
+  newChat: "New conversation",
+  chatRecorded:
+    "Chats may be recorded to improve the service. Don’t share sensitive data.",
+  suggestionCards: [
+    {
+      title: "Project quote",
+      body: "Scope, timeline, and next steps",
+      prompt: "I want a quote for a website/app project",
+    },
+    {
+      title: "Website design",
+      body: "Landing, company site, e-commerce",
+      prompt: "I need advice on a business website",
+    },
+    {
+      title: "Dolphin Care",
+      body: "AI customer care on your website",
+      prompt: "Tell me about Dolphin Care and how to embed it",
+    },
+    {
+      title: "AI transformation",
+      body: "Roadmap to wire AI into operations",
+      prompt: "I want to explore enterprise AI transformation",
+    },
+  ],
   rules: [
     {
       keywords: ["zalo", "human", "call", "phone", "person"],
       reply:
-        "Tap the **Zalo** button beside this widget to chat with Dolphin directly, or call **0779 937 633** 🤝 You can also leave a short brief here first.",
+        "Use the **contact** button at the bottom-right for **Zalo**, or call **0779 937 633** 🤝 You can also leave a short brief here first.",
     },
     {
       keywords: ["quote", "price", "cost", "budget", "pricing"],
@@ -147,9 +228,8 @@ const en: AiChatCopy = {
   ],
   fallback:
     "Got it 👍 To help better, tell me if you need **website**/app, an AI agent, AI transformation, or a human on **Zalo**.",
-  escalateHint: "Need a human? Tap the **Zalo** button next to this widget.",
+  escalateHint: "Need a human? Use the contact button (Zalo / call / email).",
 };
-
 
 const ja: AiChatCopy = {
   agentName: "Dolphin Assist",
@@ -168,6 +248,7 @@ const ja: AiChatCopy = {
   dismissToasts: "ヒントを閉じる",
   placeholder: "メッセージを入力…",
   send: "送信",
+  ask: "Ask",
   greeting:
     "こんにちは！👋 Dolphin Software の **Dolphin Assist** です。**Web**/アプリ、**Dolphin Care**、または企業の AI 変革について、どのようなご相談でしょうか？",
   suggestions: [
@@ -176,11 +257,42 @@ const ja: AiChatCopy = {
     "AI 変革",
     "Zaloで担当者と話す",
   ],
+  helloMorning: "おはようございます。",
+  helloAfternoon: "こんにちは。",
+  helloEvening: "こんばんは。",
+  welcomeSub: "今日は何をお手伝いしますか？",
+  helpBanner: "さらにサポートが必要ですか？",
+  helpSupport: "お問い合わせ",
+  newChat: "新しい会話",
+  chatRecorded:
+    "サービス改善のため会話が記録される場合があります。機密情報は送信しないでください。",
+  suggestionCards: [
+    {
+      title: "見積もり依頼",
+      body: "範囲・スケジュール・次の一歩",
+      prompt: "Web/アプリの見積もりを相談したい",
+    },
+    {
+      title: "Webサイト制作",
+      body: "LP・コーポレート・EC",
+      prompt: "企業向けWebサイトの相談をしたい",
+    },
+    {
+      title: "Dolphin Care",
+      body: "サイト上のAIカスタマーケア",
+      prompt: "Dolphin Care の概要と導入方法を教えて",
+    },
+    {
+      title: "AI変革",
+      body: "業務へAIを組み込むロードマップ",
+      prompt: "企業のAI変革について知りたい",
+    },
+  ],
   rules: [
     {
       keywords: ["zalo", "人", "電話", "担当", "連絡"],
       reply:
-        "ウィジェット横の **Zalo** ボタンから Dolphin へ直接チャットいただくか、**0779 937 633** までお電話ください 🤝 こちらで簡単にご要件を伺うことも可能です。",
+        "右下の**連絡**ボタンから **Zalo** へ、または **0779 937 633** までお電話ください 🤝 こちらで簡単にご要件を伺うことも可能です。",
     },
     {
       keywords: ["見積", "料金", "価格", "費用", "予算"],
@@ -210,9 +322,8 @@ const ja: AiChatCopy = {
   ],
   fallback:
     "承知いたしました 👍 より適切にご案内するため、**Web**/アプリ、AI Agent、AI 変革、または **Zalo** での担当者連絡のうち、どれに近いかお聞かせいただけますか？",
-  escalateHint: "担当者と直接お話しされたい場合は、ウィジェット横の **Zalo** ボタンをご利用ください。",
+  escalateHint: "担当者と直接お話しされたい場合は、右下の連絡ボタン（Zalo / 電話 / メール）をご利用ください。",
 };
-
 
 export const aiChatCopy: Record<Locale, AiChatCopy> = {
   vi,
@@ -233,4 +344,10 @@ export function matchAiChatReply(input: string, copy: AiChatCopy): string {
     }
   }
   return copy.fallback;
+}
+
+export function dayPartHello(copy: AiChatCopy, hour = new Date().getHours()): string {
+  if (hour < 12) return copy.helloMorning;
+  if (hour < 18) return copy.helloAfternoon;
+  return copy.helloEvening;
 }

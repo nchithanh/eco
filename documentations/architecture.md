@@ -77,7 +77,7 @@ Static Pages cannot keep a Groq API key. Chat calls a **Workers Free** proxy:
 | URL | `https://dolphin-chat.nchithanh9999.workers.dev` |
 | Source | `workers/dolphin-chat/` — `system-context.js` (prompt SoT), `worker.js`, `paste-for-dashboard.js` (Quick Edit) |
 | Secret | `GROQ_API_KEY` (dashboard **Secret** only; never `NEXT_PUBLIC_*`) |
-| Client | `lib/chat-api.ts` → `AiChatWidget`; fallback `matchAiChatReply` |
+| Client | `lib/chat-api.ts` → `AiChatWidget` right drawer (welcome + thread); banner **Ask AI** via `AiChatProvider`; fallback `matchAiChatReply` |
 
 Optional env: `NEXT_PUBLIC_CHAT_API_URL` (Worker URL). No paid Workers plan required for chat volume on Free.
 

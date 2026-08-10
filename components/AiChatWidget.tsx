@@ -3,18 +3,19 @@
 import {
  useEffect,
  useId,
- useMemo,
  useRef,
  useState,
  type FormEvent,
  type KeyboardEvent,
 } from "react";
+import { useAiChat } from "@/components/AiChatProvider";
 import { assetPath } from "@/lib/asset";
 import { fetchChatReply, type ChatApiMessage } from "@/lib/chat-api";
 import { renderChatRichText } from "@/lib/chat-rich-text";
 import {
  getAiChatCopy,
  matchAiChatReply,
+ dayPartHello,
 } from "@/lib/i18n/ai-chat-copy";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
 import { acquirePageScroll, releasePageScroll } from "@/lib/scroll-lock";
@@ -25,12 +26,8 @@ const CONTACTS = {
  email: "nchithanh9999@gmail.com",
 } as const;
 
-const CHAT_AVATAR = "/mascot/dolphin-chat.webp";
+const WELCOME_MASCOT = "/mascot/dolphin-eco.webp";
 
-const TOAST_INITIAL_DELAY_MS = 800;
-const TOAST_ROTATE_MS = 5000;
-const TOAST_TYPEWRITER_CHAR_MS = 34;
-const TOAST_TYPEWRITER_PAUSE_MS = 5000;
 const REPLY_TYPEWRITER_BASE_MS = 16;
 
 function prefersReducedMotion(): boolean {
@@ -45,71 +42,6 @@ function replyTypewriterDelayMs(charCount: number): number {
   if (charCount > 400) return 6;
   if (charCount > 220) return 10;
   return REPLY_TYPEWRITER_BASE_MS;
-}
-
-function useTypewriterLoop(
- text: string,
- active: boolean,
- charDelayMs = TOAST_TYPEWRITER_CHAR_MS,
- pauseMs = TOAST_TYPEWRITER_PAUSE_MS,
-) {
- const [displayed, setDisplayed] = useState("");
- const timersRef = useRef<number[]>([]);
-
- useEffect(() => {
- const clearTimers = () => {
- timersRef.current.forEach((id) => window.clearTimeout(id));
- timersRef.current = [];
- };
-
- if (!active) {
- clearTimers();
- setDisplayed("");
- return clearTimers;
- }
-
- if (
- typeof window.matchMedia === "function" &&
- window.matchMedia("(prefers-reduced-motion: reduce)").matches
- ) {
- setDisplayed(text);
- return clearTimers;
- }
-
- let cancelled = false;
-
- const schedule = (fn: () => void, ms: number) => {
- const id = window.setTimeout(fn, ms);
- timersRef.current.push(id);
- };
-
- const run = () => {
- if (cancelled) return;
- let charIndex = 0;
- setDisplayed("");
-
- const tick = () => {
- if (cancelled) return;
- charIndex += 1;
- setDisplayed(text.slice(0, charIndex));
- if (charIndex < text.length) {
- schedule(tick, charDelayMs);
- } else {
- schedule(run, pauseMs);
- }
- };
-
- tick();
- };
-
- run();
- return () => {
- cancelled = true;
- clearTimers();
- };
- }, [text, active, charDelayMs, pauseMs]);
-
- return displayed;
 }
 
 type ChatMessage = {
@@ -219,6 +151,25 @@ function IconClose({ className }: { className?: string }) {
  );
 }
 
+function IconSparkle({ className }: { className?: string }) {
+ return (
+ <svg viewBox="0 0 24 24" className={className} fill="none" aria-hidden>
+ <path
+ d="M12 3.5l1.1 4.2c.15.55.58.98 1.13 1.13L18.5 10l-4.27 1.17c-.55.15-.98.58-1.13 1.13L12 16.5l-1.1-4.2a1.6 1.6 0 00-1.13-1.13L5.5 10l4.27-1.17c.55-.15.98-.58 1.13-1.13L12 3.5z"
+ stroke="currentColor"
+ strokeWidth="1.5"
+ strokeLinejoin="round"
+ />
+ <path
+ d="M18.5 15.5l.45 1.7c.08.3.31.53.61.61l1.7.45-1.7.45a.8.8 0 00-.61.61l-.45 1.7-.45-1.7a.8.8 0 00-.61-.61l-1.7-.45 1.7-.45c.3-.08.53-.31.61-.61l.45-1.7z"
+ stroke="currentColor"
+ strokeWidth="1.4"
+ strokeLinejoin="round"
+ />
+ </svg>
+ );
+}
+
 let msgSeq = 0;
 function nextId(prefix: string) {
  msgSeq += 1;
@@ -232,73 +183,14 @@ export function AiChatWidget() {
  const panelId = useId();
  const listRef = useRef<HTMLDivElement>(null);
  const inputRef = useRef<HTMLInputElement>(null);
- const toastTimerRef = useRef<number | null>(null);
- const hadOpenRef = useRef(false);
+ const { open, closeChat } = useAiChat();
 
-  const [open, setOpen] = useState(false);
   const [contactsOpen, setContactsOpen] = useState(false);
-  const [launcherHidden, setLauncherHidden] = useState(false);
-  const [toastIndex, setToastIndex] = useState(0);
-  const [toastVisible, setToastVisible] = useState(false);
   const [draft, setDraft] = useState("");
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [sending, setSending] = useState(false);
   const contactsRef = useRef<HTMLDivElement>(null);
   const abortRef = useRef<AbortController | null>(null);
-
- const toastPool = useMemo(
- () => [c.toastWelcome, c.toastContinue, ...c.suggestions],
- [c],
- );
- const toastText = toastPool[toastIndex] ?? "";
- const typedToast = useTypewriterLoop(toastText, toastVisible && !open);
-
- const clearToastTimer = () => {
- if (toastTimerRef.current !== null) {
- window.clearTimeout(toastTimerRef.current);
- toastTimerRef.current = null;
- }
- };
-
- const showToast = () => {
- clearToastTimer();
- setToastVisible(true);
- };
-
- const scheduleNextToast = () => {
- clearToastTimer();
- setToastVisible(false);
- toastTimerRef.current = window.setTimeout(() => {
- setToastIndex((prev) => (prev + 1) % toastPool.length);
- setToastVisible(true);
- toastTimerRef.current = null;
- }, TOAST_ROTATE_MS);
- };
-
-  useEffect(() => {
-    if (launcherHidden) {
-      clearToastTimer();
-      setToastVisible(false);
-      return;
-    }
-
-    if (open) {
-      hadOpenRef.current = true;
-      clearToastTimer();
-      setToastVisible(false);
-      return;
-    }
-
-    if (hadOpenRef.current) {
-      showToast();
-      return;
-    }
-
-    const id = window.setTimeout(() => showToast(), TOAST_INITIAL_DELAY_MS);
-    return () => window.clearTimeout(id);
-  }, [open, launcherHidden]);
-
- useEffect(() => () => clearToastTimer(), []);
 
  useEffect(() => {
  setMessages([{ id: nextId("a"), role: "assistant", text: c.greeting }]);
@@ -323,23 +215,9 @@ export function AiChatWidget() {
  return () => releasePageScroll();
  }, [open]);
 
-  const dismissToast = () => {
-    scheduleNextToast();
-  };
-
-  const dismissLauncher = () => {
-    clearToastTimer();
-    setToastVisible(false);
-    setOpen(false);
-    setLauncherHidden(true);
-  };
-
-  const openChat = () => {
-    setContactsOpen(false);
-    setOpen(true);
-  };
-
-  const showLauncher = !launcherHidden;
+ useEffect(() => {
+ if (open) setContactsOpen(false);
+ }, [open]);
 
  useEffect(() => {
  if (!contactsOpen) return;
@@ -484,42 +362,58 @@ export function AiChatWidget() {
  },
  ] as const;
 
+ const showWelcome = !messages.some((m) => m.role === "user");
+ const hello = dayPartHello(c);
+ const contactPageHref = assetPath("/#contact");
+
+ const resetConversation = () => {
+ abortRef.current?.abort();
+ setSending(false);
+ setDraft("");
+ setMessages([{ id: nextId("a"), role: "assistant", text: c.greeting }]);
+ };
+
   return (
- <div className="kuct-ai-chat pointer-events-none fixed right-4 bottom-0 z-[120] flex items-end gap-3 sm:right-6">
- {showLauncher && open ? (
+ <>
+ {open ? (
+ <>
+ <button
+ type="button"
+ className="pointer-events-auto fixed inset-0 z-[190] bg-[rgb(26_21_32/0.28)] backdrop-blur-[2px] lg:pointer-events-none lg:bg-transparent lg:backdrop-blur-none"
+ aria-label={c.closePanel}
+ onClick={closeChat}
+ />
  <section
  id={panelId}
  role="dialog"
+ aria-modal="true"
  aria-label={c.agentName}
- className="kuct-ai-chat__panel pointer-events-auto flex w-[min(22.5rem,calc(100vw-2rem))] flex-col overflow-hidden rounded-xl bg-[var(--kuct-surface)] shadow-[0_18px_48px_rgb(26_21_32/0.12)] backdrop-blur-xl max-sm:fixed max-sm:inset-0 max-sm:z-[200] max-sm:h-dvh max-sm:w-full max-sm:max-w-none max-sm:rounded-none max-sm:border-0 max-sm:shadow-none"
+ className="kuct-ai-chat__drawer pointer-events-auto fixed inset-y-0 right-0 z-[200] flex w-full max-w-[24rem] flex-col border-l border-black/[0.08] bg-white shadow-[-16px_0_48px_rgb(26_21_32/0.1)] sm:max-w-[26rem]"
  data-lenis-prevent
  data-lenis-prevent-wheel
  >
- <header className="flex shrink-0 items-center gap-3 bg-gradient-to-r from-[var(--kuct-btn-from)] via-[var(--kuct-btn-mid)] to-[var(--kuct-btn-to)] px-4 py-3 text-white max-sm:pt-[max(0.75rem,env(safe-area-inset-top))]">
- <span className="relative shrink-0">
- <img
- src={assetPath(CHAT_AVATAR)}
- alt=""
- width={40}
- height={40}
- loading="lazy"
- decoding="async"
- className="size-10 rounded-full object-cover"
- />
- <span
- className="absolute right-0 bottom-0 size-2.5 rounded-full bg-emerald-400 ring-2 ring-white"
- title={c.online}
- />
- </span>
- <div className="min-w-0 flex-1">
- <p className="truncate text-sm font-semibold">{c.agentName}</p>
- <p className="text-xs text-white/85">{c.online}</p>
- </div>
+ <header className="flex shrink-0 items-center gap-2 border-b border-black/[0.06] bg-white px-3 py-2.5 pt-[max(0.75rem,env(safe-area-inset-top))] sm:px-4">
  <button
  type="button"
- className="grid size-8 place-items-center rounded-[10px] bg-white/15 text-white transition hover:bg-white/25"
+ className="inline-flex min-w-0 flex-1 items-center gap-1.5 rounded-[10px] px-2 py-1.5 text-left text-sm font-medium text-[var(--kuct-text)] transition hover:bg-black/[0.03]"
+ onClick={resetConversation}
+ >
+ <span className="truncate">{c.newChat}</span>
+ <span aria-hidden className="text-[var(--kuct-muted)]">▾</span>
+ </button>
+ <button
+ type="button"
+ className="grid size-8 shrink-0 place-items-center rounded-[10px] text-[var(--kuct-muted)] transition hover:bg-black/[0.04] hover:text-[var(--kuct-text)]"
+ aria-label={c.newChat}
+ onClick={resetConversation}
+ >
+ <span className="text-lg leading-none">+</span>
+ </button>
+ <button
+ type="button"
+ className="grid size-8 shrink-0 place-items-center rounded-[10px] text-[var(--kuct-muted)] transition hover:bg-black/[0.04] hover:text-[var(--kuct-text)]"
  aria-label={c.closePanel}
- onClick={() => setOpen(false)}
+ onClick={closeChat}
  >
  <IconClose className="size-4" />
  </button>
@@ -527,10 +421,69 @@ export function AiChatWidget() {
 
  <div
  ref={listRef}
- className="flex max-h-[min(22rem,48svh)] min-h-[14rem] flex-col gap-3 overflow-y-auto overscroll-contain px-4 py-4 max-sm:min-h-0 max-sm:max-h-none max-sm:flex-1"
+ className="flex min-h-0 flex-1 flex-col overflow-y-auto overscroll-contain bg-white"
  data-lenis-prevent
  data-lenis-prevent-wheel
  >
+ {showWelcome ? (
+ <div className="flex flex-1 flex-col px-4 py-4 sm:px-5">
+ <div className="mb-5 flex items-center justify-between gap-3 rounded-[10px] bg-[var(--kuct-bg)] px-3 py-2.5">
+ <p className="text-sm text-[var(--kuct-muted)]">{c.helpBanner}</p>
+ <a
+ href={contactPageHref}
+ className="shrink-0 rounded-[10px] border border-black/[0.08] bg-white px-3 py-1.5 text-xs font-semibold text-[var(--kuct-text)] transition hover:border-[rgba(var(--kuct-accent-rgb),0.3)] hover:text-[var(--kuct-accent)]"
+ onClick={closeChat}
+ >
+ {c.helpSupport}
+ </a>
+ </div>
+
+ <div className="flex flex-col items-center text-center">
+ <img
+ src={assetPath(WELCOME_MASCOT)}
+ alt=""
+ width={120}
+ height={120}
+ loading="lazy"
+ decoding="async"
+ className="mb-4 size-[5.5rem] object-contain drop-shadow-[0_12px_28px_rgb(26_21_32/0.12)] sm:size-28"
+ />
+ <h2 className="font-display text-2xl font-semibold tracking-tight text-[var(--kuct-text)] sm:text-[1.65rem]">
+ {hello}
+ </h2>
+ <p className="mt-1.5 text-sm text-[var(--kuct-muted)]">{c.welcomeSub}</p>
+ </div>
+
+ <ul className="mt-8 flex list-none flex-col gap-2.5 p-0">
+ {c.suggestionCards.map((card, index) => (
+ <li key={card.title}>
+ <button
+ type="button"
+ disabled={sending}
+ className="flex w-full items-start gap-3 rounded-xl border border-black/[0.06] bg-[var(--kuct-bg)] px-3.5 py-3 text-left transition hover:border-[rgba(var(--kuct-accent-rgb),0.28)] hover:bg-white disabled:opacity-50"
+ onClick={() => void pushUserAndReply(card.prompt)}
+ >
+ <span
+ aria-hidden
+ className="mt-0.5 grid size-8 shrink-0 place-items-center rounded-[10px] bg-white text-[var(--kuct-accent)] shadow-[0_1px_2px_rgb(26_21_32/0.06)]"
+ >
+ {index === 0 ? "◎" : index === 1 ? "◈" : index === 2 ? "♡" : "✦"}
+ </span>
+ <span className="min-w-0">
+ <span className="block text-sm font-semibold text-[var(--kuct-text)]">
+ {card.title}
+ </span>
+ <span className="mt-0.5 block text-xs leading-snug text-[var(--kuct-muted)]">
+ {card.body}
+ </span>
+ </span>
+ </button>
+ </li>
+ ))}
+ </ul>
+ </div>
+ ) : (
+ <div className="flex flex-1 flex-col gap-3 bg-[var(--kuct-bg)] px-4 py-4">
  {messages.map((m) => {
  if (
  m.role === "assistant" &&
@@ -551,7 +504,7 @@ export function AiChatWidget() {
  className={
  m.role === "user"
  ? "ml-8 self-end rounded-xl rounded-br-md bg-[var(--kuct-accent)] px-3.5 py-2.5 text-sm leading-relaxed text-white"
- : "mr-6 self-start rounded-xl rounded-bl-md bg-[var(--kuct-menu-hover)] px-3.5 py-2.5 text-sm font-medium leading-relaxed whitespace-pre-wrap text-[var(--kuct-text)]"
+ : "mr-4 self-start rounded-xl rounded-bl-md border border-black/[0.05] bg-white px-3.5 py-2.5 text-sm font-medium leading-relaxed whitespace-pre-wrap text-[var(--kuct-text)] shadow-[0_1px_2px_rgb(26_21_32/0.04)]"
  }
  >
  {renderChatRichText(m.text, { isUserBubble: m.role === "user" })}
@@ -571,35 +524,38 @@ export function AiChatWidget() {
  (messages[messages.length - 1]?.role === "assistant" &&
  !messages[messages.length - 1]?.text)) ? (
  <div
- className="mr-6 self-start rounded-xl rounded-bl-md bg-[var(--kuct-menu-hover)] px-3.5 py-2.5 text-sm text-[var(--kuct-muted)]"
+ className="mr-4 self-start rounded-xl rounded-bl-md border border-black/[0.05] bg-white px-3.5 py-2.5 text-sm text-[var(--kuct-muted)]"
  aria-live="polite"
  >
  …
  </div>
  ) : null}
- <p className="text-[0.7rem] leading-snug text-[var(--kuct-muted)]">
+ <p className="mt-auto pt-2 text-[0.7rem] leading-snug text-[var(--kuct-muted)]">
  {c.escalateHint}
  </p>
  </div>
-
- <div className="flex shrink-0 flex-wrap gap-2 px-3 pt-3">
- {c.suggestions.map((s) => (
- <button
- key={s}
- type="button"
- disabled={sending}
- className="rounded-[10px] bg-[var(--kuct-menu-hover)] px-3 py-1 text-[0.7rem] font-medium text-[var(--kuct-muted)] transition hover:text-[var(--kuct-accent)] disabled:opacity-50"
- onClick={() => void pushUserAndReply(s)}
- >
- {s}
- </button>
- ))}
+ )}
  </div>
 
+ <p className="shrink-0 px-4 pt-2 text-center text-[0.65rem] leading-snug text-[var(--kuct-muted)]">
+ {c.chatRecorded}
+ </p>
+
  <form
- className="flex shrink-0 items-center gap-2 px-3 pt-2 pb-3 max-sm:pb-[max(0.75rem,env(safe-area-inset-bottom))]"
+ className="flex shrink-0 flex-col gap-2 border-t border-black/[0.05] bg-white px-3 pt-2 pb-[max(0.75rem,env(safe-area-inset-bottom))]"
  onSubmit={onSubmit}
  >
+ <div className="flex items-end gap-2 rounded-[10px] border border-black/[0.08] bg-[var(--kuct-bg)] p-1.5 focus-within:border-[rgba(var(--kuct-accent-rgb),0.35)]">
+ <button
+ type="button"
+ disabled={sending || !draft.trim()}
+ className="inline-flex h-9 shrink-0 items-center gap-1.5 rounded-[10px] border border-black/[0.08] bg-white px-3 text-xs font-semibold text-[var(--kuct-text)] transition hover:border-[rgba(var(--kuct-accent-rgb),0.3)] hover:text-[var(--kuct-accent)] disabled:opacity-40"
+ aria-label={c.ask}
+ onClick={() => void pushUserAndReply(draft)}
+ >
+ <IconSparkle className="size-3.5 text-[var(--kuct-accent)]" />
+ {c.ask}
+ </button>
  <input
  ref={inputRef}
  value={draft}
@@ -608,85 +564,31 @@ export function AiChatWidget() {
  placeholder={c.placeholder}
  aria-label={c.placeholder}
  disabled={sending}
- className="min-w-0 flex-1 rounded-[10px] bg-[var(--kuct-bg)] px-4 py-2.5 text-base text-[var(--kuct-text)] outline-none placeholder:text-[var(--kuct-muted)]/60 disabled:opacity-60 sm:text-sm"
+ className="min-w-0 flex-1 bg-transparent px-2 py-2 text-base text-[var(--kuct-text)] outline-none placeholder:text-[var(--kuct-muted)]/60 disabled:opacity-60 sm:text-sm"
  />
  <button
  type="submit"
- disabled={sending}
- className="kuct-btn-primary grid size-10 shrink-0 place-items-center rounded-lg disabled:opacity-60"
+ disabled={sending || !draft.trim()}
+ className="kuct-btn-primary grid size-9 shrink-0 place-items-center rounded-full disabled:opacity-40"
  aria-label={c.send}
  >
  <IconSend className="size-4" />
  </button>
+ </div>
  </form>
  </section>
+ </>
  ) : null}
 
- <div className={`flex items-end gap-3 ${open && showLauncher ? "max-sm:hidden" : ""}`}>
- {showLauncher && toastVisible && !open ? (
- <div className="pointer-events-auto mb-3 flex max-w-[min(18rem,calc(100vw-5.5rem))] flex-col gap-2 sm:mb-4 sm:max-w-[19rem]">
- <button
- type="button"
- className="self-end text-[0.65rem] font-medium text-[var(--kuct-muted)] underline-offset-2 hover:underline"
- onClick={dismissToast}
- >
- {c.dismissToasts}
- </button>
- <button
- type="button"
- className="kuct-ai-chat__toast text-left"
- onClick={openChat}
- >
- <span className="flex items-center gap-2">
- <span className="kuct-ai-chat__toast-avatar" aria-hidden>
- <img
- src={assetPath(CHAT_AVATAR)}
- alt=""
- width={28}
- height={28}
- loading="lazy"
- decoding="async"
- />
- </span>
- <span className="relative flex min-w-0 flex-1 items-center gap-1.5">
- <span
- className="size-1.5 shrink-0 rounded-full bg-emerald-500"
- aria-hidden
- />
- <span className="truncate text-xs font-semibold text-[var(--kuct-text)]">
- {c.agentName}
- </span>
- <span className="ml-auto shrink-0 text-[0.65rem] text-[var(--kuct-muted)]">
- {c.justNow}
- </span>
- </span>
- </span>
- <span
- className="mt-2 block min-h-[2.75rem] text-xs leading-relaxed text-[var(--kuct-muted)]"
- aria-live="polite"
- >
- {typedToast}
- {typedToast.length < toastText.length ? (
- <span
- className="ml-0.5 inline-block text-[var(--kuct-accent)]"
- aria-hidden
- >
- ▍
- </span>
- ) : null}
- </span>
- </button>
- </div>
- ) : null}
-
- <div className="flex flex-col items-center gap-3">
- <div ref={contactsRef} className="flex flex-col items-center gap-3">
+ <div className="kuct-ai-chat pointer-events-none fixed right-4 bottom-0 z-[120] flex items-end gap-3 sm:right-6">
+ <div className={`flex flex-col items-center gap-3 ${open ? "max-sm:hidden" : ""}`}>
+ <div ref={contactsRef} className="pointer-events-auto flex flex-col items-center gap-3">
  {contactsOpen ? (
  <ul className="flex flex-col items-center gap-3">
  {contactItems.map((item, index) => (
  <li
  key={item.key}
- className="kuct-contact-fab__item pointer-events-auto"
+ className="kuct-contact-fab__item"
  style={{ animationDelay: `${index * 50}ms` }}
  >
  <a
@@ -707,7 +609,7 @@ export function AiChatWidget() {
 
  <button
  type="button"
- className="kuct-contact-fab__btn kuct-contact-fab__toggle pointer-events-auto"
+ className="kuct-contact-fab__btn kuct-contact-fab__toggle"
  aria-expanded={contactsOpen}
  aria-label={contactsOpen ? fab.close : fab.open}
  title={contactsOpen ? fab.close : fab.open}
@@ -720,46 +622,8 @@ export function AiChatWidget() {
  )}
  </button>
  </div>
-
- {showLauncher ? (
- <span className="kuct-ai-chat__avatar-wrap pointer-events-auto">
- <button
- type="button"
- className="kuct-ai-chat__dismiss"
- aria-label={c.dismissWidget}
- title={c.dismissWidget}
- onClick={dismissLauncher}
- >
- <IconClose className="size-2.5" />
- </button>
- <button
- type="button"
- className="kuct-ai-chat__avatar"
- aria-expanded={open}
- aria-controls={panelId}
- aria-label={open ? c.close : c.open}
- onClick={() => {
- if (open) {
- setOpen(false);
- } else {
- openChat();
- }
- }}
- >
- <img
- src={assetPath(CHAT_AVATAR)}
- alt=""
- width={56}
- height={56}
- loading="lazy"
- decoding="async"
- className="size-full object-contain object-center"
- />
- </button>
- </span>
- ) : null}
  </div>
  </div>
- </div>
+ </>
  );
 }

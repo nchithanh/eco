@@ -2,6 +2,7 @@
 
 import type { ReactNode } from "react";
 import { AgentLoader } from "@/components/AgentLoader";
+import { AiChatProvider } from "@/components/AiChatProvider";
 import { AiChatWidget } from "@/components/AiChatWidget";
 import { CookieConsent } from "@/components/CookieConsent";
 import { PagePreviewProvider } from "@/components/PagePreviewProvider";
@@ -20,12 +21,14 @@ export function AppProviders({ children }: { children: ReactNode }) {
       <ThemeProvider>
         <QuoteProvider>
           <PagePreviewProvider>
-            <SmoothScroll />
-            {SHOW_WHALE_BACKDROP ? <WhaleBackdrop /> : null}
-            <AgentLoader />
-            <div className="relative z-10">{children}</div>
-            <AiChatWidget />
-            <CookieConsent />
+            <AiChatProvider>
+              <SmoothScroll />
+              {SHOW_WHALE_BACKDROP ? <WhaleBackdrop /> : null}
+              <AgentLoader />
+              <div className="relative z-10">{children}</div>
+              <AiChatWidget />
+              <CookieConsent />
+            </AiChatProvider>
           </PagePreviewProvider>
         </QuoteProvider>
       </ThemeProvider>

@@ -34,6 +34,7 @@ const vi: Dictionary = {
     agentDolphin: "Dolphin Care",
     aiTransform: "Chuyển đổi AI doanh nghiệp",
     contact: "Liên hệ",
+    askAi: "Ask AI",
   },
   banner: {
     aria: "Thông báo",
@@ -590,6 +591,7 @@ const en: Dictionary = {
     agentDolphin: "Dolphin Care",
     aiTransform: "Enterprise AI transformation",
     contact: "Contact",
+    askAi: "Ask AI",
   },
   banner: {
     aria: "Announcement",
@@ -1147,6 +1149,7 @@ const ja: Dictionary = {
     agentDolphin: "Dolphin Care",
     aiTransform: "企業のAI変革",
     contact: "お問い合わせ",
+    askAi: "Ask AI",
   },
   banner: {
     aria: "お知らせ",

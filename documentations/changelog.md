@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-08-10 (ask-ai-drawer)
+
+- Site chat: right-side **Ask AI** drawer (Cloudflare-style empty state: dolphin mascot, day greeting, suggestion cards). Trigger: banner **Ask AI** to the right of Apply now (`AnnouncementBar`). FAB dolphin + Nav Ask AI removed; contact FAB kept.
+
 ## 2026-08-08 (web-hero-mock)
 
 - Extract `EmbedSiteMock` → `components/EmbedSiteMock.tsx` (Care how-section keeps chat overlay).
