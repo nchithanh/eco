@@ -333,36 +333,34 @@ export const homepageLangVi: HomepageLang = {
     ]
   },
   technology: {
-    eyebrow: "AI Philosophy",
-    title: "Một console cho tín hiệu [[nằm rải rác]] khắp nơi",
-    support: "Trước đây: Slack, Jira và tài liệu phân mảnh dữ liệu thật. Sau khi áp dụng: Thu thập → Chuẩn hóa → Vận hành → Quản trị — toàn bộ bức tranh trong một luồng duy nhất, minh bạch.",
-    cta: "Tìm hiểu thêm",
-    live: "live",
-    tabs: [
-      "Tổng quan",
-      "Dữ liệu",
-      "Insight",
-      "Cảnh báo"
+    eyebrow: "Ops AI",
+    title: "Giải pháp AI [[cho vận hành]]",
+    roadmap: "Lộ trình AI có kiểm soát: audit → pilot → nhân rộng",
+    support:
+      "Dolphin không bán AI viển vông. Chúng tôi rà soát quy trình thực tế của bạn, chọn 1–2 việc đáng làm nhất, chạy pilot có số đo — rồi mới nhân rộng.",
+    items: [
+      {
+        id: "agents",
+        tag: "Agents",
+        title: "AI Agents — tự động hóa đúng việc",
+        body: "Agent tùy chỉnh cho từng workflow và vai trò cụ thể, xử lý phần lặp đi lặp lại đang đốt thời gian của team.",
+      },
+      {
+        id: "automation",
+        tag: "Automation",
+        title: "AI Automation — bớt thao tác thủ công",
+        body: "Tự động hóa các bước lặp trong vận hành: capture lead, nhắc follow-up, tổng hợp báo cáo.",
+      },
+      {
+        id: "integration",
+        tag: "Integration",
+        title: "AI Integration — kết nối hệ thống đang chạy",
+        body: "Gắn AI vào CRM, chat, lịch và các công cụ hiện có — không cần thay toàn bộ hệ thống cũ.",
+      },
     ],
-    widgets: {
-      activity: "Hoạt động",
-      pulse: "Nhịp hệ thống",
-      nodes: "Node đang chạy"
-    },
-    principles: [
-      {
-        title: "Quy trình trước công cụ",
-        body: ""
-      },
-      {
-        title: "Đo lường bằng con số",
-        body: ""
-      },
-      {
-        title: "Con người luôn trong vòng kiểm soát",
-        body: ""
-      }
-    ]
+    note: "Dolphin dùng chính AI agent workflow trong nội bộ — từ điều phối công việc, sản xuất nội dung, thiết kế đến phát triển software.",
+    ctaPrimary: "Xem lộ trình chuyển đổi AI",
+    ctaSecondary: "Khám phá use case theo phòng ban (Sales, Support, Operations)",
   },
   aiEdge: {
     eyebrow: "Ops AI",

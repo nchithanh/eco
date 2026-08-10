@@ -1,556 +1,131 @@
 "use client";
 
+import Link from "next/link";
 import { AccentText } from "@/components/BrandName";
 import { Reveal } from "@/components/Reveal";
-import { assetPath } from "@/lib/asset";
-import { getAiTransformCopy } from "@/lib/i18n/ai-transform-copy";
+import { routePath } from "@/lib/asset";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
-import { useDesktopMotion } from "@/lib/motion";
 
-/** Demo series for Activity bars (px within h-14 / 56px track). */
-const ACTIVITY_BARS = [22, 38, 28, 48, 34, 44, 26, 40, 30, 46] as const;
-
-/**
- * System Pulse samples (y in viewBox 0–36; lower y = taller peak).
- * Dense series → continuous wave + filled area.
- */
-const PULSE_Y = [24, 18, 22, 10, 16, 8, 14, 6, 12, 9, 20, 11, 7, 15, 5, 13, 8, 18, 12, 6] as const;
-
-/** Smooth cubic path through evenly spaced samples (viewBox width 120). */
-function pulseWavePath(ys: readonly number[], w = 120, close = false, h = 36): string {
- const n = ys.length;
- if (n < 2) return "";
- const step = w / (n - 1);
- const pts = ys.map((y, i) => [i * step, y] as const);
- let d = `M${pts[0][0]} ${pts[0][1]}`;
- for (let i = 0; i < n - 1; i++) {
- const p0 = pts[Math.max(0, i - 1)];
- const p1 = pts[i];
- const p2 = pts[i + 1];
- const p3 = pts[Math.min(n - 1, i + 2)];
- const cp1x = p1[0] + (p2[0] - p0[0]) / 6;
- const cp1y = p1[1] + (p2[1] - p0[1]) / 6;
- const cp2x = p2[0] - (p3[0] - p1[0]) / 6;
- const cp2y = p2[1] - (p3[1] - p1[1]) / 6;
- d += ` C${cp1x} ${cp1y} ${cp2x} ${cp2y} ${p2[0]} ${p2[1]}`;
- }
- if (close) d += ` L${w} ${h} L0 ${h} Z`;
- return d;
-}
-
-/**
- * Dense neural mesh on/around the globe (viewBox 200×200).
- * Core hub last — used for pulse emphasis.
- */
-const GLOBE_NODES = [
- /* Rim / near-surface */
- { x: 100, y: 34, r: 2.1 },
- { x: 128, y: 42, r: 1.8 },
- { x: 148, y: 58, r: 2.0 },
- { x: 162, y: 82, r: 2.2 },
- { x: 166, y: 108, r: 1.9 },
- { x: 158, y: 134, r: 2.1 },
- { x: 138, y: 154, r: 1.8 },
- { x: 112, y: 164, r: 2.0 },
- { x: 86, y: 162, r: 1.7 },
- { x: 62, y: 148, r: 2.0 },
- { x: 42, y: 124, r: 1.9 },
- { x: 36, y: 98, r: 2.2 },
- { x: 42, y: 72, r: 1.8 },
- { x: 58, y: 50, r: 2.0 },
- { x: 78, y: 38, r: 1.7 },
- /* Interior land / ocean */
- { x: 92, y: 62, r: 1.6 },
- { x: 118, y: 70, r: 1.7 },
- { x: 140, y: 92, r: 1.8 },
- { x: 132, y: 118, r: 1.6 },
- { x: 108, y: 138, r: 1.7 },
- { x: 78, y: 128, r: 1.6 },
- { x: 64, y: 98, r: 1.8 },
- { x: 76, y: 76, r: 1.5 },
- { x: 100, y: 88, r: 1.6 },
- { x: 116, y: 104, r: 1.5 },
- /* Slightly outside sphere — halo mesh */
- { x: 100, y: 22, r: 1.5 },
- { x: 172, y: 64, r: 1.4 },
- { x: 178, y: 120, r: 1.5 },
- { x: 148, y: 172, r: 1.4 },
- { x: 52, y: 170, r: 1.5 },
- { x: 22, y: 110, r: 1.4 },
- { x: 28, y: 54, r: 1.5 },
- /* Core hub */
- { x: 100, y: 100, r: 3.6 },
-] as const;
-
-/** Dense link pairs — rim ring + spokes + outer halo. */
-const GLOBE_LINKS = [
- /* Rim cycle */
- [0, 1],
- [1, 2],
- [2, 3],
- [3, 4],
- [4, 5],
- [5, 6],
- [6, 7],
- [7, 8],
- [8, 9],
- [9, 10],
- [10, 11],
- [11, 12],
- [12, 13],
- [13, 14],
- [14, 0],
- /* Interior mesh */
- [15, 16],
- [16, 17],
- [17, 18],
- [18, 19],
- [19, 20],
- [20, 21],
- [21, 22],
- [22, 15],
- [15, 23],
- [23, 24],
- [24, 18],
- [21, 23],
- /* Spokes to core */
- [0, 32],
- [3, 32],
- [7, 32],
- [11, 32],
- [16, 32],
- [20, 32],
- [23, 32],
- /* Cross chords */
- [1, 16],
- [2, 17],
- [5, 18],
- [6, 19],
- [9, 20],
- [12, 22],
- [13, 15],
- [4, 24],
- [10, 21],
- /* Outer halo */
- [25, 0],
- [25, 1],
- [26, 2],
- [26, 3],
- [27, 4],
- [27, 5],
- [28, 6],
- [28, 7],
- [29, 8],
- [29, 9],
- [30, 10],
- [30, 11],
- [31, 12],
- [31, 13],
- [25, 26],
- [26, 27],
- [27, 28],
- [28, 29],
- [29, 30],
- [30, 31],
- [31, 25],
-] as const;
-
-/** Quadratic arc bulging outward from sphere center. */
-function dataArcPath(x1: number, y1: number, x2: number, y2: number): string {
- const mx = (x1 + x2) / 2;
- const my = (y1 + y2) / 2;
- const dx = mx - 100;
- const dy = my - 100;
- const len = Math.hypot(dx, dy) || 1;
- const bulge = 10;
- const cx = mx + (dx / len) * bulge;
- const cy = my + (dy / len) * bulge;
- return `M${x1} ${y1} Q${cx} ${cy} ${x2} ${y2}`;
-}
-
-/** Always mount; motion off = static sphere (no mouse tilt / CSS loops). */
-function DesktopNeuralSphere() {
-  const motion = useDesktopMotion();
-  return <NeuralSphere animated={motion} />;
-}
-
-function NeuralSphere({ animated }: { animated: boolean }) {
- return (
- <div
- className="relative mx-auto aspect-square w-[78%] max-w-[18rem]"
- data-motion={animated ? "on" : "off"}
- >
- {/* Soft accent bloom — static, low intensity */}
- <div
- aria-hidden
- className="kuct-globe-bloom absolute inset-[-18%] rounded-full opacity-70"
- />
- <div
- aria-hidden
- className="kuct-globe-bloom kuct-globe-bloom--core absolute inset-[-4%] rounded-full opacity-60"
- />
- <div className="kuct-globe-stage relative h-full w-full">
- <div className="kuct-globe-tilt h-full w-full">
- <svg
- viewBox="0 0 200 200"
- className="kuct-globe-svg relative h-full w-full"
- aria-hidden
- >
- <defs>
- {/* Deep violet sphere + accent limb highlight */}
- <radialGradient id="kuct-tech-sphere" cx="32%" cy="28%" r="78%">
- <stop
- offset="0%"
- stopColor="color-mix(in srgb, var(--kuct-btn-mid) 52%, #2a1848)"
- />
- <stop
- offset="42%"
- stopColor="color-mix(in srgb, var(--kuct-accent) 32%, #1a1030)"
- />
- <stop
- offset="78%"
- stopColor="color-mix(in srgb, var(--kuct-accent) 14%, #0c0818)"
- />
- <stop
- offset="100%"
- stopColor="color-mix(in srgb, var(--kuct-accent) 6%, #06040e)"
- />
- </radialGradient>
- <radialGradient id="kuct-tech-core-glow" cx="50%" cy="50%" r="50%">
- <stop offset="0%" stopColor="var(--kuct-accent)" stopOpacity="0.12" />
- <stop offset="55%" stopColor="var(--kuct-accent-2)" stopOpacity="0.04" />
- <stop offset="100%" stopColor="var(--kuct-accent)" stopOpacity="0" />
- </radialGradient>
- <radialGradient id="kuct-tech-limb" cx="28%" cy="24%" r="70%">
- <stop offset="0%" stopColor="var(--kuct-accent-3)" stopOpacity="0.2" />
- <stop offset="55%" stopColor="var(--kuct-accent)" stopOpacity="0.04" />
- <stop offset="100%" stopColor="var(--kuct-accent)" stopOpacity="0" />
- </radialGradient>
- <linearGradient id="kuct-tech-ring" x1="0%" y1="0%" x2="100%" y2="100%">
- <stop offset="0%" stopColor="var(--kuct-btn-to)" />
- <stop offset="50%" stopColor="var(--kuct-btn-mid)" />
- <stop offset="100%" stopColor="var(--kuct-btn-from)" />
- </linearGradient>
- <filter
- id="kuct-tech-node-glow"
- x="-80%"
- y="-80%"
- width="260%"
- height="260%"
- >
- <feGaussianBlur stdDeviation="0.6" result="blur" />
- <feMerge>
- <feMergeNode in="blur" />
- <feMergeNode in="SourceGraphic" />
- </feMerge>
- </filter>
- <clipPath id="kuct-tech-globe-clip">
- <circle cx="100" cy="100" r="69.5" />
- </clipPath>
- </defs>
-
- {/* Sphere body (static) */}
- <circle cx="100" cy="100" r="68" className="kuct-sphere-base" />
- <circle cx="100" cy="100" r="68" fill="url(#kuct-tech-sphere)" />
- <circle cx="100" cy="100" r="52" fill="url(#kuct-tech-core-glow)" />
- <circle cx="100" cy="100" r="68" fill="url(#kuct-tech-limb)" />
- <circle
- cx="100"
- cy="100"
- r="68"
- fill="none"
- stroke="url(#kuct-tech-ring)"
- strokeWidth="1.6"
- opacity="0.9"
- />
-
- {/* Spinning wireframe + neural mesh */}
- <g className="kuct-globe">
- <g clipPath="url(#kuct-tech-globe-clip)" className="kuct-globe-wire">
- <ellipse cx="100" cy="100" rx="66" ry="17" />
- <ellipse className="kuct-globe-wire--mid" cx="100" cy="76" rx="58" ry="13" />
- <ellipse className="kuct-globe-wire--mid" cx="100" cy="124" rx="58" ry="13" />
- <ellipse className="kuct-globe-wire--soft" cx="100" cy="56" rx="40" ry="8.5" />
- <ellipse className="kuct-globe-wire--soft" cx="100" cy="144" rx="40" ry="8.5" />
- <ellipse cx="100" cy="100" rx="17" ry="66" />
- <ellipse className="kuct-globe-wire--mid" cx="100" cy="100" rx="40" ry="66" />
- <ellipse className="kuct-globe-wire--soft" cx="100" cy="100" rx="56" ry="66" />
- <ellipse
- className="kuct-globe-wire--mid"
- cx="100"
- cy="100"
- rx="40"
- ry="66"
- transform="rotate(32 100 100)"
- />
- <ellipse
- className="kuct-globe-wire--mid"
- cx="100"
- cy="100"
- rx="40"
- ry="66"
- transform="rotate(-32 100 100)"
- />
- </g>
-
- <g
- fill="none"
- strokeLinecap="round"
- >
- {GLOBE_LINKS.map(([a, b]) => {
- const n1 = GLOBE_NODES[a];
- const n2 = GLOBE_NODES[b];
- return (
- <path
- key={`${a}-${b}`}
- className="kuct-data-line"
- d={dataArcPath(n1.x, n1.y, n2.x, n2.y)}
- />
- );
- })}
- </g>
-
- <g filter="url(#kuct-tech-node-glow)">
- {GLOBE_NODES.map(({ x, y, r }, i) => {
- const isCore = i === GLOBE_NODES.length - 1;
- const isHalo = i >= 25 && i < 32;
- return (
- <circle
- key={`${x}-${y}-${i}`}
- className={
- isCore
- ? "kuct-node kuct-node--core"
- : isHalo
- ? "kuct-node kuct-node--halo"
- : "kuct-node"
- }
- cx={x}
- cy={y}
- r={r}
- strokeWidth={isCore ? 1.4 : 0.7}
- style={{ animationDelay: `${(i % 7) * 0.28}s` }}
- />
- );
- })}
- </g>
- </g>
-
- {/* Outer elliptical orbits */}
- <g className="kuct-orbit">
- <ellipse
- className="kuct-orbit-ring"
- cx="100"
- cy="100"
- rx="88"
- ry="32"
- fill="none"
- />
- <ellipse
- className="kuct-orbit-ring kuct-orbit-ring--soft"
- cx="100"
- cy="100"
- rx="80"
- ry="26"
- fill="none"
- transform="rotate(55 100 100)"
- />
- <ellipse
- className="kuct-orbit-ring kuct-orbit-ring--soft"
- cx="100"
- cy="100"
- rx="84"
- ry="28"
- fill="none"
- transform="rotate(-40 100 100)"
- />
- </g>
-
- {/* Satellites */}
- <g className="kuct-satellite" filter="url(#kuct-tech-node-glow)">
- <circle cx="188" cy="100" r="2.6" fill="var(--kuct-accent-2)" />
- <circle
- cx="100"
- cy="74"
- r="2"
- fill="var(--kuct-accent-3)"
- transform="rotate(55 100 100)"
- />
- </g>
- </svg>
- </div>
- </div>
- </div>
- );
-}
-
-function TechnologyDashboard({
-  tabs,
-  live,
-  widgets,
-}: {
-  tabs: string[];
-  live: string;
-  widgets: { activity: string; pulse: string; nodes: string };
-}) {
-  const widgetClass =
-    "kuct-tech-widget rounded-lg border border-[var(--kuct-border)] bg-[var(--kuct-surface)] p-2.5 sm:p-3";
-
+function CardIcon({ id }: { id: "agents" | "automation" | "integration" }) {
+  const common = "size-5 text-[var(--kuct-accent)]";
+  if (id === "agents") {
+    return (
+      <svg className={common} viewBox="0 0 24 24" fill="none" aria-hidden>
+        <circle cx="9" cy="8" r="2.25" stroke="currentColor" strokeWidth="1.5" />
+        <circle cx="16" cy="9" r="2" stroke="currentColor" strokeWidth="1.5" />
+        <path
+          d="M4.5 18.5c.6-2.4 2.6-3.8 4.5-3.8s3.9 1.4 4.5 3.8"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+        />
+        <path
+          d="M13.2 15.2c.7-.9 1.8-1.5 3-1.5 1.5 0 2.8.9 3.3 2.3"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+        />
+      </svg>
+    );
+  }
+  if (id === "automation") {
+    return (
+      <svg className={common} viewBox="0 0 24 24" fill="none" aria-hidden>
+        <circle cx="6" cy="7" r="2" stroke="currentColor" strokeWidth="1.5" />
+        <circle cx="18" cy="7" r="2" stroke="currentColor" strokeWidth="1.5" />
+        <circle cx="12" cy="17" r="2" stroke="currentColor" strokeWidth="1.5" />
+        <path
+          d="M8 7h8M7.5 8.5 3.5 15M16.5 8.5 20.5 15"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+        />
+      </svg>
+    );
+  }
   return (
-    <div
-      className="kuct-tech-dashboard relative overflow-hidden rounded-xl border border-[var(--kuct-border)] bg-[var(--kuct-surface)] p-4 sm:p-5 md:p-6"
-      aria-hidden
-    >
-      <div className="relative mb-4 flex flex-wrap items-center justify-between gap-2.5">
-        <div className="flex flex-wrap gap-1 rounded-lg bg-[var(--kuct-panel-2)] p-0.5">
-          {tabs.map((tab, index) => (
-            <span
-              key={tab}
-              className={
-                index === 0
-                  ? "rounded-md bg-[var(--kuct-accent)] px-2.5 py-1 text-[11px] font-semibold text-[var(--kuct-on-accent)]"
-                  : "rounded-md px-2.5 py-1 text-[11px] font-medium text-[var(--kuct-muted)]"
-              }
-            >
-              {tab}
-            </span>
-          ))}
-        </div>
-        <span className="inline-flex items-center gap-1.5 rounded-md bg-[var(--kuct-panel-2)] px-2.5 py-1 text-[0.6rem] font-semibold tracking-[0.14em] text-[var(--kuct-muted)] uppercase">
-          <span className="size-1.5 rounded-full bg-[var(--kuct-accent)]" />
-          {live}
-        </span>
-      </div>
-
-      <div className="relative touch-pan-y">
-        <div className="pointer-events-none absolute inset-0 hidden items-center justify-center lg:flex">
-          <DesktopNeuralSphere />
-        </div>
-
-        <div className="relative grid grid-cols-2 gap-2.5 lg:min-h-[19rem] lg:grid-cols-1 lg:gap-0">
-          <div
-            className={`${widgetClass} lg:absolute lg:left-0 lg:top-1 lg:w-[38%] lg:max-w-[9rem]`}
-          >
-            <p className="text-[0.6rem] font-semibold tracking-[0.12em] text-[var(--kuct-muted)] uppercase">
-              {widgets.activity}
-            </p>
-            <div className="mt-2 flex h-11 items-end gap-0.5 sm:h-12 sm:gap-1">
-              {ACTIVITY_BARS.map((h, i) => (
-                <span
-                  key={i}
-                  className="min-w-0 flex-1 rounded-t-sm bg-[var(--kuct-accent)]/80"
-                  style={{ height: `${Math.round(h * 0.85)}px` }}
-                />
-              ))}
-            </div>
-          </div>
-
-          <div
-            className={`${widgetClass} text-center lg:absolute lg:right-0 lg:top-0 lg:w-auto lg:px-3.5 lg:py-2.5`}
-          >
-            <p className="font-display text-2xl font-semibold leading-none text-[var(--kuct-accent)] sm:text-[1.65rem]">
-              26
-            </p>
-            <p className="mt-1 text-[0.6rem] font-semibold tracking-[0.1em] text-[var(--kuct-muted)] uppercase">
-              {widgets.nodes}
-            </p>
-          </div>
-
-          <div
-            className={`${widgetClass} col-span-2 sm:col-span-1 lg:absolute lg:bottom-1 lg:left-0 lg:w-[42%] lg:max-w-[10rem]`}
-          >
-            <p className="text-[0.6rem] font-semibold tracking-[0.12em] text-[var(--kuct-muted)] uppercase">
-              {widgets.pulse}
-            </p>
-            <svg viewBox="0 0 120 36" className="mt-1.5 h-8 w-full" aria-hidden>
-              <path
-                d={pulseWavePath(PULSE_Y, 120, true)}
-                fill="rgb(var(--kuct-accent-rgb) / 0.1)"
-              />
-              <path
-                d={pulseWavePath(PULSE_Y)}
-                fill="none"
-                stroke="var(--kuct-accent)"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </div>
-
-          <div className="col-span-2 flex items-center justify-end gap-1.5 sm:col-span-1 lg:absolute lg:bottom-2 lg:right-0 lg:flex-col lg:items-end lg:gap-1">
-            {["API", "CI", "AI"].map((label) => (
-              <span
-                key={label}
-                className="inline-flex items-center gap-1 rounded-md bg-[var(--kuct-panel-2)] px-2 py-0.5 text-[0.6rem] font-medium tracking-wide text-[var(--kuct-muted)]"
-              >
-                <span className="size-1 rounded-full bg-[var(--kuct-accent)]/80" />
-                {label}
-              </span>
-            ))}
-          </div>
-        </div>
-      </div>
-    </div>
+    <svg className={common} viewBox="0 0 24 24" fill="none" aria-hidden>
+      <path
+        d="M8 7h8v3.2l2.2 1.6V17H5.8v-5.2L8 10.2V7Z"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinejoin="round"
+      />
+      <path d="M10 7V5.5h4V7M9 17v2M15 17v2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+    </svg>
   );
 }
 
 export function Technology() {
- const { t, locale } = useLocale();
- const tech = t.technology;
- const ai = getAiTransformCopy(locale);
+  const { t } = useLocale();
+  const tech = t.technology;
+  const transformHref = routePath("/ai-transform/");
 
- return (
- <section
- id="technology"
- className="relative scroll-mt-20 overflow-hidden py-24"
- >
- <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 lg:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)] lg:gap-20">
- <Reveal variant="left" delay={100}>
- <TechnologyDashboard
- tabs={tech.tabs}
- live={tech.live}
- widgets={tech.widgets}
- />
- </Reveal>
+  return (
+    <section
+      id="technology"
+      className="relative scroll-mt-20 overflow-hidden py-24"
+      aria-labelledby="home-technology-heading"
+    >
+      <div className="mx-auto max-w-6xl px-6">
+        <Reveal variant="title">
+          <p className="kuct-type-eyebrow text-[11px] sm:text-xs">{tech.eyebrow}</p>
+          <h2
+            id="home-technology-heading"
+            className="kuct-type-h2 mt-4 max-w-3xl text-3xl text-[var(--kuct-text)] sm:text-[2.15rem] lg:text-[2.35rem]"
+          >
+            <AccentText>{tech.title}</AccentText>
+          </h2>
+          <p className="mt-3 max-w-[48ch] text-sm font-semibold tracking-wide text-[var(--kuct-accent)] sm:text-base">
+            {tech.roadmap}
+          </p>
+          <p className="kuct-type-body mt-4 max-w-[52ch] text-base">{tech.support}</p>
+        </Reveal>
 
- <Reveal className="max-w-lg lg:justify-self-end" variant="title">
- <p className="kuct-type-eyebrow text-[11px] sm:text-xs">
- {tech.eyebrow}
- </p>
- <h2 className="kuct-type-h2 mt-4 max-w-[16ch] text-3xl text-[var(--kuct-text)] sm:max-w-[18ch] sm:text-[2.15rem] lg:text-[2.35rem]">
- <AccentText>{tech.title}</AccentText>
- </h2>
- <p className="kuct-type-body mt-5 max-w-[42ch] text-base">
- {tech.support}
- </p>
- {tech.principles && tech.principles.length > 0 ? (
- <ul className="mt-6 list-none space-y-4 p-0">
- {tech.principles.map((p) => (
- <li key={p.title}>
- <p className="font-display text-sm font-semibold text-[var(--kuct-text)]">
- {p.title}
- </p>
- {p.body ? (
- <p className="mt-1 text-sm leading-relaxed text-[var(--kuct-muted)]">
- {p.body}
- </p>
- ) : null}
- </li>
- ))}
- </ul>
- ) : (
- <p className="mt-4 max-w-md text-xs leading-relaxed tracking-wide text-[var(--kuct-muted)]/90">
- {ai.trustLine}
- </p>
- )}
- <a
- href={assetPath("/ai-transform/")}
- className="kuct-btn-primary mt-8 inline-flex items-center rounded-lg px-5 py-3.5 text-sm font-semibold shadow-[0_12px_32px_rgb(26_21_32/0.18)]"
- >
- {tech.cta}
- </a>
- </Reveal>
- </div>
- </section>
- );
+        <ul className="mt-12 grid list-none grid-cols-1 gap-5 p-0 md:grid-cols-3">
+          {tech.items.map((item, index) => (
+            <Reveal
+              as="li"
+              key={item.id}
+              delay={index * 55}
+              className="kuct-surface-card flex flex-col p-5"
+            >
+              <div className="flex items-start justify-between gap-3">
+                <span className="grid size-10 place-items-center rounded-lg bg-[var(--kuct-panel-2)]">
+                  <CardIcon id={item.id} />
+                </span>
+                <span className="rounded-[10px] bg-[var(--kuct-panel-2)] px-2 py-0.5 text-[10px] font-semibold tracking-wide text-[var(--kuct-muted)] uppercase">
+                  {item.tag}
+                </span>
+              </div>
+              <h3 className="mt-4 font-display text-lg font-semibold leading-snug text-[var(--kuct-text)]">
+                {item.title}
+              </h3>
+              <p className="mt-2 flex-1 text-sm leading-relaxed text-[var(--kuct-muted)]">
+                {item.body}
+              </p>
+            </Reveal>
+          ))}
+        </ul>
+
+        <Reveal delay={120} className="mt-10 max-w-3xl">
+          <p className="text-sm leading-relaxed text-[var(--kuct-muted)]">{tech.note}</p>
+          <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <Link
+              href={transformHref}
+              className="kuct-btn-primary inline-flex items-center justify-center rounded-lg px-4 py-3 text-sm font-semibold"
+            >
+              {tech.ctaPrimary}
+            </Link>
+            <Link
+              href={transformHref}
+              className="kuct-btn-ghost inline-flex items-center justify-center rounded-lg px-4 py-3 text-sm font-semibold"
+            >
+              {tech.ctaSecondary}
+            </Link>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
 }

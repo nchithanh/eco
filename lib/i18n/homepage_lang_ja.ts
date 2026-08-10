@@ -303,36 +303,34 @@ export const homepageLangJa: HomepageLang = {
     ]
   },
   technology: {
-    eyebrow: "AI Philosophy",
-    title: "[[散在する]]シグナルを1つのコンソールに",
-    support: "以前：Slack、Jira、ドキュメントが実データを分断。適用後：収集 → 標準化 → 運用 → 管理——すべての全体像を1つの透明なフローに。",
-    cta: "詳細を見る",
-    live: "live",
-    tabs: [
-      "概要",
-      "データ",
-      "インサイト",
-      "アラート"
+    eyebrow: "Ops AI",
+    title: "運用向けの[[AIソリューション]]",
+    roadmap: "管理されたAIロードマップ：audit → pilot → 展開",
+    support:
+      "Dolphinは空想的なAIを売りません。実際の業務を見直し、最も価値のある1〜2件を選び、数値で測れるパイロットを走らせてから展開します。",
+    items: [
+      {
+        id: "agents",
+        tag: "Agents",
+        title: "AI Agents — 正しい作業を自動化",
+        body: "ワークフローと役割ごとのカスタムエージェントが、チームの時間を奪う反復作業を処理します。",
+      },
+      {
+        id: "automation",
+        tag: "Automation",
+        title: "AI Automation — 手作業を減らす",
+        body: "リード獲得、フォローアップ催促、レポート集計など、運用の反復ステップを自動化します。",
+      },
+      {
+        id: "integration",
+        tag: "Integration",
+        title: "AI Integration — 現行システムと接続",
+        body: "CRM、チャット、カレンダー、既存ツールにAIを接続 — 全面刷新は不要です。",
+      },
     ],
-    widgets: {
-      activity: "アクティビティ",
-      pulse: "システム状態",
-      nodes: "実行中ノード"
-    },
-    principles: [
-      {
-        title: "ツールよりプロセス優先",
-        body: ""
-      },
-      {
-        title: "数値で測定",
-        body: ""
-      },
-      {
-        title: "常に人間が制御",
-        body: ""
-      }
-    ]
+    note: "Dolphinは社内でもAIエージェント・ワークフローを運用しています — 調整、コンテンツ、デザインからソフトウェア開発まで。",
+    ctaPrimary: "AI変革のロードマップを見る",
+    ctaSecondary: "部門別ユースケースを探す（Sales / Support / Operations）",
   },
   aiEdge: {
     eyebrow: "Ops AI",

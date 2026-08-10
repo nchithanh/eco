@@ -69,7 +69,7 @@ const vi: LandingCopy = {
   metaTitle: "Thiết Kế Landing Page Chuyên Nghiệp | Dolphin Software",
   metaDescription:
     "Dịch vụ thiết kế landing page cho SMB Việt Nam — bàn giao trong 3–5 ngày, CTA rõ ràng, tối ưu chuyển đổi. Báo giá cố định, không phát sinh chi phí ngoài scope.",
-  eyebrow: "Dịch vụ · Landing Page",
+  eyebrow: "Service · Landing Page",
   title: "Dịch vụ thiết kế Landing Page cho doanh nghiệp vừa và nhỏ",
   lead: "Dolphin Software thiết kế landing page với một mục tiêu duy nhất: biến người truy cập thành khách hàng tiềm năng. Mỗi trang được bàn giao trong 3–5 ngày làm việc, có CTA rõ ràng, responsive trên mọi thiết bị, và đi kèm hướng dẫn vận hành sau bàn giao.",
   fitLine:
@@ -77,7 +77,7 @@ const vi: LandingCopy = {
   ctaPrimary: "Nhận báo giá ngay",
   ctaSecondary: "Xem bảng giá",
 
-  whatEyebrow: "Khái niệm",
+  whatEyebrow: "Basics",
   whatTitle: "Thiết kế Landing Page là gì? Khi nào doanh nghiệp cần?",
   whatBody:
     "Landing page là một trang web đơn lẻ, được thiết kế để hướng người xem thực hiện một hành động cụ thể — điền form, đặt lịch, liên hệ, hoặc mua hàng. Khác với website nhiều trang, landing page loại bỏ mọi yếu tố phân tâm để tối đa hóa tỷ lệ chuyển đổi.",
@@ -89,7 +89,7 @@ const vi: LandingCopy = {
     "Muốn kiểm tra thị trường trước khi đầu tư vào website đầy đủ",
   ],
 
-  whyEyebrow: "Lý do chọn",
+  whyEyebrow: "Why us",
   whyTitle: "Tại sao chọn Dolphin Software để thiết kế Landing Page?",
   whyIntro:
     "Dolphin Software là đơn vị phần mềm Việt Nam chuyên phục vụ SMB — doanh nghiệp vừa và nhỏ không có đội IT nội bộ. Mỗi dự án được tiếp cận theo ngôn ngữ kinh doanh, không phải ngôn ngữ kỹ thuật.",
@@ -120,7 +120,7 @@ const vi: LandingCopy = {
     },
   ],
 
-  includeEyebrow: "Phạm vi",
+  includeEyebrow: "Scope",
   includeTitle: "Dịch vụ Landing Page của Dolphin Software bao gồm những gì?",
   includeIntro:
     "Mỗi landing page được thiết kế theo brief của doanh nghiệp và bao gồm các hạng mục sau.",
@@ -152,7 +152,7 @@ const vi: LandingCopy = {
     },
   ],
 
-  industriesEyebrow: "Ngành",
+  industriesEyebrow: "Industries",
   industriesTitle: "Landing Page phù hợp với ngành nào?",
   industriesIntro:
     "Dịch vụ thiết kế landing page của Dolphin Software đã được triển khai cho nhiều ngành khác nhau.",
@@ -169,7 +169,7 @@ const vi: LandingCopy = {
     { sector: "Sự kiện", goal: "Đăng ký tham dự, bán vé online" },
   ],
 
-  processEyebrow: "Quy trình",
+  processEyebrow: "Process",
   processTitle: "Quy trình thiết kế Landing Page tại Dolphin Software",
   processSteps: [
     {
@@ -194,7 +194,7 @@ const vi: LandingCopy = {
     },
   ],
 
-  pricingEyebrow: "Báo giá",
+  pricingEyebrow: "Pricing",
   pricingTitle: "Bảng giá dịch vụ Landing Page",
   pricingNote:
     "Giá cố định trước khi bắt đầu — không phát sinh phí ngoài scope đã ký. Gửi brief ngắn để nhận báo giá cụ thể.",
@@ -248,7 +248,7 @@ const vi: LandingCopy = {
     },
   ],
 
-  closeEyebrow: "Bắt đầu",
+  closeEyebrow: "Next step",
   closeTitle: "Sẵn sàng để có Landing Page hoạt động hiệu quả?",
   closeSupport:
     "Gửi brief ngắn — Dolphin Software phản hồi với phương án và báo giá cụ thể, không ép package.",
@@ -466,7 +466,7 @@ const ja: LandingCopy = {
   metaTitle: "ランディングページ制作 | Dolphin Software",
   metaDescription:
     "ベトナムSMB向けランディングページ — 3〜5営業日で納品、明確なCTA、コンバージョン重視。スコープ固定の見積、追加費用なし。",
-  eyebrow: "サービス · ランディングページ",
+  eyebrow: "Service · Landing Page",
   title: "中小企業向けランディングページ制作",
   lead: "Dolphin Softwareは訪問者を見込み客に変えることを唯一の目的にLPを設計します。3〜5営業日で納品、明確なCTA、全デバイス対応、納品後の運用ガイド付き。",
   fitLine:
@@ -474,7 +474,7 @@ const ja: LandingCopy = {
   ctaPrimary: "見積もりを依頼",
   ctaSecondary: "料金を見る",
 
-  whatEyebrow: "基礎",
+  whatEyebrow: "Basics",
   whatTitle: "ランディングページとは？いつ必要か？",
   whatBody:
     "ランディングページは、フォーム送信・予約・連絡・購入など一つの行動に誘導する単一ページです。多ページサイトと違い、散漫な要素を削りコンバージョンを最大化します。",
@@ -486,7 +486,7 @@ const ja: LandingCopy = {
     "本格サイト投資の前に市場を試したい",
   ],
 
-  whyEyebrow: "選ぶ理由",
+  whyEyebrow: "Why us",
   whyTitle: "なぜDolphin Softwareのランディングページか？",
   whyIntro:
     "Dolphin Softwareは社内ITがないベトナムSMB向けのソフトスタジオです。技術用語ではなくビジネスの言葉で進めます。",
@@ -517,7 +517,7 @@ const ja: LandingCopy = {
     },
   ],
 
-  includeEyebrow: "範囲",
+  includeEyebrow: "Scope",
   includeTitle: "Dolphin SoftwareのLPに含まれるもの",
   includeIntro: "各LPはブリーフに沿い、概ね次の項目を含みます。",
   includeGroups: [
@@ -548,7 +548,7 @@ const ja: LandingCopy = {
     },
   ],
 
-  industriesEyebrow: "業種",
+  industriesEyebrow: "Industries",
   industriesTitle: "どんな業種に合うか？",
   industriesIntro: "多くの業種でランディングページを納品しています。",
   industriesHeaders: ["業種", "よくある目的"],
@@ -561,7 +561,7 @@ const ja: LandingCopy = {
     { sector: "イベント", goal: "参加登録・オンラインチケット" },
   ],
 
-  processEyebrow: "進め方",
+  processEyebrow: "Process",
   processTitle: "Dolphin SoftwareのLP制作プロセス",
   processSteps: [
     {
@@ -586,7 +586,7 @@ const ja: LandingCopy = {
     },
   ],
 
-  pricingEyebrow: "料金",
+  pricingEyebrow: "Pricing",
   pricingTitle: "ランディングページ料金",
   pricingNote:
     "開始前に価格固定 — 署名スコープ外の追加なし。短いブリーフで具体見積を。",
@@ -640,7 +640,7 @@ const ja: LandingCopy = {
     },
   ],
 
-  closeEyebrow: "次の一歩",
+  closeEyebrow: "Next step",
   closeTitle: "効果の出るランディングページを始めませんか？",
   closeSupport:
     "短いブリーフを送ってください — 押し売りパッケージなしで、方針と具体見積を返します。",

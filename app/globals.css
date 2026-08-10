@@ -334,6 +334,14 @@ html[data-theme="violet"] .kuct-feature-card {
   .kuct-site-header {
     transition: none;
   }
+
+  .kuct-ai-chat {
+    transition: none;
+  }
+
+  .kuct-ai-chat.is-fab-hidden {
+    transform: none;
+  }
 }
 
 .font-display {
@@ -1561,6 +1569,17 @@ html[data-theme="black"] .kuct-loader-progress {
 
 .kuct-contact-fab__item {
   animation: kuct-contact-fab-in 0.28s ease-out both;
+}
+
+/* Contact FAB stack — lift from bottom + hide opposite to header on scroll */
+.kuct-ai-chat {
+  transform: translateY(0);
+  transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+.kuct-ai-chat.is-fab-hidden {
+  transform: translateY(calc(100% + 1.25rem));
 }
 
 @keyframes kuct-contact-fab-in {

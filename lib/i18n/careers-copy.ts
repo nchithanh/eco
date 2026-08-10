@@ -15,7 +15,7 @@ const vi: CareersCopy = {
       "Dolphin Software tuyển cộng tác viên freelance linh hoạt theo dự án — không yêu cầu toàn thời gian. Mức tương đương khoảng 1.000 USD/tháng khi làm full-capacity, thanh toán theo giờ hoặc theo đầu việc tùy thỏa thuận. Dolphin Software là công ty phần mềm chuyên phát triển web, ứng dụng di động và các giải pháp AI. Cộng tác viên làm việc từ xa, chủ động lịch trình, thù lao theo kết quả thực tế — không phải giờ ngồi văn phòng.",
   },
   model: {
-    eyebrow: "Mô hình",
+    eyebrow: "Model",
     title: "Mô hình freelance tại Dolphin Software là gì?",
     support:
       "Dolphin Software không tuyển nhân viên chính thức cho các vị trí này. Thay vào đó, công ty hợp tác với cộng tác viên freelance theo từng dự án hoặc giai đoạn phát triển sản phẩm. Hình thức linh hoạt, remote-friendly, phù hợp người muốn chủ động thời gian và vẫn tham gia sản phẩm thực tế.",
@@ -38,7 +38,7 @@ const vi: CareersCopy = {
       "Các vị trí sau hiện không nhận hồ sơ. Dolphin Software có thể mở lại trong các chu kỳ tuyển dụng tiếp theo.",
   },
   howToApply: {
-    eyebrow: "Ứng tuyển",
+    eyebrow: "Apply",
     title: "Cách ứng tuyển freelance tại Dolphin Software",
     support: "Quy trình ứng tuyển đơn giản, không rườm rà:",
     steps: [
@@ -569,7 +569,7 @@ const ja: CareersCopy = {
       "Dolphin Softwareはプロジェクト単位のフリーランス協業を募集します — 正社員ではありません。フル稼働換算で約1,000 USD/月、役割に応じて時間単価または成果物ベースでお支払いします。Dolphin Softwareは、Webサイト、モバイルアプリ、AIソリューションを開発するソフトウェア開発会社です。リモートでスケジュールを自分で管理し、成果に応じて報酬を受け取ります — オフィス時間ではありません。",
   },
   model: {
-    eyebrow: "モデル",
+    eyebrow: "Model",
     title: "Dolphin Softwareのフリーランスモデルとは？",
     support:
       "Dolphin Softwareはこれらのポジションで正社員を採用していません。代わりに、プロジェクトまたはプロダクトフェーズ単位でフリーランスと協業します。柔軟・リモート歓迎で、時間を自分で管理しながら実プロダクトに関わりたい方に適しています。",
@@ -592,7 +592,7 @@ const ja: CareersCopy = {
       "以下のポジションは現在応募を受け付けていません。次の採用サイクルで再開する場合があります。",
   },
   howToApply: {
-    eyebrow: "応募",
+    eyebrow: "Apply",
     title: "フリーランス応募の流れ",
     support: "シンプルなプロセスです:",
     steps: [

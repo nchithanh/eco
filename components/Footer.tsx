@@ -75,10 +75,6 @@ export function Footer() {
  ))}
  </nav>
  </div>
-
- <p className="mt-10 max-w-3xl text-xs leading-relaxed text-[var(--kuct-muted)]/80">
- {f.disclaimer}
- </p>
  </div>
  </footer>
  );

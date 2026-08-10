@@ -303,36 +303,34 @@ export const homepageLangEn: HomepageLang = {
     ]
   },
   technology: {
-    eyebrow: "AI Philosophy",
-    title: "One console for signals [[scattered]] everywhere",
-    support: "Before: Slack, Jira, and documents fragment real data. After applying: Collect → Standardize → Operate → Manage — entire picture in one transparent flow.",
-    cta: "Learn more",
-    live: "live",
-    tabs: [
-      "Overview",
-      "Data",
-      "Insight",
-      "Alerts"
+    eyebrow: "Ops AI",
+    title: "AI solutions [[for operations]]",
+    roadmap: "Controlled AI path: audit → pilot → scale",
+    support:
+      "Dolphin does not sell pie-in-the-sky AI. We review your real processes, pick the 1–2 jobs worth doing first, run a measured pilot — then scale.",
+    items: [
+      {
+        id: "agents",
+        tag: "Agents",
+        title: "AI Agents — automate the right work",
+        body: "Custom agents for each workflow and role — handle the repetitive work that burns team time.",
+      },
+      {
+        id: "automation",
+        tag: "Automation",
+        title: "AI Automation — fewer manual steps",
+        body: "Automate repeat ops steps: capture leads, follow-up reminders, report rollups.",
+      },
+      {
+        id: "integration",
+        tag: "Integration",
+        title: "AI Integration — connect systems you already run",
+        body: "Wire AI into CRM, chat, calendar, and current tools — no full rip-and-replace.",
+      },
     ],
-    widgets: {
-      activity: "Activity",
-      pulse: "System pulse",
-      nodes: "Running nodes"
-    },
-    principles: [
-      {
-        title: "Process before tooling",
-        body: ""
-      },
-      {
-        title: "Measure with numbers",
-        body: ""
-      },
-      {
-        title: "Humans always in control",
-        body: ""
-      }
-    ]
+    note: "Dolphin runs AI agent workflows in-house — from coordination and content to design and software delivery.",
+    ctaPrimary: "See the AI transformation path",
+    ctaSecondary: "Explore use cases by team (Sales, Support, Operations)",
   },
   aiEdge: {
     eyebrow: "Ops AI",

@@ -65,7 +65,7 @@ const vi: Dictionary = {
   },
   trust: {
     aria: "Đầu ra bàn giao",
-    eyebrow: "Bàn giao",
+    eyebrow: "Handover",
     title: "Đầu ra bạn nhận khi [[xong dự án]]",
     support:
       "Source · admin · domain · guide · bảo hành — quyền sở hữu và vận hành, không chỉ URL live.",
@@ -81,7 +81,7 @@ const vi: Dictionary = {
   uiGallery: uiGalleryByLocale.vi,
   aiEdge: aiEdgeByLocale.vi,
   capabilities: {
-    eyebrow: "Website & App",
+    eyebrow: "How we help",
     title: "Làm [[website]] cho anh chị rõ ràng, dễ chạy",
     support:
       "Brief ngắn là đủ để bắt đầu. Chọn hướng gần nhu cầu — mình đề xuất cách làm và báo giá rõ.",
@@ -160,7 +160,7 @@ const vi: Dictionary = {
     ],
   },
   siteOutcomes: {
-    eyebrow: "Kết quả vận hành",
+    eyebrow: "Outcomes",
     title: "Sau bàn giao, bạn [[chạy được những việc này]]",
     support:
       "Sau bàn giao — lead, lịch, nội dung, thanh toán và vận hành chạy được; không phải catalog tính năng.",
@@ -232,7 +232,7 @@ const vi: Dictionary = {
     ],
   },
   whatYouGet: {
-    eyebrow: "Bàn giao dự án",
+    eyebrow: "Project handover",
     title: "Mỗi dự án [[kết thúc bằng đầu ra rõ]]",
     support:
       "Bàn giao rõ — tài liệu, quyền sở hữu, vận hành độc lập; không khóa vendor.",
@@ -266,7 +266,7 @@ const vi: Dictionary = {
     ],
   },
   ops: {
-    eyebrow: "Tự động hóa vận hành",
+    eyebrow: "Ops automation",
     title: "Một [[lifecycle]] điều hành — thôi đuổi tin qua mười tool",
     support:
       "Tín hiệu vào một vòng — Collect → Improve. Toàn cảnh trên một luồng, không chase cập nhật.",
@@ -303,7 +303,7 @@ const vi: Dictionary = {
     chips: ["Slack", "Jira", "Docs"],
   },
   works: {
-    eyebrow: "Sites shipped",
+    eyebrow: "Projects",
     title: "Website personal & [[business nhỏ]] đã làm",
     support:
       "Mỗi case: bài toán → phạm vi → kết quả đo được — không chỉ ảnh đẹp.",
@@ -363,7 +363,7 @@ const vi: Dictionary = {
     ],
   },
   process: {
-    eyebrow: "Phương pháp",
+    eyebrow: "Process",
     title: "Quy trình [[bàn giao]] 5 bước",
     support:
       "Từ discovery đến handover — mỗi bước có đầu ra rõ, không nhảy cóc.",
@@ -397,21 +397,37 @@ const vi: Dictionary = {
     ],
   },
   technology: {
-    eyebrow: "Công nghệ của chúng tôi",
-    title: "Một [[console]] cho tín hiệu từng nằm rải rác",
+    eyebrow: "Ops AI",
+    title: "Giải pháp AI [[cho vận hành]]",
+    roadmap: "Lộ trình AI có kiểm soát: audit → pilot → nhân rộng",
     support:
-      "Trước: Slack, Jira và docs phân tán sự thật. Sau: Thu thập → Chuẩn hóa → Chạy → Quản trị — toàn bộ bức tranh trong một luồng rõ ràng.",
-    cta: "Tìm hiểu thêm",
-    live: "live",
-    tabs: ["Tổng quan", "Dữ liệu", "Insight", "Cảnh báo"],
-    widgets: {
-      activity: "Hoạt động",
-      pulse: "Nhịp hệ thống",
-      nodes: "Node đang chạy",
-    },
+      "Dolphin không bán AI viển vông. Chúng tôi rà soát quy trình thực tế của bạn, chọn 1–2 việc đáng làm nhất, chạy pilot có số đo — rồi mới nhân rộng.",
+    items: [
+      {
+        id: "agents",
+        tag: "Agents",
+        title: "AI Agents — tự động hóa đúng việc",
+        body: "Agent tùy chỉnh cho từng workflow và vai trò cụ thể, xử lý phần lặp đi lặp lại đang đốt thời gian của team.",
+      },
+      {
+        id: "automation",
+        tag: "Automation",
+        title: "AI Automation — bớt thao tác thủ công",
+        body: "Tự động hóa các bước lặp trong vận hành: capture lead, nhắc follow-up, tổng hợp báo cáo.",
+      },
+      {
+        id: "integration",
+        tag: "Integration",
+        title: "AI Integration — kết nối hệ thống đang chạy",
+        body: "Gắn AI vào CRM, chat, lịch và các công cụ hiện có — không cần thay toàn bộ hệ thống cũ.",
+      },
+    ],
+    note: "Dolphin dùng chính AI agent workflow trong nội bộ — từ điều phối công việc, sản xuất nội dung, thiết kế đến phát triển software.",
+    ctaPrimary: "Xem lộ trình chuyển đổi AI",
+    ctaSecondary: "Khám phá use case theo phòng ban (Sales, Support, Operations)",
   },
   stack: {
-    eyebrow: "Công nghệ",
+    eyebrow: "Technology",
     titleLead: "Năng lực kỹ thuật",
     titleHighlight: "công nghệ hiện đại",
     support:
@@ -444,7 +460,7 @@ const vi: Dictionary = {
     ],
   },
   why: {
-    eyebrow: "Vì sao chọn Dolphin Software",
+    eyebrow: "Why Dolphin",
     title: "[[Đồng hành dài hạn]], không chỉ bàn giao code",
     support:
       "Timeline · scope · cam kết · hậu bàn giao — rõ ràng, không jargon.",
@@ -469,7 +485,7 @@ const vi: Dictionary = {
     ],
   },
   cofounder: {
-    eyebrow: "Đội ngũ",
+    eyebrow: "Team",
     role: "Nhà sáng lập",
     name: "Nguyễn Chí Thành",
     description:
@@ -485,7 +501,7 @@ const vi: Dictionary = {
     ],
   },
   contact: {
-    eyebrow: "Liên hệ",
+    eyebrow: "Next step",
     title: "Sẵn sàng [[khởi động]] dự án?",
     support:
       "Chat Zalo nhanh hoặc gửi email brief — scope và bước tiếp theo, không cần biết kỹ thuật.",
@@ -510,8 +526,6 @@ const vi: Dictionary = {
   careers: careersByLocale.vi,
   faq: getFaqCopy("vi"),
   footer: {
-    disclaimer:
-      "Nội dung liên quan chứng khoán chỉ mang tính chia sẻ cộng đồng — không phải tư vấn đầu tư có giấy phép và không cam kết lợi nhuận.",
     groupExplore: "Explore",
     groupStudio: "Studio",
     groupUpdates: "Updates",
@@ -630,7 +644,7 @@ const en: Dictionary = {
   uiGallery: uiGalleryByLocale.en,
   aiEdge: aiEdgeByLocale.en,
   capabilities: {
-    eyebrow: "Website & App",
+    eyebrow: "How we help",
     title: "Clear [[websites]] you can actually run",
     support:
       "A short brief is enough to start. Pick the closest fit — we’ll suggest an approach and a clear quote.",
@@ -723,7 +737,7 @@ const en: Dictionary = {
     ],
   },
   siteOutcomes: {
-    eyebrow: "Operating outcomes",
+    eyebrow: "Outcomes",
     title: "After handover, you can [[run these jobs]]",
     support:
       "After handover — leads, bookings, content, payments, and ops you can run; not a feature catalog.",
@@ -866,7 +880,7 @@ const en: Dictionary = {
     chips: ["Slack", "Jira", "Docs"],
   },
   works: {
-    eyebrow: "Sites shipped",
+    eyebrow: "Projects",
     title: "Personal & [[small-business]] sites we've shipped",
     support:
       "Each case: problem → scope → measurable result — not just pretty shots.",
@@ -926,7 +940,7 @@ const en: Dictionary = {
     ],
   },
   process: {
-    eyebrow: "Method",
+    eyebrow: "Process",
     title: "A 5-step [[delivery]] process",
     support:
       "Discovery to handover — clear output each step, no skipped stages.",
@@ -960,18 +974,34 @@ const en: Dictionary = {
     ],
   },
   technology: {
-    eyebrow: "Our Technology",
-    title: "One [[console]] for signals that used to live everywhere",
+    eyebrow: "Ops AI",
+    title: "AI solutions [[for operations]]",
+    roadmap: "Controlled AI path: audit → pilot → scale",
     support:
-      "Before: Slack, Jira, and docs scatter the truth. After: Collect → Normalize → Run → Govern — the whole picture in a single glass-clear flow.",
-    cta: "Learn More",
-    live: "live",
-    tabs: ["Overview", "Data", "Insights", "Alerts"],
-    widgets: {
-      activity: "Activity",
-      pulse: "System pulse",
-      nodes: "Active nodes",
-    },
+      "Dolphin does not sell pie-in-the-sky AI. We review your real processes, pick the 1–2 jobs worth doing first, run a measured pilot — then scale.",
+    items: [
+      {
+        id: "agents",
+        tag: "Agents",
+        title: "AI Agents — automate the right work",
+        body: "Custom agents for each workflow and role — handle the repetitive work that burns team time.",
+      },
+      {
+        id: "automation",
+        tag: "Automation",
+        title: "AI Automation — fewer manual steps",
+        body: "Automate repeat ops steps: capture leads, follow-up reminders, report rollups.",
+      },
+      {
+        id: "integration",
+        tag: "Integration",
+        title: "AI Integration — connect systems you already run",
+        body: "Wire AI into CRM, chat, calendar, and current tools — no full rip-and-replace.",
+      },
+    ],
+    note: "Dolphin runs AI agent workflows in-house — from coordination and content to design and software delivery.",
+    ctaPrimary: "See the AI transformation path",
+    ctaSecondary: "Explore use cases by team (Sales, Support, Operations)",
   },
   stack: {
     eyebrow: "Technology",
@@ -1007,7 +1037,7 @@ const en: Dictionary = {
     ],
   },
   why: {
-    eyebrow: "Why Dolphin Software",
+    eyebrow: "Why Dolphin",
     title: "[[Long-term partnership]], not just code delivery",
     support:
       "Clear timeline, scope, commitments — and support after handover. No jargon fog.",
@@ -1048,7 +1078,7 @@ const en: Dictionary = {
     ],
   },
   contact: {
-    eyebrow: "Contact",
+    eyebrow: "Next step",
     title: "Ready to [[start]] a project?",
     support:
       "Chat on Zalo or email a short brief — scope and next step, no technical background needed.",
@@ -1073,8 +1103,6 @@ const en: Dictionary = {
   careers: careersByLocale.en,
   faq: getFaqCopy("en"),
   footer: {
-    disclaimer:
-      "Stock-related content is community sharing only — not licensed investment advice and no profit guarantees.",
     groupExplore: "Explore",
     groupStudio: "Studio",
     groupUpdates: "Updates",
@@ -1178,7 +1206,7 @@ const ja: Dictionary = {
   },
   trust: {
     aria: "引き渡し成果物",
-    eyebrow: "引き渡し",
+    eyebrow: "Handover",
     title: "プロジェクト完了時に[[受け取るもの]]",
     support:
       "Source · Admin · Domain · Guide · 保証 — 所有権と運用。公開URLだけではありません。",
@@ -1194,7 +1222,7 @@ const ja: Dictionary = {
   uiGallery: uiGalleryByLocale.ja,
   aiEdge: aiEdgeByLocale.ja,
   capabilities: {
-    eyebrow: "Website & App",
+    eyebrow: "How we help",
     title: "わかりやすく回る[[Webサイト]]を先に",
     support:
       "短いブリーフで始められます。近い形を選び、方針と見積もりをはっきりお伝えします。",
@@ -1287,7 +1315,7 @@ const ja: Dictionary = {
     ],
   },
   siteOutcomes: {
-    eyebrow: "運用成果",
+    eyebrow: "Outcomes",
     title: "引き渡し後に[[回せる仕事]]",
     support:
       "引き渡し後 — リード・予約・コンテンツ・決済・運用が回る。機能カタログではありません。",
@@ -1359,7 +1387,7 @@ const ja: Dictionary = {
     ],
   },
   whatYouGet: {
-    eyebrow: "プロジェクト引き渡し",
+    eyebrow: "Project handover",
     title: "すべてのプロジェクトは[[明確な成果物で終わる]]",
     support:
       "明確な引き渡し — ドキュメント、所有権、自立運用。ベンダーロックなし。",
@@ -1393,7 +1421,7 @@ const ja: Dictionary = {
     ],
   },
   ops: {
-    eyebrow: "業務自動化",
+    eyebrow: "Ops automation",
     title: "ひとつの運用[[ライフサイクル]] — ツール横断の追いかけをやめる",
     support:
       "シグナルを一つのループへ — Collect から Improve。全体を一望。",
@@ -1430,7 +1458,7 @@ const ja: Dictionary = {
     chips: ["Slack", "Jira", "Docs"],
   },
   works: {
-    eyebrow: "納品実績",
+    eyebrow: "Projects",
     title: "個人・スモールビジネス向けサイト[[実績]]",
     support:
       "各事例は課題 → 範囲 → 測定可能な成果 — 見た目だけの紹介ではありません。",
@@ -1490,7 +1518,7 @@ const ja: Dictionary = {
     ],
   },
   process: {
-    eyebrow: "進め方",
+    eyebrow: "Process",
     title: "引き渡しまでの[[5ステップ]]",
     support:
       "ディスカバリーから引き渡しまで — 各ステップに明確な成果物。飛ばしなし。",
@@ -1524,21 +1552,37 @@ const ja: Dictionary = {
     ],
   },
   technology: {
-    eyebrow: "私たちの技術",
-    title: "散らばっていた[[シグナル]]を、ひとつの[[コンソール]]へ",
+    eyebrow: "Ops AI",
+    title: "運用向けの[[AIソリューション]]",
+    roadmap: "管理されたAIロードマップ：audit → pilot → 展開",
     support:
-      "以前: Slack・Jira・ドキュメントに真実が分散。今: 収集 → 正規化 → 実行 → ガバナンス — 全体像をひとつの流れで。",
-    cta: "詳しく見る",
-    live: "live",
-    tabs: ["概要", "データ", "インサイト", "アラート"],
-    widgets: {
-      activity: "アクティビティ",
-      pulse: "システムパルス",
-      nodes: "稼働ノード",
-    },
+      "Dolphinは空想的なAIを売りません。実際の業務を見直し、最も価値のある1〜2件を選び、数値で測れるパイロットを走らせてから展開します。",
+    items: [
+      {
+        id: "agents",
+        tag: "Agents",
+        title: "AI Agents — 正しい作業を自動化",
+        body: "ワークフローと役割ごとのカスタムエージェントが、チームの時間を奪う反復作業を処理します。",
+      },
+      {
+        id: "automation",
+        tag: "Automation",
+        title: "AI Automation — 手作業を減らす",
+        body: "リード獲得、フォローアップ催促、レポート集計など、運用の反復ステップを自動化します。",
+      },
+      {
+        id: "integration",
+        tag: "Integration",
+        title: "AI Integration — 現行システムと接続",
+        body: "CRM、チャット、カレンダー、既存ツールにAIを接続 — 全面刷新は不要です。",
+      },
+    ],
+    note: "Dolphinは社内でもAIエージェント・ワークフローを運用しています — 調整、コンテンツ、デザインからソフトウェア開発まで。",
+    ctaPrimary: "AI変革のロードマップを見る",
+    ctaSecondary: "部門別ユースケースを探す（Sales / Support / Operations）",
   },
   stack: {
-    eyebrow: "技術",
+    eyebrow: "Technology",
     titleLead: "確かなエンジニアリング",
     titleHighlight: "モダンな技術",
     support:
@@ -1571,7 +1615,7 @@ const ja: Dictionary = {
     ],
   },
   why: {
-    eyebrow: "Dolphin Softwareを選ぶ理由",
+    eyebrow: "Why Dolphin",
     title: "コード納品だけで終わらない、[[長期伴走]]",
     support:
       "スケジュール・スコープ・コミットメント・引き渡し後サポートを明確に。",
@@ -1596,7 +1640,7 @@ const ja: Dictionary = {
     ],
   },
   cofounder: {
-    eyebrow: "チーム",
+    eyebrow: "Team",
     role: "Founder",
     name: "Nguyễn Chí Thành",
     description:
@@ -1612,7 +1656,7 @@ const ja: Dictionary = {
     ],
   },
   contact: {
-    eyebrow: "お問い合わせ",
+    eyebrow: "Next step",
     title: "[[プロジェクト]]を始めませんか？",
     support:
       "Zaloで素早く相談、または短いメールで概要を — スコープと次の一歩。技術知識は不要です。",
@@ -1637,8 +1681,6 @@ const ja: Dictionary = {
   careers: careersByLocale.ja,
   faq: getFaqCopy("ja"),
   footer: {
-    disclaimer:
-      "証券関連の内容はコミュニティ共有であり、認可を受けた投資助言ではなく、利益を保証するものでもありません。",
     groupExplore: "Explore",
     groupStudio: "Studio",
     groupUpdates: "Updates",

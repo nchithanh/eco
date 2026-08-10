@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-08-10 (technology ops AI)
+
+- `#technology`: thay console/philosophy bằng **Giải pháp AI cho vận hành** (3 cards Agents/Automation/Integration + dual CTA `/ai-transform/`); bỏ dashboard mock; schema + copy VI/EN/JA.
+
 ## 2026-08-10 (careers share)
 
 - Popup chi tiết job: nút **Share** (Web Share API / copy link); deep link `/careers/?job=<id>` mở lại popup.

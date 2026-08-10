@@ -57,7 +57,7 @@ const vi: AboutCopy = {
     "Dolphin Software là studio phát triển phần mềm tại Việt Nam, chuyên xây dựng website theo yêu cầu, ứng dụng, và AI automation cho doanh nghiệp vừa và nhỏ (SMB). Dolphin Software bàn giao mã nguồn đầy đủ, hướng dẫn vận hành, và hỗ trợ sau triển khai — không khóa vendor, không phát sinh ngoài scope đã chốt. Từ mục tiêu kinh doanh đến hệ thống vận hành thực tế: Dolphin Software xác định scope rõ ràng, giao đúng mốc, và đồng hành cho đến khi đội ngũ của bạn tự vận hành được.",
   ctaPrimary: "Nhận báo giá",
   ctaSecondary: "Xem dịch vụ",
-  mindsetEyebrow: "Cách tiếp cận",
+  mindsetEyebrow: "Approach",
   mindsetTitle: "Dolphin Software tiếp cận dự án như thế nào?",
   mindsetSupport:
     "Dolphin Software xây dựng hệ thống để chạy thực tế — không dừng lại ở demo. Mỗi dự án hướng đến một hệ thống ổn định, đo lường được, và do đội ngũ khách hàng tự vận hành sau bàn giao.",
@@ -75,7 +75,7 @@ const vi: AboutCopy = {
       body: "Scope rõ và thực thi nghiêm túc là cách Dolphin Software giải quyết bài toán phức tạp — từ legacy sang microservices, từ vận hành thủ công sang tự động hóa.",
     },
   ],
-  buildEyebrow: "Năng lực",
+  buildEyebrow: "Capabilities",
   buildTitle: "Dolphin Software xây dựng những gì?",
   buildSupport:
     "Dolphin Software phát triển bốn nhóm năng lực cốt lõi cho SMB, được rèn giũa từ kinh nghiệm thực tế trên các sản phẩm edtech và SaaS đã vận hành production với tải thực.",
@@ -101,7 +101,7 @@ const vi: AboutCopy = {
       href: "/dolphin-care/",
     },
   ],
-  proofEyebrow: "Kinh nghiệm",
+  proofEyebrow: "Experience",
   proofTitle: "Kinh nghiệm production thực tế của Dolphin Software",
   proofSupport:
     "Dolphin Software mang kinh nghiệm từ hệ thống production thực tế — không phải checklist marketing — vào từng dự án cho SMB.",
@@ -123,7 +123,7 @@ const vi: AboutCopy = {
       body: "ClassIn, Zalo ZNS, HubSpot, Mailgun, Mini App đa nền tảng — tích hợp production thực sự, không dừng ở PoC.",
     },
   ],
-  founderEyebrow: "Đội ngũ",
+  founderEyebrow: "Team",
   founderTitle: "Người sáng lập Dolphin Software là ai?",
   founderRole: "Founder · Product Backend / Tech Lead",
   founderName: "Nguyễn Chí Thành",
@@ -167,7 +167,7 @@ const vi: AboutCopy = {
       a: "Có. Dolphin Software đã ship tích hợp production thực tế với Zalo ZNS, HubSpot, Mailgun, và nhiều nền tảng khác — không dừng ở proof-of-concept.",
     },
   ],
-  ctaEyebrow: "Bắt đầu",
+  ctaEyebrow: "Start",
   ctaTitle: "Bắt đầu dự án với [[Dolphin Software]]",
   ctaSupport:
     "Cho Dolphin Software biết mục tiêu — bán hàng, thu lead, nhận booking, hay vận hành nội bộ. Dolphin Software chốt scope và triển khai cho đến khi đội ngũ của bạn tự vận hành được.",
@@ -315,7 +315,7 @@ const ja: AboutCopy = {
     "Dolphin Softwareはベトナムのソフトウェア開発スタジオで、中小企業（SMB）向けにオーダーメイドWeb、アプリ、AI自動化を構築します。ソース一式、運用ガイド、本番後サポートまで — ベンダーロックインなし、合意スコープ外の追加費用なし。ビジネス目標から運用できるシステムへ：Dolphin Softwareはスコープを明確に定義し、期日どおりに納品し、御社チームが自走できるまで伴走します。",
   ctaPrimary: "見積もりを依頼",
   ctaSecondary: "サービスを見る",
-  mindsetEyebrow: "アプローチ",
+  mindsetEyebrow: "Approach",
   mindsetTitle: "Dolphin Softwareはプロジェクトをどう進めますか？",
   mindsetSupport:
     "Dolphin Softwareはデモで終わらず、本番で動くシステムを作ります。安定・計測可能・引継ぎ後に自社チームで運用できることを目指します。",
@@ -333,7 +333,7 @@ const ja: AboutCopy = {
       body: "明確なスコープと規律ある実行がDolphin Softwareの解法です — レガシーからマイクロサービス、手作業から自動化まで。",
     },
   ],
-  buildEyebrow: "できること",
+  buildEyebrow: "Capabilities",
   buildTitle: "Dolphin Softwareは何を作りますか？",
   buildSupport:
     "Dolphin SoftwareはSMB向けの4つの中核能力を、本番負荷下で動いてきたEdTech・SaaSでの実経験から鍛えています。",
@@ -359,7 +359,7 @@ const ja: AboutCopy = {
       href: "/dolphin-care/",
     },
   ],
-  proofEyebrow: "経験",
+  proofEyebrow: "Experience",
   proofTitle: "Dolphin Softwareの本番経験",
   proofSupport:
     "マーケティング用チェックリストではなく、実負荷下で動いた本番システムからの学びを、SMB案件に落とし込みます。",
@@ -381,7 +381,7 @@ const ja: AboutCopy = {
       body: "ClassIn、Zalo ZNS、HubSpot、Mailgun、マルチプラットフォームMini App — PoCに留まらない本番実装。",
     },
   ],
-  founderEyebrow: "チーム",
+  founderEyebrow: "Team",
   founderTitle: "Dolphin Softwareの創業者は誰ですか？",
   founderRole: "Founder · Product Backend / Tech Lead",
   founderName: "Nguyễn Chí Thành",
@@ -425,7 +425,7 @@ const ja: AboutCopy = {
       a: "はい。Zalo ZNS、HubSpot、Mailgunなど本番連携の実績があります。PoCだけではありません。",
     },
   ],
-  ctaEyebrow: "スタート",
+  ctaEyebrow: "Start",
   ctaTitle: "[[Dolphin Software]]でプロジェクトを始めましょう",
   ctaSupport:
     "ゴールを教えてください — 販売、リード獲得、予約受付、社内運用。スコープを固め、チームが自走できるまで届けます。",

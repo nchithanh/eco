@@ -35,11 +35,11 @@ const vi: NewsCopy = {
   title: "Tin tức & ghi chép",
   blurb:
     "Bài ngắn về product, engineering và cách làm việc — không phải thông cáo báo chí.",
-  pageEyebrow: "Tin tức & ghi chép",
+  pageEyebrow: "News & notes",
   featuredLabel: "Nổi bật",
-  homeEyebrow: "Ghi chép",
+  homeEyebrow: "Notes",
   homeTitle: "Ghi chép [[mới nhất]]",
-  homeCarouselEyebrow: "Tin tức & cập nhật",
+  homeCarouselEyebrow: "News & updates",
   homeCarouselTitle: "Cập nhật [[đáng theo dõi]]",
   homeCarouselSupport:
     "Theo dõi thay đổi mới — từ sản phẩm, kỹ thuật đến cách làm việc của team.",
@@ -109,11 +109,11 @@ const ja: NewsCopy = {
   title: "ニュース＆メモ",
   blurb:
     "プロダクト・技術・進め方の短い記事です。プレスリリースではありません。",
-  pageEyebrow: "ニュース＆メモ",
+  pageEyebrow: "News & notes",
   featuredLabel: "注目",
-  homeEyebrow: "メモ",
+  homeEyebrow: "Notes",
   homeTitle: "[[最新]]のメモ",
-  homeCarouselEyebrow: "ニュース＆アップデート",
+  homeCarouselEyebrow: "News & updates",
   homeCarouselTitle: "[[注目]]のアップデート",
   homeCarouselSupport:
     "プロダクト・技術・進め方の最新情報をチェック。",

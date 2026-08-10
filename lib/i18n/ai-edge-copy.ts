@@ -3,7 +3,7 @@ import type { Dictionary, Locale } from "./types";
 type AiEdge = Dictionary["aiEdge"];
 
 const vi: AiEdge = {
-  eyebrow: "Lợi thế cộng thêm",
+  eyebrow: "Ops AI",
   badge: "AI capability",
   title: "Website là nền — [[AI]] là lớp tăng tốc",
   support:

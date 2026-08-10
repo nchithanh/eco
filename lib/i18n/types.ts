@@ -262,17 +262,18 @@ export type Dictionary = {
   technology: {
     eyebrow: string;
     title: string;
+    /** Short controlled-path line under the title */
+    roadmap: string;
     support: string;
-    cta: string;
-    live: string;
-    tabs: string[];
-    widgets: {
-      activity: string;
-      pulse: string;
-      nodes: string;
-    };
-    /** Optional AI philosophy principles (VI homepage). */
-    principles?: { title: string; body: string }[];
+    items: {
+      id: "agents" | "automation" | "integration";
+      tag: string;
+      title: string;
+      body: string;
+    }[];
+    note: string;
+    ctaPrimary: string;
+    ctaSecondary: string;
   };
   stack: {
     eyebrow: string;
@@ -479,7 +480,6 @@ export type Dictionary = {
     items: { q: string; a: string }[];
   };
   footer: {
-    disclaimer: string;
     groupExplore: string;
     groupStudio: string;
     groupUpdates: string;

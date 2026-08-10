@@ -4,7 +4,7 @@
     "id": "technology",
     "locale": "vi",
     "brand": "Dolphin Software",
-    "updated": "2026-08-03",
+    "updated": "2026-08-10",
     "schemaPath": "/schema/homepage/technology/",
     "rawPath": "/schema/homepage/technology.json",
     "productRoute": "/"
@@ -12,18 +12,40 @@
   "content": {
     "order": 7,
     "id": "technology",
-    "section_label": "Công nghệ",
-    "headline": "Một console cho tín hiệu vốn nằm rải rác khắp nơi",
-    "subheadline": "Trước đây: Slack, Jira và tài liệu phân mảnh dữ liệu thật. Sau khi áp dụng: Thu thập → Chuẩn hóa → Vận hành → Quản trị — toàn bộ bức tranh trong một luồng duy nhất, minh bạch.",
-    "principles": [
-      "Quy trình trước công cụ",
-      "Đo lường bằng con số",
-      "Con người luôn trong vòng kiểm soát"
+    "section_label": "Ops AI",
+    "headline": "Giải pháp AI cho vận hành",
+    "roadmap": "Lộ trình AI có kiểm soát: audit → pilot → nhân rộng",
+    "subheadline": "Dolphin không bán AI viển vông. Chúng tôi rà soát quy trình thực tế của bạn, chọn 1–2 việc đáng làm nhất, chạy pilot có số đo — rồi mới nhân rộng.",
+    "items": [
+      {
+        "id": "agents",
+        "tag": "Agents",
+        "title": "AI Agents — tự động hóa đúng việc",
+        "body": "Agent tùy chỉnh cho từng workflow và vai trò cụ thể, xử lý phần lặp đi lặp lại đang đốt thời gian của team."
+      },
+      {
+        "id": "automation",
+        "tag": "Automation",
+        "title": "AI Automation — bớt thao tác thủ công",
+        "body": "Tự động hóa các bước lặp trong vận hành: capture lead, nhắc follow-up, tổng hợp báo cáo."
+      },
+      {
+        "id": "integration",
+        "tag": "Integration",
+        "title": "AI Integration — kết nối hệ thống đang chạy",
+        "body": "Gắn AI vào CRM, chat, lịch và các công cụ hiện có — không cần thay toàn bộ hệ thống cũ."
+      }
     ],
-    "cta": {
-      "label": "Tìm hiểu thêm",
-      "href": "https://dolphin-software.io.vn/ai-transform/"
-    },
-    "dashboard_ui_hint": "Giao diện console hiển thị: Overview · Data · Insights · Alerts — 26 active nodes, system pulse APICIAI"
+    "note": "Dolphin dùng chính AI agent workflow trong nội bộ — từ điều phối công việc, sản xuất nội dung, thiết kế đến phát triển software.",
+    "cta": [
+      {
+        "label": "Xem lộ trình chuyển đổi AI",
+        "href": "https://dolphin-software.io.vn/ai-transform/"
+      },
+      {
+        "label": "Khám phá use case theo phòng ban (Sales, Support, Operations)",
+        "href": "https://dolphin-software.io.vn/ai-transform/"
+      }
+    ]
   }
 }

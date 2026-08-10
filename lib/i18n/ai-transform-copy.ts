@@ -72,7 +72,7 @@ const vi: AiTransformCopy = {
   metaTitle: "Lộ Trình Triển Khai AI cho Doanh Nghiệp | Dolphin Software",
   metaDescription:
     "Dolphin Software tư vấn chuyển đổi AI cho SMB Việt Nam: kiểm toán quy trình, ưu tiên use-case, pilot có số đo, agent tùy chỉnh — báo giá minh bạch, không phí ẩn.",
-  eyebrow: "Chuyển đổi AI doanh nghiệp",
+  eyebrow: "Enterprise AI transformation",
   headline:
     "Chuyển Đổi AI cho Doanh Nghiệp: Lộ Trình Triển Khai [[Có Kiểm Soát]]",
   support:
@@ -82,7 +82,7 @@ const vi: AiTransformCopy = {
   ctaPrimary: "Nhận lộ trình sơ bộ",
   ctaSecondary: "Xem Dolphin Care",
   trustLine: "Quy trình trước tool · Đo bằng số · Human-in-the-loop",
-  compareEyebrow: "Sự thật vận hành",
+  compareEyebrow: "Operating reality",
   compareTitle: "AI Seats vs Chuyển Đổi AI Thực Sự: Đâu Là [[Khác Biệt]]?",
   compareSupport:
     "Mua ChatGPT hay Gemini cho cả team không phải là chuyển đổi AI. Chuyển đổi AI thực sự nghĩa là gắn máy vào đúng luồng vận hành của doanh nghiệp — có hệ thống, có số đo, có người phê duyệt ở những bước nhạy cảm.",
@@ -100,7 +100,7 @@ const vi: AiTransformCopy = {
     "Pilot một luồng; đo leads/giờ/lỗi trước khi mở rộng",
     "Người phê duyệt các bước nhạy cảm; có log, bàn giao, và tinh chỉnh sau triển khai",
   ],
-  whenEyebrow: "Khi nào nên làm",
+  whenEyebrow: "When it matters",
   whenTitle: "Ba Dấu Hiệu “Có AI Rồi” Mà Vẫn [[Tắc]]",
   whenSupport:
     "Nếu bạn nhận ra một trong ba tình huống dưới đây, đây là lúc cần lộ trình — không phải thêm công cụ.",
@@ -118,7 +118,7 @@ const vi: AiTransformCopy = {
       body: "Không nêu được tiết kiệm bao nhiêu giờ, giảm bao nhiêu lỗi — chỉ thấy hóa đơn AI tăng mỗi tháng.",
     },
   ],
-  whatWeBuildEyebrow: "Khả năng triển khai",
+  whatWeBuildEyebrow: "What we implement",
   whatWeBuildTitle: "Dolphin [[Xây Gì]] Trong Lộ Trình Chuyển Đổi AI?",
   whatWeBuildSupport:
     "Dolphin không chỉ tư vấn doanh nghiệp dùng AI — mà thiết kế và triển khai hệ thống AI như một phần của lộ trình có kiểm soát. Các mục dưới đây là khả năng tiêu biểu trong quá trình chuyển đổi, không phải sản phẩm tách riêng.",
@@ -136,7 +136,7 @@ const vi: AiTransformCopy = {
       body: "Kết nối AI với CRM, chat, lịch và các hệ thống doanh nghiệp hiện có.",
     },
   ],
-  processEyebrow: "Cách Dolphin Software làm",
+  processEyebrow: "How Dolphin Software works",
   processTitle: "Lộ Trình Triển Khai AI Có Kiểm Soát — [[5 Bước]] Cụ Thể",
   processSupport:
     "Dolphin Software triển khai AI transformation theo lộ trình 5 bước, mỗi bước có đầu ra rõ ràng. Doanh nghiệp chỉ mở rộng sau khi pilot cho kết quả đo được.",
@@ -177,7 +177,7 @@ const vi: AiTransformCopy = {
   ],
   agentNote:
     "Nếu bạn cần AI hỗ trợ chăm sóc khách hàng trực tiếp tại website (FAQ tự động, booking, xử lý yêu cầu thường gặp), Dolphin Software cung cấp giải pháp chuyên biệt tại /dolphin-care/ — thiết kế riêng cho on-site customer support, không trùng với lộ trình AI transformation ở trang này. Custom AI agent là một building block trong lộ trình này, không phải sản phẩm tách riêng.",
-  useCasesEyebrow: "Use case",
+  useCasesEyebrow: "Use cases",
   useCasesTitle: "Ứng Dụng Thực Tế trong [[Vận Hành]] SMB",
   useCasesSupport:
     "Các khu vực dưới đây là điểm bắt đầu phổ biến cho chuyển đổi AI. Phạm vi cụ thể phụ thuộc quy trình và dữ liệu của từng doanh nghiệp — không phải cam kết kết quả cố định.",
@@ -199,7 +199,7 @@ const vi: AiTransformCopy = {
       body: "Tra cứu tài liệu nội bộ có kiểm soát — hỗ trợ onboarding và hỏi quy trình.",
     },
   ],
-  industriesEyebrow: "Điểm khởi đầu",
+  industriesEyebrow: "Entry points",
   industriesTitle: "Điểm Khởi Đầu [[Phổ Biến]] cho SMB",
   industriesSupport:
     "Doanh nghiệp không cần “AI ở khắp nơi” ngay từ ngày đầu. Dưới đây là những điểm vào phổ biến nhất mà Dolphin Software đã triển khai cho SMB Việt Nam:",
@@ -253,7 +253,7 @@ const vi: AiTransformCopy = {
     "Quyền truy cập được bàn giao cho đội ngũ nội bộ sau triển khai",
     "Không vendor lock-in — doanh nghiệp toàn quyền kiểm soát sau bàn giao",
   ],
-  proofEyebrow: "Bằng chứng nội bộ",
+  proofEyebrow: "Internal proof",
   proofTitle: "Dolphin [[Builds With AI]]",
   proofSupport:
     "Dolphin áp dụng AI agent workflow vào chính hoạt động nội bộ — từ điều phối công việc, sản xuất nội dung, thiết kế đến phát triển software. Đây là bằng chứng năng lực nội bộ đang xây dựng, không phải case study khách hàng.",
@@ -306,7 +306,7 @@ const vi: AiTransformCopy = {
       a: "Dolphin Software báo giá minh bạch theo phạm vi thực tế sau buổi tư vấn quy trình — không phí ẩn, không gói cố định áp cho mọi doanh nghiệp. Chi phí phụ thuộc vào độ phức tạp của quy trình, số use case pilot, và mức độ tích hợp hệ thống cần thiết.",
     },
   ],
-  closeEyebrow: "Bắt đầu",
+  closeEyebrow: "Start",
   closeTitle: "Bắt Đầu Với Một [[Quy Trình Thực Tế]]",
   closeSupport:
     "Dolphin Software xác định điểm gãy và phác thảo lộ trình sơ bộ: bắt đầu từ đâu, đo gì, các cột mốc nào. Không có magic trên slide, không cam kết mơ hồ.",
@@ -574,7 +574,7 @@ const ja: AiTransformCopy = {
   metaTitle: "企業向けAI導入ロードマップ | Dolphin Software",
   metaDescription:
     "Dolphin SoftwareがベトナムSMB向けにAI変革を支援：プロセス監査、ユースケース優先、数値付きパイロット、カスタムエージェント — 見積もり明確、隠れた費用なし。",
-  eyebrow: "企業のAI変革",
+  eyebrow: "Enterprise AI transformation",
   headline: "企業向けAI変革：[[制御可能な]]導入ロードマップ",
   support:
     "運用のAI変革はソフト購入から始まりません — どのプロセスがお金と時間を燃やしているかを正しく理解することから始まります。Dolphin Softwareが実プロセスを精査し、1〜2の優先業務を決め、適合するAIエージェントを設計し、拡大前に結果を測ります。マイルストーン型 — 小さく始め、証拠の後に拡大。",
@@ -583,7 +583,7 @@ const ja: AiTransformCopy = {
   ctaPrimary: "概略ロードマップを相談",
   ctaSecondary: "Dolphin Careを見る",
   trustLine: "プロセス優先 · 数値で測定 · Human-in-the-loop",
-  compareEyebrow: "運営の現実",
+  compareEyebrow: "Operating reality",
   compareTitle: "AIシート vs 本当のAI変革：[[何が違う]]？",
   compareSupport:
     "チーム全員にChatGPTやGeminiを買うことはAI変革ではありません。本当の変革とは、企業の稼働フローに機械を組み込むこと — システム連携、指標、機密ステップでの人承認付きです。",
@@ -601,7 +601,7 @@ const ja: AiTransformCopy = {
     "1フローをパイロット；リード/工数/ミスを測ってから拡大",
     "機密ステップは人が承認；ログ・納品・導入後チューニング",
   ],
-  whenEyebrow: "いつ必要か",
+  whenEyebrow: "When it matters",
   whenTitle: "「AIはある」のにまだ[[詰まる]]3つのサイン",
   whenSupport:
     "次のいずれかに心当たりがあるなら、追加ツールではなくロードマップが必要です。",
@@ -619,7 +619,7 @@ const ja: AiTransformCopy = {
       body: "何時間節約したか、ミスがどれだけ減ったか言えない — 見えるのは毎月増えるAI請求だけ。",
     },
   ],
-  whatWeBuildEyebrow: "実装できること",
+  whatWeBuildEyebrow: "What we implement",
   whatWeBuildTitle: "AI変革ロードマップでDolphinが[[作るもの]]",
   whatWeBuildSupport:
     "Dolphinは「AIを使え」と助言するだけではありません — 制御可能な変革プロセスの一部として、AIシステムを設計・実装します。以下は別製品ではなく、そのプロセス内の代表的な能力です。",
@@ -637,7 +637,7 @@ const ja: AiTransformCopy = {
       body: "CRM・チャット・カレンダーなど既存の業務システムへAIを接続。",
     },
   ],
-  processEyebrow: "Dolphin Softwareの進め方",
+  processEyebrow: "How Dolphin Software works",
   processTitle: "制御可能なAI導入ロードマップ — [[5つの具体]]ステップ",
   processSupport:
     "Dolphin SoftwareはAI変革を5ステップで進め、各ステップに明確な成果物があります。パイロットで測定可能な結果が出てから拡大します。",
@@ -678,7 +678,7 @@ const ja: AiTransformCopy = {
   ],
   agentNote:
     "サイト上の顧客ケアAI（FAQ、予約、よくある依頼）が必要なら、Dolphin Softwareは /dolphin-care/ の専用製品を提供します — オンサイトサポート向けで、本ページのAI変革ロードマップとは別です。カスタムAIエージェントはこのロードマップ内のビルディングブロックであり、独立した製品ではありません。",
-  useCasesEyebrow: "ユースケース",
+  useCasesEyebrow: "Use cases",
   useCasesTitle: "SMB運用での[[実践的な適用]]",
   useCasesSupport:
     "以下はAI変革のよくある開始領域です。具体的な範囲は各社のプロセスとデータ次第 — 固定成果の約束ではありません。",
@@ -700,7 +700,7 @@ const ja: AiTransformCopy = {
       body: "社内ドキュメントの制御付き検索 — オンボーディングと手順Q&Aを支援。",
     },
   ],
-  industriesEyebrow: "起点",
+  industriesEyebrow: "Entry points",
   industriesTitle: "SMBに多い[[スタート地点]]",
   industriesSupport:
     "初日から「全社AI」は不要です。Dolphin SoftwareがベトナムSMB向けに実装してきた代表的な入口：",
@@ -754,7 +754,7 @@ const ja: AiTransformCopy = {
     "導入後は社内チームへアクセス権限を引き渡す",
     "ベンダーロックインなし — 納品後は企業が完全に制御",
   ],
-  proofEyebrow: "社内の証跡",
+  proofEyebrow: "Internal proof",
   proofTitle: "Dolphin [[Builds With AI]]",
   proofSupport:
     "Dolphinは自社の社内業務にAIエージェント・ワークフローを適用しています — 仕事の調整、コンテンツ制作、デザインからソフトウェア開発まで。顧客ケーススタディではなく、構築中の社内能力の証跡です。",
@@ -807,7 +807,7 @@ const ja: AiTransformCopy = {
       a: "Dolphin Softwareはプロセス相談後の実範囲で透明に見積もり — 隠れた費用なし、全社一律パッケージなし。費用はプロセス複雑さ、パイロット数、必要なシステム連携によります。",
     },
   ],
-  closeEyebrow: "始める",
+  closeEyebrow: "Start",
   closeTitle: "1つの[[実プロセス]]から始める",
   closeSupport:
     "Dolphin Softwareが断絶を特定し、概略ロードマップを描きます：どこから、何を測り、どのマイルストーンか。スライドの魔法も曖昧な約束もありません。",

@@ -3,7 +3,7 @@ import type { Dictionary, Locale } from "./types";
 type PopularServices = Dictionary["popularServices"];
 
 const vi: PopularServices = {
-  eyebrow: "Bảng giá",
+  eyebrow: "Pricing",
   title: "Dịch vụ [[nổi bật]]",
   support:
     "So sánh bốn gói dịch vụ chính — chọn gói phù hợp, sau đó nhận báo giá hoặc nhắn Zalo để tư vấn.",
@@ -197,7 +197,7 @@ const en: PopularServices = {
 };
 
 const ja: PopularServices = {
-  eyebrow: "料金",
+  eyebrow: "Pricing",
   title: "[[人気]]サービス",
   support:
     "主要4パッケージを比較 — 適したものを選び、見積りを依頼またはZaloで相談してください。",

@@ -259,7 +259,7 @@ const en: UiGallery = {
 };
 
 const ja: UiGallery = {
-  eyebrow: "ショーケース",
+  eyebrow: "Showcase",
   title: "[[レイアウト]]とソリューションを探す",
   support:
     "ニーズで素早く絞り込み — 人気レイアウトを参照し、適した方向性を選ぶかご相談ください。",

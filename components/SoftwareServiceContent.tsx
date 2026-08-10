@@ -44,7 +44,7 @@ const CLOSE_COPY: Record<
   { eyebrow: string; title: string; support: string }
 > = {
   vi: {
-    eyebrow: "Bắt đầu",
+    eyebrow: "Get started",
     title: "Từ bài toán đến bàn giao",
     support:
       "Làm rõ bài toán → chốt phạm vi → xây dựng → bàn giao. Báo giá theo phạm vi thực tế, không khóa bạn vào một nhà cung cấp.",
@@ -56,7 +56,7 @@ const CLOSE_COPY: Record<
       "Clarify the problem → scope it → build → hand off. Quotes follow real scope — you keep the software after delivery.",
   },
   ja: {
-    eyebrow: "はじめる",
+    eyebrow: "Get started",
     title: "課題から引き渡しまで",
     support:
       "課題の明確化 → 範囲確定 → 開発 → 引き渡し。見積もりは実スコープに基づき、納品後もソフトウェアは手元に残ります。",

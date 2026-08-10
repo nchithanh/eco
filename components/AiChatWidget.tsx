@@ -193,8 +193,10 @@ export function AiChatWidget() {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [sending, setSending] = useState(false);
   const [panelPresent, setPanelPresent] = useState(false);
+  const [fabHidden, setFabHidden] = useState(false);
   const contactsRef = useRef<HTMLDivElement>(null);
   const abortRef = useRef<AbortController | null>(null);
+  const lastScrollY = useRef(0);
 
   const panelMounted = open || panelPresent;
   const panelClosing = !open && panelPresent;
@@ -202,6 +204,33 @@ export function AiChatWidget() {
  useEffect(() => {
  setMessages([{ id: nextId("a"), role: "assistant", text: c.greeting }]);
  }, [c.greeting]);
+
+ /* Opposite of header: scroll down → hide FAB down; scroll up → show */
+ useEffect(() => {
+ lastScrollY.current = window.scrollY;
+
+ const onScroll = () => {
+ const y = window.scrollY;
+ const delta = y - lastScrollY.current;
+
+ if (contactsOpen || y < 24) {
+ setFabHidden(false);
+ } else if (delta > 8) {
+ setFabHidden(true);
+ } else if (delta < -8) {
+ setFabHidden(false);
+ }
+
+ lastScrollY.current = y;
+ };
+
+ window.addEventListener("scroll", onScroll, { passive: true });
+ return () => window.removeEventListener("scroll", onScroll);
+ }, [contactsOpen]);
+
+ useEffect(() => {
+ if (contactsOpen) setFabHidden(false);
+ }, [contactsOpen]);
 
  useEffect(() => {
  if (open) {
@@ -612,7 +641,9 @@ export function AiChatWidget() {
  </>
  ) : null}
 
- <div className="kuct-ai-chat pointer-events-none fixed right-4 bottom-0 z-[120] flex items-end gap-3 sm:right-6">
+ <div
+ className={`kuct-ai-chat pointer-events-none fixed right-4 bottom-4 z-[120] flex items-end gap-3 pb-[env(safe-area-inset-bottom)] sm:right-6 sm:bottom-5${fabHidden && !contactsOpen ? " is-fab-hidden" : ""}`}
+ >
  <div className={`flex flex-col items-center gap-3 ${panelMounted ? "max-sm:hidden" : ""}`}>
  <div ref={contactsRef} className="pointer-events-auto flex flex-col items-center gap-3">
  {contactsOpen ? (

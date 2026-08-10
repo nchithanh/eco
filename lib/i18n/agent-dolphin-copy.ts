@@ -78,11 +78,11 @@ const vi: AgentDolphinCopy = {
     "Anh/chị muốn để lại SĐT không? Em ghi nhận và báo nhân viên follow-up.",
     "Đã gửi tóm tắt hội thoại vào báo cáo insight hôm nay cho admin.",
   ],
-  whatEyebrow: "Định nghĩa",
+  whatEyebrow: "Definition",
   whatTitle: "Dolphin Care [[là gì]]?",
   whatSupport:
     "Dolphin Care là chatbot AI cho website, được phát triển bởi Dolphin Software, hoạt động dựa trên 4 lớp xử lý. Không phải chatbot kịch bản cứng nhắc — hiểu ngữ cảnh và trả lời linh hoạt theo từng tình huống, đồng thời giữ đúng giọng thương hiệu.",
-  pillarsEyebrow: "Bốn lớp AI",
+  pillarsEyebrow: "Four layers",
   pillarsTitle: "Cơ chế hoạt động của [[Dolphin Care]]",
   pillarsSupport:
     "Bốn lớp xử lý đồng thời — giúp agent trả lời đúng việc, đúng người, đúng giọng, và chuyển hội thoại thành báo cáo hành động được.",
@@ -104,7 +104,7 @@ const vi: AgentDolphinCopy = {
       body: "Tổng hợp dữ liệu hội thoại thực tế, gửi báo cáo hằng ngày cho admin.",
     },
   ],
-  featuresEyebrow: "Tính năng",
+  featuresEyebrow: "Features",
   featuresTitle: "Tính Năng [[Nổi Bật]]",
   features: [
     {
@@ -138,7 +138,7 @@ const vi: AgentDolphinCopy = {
       body: "Có thể tích hợp dưới dạng widget vào bất kỳ website nào đang hoạt động, không yêu cầu phải xây dựng lại từ đầu.",
     },
   ],
-  compareEyebrow: "So sánh",
+  compareEyebrow: "Compare",
   compareTitle: "Dolphin Care Khác Gì So Với [[Chatbot]] Thông Thường?",
   compareSupport:
     "Chatbot kịch bản phù hợp khi chỉ cần FAQ đơn giản. Dolphin Care phù hợp hơn khi doanh nghiệp muốn AI thực sự hiểu nghiệp vụ, giữ đúng giọng thương hiệu, và cung cấp dữ liệu vận hành có giá trị hằng ngày.",
@@ -176,7 +176,7 @@ const vi: AgentDolphinCopy = {
   ],
   compareNote:
     "Chatbot kịch bản thông thường phù hợp khi doanh nghiệp chỉ cần trả lời FAQ đơn giản. Dolphin Care phù hợp hơn khi doanh nghiệp muốn AI thực sự hiểu nghiệp vụ, giữ đúng giọng thương hiệu, và cung cấp dữ liệu vận hành có giá trị hằng ngày.",
-  industriesEyebrow: "Ngành",
+  industriesEyebrow: "Industries",
   industriesTitle: "Dolphin Care Phù Hợp Với [[Ngành]] Nào?",
   industriesSupport:
     "Dolphin Care được thiết kế cho SMB Việt Nam đang vận hành website và muốn tối ưu quy trình chăm sóc khách hàng. Các ngành phù hợp điển hình bao gồm:",
@@ -206,7 +206,7 @@ const vi: AgentDolphinCopy = {
       body: "Tư vấn báo giá sơ bộ, thu thập yêu cầu ban đầu",
     },
   ],
-  howEyebrow: "Triển khai",
+  howEyebrow: "Implementation",
   howTitle: "Quy Trình Triển Khai [[Dolphin Care]]",
   howSupport:
     "Dolphin Care được triển khai theo 4 bước rõ ràng, có bàn giao cụ thể ở từng giai đoạn.",
@@ -267,7 +267,7 @@ const vi: AgentDolphinCopy = {
       a: "Dolphin Software báo giá minh bạch theo phạm vi triển khai thực tế — không tính phí ẩn, không bán thêm dịch vụ không cần thiết. Liên hệ để nhận tư vấn và báo giá phù hợp với quy mô doanh nghiệp.",
     },
   ],
-  closeEyebrow: "Bắt đầu",
+  closeEyebrow: "Get started",
   closeTitle: "Bắt Đầu Với [[Dolphin Care]]",
   closeSupport:
     "Gửi một mô tả ngắn về doanh nghiệp và nhu cầu CSKH — Dolphin Software sẽ phản hồi với đề xuất phạm vi và chi phí dự kiến trong vòng một ngày làm việc.",
@@ -517,11 +517,11 @@ const ja: AgentDolphinCopy = {
     "お電話番号をいただけますか？記録してスタッフにフォローを通知します。",
     "本日のインサイトレポートにもこの会話を反映しました。",
   ],
-  whatEyebrow: "定義",
+  whatEyebrow: "Definition",
   whatTitle: "Dolphin Careとは？",
   whatSupport:
     "Dolphin Softwareが開発するWebサイト向けAIチャット。4層で動作し、硬いif-elseスクリプトではありません。文脈を理解し、柔軟に回答し、ブランドに沿います。",
-  pillarsEyebrow: "4層",
+  pillarsEyebrow: "Four layers",
   pillarsTitle: "[[Dolphin Care]]の仕組み",
   pillarsSupport:
     "4層が連携して — 正しい用件に、正しい相手へ、正しいトーンで回答し、会話を行動可能なレポートに変えます。",
@@ -543,7 +543,7 @@ const ja: AgentDolphinCopy = {
       body: "実会話を集約し管理者へ毎日配信。",
     },
   ],
-  featuresEyebrow: "機能",
+  featuresEyebrow: "Features",
   featuresTitle: "主な[[機能]]",
   features: [
     {
@@ -577,7 +577,7 @@ const ja: AgentDolphinCopy = {
       body: "ウィジェット形式 — 全面作り直し不要。",
     },
   ],
-  compareEyebrow: "比較",
+  compareEyebrow: "Compare",
   compareTitle: "一般的なスクリプトボットとの[[違い]]",
   compareSupport:
     "単純FAQならスクリプトボット。業務を理解し、ブランドボイスを保ち、日次の運用インサイトを届けるAIが必要なら Dolphin Care。",
@@ -611,7 +611,7 @@ const ja: AgentDolphinCopy = {
   ],
   compareNote:
     "単純FAQはスクリプトで十分。業務を理解し日次データを欲しい場合は Dolphin Care。",
-  industriesEyebrow: "業種",
+  industriesEyebrow: "Industries",
   industriesTitle: "どんな[[業種]]に合う？",
   industriesSupport:
     "Webサイトを運用するベトナムSMBのカスタマーケア向け:",
@@ -623,7 +623,7 @@ const ja: AgentDolphinCopy = {
     { name: "ショールーム・不動産", body: "案内、見学予約、リード取得" },
     { name: "専門サービス", body: "概算見積と要件受付" },
   ],
-  howEyebrow: "導入",
+  howEyebrow: "Implementation",
   howTitle: "導入の[[4ステップ]]",
   howSupport: "各段階で明確な引き渡しがある4ステップ。",
   howSteps: [
@@ -683,7 +683,7 @@ const ja: AgentDolphinCopy = {
       a: "範囲に応じた明確な見積もり。隠れ費用なし。規模に合う相談をどうぞ。",
     },
   ],
-  closeEyebrow: "はじめの一歩",
+  closeEyebrow: "Get started",
   closeTitle: "[[Dolphin Care]]を始める",
   closeSupport:
     "事業とCSのニーズを短く送ってください。翌営業日以内に範囲と費用の目安をご返信します。",
