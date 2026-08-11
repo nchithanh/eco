@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-08-11 (favicon-google)
+
+- Favicon set for Google SERP: add 48×48 + 96×96 PNG, rebuild multi-size `favicon.ico`, expose `/icon.png` in `public/`, update `layout` icons + `site.webmanifest`.
+
 ## 2026-08-10 (brokerage demo LP)
 
 - Demo `/demos/brokerage/` — LP marketing môi giới **Nguyễn Văn A Invest** (noindex): trust/products/platform/research/fees/security/open account; Market Flow CSS; disclaimer; strip “Demo bởi Dolphin Software”.

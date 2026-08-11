@@ -16,7 +16,7 @@ Company knowledge (agents): `.cursor/knowledge/company.md` — outcomes **Build 
 
 - Display name: `BRAND_DISPLAY_NAME = "Dolphin Software"` in `components/Logo.tsx`
 - Logo asset: `public/brand/logo-dolphin.webp` (PNG kept as source archive if needed; champagne variants archived as `*-champagne.*`)
-- Favicon / tab icon: `app/favicon.ico` + `public/favicon.ico` (+ 16/32 PNG), `apple-touch-icon.png`, `android-chrome-*.png`, `app/icon.png` (512), `public/site.webmanifest`
+- Favicon / tab icon: `app/favicon.ico` + `public/favicon.ico` (16/32/48), PNG `favicon-16|32|48|96`, `apple-touch-icon.png`, `android-chrome-*.png`, `app/icon.png` + `public/icon.png` (512), `public/site.webmanifest`. Google SERP needs ≥48px and may take days–weeks to refresh after deploy.
 - Mascots: `lib/mascot.ts` → `eco` / `chat` / `contact` under `public/mascot/*.webp` (champagne copies kept as `*-champagne.webp`)
 - Document title / OG: **Dolphin Software** (`app/layout.tsx` metadata)
 - Inline brand replacement: `BrandText` / `hasBrand` in `components/BrandName.tsx` (also recognizes legacy `Dolphin Kich`, `KU THANH`)
