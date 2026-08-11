@@ -125,6 +125,7 @@ export function Nav() {
   ];
 
   const pageLinks: NavLink[] = [
+    { href: assetPath("/demos/"), label: t.nav.templates },
     { href: assetPath("/news/"), label: t.nav.news },
     { href: assetPath("/about/"), label: t.nav.about },
     { href: assetPath("/careers/"), label: t.nav.careers },

@@ -30,10 +30,11 @@ export function Footer() {
  },
  {
  label: f.groupUpdates,
- links: [
- { href: assetPath("/news/"), label: t.nav.news },
- { href: assetPath("/careers/"), label: t.nav.careers },
- ],
+    links: [
+      { href: assetPath("/demos/"), label: t.nav.templates },
+      { href: assetPath("/news/"), label: t.nav.news },
+      { href: assetPath("/careers/"), label: t.nav.careers },
+    ],
  },
  {
  label: f.groupConnect,

@@ -3,6 +3,7 @@ import type { Dictionary, Locale } from "./types";
 import { careersByLocale, careersNavLabel } from "./careers-copy";
 import { getFaqCopy } from "./faq-copy";
 import { newsByLocale, newsNavLabel } from "./news-copy";
+import { templatesNavLabel } from "./templates-copy";
 import { popularServicesByLocale } from "./popular-services-copy";
 import { aiEdgeByLocale } from "./ai-edge-copy";
 import { uiGalleryByLocale } from "./ui-gallery-copy";
@@ -27,6 +28,7 @@ const vi: Dictionary = {
     serviceDesign: "UI/UX",
     process: "Quy trình",
     stack: "Công nghệ",
+    templates: templatesNavLabel.vi,
     news: newsNavLabel.vi,
     careers: careersNavLabel.vi,
     about: "Giới thiệu",
@@ -590,6 +592,7 @@ const en: Dictionary = {
     serviceDesign: "UI/UX",
     process: "Process",
     stack: "Tech",
+    templates: templatesNavLabel.en,
     news: newsNavLabel.en,
     careers: careersNavLabel.en,
     about: "About",
@@ -1168,6 +1171,7 @@ const ja: Dictionary = {
     serviceDesign: "UI/UX",
     process: "プロセス",
     stack: "技術",
+    templates: templatesNavLabel.ja,
     news: newsNavLabel.ja,
     careers: careersNavLabel.ja,
     about: "会社紹介",

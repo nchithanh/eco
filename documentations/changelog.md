@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-08-11 (nav Templates)
+
+- Utility nav: **Templates** (trái News) + footer Updates → `/demos/` (vault gated); label `templatesNavLabel` (`templates-copy.ts`).
+
 ## 2026-08-11 (demos-gate Worker)
 
 - Demo vault **option B**: Cloudflare Worker `workers/demos-gate/` chặn `/demos*` HTML khi chưa có cookie HMAC; unlock `POST /demos/api/unlock`; secrets `DEMOS_PASSWORD` / `DEMOS_COOKIE_SECRET`.

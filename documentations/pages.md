@@ -2,7 +2,7 @@
 
 | Route | Page file | Main content |
 | --- | --- | --- |
-| `/demos/` | `app/demos/page.tsx` | Danh sách demo (noindex) — **edge gate** Cloudflare Worker `demos-gate` (cookie HttpOnly); UI `DemoGate` + `lib/demos/gate-api.ts`; catalog `lib/demos/catalog.ts` |
+| `/demos/` | `app/demos/page.tsx` | Danh sách demo (noindex) — **edge gate** Cloudflare Worker `demos-gate` (cookie HttpOnly); UI `DemoGate` + `lib/demos/gate-api.ts`; catalog `lib/demos/catalog.ts`. Nav/footer label **Templates** → đây. |
 | `/demos/brokerage/` | `app/demos/brokerage/page.tsx` | Demo LP môi giới **Nguyễn Văn A Invest** (noindex) — tông SSI-inspired; lợi ích kiểu CTCK lớn; social strip; mock P&L/chart; parallax; copy `lib/demos/brokerage-copy.ts` · cùng gate `/demos/` |
 | `/demos/automotive/` | `app/demos/automotive/page.tsx` | Demo LP sales ô tô cá nhân **Quân Auto Concierge** (noindex) — hero cinematic, gallery, variants, pricing, financing calc, test-drive, sticky mobile CTA; copy `lib/demos/automotive-copy.ts` · cùng gate `/demos/` |
 | `/schema/company/` | `app/schema/company/page.tsx` | Overview JSON (`public/schema/company.json`); `noindex` |
@@ -28,4 +28,4 @@
 | `/works/[slug]/` | `app/works/[slug]/page.tsx` | `WorkDetailView` + `lib/works-details.ts` |
 | `/more/[slug]/` | `app/more/[slug]/page.tsx` | `MoreDetailView` + `lib/more-details.ts` |
 
-Nav: desktop 2-tier (utility: News / About / Careers / Contact + locale; GNB flat — web / landing / mobile / software / Dolphin Care / AI Transform, no dropdown). Mobile giữ accordion Dịch vụ + AI. Process & Tech removed from nav/footer. `/services/design/` still exists but is not linked from nav/footer.
+Nav: desktop 2-tier (utility: Templates→`/demos/` / News / About / Careers / Contact + locale; GNB flat — web / landing / mobile / software / Dolphin Care / AI Transform, no dropdown). Mobile giữ accordion Dịch vụ + AI. Process & Tech removed from nav/footer. `/services/design/` still exists but is not linked from nav/footer.

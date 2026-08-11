@@ -31,6 +31,7 @@ export type Dictionary = {
     serviceDesign: string;
     process: string;
     stack: string;
+    templates: string;
     news: string;
     careers: string;
     about: string;
