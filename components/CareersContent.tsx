@@ -30,7 +30,7 @@ export function CareersContent({ embedded = false }: { embedded?: boolean }) {
  id="freelance-model"
  className="scroll-mt-20 py-20 sm:py-24"
  >
- <div className="mx-auto max-w-6xl px-6">
+ <div className="mx-auto max-w-7xl px-6">
  <Reveal variant="title" className="max-w-2xl">
  <p className="kuct-type-eyebrow">
  {c.model.eyebrow}
@@ -66,7 +66,7 @@ export function CareersContent({ embedded = false }: { embedded?: boolean }) {
  id="how-to-apply"
  className="scroll-mt-20 py-20 sm:py-24"
  >
- <div className="mx-auto max-w-6xl px-6">
+ <div className="mx-auto max-w-7xl px-6">
  <Reveal variant="title" className="max-w-2xl">
  <p className="kuct-type-eyebrow">
  {c.howToApply.eyebrow}
@@ -101,7 +101,7 @@ export function CareersContent({ embedded = false }: { embedded?: boolean }) {
  id="careers-faq"
  className="scroll-mt-20 py-20 sm:py-24"
  >
- <div className="mx-auto max-w-6xl px-6">
+ <div className="mx-auto max-w-7xl px-6">
  <Reveal variant="title" className="mx-auto max-w-2xl text-center">
  <p className="kuct-type-eyebrow">
  {c.faq.eyebrow}

@@ -38,7 +38,7 @@ export function SchemaJsonView({
 
  return (
  <section className="scroll-mt-20 py-16 sm:py-20">
- <div className="mx-auto max-w-6xl px-6">
+ <div className="mx-auto max-w-7xl px-6">
  {crumbs && crumbs.length > 0 ? (
  <nav className="mb-4 flex flex-wrap gap-2 text-xs text-[var(--kuct-muted)]">
  {crumbs.map((c, i) => (

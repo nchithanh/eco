@@ -193,7 +193,7 @@ export function Nav() {
       <AnnouncementBar />
       <header className="bg-white">
         <nav
-          className="mx-auto max-w-6xl px-6"
+          className="mx-auto max-w-7xl px-6"
           aria-label={t.nav.ariaMain}
         >
           {/* Desktop — two-tier, flat GNB (no dropdowns) */}
@@ -314,7 +314,7 @@ export function Nav() {
             aria-label={t.nav.ariaMobile}
             className="border-t border-black/10 bg-white px-6 py-4 lg:hidden"
           >
-            <ul className="mx-auto flex max-w-6xl flex-col">
+            <ul className="mx-auto flex max-w-7xl flex-col">
               <li>
                 <button
                   type="button"

@@ -45,7 +45,7 @@ export function WorkDetailContent({
  }
  >
  <div className="pointer-events-none absolute inset-0 kuct-hero-wash" aria-hidden />
- <div className="relative mx-auto max-w-6xl px-6">
+ <div className="relative mx-auto max-w-7xl px-6">
  {!embedded ? (
  <Link
  href="/#works"
@@ -82,7 +82,7 @@ export function WorkDetailContent({
  </section>
 
  <section className={embedded ? "py-10 sm:py-12" : "py-16 sm:py-20"}>
- <div className="mx-auto grid max-w-6xl gap-6 px-6 lg:grid-cols-3">
+ <div className="mx-auto grid max-w-7xl gap-6 px-6 lg:grid-cols-3">
  <WorkDetailBlock index={0} title={ui.problemTitle}>
  {detail.problem}
  </WorkDetailBlock>
@@ -92,7 +92,7 @@ export function WorkDetailContent({
  <WorkDetailBlock index={2} title={ui.outcomesTitle} list={detail.outcomes} />
  </div>
 
- <div className="mx-auto mt-10 max-w-6xl px-6">
+ <div className="mx-auto mt-10 max-w-7xl px-6">
  <Reveal>
  <h2 className="font-display text-lg font-semibold text-[var(--kuct-text)]">
  {ui.highlightsTitle}
@@ -105,7 +105,7 @@ export function WorkDetailContent({
  </Reveal>
  </div>
 
- <div className="mx-auto mt-10 grid max-w-6xl gap-6 px-6 lg:grid-cols-2 lg:items-stretch">
+ <div className="mx-auto mt-10 grid max-w-7xl gap-6 px-6 lg:grid-cols-2 lg:items-stretch">
  <Reveal className="h-full">
  <div className="kuct-surface-card h-full rounded-xl p-6">
  <h2 className="font-display text-lg font-semibold text-[var(--kuct-text)]">
@@ -135,7 +135,7 @@ export function WorkDetailContent({
  </Reveal>
  </div>
 
- <Reveal className="mx-auto mt-12 flex max-w-6xl flex-wrap items-center gap-3 px-6">
+ <Reveal className="mx-auto mt-12 flex max-w-7xl flex-wrap items-center gap-3 px-6">
  {showDesign ? (
  <button
  type="button"

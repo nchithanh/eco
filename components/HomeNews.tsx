@@ -275,7 +275,7 @@ export function HomeNews() {
  aria-hidden
  />
 
- <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
+ <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
  <Reveal variant="title">
  <div className="max-w-3xl">
  <div className="flex items-center gap-3">

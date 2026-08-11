@@ -1,5 +1,18 @@
 # Changelog
 
+## 2026-08-11 (quote drawer left)
+
+- Quote estimator: centered modal → left drawer (Ask AI chrome: white shell, dot scroll, slide-in); logic/mailto unchanged.
+
+## 2026-08-11 (layout width 7xl)
+
+- Page shell desktop: `max-w-6xl` → `max-w-7xl` (Nav, Footer, homepage + service/news/about containers). Narrow reading widths (`max-w-3xl` FAQ/demos) unchanged.
+
+## 2026-08-11 (landing + mobile service images)
+
+- `/services/landing/`: regen hero + thêm what/conversion/process/industries; wire `LandingPageContent`.
+- `/services/mobile/`: regen hero + thêm highlights/process/deliverables/audience; wire DetailBlock; **Best for** 2 cột + ảnh phải; FAQ section riêng canh giữa (accordion kiểu Landing).
+
 ## 2026-08-11 (demos-gate revision session)
 
 - Demo vault: CF Worker **chỉ check mật khẩu**; phiên client gắn `COOKIE_CONSENT_REVISION` (sessionStorage) — push/bump → login lại. Cookie edge đơn giản; bỏ HMAC/`DEMOS_COOKIE_SECRET`.

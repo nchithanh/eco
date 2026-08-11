@@ -200,7 +200,7 @@ export function AboutTeamSection({
     >
       <div className="kuct-team-arch-grid pointer-events-none absolute inset-0" aria-hidden />
 
-      <div className="relative mx-auto max-w-6xl px-6">
+      <div className="relative mx-auto max-w-7xl px-6">
         <Reveal variant="title" className="max-w-3xl">
           <p className="kuct-type-eyebrow text-[11px] sm:text-xs">{eyebrow}</p>
           <h2

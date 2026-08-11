@@ -87,7 +87,7 @@ export function OpsLifecycle() {
 
  return (
  <section id="ops" className="scroll-mt-20 py-24">
- <div className="mx-auto max-w-6xl px-6">
+ <div className="mx-auto max-w-7xl px-6">
  <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-x-14 md:gap-y-8 lg:gap-x-16">
  <Reveal variant="title" className="max-w-xl md:col-start-1 md:row-start-1">
  <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">

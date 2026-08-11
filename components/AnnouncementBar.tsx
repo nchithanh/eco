@@ -39,7 +39,7 @@ export function AnnouncementBar() {
       role="region"
       aria-label={b.aria}
     >
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-1.5 sm:gap-4 sm:px-6 sm:py-2">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-1.5 sm:gap-4 sm:px-6 sm:py-2">
         <p className="min-w-0 flex-1 text-left text-[10px] leading-snug font-medium text-current sm:text-[11px] md:text-xs">
           <BrandText size="xs">{b.text}</BrandText>
         </p>

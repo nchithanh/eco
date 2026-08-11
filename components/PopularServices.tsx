@@ -68,7 +68,7 @@ export function PopularServices({
  : "scroll-mt-20 py-16 sm:py-20 lg:py-24"
  }
  >
- <div className="mx-auto max-w-6xl px-4 sm:px-6">
+ <div className="mx-auto max-w-7xl px-4 sm:px-6">
  <Reveal
  delay={40}
  className="overflow-hidden rounded-xl bg-[var(--kuct-panel)] shadow-[0_28px_70px_rgba(0,0,0,0.38)] backdrop-blur-md sm:rounded-xl"

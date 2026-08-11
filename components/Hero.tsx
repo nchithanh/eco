@@ -70,7 +70,7 @@ export function Hero() {
         className="pointer-events-none absolute inset-0 kuct-hero-wash"
         aria-hidden
       />
-      <div className="relative mx-auto grid w-full max-w-6xl items-center gap-10 px-6 py-16 sm:py-20 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-14 lg:py-16">
+      <div className="relative mx-auto grid w-full max-w-7xl items-center gap-10 px-6 py-16 sm:py-20 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-14 lg:py-16">
         <div className="relative z-10 max-w-xl touch-pan-y">
           <p className="kuct-type-eyebrow text-[11px] sm:text-xs">
             {t.hero.eyebrow}

@@ -67,7 +67,7 @@ export function Technology() {
       className="relative scroll-mt-20 overflow-hidden py-24"
       aria-labelledby="home-technology-heading"
     >
-      <div className="mx-auto max-w-6xl px-6">
+      <div className="mx-auto max-w-7xl px-6">
         <Reveal variant="title">
           <p className="kuct-type-eyebrow text-[11px] sm:text-xs">{tech.eyebrow}</p>
           <h2

@@ -73,7 +73,7 @@ export function WhyKuct() {
       className="scroll-mt-20 py-24"
       aria-labelledby="home-why-heading"
     >
-      <div className="relative mx-auto max-w-6xl px-6">
+      <div className="relative mx-auto max-w-7xl px-6">
         <Reveal variant="title">
           <p className="kuct-type-eyebrow text-[11px] sm:text-xs">
             {hasBrand(eyebrow) ? (

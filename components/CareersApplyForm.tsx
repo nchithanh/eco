@@ -86,7 +86,7 @@ function CareersApplyFormInner({ initialRole }: Props) {
 
  return (
  <section id="apply" className="scroll-mt-20 py-24">
- <div className="mx-auto max-w-6xl px-6">
+ <div className="mx-auto max-w-7xl px-6">
  <Reveal variant="title">
  <p className="text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
  {a.eyebrow}

@@ -135,7 +135,7 @@ export function NewsDetailContent({
  }
  >
  <div className="pointer-events-none absolute inset-0 kuct-hero-wash" aria-hidden />
- <div className="relative mx-auto max-w-6xl px-6">
+ <div className="relative mx-auto max-w-7xl px-6">
  <Reveal immediate={embedded}>
  <nav
  aria-label="Breadcrumb"

@@ -21,7 +21,7 @@ export function AboutContent() {
  <>
  <section className="relative isolate overflow-hidden py-20 sm:py-24">
  <div className="pointer-events-none absolute inset-0 kuct-hero-wash" aria-hidden />
- <div className="relative mx-auto max-w-6xl px-6">
+ <div className="relative mx-auto max-w-7xl px-6">
  <Reveal variant="title" className="max-w-5xl text-left">
  <p className="kuct-type-eyebrow">
  {a.eyebrow}
@@ -55,7 +55,7 @@ export function AboutContent() {
  </section>
 
  <section className="scroll-mt-20 py-24">
- <div className="mx-auto max-w-6xl px-6">
+ <div className="mx-auto max-w-7xl px-6">
  <Reveal variant="title" className="max-w-2xl">
  <p className="kuct-type-eyebrow">
  {a.mindsetEyebrow}
@@ -91,7 +91,7 @@ export function AboutContent() {
  </section>
 
  <section className="scroll-mt-20 py-24">
- <div className="mx-auto max-w-6xl px-6">
+ <div className="mx-auto max-w-7xl px-6">
  <Reveal variant="title" className="max-w-2xl">
  <p className="kuct-type-eyebrow">
  {a.buildEyebrow}
@@ -139,7 +139,7 @@ export function AboutContent() {
  </section>
 
  <section className="scroll-mt-20 py-24">
- <div className="mx-auto max-w-6xl px-6">
+ <div className="mx-auto max-w-7xl px-6">
  <Reveal variant="title" className="max-w-2xl">
  <p className="kuct-type-eyebrow">
  {a.proofEyebrow}
@@ -180,7 +180,7 @@ export function AboutContent() {
  id="about-faq"
  className="scroll-mt-20 py-24"
  >
- <div className="mx-auto max-w-6xl px-6">
+ <div className="mx-auto max-w-7xl px-6">
  <Reveal variant="title" className="mx-auto max-w-2xl text-center">
  <p className="kuct-type-eyebrow">
  {a.faqEyebrow}
@@ -233,7 +233,7 @@ export function AboutContent() {
  </section>
 
  <section className="scroll-mt-20 py-24">
- <div className="mx-auto max-w-6xl px-6">
+ <div className="mx-auto max-w-7xl px-6">
  <Reveal variant="title" className="kuct-surface-card px-6 py-10 text-center sm:px-10 sm:py-12">
  <p className="kuct-type-eyebrow">
  {a.ctaEyebrow}

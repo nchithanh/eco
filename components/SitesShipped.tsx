@@ -35,7 +35,7 @@ export function SitesShipped({
  : "scroll-mt-20 py-24"
  }
  >
- <div className="mx-auto max-w-6xl px-6">
+ <div className="mx-auto max-w-7xl px-6">
  <Reveal variant="title">
  <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
  {w.eyebrow}

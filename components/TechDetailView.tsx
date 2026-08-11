@@ -43,7 +43,7 @@ export function TechDetailContent({
  }
  >
  <div className="pointer-events-none absolute inset-0 kuct-hero-wash" aria-hidden />
- <div className="relative mx-auto max-w-6xl px-6">
+ <div className="relative mx-auto max-w-7xl px-6">
  {!embedded ? (
  <Link
  href="/#stack"
@@ -86,7 +86,7 @@ export function TechDetailContent({
  </section>
 
  <section className={embedded ? "py-10 sm:py-12" : "py-16 sm:py-20"}>
- <div className="mx-auto max-w-6xl px-6">
+ <div className="mx-auto max-w-7xl px-6">
  <Reveal>
  <h2 className="font-display text-lg font-semibold text-[var(--kuct-text)]">
  {ui.highlightsTitle}

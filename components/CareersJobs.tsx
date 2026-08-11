@@ -429,7 +429,7 @@ export function CareersJobs({ onApply }: Props) {
  return (
  <>
  <section id="roles" className="scroll-mt-20 py-24">
- <div className="mx-auto max-w-6xl px-6">
+ <div className="mx-auto max-w-7xl px-6">
  <Reveal>
  <p className="kuct-type-eyebrow">{c.roles.eyebrow}</p>
  <h2 className="kuct-type-h2 mt-3 font-display text-3xl sm:text-4xl">
@@ -460,7 +460,7 @@ export function CareersJobs({ onApply }: Props) {
 
  {closedJobs.length > 0 ? (
  <section id="closed-roles" className="scroll-mt-20 py-20 sm:py-24">
- <div className="mx-auto max-w-6xl px-6">
+ <div className="mx-auto max-w-7xl px-6">
  <Reveal>
  <h2 className="kuct-type-h2 font-display text-3xl sm:text-4xl">
  {c.closedRoles.title}

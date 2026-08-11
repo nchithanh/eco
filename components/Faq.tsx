@@ -13,7 +13,7 @@ export function Faq() {
 
  return (
  <section id="faq" className="scroll-mt-20 py-24">
- <div className="mx-auto max-w-6xl px-6">
+ <div className="mx-auto max-w-7xl px-6">
  <Reveal variant="title" className="mx-auto max-w-2xl text-center">
  <p className="kuct-type-eyebrow">
  {f.eyebrow}

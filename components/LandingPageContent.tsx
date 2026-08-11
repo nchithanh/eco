@@ -15,6 +15,37 @@ import { useLocale } from "@/lib/i18n/LocaleProvider";
 import { formatPackageMoney, PACKAGE_PRICES_VND } from "@/lib/pricing-fx";
 import { useTheme } from "@/lib/theme";
 
+const LANDING_IMG = {
+  hero: "/services/landing/hero.jpg",
+  what: "/services/landing/what.jpg",
+  conversion: "/services/landing/conversion.jpg",
+  process: "/services/landing/process.jpg",
+  industries: "/services/landing/industries.jpg",
+} as const;
+
+function SectionImage({
+  src,
+  alt,
+  priority = false,
+}: {
+  src: string;
+  alt: string;
+  priority?: boolean;
+}) {
+  return (
+    <div className="relative aspect-[16/9] overflow-hidden kuct-surface-card">
+      <LazyImage
+        src={assetPath(src)}
+        alt={alt}
+        fill
+        className="object-cover"
+        sizes="(min-width: 1024px) 56rem, 100vw"
+        priority={priority}
+      />
+    </div>
+  );
+}
+
 function withLandingPrice(text: string, price: string): string {
   return text.replaceAll("{{landingPrice}}", price);
 }
@@ -26,7 +57,7 @@ export function LandingPageContent() {
   const { openQuote } = useQuote();
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const faqId = useId();
-  const hero = themeAsset("/services/landing/hero.jpg", theme);
+  const hero = themeAsset(LANDING_IMG.hero, theme);
   const landingPrice = formatPackageMoney(
     locale,
     PACKAGE_PRICES_VND.landing.now,
@@ -38,7 +69,7 @@ export function LandingPageContent() {
 
       <section className="relative isolate overflow-hidden py-16 sm:py-20 lg:py-24">
         <div className="pointer-events-none absolute inset-0 kuct-hero-wash" aria-hidden />
-               <div className="relative mx-auto max-w-6xl px-6">
+               <div className="relative mx-auto max-w-7xl px-6">
           <Link
             href="/#popular-services"
             className="inline-flex text-sm font-medium text-[var(--kuct-muted)] transition hover:text-[var(--kuct-accent)]"
@@ -96,7 +127,7 @@ export function LandingPageContent() {
         aria-labelledby="landing-what-heading"
         className="scroll-mt-20 py-20 sm:py-24"
       >
-        <div className="mx-auto max-w-6xl px-6">
+        <div className="mx-auto max-w-7xl px-6">
           <Reveal variant="title" className="max-w-3xl">
             <p className="kuct-type-eyebrow">
               {c.whatEyebrow}
@@ -110,6 +141,9 @@ export function LandingPageContent() {
             <p className="mt-5 max-w-[60ch] text-base leading-[1.7] text-[var(--kuct-muted)]">
               {c.whatBody}
             </p>
+          </Reveal>
+          <Reveal className="mt-8">
+            <SectionImage src={LANDING_IMG.what} alt={c.whatTitle} />
           </Reveal>
           <Reveal className="mt-10 kuct-surface-card p-5 sm:p-6">
             <h3 className="font-display text-sm font-semibold tracking-wide text-[var(--kuct-text)]">
@@ -138,7 +172,7 @@ export function LandingPageContent() {
         aria-labelledby="landing-why-heading"
         className="scroll-mt-20 py-20 sm:py-24"
       >
-        <div className="mx-auto max-w-6xl px-6">
+        <div className="mx-auto max-w-7xl px-6">
           <Reveal variant="title" className="max-w-3xl">
             <p className="kuct-type-eyebrow">
               {c.whyEyebrow}
@@ -180,7 +214,7 @@ export function LandingPageContent() {
         aria-labelledby="landing-include-heading"
         className="scroll-mt-20 py-20 sm:py-24"
       >
-        <div className="mx-auto max-w-6xl px-6">
+        <div className="mx-auto max-w-7xl px-6">
           <Reveal variant="title" className="max-w-3xl">
             <p className="kuct-type-eyebrow">
               {c.includeEyebrow}
@@ -194,6 +228,12 @@ export function LandingPageContent() {
             <p className="mt-5 max-w-[60ch] text-base leading-[1.7] text-[var(--kuct-muted)]">
               {c.includeIntro}
             </p>
+          </Reveal>
+          <Reveal className="mt-8">
+            <SectionImage
+              src={LANDING_IMG.conversion}
+              alt={c.includeTitle}
+            />
           </Reveal>
           <div className="mt-10 grid gap-4 lg:grid-cols-3">
             {c.includeGroups.map((group, index) => (
@@ -230,7 +270,7 @@ export function LandingPageContent() {
         aria-labelledby="landing-industries-heading"
         className="scroll-mt-20 py-20 sm:py-24"
       >
-        <div className="mx-auto max-w-6xl px-6">
+        <div className="mx-auto max-w-7xl px-6">
           <Reveal variant="title" className="max-w-3xl">
             <p className="kuct-type-eyebrow">
               {c.industriesEyebrow}
@@ -244,6 +284,12 @@ export function LandingPageContent() {
             <p className="mt-5 max-w-[60ch] text-base leading-[1.7] text-[var(--kuct-muted)]">
               {c.industriesIntro}
             </p>
+          </Reveal>
+          <Reveal className="mt-8">
+            <SectionImage
+              src={LANDING_IMG.industries}
+              alt={c.industriesTitle}
+            />
           </Reveal>
           <Reveal className="mt-10 overflow-hidden kuct-surface-card">
             <div className="overflow-x-auto">
@@ -284,7 +330,7 @@ export function LandingPageContent() {
         aria-labelledby="landing-process-heading"
         className="scroll-mt-20 py-20 sm:py-24"
       >
-        <div className="mx-auto max-w-6xl px-6">
+        <div className="mx-auto max-w-7xl px-6">
           <Reveal variant="title" className="max-w-3xl">
             <p className="kuct-type-eyebrow">
               {c.processEyebrow}
@@ -295,6 +341,9 @@ export function LandingPageContent() {
             >
               <AccentText>{c.processTitle}</AccentText>
             </h2>
+          </Reveal>
+          <Reveal className="mt-8">
+            <SectionImage src={LANDING_IMG.process} alt={c.processTitle} />
           </Reveal>
           <ol className="mt-10 list-none space-y-3 p-0">
             {c.processSteps.map((step, index) => (
@@ -327,7 +376,7 @@ export function LandingPageContent() {
         aria-labelledby="landing-pricing-heading"
         className="scroll-mt-20 py-20 sm:py-24"
       >
-        <div className="mx-auto max-w-6xl px-6">
+        <div className="mx-auto max-w-7xl px-6">
           <Reveal variant="title" className="max-w-3xl">
             <p className="kuct-type-eyebrow">
               {c.pricingEyebrow}
@@ -398,7 +447,7 @@ export function LandingPageContent() {
         aria-labelledby="landing-faq-heading"
         className="scroll-mt-20 py-20 sm:py-24"
       >
-        <div className="mx-auto max-w-6xl px-6">
+        <div className="mx-auto max-w-7xl px-6">
           <Reveal variant="title" className="mx-auto max-w-3xl text-center">
             <p className="kuct-type-eyebrow">
               {c.faqEyebrow}
@@ -467,7 +516,7 @@ export function LandingPageContent() {
         aria-labelledby="landing-close-heading"
         className="scroll-mt-20 py-16 sm:py-20 lg:pb-24"
       >
-        <div className="mx-auto max-w-6xl px-6">
+        <div className="mx-auto max-w-7xl px-6">
           <Reveal className="kuct-surface-card px-6 py-10 text-center sm:px-10 sm:py-12">
             <p className="kuct-type-eyebrow">
               {c.closeEyebrow}

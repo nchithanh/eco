@@ -24,7 +24,7 @@ const labels: Record<(typeof SCHEMA_HOMEPAGE_SLUGS)[number], string> = {
 export function SchemaHomepageIndexContent() {
  return (
  <section className="scroll-mt-20 py-16 sm:py-20">
- <div className="mx-auto max-w-6xl px-6">
+ <div className="mx-auto max-w-7xl px-6">
  <nav className="mb-4 flex flex-wrap gap-2 text-xs text-[var(--kuct-muted)]">
  <Link href={assetPath("/schema/")} className="hover:text-[var(--kuct-accent)]">
  schema

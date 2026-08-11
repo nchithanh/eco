@@ -52,7 +52,7 @@ const sections: {
 export function SchemaIndexContent() {
  return (
  <section className="scroll-mt-20 py-16 sm:py-20">
- <div className="mx-auto max-w-6xl px-6">
+ <div className="mx-auto max-w-7xl px-6">
  <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
  Schema
  </p>

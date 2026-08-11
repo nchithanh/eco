@@ -138,7 +138,7 @@ export function SoftwareServiceContent({
         }
       >
         <div className="pointer-events-none absolute inset-0 kuct-hero-wash" aria-hidden />
-        <div className="relative mx-auto max-w-6xl px-6">
+        <div className="relative mx-auto max-w-7xl px-6">
           <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-12">
             <Reveal variant="title" className="max-w-5xl text-left">
               <p className="kuct-type-eyebrow">
@@ -182,7 +182,7 @@ export function SoftwareServiceContent({
         className="kuct-section-wash scroll-mt-20 py-20"
         aria-labelledby="software-highlights-heading"
       >
-        <div className="mx-auto max-w-6xl px-6">
+        <div className="mx-auto max-w-7xl px-6">
           <Reveal variant="title">
             <h2
               id="software-highlights-heading"
@@ -251,7 +251,7 @@ export function SoftwareServiceContent({
         className="scroll-mt-20 py-20"
         aria-labelledby="software-process-heading"
       >
-        <div className="mx-auto max-w-6xl px-6">
+        <div className="mx-auto max-w-7xl px-6">
           <Reveal variant="title">
             <h2
               id="software-process-heading"
@@ -318,7 +318,7 @@ export function SoftwareServiceContent({
         className="kuct-section-wash scroll-mt-20 py-20"
         aria-labelledby="software-deliverables-heading"
       >
-        <div className="mx-auto max-w-6xl px-6">
+        <div className="mx-auto max-w-7xl px-6">
           <Reveal variant="title">
             <h2
               id="software-deliverables-heading"
@@ -368,7 +368,7 @@ export function SoftwareServiceContent({
         className="scroll-mt-20 py-20"
         aria-labelledby="software-use-cases-heading"
       >
-        <div className="mx-auto max-w-6xl px-6">
+        <div className="mx-auto max-w-7xl px-6">
           <Reveal variant="title">
             <p className="text-center text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
               {xui.useCasesTitle}
@@ -424,7 +424,7 @@ export function SoftwareServiceContent({
         className="kuct-section-wash scroll-mt-20 py-20"
         aria-labelledby="software-audience-heading"
       >
-        <div className="mx-auto max-w-6xl px-6">
+        <div className="mx-auto max-w-7xl px-6">
           <Reveal variant="title">
             <h2
               id="software-audience-heading"
@@ -453,7 +453,7 @@ export function SoftwareServiceContent({
         className="scroll-mt-20 py-20"
         aria-labelledby="software-faq-heading"
       >
-        <div className="mx-auto max-w-6xl px-6">
+        <div className="mx-auto max-w-7xl px-6">
           <Reveal variant="title">
             <p className="text-center text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
               {FAQ_EYEBROW[locale]}

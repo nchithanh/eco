@@ -93,7 +93,7 @@ export function FitSection() {
       aria-labelledby="home-fit-heading"
       className="scroll-mt-20 py-20 sm:py-24"
     >
-      <div className="mx-auto max-w-6xl px-6">
+      <div className="mx-auto max-w-7xl px-6">
         <Reveal variant="title" className="text-center">
           <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
             {fit.eyebrow}

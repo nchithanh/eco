@@ -109,7 +109,7 @@ export function SiteOutcomes() {
       className="scroll-mt-20 py-24"
       aria-labelledby="home-outcomes-heading"
     >
-      <div className="mx-auto max-w-6xl px-6">
+      <div className="mx-auto max-w-7xl px-6">
         <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-14 xl:gap-16">
           {/* Left: sticky while right cards scroll */}
           <div className="lg:sticky lg:top-28 lg:self-start">

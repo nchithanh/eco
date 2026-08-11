@@ -44,7 +44,7 @@ export function Footer() {
 
  return (
  <footer className="py-12 sm:py-14">
- <div className="mx-auto max-w-6xl px-6">
+ <div className="mx-auto max-w-7xl px-6">
  <div className="flex flex-col gap-10 lg:flex-row lg:justify-between lg:gap-14">
  <p className="flex shrink-0 items-center gap-2 text-sm font-medium text-[var(--kuct-text)]">
  <BrandName size="sm" />

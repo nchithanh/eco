@@ -280,7 +280,7 @@ export function Capabilities() {
       aria-labelledby="home-capabilities-heading"
       className="kuct-capabilities relative scroll-mt-20 overflow-hidden py-20 sm:py-24"
     >
-      <div className="relative mx-auto max-w-6xl px-6">
+      <div className="relative mx-auto max-w-7xl px-6">
         <Reveal variant="title">
           <div className="flex flex-wrap items-center gap-3 sm:gap-4">
             <p className="kuct-type-eyebrow text-[11px] sm:text-xs">{c.eyebrow}</p>

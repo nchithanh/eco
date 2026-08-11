@@ -12,7 +12,7 @@ export function CoFounder() {
 
  return (
  <section id="cofounder" className="scroll-mt-20 py-24">
- <div className="mx-auto max-w-6xl px-6">
+ <div className="mx-auto max-w-7xl px-6">
  <div className="grid items-center gap-10 rounded-xl bg-[var(--kuct-panel)] p-8 backdrop-blur-md sm:p-10 lg:grid-cols-[200px_1fr] lg:gap-14 lg:p-12">
  <Reveal className="relative mx-auto w-full max-w-[180px]" variant="left">
  <div className="relative aspect-[4/5] overflow-hidden rounded-xl ">

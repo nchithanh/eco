@@ -263,17 +263,20 @@ body::before {
   }
 }
 
-/* Soft square grid — behind content (AppProviders wraps children in relative z-10) */
+/* Soft dot field — behind content (temp; was line grid). Match Ask AI chat dots. */
 body::after {
   content: "";
   pointer-events: none;
   position: fixed;
   inset: 0;
   z-index: -2;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.16) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.16) 1px, transparent 1px);
-  background-size: 32px 32px;
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.22) 1px,
+    transparent 1.2px
+  );
+  background-size: 12px 12px;
+  background-position: 0 0;
 }
 
 html[data-theme="violet"] body {
@@ -284,12 +287,16 @@ html[data-theme="violet"] body::before {
   display: none;
 }
 
-/* Light canvas: dark soft grid (default ::after is white lines for dark themes) */
+/* Light canvas: dark soft dots (same recipe as .kuct-ai-chat__dots) */
 html[data-theme="violet"] body::after {
   display: block;
-  background-image:
-    linear-gradient(rgba(26, 21, 32, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(26, 21, 32, 0.06) 1px, transparent 1px);
+  background-image: radial-gradient(
+    circle,
+    rgba(26, 22, 37, 0.14) 1px,
+    transparent 1.2px
+  );
+  background-size: 12px 12px;
+  background-position: 0 0;
 }
 
 html[data-theme="violet"] .kuct-glow-orb,
@@ -1763,6 +1770,22 @@ html[data-theme="black"] .kuct-loader-progress {
   pointer-events: none;
 }
 
+/* Quote estimator — left mirror of Ask AI drawer */
+.kuct-quote-drawer {
+  animation: kuct-quote-drawer-in 0.28s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes kuct-quote-drawer-in {
+  from {
+    opacity: 0.65;
+    transform: translateX(-1.25rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 /* Chat transcript: small square grid as dots only (no line grid). */
 .kuct-ai-chat__dots {
   background-color: #ffffff;
@@ -2344,6 +2367,7 @@ html[data-theme="black"] .kuct-loader-progress {
   .kuct-ai-chat__toast,
   .kuct-ai-chat__panel,
   .kuct-ai-chat__drawer,
+  .kuct-quote-drawer,
   .kuct-ai-chat__backdrop,
   .kuct-ai-chat__welcome-mascot,
   .kuct-ai-chat__welcome-title,
