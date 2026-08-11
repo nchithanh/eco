@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-08-11 (demos-gate revision session)
+
+- Demo vault: CF Worker **chỉ check mật khẩu**; phiên client gắn `COOKIE_CONSENT_REVISION` (sessionStorage) — push/bump → login lại. Cookie edge đơn giản; bỏ HMAC/`DEMOS_COOKIE_SECRET`.
+
+## 2026-08-11 (demos-gate workers.dev default)
+
+- Local `/demos` unlock gọi `https://dolphin-demos.nchithanh9999.workers.dev` (như chat); production vẫn same-origin `/demos/api/*` cho cookie edge.
+
 ## 2026-08-11 (demo english-teacher)
 
 - `/demos/english-teacher/` — port landing giáo viên tiếng Anh 1-1 (HTML nguồn) vào vault: React + CSS scoped `.en11`, catalog Education; placeholder stats/reviews.

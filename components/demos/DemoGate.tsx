@@ -9,8 +9,10 @@ import {
 import Link from "next/link";
 import { assetPath } from "@/lib/asset";
 import {
-  DEMO_GATE_STORAGE_KEY,
-  fetchDemoGateStatus,
+  clearDemoGateLocalSession,
+  isDemoGateUnlockedLocally,
+  markDemoGateUnlockedLocally,
+  shouldReloadAfterDemoUnlock,
   unlockDemoGate,
 } from "@/lib/demos/gate-api";
 
@@ -26,23 +28,14 @@ export function DemoGate({ children }: DemoGateProps) {
   const [pending, setPending] = useState(false);
 
   useEffect(() => {
-    let cancelled = false;
-    (async () => {
-      const remote = await fetchDemoGateStatus();
-      if (cancelled) return;
-      if (remote) {
-        try {
-          sessionStorage.setItem(DEMO_GATE_STORAGE_KEY, "1");
-        } catch {
-          /* ignore */
-        }
-        setUnlocked(true);
-      }
-      setReady(true);
-    })();
-    return () => {
-      cancelled = true;
-    };
+    // Session tied to COOKIE_CONSENT_REVISION (bumped on each push).
+    // Mismatch / missing → ask login again. CF Worker only checks password.
+    if (isDemoGateUnlockedLocally()) {
+      setUnlocked(true);
+    } else {
+      clearDemoGateLocalSession();
+    }
+    setReady(true);
   }, []);
 
   const onSubmit = async (e: FormEvent) => {
@@ -55,14 +48,9 @@ export function DemoGate({ children }: DemoGateProps) {
       setError(result.error);
       return;
     }
-    try {
-      sessionStorage.setItem(DEMO_GATE_STORAGE_KEY, "1");
-    } catch {
-      /* ignore */
-    }
+    markDemoGateUnlockedLocally();
     setUnlocked(true);
-    // Reload so Worker-proxied HTML requests send the new cookie.
-    if (typeof window !== "undefined") {
+    if (shouldReloadAfterDemoUnlock()) {
       window.location.reload();
     }
   };
@@ -82,8 +70,8 @@ export function DemoGate({ children }: DemoGateProps) {
           <p className="demo-gate__eyebrow">Dolphin Software · Demo vault</p>
           <h1 className="demo-gate__title">Nhập mật khẩu để xem demo</h1>
           <p className="demo-gate__lead">
-            Vault được bảo vệ trên Cloudflare Worker. Mật khẩu không nằm trong
-            mã trang tĩnh.
+            Mật khẩu kiểm trên Cloudflare. Sau mỗi lần ship code mới bạn cần
+            đăng nhập lại vault.
           </p>
           <form className="demo-gate__form" onSubmit={onSubmit}>
             <label className="demo-gate__label">

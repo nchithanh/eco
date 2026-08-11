@@ -1,19 +1,18 @@
 /**
- * Cloudflare Worker — Demo vault gate (option B).
- * Protects `/demos/*` on dolphin-software.io.vn: no valid cookie → unlock UI only;
- * with cookie → proxy to GitHub Pages origin.
+ * Cloudflare Worker — Demo vault gate.
+ * Unlock: password check only (secret DEMOS_PASSWORD).
+ * Session “still valid after deploy” is owned by the site client via
+ * COOKIE_CONSENT_REVISION in sessionStorage — not this Worker.
  *
- * Secrets (Dashboard → Workers → Settings → Variables):
- *   DEMOS_PASSWORD     — vault password (never in the Next.js bundle)
- *   DEMOS_COOKIE_SECRET — HMAC secret for cookie signing
+ * Edge (custom domain route dolphin-software.io.vn/demos*):
+ *   simple HttpOnly cookie dolphin_demos=1 after unlock → proxy HTML;
+ *   missing cookie → unlock HTML.
  *
- * Workers Route (same zone as site, Proxied):
- *   dolphin-software.io.vn/demos*
- *
- * Also deployable on *.workers.dev for unlock API during local/dev.
+ * Workers.dev: https://dolphin-demos.nchithanh9999.workers.dev
  */
 const COOKIE_NAME = "dolphin_demos";
 const COOKIE_MAX_AGE = 60 * 60 * 12; // 12h
+const COOKIE_VALUE = "1";
 const ALLOW_ORIGINS = [
   "https://dolphin-software.io.vn",
   "https://www.dolphin-software.io.vn",
@@ -32,83 +31,57 @@ function corsHeaders(origin) {
   };
 }
 
-function b64url(buf) {
-  const bytes =
-    buf instanceof ArrayBuffer ? new Uint8Array(buf) : new Uint8Array(buf);
-  let s = "";
-  for (const b of bytes) s += String.fromCharCode(b);
-  return btoa(s).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
-}
-
-async function hmacSign(message, secret) {
-  const key = await crypto.subtle.importKey(
-    "raw",
-    new TextEncoder().encode(secret),
-    { name: "HMAC", hash: "SHA-256" },
-    false,
-    ["sign"],
-  );
-  const sig = await crypto.subtle.sign(
-    "HMAC",
-    key,
-    new TextEncoder().encode(message),
-  );
-  return b64url(sig);
-}
-
-async function mintCookieValue(secret) {
-  const exp = Math.floor(Date.now() / 1000) + COOKIE_MAX_AGE;
-  const payload = `demos:${exp}`;
-  const sig = await hmacSign(payload, secret);
-  return `${exp}.${sig}`;
-}
-
-async function cookieValid(request, secret) {
-  const raw = request.headers.get("Cookie") || "";
-  const match = raw.match(
-    new RegExp(`(?:^|;\\s*)${COOKIE_NAME}=([^;]+)`),
-  );
-  if (!match) return false;
-  const value = decodeURIComponent(match[1]);
-  const [expStr, sig] = value.split(".");
-  if (!expStr || !sig) return false;
-  const exp = Number(expStr);
-  if (!Number.isFinite(exp) || exp < Math.floor(Date.now() / 1000)) return false;
-  const expected = await hmacSign(`demos:${exp}`, secret);
-  if (expected.length !== sig.length) return false;
-  let ok = 0;
-  for (let i = 0; i < expected.length; i++) {
-    ok |= expected.charCodeAt(i) ^ sig.charCodeAt(i);
+function isCrossSite(request) {
+  const origin = request.headers.get("Origin") || "";
+  if (!origin) return false;
+  try {
+    return new URL(origin).host !== new URL(request.url).host;
+  } catch {
+    return false;
   }
-  return ok === 0;
 }
 
-function setCookieHeader(value, requestUrl) {
-  const url = new URL(requestUrl);
-  const secure = url.protocol === "https:";
+function cookiePathForRequest(requestUrl) {
+  const pathname = new URL(requestUrl).pathname;
+  return pathname.startsWith("/demos") ? "/demos" : "/";
+}
+
+function setCookieHeader(request) {
+  const url = new URL(request.url);
+  const crossSite = isCrossSite(request);
   const parts = [
-    `${COOKIE_NAME}=${encodeURIComponent(value)}`,
-    "Path=/demos",
+    `${COOKIE_NAME}=${COOKIE_VALUE}`,
+    `Path=${cookiePathForRequest(request.url)}`,
     `Max-Age=${COOKIE_MAX_AGE}`,
     "HttpOnly",
-    "SameSite=Lax",
+    crossSite ? "SameSite=None" : "SameSite=Lax",
   ];
-  if (secure) parts.push("Secure");
+  if (url.protocol === "https:" || crossSite) parts.push("Secure");
   return parts.join("; ");
 }
 
-function clearCookieHeader(requestUrl) {
-  const url = new URL(requestUrl);
-  const secure = url.protocol === "https:";
+function clearCookieHeader(request) {
+  const url = new URL(request.url);
+  const crossSite = isCrossSite(request);
   const parts = [
     `${COOKIE_NAME}=`,
-    "Path=/demos",
+    `Path=${cookiePathForRequest(request.url)}`,
     "Max-Age=0",
     "HttpOnly",
-    "SameSite=Lax",
+    crossSite ? "SameSite=None" : "SameSite=Lax",
   ];
-  if (secure) parts.push("Secure");
+  if (url.protocol === "https:" || crossSite) parts.push("Secure");
   return parts.join("; ");
+}
+
+function cookiePresent(request) {
+  const raw = request.headers.get("Cookie") || "";
+  const match = raw.match(
+    new RegExp(`(?:^|;\\s*)${COOKIE_NAME}=([^;]*)`),
+  );
+  if (!match) return false;
+  const value = decodeURIComponent(match[1] || "").trim();
+  return value.length > 0;
 }
 
 function unlockPageHtml(returnTo) {
@@ -199,7 +172,6 @@ export default {
       return new Response(null, { status: 204, headers: cors });
     }
 
-    // Standalone workers.dev health
     if (
       url.hostname.endsWith(".workers.dev") &&
       request.method === "GET" &&
@@ -211,15 +183,13 @@ export default {
     }
 
     const password = env.DEMOS_PASSWORD;
-    const secret = env.DEMOS_COOKIE_SECRET;
-    if (!password || !secret) {
-      return new Response("Demo gate misconfigured (missing secrets)", {
+    if (!password) {
+      return new Response("Demo gate misconfigured (missing DEMOS_PASSWORD)", {
         status: 500,
         headers: { "Content-Type": "text/plain;charset=UTF-8" },
       });
     }
 
-    // --- API (same-origin on site, or workers.dev) ---
     const apiPath = url.pathname.replace(/\/$/, "") || "/";
     const unlockPath =
       apiPath === "/demos/api/unlock" || apiPath === "/api/unlock";
@@ -244,26 +214,26 @@ export default {
           { status: 401, headers: cors },
         );
       }
-      const value = await mintCookieValue(secret);
       const headers = new Headers(cors);
       headers.set("Content-Type", "application/json;charset=UTF-8");
-      headers.append("Set-Cookie", setCookieHeader(value, request.url));
+      headers.append("Set-Cookie", setCookieHeader(request));
       return new Response(JSON.stringify({ ok: true }), { status: 200, headers });
     }
 
     if (statusPath && request.method === "GET") {
-      const unlocked = await cookieValid(request, secret);
-      return Response.json({ unlocked }, { headers: cors });
+      return Response.json(
+        { unlocked: cookiePresent(request) },
+        { headers: cors },
+      );
     }
 
     if (lockPath && request.method === "POST") {
       const headers = new Headers(cors);
       headers.set("Content-Type", "application/json;charset=UTF-8");
-      headers.append("Set-Cookie", clearCookieHeader(request.url));
+      headers.append("Set-Cookie", clearCookieHeader(request));
       return new Response(JSON.stringify({ ok: true }), { status: 200, headers });
     }
 
-    // --- Page gate (Workers Route on /demos*) ---
     if (!isDemosPath(url.pathname)) {
       return new Response("Not found", { status: 404 });
     }
@@ -272,8 +242,7 @@ export default {
       return new Response("Not found", { status: 404 });
     }
 
-    const unlocked = await cookieValid(request, secret);
-    if (!unlocked) {
+    if (!cookiePresent(request)) {
       const returnTo = url.pathname + url.search;
       return new Response(unlockPageHtml(returnTo), {
         status: 401,
@@ -285,7 +254,6 @@ export default {
       });
     }
 
-    // Proxy to origin (GitHub Pages via CF)
     return fetch(request);
   },
 };

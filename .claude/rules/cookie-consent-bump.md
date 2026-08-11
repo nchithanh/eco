@@ -26,6 +26,10 @@ Khi **commit**, **push**, hoặc **build** (Pages / `GITHUB_PAGES=true npm run b
 - Không bỏ qua bump vì “chỉ đổi CSS” — mọi ship lên production đều bump.
 - Không xóa localStorage/cookie của user bằng script ngoài; chỉ đổi revision là đủ.
 
+## Also invalidates
+
+- **Demo vault session** (`DemoGate`): cùng revision so sánh trong `sessionStorage` — bump → user phải login lại `/demos/`.
+
 ## Confirm-before-acting
 
 Vẫn chờ **`ok`** trước khi mutate. Đưa bước bump vào plan khi có commit/push/build.

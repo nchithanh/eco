@@ -87,14 +87,15 @@ Optional env: `NEXT_PUBLIC_CHAT_API_URL` (Worker URL). No paid Workers plan requ
 
 | | |
 | --- | --- |
-| Worker | `demos-gate` |
+| Worker | `demos-gate` → **`dolphin-demos.nchithanh9999.workers.dev`** |
 | Source | `workers/demos-gate/` (`worker.js`, README) |
 | Route | `dolphin-software.io.vn/demos*` (zone Proxied) |
-| Secrets | `DEMOS_PASSWORD`, `DEMOS_COOKIE_SECRET` |
-| Cookie | `dolphin_demos` HttpOnly, `Path=/demos`, HMAC, 12h |
-| Client | `lib/demos/gate-api.ts` + `DemoGate` → `POST/GET /demos/api/unlock|status` |
+| Secrets | `DEMOS_PASSWORD` only (CF checks password) |
+| Edge cookie | `dolphin_demos=1` HttpOnly (HTML proxy) |
+| Client session | `sessionStorage` value = `COOKIE_CONSENT_REVISION` — bump on push → login lại |
+| Client API | `lib/demos/gate-api.ts` + `DemoGate` — local → workers.dev; prod → `/demos/api/*` |
 
-Unlocked requests `fetch(request)` to GitHub Pages origin. Locked → `401` unlock HTML from the Worker. Optional `NEXT_PUBLIC_DEMOS_GATE_URL` for API tests against `*.workers.dev`. Direct `*.github.io` bypasses the Worker if that host stays public.
+Unlocked edge requests `fetch(request)` to origin. Locked → `401` unlock HTML. Direct `*.github.io` bypasses the route if that host stays public.
 
 ## Top folders
 
