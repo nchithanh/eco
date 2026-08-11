@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-08-11 (demos-gate Worker)
+
+- Demo vault **option B**: Cloudflare Worker `workers/demos-gate/` chặn `/demos*` HTML khi chưa có cookie HMAC; unlock `POST /demos/api/unlock`; secrets `DEMOS_PASSWORD` / `DEMOS_COOKIE_SECRET`.
+- Client: bỏ mật khẩu khỏi bundle (`lib/demos/catalog.ts`); `DemoGate` + `lib/demos/gate-api.ts` gọi Worker với `credentials`.
+
 ## 2026-08-11 (about-team-editorial)
 
 - `/about/` team: editorial alternating portraits (`AboutTeamSection`) — no cards/pills; architectural grid; soft reveal + micro-parallax (`prefers-reduced-motion` off). Content unchanged.
@@ -39,7 +44,7 @@
 
 ## 2026-08-11 (demos vault gate)
 
-- `/demos/` index + password gate **`dolphincaheo`** (`DemoGate`, sessionStorage) bọc mọi route dưới `/demos/*` — noindex; không phải auth server.
+- `/demos/` index + client gate (`DemoGate`) bọc `/demos/*` — noindex. (Superseded same day by **demos-gate Worker** edge gate — see entry above.)
 
 ## 2026-08-11 (news: landing page sales ô tô)
 

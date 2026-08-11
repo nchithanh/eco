@@ -81,6 +81,21 @@ Static Pages cannot keep a Groq API key. Chat calls a **Workers Free** proxy:
 
 Optional env: `NEXT_PUBLIC_CHAT_API_URL` (Worker URL). No paid Workers plan required for chat volume on Free.
 
+## Demo vault — Cloudflare Worker gate
+
+`/demos/*` on the custom domain is gated at the edge so HTML is not public without a signed cookie. Password is **not** in the Next.js bundle.
+
+| | |
+| --- | --- |
+| Worker | `demos-gate` |
+| Source | `workers/demos-gate/` (`worker.js`, README) |
+| Route | `dolphin-software.io.vn/demos*` (zone Proxied) |
+| Secrets | `DEMOS_PASSWORD`, `DEMOS_COOKIE_SECRET` |
+| Cookie | `dolphin_demos` HttpOnly, `Path=/demos`, HMAC, 12h |
+| Client | `lib/demos/gate-api.ts` + `DemoGate` → `POST/GET /demos/api/unlock|status` |
+
+Unlocked requests `fetch(request)` to GitHub Pages origin. Locked → `401` unlock HTML from the Worker. Optional `NEXT_PUBLIC_DEMOS_GATE_URL` for API tests against `*.workers.dev`. Direct `*.github.io` bypasses the Worker if that host stays public.
+
 ## Top folders
 
 | Path | Role |
@@ -88,7 +103,7 @@ Optional env: `NEXT_PUBLIC_CHAT_API_URL` (Worker URL). No paid Workers plan requ
 | `app/` | Routes & root layout |
 | `components/` | UI sections & shared chrome |
 | `lib/` | i18n, estimators, `pricing-fx` (locale package prices), content data, theme, assets |
-| `workers/` | Cloudflare Worker sources (e.g. `dolphin-chat` Groq proxy) |
+| `workers/` | Cloudflare Worker sources (`dolphin-chat` Groq proxy; `demos-gate` vault) |
 | `public/` | Static assets (mascot, brand, about, tech, themes) |
 | `tests/` | Vitest suites |
 | `documentations/` | Canonical project docs (this tree) |

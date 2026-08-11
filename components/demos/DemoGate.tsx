@@ -9,9 +9,10 @@ import {
 import Link from "next/link";
 import { assetPath } from "@/lib/asset";
 import {
-  DEMO_GATE_PASSWORD,
   DEMO_GATE_STORAGE_KEY,
-} from "@/lib/demos/catalog";
+  fetchDemoGateStatus,
+  unlockDemoGate,
+} from "@/lib/demos/gate-api";
 
 type DemoGateProps = {
   children: ReactNode;
@@ -22,30 +23,48 @@ export function DemoGate({ children }: DemoGateProps) {
   const [unlocked, setUnlocked] = useState(false);
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [pending, setPending] = useState(false);
 
   useEffect(() => {
-    try {
-      const ok = sessionStorage.getItem(DEMO_GATE_STORAGE_KEY) === "1";
-      setUnlocked(ok);
-    } catch {
-      setUnlocked(false);
-    }
-    setReady(true);
+    let cancelled = false;
+    (async () => {
+      const remote = await fetchDemoGateStatus();
+      if (cancelled) return;
+      if (remote) {
+        try {
+          sessionStorage.setItem(DEMO_GATE_STORAGE_KEY, "1");
+        } catch {
+          /* ignore */
+        }
+        setUnlocked(true);
+      }
+      setReady(true);
+    })();
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
-  const onSubmit = (e: FormEvent) => {
+  const onSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    if (password.trim() === DEMO_GATE_PASSWORD) {
-      try {
-        sessionStorage.setItem(DEMO_GATE_STORAGE_KEY, "1");
-      } catch {
-        /* ignore quota / private mode */
-      }
-      setUnlocked(true);
-      setError("");
+    setPending(true);
+    setError("");
+    const result = await unlockDemoGate(password);
+    setPending(false);
+    if (!result.ok) {
+      setError(result.error);
       return;
     }
-    setError("Mật khẩu không đúng.");
+    try {
+      sessionStorage.setItem(DEMO_GATE_STORAGE_KEY, "1");
+    } catch {
+      /* ignore */
+    }
+    setUnlocked(true);
+    // Reload so Worker-proxied HTML requests send the new cookie.
+    if (typeof window !== "undefined") {
+      window.location.reload();
+    }
   };
 
   if (!ready) {
@@ -63,18 +82,18 @@ export function DemoGate({ children }: DemoGateProps) {
           <p className="demo-gate__eyebrow">Dolphin Software · Demo vault</p>
           <h1 className="demo-gate__title">Nhập mật khẩu để xem demo</h1>
           <p className="demo-gate__lead">
-            Khu vực demo khách hàng — không public SEO. Gate phía trình duyệt
-            (session), không thay thế bảo mật server.
+            Vault được bảo vệ trên Cloudflare Worker. Mật khẩu không nằm trong
+            mã trang tĩnh.
           </p>
           <form className="demo-gate__form" onSubmit={onSubmit}>
             <label className="demo-gate__label">
-              <span>Password</span>
+              Mật khẩu
               <input
                 type="password"
                 name="password"
                 autoComplete="current-password"
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={(ev) => setPassword(ev.target.value)}
                 required
               />
             </label>
@@ -83,12 +102,16 @@ export function DemoGate({ children }: DemoGateProps) {
                 {error}
               </p>
             ) : null}
-            <button type="submit" className="demo-gate__submit">
-              Mở demo
+            <button
+              type="submit"
+              className="demo-gate__submit"
+              disabled={pending}
+            >
+              {pending ? "Đang mở…" : "Mở vault"}
             </button>
           </form>
           <p className="demo-gate__back">
-            <Link href={assetPath("/")}>← Về site Dolphin</Link>
+            <Link href={assetPath("/")}>← Về trang chủ</Link>
           </p>
         </div>
       </div>

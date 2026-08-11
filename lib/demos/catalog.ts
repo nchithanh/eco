@@ -1,7 +1,4 @@
-/** Client-side demo vault — not real security; obscures demos on static Pages. */
-export const DEMO_GATE_PASSWORD = "dolphincaheo";
-export const DEMO_GATE_STORAGE_KEY = "dolphin-demos-unlocked-v1";
-
+/** Demo vault catalog — password lives in Cloudflare Worker secrets only. */
 export type DemoCatalogItem = {
   slug: string;
   href: string;
