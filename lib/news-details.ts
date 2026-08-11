@@ -2,6 +2,7 @@ import type { Locale } from "@/lib/i18n/types";
 import { chuyenDoiAiDoanhNghiepLoTrinh5BuocCopy } from "@/lib/news-articles/chuyen-doi-ai-doanh-nghiep-lo-trinh-5-buoc";
 import { dolphinCareBaoCaoInsightHangNgayCopy } from "@/lib/news-articles/dolphin-care-bao-cao-insight-hang-ngay";
 import { dolphinCareChatbotAiTangChuyenDoiCopy } from "@/lib/news-articles/dolphin-care-chatbot-ai-tang-chuyen-doi";
+import { landingPageGiaoVienTiengAnhCopy } from "@/lib/news-articles/landing-page-giao-vien-tieng-anh";
 import { landingPageSalesOToCaNhanCopy } from "@/lib/news-articles/landing-page-sales-o-to-ca-nhan";
 import { studioCuoiWebsiteXemVayOnlineCopy } from "@/lib/news-articles/studio-cuoi-website-xem-vay-online";
 import { websiteGioiThieuXeShowroomCopy } from "@/lib/news-articles/website-gioi-thieu-xe-showroom";
@@ -17,6 +18,7 @@ export const NEWS_CATEGORIES = [
 export type NewsCategory = (typeof NEWS_CATEGORIES)[number];
 
 export const NEWS_SLUGS = [
+  "landing-page-giao-vien-tieng-anh",
   "landing-page-sales-o-to-ca-nhan",
   "chuyen-doi-ai-doanh-nghiep-lo-trinh-5-buoc",
   "dolphin-care-chatbot-ai-tang-chuyen-doi",
@@ -82,6 +84,10 @@ type NewsMeta = {
 };
 
 const metaBySlug: Record<NewsSlug, NewsMeta> = {
+  "landing-page-giao-vien-tieng-anh": {
+    category: "cases",
+    date: "2026-08-11",
+  },
   "landing-page-sales-o-to-ca-nhan": {
     category: "cases",
     date: "2026-08-11",
@@ -121,6 +127,8 @@ const categoryImages: Record<NewsCategory, string> = {
 };
 
 const slugImages: Partial<Record<NewsSlug, string>> = {
+  "landing-page-giao-vien-tieng-anh":
+    "/news/landing-page-giao-vien-tieng-anh-cover.jpg",
   "landing-page-sales-o-to-ca-nhan":
     "/news/landing-page-sales-o-to-cover.jpg",
   "chuyen-doi-ai-doanh-nghiep-lo-trinh-5-buoc":
@@ -142,6 +150,7 @@ export function getNewsImage(slug: NewsSlug): string {
 
 const copyByLocale: Record<Locale, Record<NewsSlug, NewsArticleCopy>> = {
   vi: {
+    "landing-page-giao-vien-tieng-anh": landingPageGiaoVienTiengAnhCopy.vi,
     "landing-page-sales-o-to-ca-nhan": landingPageSalesOToCaNhanCopy.vi,
     "chuyen-doi-ai-doanh-nghiep-lo-trinh-5-buoc":
       chuyenDoiAiDoanhNghiepLoTrinh5BuocCopy.vi,
@@ -320,6 +329,7 @@ const copyByLocale: Record<Locale, Record<NewsSlug, NewsArticleCopy>> = {
     },
   },
   en: {
+    "landing-page-giao-vien-tieng-anh": landingPageGiaoVienTiengAnhCopy.en,
     "landing-page-sales-o-to-ca-nhan": landingPageSalesOToCaNhanCopy.en,
     "chuyen-doi-ai-doanh-nghiep-lo-trinh-5-buoc":
       chuyenDoiAiDoanhNghiepLoTrinh5BuocCopy.en,
@@ -426,6 +436,7 @@ const copyByLocale: Record<Locale, Record<NewsSlug, NewsArticleCopy>> = {
     },
   },
   ja: {
+    "landing-page-giao-vien-tieng-anh": landingPageGiaoVienTiengAnhCopy.ja,
     "landing-page-sales-o-to-ca-nhan": landingPageSalesOToCaNhanCopy.ja,
     "chuyen-doi-ai-doanh-nghiep-lo-trinh-5-buoc":
       chuyenDoiAiDoanhNghiepLoTrinh5BuocCopy.ja,

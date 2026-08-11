@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-08-11 (news: landing page giáo viên tiếng Anh)
+
+- Bài `/news/landing-page-giao-vien-tieng-anh/` (VI/EN/JA): LP cho giáo viên tiếng Anh cá nhân vs Facebook-only; KW landing page giáo viên + neo *làm landing page*; ảnh cover + lead-scatter/structure/outcome; prompts `documentations/news-landing-page-giao-vien-tieng-anh-canva-prompts.md`.
+
 ## 2026-08-11 (nav Templates)
 
 - Utility nav: **Templates** (trái News) + footer Updates → `/demos/` (vault gated); label `templatesNavLabel` (`templates-copy.ts`).

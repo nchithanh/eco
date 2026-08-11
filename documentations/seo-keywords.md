@@ -36,7 +36,7 @@ Liên quan: [growth-reach-users.md](./growth-reach-users.md) §4 & §12 B.
 | 3 | thiết kế web | comm | `/services/web/` | Biến thể | [ ] |
 | 4 | báo giá website | comm | `/news/` checklist hoặc quote CTA | Lead magnet | [ ] |
 | 5 | báo giá thiết kế website | comm | `/news/` + `#contact` | | [ ] |
-| 6 | làm landing page | comm | `/services/web/` · `/news/landing-page-sales-o-to-ca-nhan/` | | [x] |
+| 6 | làm landing page | comm | `/services/landing/` · `/news/landing-page-sales-o-to-ca-nhan/` · `/news/landing-page-giao-vien-tieng-anh/` | | [x] |
 | 7 | thiết kế landing page | comm | `/services/web/` | | [ ] |
 | 8 | làm website doanh nghiệp | comm | `/services/web/` | | [ ] |
 | 9 | làm website bán hàng | comm | `/services/web/` | | [ ] |
@@ -78,8 +78,8 @@ Liên quan: [growth-reach-users.md](./growth-reach-users.md) §4 & §12 B.
 | 36 | website quán cafe | comm | landing / web | [ ] |
 | 37 | website nhà hàng | comm | landing / web | [ ] |
 | 38 | website bất động sản | comm | landing / web | [ ] |
-| 39 | website giáo dục | comm | landing / web | [ ] |
-| 40 | website trung tâm anh ngữ | comm | landing / web | [ ] |
+| 39 | website giáo dục | comm | `/news/landing-page-giao-vien-tieng-anh/` · landing | [x] |
+| 40 | website trung tâm anh ngữ | comm | landing / web · liên quan bài GV tiếng Anh | [ ] |
 | 41 | website bán hàng online | comm | `/services/web/` | [ ] |
 | 42 | website đặt lịch | comm | web + works | [ ] |
 | 43 | website booking | comm | works / web | [ ] |
