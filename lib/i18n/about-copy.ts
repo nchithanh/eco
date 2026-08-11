@@ -9,6 +9,15 @@ export type AboutBuildItem = {
   href?: string;
 };
 
+export type AboutTeamMember = {
+  id: string;
+  name: string;
+  role: string;
+  body: string;
+  image: string;
+  tags: string[];
+};
+
 export type AboutCopy = {
   metaTitle: string;
   metaDescription: string;
@@ -30,12 +39,15 @@ export type AboutCopy = {
   proofTitle: string;
   proofSupport: string;
   proofs: { title: string; body: string }[];
+  /** Section chrome — team grid on /about/ */
   founderEyebrow: string;
   founderTitle: string;
+  /** @deprecated Prefer team[0] — kept for Person JSON-LD */
   founderRole: string;
   founderName: string;
   founderBody: string;
   founderStack: string[];
+  team: AboutTeamMember[];
   faqEyebrow: string;
   faqTitle: string;
   faqItems: AboutFaqItem[];
@@ -124,7 +136,7 @@ const vi: AboutCopy = {
     },
   ],
   founderEyebrow: "Team",
-  founderTitle: "Người sáng lập Dolphin Software là ai?",
+  founderTitle: "Đội ngũ Dolphin Software",
   founderRole: "Founder · Product Backend / Tech Lead",
   founderName: "Nguyễn Chí Thành",
   founderBody:
@@ -138,6 +150,33 @@ const vi: AboutCopy = {
     "Redis",
     "MySQL",
     "Grafana",
+  ],
+  team: [
+    {
+      id: "thanh",
+      name: "Nguyễn Chí Thành",
+      role: "Founder · Product Backend / Tech Lead",
+      body: "Nguyễn Chí Thành có hơn 7 năm kinh nghiệm backend trên các sản phẩm live: Marathon, Myspa, và Splus. Anh đảm nhiệm vai trò team lead, xử lý sự cố production, và thiết kế hệ thống — tư duy production được áp dụng trực tiếp vào mọi dự án tại Dolphin Software.",
+      image: "/about/founder.png",
+      tags: [
+        "Golang",
+        "NestJS",
+        "Laravel",
+        "TypeScript",
+        "Docker",
+        "Redis",
+        "MySQL",
+        "Grafana",
+      ],
+    },
+    {
+      id: "nghia",
+      name: "Hồ Quốc Nghĩa",
+      role: "Business Development · Japan Market",
+      body: "Hồ Quốc Nghĩa phụ trách phát triển kinh doanh và thị trường Nhật Bản — sales & marketing, kết nối SMB/đối tác JP, đề xuất hướng website/phần mềm phù hợp và báo giá rõ phạm vi đến khi chốt dự án.",
+      image: "/about/team-nghia.png",
+      tags: ["Japan", "Sales", "Marketing", "BD", "Partnerships"],
+    },
   ],
   faqEyebrow: "FAQ",
   faqTitle: "Câu hỏi thường gặp về Dolphin Software",
@@ -253,7 +292,7 @@ const en: AboutCopy = {
     },
   ],
   founderEyebrow: "Team",
-  founderTitle: "Who founded Dolphin Software?",
+  founderTitle: "The Dolphin Software team",
   founderRole: "Founder · Product Backend / Tech Lead",
   founderName: "Nguyễn Chí Thành",
   founderBody:
@@ -267,6 +306,33 @@ const en: AboutCopy = {
     "Redis",
     "MySQL",
     "Grafana",
+  ],
+  team: [
+    {
+      id: "thanh",
+      name: "Nguyễn Chí Thành",
+      role: "Founder · Product Backend / Tech Lead",
+      body: "Nguyễn Chí Thành has 7+ years of backend experience on live products: Marathon, Myspa, and Splus. He has led teams, handled production incidents, and designed systems — production thinking applied directly to every Dolphin Software project.",
+      image: "/about/founder.png",
+      tags: [
+        "Golang",
+        "NestJS",
+        "Laravel",
+        "TypeScript",
+        "Docker",
+        "Redis",
+        "MySQL",
+        "Grafana",
+      ],
+    },
+    {
+      id: "nghia",
+      name: "Hồ Quốc Nghĩa",
+      role: "Business Development · Japan Market",
+      body: "Hồ Quốc Nghĩa owns business development for the Japan market — sales & marketing, partnering with Japanese SMBs, proposing the right website/software path, and clear scoped quotes through close.",
+      image: "/about/team-nghia.png",
+      tags: ["Japan", "Sales", "Marketing", "BD", "Partnerships"],
+    },
   ],
   faqEyebrow: "FAQ",
   faqTitle: "Frequently asked questions about Dolphin Software",
@@ -382,7 +448,7 @@ const ja: AboutCopy = {
     },
   ],
   founderEyebrow: "Team",
-  founderTitle: "Dolphin Softwareの創業者は誰ですか？",
+  founderTitle: "Dolphin Softwareのチーム",
   founderRole: "Founder · Product Backend / Tech Lead",
   founderName: "Nguyễn Chí Thành",
   founderBody:
@@ -396,6 +462,33 @@ const ja: AboutCopy = {
     "Redis",
     "MySQL",
     "Grafana",
+  ],
+  team: [
+    {
+      id: "thanh",
+      name: "Nguyễn Chí Thành",
+      role: "Founder · Product Backend / Tech Lead",
+      body: "Nguyễn Chí Thànhはライブプロダクト（Marathon、Myspa、Splus）で7年以上のバックエンド経験を持ちます。チームリード、本番インシデント対応、システム設計 — 本番視点をDolphin Softwareの全プロジェクトに直接活かしています。",
+      image: "/about/founder.png",
+      tags: [
+        "Golang",
+        "NestJS",
+        "Laravel",
+        "TypeScript",
+        "Docker",
+        "Redis",
+        "MySQL",
+        "Grafana",
+      ],
+    },
+    {
+      id: "nghia",
+      name: "Hồ Quốc Nghĩa",
+      role: "Business Development · Japan Market",
+      body: "Hồ Quốc Nghĩaは日本市場の事業開発を担当 — セールス＆マーケティング、日本のSMB／パートナーとの接点、適切なWeb/ソフトウェア提案、明確な見積りで成約まで伴走します。",
+      image: "/about/team-nghia.png",
+      tags: ["Japan", "Sales", "Marketing", "BD", "Partnerships"],
+    },
   ],
   faqEyebrow: "FAQ",
   faqTitle: "Dolphin Softwareについてよくある質問",

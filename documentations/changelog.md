@@ -1,5 +1,17 @@
 # Changelog
 
+## 2026-08-11 (about-team-editorial)
+
+- `/about/` team: editorial alternating portraits (`AboutTeamSection`) — no cards/pills; architectural grid; soft reveal + micro-parallax (`prefers-reduced-motion` off). Content unchanged.
+
+## 2026-08-11 (about-team-nghia)
+
+- `/about/` team grid: add **Hồ Quốc Nghĩa** (Business Development · **Japan Market**) + photo `public/about/team-nghia.png`; Person JSON-LD per member; schema `company.json` team.
+
+## 2026-08-11 (founder-avatar)
+
+- Replace founder photo `public/about/founder.png` (+ square `public/avatar.png`) with new portrait.
+
 ## 2026-08-11 (favicon-google)
 
 - Favicon set for Google SERP: add 48×48 + 96×96 PNG, rebuild multi-size `favicon.ico`, expose `/icon.png` in `public/`, update `layout` icons + `site.webmanifest`.

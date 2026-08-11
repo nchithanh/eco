@@ -2209,6 +2209,59 @@ html[data-theme="black"] .kuct-loader-progress {
   animation: none !important;
 }
 
+/* About team — editorial portraits (no cards) */
+.kuct-team-arch-grid {
+  background-image:
+    linear-gradient(
+      to right,
+      color-mix(in srgb, var(--kuct-border) 70%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--kuct-border) 70%, transparent) 1px,
+      transparent 1px
+    );
+  background-size: 3rem 3rem;
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    #000 8%,
+    #000 92%,
+    transparent
+  );
+  opacity: 0.35;
+}
+
+.kuct-team-portrait {
+  opacity: 0;
+  transform: translate3d(0, 26px, 0);
+  transition:
+    opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.kuct-team-portrait.is-inview {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  will-change: auto;
+}
+
+.kuct-team-tag {
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 0.2em;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .kuct-team-tag:hover {
+    color: var(--kuct-text);
+    text-decoration-color: color-mix(in srgb, var(--kuct-accent) 55%, transparent);
+  }
+}
+
 @keyframes kuct-rotate-globe {
   from {
     transform: rotate(0deg);
@@ -2343,6 +2396,13 @@ html[data-theme="black"] .kuct-loader-progress {
     letter-spacing: inherit;
     transition: none;
     will-change: auto;
+  }
+
+  .kuct-team-portrait,
+  .kuct-team-portrait.is-inview {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
   }
 
   .kuct-title-enter {

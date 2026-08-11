@@ -191,6 +191,12 @@ describe("service detail pages", () => {
       screen.getAllByText(/Nguyễn Chí Thành/i).length,
     ).toBeGreaterThanOrEqual(1);
     expect(
+      screen.getAllByText(/Hồ Quốc Nghĩa/i).length,
+    ).toBeGreaterThanOrEqual(1);
+    expect(
+      screen.getByText(/Business Development · Japan Market/i),
+    ).toBeInTheDocument();
+    expect(
       screen.getByRole("link", { name: /01 · Web & App/i }),
     ).toHaveAttribute("href", expect.stringMatching(/\/services\/web\/?/));
   });

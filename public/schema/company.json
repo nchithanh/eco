@@ -310,8 +310,25 @@
     "experienceYears": "7+",
     "products": ["Marathon", "Myspa", "Splus"],
     "stack": ["Golang", "NestJS", "Laravel", "TypeScript", "Docker", "Redis", "MySQL", "Grafana"],
+    "image": "/about/founder.png",
     "aboutRoute": "/about/"
   },
+  "team": [
+    {
+      "id": "thanh",
+      "name": "Nguyễn Chí Thành",
+      "role": "Founder · Product Backend / Tech Lead",
+      "image": "/about/founder.png"
+    },
+    {
+      "id": "nghia",
+      "name": "Hồ Quốc Nghĩa",
+      "role": "Business Development · Japan Market",
+      "image": "/about/team-nghia.png",
+      "tags": ["Japan", "Sales", "Marketing", "BD", "Partnerships"],
+      "focus": "Japan market"
+    }
+  ],
   "caseStudies": {
     "portfolioAnchors": [
       "#works",

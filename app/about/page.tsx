@@ -30,12 +30,14 @@ export default function AboutPage() {
  id="about-jsonld"
  data={[
  faqPageJsonLd(c.faqItems),
+ ...c.team.map((member) =>
  personJsonLd({
- name: c.founderName,
- jobTitle: c.founderRole,
- description: c.founderBody,
- imagePath: "/about/founder.png",
+ name: member.name,
+ jobTitle: member.role,
+ description: member.body,
+ imagePath: member.image,
  }),
+ ),
  ]}
  />
  <Nav />

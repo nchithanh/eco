@@ -2,8 +2,8 @@
 
 import { useId, useState } from "react";
 import { AccentText, BrandName } from "@/components/BrandName";
+import { AboutTeamSection } from "@/components/AboutTeamSection";
 import { FaqAnswerText } from "@/components/FaqAnswerText";
-import { LazyImage } from "@/components/LazyImage";
 import { Reveal } from "@/components/Reveal";
 import { useQuote } from "@/components/QuoteProvider";
 import { assetPath } from "@/lib/asset";
@@ -170,51 +170,11 @@ export function AboutContent() {
  </div>
  </section>
 
- <section className="scroll-mt-20 py-24">
- <div className="mx-auto max-w-6xl px-6">
- <Reveal className="kuct-surface-card grid items-center gap-10 p-8 sm:p-10 lg:grid-cols-[220px_1fr] lg:gap-12 lg:p-12">
- <div className="relative mx-auto w-full max-w-[200px] lg:max-w-none">
- <div className="relative aspect-[3/4] overflow-hidden border-2 border-black bg-[var(--kuct-panel-2)]">
- <LazyImage
- src={assetPath("/about/founder.png")}
- alt={`${a.founderName} — ${a.founderRole}`}
- fill
- className="object-cover object-top"
- sizes="220px"
- watermark={false}
+ <AboutTeamSection
+ eyebrow={a.founderEyebrow}
+ title={a.founderTitle}
+ team={a.team}
  />
- </div>
- </div>
- <div className="min-w-0 text-left">
- <p className="kuct-type-eyebrow">
- {a.founderEyebrow}
- </p>
- <h2 className="mt-3 font-display text-2xl font-semibold tracking-tight text-[var(--kuct-text)] sm:text-[1.75rem]">
- {a.founderTitle}
- </h2>
- <p className="mt-2 font-display text-lg font-semibold text-[var(--kuct-text)]">
- {a.founderName}
- </p>
- <p className="mt-1 text-sm text-[var(--kuct-muted)]">
- {a.founderRole}
- </p>
- <p className="mt-4 max-w-[52ch] text-sm leading-[1.7] text-[var(--kuct-muted)]">
- {a.founderBody}
- </p>
- <ul className="mt-5 flex list-none flex-wrap gap-2 p-0">
- {a.founderStack.map((item) => (
- <li
- key={item}
- className="rounded-[10px] bg-[var(--kuct-panel-2)] px-3 py-1.5 text-xs font-semibold text-[var(--kuct-muted)]"
- >
- {item}
- </li>
- ))}
- </ul>
- </div>
- </Reveal>
- </div>
- </section>
 
  <section
  id="about-faq"
