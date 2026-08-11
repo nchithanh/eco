@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-08-11 (leads rate limit 10/h)
+
+- `dolphin-kick` Worker: rate limit **10 POST / IP / giờ** (harden rate key + D1 LIMIT check). Paste lại `workers/leads/worker.js` trên CF.
+
+## 2026-08-11 (leads Worker D1)
+
+- Form quote + careers: submit → CF Worker **`dolphin-kick`** (`https://dolphin-kick.nchithanh9999.workers.dev`) + D1 (không mailto). Client `lib/leads-api.ts`. Prompt scaffold: `workers/leads/CF-AI-PROMPT.md`.
+
 ## 2026-08-11 (quote drawer left)
 
 - Quote estimator: centered modal → left drawer (Ask AI chrome: white shell, dot scroll, slide-in); logic/mailto unchanged.

@@ -12,6 +12,7 @@ import { BrandText } from "@/components/BrandName";
 import { Reveal } from "@/components/Reveal";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
 import { isJobAcceptingApplications, JOB_HIRING, sortJobsByDisplayOrder } from "@/lib/careers-jobs";
+import { submitLead } from "@/lib/leads-api";
 
 const fieldClass =
  "mt-1 w-full rounded-xl border border-black/15 bg-[var(--kuct-panel)] px-4 py-2.5 text-[var(--kuct-text)] outline-none backdrop-blur-md kuct-field focus:border-black/40";
@@ -28,10 +29,12 @@ export function CareersApplyForm({ initialRole }: Props) {
  );
 }
 
-function CareersApplyFormInner({ initialRole }: Props) {
- const { t } = useLocale();
+ function CareersApplyFormInner({ initialRole }: Props) {
+ const { t, locale } = useLocale();
  const a = t.careers.apply;
  const [sent, setSent] = useState(false);
+ const [sendError, setSendError] = useState(false);
+ const [submitting, setSubmitting] = useState(false);
  const [now, setNow] = useState<Date | null>(null);
  const schema = useMemo(() => createCareersSchema(a.errors), [a.errors]);
 
@@ -65,23 +68,39 @@ function CareersApplyFormInner({ initialRole }: Props) {
  formState: { errors },
  } = useForm<CareersValues>({
  resolver: zodResolver(schema),
- defaultValues: { role: safeInitial },
+ defaultValues: { role: safeInitial, honeypot: "" },
  });
 
  useEffect(() => {
  if (safeInitial) setValue("role", safeInitial);
  }, [safeInitial, setValue]);
 
- const onSubmit = (data: CareersValues) => {
- if (!isJobAcceptingApplications(data.role)) return;
+ const onSubmit = async (data: CareersValues) => {
+ if (!isJobAcceptingApplications(data.role) || submitting) return;
  const roleTitle =
  t.careers.jobs.find((j) => j.id === data.role)?.title ?? data.role;
- const subject = encodeURIComponent(`${a.mailSubject} ${roleTitle}`);
- const body = encodeURIComponent(
- `${a.mailBodyName}: ${data.name}\n${a.mailBodyContact}: ${data.contact}\n${a.mailBodyPortfolio}: ${data.portfolio}\n${a.mailBodyRole}: ${roleTitle}\n\n${data.message}`,
- );
- window.location.href = `mailto:nchithanh9999@gmail.com?subject=${subject}&body=${body}`;
+ setSubmitting(true);
+ setSendError(false);
+ setSent(false);
+ const result = await submitLead({
+ source: "careers",
+ name: data.name,
+ contact: data.contact,
+ note: data.message,
+ locale,
+ payload: {
+ portfolio: data.portfolio,
+ role: data.role,
+ roleTitle,
+ },
+ honeypot: data.honeypot ?? "",
+ });
+ setSubmitting(false);
+ if (result.ok) {
  setSent(true);
+ return;
+ }
+ setSendError(true);
  };
 
  return (
@@ -104,6 +123,18 @@ function CareersApplyFormInner({ initialRole }: Props) {
  className="mt-10 max-w-xl space-y-5"
  noValidate
  >
+ <div
+ className="absolute -left-[9999px] h-0 w-0 overflow-hidden"
+ aria-hidden
+ >
+ <label htmlFor="careers-honeypot">Company</label>
+ <input
+ id="careers-honeypot"
+ tabIndex={-1}
+ autoComplete="off"
+ {...register("honeypot")}
+ />
+ </div>
  <div>
  <label
  htmlFor="careers-name"
@@ -201,12 +232,16 @@ function CareersApplyFormInner({ initialRole }: Props) {
  </div>
  <button
  type="submit"
- className="kuct-btn-primary rounded-lg px-5 py-3 text-sm font-semibold"
+ disabled={submitting}
+ className="kuct-btn-primary rounded-lg px-5 py-3 text-sm font-semibold disabled:opacity-50"
  >
  {a.submit}
  </button>
  {sent && (
  <p className="text-sm text-[var(--kuct-accent)]">{a.sent}</p>
+ )}
+ {sendError && (
+ <p className="text-sm text-red-600">{a.sendError}</p>
  )}
  </form>
  </Reveal>

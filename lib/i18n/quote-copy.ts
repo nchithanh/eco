@@ -39,6 +39,7 @@ export type QuoteCopy = {
   notePlaceholder: string;
   submit: string;
   sent: string;
+  sendError: string;
   errors: { name: string; contact: string };
   mailSubject: string;
   mailBodyName: string;
@@ -109,7 +110,8 @@ const vi: QuoteCopy = {
   note: "Ghi chú",
   notePlaceholder: "Nhu cầu, deadline, ngân sách…",
   submit: "Gửi yêu cầu báo giá",
-  sent: "Đã mở email — hoàn tất gửi từ hộp thư của bạn.",
+  sent: "Đã nhận yêu cầu — mình sẽ liên hệ sớm.",
+  sendError: "Gửi chưa thành công. Thử lại hoặc Zalo trực tiếp.",
   errors: {
     name: "Vui lòng nhập họ tên",
     contact: "Vui lòng nhập email hoặc Zalo",
@@ -183,7 +185,8 @@ const en: QuoteCopy = {
   note: "Notes",
   notePlaceholder: "Needs, deadline, budget…",
   submit: "Send quote request",
-  sent: "Email client opened — finish sending from your inbox.",
+  sent: "Request received — we’ll get back to you soon.",
+  sendError: "Couldn’t send. Try again or message us on Zalo.",
   errors: {
     name: "Please enter your name",
     contact: "Please enter email or Zalo",
@@ -257,7 +260,8 @@ const ja: QuoteCopy = {
   note: "補足",
   notePlaceholder: "要件・期限・希望予算…",
   submit: "見積依頼を送信",
-  sent: "メール作成画面を開きました。送信を完了してください。",
+  sent: "受け付けました。折り返しご連絡します。",
+  sendError: "送信に失敗しました。再試行するか Zalo でご連絡ください。",
   errors: {
     name: "お名前を入力してください",
     contact: "メールまたは Zalo を入力してください",

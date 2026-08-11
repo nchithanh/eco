@@ -24,6 +24,7 @@ import {
   formatQuoteEstimateRange,
   formatQuoteHintRange,
 } from "@/lib/pricing-fx";
+import { submitLead } from "@/lib/leads-api";
 
 const fieldClass =
   "mt-1.5 w-full rounded-[10px] border border-black/[0.08] bg-white px-3.5 py-2.5 text-sm text-[var(--kuct-text)] outline-none transition focus:border-[rgba(var(--kuct-accent-rgb),0.35)]";
@@ -32,6 +33,7 @@ type FormValues = {
   name: string;
   contact: string;
   note: string;
+  honeypot: string;
 };
 
 function IconClose({ className }: { className?: string }) {
@@ -107,6 +109,8 @@ export function QuoteEstimatorModal({
     DEFAULT_QUOTE_SELECTION,
   );
   const [sent, setSent] = useState(false);
+  const [sendError, setSendError] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
   const schema = useMemo(
     () =>
@@ -114,6 +118,7 @@ export function QuoteEstimatorModal({
         name: z.string().trim().min(1, q.errors.name),
         contact: z.string().trim().min(1, q.errors.contact),
         note: z.string(),
+        honeypot: z.string(),
       }),
     [q.errors],
   );
@@ -124,7 +129,7 @@ export function QuoteEstimatorModal({
     formState: { errors },
   } = useForm<FormValues>({
     resolver: zodResolver(schema),
-    defaultValues: { name: "", contact: "", note: "" },
+    defaultValues: { name: "", contact: "", note: "", honeypot: "" },
   });
 
   const range = estimateQuote(selection);
@@ -160,23 +165,32 @@ export function QuoteEstimatorModal({
     return lines.join("\n");
   };
 
-  const onSubmit = (data: FormValues) => {
-    const subject = encodeURIComponent(`${q.mailSubject} ${data.name}`);
-    const body = encodeURIComponent(
-      [
-        `${q.mailBodyName}: ${data.name}`,
-        `${q.mailBodyContact}: ${data.contact}`,
-        `${q.mailBodyEstimate}: ${estimateText}`,
-        "",
-        `${q.mailBodyChoices}:`,
-        choiceSummary(),
-        "",
-        `${q.mailBodyNote}:`,
-        data.note || "—",
-      ].join("\n"),
-    );
-    window.location.href = `mailto:nchithanh9999@gmail.com?subject=${subject}&body=${body}`;
-    setSent(true);
+  const onSubmit = async (data: FormValues) => {
+    if (submitting) return;
+    setSubmitting(true);
+    setSendError(false);
+    setSent(false);
+
+    const result = await submitLead({
+      source: "quote",
+      name: data.name,
+      contact: data.contact,
+      note: data.note,
+      locale,
+      payload: {
+        estimate: estimateText,
+        choices: choiceSummary(),
+        selection,
+      },
+      honeypot: data.honeypot,
+    });
+
+    setSubmitting(false);
+    if (result.ok) {
+      setSent(true);
+      return;
+    }
+    setSendError(true);
   };
 
   if (!open) return null;
@@ -387,6 +401,18 @@ export function QuoteEstimatorModal({
                 {q.contactTitle}
               </h3>
               <div className="mt-4 space-y-3.5">
+                <div
+                  className="absolute -left-[9999px] h-0 w-0 overflow-hidden"
+                  aria-hidden
+                >
+                  <label htmlFor="quote-honeypot">Company</label>
+                  <input
+                    id="quote-honeypot"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    {...register("honeypot")}
+                  />
+                </div>
                 <div>
                   <label
                     htmlFor="quote-name"
@@ -445,13 +471,19 @@ export function QuoteEstimatorModal({
           <div className="shrink-0 border-t border-black/[0.06] bg-white px-4 py-3.5 pb-[max(0.85rem,env(safe-area-inset-bottom))] sm:px-5">
             <button
               type="submit"
-              className="kuct-btn-primary inline-flex w-full items-center justify-center rounded-[10px] px-5 py-3 text-sm font-semibold"
+              disabled={submitting}
+              className="kuct-btn-primary inline-flex w-full items-center justify-center rounded-[10px] px-5 py-3 text-sm font-semibold disabled:opacity-50"
             >
               {q.submit}
             </button>
             {sent ? (
               <p className="mt-2.5 text-center text-xs text-[var(--kuct-accent)]">
                 {q.sent}
+              </p>
+            ) : null}
+            {sendError ? (
+              <p className="mt-2.5 text-center text-xs text-red-500">
+                {q.sendError}
               </p>
             ) : null}
           </div>

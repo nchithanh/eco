@@ -26,6 +26,7 @@ export function createCareersSchema(errors: {
     portfolio: z.string().min(1, errors.portfolio),
     role: z.enum(JOB_IDS, { message: errors.role }),
     message: z.string().min(1, errors.message),
+    honeypot: z.string().optional(),
   });
 }
 
@@ -35,4 +36,5 @@ export type CareersValues = {
   portfolio: string;
   role: JobId;
   message: string;
+  honeypot?: string;
 };

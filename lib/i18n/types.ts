@@ -460,6 +460,7 @@ export type Dictionary = {
       message: string;
       submit: string;
       sent: string;
+      sendError: string;
       mailSubject: string;
       mailBodyName: string;
       mailBodyContact: string;

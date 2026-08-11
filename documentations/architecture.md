@@ -81,6 +81,20 @@ Static Pages cannot keep a Groq API key. Chat calls a **Workers Free** proxy:
 
 Optional env: `NEXT_PUBLIC_CHAT_API_URL` (Worker URL). No paid Workers plan required for chat volume on Free.
 
+## Leads inbox — Cloudflare Worker + D1 (Free)
+
+Form submits (quote drawer, careers) store rows in **D1** — no mailto / no email send required.
+
+| | |
+| --- | --- |
+| Worker | `dolphin-kick` → `https://dolphin-kick.nchithanh9999.workers.dev` |
+| Source | `workers/leads/` (`worker.js`, `schema.sql`, `CF-AI-PROMPT.md`, README) |
+| Binding | D1 `LEADS_DB` |
+| Secret | `LEADS_ADMIN_TOKEN` (GET list) |
+| Client | `lib/leads-api.ts` → `QuoteEstimatorModal`, `CareersApplyForm` |
+
+Optional env: `NEXT_PUBLIC_LEADS_API_URL`. Paste `CF-AI-PROMPT.md` into Cloudflare AI to scaffold.
+
 ## Demo vault — Cloudflare Worker gate
 
 `/demos/*` on the custom domain is gated at the edge so HTML is not public without a signed cookie. Password is **not** in the Next.js bundle.
@@ -104,7 +118,7 @@ Unlocked edge requests `fetch(request)` to origin. Locked → `401` unlock HTML.
 | `app/` | Routes & root layout |
 | `components/` | UI sections & shared chrome |
 | `lib/` | i18n, estimators, `pricing-fx` (locale package prices), content data, theme, assets |
-| `workers/` | Cloudflare Worker sources (`dolphin-chat` Groq proxy; `demos-gate` vault) |
+| `workers/` | Cloudflare Worker sources (`dolphin-chat` Groq proxy; `demos-gate` vault; `leads` D1 inbox) |
 | `public/` | Static assets (mascot, brand, about, tech, themes) |
 | `tests/` | Vitest suites |
 | `documentations/` | Canonical project docs (this tree) |
