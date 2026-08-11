@@ -73,7 +73,7 @@ export function PopularServices({
  delay={40}
  className="overflow-hidden rounded-xl bg-[var(--kuct-panel)] shadow-[0_28px_70px_rgba(0,0,0,0.38)] backdrop-blur-md sm:rounded-xl"
  >
- <div className="grid lg:grid-cols-2">
+ <div className="grid lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
  {/* Left — section intro */}
  <div className="flex flex-col justify-between px-4 py-6 sm:px-8 sm:py-10 lg:border-b-0 lg:border-r lg:px-10 lg:py-12">
  <Reveal variant="title">

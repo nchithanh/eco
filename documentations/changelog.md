@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-08-11 (demo wedding-saler)
+
+- `/demos/wedding-saler/` — port landing Saler Studio Wedding (HTML nguồn) vào vault: React + CSS scoped `.wsal`, catalog Wedding; ảnh Pexels (Canva Éternal set) trong `public/demos/wedding-saler/`.
+
 ## 2026-08-11 (leads rate limit 10/h)
 
 - `dolphin-kick` Worker: rate limit **10 POST / IP / giờ** (harden rate key + D1 LIMIT check). Paste lại `workers/leads/worker.js` trên CF.

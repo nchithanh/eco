@@ -9,6 +9,14 @@ export type DemoCatalogItem = {
 
 export const demoCatalog: DemoCatalogItem[] = [
   {
+    slug: "wedding-saler",
+    href: "/demos/wedding-saler/",
+    title: "Saler Studio Wedding",
+    blurb:
+      "Landing tư vấn cưới cá nhân — portfolio concept, bảng giá minh bạch, quy trình, FAQ, đặt lịch (placeholder ảnh).",
+    tag: "Wedding",
+  },
+  {
     slug: "english-teacher",
     href: "/demos/english-teacher/",
     title: "ENGLISH/1–1 · Giáo viên tiếng Anh",
