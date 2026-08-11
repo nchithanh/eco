@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-08-11 (demo english-teacher)
+
+- `/demos/english-teacher/` — port landing giáo viên tiếng Anh 1-1 (HTML nguồn) vào vault: React + CSS scoped `.en11`, catalog Education; placeholder stats/reviews.
+
 ## 2026-08-11 (news: landing page giáo viên tiếng Anh)
 
 - Bài `/news/landing-page-giao-vien-tieng-anh/` (VI/EN/JA): LP cho giáo viên tiếng Anh cá nhân vs Facebook-only; KW landing page giáo viên + neo *làm landing page*; ảnh cover + lead-scatter/structure/outcome; prompts `documentations/news-landing-page-giao-vien-tieng-anh-canva-prompts.md`.

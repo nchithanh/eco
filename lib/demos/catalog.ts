@@ -9,6 +9,14 @@ export type DemoCatalogItem = {
 
 export const demoCatalog: DemoCatalogItem[] = [
   {
+    slug: "english-teacher",
+    href: "/demos/english-teacher/",
+    title: "ENGLISH/1–1 · Giáo viên tiếng Anh",
+    blurb:
+      "Landing giáo viên tiếng Anh cá nhân — lộ trình 1-1, khóa học, review, FAQ, học thử (placeholder).",
+    tag: "Education",
+  },
+  {
     slug: "brokerage",
     href: "/demos/brokerage/",
     title: "Nguyễn Văn A Invest",

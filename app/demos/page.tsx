@@ -43,8 +43,8 @@ export default function DemosIndexPage() {
           ))}
         </ul>
         <p className="demo-index__note">
-          Gate mật khẩu phía trình duyệt (sessionStorage). Không phải tường lửa /
-          auth production.
+          Vault bảo vệ bằng Cloudflare Worker (cookie). Trên production cần mật
+          khẩu; số liệu trong demo là placeholder trừ khi ghi chú khác.
         </p>
       </div>
     </div>
