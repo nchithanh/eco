@@ -432,7 +432,8 @@ export type Dictionary = {
         | "marketing"
         | "ai-engineer"
         | "intern-fullstack"
-        | "fresher-tester";
+        | "fresher-tester"
+        | "partner-automation-test";
       title: string;
       summary: string;
       /** Overview bullets (optional); full copy may live in `detail`. */

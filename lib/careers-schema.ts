@@ -10,6 +10,7 @@ export const JOB_IDS = [
   "ai-engineer",
   "intern-fullstack",
   "fresher-tester",
+  "partner-automation-test",
 ] as const;
 export type JobId = (typeof JOB_IDS)[number];
 

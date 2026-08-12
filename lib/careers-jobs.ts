@@ -9,26 +9,26 @@ type JobHiringMeta =
   | { kind: "open"; durationDays?: undefined };
 
 /**
- * Frontend / UI / Mobile closed.
- * Backend: 50 days from anchor → deadline 2026-08-13 00:00+07
- * Sales / Marketing / AI / Intern / Tester: open (no timed window)
+ * Only priority open roles: Partner Automation Test + Sales (BD).
+ * All other listed roles are closed.
  */
 export const JOB_HIRING: Record<JobId, JobHiringMeta> = {
+  "partner-automation-test": { kind: "open" },
+  sales: { kind: "open" },
+  marketing: { kind: "closed" },
+  "ai-engineer": { kind: "closed" },
+  "intern-fullstack": { kind: "closed" },
+  "fresher-tester": { kind: "closed" },
+  backend: { kind: "closed" },
   frontend: { kind: "closed" },
   design: { kind: "closed" },
   mobile: { kind: "closed" },
-  backend: { kind: "open", durationDays: 50 },
-  sales: { kind: "open" },
-  marketing: { kind: "open" },
-  "ai-engineer": { kind: "open" },
-  "intern-fullstack": { kind: "open" },
-  "fresher-tester": { kind: "open" },
 };
 
 /** Display / form order: open & priority first, closed last. */
 export const JOB_DISPLAY_ORDER: JobId[] = [
+  "partner-automation-test",
   "sales",
-  "marketing",
   "ai-engineer",
   "intern-fullstack",
   "fresher-tester",
@@ -36,6 +36,7 @@ export const JOB_DISPLAY_ORDER: JobId[] = [
   "frontend",
   "mobile",
   "design",
+  "marketing",
 ];
 
 export function sortJobsByDisplayOrder<T extends { id: JobId }>(jobs: T[]): T[] {

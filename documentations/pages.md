@@ -16,7 +16,7 @@
 | `/schema/agents/[slug]/` | `app/schema/agents/[slug]/page.tsx` | Agent product JSON (`dolphin-care`, `ai-transform`, `dolphin-intelligence`) |
 | `/company_value/` | `app/company_value/page.tsx` | Legacy redirect → `/schema/company/` |
 | `/about/` | `app/about/page.tsx` | `AboutContent` + editorial **`AboutTeamSection`** (equal-weight portraits, no cards); photos `founder.png` / `team-nghia.png`; copy `about-copy.ts`; FAQ + Person JSON-LD. |
-| `/careers/` | `app/careers/page.tsx` | `CareersContent` + `careers-jobs.ts` / `careers-copy.ts` — VI Jasper SEO/AEO/GEO (freelance model, open/closed roles, how-to-apply, FAQ 6 Q, FAQPage + JobPosting JSON-LD); Sales/Marketing priority; FE/Mobile/Design closed. Job detail popup: Share (`navigator.share` / copy) → deep link `?job=<id>` mở lại popup. |
+| `/careers/` | `app/careers/page.tsx` | `CareersContent` + `careers-jobs.ts` / `careers-copy.ts` — VI Jasper SEO/AEO/GEO (freelance model, open/closed roles, how-to-apply, FAQ 6 Q, FAQPage + JobPosting JSON-LD); **chỉ mở 2 ưu tiên:** Partner Automation Test + Sales (BD); còn lại closed. Job detail popup: Share (`navigator.share` / copy) → deep link `?job=<id>` mở lại popup. |
 | `/dolphin-care/` | `app/dolphin-care/page.tsx` | **Dolphin Care** — `AgentDolphinContent` + `agent-dolphin-copy.ts`; OG `public/og-dolphin-care.png`; VI Jasper SEO/AEO/GEO (meta keyword “AI chăm sóc khách hàng trên website”, FAQ 6 Q + Service/FAQ JSON-LD). |
 | `/agent-dolphin/` | `app/agent-dolphin/page.tsx` | Legacy redirect (noindex) → `/dolphin-care/` |
 | `/custom-agent/` | `app/custom-agent/page.tsx` | Legacy redirect (noindex) → `/ai-transform/` |

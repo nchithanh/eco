@@ -1,5 +1,17 @@
 # Changelog
 
+## 2026-08-12 (careers · chỉ 2 job mở)
+
+- `/careers/`: chỉ còn **Partner Automation Test** + **Business Development Partner** đang tuyển; đóng AI Engineer, Intern Fullstack, Fresher Tester, Backend (Marketing/FE/Mobile/Design đã đóng trước đó).
+
+## 2026-08-12 (careers · Marketing closed)
+
+- `/careers/`: đóng **Marketing / Growth** (`marketing` → `kind: "closed"`).
+
+## 2026-08-12 (careers · Partner Automation Test)
+
+- `/careers/`: mở vị trí **Partner Automation Test** (`partner-automation-test`) — kiểm thử AI agent trên Dolphin Intelligence; VI SoT + EN/JA; deep link `?job=partner-automation-test`; thù lao Partner · theo thỏa thuận.
+
 ## 2026-08-12 (homepage AiEdge → Intelligence)
 
 - `#ai-edge`: section teaser **Dolphin Intelligence** (3 card Agent / Action·Logic / Human); CTA → `/dolphin-intelligence/` + `/ai-transform/`; schema `homepage/ai-edge.json` + homepage docs.

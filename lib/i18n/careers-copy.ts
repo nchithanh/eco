@@ -96,6 +96,52 @@ const vi: CareersCopy = {
   },
   jobs: [
     {
+      id: "partner-automation-test",
+      title: "Partner Automation Test",
+      summary:
+        "Dolphin Intelligence — nền tảng AI workflow của Dolphin Software — đang mở rộng hệ thống kiểm thử và tìm Partner Automation Test để kiểm tra AI agent, phát hiện lỗi và phản hồi chi tiết về hành vi agent.",
+      bullets: [
+        "Kiểm thử các AI agent trong workflow Dolphin Intelligence",
+        "Phát hiện lỗi, đánh giá hiệu suất và ghi nhận hành vi agent",
+        "Phối hợp đội kỹ thuật để cải thiện chất lượng hệ thống",
+      ],
+      tags: ["QA", "Automation", "AI Workflow", "Partner"],
+      comp: "Partner · theo thỏa thuận",
+      priority: "Ưu tiên",
+      detail: {
+        sections: [
+          {
+            title: "Công việc của bạn là gì?",
+            bullets: [
+              "Kiểm thử các AI agent trong hệ thống workflow của Dolphin Intelligence",
+              "Phát hiện lỗi, đánh giá hiệu suất và phản hồi chi tiết về hành vi agent",
+              "Phối hợp cùng đội ngũ kỹ thuật để cải thiện chất lượng hệ thống",
+            ],
+          },
+          {
+            title: "Bạn phù hợp nếu:",
+            bullets: [
+              "Có kinh nghiệm hoặc quan tâm đến automation testing",
+              "Hiểu cơ bản về AI agent hoặc workflow automation",
+              "Làm việc chủ động, có tư duy phân tích tốt",
+            ],
+          },
+          {
+            title: "Về Dolphin Software",
+            paragraphs: [
+              "Dolphin Software là studio phần mềm Việt Nam chuyên xây dựng website, phần mềm tùy chỉnh, giải pháp AI và tích hợp hệ thống. Đây là cơ hội tham gia trực tiếp vào sản phẩm AI đang phát triển — Dolphin Intelligence.",
+            ],
+          },
+          {
+            title: "Cách ứng tuyển",
+            paragraphs: [
+              "Gửi form trên trang Careers (chọn vị trí Partner Automation Test), hoặc inbox / Zalo với thông tin ngắn về kinh nghiệm testing và AI workflow.",
+            ],
+          },
+        ],
+      },
+    },
+    {
       id: "sales",
       title: "Business Development Partner",
       summary:
@@ -375,6 +421,52 @@ const en: CareersCopy = {
   },
   jobs: [
     {
+      id: "partner-automation-test",
+      title: "Partner Automation Test",
+      summary:
+        "Dolphin Intelligence — Dolphin Software’s AI workflow platform — is expanding its test coverage and looking for a Partner Automation Test to exercise AI agents, catch bugs, and give detailed feedback on agent behavior.",
+      bullets: [
+        "Test AI agents inside Dolphin Intelligence workflows",
+        "Find bugs, assess performance, and document agent behavior",
+        "Work with engineering to raise system quality",
+      ],
+      tags: ["QA", "Automation", "AI Workflow", "Partner"],
+      comp: "Partner · by agreement",
+      priority: "Priority",
+      detail: {
+        sections: [
+          {
+            title: "What will you do?",
+            bullets: [
+              "Test AI agents in Dolphin Intelligence workflow systems",
+              "Find bugs, assess performance, and give detailed feedback on agent behavior",
+              "Collaborate with engineering to improve system quality",
+            ],
+          },
+          {
+            title: "A fit if you:",
+            bullets: [
+              "Have experience with or interest in automation testing",
+              "Understand AI agents or workflow automation at a basic level",
+              "Work proactively and think analytically",
+            ],
+          },
+          {
+            title: "About Dolphin Software",
+            paragraphs: [
+              "Dolphin Software is a Vietnam software studio that builds websites, custom software, AI solutions, and system integrations. This is a chance to work directly on a growing AI product — Dolphin Intelligence.",
+            ],
+          },
+          {
+            title: "How to apply",
+            paragraphs: [
+              "Submit the Careers form (select Partner Automation Test), or inbox / Zalo with a short note on your testing and AI workflow experience.",
+            ],
+          },
+        ],
+      },
+    },
+    {
       id: "sales",
       title: "Business Development Partner",
       summary:
@@ -651,6 +743,52 @@ const ja: CareersCopy = {
     seconds: "秒",
   },
   jobs: [
+    {
+      id: "partner-automation-test",
+      title: "Partner Automation Test",
+      summary:
+        "Dolphin Intelligence — Dolphin SoftwareのAIワークフロー基盤 — はテスト体制を拡充中です。AIエージェントの検証・不具合発見・挙動フィードバックを担う Partner Automation Test を募集します。",
+      bullets: [
+        "Dolphin Intelligenceワークフロー内のAIエージェントを検証",
+        "不具合発見、性能評価、エージェント挙動の記録",
+        "品質向上のためエンジニアリングと連携",
+      ],
+      tags: ["QA", "Automation", "AI Workflow", "Partner"],
+      comp: "Partner · 応相談",
+      priority: "優先",
+      detail: {
+        sections: [
+          {
+            title: "主な仕事",
+            bullets: [
+              "Dolphin Intelligenceのワークフロー内AIエージェントをテスト",
+              "不具合を見つけ、性能を評価し、エージェント挙動を詳細にフィードバック",
+              "システム品質向上のため技術チームと連携",
+            ],
+          },
+          {
+            title: "こんな方にフィット",
+            bullets: [
+              "自動化テストの経験または関心がある",
+              "AIエージェントやワークフロー自動化の基礎を理解している",
+              "主体的に動き、分析思考ができる",
+            ],
+          },
+          {
+            title: "Dolphin Softwareについて",
+            paragraphs: [
+              "Dolphin Softwareはベトナムのソフトウェアススタジオで、Web・カスタムソフト・AI・システム連携を手がけます。成長中のAIプロダクト — Dolphin Intelligence — に直接関われる機会です。",
+            ],
+          },
+          {
+            title: "応募方法",
+            paragraphs: [
+              "Careersフォーム（Partner Automation Testを選択）へ送信するか、テスト／AIワークフロー経験を短く書いてInbox／Zaloへ。",
+            ],
+          },
+        ],
+      },
+    },
     {
       id: "sales",
       title: "Business Development Partner",

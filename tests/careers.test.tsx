@@ -40,18 +40,21 @@ describe("Dolphin Software careers page", () => {
       screen.getByRole("heading", { name: /UI\/UX Designer/i }),
     ).toBeInTheDocument();
     expect(
+      screen.getByRole("heading", { name: /Partner Automation Test/i }),
+    ).toBeInTheDocument();
+    expect(
       screen.getByRole("heading", { name: /Business Development Partner/i }),
     ).toBeInTheDocument();
     expect(
       screen.getByRole("heading", { name: /Marketing \/ Growth/i }),
     ).toBeInTheDocument();
-    expect(screen.getAllByText(/^Đã đóng$/i).length).toBeGreaterThanOrEqual(2);
+    expect(screen.getAllByText(/^Đã đóng$/i).length).toBeGreaterThanOrEqual(8);
     expect(screen.getAllByText(/^Freelance$/i).length).toBeGreaterThanOrEqual(5);
     expect(screen.getAllByText(/1\.000 USD/i).length).toBeGreaterThanOrEqual(1);
     expect(
       screen.getByText(/Hoa hồng 30% · không lương cứng/i),
     ).toBeInTheDocument();
-    expect(screen.getAllByText(/^Ưu tiên$/i).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText(/^Ưu tiên$/i).length).toBeGreaterThanOrEqual(2);
   });
 
   it("opens sales detail popup then apply selects role in the form", async () => {
