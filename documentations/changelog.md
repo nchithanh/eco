@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-08-13 (LP website-36-thang)
+
+- `/website-36-thang/` — landing FB ads (VI): website DN + bảo hành kỹ thuật 36 tháng + tối đa 36 blog/3 tháng; form lead `website-36-thang` (cần Deploy lại Worker `dolphin-kick` để nhận source mới).
+- Media: 5 ảnh section trong `public/website-36-thang/` (+ prompts `documentations/website-36-thang-image-prompts.md`).
+- Announcement bar: quảng cáo ưu đãi này; text + CTA → `/website-36-thang/` (VI/EN/JA).
+- Visual ads: hero pills 36/36, offer featured cards, form shell nổi, sticky CTA mobile (`.w36`).
+
 ## 2026-08-12 (gitignore workers)
 
 - `.gitignore`: `/workers/` — Worker CF (demos-gate, leads, dolphin-chat) không còn track trong repo Pages; paste Deploy từ máy local.

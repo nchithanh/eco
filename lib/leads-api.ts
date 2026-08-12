@@ -5,7 +5,11 @@
 export const DEFAULT_LEADS_API_URL =
   "https://dolphin-kick.nchithanh9999.workers.dev";
 
-export type LeadSource = "quote" | "careers" | "contact";
+export type LeadSource =
+  | "quote"
+  | "careers"
+  | "contact"
+  | "website-36-thang";
 
 export type SubmitLeadInput = {
   source: LeadSource;

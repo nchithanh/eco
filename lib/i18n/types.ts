@@ -49,6 +49,8 @@ export type Dictionary = {
     cta: string;
     /** Quote CTA on announcement bar */
     ctaQuote: string;
+    /** Inline “xem thêm” after banner text (accent color) */
+    ctaMore: string;
   };
   hero: {
     eyebrow: string;

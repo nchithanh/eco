@@ -41,9 +41,10 @@ const vi: Dictionary = {
   },
   banner: {
     aria: "Thông báo",
-    text: "Dolphin Software đang tuyển freelancer — Sales ưu tiên gấp, hoa hồng 30% deal. Ứng tuyển ngay!",
-    cta: "Ứng tuyển",
+    text: "Thiết kế website doanh nghiệp — bảo hành kỹ thuật 36 tháng + tối đa 36 bài blog trong 3 tháng đầu.",
+    cta: "Xem ưu đãi",
     ctaQuote: "Nhận báo giá",
+    ctaMore: "xem thêm",
   },
   hero: {
     eyebrow: "Dolphin Software",
@@ -606,9 +607,10 @@ const en: Dictionary = {
   },
   banner: {
     aria: "Announcement",
-    text: "Dolphin Software is hiring freelancers — Sales is urgent priority, 30% deal commission. Apply today!",
-    cta: "Apply now",
+    text: "Business website design — 36-month technical warranty + up to 36 SEO/GEO blog posts in the first 3 months.",
+    cta: "See offer",
     ctaQuote: "Get a quote",
+    ctaMore: "learn more",
   },
   hero: {
     eyebrow: "Dolphin Software",
@@ -1186,9 +1188,10 @@ const ja: Dictionary = {
   },
   banner: {
     aria: "お知らせ",
-    text: "Dolphin Softwareはフリーランスを募集中 — Salesを最優先で急募、成約手数料30%。今すぐ応募！",
-    cta: "応募する",
+    text: "企業サイト制作 — 技術保証36ヶ月 + 初月〜3ヶ月で最大36本のSEO/GEO向けブログ。",
+    cta: "特典を見る",
     ctaQuote: "見積もりを依頼",
+    ctaMore: "詳しく見る",
   },
   hero: {
     eyebrow: "Dolphin Software",
