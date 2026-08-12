@@ -115,12 +115,12 @@ export function Nav() {
 
   const agentItems: NavLink[] = [
     {
-      href: assetPath("/dolphin-care/"),
-      label: t.nav.agentDolphin,
-    },
-    {
       href: assetPath("/ai-transform/"),
       label: t.nav.aiTransform,
+    },
+    {
+      href: assetPath("/dolphin-care/"),
+      label: t.nav.agentDolphin,
     },
     {
       href: assetPath("/dolphin-intelligence/"),

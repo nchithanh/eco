@@ -154,13 +154,14 @@ export type Dictionary = {
     title: string;
     support: string;
     items: {
-      id: "chat" | "workflow" | "agent";
+      id: "agent" | "action" | "human";
       tag: string;
       title: string;
       body: string;
     }[];
-    ctaTransform: string;
-    ctaAgent: string;
+    ctaPrimary: string;
+    ctaSecondary: string;
+    learnMore: string;
   };
   capabilities: {
     eyebrow: string;

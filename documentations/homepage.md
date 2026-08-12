@@ -14,7 +14,7 @@ Hero
 ├── How we help                 → Capabilities `#capabilities` (Build·Modernize·Automate·Care)
 ├── Projects                    → WorksShowcase `#works`
 ├── Dolphin Care                → AgentDolphinHome `#dolphin-care`
-├── Ops AI                      → Technology `#technology` + AiEdge `#ai-edge`
+├── Ops AI                      → Technology `#technology` + AiEdge `#ai-edge` (Dolphin Intelligence teaser)
 ├── Process                     → Process `#process`
 ├── Solutions                   → PopularServices `#popular-services`
 ├── News                        → HomeNews `#news` (hidden when no posts)
@@ -32,7 +32,7 @@ Hero
 | 5 | How we help | `Capabilities` | `#capabilities` — hub + carousel **Build·Modernize·Automate·Care**; surface cards + accent active |
 | 6 | Projects | `WorksShowcase` | `#works` — case screenshots; TODO cafe/clinic dedicated assets |
 | 7 | Dolphin Care | `AgentDolphinHome` | `#dolphin-care` — split benefits \| chat demo (`MASCOT.chat`); surface cards |
-| 8 | Ops AI | `Technology`, `AiEdge` | `#technology` — AI vận hành (Agents / Automation / Integration) + CTAs `/ai-transform/`; `#ai-edge` |
+| 8 | Ops AI | `Technology`, `AiEdge` | `#technology` — AI vận hành + CTAs `/ai-transform/`; `#ai-edge` — teaser **Dolphin Intelligence** (Agent · Action/Logic · Human) → `/dolphin-intelligence/` |
 | 9 | Process | `Process` | `#process` |
 | 10 | Solutions | `PopularServices` | `#popular-services` — 50/50: left intro / right top tabs + detail |
 | 11 | News | `HomeNews` | `#news` — carousel; click card → `/news/[slug]/` (full page, no popup) |

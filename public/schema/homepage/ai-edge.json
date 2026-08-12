@@ -4,44 +4,44 @@
     "id": "ai-edge",
     "locale": "vi",
     "brand": "Dolphin Software",
-    "updated": "2026-08-03",
+    "updated": "2026-08-12",
     "schemaPath": "/schema/homepage/ai-edge/",
     "rawPath": "/schema/homepage/ai-edge.json",
-    "productRoute": "/"
+    "productRoute": "/dolphin-intelligence/"
   },
   "content": {
     "order": 8,
     "id": "ai-edge",
-    "section_label": "Năng lực AI",
-    "headline": "Website làm nền — AI là lớp thông minh bên trên",
-    "subheadline": "Web & app là cốt lõi của Dolphin Software. Khi thực sự có ích, chúng tôi thêm chat, automation và process agent — thực tế, không phải khoa học viễn tưởng.",
+    "section_label": "Dolphin Intelligence",
+    "headline": "Biến quy trình lặp lại thành AI workflow chạy tự động",
+    "subheadline": "Dolphin Intelligence kết hợp AI agent, action thực tế, logic điều kiện và human checkpoint — chuỗi bước liên kết, không phải chatbot trả lời từng câu.",
     "capabilities": [
       {
-        "context": "On-site",
-        "title": "AI chat & FAQ trên website của bạn",
-        "body": "Trả lời câu hỏi thường gặp và thu lead ngay trên website đang chạy."
+        "context": "Agent",
+        "title": "AI Agent theo vai trò",
+        "body": "Research, Content, SEO, Review… mỗi agent có ngữ cảnh, hướng dẫn và schema — tư duy nhất quán trong workflow."
       },
       {
-        "context": "Automation",
-        "title": "Quy trình thông minh & form tự động",
-        "body": "Tự động hóa đặt lịch, báo giá và phân luồng lead — giảm bước thủ công."
+        "context": "Action · Logic",
+        "title": "Action & logic điều phối",
+        "body": "Gọi API, CMS, email, publish; cron, nhánh và vòng lặp — agent quyết định, action thực thi đúng lúc."
       },
       {
-        "context": "Integration",
-        "title": "Agent kết nối CRM / Zalo",
-        "body": "Business agent gắn vào quy trình thực, kết nối hệ thống live — kết quả đo được."
+        "context": "Human",
+        "title": "Human Checkpoint đúng chỗ",
+        "body": "Con người duyệt topic, SEO hay publish trước khi tiếp tục — kiểm soát được, không phải hộp đen."
       }
     ],
     "links": [
       {
-        "label": "Chuyển đổi AI doanh nghiệp",
-        "href": "https://dolphin-software.io.vn/ai-transform/"
+        "label": "Xem Dolphin Intelligence",
+        "href": "https://dolphin-software.io.vn/dolphin-intelligence/"
       },
       {
-        "label": "Lộ trình AI & agent",
+        "label": "Lộ trình chuyển đổi AI",
         "href": "https://dolphin-software.io.vn/ai-transform/"
       }
     ],
-    "aeo_snippet": "Dolphin Software tích hợp AI automation cho doanh nghiệp vừa và nhỏ dưới ba dạng: AI chat trên website, quy trình tự động hóa (đặt lịch, báo giá, phân luồng lead), và business agent kết nối CRM hoặc Zalo — đo được bằng kết quả vận hành thực tế."
+    "aeo_snippet": "Dolphin Intelligence là nền tảng AI workflow của Dolphin Software: AI agent theo vai trò, action kết nối hệ thống thực, logic điều phối, và human checkpoint — tự động hóa chuỗi quy trình nhiều bước, khác chatbot chăm sóc website (Dolphin Care)."
   }
 }

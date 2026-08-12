@@ -333,32 +333,34 @@ export const homepageLangJa: HomepageLang = {
     ctaSecondary: "部門別ユースケースを探す（Sales / Support / Operations）",
   },
   aiEdge: {
-    eyebrow: "Ops AI",
-    badge: "Automate",
-    title: "Webサイトが基盤——[[AI]]はその上のスマートレイヤー",
-    support: "Web & アプリがDolphin Softwareの核心です。実際に有益な場合、チャット、自動化、プロセスエージェントを追加——現実的で、SF小説ではありません。",
+    eyebrow: "Dolphin Intelligence",
+    badge: "AI Workflow",
+    title: "繰り返し業務を[[自動AIワークフロー]]へ",
+    support:
+      "Dolphin Intelligence は役割別 AI エージェント、実世界アクション、条件ロジック、ヒューマンチェックポイントを組み合わせます — 単発チャットボットではありません。",
     items: [
       {
-        id: "chat",
-        tag: "On-site",
-        title: "御社のWebサイト上のAIチャット & FAQ",
-        body: "よくある質問に回答し、稼働中のWebサイトで直接リードを獲得。"
-      },
-      {
-        id: "workflow",
-        tag: "Automation",
-        title: "スマートワークフロー & 自動フォーム",
-        body: "予約、見積り、リード振り分けを自動化——手動ステップを削減。"
-      },
-      {
         id: "agent",
-        tag: "Integration",
-        title: "CRM / Zalo連携エージェント",
-        body: "ビジネスエージェントが実際のワークフローと統合、ライブシステムに接続——測定可能な結果。"
-      }
+        tag: "Agent",
+        title: "役割別 AI エージェント",
+        body: "Research / Content / SEO / Review… コンテキスト・指示・スキーマで一貫した判断。",
+      },
+      {
+        id: "action",
+        tag: "Action · Logic",
+        title: "アクションとオーケストレーション",
+        body: "API・CMS・メール・公開；cron・分岐・ループ — エージェントが決め、アクションが実行。",
+      },
+      {
+        id: "human",
+        tag: "Human",
+        title: "必要な地点のヒューマンチェック",
+        body: "トピック・SEO・公開前に人が承認 — ブラックボックスにせず統制を保つ。",
+      },
     ],
-    ctaTransform: "企業AI変革",
-    ctaAgent: "Dolphin Careを見る"
+    ctaPrimary: "Dolphin Intelligence を見る",
+    ctaSecondary: "AI変革のロードマップ",
+    learnMore: "詳しく見る",
   },
   process: {
     eyebrow: "Process",

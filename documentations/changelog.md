@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-08-12 (homepage AiEdge → Intelligence)
+
+- `#ai-edge`: section teaser **Dolphin Intelligence** (3 card Agent / Action·Logic / Human); CTA → `/dolphin-intelligence/` + `/ai-transform/`; schema `homepage/ai-edge.json` + homepage docs.
+
+## 2026-08-12 (Ask AI · Dolphin Intelligence)
+
+- `dolphin-chat` system context + `paste-for-dashboard.js`: thêm **Dolphin Intelligence** (AI workflow vs Care vs `/ai-transform/`); client `ai-chat-copy` / rich-text link `/dolphin-intelligence/`. Paste Deploy Worker trên CF.
+
 ## 2026-08-12 (Dolphin Intelligence)
 
 - `/dolphin-intelligence/` — trang sản phẩm nền tảng AI workflow (Agent · Action · Logic · Human Checkpoint); copy VI SoT + EN/JA; demo canvas kiểu builder (Daily Content Engine, node IN/OUT, run highlight) theo prototype HTML; schema `public/schema/agents/dolphin-intelligence.json`; link Nav/Footer nhóm AI.

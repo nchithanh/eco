@@ -363,32 +363,34 @@ export const homepageLangVi: HomepageLang = {
     ctaSecondary: "Khám phá use case theo phòng ban (Sales, Support, Operations)",
   },
   aiEdge: {
-    eyebrow: "Ops AI",
-    badge: "Automate",
-    title: "Website làm nền — [[AI]] là lớp thông minh bên trên",
-    support: "Web & app là cốt lõi của Dolphin Software. Khi thực sự có ích, chúng tôi thêm chat, automation và process agent — thực tế, không phải khoa học viễn tưởng.",
+    eyebrow: "Dolphin Intelligence",
+    badge: "AI Workflow",
+    title: "Biến quy trình lặp lại thành [[AI workflow]] chạy tự động",
+    support:
+      "Dolphin Intelligence kết hợp AI agent, action thực tế, logic điều kiện và human checkpoint — chuỗi bước liên kết, không phải chatbot trả lời từng câu.",
     items: [
       {
-        id: "chat",
-        tag: "On-site",
-        title: "AI chat & FAQ trên website của bạn",
-        body: "Trả lời câu hỏi thường gặp và thu lead ngay trên website đang chạy."
-      },
-      {
-        id: "workflow",
-        tag: "Automation",
-        title: "Quy trình thông minh & form tự động",
-        body: "Tự động hóa đặt lịch, báo giá và phân luồng lead — giảm bước thủ công."
-      },
-      {
         id: "agent",
-        tag: "Integration",
-        title: "Agent kết nối CRM / Zalo",
-        body: "Business agent gắn vào quy trình thực, kết nối hệ thống live — kết quả đo được."
-      }
+        tag: "Agent",
+        title: "AI Agent theo vai trò",
+        body: "Research, Content, SEO, Review… mỗi agent có ngữ cảnh, hướng dẫn và schema — tư duy nhất quán trong workflow.",
+      },
+      {
+        id: "action",
+        tag: "Action · Logic",
+        title: "Action & logic điều phối",
+        body: "Gọi API, CMS, email, publish; cron, nhánh và vòng lặp — agent quyết định, action thực thi đúng lúc.",
+      },
+      {
+        id: "human",
+        tag: "Human",
+        title: "Human Checkpoint đúng chỗ",
+        body: "Con người duyệt topic, SEO hay publish trước khi tiếp tục — kiểm soát được, không phải hộp đen.",
+      },
     ],
-    ctaTransform: "Chuyển đổi AI doanh nghiệp",
-    ctaAgent: "Xem Dolphin Care"
+    ctaPrimary: "Xem Dolphin Intelligence",
+    ctaSecondary: "Lộ trình chuyển đổi AI",
+    learnMore: "Tìm hiểu thêm",
   },
   process: {
     eyebrow: "Process",

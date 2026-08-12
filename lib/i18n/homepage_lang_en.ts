@@ -333,32 +333,34 @@ export const homepageLangEn: HomepageLang = {
     ctaSecondary: "Explore use cases by team (Sales, Support, Operations)",
   },
   aiEdge: {
-    eyebrow: "Ops AI",
-    badge: "Automate",
-    title: "Website as foundation — [[AI]] is the smart layer on top",
-    support: "Web & app are Dolphin Software's core. When genuinely useful, we add chat, automation, and process agents — real-world, not science fiction.",
+    eyebrow: "Dolphin Intelligence",
+    badge: "AI Workflow",
+    title: "Turn repeatable processes into [[automated AI workflows]]",
+    support:
+      "Dolphin Intelligence combines role-based AI agents, real-world actions, conditional logic, and human checkpoints — linked steps, not a one-shot chatbot.",
     items: [
       {
-        id: "chat",
-        tag: "On-site",
-        title: "AI chat & FAQ on your website",
-        body: "Answer common questions and capture leads right on your live website."
-      },
-      {
-        id: "workflow",
-        tag: "Automation",
-        title: "Smart workflow & auto-forms",
-        body: "Automate booking, quotes, and lead routing — reduce manual steps."
-      },
-      {
         id: "agent",
-        tag: "Integration",
-        title: "Agent connecting CRM / Zalo",
-        body: "Business agent tied into real workflow, connects live systems — measurable results."
-      }
+        tag: "Agent",
+        title: "Role-based AI agents",
+        body: "Research, Content, SEO, Review… each with context, instructions, and schema — consistent thinking inside the flow.",
+      },
+      {
+        id: "action",
+        tag: "Action · Logic",
+        title: "Actions & orchestration logic",
+        body: "APIs, CMS, email, publish; cron, branches, and loops — agents decide, actions execute on time.",
+      },
+      {
+        id: "human",
+        tag: "Human",
+        title: "Human checkpoints where it matters",
+        body: "People approve topics, SEO, or publish before the flow continues — control without a black box.",
+      },
     ],
-    ctaTransform: "Enterprise AI transformation",
-    ctaAgent: "See Dolphin Care"
+    ctaPrimary: "See Dolphin Intelligence",
+    ctaSecondary: "AI transformation path",
+    learnMore: "Learn more",
   },
   process: {
     eyebrow: "Process",

@@ -3,96 +3,97 @@ import type { Dictionary, Locale } from "./types";
 type AiEdge = Dictionary["aiEdge"];
 
 const vi: AiEdge = {
-  eyebrow: "Ops AI",
-  badge: "AI capability",
-  title: "Website là nền — [[AI]] là lớp tăng tốc",
+  eyebrow: "Dolphin Intelligence",
+  badge: "AI Workflow",
+  title: "Biến quy trình lặp lại thành [[AI workflow]] chạy tự động",
   support:
-    "Chúng tôi làm web & app là chính. Khi cần, gắn thêm chat, automation và agent theo quy trình thật — thực dụng, không sci-fi.",
+    "Dolphin Intelligence kết hợp AI agent, action thực tế, logic điều kiện và human checkpoint — chuỗi bước liên kết, không phải chatbot trả lời từng câu.",
   items: [
     {
-      id: "chat",
-      tag: "On-site",
-      title: "AI chat & FAQ trên site",
-      body: "Trả lời câu hỏi thường gặp, thu lead — gắn vào website đã có.",
-    },
-    {
-      id: "workflow",
-      tag: "Automation",
-      title: "Workflow & form thông minh",
-      body: "Tự động hóa booking, báo giá, routing lead — ít thao tác tay.",
-    },
-    {
       id: "agent",
-      tag: "Integration",
-      title: "Agent nối CRM / Zalo",
-      body: "Agent theo nghiệp vụ, nối hệ thống đang chạy — đo kết quả được.",
+      tag: "Agent",
+      title: "AI Agent theo vai trò",
+      body: "Research, Content, SEO, Review… mỗi agent có ngữ cảnh, hướng dẫn và schema — tư duy nhất quán trong workflow.",
+    },
+    {
+      id: "action",
+      tag: "Action · Logic",
+      title: "Action & logic điều phối",
+      body: "Gọi API, CMS, email, publish; cron, nhánh và vòng lặp — agent quyết định, action thực thi đúng lúc.",
+    },
+    {
+      id: "human",
+      tag: "Human",
+      title: "Human Checkpoint đúng chỗ",
+      body: "Con người duyệt topic, SEO hay publish trước khi tiếp tục — kiểm soát được, không phải hộp đen.",
     },
   ],
-  ctaTransform: "Chuyển đổi AI doanh nghiệp",
-  ctaAgent: "Xem Dolphin Care",
+  ctaPrimary: "Xem Dolphin Intelligence",
+  ctaSecondary: "Lộ trình chuyển đổi AI",
+  learnMore: "Tìm hiểu thêm",
 };
 
 const en: AiEdge = {
-  eyebrow: "Ops AI",
-  badge: "Automate",
-  title: "Website as foundation — [[AI]] is the smart layer on top",
+  eyebrow: "Dolphin Intelligence",
+  badge: "AI Workflow",
+  title: "Turn repeatable processes into [[automated AI workflows]]",
   support:
-    "Web & app are Dolphin Software's core. When genuinely useful, we add chat, automation, and process agents — real-world, not science fiction.",
+    "Dolphin Intelligence combines role-based AI agents, real-world actions, conditional logic, and human checkpoints — linked steps, not a one-shot chatbot.",
   items: [
     {
-      id: "chat",
-      tag: "On-site",
-      title: "AI chat & FAQ on your website",
-      body: "Answer common questions and capture leads right on your live website.",
-    },
-    {
-      id: "workflow",
-      tag: "Automation",
-      title: "Smart workflow & auto-forms",
-      body: "Automate booking, quotes, and lead routing — reduce manual steps.",
-    },
-    {
       id: "agent",
-      tag: "Integration",
-      title: "Agent connecting CRM / Zalo",
-      body: "Business agent tied into real workflow, connects live systems — measurable results.",
+      tag: "Agent",
+      title: "Role-based AI agents",
+      body: "Research, Content, SEO, Review… each with context, instructions, and schema — consistent thinking inside the flow.",
+    },
+    {
+      id: "action",
+      tag: "Action · Logic",
+      title: "Actions & orchestration logic",
+      body: "APIs, CMS, email, publish; cron, branches, and loops — agents decide, actions execute on time.",
+    },
+    {
+      id: "human",
+      tag: "Human",
+      title: "Human checkpoints where it matters",
+      body: "People approve topics, SEO, or publish before the flow continues — control without a black box.",
     },
   ],
-  ctaTransform: "Enterprise AI transformation",
-  ctaAgent: "See Dolphin Care",
+  ctaPrimary: "See Dolphin Intelligence",
+  ctaSecondary: "AI transformation path",
+  learnMore: "Learn more",
 };
 
 const ja: AiEdge = {
-  eyebrow: "Ops AI",
-  badge: "Automate",
-  title: "Webサイトが基盤 — [[AI]]はその上のスマートレイヤー",
+  eyebrow: "Dolphin Intelligence",
+  badge: "AI Workflow",
+  title: "繰り返し業務を[[自動AIワークフロー]]へ",
   support:
-    "Web & アプリがDolphin Softwareの核心です。実際に有益な場合、チャット、自動化、プロセスエージェントを追加します — 現実的で、SF小説ではありません。",
+    "Dolphin Intelligence は役割別 AI エージェント、実世界アクション、条件ロジック、ヒューマンチェックポイントを組み合わせます — 単発チャットボットではありません。",
   items: [
     {
-      id: "chat",
-      tag: "On-site",
-      title: "御社のWebサイト上のAIチャット & FAQ",
-      body: "よくある質問に回答し、稼働中のWebサイトで直接リードを獲得。",
-    },
-    {
-      id: "workflow",
-      tag: "Automation",
-      title: "スマートワークフロー & 自動フォーム",
-      body: "予約、見積り、リード振り分けを自動化 — 手動ステップを削減。",
-    },
-    {
       id: "agent",
-      tag: "Integration",
-      title: "CRM / Zalo連携エージェント",
-      body: "ビジネスエージェントが実際のワークフローと統合、ライブシステムに接続 — 測定可能な結果。",
+      tag: "Agent",
+      title: "役割別 AI エージェント",
+      body: "Research / Content / SEO / Review… コンテキスト・指示・スキーマで一貫した判断。",
+    },
+    {
+      id: "action",
+      tag: "Action · Logic",
+      title: "アクションとオーケストレーション",
+      body: "API・CMS・メール・公開；cron・分岐・ループ — エージェントが決め、アクションが実行。",
+    },
+    {
+      id: "human",
+      tag: "Human",
+      title: "必要な地点のヒューマンチェック",
+      body: "トピック・SEO・公開前に人が承認 — ブラックボックスにせず統制を保つ。",
     },
   ],
-  ctaTransform: "企業AI変革",
-  ctaAgent: "Dolphin Careを見る",
+  ctaPrimary: "Dolphin Intelligence を見る",
+  ctaSecondary: "AI変革のロードマップ",
+  learnMore: "詳しく見る",
 };
-
-
 
 export const aiEdgeByLocale: Record<Locale, AiEdge> = {
   vi,

@@ -175,16 +175,29 @@ Nhiều DN dùng hệ thống cũ. Ưu tiên phân tích → tối ưu → bổ 
 
 ## Automate — AI transformation
 AI hóa việc lặp: trả lời khách, phân loại yêu cầu, nhập liệu, tìm thông tin nội bộ, hỗ trợ nhân viên — chỉ khi có giá trị thực.
-Pages: /ai-transform/ · /services/agents/
+Pages: /ai-transform/ · /services/agents/ · **/dolphin-intelligence/**
 Custom agents = building blocks trong lộ trình AI transform — **không** sản phẩm tách /custom-agent/ (legacy redirect → /ai-transform/).
 Messaging: “tối ưu vận hành / bớt việc lặp / hiệu suất” — không mở cold bằng “AI Agent”.
+
+## Automate — Dolphin Intelligence (AI workflow platform)
+Route: **/dolphin-intelligence/** · display **Dolphin Intelligence**.
+Nền tảng **AI workflow** cho doanh nghiệp: thiết kế và chạy chuỗi bước liên kết — **AI Agent** (tư duy/quyết định) · **Action** (thực thi API/CMS/email/publish…) · **Logic** (điều kiện, nhánh, cron/loop) · **Human Checkpoint** (duyệt đúng điểm quan trọng).
+Không phải chatbot/AI assistant trả lời từng câu đơn lẻ; không thay **Dolphin Care** (Care = chăm khách trên website + daily insight).
+Khác **/ai-transform/**: transform = lộ trình tư vấn/triển khai AI vận hành; Intelligence = **sản phẩm nền tảng** dựng workflow (vd. Daily Content Engine: research → human check → content/SEO → publish/media → report).
+Khi nào gợi ý: user muốn tự động hóa **nhiều bước nối nhau**, nhiều agent theo vai trò, có người duyệt ở giữa — không chỉ “chatbot site”.
+Cold outreach vẫn ưu tiên **website (Build)** trước.
+
+### Intelligence — concrete examples (when user asks “cho ví dụ”)
+- **Marketing nội dung:** cron sáng → Research Agent + network → Content Agent → **Human Check** topic → Jasper/SEO/Review → publish hoặc landing → Media → overview report → next day.
+- **Ops:** trigger lịch → agent tóm tắt → action gửi email/report → human duyệt trước khi gửi khách/nội bộ.
+When the previous turn was about Dolphin Intelligence / AI workflow and the user only says “cho ví dụ” / “example” / “vd” → answer with one of these immediately.
 
 ## Care — Dolphin Care
 Route: /dolphin-care/ · formerly “Agent Dolphin” · display **Dolphin Care**.
 AI chatbot chăm sóc khách **trên website** cho SMB Việt Nam — khác chatbot kịch bản if-else.
 Bốn lớp: LLM · Business context · Customer context · **Daily insight report** (câu hỏi phổ biến, lead follow-up, điểm nghẽn, gợi ý marketing cho admin).
 Có thể (khi knowledge được nạp): trả lời 24/7 đúng giọng thương hiệu; đặt lịch / hỏi giá / thu lead; Zalo OA & CRM; nhúng widget vào site hiện có hoặc mới.
-**Không phải:** thay cả đội sales; bắt buộc với mọi dự án web (upsell/optional).
+**Không phải:** thay cả đội sales; bắt buộc với mọi dự án web (upsell/optional); **không** phải nền tảng AI workflow đa bước (đó là **Dolphin Intelligence**).
 Cold outreach vẫn mở bằng website (Build), không Care.
 Messaging ưu tiên: chăm sóc website / 24/7 / báo cáo insight hằng ngày — hơn buzzword “AI Agent”.
 
@@ -202,6 +215,7 @@ When the previous turn was about Dolphin Care and the user only says “cho ví 
 - Integrations: /services/integrations/
 - Agents ecosystem: /services/agents/
 - AI transform: /ai-transform/
+- Dolphin Intelligence: /dolphin-intelligence/
 - Dolphin Care: /dolphin-care/
 - Works/portfolio: /works/ and /works/[slug]/
 - News: /news/
