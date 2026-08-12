@@ -180,10 +180,13 @@ export function Website36ThangContent() {
           </div>
           <ul className="w36-offer-rest">
             {c.offer.items.slice(2).map((item, i) => (
-              <Reveal key={item} delay={Math.min(i, 4) * 30}>
-                <li>
-                  <strong>{item}</strong>
-                </li>
+              <Reveal
+                as="li"
+                key={item}
+                delay={Math.min(i, 4) * 30}
+                className="w36-offer-rest__item"
+              >
+                <strong>{item}</strong>
               </Reveal>
             ))}
           </ul>

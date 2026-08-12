@@ -135,6 +135,7 @@
   margin-top: 1rem;
   display: grid;
   gap: 0.75rem;
+  align-items: stretch;
 }
 
 @media (min-width: 640px) {
@@ -149,7 +150,11 @@
   }
 }
 
+.w36-offer-rest__item,
 .w36-offer-rest li {
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
   border-left: 3px solid var(--kuct-accent);
   padding: 0.85rem 1rem;
   background: var(--kuct-panel);
@@ -159,6 +164,7 @@
   color: var(--kuct-muted);
 }
 
+.w36-offer-rest__item strong,
 .w36-offer-rest li strong {
   color: var(--kuct-text);
   font-weight: 600;
