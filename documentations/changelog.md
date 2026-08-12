@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-08-12 (OpenNext Cloudflare scaffold)
+
+- Scaffold `@opennextjs/cloudflare` + `wrangler.jsonc` / `open-next.config.ts` / `public/_headers`; npm scripts `preview` / `deploy` / `upload`. Brand assets: `public/brand/logo1.png`, `logo1-white.png`, `logo-gold.png`. Pages deploy vẫn là path chính.
+
 ## 2026-08-12 (homepage carousels + demo gate)
 
 - `#capabilities` / `#works`: center-focus strip carousel (peek sides, circular ←→ bottom-right).
