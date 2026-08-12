@@ -41,13 +41,6 @@
   line-height: 1.2;
 }
 
-.demo-gate__lead {
-  margin: 0.75rem 0 0;
-  font-size: 0.88rem;
-  line-height: 1.55;
-  color: rgba(244, 244, 245, 0.65);
-}
-
 .demo-gate__form {
   margin-top: 1.5rem;
   display: grid;

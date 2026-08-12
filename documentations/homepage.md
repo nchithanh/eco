@@ -29,8 +29,8 @@ Hero
 | 2 | Fit | `FitSection` | `#fit` — centered header + 2-col carousel (copy \| image); images `public/fit/slide-0*.jpg` |
 | 3 | Outcomes | `SiteOutcomes` | `#stats` — sticky left + stacked `.kuct-surface-card`; type helpers; secondary = ghost CTA |
 | 4 | Why Dolphin | `WhyKuct` | `#why` — icon-line 4 pillars + delivery `promise`; no glass cards |
-| 5 | How we help | `Capabilities` | `#capabilities` — hub + carousel **Build·Modernize·Automate·Care**; surface cards + accent active |
-| 6 | Projects | `WorksShowcase` | `#works` — case screenshots; TODO cafe/clinic dedicated assets |
+| 5 | How we help | `Capabilities` | `#capabilities` — hub + **center-focus strip carousel** (peek sides, circular ←→ bottom-right); Build·Modernize·Automate·Care |
+| 6 | Projects | `WorksShowcase` | `#works` — **center-focus strip carousel** (peek sides, circular ←→); case cards Problem/Scope/Result |
 | 7 | Dolphin Care | `AgentDolphinHome` | `#dolphin-care` — split benefits \| chat demo (`MASCOT.chat`); surface cards |
 | 8 | Ops AI | `Technology`, `AiEdge` | `#technology` — AI vận hành + CTAs `/ai-transform/`; `#ai-edge` — teaser **Dolphin Intelligence** (Agent · Action/Logic · Human) → `/dolphin-intelligence/` |
 | 9 | Process | `Process` | `#process` |

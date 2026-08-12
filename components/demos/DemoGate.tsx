@@ -69,10 +69,6 @@ export function DemoGate({ children }: DemoGateProps) {
         <div className="demo-gate__card">
           <p className="demo-gate__eyebrow">Dolphin Software · Demo vault</p>
           <h1 className="demo-gate__title">Nhập mật khẩu để xem demo</h1>
-          <p className="demo-gate__lead">
-            Mật khẩu kiểm trên Cloudflare. Sau mỗi lần ship code mới bạn cần
-            đăng nhập lại vault.
-          </p>
           <form className="demo-gate__form" onSubmit={onSubmit}>
             <label className="demo-gate__label">
               Mật khẩu

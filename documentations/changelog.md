@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-08-12 (homepage carousels + demo gate)
+
+- `#capabilities` / `#works`: center-focus strip carousel (peek sides, circular ←→ bottom-right).
+- Demo vault gate: bỏ lead copy dưới form (`DemoGate` + `demos.css`).
+
 ## 2026-08-12 (careers · chỉ 2 job mở)
 
 - `/careers/`: chỉ còn **Partner Automation Test** + **Business Development Partner** đang tuyển; đóng AI Engineer, Intern Fullstack, Fresher Tester, Backend (Marketing/FE/Mobile/Design đã đóng trước đó).
