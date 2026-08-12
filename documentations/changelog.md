@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-08-12 (restore capabilities/works slides)
+
+- `#capabilities` / `#works`: trả lại carousel style trước center-focus strip (giữ demo gate đơn giản).
+
 ## 2026-08-12 (site grid + Pages CI)
 
 - Khôi phục **nền caro** (ô lưới vuông `body::after`); Ask AI vẫn dùng dots.

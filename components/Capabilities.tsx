@@ -1,7 +1,7 @@
 "use client";
 
 import type { MouseEvent, PointerEvent as ReactPointerEvent } from "react";
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { AccentText } from "@/components/BrandName";
 import { LazyImage } from "@/components/LazyImage";
@@ -12,6 +12,8 @@ import { useTheme } from "@/lib/theme";
 
 const DRAG_THRESHOLD_PX = 48;
 const AUTOPLAY_MS = 5500;
+
+type SlideDirection = 1 | -1;
 
 type DragState = {
   pointerId: number | null;
@@ -40,6 +42,16 @@ const OFFER_IMAGES: Record<string, string> = {
   care: "/capabilities/agent-dolphin.jpg",
 };
 
+function resolveSlideDirection(
+  from: number,
+  to: number,
+  total: number,
+): SlideDirection {
+  if (from === to) return 1;
+  const forward = (to - from + total) % total;
+  return forward <= total / 2 ? 1 : -1;
+}
+
 function OfferCard({
   offer,
   learnMore,
@@ -66,12 +78,10 @@ function OfferCard({
         href={href}
         draggable={false}
         onClick={onNavigate}
-        data-cap-card
-        data-active={active ? "true" : "false"}
         className={
           active
-            ? "group relative flex w-[min(78vw,17rem)] shrink-0 flex-col overflow-hidden rounded-[10px] border border-[var(--kuct-accent)]/35 bg-[var(--kuct-surface)] transition duration-500 sm:w-[19rem] lg:w-[20.5rem]"
-            : "group relative flex w-[min(78vw,17rem)] shrink-0 scale-[0.9] flex-col overflow-hidden rounded-[10px] border border-[var(--kuct-border)] bg-[var(--kuct-surface)] opacity-55 transition duration-500 hover:opacity-80 sm:w-[19rem] lg:w-[20.5rem]"
+            ? "group relative flex w-[min(100%,18.5rem)] shrink-0 flex-col overflow-hidden rounded-[10px] border border-[var(--kuct-accent)]/35 bg-[var(--kuct-surface)] shadow-[0_14px_36px_rgb(26_21_32/0.08)] transition duration-500 sm:w-[20rem] lg:w-[21.5rem]"
+            : "group relative flex w-[min(78vw,14.5rem)] shrink-0 flex-col overflow-hidden rounded-[10px] border border-[var(--kuct-border)] bg-[var(--kuct-surface)] opacity-60 transition duration-500 hover:opacity-80 sm:w-[15.5rem] lg:w-[16.5rem]"
         }
         aria-current={active ? "true" : undefined}
       >
@@ -122,41 +132,17 @@ function OfferCard({
   );
 }
 
-function NavCircleButton({
-  label,
-  onClick,
-  children,
-}: {
-  label: string;
-  onClick: () => void;
-  children: string;
-}) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      aria-label={label}
-      className="grid size-11 place-items-center rounded-full bg-[var(--kuct-panel-2)] text-base text-[var(--kuct-muted)] transition hover:bg-white hover:text-[var(--kuct-text)]"
-    >
-      <span aria-hidden>{children}</span>
-    </button>
-  );
-}
-
 export function Capabilities() {
   const { t } = useLocale();
   const c = t.capabilities;
   const offers = c.offers;
 
   const [activeIndex, setActiveIndex] = useState(0);
+  const [slideDirection, setSlideDirection] = useState<SlideDirection>(1);
   const [slideTick, setSlideTick] = useState(0);
   const [dragOffset, setDragOffset] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const [paused, setPaused] = useState(false);
-  const [trackOffset, setTrackOffset] = useState(0);
-
-  const viewportRef = useRef<HTMLDivElement>(null);
-  const trackRef = useRef<HTMLDivElement>(null);
 
   const dragRef = useRef<DragState>({
     pointerId: null,
@@ -170,45 +156,25 @@ export function Capabilities() {
   const safeIndex = count > 0 ? activeIndex % count : 0;
   const prevIndex = (safeIndex - 1 + count) % count;
   const nextIndex = (safeIndex + 1) % count;
-  const showNav = count > 1;
+  const showSideCards = count > 1;
+  const showNextSide = showSideCards && count > 2;
 
   const hubHref = (c.ctaSecondaryHref ?? "#popular-services").startsWith("#")
     ? (c.ctaSecondaryHref ?? "#popular-services")
     : assetPath(c.ctaSecondaryHref!);
 
-  const navigate = (next: number) => {
+  const navigate = (next: number, direction: SlideDirection) => {
     if (next === safeIndex || count === 0) return;
+    setSlideDirection(direction);
     setSlideTick((tick) => tick + 1);
     setActiveIndex(next);
   };
 
-  const goPrev = () => navigate(prevIndex);
-  const goNext = () => navigate(nextIndex);
+  const goPrev = () => navigate(prevIndex, -1);
+  const goNext = () => navigate(nextIndex, 1);
   const goTo = (index: number) => {
-    navigate(index);
+    navigate(index, resolveSlideDirection(safeIndex, index, count));
   };
-
-  useLayoutEffect(() => {
-    const viewport = viewportRef.current;
-    const track = trackRef.current;
-    if (!viewport || !track || count === 0) return;
-
-    const measure = () => {
-      const activeEl = track.querySelector<HTMLElement>(
-        '[data-cap-card][data-active="true"]',
-      );
-      if (!activeEl) return;
-      const viewportCenter = viewport.clientWidth / 2;
-      const cardCenter = activeEl.offsetLeft + activeEl.offsetWidth / 2;
-      setTrackOffset(viewportCenter - cardCenter);
-    };
-
-    measure();
-    const ro = new ResizeObserver(measure);
-    ro.observe(viewport);
-    ro.observe(track);
-    return () => ro.disconnect();
-  }, [safeIndex, count, slideTick]);
 
   useEffect(() => {
     if (paused || count < 2) return;
@@ -217,6 +183,7 @@ export function Capabilities() {
       setActiveIndex((current) => {
         const from = current % count;
         const to = (from + 1) % count;
+        setSlideDirection(1);
         setSlideTick((tick) => tick + 1);
         return to;
       });
@@ -232,6 +199,7 @@ export function Capabilities() {
   };
 
   const finishDrag = (event: ReactPointerEvent<HTMLDivElement>) => {
+    if (event.pointerType === "mouse") return;
     const drag = dragRef.current;
     if (drag.pointerId !== event.pointerId) return;
 
@@ -258,7 +226,8 @@ export function Capabilities() {
   };
 
   const onTrackPointerDown = (event: ReactPointerEvent<HTMLDivElement>) => {
-    if (!showNav || event.button !== 0) return;
+    if (!showSideCards || event.button !== 0) return;
+    if (event.pointerType === "mouse") return;
 
     dragRef.current = {
       pointerId: event.pointerId,
@@ -271,6 +240,7 @@ export function Capabilities() {
   };
 
   const onTrackPointerMove = (event: ReactPointerEvent<HTMLDivElement>) => {
+    if (event.pointerType === "mouse") return;
     const drag = dragRef.current;
     if (drag.pointerId !== event.pointerId) return;
 
@@ -287,12 +257,22 @@ export function Capabilities() {
     }
   };
 
-  const trackStyle = {
-    transform: `translateX(${trackOffset + dragOffset}px)`,
-    transition: isDragging
-      ? "none"
-      : "transform 0.5s cubic-bezier(0.22, 1, 0.36, 1)",
-  };
+  const slideClass =
+    slideTick > 0 && !isDragging
+      ? slideDirection === 1
+        ? "kuct-home-news-slide-next"
+        : "kuct-home-news-slide-prev"
+      : "";
+
+  const trackStyle =
+    dragOffset !== 0
+      ? {
+          transform: `translateX(${dragOffset}px)`,
+          transition: isDragging
+            ? "none"
+            : "transform 0.35s cubic-bezier(0.22, 1, 0.36, 1)",
+        }
+      : undefined;
 
   return (
     <section
@@ -303,9 +283,7 @@ export function Capabilities() {
       <div className="relative mx-auto max-w-7xl px-6">
         <Reveal variant="title">
           <div className="flex flex-wrap items-center gap-3 sm:gap-4">
-            <p className="kuct-type-eyebrow text-[11px] sm:text-xs">
-              {c.eyebrow}
-            </p>
+            <p className="kuct-type-eyebrow text-[11px] sm:text-xs">{c.eyebrow}</p>
             <span
               className="hidden h-px min-w-[3rem] flex-1 border-t border-dashed border-[var(--kuct-border)] sm:block"
               aria-hidden
@@ -333,46 +311,81 @@ export function Capabilities() {
 
         {count > 0 ? (
           <Reveal delay={60} className="relative mt-10 sm:mt-12">
-            <div
-              role="region"
-              aria-roledescription="carousel"
-              aria-label={c.eyebrow}
-              className={`kuct-home-news-track relative ${isDragging ? "is-dragging" : ""}`.trim()}
-              onPointerDown={onTrackPointerDown}
-              onPointerMove={onTrackPointerMove}
-              onPointerUp={finishDrag}
-              onPointerCancel={finishDrag}
-              onMouseEnter={() => setPaused(true)}
-              onMouseLeave={() => setPaused(false)}
-              onFocusCapture={() => setPaused(true)}
-              onBlurCapture={(event) => {
-                if (
-                  !event.currentTarget.contains(event.relatedTarget as Node)
-                ) {
-                  setPaused(false);
-                }
-              }}
-            >
-              <div ref={viewportRef} className="overflow-hidden px-1 sm:px-2">
-                <div
-                  ref={trackRef}
-                  style={trackStyle}
-                  className="flex w-max items-center gap-4 py-2 sm:gap-5 lg:gap-6"
+            <div className="flex items-center justify-center gap-2 sm:gap-4">
+              {showSideCards ? (
+                <button
+                  type="button"
+                  onClick={goPrev}
+                  aria-label={c.prevPage}
+                  className="hidden size-10 shrink-0 place-items-center rounded-[10px] bg-[var(--kuct-panel-2)] text-[var(--kuct-muted)] shadow-[0_4px_14px_rgb(26_21_32/0.08)] transition hover:text-[var(--kuct-text)] sm:grid"
                 >
-                  {offers.map((offer, index) => (
+                  <span aria-hidden>←</span>
+                </button>
+              ) : null}
+
+              <div
+                role="region"
+                aria-roledescription="carousel"
+                aria-label={c.eyebrow}
+                className={`kuct-home-news-track min-w-0 flex-1 sm:flex-none ${isDragging ? "is-dragging" : ""}`.trim()}
+                onPointerDown={onTrackPointerDown}
+                onPointerMove={onTrackPointerMove}
+                onPointerUp={finishDrag}
+                onPointerCancel={finishDrag}
+                onMouseEnter={() => setPaused(true)}
+                onMouseLeave={() => setPaused(false)}
+                onFocusCapture={() => setPaused(true)}
+                onBlurCapture={(event) => {
+                  if (!event.currentTarget.contains(event.relatedTarget as Node)) {
+                    setPaused(false);
+                  }
+                }}
+              >
+                <div
+                  key={slideTick}
+                  style={trackStyle}
+                  className={`flex min-w-0 items-stretch justify-center gap-3 overflow-hidden sm:gap-5 lg:gap-6 ${slideClass}`.trim()}
+                >
+                  {showSideCards ? (
                     <OfferCard
-                      key={offer.id}
-                      offer={offer}
+                      offer={offers[prevIndex]!}
                       learnMore={c.learnMore}
-                      active={index === safeIndex}
+                      active={false}
                       onNavigate={handleCardNavigate}
                     />
-                  ))}
+                  ) : null}
+
+                  <OfferCard
+                    offer={offers[safeIndex]!}
+                    learnMore={c.learnMore}
+                    active
+                    onNavigate={handleCardNavigate}
+                  />
+
+                  {showNextSide ? (
+                    <OfferCard
+                      offer={offers[nextIndex]!}
+                      learnMore={c.learnMore}
+                      active={false}
+                      onNavigate={handleCardNavigate}
+                    />
+                  ) : null}
                 </div>
               </div>
+
+              {showSideCards ? (
+                <button
+                  type="button"
+                  onClick={goNext}
+                  aria-label={c.nextPage}
+                  className="hidden size-10 shrink-0 place-items-center rounded-[10px] bg-[var(--kuct-panel-2)] text-[var(--kuct-muted)] shadow-[0_4px_14px_rgb(26_21_32/0.08)] transition hover:text-[var(--kuct-text)] sm:grid"
+                >
+                  <span aria-hidden>→</span>
+                </button>
+              ) : null}
             </div>
 
-            <div className="mt-6 flex flex-wrap items-center justify-between gap-4">
+            <div className="mt-6 flex justify-center">
               <div
                 role="tablist"
                 aria-label={c.eyebrow}
@@ -386,7 +399,7 @@ export function Capabilities() {
                       type="button"
                       role="tab"
                       aria-selected={selected}
-                      aria-label={offer.title}
+                      aria-label={`${offer.title}`}
                       onClick={() => goTo(index)}
                       className={
                         selected
@@ -397,17 +410,6 @@ export function Capabilities() {
                   );
                 })}
               </div>
-
-              {showNav ? (
-                <div className="ml-auto flex items-center gap-2">
-                  <NavCircleButton label={c.prevPage} onClick={goPrev}>
-                    ‹
-                  </NavCircleButton>
-                  <NavCircleButton label={c.nextPage} onClick={goNext}>
-                    ›
-                  </NavCircleButton>
-                </div>
-              ) : null}
             </div>
           </Reveal>
         ) : null}
