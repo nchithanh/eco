@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-08-12 (gitignore workers)
+
+- `.gitignore`: `/workers/` — Worker CF (demos-gate, leads, dolphin-chat) không còn track trong repo Pages; paste Deploy từ máy local.
+
+## 2026-08-12 (demos-gate copy)
+
+- Worker gate HTML: bỏ lead “Vault được bảo vệ trên Cloudflare…”. **Cần Deploy lại** Worker `demos-gate` trên CF.
+
 ## 2026-08-12 (restore capabilities/works slides)
 
 - `#capabilities` / `#works`: trả lại carousel style trước center-focus strip (giữ demo gate đơn giản).

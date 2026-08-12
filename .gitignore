@@ -52,4 +52,7 @@ next-env.d.ts
 .dev.vars*
 !.dev.vars.example
 
+# Cloudflare Workers (paste-deploy locally; not part of Pages repo)
+/workers/
+
 !.env.example
