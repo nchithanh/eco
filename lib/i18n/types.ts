@@ -38,6 +38,7 @@ export type Dictionary = {
     agents: string;
     agentDolphin: string;
     aiTransform: string;
+    dolphinIntelligence: string;
     contact: string;
     /** Opens site AI chat drawer */
     askAi: string;

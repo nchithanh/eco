@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-08-12 (Dolphin Intelligence)
+
+- `/dolphin-intelligence/` — trang sản phẩm nền tảng AI workflow (Agent · Action · Logic · Human Checkpoint); copy VI SoT + EN/JA; demo canvas kiểu builder (Daily Content Engine, node IN/OUT, run highlight) theo prototype HTML; schema `public/schema/agents/dolphin-intelligence.json`; link Nav/Footer nhóm AI.
+
 ## 2026-08-11 (demo wedding-saler)
 
 - `/demos/wedding-saler/` — port landing Saler Studio Wedding (HTML nguồn) vào vault: React + CSS scoped `.wsal`, catalog Wedding; ảnh Pexels (Canva Éternal set) trong `public/demos/wedding-saler/`.

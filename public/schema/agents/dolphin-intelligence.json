@@ -1,0 +1,42 @@
+{
+  "meta": {
+    "kind": "agent",
+    "id": "dolphin-intelligence",
+    "locale": "vi",
+    "brand": "Dolphin Software",
+    "schemaPath": "/schema/agents/dolphin-intelligence/",
+    "rawPath": "/schema/agents/dolphin-intelligence.json",
+    "updated": "2026-08-12"
+  },
+  "pillar": "Automate",
+  "displayName": "Dolphin Intelligence",
+  "productRoute": "/dolphin-intelligence/",
+  "metaTitle": "Dolphin Intelligence — Nền Tảng AI Workflow Cho Doanh Nghiệp | Dolphin Software",
+  "metaDescription": "Dolphin Intelligence là nền tảng AI workflow giúp doanh nghiệp tự động hóa quy trình bằng AI agent, action và human checkpoint — không cần code, không mất kiểm soát.",
+  "summary": "Nền tảng AI workflow: agent + action + logic + human checkpoint — tự động hóa chuỗi quy trình, không phải chatbot đơn lẻ.",
+  "headline": "Dolphin Intelligence: Biến Quy Trình Lặp Lại Thành AI Workflow Chạy Tự Động",
+  "support": "Thiết kế, điều phối và vận hành quy trình thông minh trong một hệ thống — không cần code, không mất kiểm soát.",
+  "trustLine": "Agent · Action · Logic · Human Checkpoint",
+  "pillars": [
+    {
+      "title": "AI Agent",
+      "body": "Tư duy và ra quyết định với ngữ cảnh, hướng dẫn và schema cố định."
+    },
+    {
+      "title": "Action",
+      "body": "Thực thi trên hệ thống thực: API, CMS, email, deploy, báo cáo."
+    },
+    {
+      "title": "Logic",
+      "body": "Điều kiện, vòng lặp, nhánh song song và trigger theo lịch."
+    },
+    {
+      "title": "Human Checkpoint",
+      "body": "Điểm dừng phê duyệt có kiểm soát trước khi tiếp tục."
+    }
+  ],
+  "sampleWorkflow": "Daily Content Engine",
+  "deploySteps": 8,
+  "faqCount": 7,
+  "relatedRoutes": ["/dolphin-care/", "/ai-transform/", "/#contact"]
+}

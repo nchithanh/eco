@@ -122,6 +122,10 @@ export function Nav() {
       href: assetPath("/ai-transform/"),
       label: t.nav.aiTransform,
     },
+    {
+      href: assetPath("/dolphin-intelligence/"),
+      label: t.nav.dolphinIntelligence,
+    },
   ];
 
   const pageLinks: NavLink[] = [

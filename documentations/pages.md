@@ -13,7 +13,7 @@
 | `/schema/services/` | `app/schema/services/page.tsx` | Services index JSON |
 | `/schema/services/[slug]/` | `app/schema/services/[slug]/page.tsx` | Per-service JSON (`web`, `landing`, `mobile`, `software`, `design`, `integrations`, `agents`) |
 | `/schema/agents/` | `app/schema/agents/page.tsx` | Agents index JSON |
-| `/schema/agents/[slug]/` | `app/schema/agents/[slug]/page.tsx` | Agent product JSON (`dolphin-care`, `ai-transform`) |
+| `/schema/agents/[slug]/` | `app/schema/agents/[slug]/page.tsx` | Agent product JSON (`dolphin-care`, `ai-transform`, `dolphin-intelligence`) |
 | `/company_value/` | `app/company_value/page.tsx` | Legacy redirect → `/schema/company/` |
 | `/about/` | `app/about/page.tsx` | `AboutContent` + editorial **`AboutTeamSection`** (equal-weight portraits, no cards); photos `founder.png` / `team-nghia.png`; copy `about-copy.ts`; FAQ + Person JSON-LD. |
 | `/careers/` | `app/careers/page.tsx` | `CareersContent` + `careers-jobs.ts` / `careers-copy.ts` — VI Jasper SEO/AEO/GEO (freelance model, open/closed roles, how-to-apply, FAQ 6 Q, FAQPage + JobPosting JSON-LD); Sales/Marketing priority; FE/Mobile/Design closed. Job detail popup: Share (`navigator.share` / copy) → deep link `?job=<id>` mở lại popup. |
@@ -22,6 +22,7 @@
 | `/custom-agent/` | `app/custom-agent/page.tsx` | Legacy redirect (noindex) → `/ai-transform/` |
 | `/services/custom-agent/` | `app/services/custom-agent/page.tsx` | Legacy redirect (noindex) → `/ai-transform/` |
 | `/ai-transform/` | `app/ai-transform/page.tsx` | `AiTransformContent` + `ai-transform-copy.ts`; VI Jasper SEO/AEO/GEO (meta “Lộ Trình Triển Khai AI”; custom AI agent = building block in roadmap, not a separate product; sections What We Build / Use Cases / internal proof “Builds With AI”; ROI + governance; FAQ 6 Q + links Care/about); section images under `public/services/ai-transform/` |
+| `/dolphin-intelligence/` | `app/dolphin-intelligence/page.tsx` | **Dolphin Intelligence** — nền tảng AI workflow (`DolphinIntelligenceContent` + `dolphin-intelligence-copy.ts`); demo animated Daily Content Engine (`IntelligenceWorkflowDemo`); pillars Agent/Action/Logic/Human; FAQ + Service/FAQ JSON-LD; schema `agents/dolphin-intelligence` |
 | `/news/` | `app/news/page.tsx` | `NewsContent` — Canva **pageNew** (page 2): eyebrow + title/filters row; featured split; 3-col grid cards; click → full `/news/[slug]/` |
 | `/news/[slug]/` | `app/news/[slug]/page.tsx` | `NewsDetailView` — hero split: meta + title + excerpt trái, ảnh chính phải; share Facebook + copy link; body + FAQ |
 | `/services/[slug]/` | `app/services/[slug]/page.tsx` | `ServiceDetailView` + `service-details.ts`. **`/services/web/`** hero = browser `EmbedSiteMock`. **`/services/mobile/`** = `variant="devices"` + ảnh section `public/services/mobile/` (highlights/process/deliverables). Care how-section: mock + chat, tĩnh. **`/services/software/`** long-form `SoftwareServiceContent`. **`/services/backend/`** legacy redirect → software. Web/mobile bake VI meta + FAQ JSON-LD. |

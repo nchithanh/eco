@@ -4,7 +4,7 @@
     "schemaPath": "/schema/agents/",
     "rawPath": "/schema/agents/index.json",
     "brand": "Dolphin Software",
-    "updated": "2026-08-02"
+    "updated": "2026-08-12"
   },
   "items": [
     {
@@ -22,6 +22,14 @@
       "productRoute": "/ai-transform/",
       "schemaPath": "/schema/agents/ai-transform/",
       "rawPath": "/schema/agents/ai-transform.json"
+    },
+    {
+      "id": "dolphin-intelligence",
+      "title": "Dolphin Intelligence",
+      "pillar": "Automate",
+      "productRoute": "/dolphin-intelligence/",
+      "schemaPath": "/schema/agents/dolphin-intelligence/",
+      "rawPath": "/schema/agents/dolphin-intelligence.json"
     }
   ]
 }

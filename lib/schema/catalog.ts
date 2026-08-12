@@ -10,6 +10,7 @@ import agentsService from "../../public/schema/services/agents.json";
 import agentsIndex from "../../public/schema/agents/index.json";
 import dolphinCare from "../../public/schema/agents/dolphin-care.json";
 import aiTransform from "../../public/schema/agents/ai-transform.json";
+import dolphinIntelligence from "../../public/schema/agents/dolphin-intelligence.json";
 import homepageIndex from "../../public/schema/homepage/index.json";
 import homepageHero from "../../public/schema/homepage/hero.json";
 import homepageStats from "../../public/schema/homepage/stats.json";
@@ -37,7 +38,11 @@ export const SCHEMA_SERVICE_SLUGS = [
 
 export type SchemaServiceSlug = (typeof SCHEMA_SERVICE_SLUGS)[number];
 
-export const SCHEMA_AGENT_SLUGS = ["dolphin-care", "ai-transform"] as const;
+export const SCHEMA_AGENT_SLUGS = [
+  "dolphin-care",
+  "ai-transform",
+  "dolphin-intelligence",
+] as const;
 
 export type SchemaAgentSlug = (typeof SCHEMA_AGENT_SLUGS)[number];
 
@@ -91,6 +96,7 @@ export const schemaServicesBySlug: Record<SchemaServiceSlug, object> = {
 export const schemaAgentsBySlug: Record<SchemaAgentSlug, object> = {
   "dolphin-care": dolphinCare,
   "ai-transform": aiTransform,
+  "dolphin-intelligence": dolphinIntelligence,
 };
 
 export const schemaHomepageBySlug: Record<SchemaHomepageSlug, object> = {
