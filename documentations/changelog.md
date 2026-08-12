@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-08-12 (site grid + Pages CI)
+
+- Khôi phục **nền caro** (ô lưới vuông `body::after`); Ask AI vẫn dùng dots.
+- `next.config.ts`: chỉ `initOpenNextCloudflareForDev` khi `next dev` (không CI / `GITHUB_PAGES`) — tránh fail Deploy Pages.
+
 ## 2026-08-12 (OpenNext Cloudflare scaffold)
 
 - Scaffold `@opennextjs/cloudflare` + `wrangler.jsonc` / `open-next.config.ts` / `public/_headers`; npm scripts `preview` / `deploy` / `upload`. Brand assets: `public/brand/logo1.png`, `logo1-white.png`, `logo-gold.png`. Pages deploy vẫn là path chính.

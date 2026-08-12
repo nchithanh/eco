@@ -26,4 +26,13 @@ const nextConfig: NextConfig = {
 
 export default nextConfig;
 
-import('@opennextjs/cloudflare').then(m => m.initOpenNextCloudflareForDev());
+// OpenNext Cloudflare bindings for local `next dev` only — skip on CI / Pages static export.
+if (
+  process.env.NODE_ENV === "development" &&
+  !process.env.CI &&
+  process.env.GITHUB_PAGES !== "true"
+) {
+  void import("@opennextjs/cloudflare").then((m) =>
+    m.initOpenNextCloudflareForDev(),
+  );
+}
