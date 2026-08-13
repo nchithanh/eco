@@ -137,7 +137,7 @@ const vi: AboutCopy = {
   ],
   founderEyebrow: "Team",
   founderTitle: "Đội ngũ Dolphin Software",
-  founderRole: "Founder · Product Backend / Tech Lead",
+  founderRole: "Founder / Solution Architect",
   founderName: "Nguyễn Chí Thành",
   founderBody:
     "Nguyễn Chí Thành có hơn 7 năm kinh nghiệm backend trên các sản phẩm live: Marathon, Myspa, và Splus. Anh đảm nhiệm vai trò team lead, xử lý sự cố production, và thiết kế hệ thống — tư duy production được áp dụng trực tiếp vào mọi dự án tại Dolphin Software.",
@@ -155,7 +155,7 @@ const vi: AboutCopy = {
     {
       id: "thanh",
       name: "Nguyễn Chí Thành",
-      role: "Founder · Product Backend / Tech Lead",
+      role: "Founder / Solution Architect",
       body: "Nguyễn Chí Thành có hơn 7 năm kinh nghiệm backend trên các sản phẩm live: Marathon, Myspa, và Splus. Anh đảm nhiệm vai trò team lead, xử lý sự cố production, và thiết kế hệ thống — tư duy production được áp dụng trực tiếp vào mọi dự án tại Dolphin Software.",
       image: "/about/founder.png",
       tags: [
@@ -168,6 +168,14 @@ const vi: AboutCopy = {
         "MySQL",
         "Grafana",
       ],
+    },
+    {
+      id: "hoang",
+      name: "Phạm Thanh Hoàng",
+      role: "Co-founder",
+      body: "Phạm Thanh Hoàng là đồng sáng lập Dolphin Software. Anh đảm nhận lead các sản phẩm outsource cho khách hàng và tham gia phát triển Dolphin Intelligence.",
+      image: "/about/team-hoang.png",
+      tags: [],
     },
     {
       id: "nghia",
@@ -293,7 +301,7 @@ const en: AboutCopy = {
   ],
   founderEyebrow: "Team",
   founderTitle: "The Dolphin Software team",
-  founderRole: "Founder · Product Backend / Tech Lead",
+  founderRole: "Founder / Solution Architect",
   founderName: "Nguyễn Chí Thành",
   founderBody:
     "Nguyễn Chí Thành has 7+ years of backend experience on live products: Marathon, Myspa, and Splus. He has led teams, handled production incidents, and designed systems — production thinking applied directly to every Dolphin Software project.",
@@ -311,7 +319,7 @@ const en: AboutCopy = {
     {
       id: "thanh",
       name: "Nguyễn Chí Thành",
-      role: "Founder · Product Backend / Tech Lead",
+      role: "Founder / Solution Architect",
       body: "Nguyễn Chí Thành has 7+ years of backend experience on live products: Marathon, Myspa, and Splus. He has led teams, handled production incidents, and designed systems — production thinking applied directly to every Dolphin Software project.",
       image: "/about/founder.png",
       tags: [
@@ -324,6 +332,14 @@ const en: AboutCopy = {
         "MySQL",
         "Grafana",
       ],
+    },
+    {
+      id: "hoang",
+      name: "Phạm Thanh Hoàng",
+      role: "Co-founder",
+      body: "Phạm Thanh Hoàng is a co-founder of Dolphin Software. He leads outsourced product work for clients and contributes to Dolphin Intelligence.",
+      image: "/about/team-hoang.png",
+      tags: [],
     },
     {
       id: "nghia",
@@ -449,7 +465,7 @@ const ja: AboutCopy = {
   ],
   founderEyebrow: "Team",
   founderTitle: "Dolphin Softwareのチーム",
-  founderRole: "Founder · Product Backend / Tech Lead",
+  founderRole: "Founder / Solution Architect",
   founderName: "Nguyễn Chí Thành",
   founderBody:
     "Nguyễn Chí Thànhはライブプロダクト（Marathon、Myspa、Splus）で7年以上のバックエンド経験を持ちます。チームリード、本番インシデント対応、システム設計 — 本番視点をDolphin Softwareの全プロジェクトに直接活かしています。",
@@ -467,7 +483,7 @@ const ja: AboutCopy = {
     {
       id: "thanh",
       name: "Nguyễn Chí Thành",
-      role: "Founder · Product Backend / Tech Lead",
+      role: "Founder / Solution Architect",
       body: "Nguyễn Chí Thànhはライブプロダクト（Marathon、Myspa、Splus）で7年以上のバックエンド経験を持ちます。チームリード、本番インシデント対応、システム設計 — 本番視点をDolphin Softwareの全プロジェクトに直接活かしています。",
       image: "/about/founder.png",
       tags: [
@@ -480,6 +496,14 @@ const ja: AboutCopy = {
         "MySQL",
         "Grafana",
       ],
+    },
+    {
+      id: "hoang",
+      name: "Phạm Thanh Hoàng",
+      role: "共同創業者",
+      body: "Phạm Thanh HoàngはDolphin Softwareの共同創業者です。顧客向けアウトソース製品のリードを担い、Dolphin Intelligenceの開発にも参加しています。",
+      image: "/about/team-hoang.png",
+      tags: [],
     },
     {
       id: "nghia",

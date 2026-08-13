@@ -194,6 +194,10 @@ describe("service detail pages", () => {
       screen.getAllByText(/Hồ Quốc Nghĩa/i).length,
     ).toBeGreaterThanOrEqual(1);
     expect(
+      screen.getAllByText(/Phạm Thanh Hoàng/i).length,
+    ).toBeGreaterThanOrEqual(1);
+    expect(screen.getByText(/^Co-founder$/i)).toBeInTheDocument();
+    expect(
       screen.getByText(/Business Development · Japan Market/i),
     ).toBeInTheDocument();
     expect(

@@ -30,6 +30,7 @@ const LOGO_COLORS: Record<string, string> = {
 };
 
 function TechChip({ name }: { name: string }) {
+ const label = name === "React Native" ? "React" : name;
  return (
  <>
  <span
@@ -37,16 +38,16 @@ function TechChip({ name }: { name: string }) {
  className="grid size-8 shrink-0 place-items-center rounded-[10px] bg-[var(--kuct-surface)] text-[0.625rem] font-bold shadow-[var(--kuct-shadow)] transition duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:text-[var(--kuct-accent)]"
  style={{ color: LOGO_COLORS[name] ?? "var(--kuct-accent)" }}
  >
- {name.slice(0, 2).toUpperCase()}
+ {label.slice(0, 2).toUpperCase()}
  </span>
- <span className="min-w-0">{name}</span>
+ <span className="min-w-0">{label}</span>
  </>
  );
 }
 
 export function TechStack() {
  const { t } = useLocale();
- const { eyebrow, titleLead, titleHighlight, support, logos } = t.stack;
+ const { eyebrow, titleLead, support, logos } = t.stack;
 
  return (
  <section
@@ -69,10 +70,7 @@ export function TechStack() {
  id="home-stack-heading"
  className="kuct-type-h2 mx-auto mt-4 max-w-3xl font-display text-3xl sm:text-[2.15rem] lg:text-[2.35rem]"
  >
- <span className="block">{titleLead}</span>
- <span className="font-serif-accent mt-2 block text-[1.15rem] font-normal text-[var(--kuct-accent)] sm:text-[1.35rem]">
- {titleHighlight}
- </span>
+ {titleLead}
  </h2>
 
  <p className="kuct-type-body mx-auto mt-5 max-w-[52ch]">

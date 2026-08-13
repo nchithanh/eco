@@ -2225,7 +2225,22 @@ html[data-theme="black"] .kuct-loader-progress {
   animation: none !important;
 }
 
-/* About team — editorial portraits (no cards) */
+/* About team — studio lineup (editorial, not equal cards) */
+.kuct-team-wash {
+  background:
+    radial-gradient(
+      70% 55% at 50% 18%,
+      rgb(var(--kuct-accent-rgb) / 0.12),
+      transparent 62%
+    ),
+    linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--kuct-accent-rgb) / 0.04) 42%,
+      transparent
+    );
+}
+
 .kuct-team-arch-grid {
   background-image:
     linear-gradient(
@@ -2246,12 +2261,55 @@ html[data-theme="black"] .kuct-loader-progress {
     #000 92%,
     transparent
   );
-  opacity: 0.35;
+  opacity: 0.28;
+}
+
+.kuct-team-title-rule {
+  width: 3.5rem;
+  height: 0.125rem;
+  border-radius: 999px;
+  background: var(--kuct-accent);
+}
+
+.kuct-team-lineup::before {
+  content: "";
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  top: 4.5rem;
+  height: 1px;
+  background: color-mix(in srgb, var(--kuct-accent) 35%, transparent);
+  pointer-events: none;
+  display: none;
+}
+
+@media (min-width: 48rem) {
+  .kuct-team-lineup::before {
+    display: block;
+  }
+}
+
+.kuct-team-frame {
+  border-radius: 0.625rem;
+  border: 1px solid color-mix(in srgb, var(--kuct-text) 10%, transparent);
+  box-shadow:
+    0 0.75rem 2rem rgb(26 21 32 / 0.08),
+    inset 0 0 0 1px rgb(255 255 255 / 0.35);
+  transition:
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  article:hover .kuct-team-frame {
+    transform: translate3d(0, -0.35rem, 0);
+    box-shadow: 0 1.15rem 2.4rem rgb(26 21 32 / 0.12);
+  }
 }
 
 .kuct-team-portrait {
   opacity: 0;
-  transform: translate3d(0, 26px, 0);
+  transform: translate3d(0, 1.6rem, 0);
   transition:
     opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
     transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
@@ -2262,20 +2320,6 @@ html[data-theme="black"] .kuct-loader-progress {
   opacity: 1;
   transform: translate3d(0, 0, 0);
   will-change: auto;
-}
-
-.kuct-team-tag {
-  transition: color 0.2s ease, text-decoration-color 0.2s ease;
-  text-decoration: underline;
-  text-decoration-color: transparent;
-  text-underline-offset: 0.2em;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .kuct-team-tag:hover {
-    color: var(--kuct-text);
-    text-decoration-color: color-mix(in srgb, var(--kuct-accent) 55%, transparent);
-  }
 }
 
 @keyframes kuct-rotate-globe {

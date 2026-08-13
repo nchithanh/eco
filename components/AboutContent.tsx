@@ -90,34 +90,35 @@ export function AboutContent() {
  </div>
  </section>
 
- <section className="scroll-mt-20 py-24">
- <div className="mx-auto max-w-7xl px-6">
- <Reveal variant="title" className="max-w-2xl">
- <p className="kuct-type-eyebrow">
+ <section
+ id="about-build"
+ className="scroll-mt-20 py-24"
+ aria-labelledby="about-build-heading"
+ >
+ <div className="relative mx-auto max-w-7xl px-6">
+ <Reveal variant="title" className="mx-auto max-w-3xl text-center">
+ <p className="kuct-type-eyebrow text-[11px] sm:text-xs">
  {a.buildEyebrow}
  </p>
- <h2 className="kuct-type-h2 mt-4 font-display text-3xl sm:text-[2.15rem]">
+ <h2
+ id="about-build-heading"
+ className="kuct-type-h2 mx-auto mt-4 max-w-3xl text-3xl sm:text-[2.15rem] lg:text-[2.35rem]"
+ >
  <AccentText>{a.buildTitle}</AccentText>
  </h2>
- <p className="mt-5 max-w-[48ch] text-base leading-[1.7] text-[var(--kuct-muted)]">
+ <p className="kuct-type-body mx-auto mt-5 max-w-[52ch] text-base">
  {a.buildSupport}
  </p>
  </Reveal>
- <div className="mt-12 grid gap-4 sm:grid-cols-2">
+ <ul className="mt-12 grid list-none grid-cols-1 gap-0 divide-y divide-[var(--kuct-border)] border-y border-[var(--kuct-border)] p-0 sm:mt-14 sm:grid-cols-2 sm:divide-x lg:grid-cols-4 lg:divide-y-0">
  {a.buildItems.map((item, index) => (
  <Reveal
+ as="li"
  key={item.title}
- delay={index * 50}
- className={
- index === 0 || index === 3
- ? "kuct-surface-card p-5 sm:p-6"
- : "kuct-surface-card p-5 sm:p-6"
- }
+ delay={index * 40}
+ className="group flex flex-col gap-3 px-0 py-6 sm:px-5 sm:py-7 lg:px-4 xl:px-5"
  >
- <p className="text-[11px] font-semibold tabular-nums tracking-wide text-[var(--kuct-accent)]/80">
- {String(index + 1).padStart(2, "0")}
- </p>
- <h3 className="mt-2 font-display text-sm font-semibold tracking-wide text-[var(--kuct-text)]">
+ <h3 className="font-display text-base font-semibold leading-snug text-[var(--kuct-text)] sm:text-lg">
  {item.href ? (
  <a
  href={assetPath(item.href)}
@@ -129,43 +130,63 @@ export function AboutContent() {
  item.title
  )}
  </h3>
- <p className="mt-2 text-sm leading-relaxed text-[var(--kuct-muted)]">
+ <p className="kuct-type-body text-sm leading-relaxed">
  {item.body}
  </p>
  </Reveal>
  ))}
- </div>
+ </ul>
  </div>
  </section>
 
- <section className="scroll-mt-20 py-24">
+ <section
+ id="about-proof"
+ className="scroll-mt-20 py-24"
+ aria-labelledby="about-proof-heading"
+ >
  <div className="mx-auto max-w-7xl px-6">
- <Reveal variant="title" className="max-w-2xl">
- <p className="kuct-type-eyebrow">
+ <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-14 xl:gap-16">
+ <div className="lg:sticky lg:top-28 lg:self-start">
+ <Reveal variant="title">
+ <p className="kuct-type-eyebrow inline-flex items-center gap-2 text-[11px] sm:text-xs">
+ <span
+ aria-hidden
+ className="inline-block size-1.5 rounded-full bg-[var(--kuct-accent)]"
+ />
  {a.proofEyebrow}
  </p>
- <h2 className="kuct-type-h2 mt-4 font-display text-3xl sm:text-[2.15rem]">
+ <h2
+ id="about-proof-heading"
+ className="kuct-type-h2 mt-5 max-w-[22ch] text-3xl sm:text-[2.15rem] lg:text-[2.35rem]"
+ >
  <AccentText>{a.proofTitle}</AccentText>
  </h2>
- <p className="mt-5 max-w-[48ch] text-base leading-[1.7] text-[var(--kuct-muted)]">
+ <p className="kuct-type-body mt-5 max-w-[40ch] text-base">
  {a.proofSupport}
  </p>
  </Reveal>
- <div className="mt-12 grid gap-4 md:grid-cols-2">
+ </div>
+ <ul className="flex list-none flex-col gap-4 p-0 sm:gap-5">
  {a.proofs.map((item, index) => (
- <Reveal
- key={item.title}
- delay={index * 50}
- className="kuct-surface-card p-5 sm:p-6"
- >
- <h3 className="font-display text-sm font-semibold tracking-wide text-[var(--kuct-text)]">
+ <Reveal as="li" key={item.title} delay={Math.min(index * 40, 160)}>
+ <article className="kuct-surface-card p-5 sm:p-6">
+ <div className="flex items-start gap-3">
+ <span className="mt-0.5 grid size-9 shrink-0 place-items-center rounded-[10px] border border-[var(--kuct-border)] bg-[var(--kuct-surface)]">
+ <span className="font-serif-accent text-sm text-[var(--kuct-accent)]">
+ {String(index + 1).padStart(2, "0")}
+ </span>
+ </span>
+ <h3 className="pt-1.5 font-display text-lg font-semibold leading-snug text-[var(--kuct-text)] sm:text-xl">
  {item.title}
  </h3>
- <p className="mt-2 text-sm leading-relaxed text-[var(--kuct-muted)]">
+ </div>
+ <p className="mt-4 text-sm leading-relaxed text-[var(--kuct-muted)] sm:mt-5">
  {item.body}
  </p>
+ </article>
  </Reveal>
  ))}
+ </ul>
  </div>
  </div>
  </section>

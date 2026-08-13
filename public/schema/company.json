@@ -306,7 +306,7 @@
   },
   "founder": {
     "name": "Nguyễn Chí Thành",
-    "role": "Founder · Product Backend / Tech Lead",
+    "role": "Founder / Solution Architect",
     "experienceYears": "7+",
     "products": ["Marathon", "Myspa", "Splus"],
     "stack": ["Golang", "NestJS", "Laravel", "TypeScript", "Docker", "Redis", "MySQL", "Grafana"],
@@ -317,8 +317,15 @@
     {
       "id": "thanh",
       "name": "Nguyễn Chí Thành",
-      "role": "Founder · Product Backend / Tech Lead",
+      "role": "Founder / Solution Architect",
       "image": "/about/founder.png"
+    },
+    {
+      "id": "hoang",
+      "name": "Phạm Thanh Hoàng",
+      "role": "Co-founder",
+      "image": "/about/team-hoang.png",
+      "body": "Phạm Thanh Hoàng là đồng sáng lập Dolphin Software. Anh đảm nhận lead các sản phẩm outsource cho khách hàng và tham gia phát triển Dolphin Intelligence."
     },
     {
       "id": "nghia",
