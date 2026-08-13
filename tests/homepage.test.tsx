@@ -37,6 +37,7 @@ describe("Dolphin Software homepage", () => {
     const agentDolphin = document.getElementById("dolphin-care");
     const technology = document.getElementById("technology");
     const aiEdge = document.getElementById("ai-edge");
+    const stack = document.getElementById("stack");
     const process = document.getElementById("process");
     const fit = document.getElementById("fit");
     const popular = document.getElementById("popular-services");
@@ -52,13 +53,13 @@ describe("Dolphin Software homepage", () => {
     expect(agentDolphin).toBeTruthy();
     expect(technology).toBeTruthy();
     expect(aiEdge).toBeTruthy();
+    expect(stack).toBeTruthy();
     expect(process).toBeTruthy();
     expect(popular).toBeTruthy();
     expect(news).toBeTruthy();
     expect(faq).toBeTruthy();
     expect(contact).toBeTruthy();
 
-    expect(document.getElementById("stack")).toBeNull();
     expect(document.getElementById("ops")).toBeNull();
     expect(document.getElementById("handover")).toBeNull();
     expect(document.getElementById("what-you-get")).toBeNull();
@@ -74,10 +75,13 @@ describe("Dolphin Software homepage", () => {
     expect(technology!.compareDocumentPosition(aiEdge!) & following).toBeTruthy();
     expect(aiEdge!.compareDocumentPosition(process!) & following).toBeTruthy();
     expect(process!.compareDocumentPosition(popular!) & following).toBeTruthy();
-    // Fit sits immediately under Hero when present
+    // Tech stack sits immediately under Hero
+    expect(top!.compareDocumentPosition(stack!) & following).toBeTruthy();
     if (fit) {
-      expect(top!.compareDocumentPosition(fit) & following).toBeTruthy();
+      expect(stack!.compareDocumentPosition(fit) & following).toBeTruthy();
       expect(fit.compareDocumentPosition(stats!) & following).toBeTruthy();
+    } else {
+      expect(stack!.compareDocumentPosition(stats!) & following).toBeTruthy();
     }
     expect(popular!.compareDocumentPosition(news!) & following).toBeTruthy();
     expect(news!.compareDocumentPosition(faq!) & following).toBeTruthy();
@@ -257,9 +261,9 @@ describe("Dolphin Software homepage", () => {
     expect(screen.getAllByText(/^結果$/i).length).toBeGreaterThanOrEqual(1);
   });
 
-  it("renders why and contact; no stack on homepage", () => {
+  it("renders why, contact, and tech stack", () => {
     renderHome();
-    expect(document.getElementById("stack")).toBeNull();
+    expect(document.getElementById("stack")).toBeTruthy();
     expect(document.getElementById("news")).toBeTruthy();
     expect(document.getElementById("cofounder")).toBeNull();
     expect(

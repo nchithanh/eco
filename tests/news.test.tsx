@@ -29,6 +29,11 @@ describe("Dolphin Software news page", () => {
     expect(screen.getByText(/^Nổi bật$/i)).toBeInTheDocument();
     expect(
       screen.getByRole("link", {
+        name: /Copy Prompt AI Trên Mạng: Rủi Ro Cho Doanh Nghiệp/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("link", {
         name: /Chuyển Đổi AI Doanh Nghiệp: Vì Sao SMB Việt Nam Mua AI Nhưng Vẫn Làm Tay/i,
       }),
     ).toBeInTheDocument();
@@ -104,6 +109,32 @@ describe("Dolphin Software news page", () => {
     expect(
       screen.getByRole("img", {
         name: /danh sách xe và bộ lọc thông minh/i,
+      }),
+    ).toBeInTheDocument();
+  });
+
+  it("renders copy-prompt risk article with FAQ", async () => {
+    const page = await NewsArticlePage({
+      params: Promise.resolve({
+        slug: "rui-ro-copy-prompt-chatgpt-doanh-nghiep",
+      }),
+    });
+    render(<AppProviders>{page}</AppProviders>);
+    expect(
+      screen.getByRole("heading", {
+        level: 1,
+        name: /Copy Prompt AI Trên Mạng: Rủi Ro Cho Doanh Nghiệp/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", {
+        level: 2,
+        name: /Checklist 6 bước kiểm trước khi cài AI tool/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", {
+        name: /Copy prompt AI trên Facebook có sao không/i,
       }),
     ).toBeInTheDocument();
   });

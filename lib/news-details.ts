@@ -5,6 +5,7 @@ import { dolphinCareChatbotAiTangChuyenDoiCopy } from "@/lib/news-articles/dolph
 import { landingPageGiaoVienTiengAnhCopy } from "@/lib/news-articles/landing-page-giao-vien-tieng-anh";
 import { landingPageSalesOToCaNhanCopy } from "@/lib/news-articles/landing-page-sales-o-to-ca-nhan";
 import { studioCuoiWebsiteXemVayOnlineCopy } from "@/lib/news-articles/studio-cuoi-website-xem-vay-online";
+import { ruiRoCopyPromptChatgptDoanhNghiepCopy } from "@/lib/news-articles/rui-ro-copy-prompt-chatgpt-doanh-nghiep";
 import { websiteGioiThieuXeShowroomCopy } from "@/lib/news-articles/website-gioi-thieu-xe-showroom";
 
 export const NEWS_CATEGORIES = [
@@ -18,6 +19,7 @@ export const NEWS_CATEGORIES = [
 export type NewsCategory = (typeof NEWS_CATEGORIES)[number];
 
 export const NEWS_SLUGS = [
+  "rui-ro-copy-prompt-chatgpt-doanh-nghiep",
   "landing-page-giao-vien-tieng-anh",
   "landing-page-sales-o-to-ca-nhan",
   "chuyen-doi-ai-doanh-nghiep-lo-trinh-5-buoc",
@@ -84,6 +86,10 @@ type NewsMeta = {
 };
 
 const metaBySlug: Record<NewsSlug, NewsMeta> = {
+  "rui-ro-copy-prompt-chatgpt-doanh-nghiep": {
+    category: "process",
+    date: "2026-08-14",
+  },
   "landing-page-giao-vien-tieng-anh": {
     category: "cases",
     date: "2026-08-11",
@@ -127,6 +133,8 @@ const categoryImages: Record<NewsCategory, string> = {
 };
 
 const slugImages: Partial<Record<NewsSlug, string>> = {
+  "rui-ro-copy-prompt-chatgpt-doanh-nghiep":
+    "/news/rui-ro-copy-prompt-cover.jpg",
   "landing-page-giao-vien-tieng-anh":
     "/news/landing-page-giao-vien-tieng-anh-cover.jpg",
   "landing-page-sales-o-to-ca-nhan":
@@ -150,6 +158,8 @@ export function getNewsImage(slug: NewsSlug): string {
 
 const copyByLocale: Record<Locale, Record<NewsSlug, NewsArticleCopy>> = {
   vi: {
+    "rui-ro-copy-prompt-chatgpt-doanh-nghiep":
+      ruiRoCopyPromptChatgptDoanhNghiepCopy.vi,
     "landing-page-giao-vien-tieng-anh": landingPageGiaoVienTiengAnhCopy.vi,
     "landing-page-sales-o-to-ca-nhan": landingPageSalesOToCaNhanCopy.vi,
     "chuyen-doi-ai-doanh-nghiep-lo-trinh-5-buoc":
@@ -329,6 +339,8 @@ const copyByLocale: Record<Locale, Record<NewsSlug, NewsArticleCopy>> = {
     },
   },
   en: {
+    "rui-ro-copy-prompt-chatgpt-doanh-nghiep":
+      ruiRoCopyPromptChatgptDoanhNghiepCopy.en,
     "landing-page-giao-vien-tieng-anh": landingPageGiaoVienTiengAnhCopy.en,
     "landing-page-sales-o-to-ca-nhan": landingPageSalesOToCaNhanCopy.en,
     "chuyen-doi-ai-doanh-nghiep-lo-trinh-5-buoc":
@@ -436,6 +448,8 @@ const copyByLocale: Record<Locale, Record<NewsSlug, NewsArticleCopy>> = {
     },
   },
   ja: {
+    "rui-ro-copy-prompt-chatgpt-doanh-nghiep":
+      ruiRoCopyPromptChatgptDoanhNghiepCopy.ja,
     "landing-page-giao-vien-tieng-anh": landingPageGiaoVienTiengAnhCopy.ja,
     "landing-page-sales-o-to-ca-nhan": landingPageSalesOToCaNhanCopy.ja,
     "chuyen-doi-ai-doanh-nghiep-lo-trinh-5-buoc":

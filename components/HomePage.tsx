@@ -9,6 +9,7 @@ import { WorksShowcase } from "@/components/WorksShowcase";
 import { AgentDolphinHome } from "@/components/AgentDolphinHome";
 import { Technology } from "@/components/Technology";
 import { AiEdge } from "@/components/AiEdge";
+import { TechStack } from "@/components/TechStack";
 import { Process } from "@/components/Process";
 import { FitSection } from "@/components/FitSection";
 import { PopularServices } from "@/components/PopularServices";
@@ -19,14 +20,15 @@ import { Footer } from "@/components/Footer";
 
 /**
  * Homepage story (outcome-first):
- * Hero → Fit → Outcomes → Why → How we help → Projects → Care → Ops AI →
- * Process → Solutions → News → FAQ → CTA
+ * Hero → Tech stack → Fit → Outcomes → Why → How we help → Projects → Care →
+ * Ops AI → Process → Solutions → News → FAQ → CTA
  */
 export function HomePage() {
  return (
  <main>
  <Nav />
  <Hero />
+ <TechStack />
  <FitSection />
  <SiteOutcomes />
  <WhyKuct />

@@ -24,7 +24,25 @@ const LOGO_COLORS: Record<string, string> = {
  Elasticsearch: "#005571",
  Redis: "#DC382D",
  Terraform: "#7B42BC",
+ Golang: "#00ADD8",
+ Laravel: "#FF2D20",
+ MySQL: "#4479A1",
 };
+
+function TechChip({ name }: { name: string }) {
+ return (
+ <>
+ <span
+ aria-hidden
+ className="grid size-8 shrink-0 place-items-center rounded-[10px] bg-[var(--kuct-surface)] text-[0.625rem] font-bold shadow-[var(--kuct-shadow)] transition duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:text-[var(--kuct-accent)]"
+ style={{ color: LOGO_COLORS[name] ?? "var(--kuct-accent)" }}
+ >
+ {name.slice(0, 2).toUpperCase()}
+ </span>
+ <span className="min-w-0">{name}</span>
+ </>
+ );
+}
 
 export function TechStack() {
  const { t } = useLocale();
@@ -33,54 +51,57 @@ export function TechStack() {
  return (
  <section
  id="stack"
- className="relative scroll-mt-20 overflow-hidden py-24"
+ className="relative scroll-mt-20 overflow-hidden py-14 sm:py-16"
+ aria-labelledby="home-stack-heading"
  >
  <div
  aria-hidden
  className="kuct-tech-ribbon pointer-events-none absolute left-1/2 top-1/2 h-[220px] w-[120%] max-w-5xl -translate-x-1/2 -translate-y-1/2 rounded-full opacity-90"
  />
 
- <div className="relative mx-auto max-w-5xl px-6 text-left">
+ <div className="relative mx-auto max-w-7xl px-6 text-center">
  <Reveal variant="title">
- <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
+ <p className="kuct-type-eyebrow text-[11px] sm:text-xs">
  {eyebrow}
  </p>
 
- <h2 className="mt-4 max-w-3xl font-display text-3xl font-semibold leading-[1.12] tracking-tight text-[var(--kuct-text)] sm:text-[2.15rem] lg:text-[2.35rem] lg:leading-[1.1]">
+ <h2
+ id="home-stack-heading"
+ className="kuct-type-h2 mx-auto mt-4 max-w-3xl font-display text-3xl sm:text-[2.15rem] lg:text-[2.35rem]"
+ >
  <span className="block">{titleLead}</span>
  <span className="font-serif-accent mt-2 block text-[1.15rem] font-normal text-[var(--kuct-accent)] sm:text-[1.35rem]">
  {titleHighlight}
  </span>
  </h2>
 
- <p className="mt-5 max-w-[52ch] text-base leading-[1.7] text-[var(--kuct-muted)]">
+ <p className="kuct-type-body mx-auto mt-5 max-w-[52ch]">
  {support}
  </p>
  </Reveal>
 
- <ul className="mt-14 grid grid-cols-2 gap-x-4 gap-y-4 sm:flex sm:flex-wrap sm:items-center sm:justify-center sm:gap-x-10 sm:gap-y-6">
+ <ul className="mx-auto mt-10 grid max-w-5xl grid-cols-3 justify-items-center gap-x-3 gap-y-5 sm:mt-12 md:grid-cols-7 md:gap-x-4 md:gap-y-6">
  {logos.map((name, index) => {
  const slug = TECH_NAME_TO_SLUG[name];
- if (!slug) return null;
- const href = assetPath(`/tech/${slug}/`);
+ const className =
+ "group flex touch-pan-y items-center justify-center gap-2 text-sm font-semibold text-[var(--kuct-text)]/80 transition duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:text-[var(--kuct-text)] md:text-base";
 
  return (
  <Reveal as="li" key={name} delay={index * 40} variant="scale">
+ {slug ? (
  <a
- href={href}
+ href={assetPath(`/tech/${slug}/`)}
  title={name}
  aria-label={name}
- className="group flex touch-pan-y items-center gap-2 text-base font-semibold text-[var(--kuct-text)]/80 transition duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:text-[var(--kuct-text)]"
+ className={className}
  >
- <span
- aria-hidden
- className="grid size-8 shrink-0 place-items-center rounded-lg bg-white/70 text-[0.625rem] font-bold shadow-sm backdrop-blur-sm transition duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:shadow-md group-"
- style={{ color: LOGO_COLORS[name] ?? "var(--kuct-accent)" }}
- >
- {name.slice(0, 2).toUpperCase()}
- </span>
- <span className="min-w-0">{name}</span>
+ <TechChip name={name} />
  </a>
+ ) : (
+ <span className={className} title={name}>
+ <TechChip name={name} />
+ </span>
+ )}
  </Reveal>
  );
  })}

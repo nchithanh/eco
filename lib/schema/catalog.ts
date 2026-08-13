@@ -20,6 +20,7 @@ import homepageWorks from "../../public/schema/homepage/works.json";
 import homepageDolphinCare from "../../public/schema/homepage/dolphin-care.json";
 import homepageTechnology from "../../public/schema/homepage/technology.json";
 import homepageAiEdge from "../../public/schema/homepage/ai-edge.json";
+import homepageStack from "../../public/schema/homepage/stack.json";
 import homepageProcess from "../../public/schema/homepage/process.json";
 import homepageFit from "../../public/schema/homepage/fit.json";
 import homepagePopular from "../../public/schema/homepage/popular-services.json";
@@ -48,6 +49,7 @@ export type SchemaAgentSlug = (typeof SCHEMA_AGENT_SLUGS)[number];
 
 export const SCHEMA_HOMEPAGE_SLUGS = [
   "hero",
+  "stack",
   "stats",
   "why",
   "capabilities",
@@ -108,6 +110,7 @@ export const schemaHomepageBySlug: Record<SchemaHomepageSlug, object> = {
   "dolphin-care": homepageDolphinCare,
   technology: homepageTechnology,
   "ai-edge": homepageAiEdge,
+  stack: homepageStack,
   process: homepageProcess,
   fit: homepageFit,
   "popular-services": homepagePopular,

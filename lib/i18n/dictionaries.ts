@@ -461,6 +461,9 @@ const vi: Dictionary = {
       "Elasticsearch",
       "Redis",
       "Terraform",
+      "Golang",
+      "Laravel",
+      "MySQL",
     ],
   },
   why: {
@@ -1041,6 +1044,9 @@ const en: Dictionary = {
       "Elasticsearch",
       "Redis",
       "Terraform",
+      "Golang",
+      "Laravel",
+      "MySQL",
     ],
   },
   why: {
@@ -1622,6 +1628,9 @@ const ja: Dictionary = {
       "Elasticsearch",
       "Redis",
       "Terraform",
+      "Golang",
+      "Laravel",
+      "MySQL",
     ],
   },
   why: {

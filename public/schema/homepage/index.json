@@ -32,6 +32,12 @@
       "rawPath": "/schema/homepage/hero.json"
     },
     {
+      "id": "stack",
+      "anchor": "#stack",
+      "schemaPath": "/schema/homepage/stack/",
+      "rawPath": "/schema/homepage/stack.json"
+    },
+    {
       "id": "fit",
       "anchor": "#fit",
       "schemaPath": "/schema/homepage/fit/",

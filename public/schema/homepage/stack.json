@@ -1,0 +1,50 @@
+{
+  "meta": {
+    "kind": "homepage-section",
+    "id": "stack",
+    "locale": "vi",
+    "brand": "Dolphin Software",
+    "updated": "2026-08-14",
+    "schemaPath": "/schema/homepage/stack/",
+    "rawPath": "/schema/homepage/stack.json",
+    "productRoute": "/"
+  },
+  "content": {
+    "order": 2,
+    "id": "stack",
+    "section_label": "Technology",
+    "headline": "Năng lực kỹ thuật",
+    "subheadline": "công nghệ hiện đại",
+    "body": "Đúng stack cho đúng bài toán — frontend, backend, infra và data. Kiểm chứng trên dự án thật.",
+    "groups": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "infra": "Infra / Ops",
+      "data": "Data / Tools"
+    },
+    "logos": [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Tailwind",
+      "Node.js",
+      "Flutter",
+      "React Native",
+      "PostgreSQL",
+      "Docker",
+      "NestJS",
+      "Express",
+      "Strapi",
+      "AWS",
+      "Kubernetes",
+      "Grafana",
+      "Elasticsearch",
+      "Redis",
+      "Terraform",
+      "Golang",
+      "Laravel",
+      "MySQL"
+    ],
+    "aeo_snippet": "Dolphin Software chọn stack theo bài toán: React, Next.js, TypeScript, Node.js, Flutter, PostgreSQL, Docker, NestJS và hạ tầng vận hành — kiểm chứng trên dự án thật, không gắn công nghệ cho đủ danh sách."
+  }
+}
