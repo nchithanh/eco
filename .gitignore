@@ -56,3 +56,11 @@ next-env.d.ts
 /workers/
 
 !.env.example
+
+# Local AI agent packs & internal docs (not part of Pages site)
+.cursor/
+.claude/
+/docs/
+/documentations/
+AGENTS.md
+CLAUDE.md
