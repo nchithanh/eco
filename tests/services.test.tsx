@@ -194,7 +194,7 @@ describe("service detail pages", () => {
       screen.getAllByText(/Hồ Quốc Nghĩa/i).length,
     ).toBeGreaterThanOrEqual(1);
     expect(
-      screen.getAllByText(/Phạm Thanh Hoàng/i).length,
+      screen.getAllByText(/Phạm Tấn Hoàng/i).length,
     ).toBeGreaterThanOrEqual(1);
     expect(screen.getByText(/^Co-founder$/i)).toBeInTheDocument();
     expect(
