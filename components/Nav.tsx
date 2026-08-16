@@ -51,9 +51,8 @@ export function Nav() {
   const { t } = useLocale();
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [servicesOpenMobile, setServicesOpenMobile] = useState(false);
-  const [agentOpenMobile, setAgentOpenMobile] = useState(false);
   const [headerHidden, setHeaderHidden] = useState(false);
+  const closeMenuRef = useRef<HTMLButtonElement>(null);
   const [hash, setHash] = useState("");
   const lastScrollY = useRef(0);
   const sectionBase = pathname === "/" ? "" : `${BASE_PATH}/`;
@@ -159,11 +158,7 @@ export function Nav() {
 
     const mq = window.matchMedia("(min-width: 768px)");
     const onChange = () => {
-      if (mq.matches) {
-        setIsMenuOpen(false);
-        setServicesOpenMobile(false);
-        setAgentOpenMobile(false);
-      }
+      if (mq.matches) setIsMenuOpen(false);
     };
     onChange();
     mq.addEventListener("change", onChange);
@@ -172,9 +167,24 @@ export function Nav() {
 
   useEffect(() => {
     setIsMenuOpen(false);
-    setServicesOpenMobile(false);
-    setAgentOpenMobile(false);
   }, [pathname]);
+
+  useEffect(() => {
+    if (!isMenuOpen) return;
+
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    closeMenuRef.current?.focus();
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setIsMenuOpen(false);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.body.style.overflow = prevOverflow;
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [isMenuOpen]);
 
   const gnbLinkClass =
     "kuct-gnb-link inline-flex h-[2.75rem] shrink-0 items-center text-[0.875rem] leading-none tracking-[-0.02em] text-[var(--kuct-text)] transition-colors hover:text-[var(--kuct-accent)]";
@@ -188,7 +198,12 @@ export function Nav() {
   const logoActiveTagline =
     "text-[9px] font-medium tracking-[0.34em] text-[var(--kuct-accent)] uppercase opacity-80 sm:text-[10px]";
 
+  const closeMenu = () => setIsMenuOpen(false);
+  const menuIconClass =
+    "kuct-mobile-nav__icon grid size-10 place-items-center text-[var(--kuct-text)] transition hover:text-[var(--kuct-accent)]";
+
   return (
+    <>
     <div
       className={`kuct-site-header sticky top-0 z-50 ${
         headerHidden ? "is-hidden" : ""
@@ -298,7 +313,7 @@ export function Nav() {
               <LanguageSwitcher />
               <button
                 type="button"
-                className="grid size-9 place-items-center text-[var(--kuct-text)] transition hover:text-[var(--kuct-accent)]"
+                className={menuIconClass}
                 aria-label={isMenuOpen ? t.nav.closeMenu : t.nav.openMenu}
                 aria-controls="mobile-nav"
                 aria-expanded={isMenuOpen}
@@ -311,107 +326,114 @@ export function Nav() {
             </div>
           </div>
         </nav>
+      </header>
+    </div>
 
         {isMenuOpen ? (
           <nav
             id="mobile-nav"
             aria-label={t.nav.ariaMobile}
-            className="border-t border-black/10 bg-white px-6 py-4 lg:hidden"
+            className="kuct-mobile-nav fixed inset-0 z-[70] flex h-dvh flex-col lg:hidden"
           >
-            <ul className="mx-auto flex max-w-7xl flex-col">
-              <li>
+            <div className="kuct-mobile-nav__bar flex h-14 shrink-0 items-center justify-between gap-4 px-6 sm:h-[3.75rem]">
+              <a
+                href={homeHref}
+                className={`${logoLinkClass}${
+                  isHomeActive ? gnbLinkActiveClass : ""
+                }`}
+                aria-label="Dolphin Software"
+                aria-current={isHomeActive ? "page" : undefined}
+                onClick={closeMenu}
+              >
+                <Logo
+                  showWordmark
+                  wordmarkClassName={
+                    isHomeActive ? logoActiveWordmark : undefined
+                  }
+                  wordmarkTaglineClassName={
+                    isHomeActive ? logoActiveTagline : undefined
+                  }
+                />
+              </a>
+              <div className="flex shrink-0 items-center gap-2 text-[0.875rem]">
+                <LanguageSwitcher />
                 <button
+                  ref={closeMenuRef}
                   type="button"
-                  className="flex w-full items-center justify-between py-2 text-sm font-medium text-[var(--kuct-text)]"
-                  aria-expanded={servicesOpenMobile}
-                  onClick={() => setServicesOpenMobile((open) => !open)}
+                  className={menuIconClass}
+                  aria-label={t.nav.closeMenu}
+                  onClick={closeMenu}
                 >
-                  <span>{t.nav.services}</span>
-                  <span aria-hidden className="text-[var(--kuct-text)]">
-                    {servicesOpenMobile ? "−" : "+"}
+                  <span aria-hidden="true" className="text-lg leading-none">
+                    ×
                   </span>
                 </button>
-                {servicesOpenMobile ? (
-                  <ul className="mb-1 space-y-0 pl-3">
-                    {serviceItems.map((item) => (
-                      <li key={item.href + item.label}>
-                        <NavItemLink
-                          href={item.href}
-                          label={item.label}
-                          active={isPageActive(item.href)}
-                          className="block w-full py-1.5"
-                          onClick={() => {
-                            setIsMenuOpen(false);
-                            setServicesOpenMobile(false);
-                          }}
-                        />
-                      </li>
-                    ))}
-                  </ul>
-                ) : null}
-              </li>
+              </div>
+            </div>
 
-              <li>
-                <button
-                  type="button"
-                  className="flex w-full items-center justify-between py-2 text-sm font-medium text-[var(--kuct-text)]"
-                  aria-expanded={agentOpenMobile}
-                  onClick={() => setAgentOpenMobile((open) => !open)}
-                >
-                  <span>{t.nav.agents}</span>
-                  <span aria-hidden className="text-[var(--kuct-text)]">
-                    {agentOpenMobile ? "−" : "+"}
-                  </span>
-                </button>
-                {agentOpenMobile ? (
-                  <ul className="mb-1 space-y-0 pl-3">
-                    {agentItems.map((item) => (
-                      <li key={item.href}>
-                        <NavItemLink
-                          href={item.href}
-                          label={item.label}
-                          active={isPageActive(item.href)}
-                          className="block w-full py-1.5"
-                          onClick={() => {
-                            setIsMenuOpen(false);
-                            setAgentOpenMobile(false);
-                          }}
-                        />
-                      </li>
-                    ))}
-                  </ul>
-                ) : null}
+            <ul className="mx-auto flex min-h-0 w-full max-w-lg flex-1 flex-col overflow-y-auto overscroll-contain px-4 py-3">
+              <li className="kuct-mobile-nav__label" aria-hidden="true">
+                {t.nav.services}
               </li>
-
-              {pageLinks.map((link) => (
-                <li key={link.href}>
-                  <NavItemLink
-                    href={link.href}
-                    label={link.label}
-                    active={isPageActive(link.href)}
-                    className="block w-full py-2"
-                    onClick={() => setIsMenuOpen(false)}
-                  />
+              {serviceItems.map((item) => (
+                <li key={item.href + item.label}>
+                  <a
+                    href={item.href}
+                    aria-current={isPageActive(item.href) ? "page" : undefined}
+                    className="kuct-mobile-nav__link"
+                    onClick={closeMenu}
+                  >
+                    {item.label}
+                  </a>
                 </li>
               ))}
-
-              <li className="flex items-center gap-2 pt-3">
+              <li className="kuct-mobile-nav__label" aria-hidden="true">
+                {t.nav.agents}
+              </li>
+              {agentItems.map((item) => (
+                <li key={item.href}>
+                  <a
+                    href={item.href}
+                    aria-current={isPageActive(item.href) ? "page" : undefined}
+                    className="kuct-mobile-nav__link"
+                    onClick={closeMenu}
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+              <li
+                className="mt-3 border-t border-[var(--kuct-border)] pt-3"
+                aria-hidden="true"
+              />
+              {pageLinks.map((link) => (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    aria-current={isPageActive(link.href) ? "page" : undefined}
+                    className="kuct-mobile-nav__link"
+                    onClick={closeMenu}
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+              <li>
                 <ThemeSwitcher />
               </li>
-
-              <li className="pt-2">
-                <a
-                  href={contactHref}
-                  className="kuct-btn-primary inline-flex w-full items-center justify-center rounded-lg px-4 py-3 text-sm"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {t.nav.contact}
-                </a>
-              </li>
             </ul>
+
+            <div className="kuct-mobile-nav__foot shrink-0">
+              <a
+                href={contactHref}
+                className="kuct-btn-primary inline-flex w-full items-center justify-center rounded-lg px-4 py-3.5 text-sm font-semibold"
+                onClick={closeMenu}
+              >
+                {t.nav.contact}
+              </a>
+            </div>
           </nav>
         ) : null}
-      </header>
-    </div>
+    </>
   );
 }

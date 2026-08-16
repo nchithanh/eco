@@ -328,11 +328,16 @@ describe("Dolphin Software homepage", () => {
 
     await user.click(screen.getByRole("button", { name: /メニューを開く/i }));
 
+    const mobileNav = screen.getByRole("navigation", { name: /モバイルナビ/i });
     expect(
-      within(
-        screen.getByRole("navigation", { name: /モバイルナビ/i }),
-      ).getByRole("link", { name: /お問い合わせ/i }),
+      within(mobileNav).getByRole("link", { name: /お問い合わせ/i }),
     ).toHaveAttribute("href", "#contact");
+    expect(
+      within(mobileNav).getByRole("link", { name: /Webサイト制作/i }),
+    ).toBeInTheDocument();
+    expect(
+      within(mobileNav).queryByRole("button", { name: /^サービス$/i }),
+    ).not.toBeInTheDocument();
   });
 
   it("renders FAQ heading on the homepage", () => {

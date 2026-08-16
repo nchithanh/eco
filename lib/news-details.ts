@@ -6,6 +6,7 @@ import { landingPageGiaoVienTiengAnhCopy } from "@/lib/news-articles/landing-pag
 import { landingPageSalesOToCaNhanCopy } from "@/lib/news-articles/landing-page-sales-o-to-ca-nhan";
 import { studioCuoiWebsiteXemVayOnlineCopy } from "@/lib/news-articles/studio-cuoi-website-xem-vay-online";
 import { ruiRoCopyPromptChatgptDoanhNghiepCopy } from "@/lib/news-articles/rui-ro-copy-prompt-chatgpt-doanh-nghiep";
+import { fiveAgentXuyenDemViecChuaXongCopy } from "@/lib/news-articles/5-agent-xuyen-dem-viec-chua-xong";
 import { websiteGioiThieuXeShowroomCopy } from "@/lib/news-articles/website-gioi-thieu-xe-showroom";
 
 export const NEWS_CATEGORIES = [
@@ -19,6 +20,7 @@ export const NEWS_CATEGORIES = [
 export type NewsCategory = (typeof NEWS_CATEGORIES)[number];
 
 export const NEWS_SLUGS = [
+  "5-agent-xuyen-dem-viec-chua-xong",
   "rui-ro-copy-prompt-chatgpt-doanh-nghiep",
   "landing-page-giao-vien-tieng-anh",
   "landing-page-sales-o-to-ca-nhan",
@@ -86,6 +88,10 @@ type NewsMeta = {
 };
 
 const metaBySlug: Record<NewsSlug, NewsMeta> = {
+  "5-agent-xuyen-dem-viec-chua-xong": {
+    category: "process",
+    date: "2026-08-17",
+  },
   "rui-ro-copy-prompt-chatgpt-doanh-nghiep": {
     category: "process",
     date: "2026-08-14",
@@ -133,6 +139,7 @@ const categoryImages: Record<NewsCategory, string> = {
 };
 
 const slugImages: Partial<Record<NewsSlug, string>> = {
+  "5-agent-xuyen-dem-viec-chua-xong": "/news/5-agent-xuyen-dem-cover.jpg",
   "rui-ro-copy-prompt-chatgpt-doanh-nghiep":
     "/news/rui-ro-copy-prompt-cover.jpg",
   "landing-page-giao-vien-tieng-anh":
@@ -158,6 +165,7 @@ export function getNewsImage(slug: NewsSlug): string {
 
 const copyByLocale: Record<Locale, Record<NewsSlug, NewsArticleCopy>> = {
   vi: {
+    "5-agent-xuyen-dem-viec-chua-xong": fiveAgentXuyenDemViecChuaXongCopy.vi,
     "rui-ro-copy-prompt-chatgpt-doanh-nghiep":
       ruiRoCopyPromptChatgptDoanhNghiepCopy.vi,
     "landing-page-giao-vien-tieng-anh": landingPageGiaoVienTiengAnhCopy.vi,
@@ -339,6 +347,7 @@ const copyByLocale: Record<Locale, Record<NewsSlug, NewsArticleCopy>> = {
     },
   },
   en: {
+    "5-agent-xuyen-dem-viec-chua-xong": fiveAgentXuyenDemViecChuaXongCopy.en,
     "rui-ro-copy-prompt-chatgpt-doanh-nghiep":
       ruiRoCopyPromptChatgptDoanhNghiepCopy.en,
     "landing-page-giao-vien-tieng-anh": landingPageGiaoVienTiengAnhCopy.en,
@@ -448,6 +457,7 @@ const copyByLocale: Record<Locale, Record<NewsSlug, NewsArticleCopy>> = {
     },
   },
   ja: {
+    "5-agent-xuyen-dem-viec-chua-xong": fiveAgentXuyenDemViecChuaXongCopy.ja,
     "rui-ro-copy-prompt-chatgpt-doanh-nghiep":
       ruiRoCopyPromptChatgptDoanhNghiepCopy.ja,
     "landing-page-giao-vien-tieng-anh": landingPageGiaoVienTiengAnhCopy.ja,

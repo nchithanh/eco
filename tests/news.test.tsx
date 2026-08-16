@@ -29,6 +29,11 @@ describe("Dolphin Software news page", () => {
     expect(screen.getByText(/^Nổi bật$/i)).toBeInTheDocument();
     expect(
       screen.getByRole("link", {
+        name: /5 agent làm xuyên đêm — sáng ra việc nào đã xong thật/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("link", {
         name: /Copy Prompt AI Trên Mạng: Rủi Ro Cho Doanh Nghiệp/i,
       }),
     ).toBeInTheDocument();
@@ -135,6 +140,32 @@ describe("Dolphin Software news page", () => {
     expect(
       screen.getByRole("button", {
         name: /Copy prompt AI trên Facebook có sao không/i,
+      }),
+    ).toBeInTheDocument();
+  });
+
+  it("renders five-agents overnight article with FAQ", async () => {
+    const page = await NewsArticlePage({
+      params: Promise.resolve({
+        slug: "5-agent-xuyen-dem-viec-chua-xong",
+      }),
+    });
+    render(<AppProviders>{page}</AppProviders>);
+    expect(
+      screen.getByRole("heading", {
+        level: 1,
+        name: /5 agent làm xuyên đêm — sáng ra việc nào đã xong thật/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", {
+        level: 2,
+        name: /Checklist bàn giao website trước khi tuyên bố/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", {
+        name: /Website làm bằng AI agent có dùng được cho việc thật không/i,
       }),
     ).toBeInTheDocument();
   });
