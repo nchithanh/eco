@@ -29,6 +29,11 @@ describe("Dolphin Software news page", () => {
     expect(screen.getByText(/^Nổi bật$/i)).toBeInTheDocument();
     expect(
       screen.getByRole("link", {
+        name: /Website shop độ xe — Instagram chưa đủ để khách đặt lịch/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("link", {
         name: /Thiết kế website giá bao nhiêu\? Bảng giá website 2026/i,
       }),
     ).toBeInTheDocument();
@@ -145,6 +150,37 @@ describe("Dolphin Software news page", () => {
     expect(
       screen.getByRole("button", {
         name: /Copy prompt AI trên Facebook có sao không/i,
+      }),
+    ).toBeInTheDocument();
+  });
+
+  it("renders racing-shop website article with FAQ", async () => {
+    const page = await NewsArticlePage({
+      params: Promise.resolve({
+        slug: "website-shop-do-xe-instagram-chua-du",
+      }),
+    });
+    render(<AppProviders>{page}</AppProviders>);
+    expect(
+      screen.getByRole("heading", {
+        level: 1,
+        name: /Website shop độ xe — Instagram chưa đủ để khách đặt lịch/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", {
+        level: 2,
+        name: /Website shop độ xe cần gì — và đừng làm thành showroom/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", {
+        name: /Shop độ xe đã có Instagram mạnh, có cần làm website không/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("img", {
+        name: /ba mục Dịch vụ, Trước–sau và Đặt lịch/i,
       }),
     ).toBeInTheDocument();
   });

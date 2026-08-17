@@ -8,6 +8,7 @@ import { studioCuoiWebsiteXemVayOnlineCopy } from "@/lib/news-articles/studio-cu
 import { ruiRoCopyPromptChatgptDoanhNghiepCopy } from "@/lib/news-articles/rui-ro-copy-prompt-chatgpt-doanh-nghiep";
 import { fiveAgentXuyenDemViecChuaXongCopy } from "@/lib/news-articles/5-agent-xuyen-dem-viec-chua-xong";
 import { thietKeWebsiteGiaBaoNhieuBangGia2026Copy } from "@/lib/news-articles/thiet-ke-website-gia-bao-nhieu-bang-gia-2026";
+import { websiteShopDoXeInstagramChuaDuCopy } from "@/lib/news-articles/website-shop-do-xe-instagram-chua-du";
 import { websiteGioiThieuXeShowroomCopy } from "@/lib/news-articles/website-gioi-thieu-xe-showroom";
 
 export const NEWS_CATEGORIES = [
@@ -21,6 +22,7 @@ export const NEWS_CATEGORIES = [
 export type NewsCategory = (typeof NEWS_CATEGORIES)[number];
 
 export const NEWS_SLUGS = [
+  "website-shop-do-xe-instagram-chua-du",
   "thiet-ke-website-gia-bao-nhieu-bang-gia-2026",
   "5-agent-xuyen-dem-viec-chua-xong",
   "rui-ro-copy-prompt-chatgpt-doanh-nghiep",
@@ -92,6 +94,10 @@ type NewsMeta = {
 };
 
 const metaBySlug: Record<NewsSlug, NewsMeta> = {
+  "website-shop-do-xe-instagram-chua-du": {
+    category: "cases",
+    date: "2026-08-17",
+  },
   "thiet-ke-website-gia-bao-nhieu-bang-gia-2026": {
     category: "process",
     date: "2026-08-17",
@@ -147,6 +153,8 @@ const categoryImages: Record<NewsCategory, string> = {
 };
 
 const slugImages: Partial<Record<NewsSlug, string>> = {
+  "website-shop-do-xe-instagram-chua-du":
+    "/news/website-shop-do-xe-instagram-chua-du.jpg",
   "thiet-ke-website-gia-bao-nhieu-bang-gia-2026":
     "/news/thiet-ke-website-gia-bao-nhieu-bang-gia-2026.jpg",
   "5-agent-xuyen-dem-viec-chua-xong": "/news/5-agent-xuyen-dem-cover.jpg",
@@ -175,6 +183,8 @@ export function getNewsImage(slug: NewsSlug): string {
 
 const copyByLocale: Record<Locale, Record<NewsSlug, NewsArticleCopy>> = {
   vi: {
+    "website-shop-do-xe-instagram-chua-du":
+      websiteShopDoXeInstagramChuaDuCopy.vi,
     "thiet-ke-website-gia-bao-nhieu-bang-gia-2026":
       thietKeWebsiteGiaBaoNhieuBangGia2026Copy.vi,
     "5-agent-xuyen-dem-viec-chua-xong": fiveAgentXuyenDemViecChuaXongCopy.vi,
@@ -359,6 +369,8 @@ const copyByLocale: Record<Locale, Record<NewsSlug, NewsArticleCopy>> = {
     },
   },
   en: {
+    "website-shop-do-xe-instagram-chua-du":
+      websiteShopDoXeInstagramChuaDuCopy.en,
     "thiet-ke-website-gia-bao-nhieu-bang-gia-2026":
       thietKeWebsiteGiaBaoNhieuBangGia2026Copy.en,
     "5-agent-xuyen-dem-viec-chua-xong": fiveAgentXuyenDemViecChuaXongCopy.en,
@@ -471,6 +483,8 @@ const copyByLocale: Record<Locale, Record<NewsSlug, NewsArticleCopy>> = {
     },
   },
   ja: {
+    "website-shop-do-xe-instagram-chua-du":
+      websiteShopDoXeInstagramChuaDuCopy.ja,
     "thiet-ke-website-gia-bao-nhieu-bang-gia-2026":
       thietKeWebsiteGiaBaoNhieuBangGia2026Copy.ja,
     "5-agent-xuyen-dem-viec-chua-xong": fiveAgentXuyenDemViecChuaXongCopy.ja,
