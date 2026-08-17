@@ -414,7 +414,7 @@ export function Website36ThangContent() {
         aria-labelledby="w36-why-heading"
       >
         <div className="mx-auto max-w-7xl px-6">
-          <Reveal variant="title" className="max-w-3xl">
+          <Reveal variant="title" className="mx-auto max-w-3xl text-center">
             <h2
               id="w36-why-heading"
               className="kuct-type-h2 font-display text-3xl text-[var(--kuct-text)] sm:text-[2.15rem]"

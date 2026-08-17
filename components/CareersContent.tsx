@@ -31,18 +31,18 @@ export function CareersContent({ embedded = false }: { embedded?: boolean }) {
  className="scroll-mt-20 py-20 sm:py-24"
  >
  <div className="mx-auto max-w-7xl px-6">
- <Reveal variant="title" className="max-w-2xl">
+ <Reveal variant="title" className="mx-auto max-w-2xl text-center">
  <p className="kuct-type-eyebrow">
  {c.model.eyebrow}
  </p>
  <h2 className="kuct-type-h2 mt-3 font-display text-3xl sm:text-4xl">
  <AccentText>{c.model.title}</AccentText>
  </h2>
- <p className="mt-5 max-w-[52ch] text-base leading-[1.7] text-[var(--kuct-muted)]">
+ <p className="mx-auto mt-5 max-w-[52ch] text-base leading-[1.7] text-[var(--kuct-muted)]">
  {c.model.support}
  </p>
  </Reveal>
- <ul className="mt-10 list-none space-y-3 p-0 sm:max-w-2xl">
+ <ul className="mx-auto mt-10 list-none space-y-3 p-0 sm:max-w-2xl">
  {c.model.bullets.map((item, index) => (
  <Reveal key={item} delay={index * 40} as="li">
  <div className="flex gap-3 rounded-lg bg-[var(--kuct-panel)] px-4 py-3.5">
@@ -64,10 +64,10 @@ export function CareersContent({ embedded = false }: { embedded?: boolean }) {
 
  <section
  id="how-to-apply"
- className="scroll-mt-20 py-20 sm:py-24"
+ className="kuct-section-wash scroll-mt-20 py-20 sm:py-24"
  >
  <div className="mx-auto max-w-7xl px-6">
- <Reveal variant="title" className="max-w-2xl">
+ <Reveal variant="title" className="mx-auto max-w-2xl text-center">
  <p className="kuct-type-eyebrow">
  {c.howToApply.eyebrow}
  </p>
@@ -78,7 +78,7 @@ export function CareersContent({ embedded = false }: { embedded?: boolean }) {
  {c.howToApply.support}
  </p>
  </Reveal>
- <ol className="mt-10 list-none space-y-3 p-0 sm:max-w-2xl">
+ <ol className="mx-auto mt-10 list-none space-y-3 p-0 sm:max-w-2xl">
  {c.howToApply.steps.map((step, index) => (
  <Reveal key={step} delay={index * 40} as="li">
  <div className="flex gap-3 rounded-lg bg-[var(--kuct-panel)] px-4 py-3.5">

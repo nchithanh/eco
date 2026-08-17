@@ -128,7 +128,7 @@ export function LandingPageContent() {
         className="scroll-mt-20 py-20 sm:py-24"
       >
         <div className="mx-auto max-w-7xl px-6">
-          <Reveal variant="title" className="max-w-3xl">
+          <Reveal variant="title" className="mx-auto max-w-3xl text-center">
             <p className="kuct-type-eyebrow">
               {c.whatEyebrow}
             </p>
@@ -138,7 +138,7 @@ export function LandingPageContent() {
             >
               <AccentText>{c.whatTitle}</AccentText>
             </h2>
-            <p className="mt-5 max-w-[60ch] text-base leading-[1.7] text-[var(--kuct-muted)]">
+            <p className="mx-auto mt-5 max-w-[60ch] text-base leading-[1.7] text-[var(--kuct-muted)]">
               {c.whatBody}
             </p>
           </Reveal>
@@ -173,7 +173,7 @@ export function LandingPageContent() {
         className="scroll-mt-20 py-20 sm:py-24"
       >
         <div className="mx-auto max-w-7xl px-6">
-          <Reveal variant="title" className="max-w-3xl">
+          <Reveal variant="title" className="mx-auto max-w-3xl text-center">
             <p className="kuct-type-eyebrow">
               {c.whyEyebrow}
             </p>
@@ -183,7 +183,7 @@ export function LandingPageContent() {
             >
               <AccentText>{c.whyTitle}</AccentText>
             </h2>
-            <p className="mt-5 max-w-[60ch] text-base leading-[1.7] text-[var(--kuct-muted)]">
+            <p className="mx-auto mt-5 max-w-[60ch] text-base leading-[1.7] text-[var(--kuct-muted)]">
               {c.whyIntro}
             </p>
           </Reveal>
@@ -215,7 +215,7 @@ export function LandingPageContent() {
         className="scroll-mt-20 py-20 sm:py-24"
       >
         <div className="mx-auto max-w-7xl px-6">
-          <Reveal variant="title" className="max-w-3xl">
+          <Reveal variant="title" className="mx-auto max-w-3xl text-center">
             <p className="kuct-type-eyebrow">
               {c.includeEyebrow}
             </p>
@@ -225,7 +225,7 @@ export function LandingPageContent() {
             >
               <AccentText>{c.includeTitle}</AccentText>
             </h2>
-            <p className="mt-5 max-w-[60ch] text-base leading-[1.7] text-[var(--kuct-muted)]">
+            <p className="mx-auto mt-5 max-w-[60ch] text-base leading-[1.7] text-[var(--kuct-muted)]">
               {c.includeIntro}
             </p>
           </Reveal>
@@ -268,10 +268,10 @@ export function LandingPageContent() {
       <section
         id="landing-industries"
         aria-labelledby="landing-industries-heading"
-        className="scroll-mt-20 py-20 sm:py-24"
+        className="kuct-section-wash scroll-mt-20 py-20 sm:py-24"
       >
         <div className="mx-auto max-w-7xl px-6">
-          <Reveal variant="title" className="max-w-3xl">
+          <Reveal variant="title" className="mx-auto max-w-3xl text-center">
             <p className="kuct-type-eyebrow">
               {c.industriesEyebrow}
             </p>
@@ -281,7 +281,7 @@ export function LandingPageContent() {
             >
               <AccentText>{c.industriesTitle}</AccentText>
             </h2>
-            <p className="mt-5 max-w-[60ch] text-base leading-[1.7] text-[var(--kuct-muted)]">
+            <p className="mx-auto mt-5 max-w-[60ch] text-base leading-[1.7] text-[var(--kuct-muted)]">
               {c.industriesIntro}
             </p>
           </Reveal>
@@ -331,7 +331,7 @@ export function LandingPageContent() {
         className="scroll-mt-20 py-20 sm:py-24"
       >
         <div className="mx-auto max-w-7xl px-6">
-          <Reveal variant="title" className="max-w-3xl">
+          <Reveal variant="title" className="mx-auto max-w-3xl text-center">
             <p className="kuct-type-eyebrow">
               {c.processEyebrow}
             </p>
@@ -377,7 +377,7 @@ export function LandingPageContent() {
         className="scroll-mt-20 py-20 sm:py-24"
       >
         <div className="mx-auto max-w-7xl px-6">
-          <Reveal variant="title" className="max-w-3xl">
+          <Reveal variant="title" className="mx-auto max-w-3xl text-center">
             <p className="kuct-type-eyebrow">
               {c.pricingEyebrow}
             </p>
@@ -387,7 +387,7 @@ export function LandingPageContent() {
             >
               <AccentText>{c.pricingTitle}</AccentText>
             </h2>
-            <p className="mt-5 max-w-[60ch] text-base leading-[1.7] text-[var(--kuct-muted)]">
+            <p className="mx-auto mt-5 max-w-[60ch] text-base leading-[1.7] text-[var(--kuct-muted)]">
               {c.pricingNote}
             </p>
           </Reveal>

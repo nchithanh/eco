@@ -36,14 +36,14 @@ export function SitesShipped({
  }
  >
  <div className="mx-auto max-w-7xl px-6">
- <Reveal variant="title">
+ <Reveal variant="title" className="mx-auto max-w-3xl text-center">
  <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
  {w.eyebrow}
  </p>
- <h2 className="mt-4 max-w-3xl font-display text-3xl font-semibold leading-[1.12] tracking-tight sm:text-[2.15rem] lg:text-[2.35rem] lg:leading-[1.1]">
+ <h2 className="mt-4 font-display text-3xl font-semibold leading-[1.12] tracking-tight sm:text-[2.15rem] lg:text-[2.35rem] lg:leading-[1.1]">
  <AccentText>{w.title}</AccentText>
  </h2>
- <p className="mt-5 max-w-[46ch] text-base leading-[1.7] text-[var(--kuct-muted)]">
+ <p className="mx-auto mt-5 max-w-[46ch] text-base leading-[1.7] text-[var(--kuct-muted)]">
  {w.support}
  </p>
  </Reveal>

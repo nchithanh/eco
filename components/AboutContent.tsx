@@ -56,14 +56,14 @@ export function AboutContent() {
 
  <section className="scroll-mt-20 py-24">
  <div className="mx-auto max-w-7xl px-6">
- <Reveal variant="title" className="max-w-2xl">
+ <Reveal variant="title" className="mx-auto max-w-2xl text-center">
  <p className="kuct-type-eyebrow">
  {a.mindsetEyebrow}
  </p>
  <h2 className="kuct-type-h2 mt-4 font-display text-3xl sm:text-[2.15rem]">
  <AccentText>{a.mindsetTitle}</AccentText>
  </h2>
- <p className="mt-5 max-w-[48ch] text-base leading-[1.7] text-[var(--kuct-muted)]">
+ <p className="mx-auto mt-5 max-w-[48ch] text-base leading-[1.7] text-[var(--kuct-muted)]">
  {a.mindsetSupport}
  </p>
  </Reveal>
@@ -92,7 +92,7 @@ export function AboutContent() {
 
  <section
  id="about-build"
- className="scroll-mt-20 py-24"
+ className="kuct-section-wash scroll-mt-20 py-24"
  aria-labelledby="about-build-heading"
  >
  <div className="relative mx-auto max-w-7xl px-6">

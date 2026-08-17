@@ -12,6 +12,7 @@ import { PopularServices } from "@/components/PopularServices";
 import { Reveal } from "@/components/Reveal";
 import { SitesShipped } from "@/components/SitesShipped";
 import { SoftwareServiceContent } from "@/components/SoftwareServiceContent";
+import { WebServiceDetails } from "@/components/WebServiceDetails";
 import { usePagePreview } from "@/components/PagePreviewProvider";
 import { useQuote } from "@/components/QuoteProvider";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
@@ -188,6 +189,16 @@ export function ServiceDetailContent({
         </div>
       </section>
 
+      {isWebPage ? (
+        <WebServiceDetails
+          detail={detail}
+          ui={ui}
+          extras={extras}
+          xui={xui}
+          embedded={embedded}
+          onQuote={openQuoteFlow}
+        />
+      ) : (
       <section
         id="service-details"
         className={
@@ -308,6 +319,7 @@ export function ServiceDetailContent({
           ) : null}
         </div>
       </section>
+      )}
 
       {isMobilePage ? (
         <>

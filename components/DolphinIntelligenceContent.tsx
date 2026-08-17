@@ -104,7 +104,8 @@ export function DolphinIntelligenceContent({
       </section>
 
       <section
-        className="scroll-mt-20 py-16 sm:py-20"
+        id="di-pain"
+        className="kuct-section-wash scroll-mt-20 py-16 sm:py-20"
         aria-labelledby="di-pain-heading"
       >
         <div className="mx-auto max-w-7xl px-6">
@@ -158,7 +159,7 @@ export function DolphinIntelligenceContent({
         aria-labelledby="di-what-heading"
       >
         <div className="mx-auto max-w-7xl px-6">
-          <Reveal variant="title" className="max-w-3xl">
+          <Reveal variant="title" className="mx-auto max-w-3xl text-center">
             <p className="text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
               {c.whatEyebrow}
             </p>
