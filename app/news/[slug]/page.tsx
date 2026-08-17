@@ -25,12 +25,12 @@ export async function generateMetadata({
  return { title: "News" };
  }
 
- const article = getNewsDetail(SEO_LOCALE, slug);
- const path = `/news/${slug}/`;
- const metaTitle = article.metaTitle ?? article.title;
- const base = buildPageMetadata({
- title: metaTitle,
- description: article.excerpt,
+  const article = getNewsDetail(SEO_LOCALE, slug);
+  const path = `/news/${slug}/`;
+  const metaTitle = article.metaTitle ?? article.title;
+  const base = buildPageMetadata({
+    title: metaTitle,
+    description: article.metaDescription ?? article.excerpt,
  path,
  image: article.image || OG_IMAGE_PATH,
  type: "article",
@@ -61,8 +61,8 @@ export default async function NewsArticlePage({
  const path = `/news/${slug}/`;
  const jsonLd = [
  articleJsonLd({
- title: article.metaTitle ?? article.title,
- description: article.excerpt,
+    title: article.metaTitle ?? article.title,
+    description: article.metaDescription ?? article.excerpt,
  path,
  datePublished: article.date,
  image: article.image,

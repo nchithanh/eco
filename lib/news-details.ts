@@ -7,6 +7,7 @@ import { landingPageSalesOToCaNhanCopy } from "@/lib/news-articles/landing-page-
 import { studioCuoiWebsiteXemVayOnlineCopy } from "@/lib/news-articles/studio-cuoi-website-xem-vay-online";
 import { ruiRoCopyPromptChatgptDoanhNghiepCopy } from "@/lib/news-articles/rui-ro-copy-prompt-chatgpt-doanh-nghiep";
 import { fiveAgentXuyenDemViecChuaXongCopy } from "@/lib/news-articles/5-agent-xuyen-dem-viec-chua-xong";
+import { thietKeWebsiteGiaBaoNhieuBangGia2026Copy } from "@/lib/news-articles/thiet-ke-website-gia-bao-nhieu-bang-gia-2026";
 import { websiteGioiThieuXeShowroomCopy } from "@/lib/news-articles/website-gioi-thieu-xe-showroom";
 
 export const NEWS_CATEGORIES = [
@@ -20,6 +21,7 @@ export const NEWS_CATEGORIES = [
 export type NewsCategory = (typeof NEWS_CATEGORIES)[number];
 
 export const NEWS_SLUGS = [
+  "thiet-ke-website-gia-bao-nhieu-bang-gia-2026",
   "5-agent-xuyen-dem-viec-chua-xong",
   "rui-ro-copy-prompt-chatgpt-doanh-nghiep",
   "landing-page-giao-vien-tieng-anh",
@@ -50,6 +52,7 @@ export type NewsFaqItem = { q: string; a: string };
 export type NewsArticleCopy = {
   title: string;
   metaTitle?: string;
+  metaDescription?: string;
   excerpt: string;
   body: NewsBodyBlock[];
   faq?: NewsFaqItem[];
@@ -65,6 +68,7 @@ export type NewsListItem = {
 
 export type NewsDetail = NewsListItem & {
   metaTitle?: string;
+  metaDescription?: string;
   body: NewsBodyBlock[];
   faq?: NewsFaqItem[];
   image: string;
@@ -88,6 +92,10 @@ type NewsMeta = {
 };
 
 const metaBySlug: Record<NewsSlug, NewsMeta> = {
+  "thiet-ke-website-gia-bao-nhieu-bang-gia-2026": {
+    category: "process",
+    date: "2026-08-17",
+  },
   "5-agent-xuyen-dem-viec-chua-xong": {
     category: "process",
     date: "2026-08-17",
@@ -139,6 +147,8 @@ const categoryImages: Record<NewsCategory, string> = {
 };
 
 const slugImages: Partial<Record<NewsSlug, string>> = {
+  "thiet-ke-website-gia-bao-nhieu-bang-gia-2026":
+    "/news/thiet-ke-website-gia-bao-nhieu-bang-gia-2026.jpg",
   "5-agent-xuyen-dem-viec-chua-xong": "/news/5-agent-xuyen-dem-cover.jpg",
   "rui-ro-copy-prompt-chatgpt-doanh-nghiep":
     "/news/rui-ro-copy-prompt-cover.jpg",
@@ -165,6 +175,8 @@ export function getNewsImage(slug: NewsSlug): string {
 
 const copyByLocale: Record<Locale, Record<NewsSlug, NewsArticleCopy>> = {
   vi: {
+    "thiet-ke-website-gia-bao-nhieu-bang-gia-2026":
+      thietKeWebsiteGiaBaoNhieuBangGia2026Copy.vi,
     "5-agent-xuyen-dem-viec-chua-xong": fiveAgentXuyenDemViecChuaXongCopy.vi,
     "rui-ro-copy-prompt-chatgpt-doanh-nghiep":
       ruiRoCopyPromptChatgptDoanhNghiepCopy.vi,
@@ -347,6 +359,8 @@ const copyByLocale: Record<Locale, Record<NewsSlug, NewsArticleCopy>> = {
     },
   },
   en: {
+    "thiet-ke-website-gia-bao-nhieu-bang-gia-2026":
+      thietKeWebsiteGiaBaoNhieuBangGia2026Copy.en,
     "5-agent-xuyen-dem-viec-chua-xong": fiveAgentXuyenDemViecChuaXongCopy.en,
     "rui-ro-copy-prompt-chatgpt-doanh-nghiep":
       ruiRoCopyPromptChatgptDoanhNghiepCopy.en,
@@ -457,6 +471,8 @@ const copyByLocale: Record<Locale, Record<NewsSlug, NewsArticleCopy>> = {
     },
   },
   ja: {
+    "thiet-ke-website-gia-bao-nhieu-bang-gia-2026":
+      thietKeWebsiteGiaBaoNhieuBangGia2026Copy.ja,
     "5-agent-xuyen-dem-viec-chua-xong": fiveAgentXuyenDemViecChuaXongCopy.ja,
     "rui-ro-copy-prompt-chatgpt-doanh-nghiep":
       ruiRoCopyPromptChatgptDoanhNghiepCopy.ja,
@@ -565,6 +581,7 @@ export function getNewsDetail(locale: Locale, slug: NewsSlug): NewsDetail {
     date: meta.date,
     title: copy.title,
     metaTitle: copy.metaTitle,
+    metaDescription: copy.metaDescription,
     excerpt: copy.excerpt,
     body: copy.body,
     faq: copy.faq,

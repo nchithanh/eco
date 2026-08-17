@@ -29,6 +29,11 @@ describe("Dolphin Software news page", () => {
     expect(screen.getByText(/^Nổi bật$/i)).toBeInTheDocument();
     expect(
       screen.getByRole("link", {
+        name: /Thiết kế website giá bao nhiêu\? Bảng giá website 2026/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("link", {
         name: /5 agent làm xuyên đêm — sáng ra việc nào đã xong thật/i,
       }),
     ).toBeInTheDocument();
@@ -140,6 +145,37 @@ describe("Dolphin Software news page", () => {
     expect(
       screen.getByRole("button", {
         name: /Copy prompt AI trên Facebook có sao không/i,
+      }),
+    ).toBeInTheDocument();
+  });
+
+  it("renders website pricing 2026 article with FAQ", async () => {
+    const page = await NewsArticlePage({
+      params: Promise.resolve({
+        slug: "thiet-ke-website-gia-bao-nhieu-bang-gia-2026",
+      }),
+    });
+    render(<AppProviders>{page}</AppProviders>);
+    expect(
+      screen.getByRole("heading", {
+        level: 1,
+        name: /Thiết kế website giá bao nhiêu\? Bảng giá website 2026/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", {
+        level: 2,
+        name: /Bảng giá website 2026 — 4 gói theo phạm vi/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", {
+        name: /Thiết kế website giá bao nhiêu\?/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("img", {
+        name: /bốn gói giá website 2026/i,
       }),
     ).toBeInTheDocument();
   });
