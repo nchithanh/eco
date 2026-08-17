@@ -1,4 +1,4 @@
-import { render, screen, waitFor, within } from "@testing-library/react";
+import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { ServiceDetailView } from "@/components/ServiceDetailView";
@@ -101,13 +101,10 @@ describe("service detail pages", () => {
     expect(
       screen.getAllByRole("button", { name: /Nhận báo giá miễn phí/i }).length,
     ).toBeGreaterThanOrEqual(1);
-    await waitFor(() => {
-      const video = container.querySelector("#service-hero video");
-      expect(video).toBeTruthy();
-      expect(video?.querySelector("source")?.getAttribute("src")).toMatch(
-        /\/services\/web\/hero\.mp4$/,
-      );
-    });
+    expect(container.querySelector("#service-hero video")).toBeNull();
+    expect(
+      container.querySelector("#service-hero .kuct-site-mock__chrome"),
+    ).toBeTruthy();
   });
 
   it("renders mobile service detail content", () => {

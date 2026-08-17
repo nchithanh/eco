@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useId, useState } from "react";
 import { EmbedSiteMock } from "@/components/EmbedSiteMock";
@@ -16,8 +15,6 @@ import { SoftwareServiceContent } from "@/components/SoftwareServiceContent";
 import { usePagePreview } from "@/components/PagePreviewProvider";
 import { useQuote } from "@/components/QuoteProvider";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
-import { useDesktopMotion } from "@/lib/motion";
-import { parallaxPx, useParallaxScrollY } from "@/lib/use-parallax-scroll";
 import {
   getServiceDetail,
   getServiceDetailUi,
@@ -80,10 +77,6 @@ export function ServiceDetailContent({
   const useDevicesMock = slug === "mobile";
   const isMobilePage = slug === "mobile";
   const isWebPage = slug === "web";
-  const motionOk = useDesktopMotion();
-  const scrollY = useParallaxScrollY();
-  const parallaxY =
-    isWebPage && !embedded ? parallaxPx(scrollY, 0.32, 80) : 0;
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const faqId = useId();
 
@@ -103,56 +96,14 @@ export function ServiceDetailContent({
         aria-labelledby="service-hero-heading"
         className={
           embedded
-            ? `relative overflow-hidden py-10 sm:py-12${isWebPage ? " kuct-hero-on-video min-h-[min(52svh,28rem)]" : ""}`
-            : `relative overflow-hidden py-16 sm:py-20 lg:py-24${isWebPage ? " kuct-hero-on-video min-h-[min(70svh,40rem)]" : ""}`
+            ? "relative overflow-hidden py-10 sm:py-12"
+            : "relative overflow-hidden py-16 sm:py-20 lg:py-24"
         }
       >
-        {isWebPage ? (
-          <div
-            className="pointer-events-none absolute inset-0 overflow-hidden"
-            aria-hidden
-          >
-            <div
-              className="absolute inset-0 origin-center will-change-transform"
-              style={{
-                transform: `translate3d(0, ${parallaxY}px, 0) scale(1.2)`,
-              }}
-            >
-              <Image
-                src={hero}
-                alt=""
-                fill
-                priority={!embedded}
-                className="object-cover"
-                sizes="100vw"
-              />
-              {motionOk ? (
-                <video
-                  className="absolute inset-0 size-full object-cover"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  preload="metadata"
-                  poster={hero}
-                  disablePictureInPicture
-                  disableRemotePlayback
-                >
-                  <source
-                    src={assetPath("/services/web/hero.mp4")}
-                    type="video/mp4"
-                  />
-                </video>
-              ) : null}
-            </div>
-            <div className="absolute inset-0 kuct-hero-video-overlay" />
-          </div>
-        ) : (
-          <div
-            className="pointer-events-none absolute inset-0 kuct-hero-wash"
-            aria-hidden
-          />
-        )}
+        <div
+          className="pointer-events-none absolute inset-0 kuct-hero-wash"
+          aria-hidden
+        />
 
         <div className="relative mx-auto max-w-7xl px-6">
           {!embedded ? (
@@ -165,11 +116,7 @@ export function ServiceDetailContent({
           ) : null}
 
           <div
-            className={`${embedded ? "mt-0" : "mt-8"} ${
-              isWebPage
-                ? ""
-                : "grid items-center gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-14"
-            }`}
+            className={`${embedded ? "mt-0" : "mt-8"} grid items-center gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-14`}
           >
             <Reveal variant="title" className="min-w-0">
               <p className="kuct-type-eyebrow">
@@ -177,16 +124,12 @@ export function ServiceDetailContent({
               </p>
               <h1
                 id="service-hero-heading"
-                className={`kuct-type-h1 mt-4 max-w-[18ch] font-display text-3xl sm:text-4xl lg:text-[2.75rem] ${
-                  isWebPage ? "" : "text-[var(--kuct-text)]"
-                }`}
+                className="kuct-title-enter kuct-type-h1 mt-4 max-w-[18ch] font-display text-3xl text-[var(--kuct-text)] sm:text-4xl lg:text-[2.75rem]"
               >
                 <AccentText>{detail.title}</AccentText>
               </h1>
               <p className="kuct-type-body mt-5 max-w-[42ch]">
-                <BrandText size="sm" onDark={isWebPage}>
-                  {detail.intro}
-                </BrandText>
+                <BrandText size="sm">{detail.intro}</BrandText>
               </p>
 
               {card?.tags ? (
@@ -202,7 +145,7 @@ export function ServiceDetailContent({
               <div className="mt-8 flex flex-wrap items-center gap-3">
                 <button
                   type="button"
-                  className="kuct-btn-primary inline-flex items-center rounded-lg px-5 py-3.5 text-sm font-semibold"
+                  className="kuct-btn-primary inline-flex items-center rounded-lg px-5 py-3.5 text-sm font-semibold shadow-[var(--kuct-shadow)]"
                   onClick={openQuoteFlow}
                 >
                   {ui.cta}
@@ -218,24 +161,29 @@ export function ServiceDetailContent({
               </div>
             </Reveal>
 
-            {!isWebPage ? (
-              <Reveal variant="right" delay={80} className="relative min-w-0">
-                {useDevicesMock ? (
-                  <EmbedSiteMock variant="devices" showChat={false} animate />
-                ) : (
-                  <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-[var(--kuct-panel)] sm:aspect-[16/11]">
-                    <LazyImage
-                      src={hero}
-                      alt={detail.title}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 1024px) 100vw, 32rem"
-                      priority={!embedded}
-                    />
-                  </div>
-                )}
-              </Reveal>
-            ) : null}
+            <Reveal variant="right" delay={80} className="relative min-w-0">
+              {useDevicesMock ? (
+                <EmbedSiteMock variant="devices" showChat={false} animate />
+              ) : isWebPage ? (
+                <EmbedSiteMock
+                  url="yourbusiness.com"
+                  showChat={false}
+                  animate
+                  className="relative flex h-full min-h-[22rem] flex-col overflow-hidden rounded-xl border border-[var(--kuct-border)] bg-[var(--kuct-panel)] shadow-[var(--kuct-shadow)] sm:min-h-[26rem]"
+                />
+              ) : (
+                <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-[var(--kuct-panel)] sm:aspect-[16/11]">
+                  <LazyImage
+                    src={hero}
+                    alt={detail.title}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 32rem"
+                    priority={!embedded}
+                  />
+                </div>
+              )}
+            </Reveal>
           </div>
         </div>
       </section>
@@ -299,7 +247,7 @@ export function ServiceDetailContent({
           {!isMobilePage ? (
             <>
               <div className="mt-10 grid gap-4 lg:mt-12 lg:grid-cols-2 lg:gap-5">
-                <Reveal className="rounded-xl bg-[var(--kuct-panel)] p-5 backdrop-blur-md sm:p-6">
+                <Reveal className="kuct-surface-card p-5 sm:p-6">
                   <p className="text-[11px] font-semibold tracking-[0.16em] text-[var(--kuct-accent)] uppercase">
                     {xui.audienceTitle}
                   </p>
@@ -538,7 +486,7 @@ function DetailBlock({
   return (
     <Reveal
       delay={index * 50}
-      className="rounded-xl bg-[var(--kuct-panel)] p-5 backdrop-blur-md sm:p-6"
+      className="kuct-surface-card p-5 sm:p-6"
     >
       {image ? (
         <MobileSectionImage src={image.src} alt={image.alt || title} />

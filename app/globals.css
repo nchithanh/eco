@@ -1047,50 +1047,6 @@ html[data-theme="violet"] .kuct-banner-cta-outline:hover {
   );
 }
 
-/* /services/web/ — video background hero */
-.kuct-hero-video-overlay {
-  background: linear-gradient(
-    to right,
-    rgb(8 8 16 / 0.78) 0%,
-    rgb(8 8 16 / 0.55) 48%,
-    rgb(8 8 16 / 0.38) 100%
-  );
-}
-
-.kuct-hero-on-video .kuct-type-h1 {
-  color: #fff;
-}
-
-.kuct-hero-on-video .kuct-type-body {
-  color: rgb(255 255 255 / 0.86);
-}
-
-.kuct-hero-on-video .kuct-type-eyebrow {
-  color: color-mix(in srgb, white 72%, var(--kuct-accent));
-}
-
-.kuct-hero-on-video .kuct-badge {
-  background: rgb(255 255 255 / 0.12);
-  border-color: rgb(255 255 255 / 0.28);
-  color: #fff;
-}
-
-.kuct-hero-on-video .kuct-btn-ghost {
-  color: #fff;
-}
-
-.kuct-hero-on-video .kuct-btn-ghost::after {
-  filter: invert(1);
-}
-
-.kuct-hero-on-video .kuct-hero-back {
-  color: rgb(255 255 255 / 0.72);
-}
-
-.kuct-hero-on-video .kuct-hero-back:hover {
-  color: #fff;
-}
-
 /* Radial accent glow (Hero GlassPanels, OpsLifecycle) */
 .kuct-glow-orb {
   background: radial-gradient(
