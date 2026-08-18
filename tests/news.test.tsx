@@ -29,6 +29,11 @@ describe("Dolphin Software news page", () => {
     expect(screen.getByText(/^Nổi bật$/i)).toBeInTheDocument();
     expect(
       screen.getByRole("link", {
+        name: /Website hay Facebook: Doanh nghiệp nhỏ nên đầu tư vào đâu/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("link", {
         name: /Website shop độ xe — Instagram chưa đủ để khách đặt lịch/i,
       }),
     ).toBeInTheDocument();
@@ -150,6 +155,37 @@ describe("Dolphin Software news page", () => {
     expect(
       screen.getByRole("button", {
         name: /Copy prompt AI trên Facebook có sao không/i,
+      }),
+    ).toBeInTheDocument();
+  });
+
+  it("renders website-vs-facebook article with FAQ", async () => {
+    const page = await NewsArticlePage({
+      params: Promise.resolve({
+        slug: "website-hay-facebook-doanh-nghiep-nho",
+      }),
+    });
+    render(<AppProviders>{page}</AppProviders>);
+    expect(
+      screen.getByRole("heading", {
+        level: 1,
+        name: /Website hay Facebook: Doanh nghiệp nhỏ nên đầu tư vào đâu/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", {
+        level: 2,
+        name: /Không phải chọn một — chia tiền thế nào/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", {
+        name: /Doanh nghiệp nhỏ nên làm website hay chạy Facebook/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("img", {
+        name: /điện thoại hiện trang mạng xã hội, laptop hiện website doanh nghiệp/i,
       }),
     ).toBeInTheDocument();
   });

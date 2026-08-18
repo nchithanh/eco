@@ -9,6 +9,7 @@ import { ruiRoCopyPromptChatgptDoanhNghiepCopy } from "@/lib/news-articles/rui-r
 import { fiveAgentXuyenDemViecChuaXongCopy } from "@/lib/news-articles/5-agent-xuyen-dem-viec-chua-xong";
 import { thietKeWebsiteGiaBaoNhieuBangGia2026Copy } from "@/lib/news-articles/thiet-ke-website-gia-bao-nhieu-bang-gia-2026";
 import { websiteShopDoXeInstagramChuaDuCopy } from "@/lib/news-articles/website-shop-do-xe-instagram-chua-du";
+import { websiteHayFacebookDoanhNghiepNhoCopy } from "@/lib/news-articles/website-hay-facebook-doanh-nghiep-nho";
 import { websiteGioiThieuXeShowroomCopy } from "@/lib/news-articles/website-gioi-thieu-xe-showroom";
 
 export const NEWS_CATEGORIES = [
@@ -22,6 +23,7 @@ export const NEWS_CATEGORIES = [
 export type NewsCategory = (typeof NEWS_CATEGORIES)[number];
 
 export const NEWS_SLUGS = [
+  "website-hay-facebook-doanh-nghiep-nho",
   "website-shop-do-xe-instagram-chua-du",
   "thiet-ke-website-gia-bao-nhieu-bang-gia-2026",
   "5-agent-xuyen-dem-viec-chua-xong",
@@ -94,6 +96,10 @@ type NewsMeta = {
 };
 
 const metaBySlug: Record<NewsSlug, NewsMeta> = {
+  "website-hay-facebook-doanh-nghiep-nho": {
+    category: "process",
+    date: "2026-08-19",
+  },
   "website-shop-do-xe-instagram-chua-du": {
     category: "cases",
     date: "2026-08-17",
@@ -153,6 +159,8 @@ const categoryImages: Record<NewsCategory, string> = {
 };
 
 const slugImages: Partial<Record<NewsSlug, string>> = {
+  "website-hay-facebook-doanh-nghiep-nho":
+    "/news/website-hay-facebook-cover.jpg",
   "website-shop-do-xe-instagram-chua-du":
     "/news/website-shop-do-xe-instagram-chua-du.jpg",
   "thiet-ke-website-gia-bao-nhieu-bang-gia-2026":
@@ -183,6 +191,8 @@ export function getNewsImage(slug: NewsSlug): string {
 
 const copyByLocale: Record<Locale, Record<NewsSlug, NewsArticleCopy>> = {
   vi: {
+    "website-hay-facebook-doanh-nghiep-nho":
+      websiteHayFacebookDoanhNghiepNhoCopy.vi,
     "website-shop-do-xe-instagram-chua-du":
       websiteShopDoXeInstagramChuaDuCopy.vi,
     "thiet-ke-website-gia-bao-nhieu-bang-gia-2026":
@@ -369,6 +379,8 @@ const copyByLocale: Record<Locale, Record<NewsSlug, NewsArticleCopy>> = {
     },
   },
   en: {
+    "website-hay-facebook-doanh-nghiep-nho":
+      websiteHayFacebookDoanhNghiepNhoCopy.en,
     "website-shop-do-xe-instagram-chua-du":
       websiteShopDoXeInstagramChuaDuCopy.en,
     "thiet-ke-website-gia-bao-nhieu-bang-gia-2026":
@@ -483,6 +495,8 @@ const copyByLocale: Record<Locale, Record<NewsSlug, NewsArticleCopy>> = {
     },
   },
   ja: {
+    "website-hay-facebook-doanh-nghiep-nho":
+      websiteHayFacebookDoanhNghiepNhoCopy.ja,
     "website-shop-do-xe-instagram-chua-du":
       websiteShopDoXeInstagramChuaDuCopy.ja,
     "thiet-ke-website-gia-bao-nhieu-bang-gia-2026":
