@@ -10,6 +10,7 @@ import { fiveAgentXuyenDemViecChuaXongCopy } from "@/lib/news-articles/5-agent-x
 import { thietKeWebsiteGiaBaoNhieuBangGia2026Copy } from "@/lib/news-articles/thiet-ke-website-gia-bao-nhieu-bang-gia-2026";
 import { websiteShopDoXeInstagramChuaDuCopy } from "@/lib/news-articles/website-shop-do-xe-instagram-chua-du";
 import { websiteHayFacebookDoanhNghiepNhoCopy } from "@/lib/news-articles/website-hay-facebook-doanh-nghiep-nho";
+import { websiteDoanhNghiepCanCoNhungGiChecklist2026Copy } from "@/lib/news-articles/website-doanh-nghiep-can-co-nhung-gi-checklist-2026";
 import { websiteGioiThieuXeShowroomCopy } from "@/lib/news-articles/website-gioi-thieu-xe-showroom";
 
 export const NEWS_CATEGORIES = [
@@ -23,6 +24,7 @@ export const NEWS_CATEGORIES = [
 export type NewsCategory = (typeof NEWS_CATEGORIES)[number];
 
 export const NEWS_SLUGS = [
+  "website-doanh-nghiep-can-co-nhung-gi-checklist-2026",
   "website-hay-facebook-doanh-nghiep-nho",
   "website-shop-do-xe-instagram-chua-du",
   "thiet-ke-website-gia-bao-nhieu-bang-gia-2026",
@@ -96,6 +98,10 @@ type NewsMeta = {
 };
 
 const metaBySlug: Record<NewsSlug, NewsMeta> = {
+  "website-doanh-nghiep-can-co-nhung-gi-checklist-2026": {
+    category: "process",
+    date: "2026-08-19",
+  },
   "website-hay-facebook-doanh-nghiep-nho": {
     category: "process",
     date: "2026-08-19",
@@ -159,6 +165,8 @@ const categoryImages: Record<NewsCategory, string> = {
 };
 
 const slugImages: Partial<Record<NewsSlug, string>> = {
+  "website-doanh-nghiep-can-co-nhung-gi-checklist-2026":
+    "/news/website-doanh-nghiep-checklist-2026.jpg",
   "website-hay-facebook-doanh-nghiep-nho":
     "/news/website-hay-facebook-cover.jpg",
   "website-shop-do-xe-instagram-chua-du":
@@ -191,6 +199,8 @@ export function getNewsImage(slug: NewsSlug): string {
 
 const copyByLocale: Record<Locale, Record<NewsSlug, NewsArticleCopy>> = {
   vi: {
+    "website-doanh-nghiep-can-co-nhung-gi-checklist-2026":
+      websiteDoanhNghiepCanCoNhungGiChecklist2026Copy.vi,
     "website-hay-facebook-doanh-nghiep-nho":
       websiteHayFacebookDoanhNghiepNhoCopy.vi,
     "website-shop-do-xe-instagram-chua-du":
@@ -379,6 +389,8 @@ const copyByLocale: Record<Locale, Record<NewsSlug, NewsArticleCopy>> = {
     },
   },
   en: {
+    "website-doanh-nghiep-can-co-nhung-gi-checklist-2026":
+      websiteDoanhNghiepCanCoNhungGiChecklist2026Copy.en,
     "website-hay-facebook-doanh-nghiep-nho":
       websiteHayFacebookDoanhNghiepNhoCopy.en,
     "website-shop-do-xe-instagram-chua-du":
@@ -495,6 +507,8 @@ const copyByLocale: Record<Locale, Record<NewsSlug, NewsArticleCopy>> = {
     },
   },
   ja: {
+    "website-doanh-nghiep-can-co-nhung-gi-checklist-2026":
+      websiteDoanhNghiepCanCoNhungGiChecklist2026Copy.ja,
     "website-hay-facebook-doanh-nghiep-nho":
       websiteHayFacebookDoanhNghiepNhoCopy.ja,
     "website-shop-do-xe-instagram-chua-du":

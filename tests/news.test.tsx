@@ -29,6 +29,11 @@ describe("Dolphin Software news page", () => {
     expect(screen.getByText(/^Nổi bật$/i)).toBeInTheDocument();
     expect(
       screen.getByRole("link", {
+        name: /Website doanh nghiệp cần có những gì\? Checklist đầy đủ 2026/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("link", {
         name: /Website hay Facebook: Doanh nghiệp nhỏ nên đầu tư vào đâu/i,
       }),
     ).toBeInTheDocument();
@@ -155,6 +160,37 @@ describe("Dolphin Software news page", () => {
     expect(
       screen.getByRole("button", {
         name: /Copy prompt AI trên Facebook có sao không/i,
+      }),
+    ).toBeInTheDocument();
+  });
+
+  it("renders business-website checklist 2026 article with FAQ", async () => {
+    const page = await NewsArticlePage({
+      params: Promise.resolve({
+        slug: "website-doanh-nghiep-can-co-nhung-gi-checklist-2026",
+      }),
+    });
+    render(<AppProviders>{page}</AppProviders>);
+    expect(
+      screen.getByRole("heading", {
+        level: 1,
+        name: /Website doanh nghiệp cần có những gì\? Checklist đầy đủ 2026/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", {
+        level: 2,
+        name: /Checklist 2026 — 8 nhóm website doanh nghiệp cần có/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", {
+        name: /Website doanh nghiệp cần những trang nào/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("img", {
+        name: /nút Zalo và Gọi nằm ngay phần đầu trang/i,
       }),
     ).toBeInTheDocument();
   });
