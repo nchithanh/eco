@@ -29,6 +29,11 @@ describe("Dolphin Software news page", () => {
     expect(screen.getByText(/^Nổi bật$/i)).toBeInTheDocument();
     expect(
       screen.getByRole("link", {
+        name: /10 lỗi khiến website có traffic nhưng không ra khách hàng/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("link", {
         name: /Website doanh nghiệp cần có những gì\? Checklist đầy đủ 2026/i,
       }),
     ).toBeInTheDocument();
@@ -160,6 +165,37 @@ describe("Dolphin Software news page", () => {
     expect(
       screen.getByRole("button", {
         name: /Copy prompt AI trên Facebook có sao không/i,
+      }),
+    ).toBeInTheDocument();
+  });
+
+  it("renders traffic-but-no-customers article with FAQ", async () => {
+    const page = await NewsArticlePage({
+      params: Promise.resolve({
+        slug: "website-co-traffic-khong-ra-khach-hang",
+      }),
+    });
+    render(<AppProviders>{page}</AppProviders>);
+    expect(
+      screen.getByRole("heading", {
+        level: 1,
+        name: /10 lỗi khiến website có traffic nhưng không ra khách hàng/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", {
+        level: 2,
+        name: /Website có traffic và có khách hàng là hai chuyện khác nhau/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", {
+        name: /Website có traffic cao nhưng không có khách hàng thì nguyên nhân chính là gì/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("img", {
+        name: /Chủ tiệm spa nhìn inbox Zalo trống/i,
       }),
     ).toBeInTheDocument();
   });
