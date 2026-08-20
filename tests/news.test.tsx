@@ -29,6 +29,11 @@ describe("Dolphin Software news page", () => {
     expect(screen.getByText(/^Nổi bật$/i)).toBeInTheDocument();
     expect(
       screen.getByRole("link", {
+        name: /SaaS là gì\? Giải thích thẳng cho chủ doanh nghiệp/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("link", {
         name: /10 lỗi khiến website có traffic nhưng không ra khách hàng/i,
       }),
     ).toBeInTheDocument();
@@ -165,6 +170,37 @@ describe("Dolphin Software news page", () => {
     expect(
       screen.getByRole("button", {
         name: /Copy prompt AI trên Facebook có sao không/i,
+      }),
+    ).toBeInTheDocument();
+  });
+
+  it("renders SaaS explainer article with FAQ", async () => {
+    const page = await NewsArticlePage({
+      params: Promise.resolve({
+        slug: "saas-la-gi-giai-thich-cho-chu-doanh-nghiep",
+      }),
+    });
+    render(<AppProviders>{page}</AppProviders>);
+    expect(
+      screen.getByRole("heading", {
+        level: 1,
+        name: /SaaS là gì\? Giải thích thẳng cho chủ doanh nghiệp/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", {
+        level: 2,
+        name: /SaaS là gì\? — Nói như thuê nhà, không như mua đĩa/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", {
+        name: /SaaS là gì — viết tắt của chữ gì/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("img", {
+        name: /Chủ quán đứng quầy nhìn điện thoại/i,
       }),
     ).toBeInTheDocument();
   });

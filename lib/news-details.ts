@@ -12,6 +12,7 @@ import { websiteShopDoXeInstagramChuaDuCopy } from "@/lib/news-articles/website-
 import { websiteHayFacebookDoanhNghiepNhoCopy } from "@/lib/news-articles/website-hay-facebook-doanh-nghiep-nho";
 import { websiteDoanhNghiepCanCoNhungGiChecklist2026Copy } from "@/lib/news-articles/website-doanh-nghiep-can-co-nhung-gi-checklist-2026";
 import { websiteCoTrafficKhongRaKhachHangCopy } from "@/lib/news-articles/website-co-traffic-khong-ra-khach-hang";
+import { saasLaGiGiaiThichChoChuDoanhNghiepCopy } from "@/lib/news-articles/saas-la-gi-giai-thich-cho-chu-doanh-nghiep";
 import { websiteGioiThieuXeShowroomCopy } from "@/lib/news-articles/website-gioi-thieu-xe-showroom";
 
 export const NEWS_CATEGORIES = [
@@ -25,6 +26,7 @@ export const NEWS_CATEGORIES = [
 export type NewsCategory = (typeof NEWS_CATEGORIES)[number];
 
 export const NEWS_SLUGS = [
+  "saas-la-gi-giai-thich-cho-chu-doanh-nghiep",
   "website-co-traffic-khong-ra-khach-hang",
   "website-doanh-nghiep-can-co-nhung-gi-checklist-2026",
   "website-hay-facebook-doanh-nghiep-nho",
@@ -100,6 +102,10 @@ type NewsMeta = {
 };
 
 const metaBySlug: Record<NewsSlug, NewsMeta> = {
+  "saas-la-gi-giai-thich-cho-chu-doanh-nghiep": {
+    category: "process",
+    date: "2026-08-20",
+  },
   "website-co-traffic-khong-ra-khach-hang": {
     category: "process",
     date: "2026-08-20",
@@ -171,6 +177,8 @@ const categoryImages: Record<NewsCategory, string> = {
 };
 
 const slugImages: Partial<Record<NewsSlug, string>> = {
+  "saas-la-gi-giai-thich-cho-chu-doanh-nghiep":
+    "/news/saas-la-gi-giai-thich-cho-chu-doanh-nghiep.jpg",
   "website-co-traffic-khong-ra-khach-hang":
     "/news/website-co-traffic-khong-ra-khach-hang.jpg",
   "website-doanh-nghiep-can-co-nhung-gi-checklist-2026":
@@ -207,6 +215,8 @@ export function getNewsImage(slug: NewsSlug): string {
 
 const copyByLocale: Record<Locale, Record<NewsSlug, NewsArticleCopy>> = {
   vi: {
+    "saas-la-gi-giai-thich-cho-chu-doanh-nghiep":
+      saasLaGiGiaiThichChoChuDoanhNghiepCopy.vi,
     "website-co-traffic-khong-ra-khach-hang":
       websiteCoTrafficKhongRaKhachHangCopy.vi,
     "website-doanh-nghiep-can-co-nhung-gi-checklist-2026":
@@ -399,6 +409,8 @@ const copyByLocale: Record<Locale, Record<NewsSlug, NewsArticleCopy>> = {
     },
   },
   en: {
+    "saas-la-gi-giai-thich-cho-chu-doanh-nghiep":
+      saasLaGiGiaiThichChoChuDoanhNghiepCopy.en,
     "website-co-traffic-khong-ra-khach-hang":
       websiteCoTrafficKhongRaKhachHangCopy.en,
     "website-doanh-nghiep-can-co-nhung-gi-checklist-2026":
@@ -519,6 +531,8 @@ const copyByLocale: Record<Locale, Record<NewsSlug, NewsArticleCopy>> = {
     },
   },
   ja: {
+    "saas-la-gi-giai-thich-cho-chu-doanh-nghiep":
+      saasLaGiGiaiThichChoChuDoanhNghiepCopy.ja,
     "website-co-traffic-khong-ra-khach-hang":
       websiteCoTrafficKhongRaKhachHangCopy.ja,
     "website-doanh-nghiep-can-co-nhung-gi-checklist-2026":
