@@ -15,7 +15,7 @@ type NavLink = {
 };
 
 function isDolphinProductHref(href: string) {
-  return /\/dolphin-(care|ops|intelligence)\/?$/.test(href);
+  return /\/(ai-transform|dolphin-(care|ops|intelligence))\/?$/.test(href);
 }
 
 function normalizePath(path: string) {
