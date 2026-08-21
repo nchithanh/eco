@@ -320,7 +320,6 @@ html[data-theme="violet"] .kuct-feature-card {
 .kuct-mobile-nav__link.kuct-nav-dolphin {
   color: var(--kuct-accent) !important;
   font-style: italic;
-  font-size: large !important;
 }
 
 .kuct-site-header .kuct-nav-utility,
