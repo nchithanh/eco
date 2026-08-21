@@ -14,6 +14,10 @@ type NavLink = {
   label: string;
 };
 
+function isDolphinProductHref(href: string) {
+  return /\/dolphin-(care|ops|intelligence)\/?$/.test(href);
+}
+
 function normalizePath(path: string) {
   const stripped = path.replace(BASE_PATH, "") || "/";
   const clean = stripped.replace(/\/$/, "") || "/";
@@ -274,14 +278,15 @@ export function Nav() {
               <ul className="flex min-w-0 flex-1 flex-wrap items-center gap-x-4 gap-y-1 xl:gap-x-5">
                 {desktopGnbLinks.map((link) => {
                   const active = isPageActive(link.href);
+                  const dolphin = isDolphinProductHref(link.href);
                   return (
                     <li key={link.href + link.label}>
                       <a
                         href={link.href}
                         aria-current={active ? "page" : undefined}
                         className={`${gnbLinkClass}${
-                          active ? gnbLinkActiveClass : ""
-                        }`}
+                          dolphin ? " kuct-nav-dolphin" : ""
+                        }${active ? gnbLinkActiveClass : ""}`}
                       >
                         {link.label}
                       </a>
@@ -399,7 +404,9 @@ export function Nav() {
                   <a
                     href={item.href}
                     aria-current={isPageActive(item.href) ? "page" : undefined}
-                    className="kuct-mobile-nav__link"
+                    className={`kuct-mobile-nav__link${
+                      isDolphinProductHref(item.href) ? " kuct-nav-dolphin" : ""
+                    }`}
                     onClick={closeMenu}
                   >
                     {item.label}

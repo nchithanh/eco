@@ -316,6 +316,13 @@ html[data-theme="violet"] .kuct-feature-card {
   font-weight: 600 !important;
 }
 
+.kuct-site-header .kuct-gnb-link.kuct-nav-dolphin,
+.kuct-mobile-nav__link.kuct-nav-dolphin {
+  color: var(--kuct-accent) !important;
+  font-style: italic;
+  font-size: large !important;
+}
+
 .kuct-site-header .kuct-nav-utility,
 .kuct-site-header .kuct-nav-utility a,
 .kuct-site-header .kuct-nav-utility button {

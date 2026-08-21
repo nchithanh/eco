@@ -131,7 +131,7 @@ function ChartPreview({ copy }: { copy: DolphinOpsCopy }) {
   return (
     <div className="ops-form is-on">
       <p className="ops-form__title">{copy.chartTitle}</p>
-      <div className="ops-chart" aria-hidden>
+      <div className="ops-chart is-on" aria-hidden>
         {CHART_HEIGHTS.map((h, i) => (
           <div key={copy.chartDays[i]} className="ops-chart__col">
             <span className="ops-chart__bar" style={{ height: `${h}%` }} />
@@ -234,7 +234,7 @@ export function OpsHeroDemo({ copy }: { copy: DolphinOpsCopy }) {
 
   return (
     <div
-      className="ops-app"
+      className="ops-app ops-app--hero"
       role="region"
       aria-roledescription="carousel"
       aria-label={copy.heroFormTitle}
@@ -275,7 +275,7 @@ export function OpsPipelineDemo({ copy }: { copy: DolphinOpsCopy }) {
 
   return (
     <div
-      className="ops-app"
+      className="ops-app ops-app--pipe"
       role="region"
       aria-roledescription="carousel"
       aria-label={copy.howTitle}
@@ -311,7 +311,7 @@ export function OpsToolsDemo({ copy }: { copy: DolphinOpsCopy }) {
 
   return (
     <div
-      className="ops-app"
+      className="ops-app ops-app--tools"
       role="region"
       aria-roledescription="carousel"
       aria-label={copy.toolsTitle}
@@ -354,7 +354,7 @@ export function OpsDynamicUiDemo({ copy }: { copy: DolphinOpsCopy }) {
 
   return (
     <div
-      className="ops-app"
+      className="ops-app ops-app--dyn"
       role="region"
       aria-roledescription="carousel"
       aria-label={copy.dynamicTitle}
@@ -389,7 +389,11 @@ export function OpsDynamicUiDemo({ copy }: { copy: DolphinOpsCopy }) {
               </div>
             </div>
           </div>
-          <div role="tabpanel" aria-labelledby={`${tabId}-${scene.id}`}>
+          <div
+            className="ops-frame"
+            role="tabpanel"
+            aria-labelledby={`${tabId}-${scene.id}`}
+          >
             <DynamicUiFrame copy={copy} kind={scene.id} />
           </div>
         </div>
@@ -406,7 +410,7 @@ export function OpsHumanControlDemo({ copy }: { copy: DolphinOpsCopy }) {
 
   return (
     <div
-      className="ops-app"
+      className="ops-app ops-app--human"
       role="region"
       aria-roledescription="carousel"
       aria-label={copy.controlTitle}
@@ -414,28 +418,31 @@ export function OpsHumanControlDemo({ copy }: { copy: DolphinOpsCopy }) {
       <AppChrome copy={copy} running={motion && !sent} label={copy.controlActionLabel} />
       <div className="ops-app__body ops-human">
         <p className="ops-human__agent">{copy.controlAgentLine}</p>
-        {showPanel ? (
-          <div className="ops-human__panel">
-            <p className="ops-human__action">{copy.controlActionLabel}</p>
-            <div className="ops-human__btns">
-              <button
-                type="button"
-                className={step === 3 ? "is-review" : undefined}
-                tabIndex={-1}
-              >
-                {copy.controlReview}
-              </button>
-              <button
-                type="button"
-                className={step >= 4 && !sent ? "is-go" : undefined}
-                tabIndex={-1}
-              >
-                {copy.controlConfirm}
-              </button>
-            </div>
-            {sent ? <p className="ops-human__ok">{copy.controlSent}</p> : null}
+        <div
+          className={showPanel ? "ops-human__panel is-on" : "ops-human__panel"}
+          aria-hidden={!showPanel}
+        >
+          <p className="ops-human__action">{copy.controlActionLabel}</p>
+          <div className="ops-human__btns">
+            <button
+              type="button"
+              className={step === 3 ? "is-review" : undefined}
+              tabIndex={-1}
+            >
+              {copy.controlReview}
+            </button>
+            <button
+              type="button"
+              className={step >= 4 && !sent ? "is-go" : undefined}
+              tabIndex={-1}
+            >
+              {copy.controlConfirm}
+            </button>
           </div>
-        ) : null}
+          <p className={sent ? "ops-human__ok is-on" : "ops-human__ok"}>
+            {copy.controlSent}
+          </p>
+        </div>
       </div>
     </div>
   );
@@ -470,19 +477,23 @@ function CustomizeFormPreview({
           <span className="ops-field__label">{copy.heroFieldTime}</span>
           <span className="ops-field__value">{copy.heroTimeValue}</span>
         </div>
-        {showNote ? (
-          <div className="ops-field ops-field--wide is-on is-new">
-            <span className="ops-field__label">
-              {copy.customizeNoteLabel}
-              {step >= 4 ? (
-                <span className="ops-req">{copy.customizeNoteRequired}</span>
-              ) : null}
-            </span>
-            <span className="ops-field__value is-empty">
-              {copy.customizeNotePlaceholder}
-            </span>
-          </div>
-        ) : null}
+        <div
+          className={
+            showNote
+              ? "ops-field ops-field--wide is-on is-new"
+              : "ops-field ops-field--wide"
+          }
+        >
+          <span className="ops-field__label">
+            {copy.customizeNoteLabel}
+            {step >= 4 ? (
+              <span className="ops-req">{copy.customizeNoteRequired}</span>
+            ) : null}
+          </span>
+          <span className="ops-field__value is-empty">
+            {copy.customizeNotePlaceholder}
+          </span>
+        </div>
       </div>
       <p className={step >= 5 ? "ops-form__ok is-on" : "ops-form__ok"}>
         {copy.customizeApplied}
@@ -507,16 +518,14 @@ function CustomizeReportPreview({
         <span className="ops-formula__lbl">{copy.customizeFormulaLabel}</span>
         {copy.customizeFormula}
       </p>
-      {showChart ? (
-        <div className="ops-chart" aria-hidden>
-          {CHART_HEIGHTS.map((h, i) => (
-            <div key={copy.chartDays[i]} className="ops-chart__col">
-              <span className="ops-chart__bar" style={{ height: `${h}%` }} />
-              <span className="ops-chart__lbl">{copy.chartDays[i]}</span>
-            </div>
-          ))}
-        </div>
-      ) : null}
+      <div className={showChart ? "ops-chart is-on" : "ops-chart"} aria-hidden>
+        {CHART_HEIGHTS.map((h, i) => (
+          <div key={copy.chartDays[i]} className="ops-chart__col">
+            <span className="ops-chart__bar" style={{ height: `${h}%` }} />
+            <span className="ops-chart__lbl">{copy.chartDays[i]}</span>
+          </div>
+        ))}
+      </div>
       <p className={step >= 5 ? "ops-form__ok is-on" : "ops-form__ok"}>
         {copy.customizeApplied}
       </p>
@@ -537,7 +546,7 @@ export function OpsAdminCustomizeDemo({ copy }: { copy: DolphinOpsCopy }) {
 
   return (
     <div
-      className="ops-app"
+      className="ops-app ops-app--dyn"
       role="region"
       aria-roledescription="carousel"
       aria-label={copy.customizeTitle}
@@ -582,7 +591,11 @@ export function OpsAdminCustomizeDemo({ copy }: { copy: DolphinOpsCopy }) {
               </div>
             </div>
           </div>
-          <div role="tabpanel" aria-labelledby={`${tabId}-${scene.id}`}>
+          <div
+            className="ops-frame"
+            role="tabpanel"
+            aria-labelledby={`${tabId}-${scene.id}`}
+          >
             {kind === "form" ? (
               <CustomizeFormPreview copy={copy} step={step} />
             ) : (
