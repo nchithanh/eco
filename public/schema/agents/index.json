@@ -4,7 +4,7 @@
     "schemaPath": "/schema/agents/",
     "rawPath": "/schema/agents/index.json",
     "brand": "Dolphin Software",
-    "updated": "2026-08-12"
+    "updated": "2026-08-21"
   },
   "items": [
     {
@@ -14,6 +14,14 @@
       "productRoute": "/dolphin-care/",
       "schemaPath": "/schema/agents/dolphin-care/",
       "rawPath": "/schema/agents/dolphin-care.json"
+    },
+    {
+      "id": "dolphin-ops",
+      "title": "Dolphin Ops",
+      "pillar": "Automate",
+      "productRoute": "/dolphin-ops/",
+      "schemaPath": "/schema/agents/dolphin-ops/",
+      "rawPath": "/schema/agents/dolphin-ops.json"
     },
     {
       "id": "ai-transform",

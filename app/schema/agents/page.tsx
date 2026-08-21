@@ -8,7 +8,7 @@ import { buildPageMetadata } from "@/lib/seo";
 export const metadata: Metadata = {
  ...buildPageMetadata({
  title: "Schema · Agents — Dolphin Software",
- description: "Index JSON agent products: Dolphin Care, custom agent, AI transform.",
+ description: "Index JSON agent products: Dolphin Care, Dolphin Ops, AI transform, Intelligence.",
  path: "/schema/agents/",
  noIndex: true,
  }),

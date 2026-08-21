@@ -41,7 +41,7 @@ const sections: {
  {
  href: "/schema/agents/",
  title: "Agents",
- body: "Index + JSON Dolphin Care, custom agent, AI transform.",
+ body: "Index + JSON Dolphin Care, Dolphin Ops, AI transform, Intelligence.",
  children: SCHEMA_AGENT_SLUGS.map((slug) => ({
  href: `/schema/agents/${slug}/`,
  label: slug,

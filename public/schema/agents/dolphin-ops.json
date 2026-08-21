@@ -1,0 +1,206 @@
+{
+  "meta": {
+    "kind": "agent",
+    "id": "dolphin-ops",
+    "locale": "vi",
+    "brand": "Dolphin Software",
+    "schemaPath": "/schema/agents/dolphin-ops/",
+    "rawPath": "/schema/agents/dolphin-ops.json",
+    "updated": "2026-08-21",
+    "productRoute": "/dolphin-ops/"
+  },
+  "pillar": "Automate",
+  "displayName": "Dolphin Ops",
+  "productRoute": "/dolphin-ops/",
+  "primaryKeyword": "AI vận hành doanh nghiệp",
+  "metaTitle": "Dolphin Ops | AI vận hành doanh nghiệp cho team nhỏ",
+  "metaDescription": "Dolphin Ops là AI vận hành doanh nghiệp cho spa, clinic, salon và shop dịch vụ. Anh chị nói việc cần làm, hệ thống chọn đúng tool và UI để chạy.",
+  "h1": "Dolphin Ops – AI vận hành doanh nghiệp cho team nhỏ",
+  "openingDefinition": "Dolphin Ops là AI vận hành doanh nghiệp cho đội ngũ nội bộ: anh chị nói việc cần làm, hệ thống hiểu ý định, chọn đúng Business Tool, mở đúng giao diện và chờ người xác nhận trước khi chạy.",
+  "ogTitle": "Dolphin Ops | AI vận hành doanh nghiệp cho team nhỏ",
+  "ogDescription": "Dolphin Ops giúp anh chị đặt lịch, tra khách, xem báo cáo và xử lý việc nội bộ bằng AI. Chat là cửa vào, không phải toàn bộ sản phẩm.",
+  "summary": "Dolphin Ops là AI vận hành nội bộ cho chủ doanh nghiệp và nhân sự. Hệ thống nhận ý định, gọi đúng AI Agent, chọn đúng Business Tool, mở đúng giao diện và để người xác nhận ở các bước nhạy cảm.",
+  "headline": "AI giúp anh chị chạy doanh nghiệp.",
+  "support": "Chat là cửa vào, không phải toàn bộ sản phẩm.",
+  "trustLine": "AI không thay giao diện. Nó chọn đúng giao diện.",
+  "versusCare": {
+    "care": "Dolphin Care: AI chăm sóc khách hàng của bạn.",
+    "ops": "Dolphin Ops: AI giúp anh chị chạy doanh nghiệp."
+  },
+  "model": [
+    "Ý định",
+    "AI Agent",
+    "Business Tool",
+    "UI phù hợp",
+    "Người tương tác",
+    "Action"
+  ],
+  "tools": [
+    {
+      "id": "booking",
+      "title": "Booking",
+      "body": "Dùng để tạo, sửa và kiểm tra lịch hẹn. Ví dụ: “Đặt lịch cho Lan thứ Bảy” → Agent chọn Booking Tool → mở form → nhân viên điền chỗ thiếu → xác nhận."
+    },
+    {
+      "id": "customer",
+      "title": "Customer",
+      "body": "Dùng để tra hồ sơ khách, lịch sử dịch vụ và ghi chú nội bộ. Khi cần xem sâu một khách, hệ thống có thể mở Customer 360 thay vì trả lời bằng một đoạn chat."
+    },
+    {
+      "id": "notification",
+      "title": "Notification",
+      "body": "Dùng để chuẩn bị và gửi nhắc hẹn, thông báo hoặc tin nội bộ. Các lệnh gửi hàng loạt có thể dừng ở bước duyệt để người có quyền xác nhận."
+    },
+    {
+      "id": "reports",
+      "title": "Reports",
+      "body": "Dùng để xem báo cáo theo ngày, theo nhân sự hoặc theo lịch hẹn. Cùng một Agent nhưng khi hỏi doanh thu, hệ thống có thể mở chart thay vì chỉ trả một con số."
+    },
+    {
+      "id": "payment",
+      "title": "Payment",
+      "body": "Dùng để ghi nhận thanh toán, hoàn tiền hoặc kiểm tra trạng thái giao dịch. Đây là nhóm việc nhạy cảm nên có thể yêu cầu người duyệt trước khi chạy."
+    },
+    {
+      "id": "staff",
+      "title": "Staff",
+      "body": "Dùng để theo dõi nhân sự, phân việc và xử lý các tác vụ liên quan đến ca làm. Phù hợp với team nhỏ đang phải xoay lịch, khách và người trên nhiều màn hình."
+    }
+  ],
+  "not": [
+    "Không phải chatbot hỏi-đáp văn bản rồi dừng.",
+    "Không phải CRM gắn AI chat.",
+    "Không phải ChatGPT wrapper.",
+    "Không phải chat-only UI."
+  ],
+  "howSteps": [
+    {
+      "title": "Bước 1 — Anh chị nói việc cần làm",
+      "body": "Người dùng bắt đầu bằng ý định thật, ví dụ: “Đặt lịch cho Lan thứ Bảy”, “Cho tôi xem doanh thu hôm nay”, hoặc “Mở hồ sơ khách Hương”."
+    },
+    {
+      "title": "Bước 2 — Agent hiểu ý định",
+      "body": "AI Agent đọc câu lệnh, hiểu anh chị đang muốn đặt lịch, tra khách, xem báo cáo hay xử lý thanh toán. Nó không chỉ trả lời chữ cho có."
+    },
+    {
+      "title": "Bước 3 — Chọn đúng Business Tool",
+      "body": "Sau khi hiểu ý định, hệ thống gọi đúng Business Tool như Booking, Customer, Reports hoặc Payment để xử lý phần việc đó."
+    },
+    {
+      "title": "Bước 4 — Mở đúng giao diện",
+      "body": "Nếu thiếu dữ liệu, hệ thống có thể mở form. Nếu cần xem khách, nó mở Customer 360. Nếu cần xem doanh thu, nó mở chart. AI không thay giao diện. Nó chọn đúng giao diện."
+    },
+    {
+      "title": "Bước 5 — Người xác nhận rồi mới chạy",
+      "body": "Ở các tác vụ nhạy cảm như gửi thông báo hàng loạt, hoàn tiền, xóa dữ liệu hay đổi thông tin quan trọng, hệ thống có thể dừng để người có quyền duyệt."
+    }
+  ],
+  "dynamicUi": {
+    "quote": "AI không thay giao diện. Nó chọn đúng giao diện.",
+    "scenes": [
+      {
+        "user": "Chủ spa",
+        "uiLabel": "Booking Form",
+        "body": "Khi anh chị nói “Đặt lịch cho Lan thứ Bảy”, hệ thống mở form đặt lịch với các trường còn thiếu để nhân viên hoàn tất và xác nhận."
+      },
+      {
+        "user": "Lễ tân clinic",
+        "uiLabel": "Customer 360",
+        "body": "Khi hỏi về một khách cụ thể, giao diện phù hợp là hồ sơ khách với lịch sử hẹn, ghi chú và thông tin liên quan, không phải một đoạn chat dài."
+      },
+      {
+        "user": "Chủ shop dịch vụ",
+        "uiLabel": "Revenue Chart",
+        "body": "Khi hỏi doanh thu theo ngày, hệ thống có thể mở biểu đồ hoặc panel báo cáo để anh chị nhìn nhanh và so sánh dễ hơn."
+      },
+      {
+        "user": "Quản lý vận hành",
+        "uiLabel": "Approval Panel",
+        "body": "Khi cần gửi thông báo hàng loạt hoặc xử lý một hành động nhạy cảm, hệ thống đưa ra panel xác nhận để người có quyền bấm duyệt."
+      }
+    ]
+  },
+  "adminCustomize": {
+    "summary": "Admin có thể chỉnh trong phạm vi các tool đã bật bằng cách nói nhu cầu quản trị, thay vì phải mò sâu trong cấu hình. Tuy vậy, các thay đổi cấu trúc quan trọng vẫn có thể cần xác nhận hoặc xử lý thêm.",
+    "examples": [
+      "Sửa form: “Thêm trường Ghi chú, bắt buộc trước khi xác nhận.”",
+      "Thêm report: “Doanh thu = số lịch × giá dịch vụ” → chart cột theo ngày.",
+      "Giới hạn quyền: “Chỉ quản lý mới được duyệt hoàn tiền.”"
+    ]
+  },
+  "humanControl": {
+    "concept": "Dolphin Ops được thiết kế để AI hỗ trợ vận hành, còn người giữ quyền quyết định ở các bước nhạy cảm.",
+    "items": [
+      "Thông báo hàng loạt",
+      "Thanh toán",
+      "Hoàn tiền",
+      "Xóa dữ liệu",
+      "Đổi thông tin quan trọng"
+    ],
+    "example": "Ví dụ, khi anh chị yêu cầu gửi nhắc hẹn cho toàn bộ khách ngày mai, hệ thống có thể chuẩn bị danh sách và nội dung trước, rồi dừng ở bước duyệt để quản lý xác nhận."
+  },
+  "whoFor": [
+    {
+      "title": "Spa và salon có nhiều lịch trong ngày",
+      "body": "Phù hợp khi lịch hẹn, khách quay lại và nhắc lịch đang nằm rải trên nhiều màn hình hoặc nhiều người nhớ bằng tay."
+    },
+    {
+      "title": "Clinic và phòng khám nhỏ",
+      "body": "Phù hợp khi cần tra khách nhanh, kiểm soát thao tác nhạy cảm và để người có quyền duyệt ở các bước quan trọng."
+    },
+    {
+      "title": "Shop dịch vụ và team nhỏ",
+      "body": "Phù hợp khi chủ doanh nghiệp muốn xem lịch, khách, báo cáo và việc cần làm mà không phải học một phần mềm nặng menu."
+    },
+    {
+      "title": "Doanh nghiệp đã có web nhưng thiếu lớp vận hành nội bộ",
+      "body": "Nếu website là mặt tiền để khách tìm thấy anh chị, thì Dolphin Ops là lớp giúp đội ngũ chạy việc phía sau. Nếu anh chị còn thiếu mặt tiền, xem thêm /services/web/."
+    }
+  ],
+  "faq": [
+    {
+      "q": "AI vận hành doanh nghiệp là gì, và Dolphin Ops có phải kiểu đó không?",
+      "a": "AI vận hành doanh nghiệp là cách dùng AI để xử lý công việc nội bộ như lịch hẹn, khách, báo cáo, thông báo và các bước cần phối hợp giữa người với công cụ. Dolphin Ops là sản phẩm của Dolphin Software theo hướng đó: anh chị nói việc cần làm, hệ thống chọn đúng tool và đúng UI để chạy."
+    },
+    {
+      "q": "Dolphin Ops khác Dolphin Care ở đâu?",
+      "a": "Dolphin Care là AI chăm sóc khách hàng của bạn trên website, tập trung vào lớp giao tiếp với khách. Dolphin Ops là AI giúp anh chị chạy doanh nghiệp ở bên trong, tập trung vào vận hành nội bộ. Nếu anh chị đang tìm lớp chăm khách trên web, xem /dolphin-care/. Nếu đang tìm lớp chạy việc nội bộ, xem /dolphin-ops/."
+    },
+    {
+      "q": "Dolphin Ops có phải CRM AI không?",
+      "a": "Không theo kiểu CRM gắn thêm chat. CRM truyền thống thường bắt người dùng đi menu → module → form → Save. Dolphin Ops đi từ việc anh chị muốn làm, rồi chọn đúng Business Tool và UI phù hợp để chạy việc đó."
+    },
+    {
+      "q": "Dolphin Ops có phải chỉ là chat không?",
+      "a": "Không. Chat là cửa vào, không phải toàn bộ sản phẩm. Cùng một Agent, hệ thống có thể mở form, Customer 360, chart hoặc panel xác nhận tùy theo việc anh chị đang làm."
+    },
+    {
+      "q": "Những ai nên dùng Dolphin Ops?",
+      "a": "Phù hợp với spa, clinic, salon, shop dịch vụ và team nhỏ đang bị rối vì lịch, khách, báo cáo và nhắc hẹn nằm trên nhiều màn hình. Đây thường là nhu cầu sau khi anh chị đã có một lớp hiện diện online cơ bản hoặc đã có website. Nếu chưa có mặt tiền để khách tìm thấy, xem thêm /services/web/."
+    },
+    {
+      "q": "Dolphin Ops có tự động làm mọi thứ không cần người duyệt không?",
+      "a": "Không. Với các việc nhạy cảm như thanh toán, hoàn tiền, xóa dữ liệu, đổi thông tin quan trọng hoặc gửi thông báo hàng loạt, hệ thống có thể dừng để người có quyền xác nhận. Cách này giúp anh chị vẫn kiểm soát được việc quan trọng."
+    },
+    {
+      "q": "Admin có chỉnh được Dolphin Ops bằng chat không?",
+      "a": "Có, trong phạm vi các tool đã bật. Ví dụ admin có thể yêu cầu thêm trường vào form, đổi logic một báo cáo đơn giản hoặc thêm quy tắc duyệt cho một hành động cụ thể. Nếu thay đổi chạm tới cấu trúc quan trọng, hệ thống có thể cần xác nhận thêm hoặc cần trao đổi scope qua /ai-transform/."
+    },
+    {
+      "q": "Chi phí Dolphin Ops tính như thế nào?",
+      "a": "Chi phí đi theo scope, không có một mức cố định cho mọi doanh nghiệp. Vì mỗi team đang vướng các tool và quy trình khác nhau, cách hợp lý là trao đổi phạm vi trước rồi mới chốt hướng làm. Anh chị có thể nhắn Zalo tại https://zalo.me/0779937633 để mô tả bài toán."
+    }
+  ],
+  "cta": {
+    "primary": "Nhắn Zalo để trao đổi scope Dolphin Ops: https://zalo.me/0779937633",
+    "secondary": "Nếu anh chị đang cần lớp chăm khách trên website trước, xem /dolphin-care/. Nếu đang cần lộ trình ứng dụng AI rõ hơn, xem /ai-transform/.",
+    "trust": "Dolphin Ops không bắt anh chị học thêm một lớp menu mới. Nó giúp đội ngũ nói việc cần làm, rồi chọn đúng tool để chạy."
+  },
+  "messaging": "Dolphin Ops là AI vận hành doanh nghiệp giúp chủ doanh nghiệp và nhân sự xử lý lịch, khách, báo cáo và việc nội bộ bằng đúng công cụ và đúng giao diện.",
+  "copySource": "lib/i18n/dolphin-ops-copy.ts",
+  "relatedRoutes": [
+    "/dolphin-care/",
+    "/ai-transform/",
+    "/services/web/"
+  ]
+}

@@ -3,7 +3,7 @@
     "brand": "Dolphin Software",
     "site": "https://dolphin-software.io.vn/",
     "source": ".cursor/knowledge/",
-    "updated": "2026-08-03",
+    "updated": "2026-08-21",
     "note": "Company knowledge pack as JSON — SoT for agents; missing facts stay TODO in source markdown.",
     "schemaId": "company",
     "schemaPath": "/schema/company/",
@@ -27,7 +27,8 @@
       "Nâng cấp và bảo trì hệ thống hiện có",
       "AI hóa quy trình làm việc",
       "Xây dựng AI Agent theo từng nghiệp vụ",
-      "Dolphin Care (AI chăm sóc khách trên website)"
+      "Dolphin Care (AI chăm sóc khách trên website)",
+      "Dolphin Ops (AI vận hành doanh nghiệp)"
     ],
     "positioning": {
       "Build": "Xây website và phần mềm theo nhu cầu",
@@ -146,7 +147,8 @@
       ],
       "routes": [
         "/ai-transform/",
-        "/services/agents/"
+        "/services/agents/",
+        "/dolphin-ops/"
       ]
     },
     "care": {
@@ -161,7 +163,8 @@
       "integrations": "/services/integrations/",
       "agents": "/services/agents/",
       "aiTransform": "/ai-transform/",
-      "dolphinCare": "/dolphin-care/"
+      "dolphinCare": "/dolphin-care/",
+      "dolphinOps": "/dolphin-ops/"
     },
     "hiringNote": "Mobile & Design closed; Marketing/Growth open — xem careers."
   },
@@ -222,6 +225,27 @@
     "messaging": "Ưu tiên “chăm sóc / ngoài giờ / bớt hỏi lặp” hơn buzzword “AI Agent”.",
     "copySource": "lib/i18n/agent-dolphin-copy.ts"
   },
+  "dolphinOps": {
+    "displayName": "Dolphin Ops",
+    "route": "/dolphin-ops/",
+    "pillar": "Automate",
+    "whatItIs": "Dolphin Ops là AI vận hành nội bộ: ý định → Agent → Business Tool → UI phù hợp → người xác nhận ở bước nhạy.",
+    "versusCare": {
+      "care": "Dolphin Care: AI chăm sóc khách hàng của bạn.",
+      "ops": "Dolphin Ops: AI giúp anh chị chạy doanh nghiệp."
+    },
+    "whatItIsNot": [
+      "Không phải chatbot trả lời văn bản rồi dừng",
+      "Không phải CRM gắn AI chat",
+      "Không phải ChatGPT wrapper"
+    ],
+    "copySource": "lib/i18n/dolphin-ops-copy.ts",
+    "adminCustomize": [
+      "Sửa form (thêm trường, bắt buộc) bằng chat",
+      "Thêm report theo công thức admin; chart vẽ theo công thức đó",
+      "Ví dụ quyền: chỉ quản lý duyệt hoàn tiền — trong phạm vi tool đã bật"
+    ]
+  },
   "ai": {
     "pillars": [
       "Automate",
@@ -236,6 +260,10 @@
       {
         "name": "Dolphin Care",
         "path": "/dolphin-care/"
+      },
+      {
+        "name": "Dolphin Ops",
+        "path": "/dolphin-ops/"
       },
       {
         "name": "AI transform",

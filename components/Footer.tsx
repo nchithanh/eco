@@ -19,6 +19,7 @@ export function Footer() {
  { href: assetPath("/services/mobile/"), label: t.nav.serviceMobile },
  { href: assetPath("/ai-transform/"), label: t.nav.aiTransform },
  { href: assetPath("/dolphin-care/"), label: t.nav.agentDolphin },
+ { href: assetPath("/dolphin-ops/"), label: t.nav.dolphinOps },
  { href: assetPath("/dolphin-intelligence/"), label: t.nav.dolphinIntelligence },
  ],
  },

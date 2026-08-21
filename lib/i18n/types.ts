@@ -37,6 +37,7 @@ export type Dictionary = {
     about: string;
     agents: string;
     agentDolphin: string;
+    dolphinOps: string;
     aiTransform: string;
     dolphinIntelligence: string;
     contact: string;

@@ -5,6 +5,7 @@ import { ServiceDetailView } from "@/components/ServiceDetailView";
 import { Capabilities } from "@/components/Capabilities";
 import { AiTransformContent } from "@/components/AiTransformContent";
 import { AgentDolphinPage } from "@/components/AgentDolphinContent";
+import { DolphinOpsPage } from "@/components/DolphinOpsContent";
 import { AboutContent } from "@/components/AboutContent";
 import { CareersContent } from "@/components/CareersContent";
 import { AppProviders } from "@/components/AppProviders";
@@ -174,6 +175,42 @@ describe("service detail pages", () => {
     expect(
       screen.getByText(/Chi phí triển khai Dolphin Care như thế nào/i),
     ).toBeInTheDocument();
+  });
+
+  it("renders dolphin-ops landing content and nav link", () => {
+    render(
+      <AppProviders>
+        <DolphinOpsPage />
+      </AppProviders>,
+    );
+
+    expect(
+      screen.getByRole("heading", {
+        level: 1,
+        name: /AI vận hành doanh nghiệp cho team nhỏ/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", {
+        name: /AI không thay giao diện/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", {
+        name: /Admin chỉnh form và báo cáo bằng chat/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        /AI vận hành doanh nghiệp là gì, và Dolphin Ops có phải kiểu đó không/i,
+      ),
+    ).toBeInTheDocument();
+    const opsLinks = screen.getAllByRole("link", { name: /^Dolphin Ops$/i });
+    expect(opsLinks.length).toBeGreaterThanOrEqual(1);
+    expect(opsLinks[0]).toHaveAttribute(
+      "href",
+      expect.stringMatching(/\/dolphin-ops\/?$/),
+    );
   });
 
   it("renders about page VI SEO content", () => {

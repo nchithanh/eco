@@ -122,6 +122,10 @@ export function Nav() {
       label: t.nav.agentDolphin,
     },
     {
+      href: assetPath("/dolphin-ops/"),
+      label: t.nav.dolphinOps,
+    },
+    {
       href: assetPath("/dolphin-intelligence/"),
       label: t.nav.dolphinIntelligence,
     },

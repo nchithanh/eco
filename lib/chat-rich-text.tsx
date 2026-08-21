@@ -2,7 +2,7 @@ import { Fragment, type ReactNode } from "react";
 import { assetPath } from "@/lib/asset";
 
 const LINK_RE = new RegExp(
-  String.raw`(https?:\/\/[^\s<]+)|(\/(?:services|dolphin-care|dolphin-intelligence|ai-transform|news|about|careers|schema)[^\s<]*)`,
+  String.raw`(https?:\/\/[^\s<]+)|(\/(?:services|dolphin-care|dolphin-ops|dolphin-intelligence|ai-transform|news|about|careers|schema)[^\s<]*)`,
   "gi",
 );
 
