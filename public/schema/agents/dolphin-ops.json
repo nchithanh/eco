@@ -121,7 +121,11 @@
     ]
   },
   "adminCustomize": {
-    "summary": "Admin có thể chỉnh trong phạm vi các tool đã bật bằng cách nói nhu cầu quản trị, thay vì phải mò sâu trong cấu hình. Tuy vậy, các thay đổi cấu trúc quan trọng vẫn có thể cần xác nhận hoặc xử lý thêm.",
+    "summary": "Trong phạm vi tool đã bật, admin nói nhu cầu — thêm trường, công thức report, quy tắc duyệt — mà không phải báo bộ phận software để code và deploy từng thay đổi nhỏ. Đổi cấu trúc quan trọng vẫn có thể cần xác nhận hoặc trao đổi qua /ai-transform/.",
+    "versusCrm": {
+      "crm": "CRM truyền thống: đổi form hay báo cáo thì thường ticket, chờ sprint, chờ deploy.",
+      "ops": "Dolphin Ops: admin tự chỉnh tool đã bật bằng chat."
+    },
     "examples": [
       "Sửa form: “Thêm trường Ghi chú, bắt buộc trước khi xác nhận.”",
       "Thêm report: “Doanh thu = số lịch × giá dịch vụ” → chart cột theo ngày.",
@@ -168,7 +172,11 @@
     },
     {
       "q": "Dolphin Ops có phải CRM AI không?",
-      "a": "Không theo kiểu CRM gắn thêm chat. CRM truyền thống thường bắt người dùng đi menu → module → form → Save. Dolphin Ops đi từ việc anh chị muốn làm, rồi chọn đúng Business Tool và UI phù hợp để chạy việc đó."
+      "a": "Không theo kiểu CRM gắn thêm chat. CRM truyền thống thường bắt người dùng đi menu → module → form → Save. Đổi form hay báo cáo thì hay phải ticket cho bộ phận software, chờ code rồi deploy. Dolphin Ops đi từ việc anh chị muốn làm, chọn đúng Business Tool và UI; admin tự chỉnh tool đã bật bằng chat."
+    },
+    {
+      "q": "Đổi form hay báo cáo, anh chị có phải chờ bộ phận software không?",
+      "a": "Với CRM truyền thống thì thường vậy: mở ticket, chờ sprint, rồi deploy. Dolphin Ops để admin nói nhu cầu trong phạm vi các tool đã bật — thêm trường, công thức report, quy tắc duyệt — mà không cần team software code từng thay đổi nhỏ. Nếu thay đổi chạm cấu trúc quan trọng, hệ thống có thể cần xác nhận thêm hoặc trao đổi scope qua /ai-transform/."
     },
     {
       "q": "Dolphin Ops có phải chỉ là chat không?",
@@ -184,7 +192,7 @@
     },
     {
       "q": "Admin có chỉnh được Dolphin Ops bằng chat không?",
-      "a": "Có, trong phạm vi các tool đã bật. Ví dụ admin có thể yêu cầu thêm trường vào form, đổi logic một báo cáo đơn giản hoặc thêm quy tắc duyệt cho một hành động cụ thể. Nếu thay đổi chạm tới cấu trúc quan trọng, hệ thống có thể cần xác nhận thêm hoặc cần trao đổi scope qua /ai-transform/."
+      "a": "Có, trong phạm vi các tool đã bật — không phải báo bộ phận software để code và triển khai từng thay đổi nhỏ. Ví dụ admin yêu cầu thêm trường vào form, đổi logic một báo cáo đơn giản hoặc thêm quy tắc duyệt. Nếu thay đổi chạm tới cấu trúc quan trọng, hệ thống có thể cần xác nhận thêm hoặc cần trao đổi scope qua /ai-transform/."
     },
     {
       "q": "Chi phí Dolphin Ops tính như thế nào?",

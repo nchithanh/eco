@@ -202,7 +202,7 @@ describe("service detail pages", () => {
     ).toBeInTheDocument();
     expect(
       screen.getByText(
-        /AI vận hành doanh nghiệp là gì, và Dolphin Ops có phải kiểu đó không/i,
+        /Đổi form hay báo cáo, anh chị có phải chờ bộ phận software không/i,
       ),
     ).toBeInTheDocument();
     const opsLinks = screen.getAllByRole("link", { name: /^Dolphin Ops$/i });

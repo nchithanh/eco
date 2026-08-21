@@ -239,9 +239,13 @@
       "Không phải CRM gắn AI chat",
       "Không phải ChatGPT wrapper"
     ],
+    "versusCrm": {
+      "crm": "CRM truyền thống: đổi form hay báo cáo thì thường ticket, chờ sprint, chờ deploy.",
+      "ops": "Dolphin Ops: admin tự chỉnh tool đã bật bằng chat — không cần bộ phận software code từng thay đổi nhỏ."
+    },
     "copySource": "lib/i18n/dolphin-ops-copy.ts",
     "adminCustomize": [
-      "Sửa form (thêm trường, bắt buộc) bằng chat",
+      "Sửa form (thêm trường, bắt buộc) bằng chat — không ticket software",
       "Thêm report theo công thức admin; chart vẽ theo công thức đó",
       "Ví dụ quyền: chỉ quản lý duyệt hoàn tiền — trong phạm vi tool đã bật"
     ]

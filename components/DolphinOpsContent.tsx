@@ -114,6 +114,9 @@ export function DolphinOpsContent() {
                     </li>
                   ))}
                 </ol>
+                <p className="mt-4 text-sm leading-relaxed text-[var(--kuct-muted)]">
+                  {c.problemTraditionalNote}
+                </p>
               </article>
             </Reveal>
             <Reveal delay={40}>
@@ -139,6 +142,9 @@ export function DolphinOpsContent() {
                     </li>
                   ))}
                 </ol>
+                <p className="mt-4 text-sm leading-relaxed text-[var(--kuct-text)]">
+                  {c.problemOpsNote}
+                </p>
               </article>
             </Reveal>
           </div>

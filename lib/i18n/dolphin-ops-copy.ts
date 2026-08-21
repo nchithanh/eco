@@ -47,8 +47,10 @@ export type DolphinOpsCopy = {
   problemSupport: string;
   problemTraditionalTitle: string;
   problemTraditionalSteps: string[];
+  problemTraditionalNote: string;
   problemOpsTitle: string;
   problemOpsSteps: string[];
+  problemOpsNote: string;
   vsCareTitle: string;
   vsCareBody: string;
   vsOpsTitle: string;
@@ -173,7 +175,7 @@ const vi: DolphinOpsCopy = {
   problemEyebrow: "Vấn đề",
   problemTitle: "CRM đòi anh chị học nó. Ops nghe việc rồi mở đúng màn.",
   problemSupport:
-    "CRM truyền thống bắt đi qua menu, module, form, Save. Dolphin Ops bắt đầu từ ý định — rồi chọn tool và giao diện phù hợp.",
+    "CRM truyền thống bắt đi menu → module → form → Save. Muốn thêm trường hay báo cáo thì thường phải ticket, chờ team software code rồi deploy. Dolphin Ops bắt đầu từ ý định — rồi chọn tool và giao diện; admin tự chỉnh tool đã bật bằng chat.",
   problemTraditionalTitle: "CRM quen thuộc",
   problemTraditionalSteps: [
     "Người dùng",
@@ -183,6 +185,8 @@ const vi: DolphinOpsCopy = {
     "Form",
     "Save",
   ],
+  problemTraditionalNote:
+    "Đổi form hay công thức? Mở ticket. Chờ sprint. Chờ deploy.",
   problemOpsTitle: "Dolphin Ops",
   problemOpsSteps: [
     "Ý định",
@@ -192,6 +196,8 @@ const vi: DolphinOpsCopy = {
     "Thao tác",
     "Kết quả",
   ],
+  problemOpsNote:
+    "Admin nói nhu cầu. Tool cập nhật — không chờ bộ phận software code từng thay đổi nhỏ.",
   vsCareTitle: "Dolphin Care",
   vsCareBody: "AI chăm sóc khách hàng của bạn.",
   vsOpsTitle: "Dolphin Ops",
@@ -302,7 +308,7 @@ const vi: DolphinOpsCopy = {
   customizeEyebrow: "Admin",
   customizeTitle: "Admin chỉnh form và báo cáo bằng chat.",
   customizeSupport:
-    "Admin chỉnh trong phạm vi tool đã bật: thêm trường form, đưa công thức report, hoặc nói ai được duyệt hoàn tiền. Đổi cấu trúc quan trọng vẫn có thể cần xác nhận.",
+    "Trong phạm vi tool đã bật, admin nói nhu cầu — thêm trường, công thức report, quy tắc duyệt — mà không phải báo bộ phận software để code và deploy từng thay đổi nhỏ. Đổi cấu trúc quan trọng vẫn có thể cần xác nhận.",
   customizeApplying: "Đang áp dụng thay đổi…",
   customizeApplied: "Đã cập nhật tool.",
   customizeScenes: [
@@ -355,11 +361,11 @@ const vi: DolphinOpsCopy = {
     },
     {
       title: "Admin sửa form",
-      body: "“Thêm ghi chú bắt buộc vào form đặt lịch.” Form hiện trường mới — không vào màn settings.",
+      body: "“Thêm ghi chú bắt buộc vào form đặt lịch.” Form hiện trường mới ngay — không ticket cho team software, không vào màn settings.",
     },
     {
       title: "Admin thêm report",
-      body: "“Doanh thu = số lịch × giá dịch vụ.” Reports vẽ cột theo công thức admin vừa nói.",
+      body: "“Doanh thu = số lịch × giá dịch vụ.” Reports vẽ cột theo công thức admin vừa nói. Không chờ sprint deploy.",
     },
   ],
   controlEyebrow: "Human control",
@@ -385,11 +391,11 @@ const vi: DolphinOpsCopy = {
     "UI không biến mất. Ops ghép Agent, Business Tools, Dynamic UI và chỗ người xác nhận.",
   philosophyTraditional: {
     title: "CRM truyền thống",
-    body: "“Học CRM.”",
+    body: "“Học CRM. Đổi form thì báo software.”",
   },
   philosophyOps: {
     title: "Dolphin Ops",
-    body: "“Nói CRM việc cần làm.”",
+    body: "“Nói việc cần làm. Admin tự chỉnh tool đã bật.”",
   },
   philosophyCombine: "Agent + Business Tools + Dynamic UI + Human Control",
   philosophyPills: [
@@ -434,7 +440,11 @@ const vi: DolphinOpsCopy = {
     },
     {
       q: "Dolphin Ops có phải CRM AI không?",
-      a: "Không theo kiểu CRM gắn thêm chat. CRM truyền thống thường bắt người dùng đi menu → module → form → Save. Dolphin Ops đi từ việc anh chị muốn làm, rồi chọn đúng Business Tool và UI phù hợp để chạy việc đó.",
+      a: "Không theo kiểu CRM gắn thêm chat. CRM truyền thống thường bắt người dùng đi menu → module → form → Save. Đổi form hay báo cáo thì hay phải ticket cho bộ phận software, chờ code rồi deploy. Dolphin Ops đi từ việc anh chị muốn làm, chọn đúng Business Tool và UI; admin tự chỉnh tool đã bật bằng chat.",
+    },
+    {
+      q: "Đổi form hay báo cáo, anh chị có phải chờ bộ phận software không?",
+      a: "Với CRM truyền thống thì thường vậy: mở ticket, chờ sprint, rồi deploy. Dolphin Ops để admin nói nhu cầu trong phạm vi các tool đã bật — thêm trường, công thức report, quy tắc duyệt — mà không cần team software code từng thay đổi nhỏ. Nếu thay đổi chạm cấu trúc quan trọng, hệ thống có thể cần xác nhận thêm hoặc trao đổi scope qua /ai-transform/.",
     },
     {
       q: "Dolphin Ops có phải chỉ là chat không?",
@@ -450,7 +460,7 @@ const vi: DolphinOpsCopy = {
     },
     {
       q: "Admin có chỉnh được Dolphin Ops bằng chat không?",
-      a: "Có, trong phạm vi các tool đã bật. Ví dụ admin có thể yêu cầu thêm trường vào form, đổi logic một báo cáo đơn giản hoặc thêm quy tắc duyệt cho một hành động cụ thể. Nếu thay đổi chạm tới cấu trúc quan trọng, hệ thống có thể cần xác nhận thêm hoặc cần trao đổi scope qua /ai-transform/.",
+      a: "Có, trong phạm vi các tool đã bật — không phải báo bộ phận software để code và triển khai từng thay đổi nhỏ. Ví dụ admin yêu cầu thêm trường vào form, đổi logic một báo cáo đơn giản hoặc thêm quy tắc duyệt. Nếu thay đổi chạm tới cấu trúc quan trọng, hệ thống có thể cần xác nhận thêm hoặc cần trao đổi scope qua /ai-transform/.",
     },
     {
       q: "Chi phí Dolphin Ops tính như thế nào?",
@@ -503,7 +513,7 @@ const en: DolphinOpsCopy = {
   problemEyebrow: "The problem",
   problemTitle: "A CRM asks you to learn it. Ops hears the job and opens the right screen.",
   problemSupport:
-    "A traditional CRM walks Dashboard → Module → Feature → Form → Save. Dolphin Ops starts from intent — then picks the tool and the UI.",
+    "A traditional CRM walks Dashboard → Module → Feature → Form → Save. A new field or report often means a ticket, a wait for the software team, then a deploy. Dolphin Ops starts from intent — then picks the tool and UI. Admins change enabled tools in chat.",
   problemTraditionalTitle: "Familiar CRM",
   problemTraditionalSteps: [
     "User",
@@ -513,6 +523,8 @@ const en: DolphinOpsCopy = {
     "Form",
     "Save",
   ],
+  problemTraditionalNote:
+    "Need a new field or formula? Open a ticket. Wait for the sprint. Wait for deploy.",
   problemOpsTitle: "Dolphin Ops",
   problemOpsSteps: [
     "Intent",
@@ -522,6 +534,8 @@ const en: DolphinOpsCopy = {
     "Action",
     "Result",
   ],
+  problemOpsNote:
+    "The admin says the change. The tool updates — without waiting on software to code each small tweak.",
   vsCareTitle: "Dolphin Care",
   vsCareBody: "AI that takes care of your customers.",
   vsOpsTitle: "Dolphin Ops",
@@ -632,7 +646,7 @@ const en: DolphinOpsCopy = {
   customizeEyebrow: "Admin",
   customizeTitle: "Admins change forms and reports by chatting.",
   customizeSupport:
-    "Skip a long settings tree. Tell the Agent to add a field, make notes required, or give a formula — the report charts against that formula.",
+    "Inside tools you have switched on, an admin says the change — a field, a report formula, an approval rule — without sending the software team a ticket to code and deploy each small tweak. Structural changes can still need a confirm.",
   customizeApplying: "Applying the change…",
   customizeApplied: "Tool updated.",
   customizeScenes: [
@@ -685,11 +699,11 @@ const en: DolphinOpsCopy = {
     },
     {
       title: "Admin edits a form",
-      body: "“Add a required note on the booking form.” The field appears — no settings maze.",
+      body: "“Add a required note on the booking form.” The field appears now — no software ticket, no settings maze.",
     },
     {
       title: "Admin adds a report",
-      body: "“Revenue = bookings × price.” Reports draws columns from that formula.",
+      body: "“Revenue = bookings × price.” Reports draws columns from that formula. No sprint deploy.",
     },
   ],
   controlEyebrow: "Human control",
@@ -715,11 +729,11 @@ const en: DolphinOpsCopy = {
     "Traditional UI does not disappear. Ops combines Agent, Business Tools, Dynamic UI and human confirmation.",
   philosophyTraditional: {
     title: "Traditional CRM",
-    body: "“Learn the CRM.”",
+    body: "“Learn the CRM. Changing a form means asking software.”",
   },
   philosophyOps: {
     title: "Dolphin Ops",
-    body: "“Tell the CRM what you need.”",
+    body: "“Say the job. Admins change enabled tools themselves.”",
   },
   philosophyCombine: "Agent + Business Tools + Dynamic UI + Human Control",
   philosophyPills: [
@@ -764,7 +778,11 @@ const en: DolphinOpsCopy = {
     },
     {
       q: "Is Dolphin Ops a CRM with AI?",
-      a: "Not a CRM with chat bolted on. A traditional CRM walks menu → module → form → Save. Dolphin Ops starts from the job you want, then picks the Business Tool and UI to run it.",
+      a: "Not a CRM with chat bolted on. A traditional CRM walks menu → module → form → Save. A new field or report often waits on a software ticket, then a deploy. Dolphin Ops starts from the job you want, picks the Business Tool and UI, and lets an admin change enabled tools in chat.",
+    },
+    {
+      q: "Do form or report changes wait on the software team?",
+      a: "In a traditional CRM, often yes: ticket, sprint, deploy. In Dolphin Ops an admin can ask — inside enabled tools — for a field, a simple report formula, or an approval rule, without software coding each small change. Structural work can still need a confirm, or a scope talk via /ai-transform/.",
     },
     {
       q: "Is Dolphin Ops just chat?",
@@ -780,7 +798,7 @@ const en: DolphinOpsCopy = {
     },
     {
       q: "Can an admin change Dolphin Ops in chat?",
-      a: "Yes, inside tools you have switched on — add a form field, a simple report formula, or an approval rule. Structural changes may still need a confirm, or a scope talk via /ai-transform/.",
+      a: "Yes, inside tools you have switched on — without filing a ticket for software to code and ship each small tweak. Add a form field, a simple report formula, or an approval rule. Structural changes may still need a confirm, or a scope talk via /ai-transform/.",
     },
     {
       q: "What does Dolphin Ops cost?",
@@ -833,7 +851,7 @@ const ja: DolphinOpsCopy = {
   problemEyebrow: "課題",
   problemTitle: "CRMに使い方を覚えさせる仕事。Opsは用件を聞いて画面を出す。",
   problemSupport:
-    "従来のCRMはダッシュボード→モジュール→機能→フォーム→保存。Dolphin Opsは意図から始まり、ツールとUIを選びます。",
+    "従来のCRMはダッシュボード→モジュール→機能→フォーム→保存。欄やレポートを足すと、ソフト担当へのチケット、実装待ち、デプロイ待ちになりがちです。Dolphin Opsは意図から入り、有効なツールを管理者がチャットで直せます。",
   problemTraditionalTitle: "よくあるCRM",
   problemTraditionalSteps: [
     "ユーザー",
@@ -843,6 +861,8 @@ const ja: DolphinOpsCopy = {
     "フォーム",
     "保存",
   ],
+  problemTraditionalNote:
+    "欄や計算式を変えたい？チケット。スプリント待ち。デプロイ待ち。",
   problemOpsTitle: "Dolphin Ops",
   problemOpsSteps: [
     "意図",
@@ -852,6 +872,8 @@ const ja: DolphinOpsCopy = {
     "操作",
     "結果",
   ],
+  problemOpsNote:
+    "管理者が用件を言う。ツールが更新される — 小さな変更ごとにソフト担当の実装を待たない。",
   vsCareTitle: "Dolphin Care",
   vsCareBody: "お客様をケアするAI。",
   vsOpsTitle: "Dolphin Ops",
@@ -962,7 +984,7 @@ const ja: DolphinOpsCopy = {
   customizeEyebrow: "Admin",
   customizeTitle: "管理者がチャットでフォームとレポートを直す。",
   customizeSupport:
-    "長い設定画面は不要。フィールド追加、必須化、計算式 — レポートはその式でチャートを描きます。",
+    "有効なツールの範囲なら、管理者が欄・計算式・承認ルールを話して直せる。小さな変更ごとにソフト担当へ実装・デプロイを頼まなくてよい。構造に触れる変更は確認が残る場合があります。",
   customizeApplying: "変更を適用しています…",
   customizeApplied: "ツールを更新しました。",
   customizeScenes: [
@@ -1015,11 +1037,11 @@ const ja: DolphinOpsCopy = {
     },
     {
       title: "管理者がフォームを直す",
-      body: "「予約フォームに必須のメモを足して。」設定画面ではなく、欄が現れる。",
+      body: "「予約フォームに必須のメモを足して。」欄がすぐ出る。ソフト担当へのチケットも、設定の奥も不要。",
     },
     {
       title: "管理者がレポートを足す",
-      body: "「売上＝予約数×単価。」Reportsがその式で棒を描く。",
+      body: "「売上＝予約数×単価。」その式でチャートが描かれる。スプリントのデプロイを待たない。",
     },
   ],
   controlEyebrow: "Human control",
@@ -1045,11 +1067,11 @@ const ja: DolphinOpsCopy = {
     "従来UIは消えません。Opsはエージェント、業務ツール、動的UI、人の確認を組み合わせます。",
   philosophyTraditional: {
     title: "従来のCRM",
-    body: "「CRMの使い方を覚える。」",
+    body: "「CRMの使い方を覚える。フォームを変えるならソフト担当へ。」",
   },
   philosophyOps: {
     title: "Dolphin Ops",
-    body: "「やりたいことをCRMに伝える。」",
+    body: "「用件を伝える。有効なツールは管理者が自分で直す。」",
   },
   philosophyCombine: "Agent + Business Tools + Dynamic UI + Human Control",
   philosophyPills: [
@@ -1094,7 +1116,11 @@ const ja: DolphinOpsCopy = {
     },
     {
       q: "AI付きのCRMですか？",
-      a: "チャットを後付けしたCRMではありません。従来のCRMはメニュー→モジュール→フォーム→保存。Dolphin Opsはやりたいことから入り、業務ツールとUIを選びます。",
+      a: "チャットを後付けしたCRMではありません。従来のCRMはメニュー→モジュール→フォーム→保存。欄やレポートを足すとソフト担当のチケットとデプロイ待ちになりがちです。Dolphin Opsはやりたいことから入り、有効なツールを管理者がチャットで直せます。",
+    },
+    {
+      q: "フォームやレポートの変更はソフト担当待ちですか？",
+      a: "従来のCRMではそうなりやすいです。チケット、スプリント、デプロイ。Dolphin Opsでは有効なツールの範囲で、管理者が欄・簡単な計算式・承認ルールを話して直せます。小さな変更ごとに実装を頼みません。構造に触れる変更は確認や /ai-transform/ の相談が残る場合があります。",
     },
     {
       q: "チャットだけの製品ですか？",
@@ -1110,7 +1136,7 @@ const ja: DolphinOpsCopy = {
     },
     {
       q: "管理者はチャットで変えられますか？",
-      a: "有効なツールの範囲ではできます。欄の追加、簡単な計算式、承認ルール。構造に触れる変更は確認や /ai-transform/ の相談が残る場合があります。",
+      a: "有効なツールの範囲ではできます。小さな変更ごとにソフト担当へ実装・デプロイを頼まなくてよい。欄の追加、簡単な計算式、承認ルール。構造に触れる変更は確認や /ai-transform/ の相談が残る場合があります。",
     },
     {
       q: "費用は？",
