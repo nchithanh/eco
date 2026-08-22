@@ -107,6 +107,12 @@ export type DolphinOpsCopy = {
   examplesTitle: string;
   examplesSupport: string;
   examples: { title: string; body: string }[];
+  outcomesEyebrow: string;
+  outcomesTitle: string;
+  outcomesSupport: string;
+  outcomesNotLabel: string;
+  outcomesYesLabel: string;
+  outcomes: { title: string; not: string; yes: string }[];
   controlEyebrow: string;
   controlTitle: string;
   controlSupport: string;
@@ -148,7 +154,7 @@ const vi: DolphinOpsCopy = {
   headline: "Dolphin Ops – [[Agent CRM]] cho vận hành doanh nghiệp",
   support:
     "Dolphin Ops là SaaS Agent CRM: anh chị nói việc cần làm, Agent chọn Business Tool và mở đúng màn — lịch, khách, báo cáo. Admin chỉnh tool đã bật bằng chat. Việc nhạy thì người xác nhận trước khi chạy.",
-  ctaPrimary: "Khám phá Dolphin Ops",
+  ctaPrimary: "Xem Ops chạy việc",
   ctaSecondary: "Nói chuyện với chúng tôi",
   trustLine: "Không phải CRM gắn thêm chat.",
   heroChromeTitle: "Dolphin Ops",
@@ -238,7 +244,7 @@ const vi: DolphinOpsCopy = {
   toolsEyebrow: "Business Tools",
   toolsTitle: "Một bộ công cụ nghiệp vụ, Agent gọi khi cần.",
   toolsSupport:
-    "Mỗi tool có khả năng, schema, quyền, UI và cách thực thi. Cùng một tool có thể dùng ở nhiều chỗ trong hệ Dolphin.",
+    "Không phải lưới module. Chọn một tool — xem Agent mở đúng preview để chạy việc.",
   tools: [
     {
       id: "booking",
@@ -368,6 +374,34 @@ const vi: DolphinOpsCopy = {
       body: "“Doanh thu = số lịch × giá dịch vụ.” Reports vẽ cột theo công thức admin vừa nói. Không chờ sprint deploy.",
     },
   ],
+  outcomesEyebrow: "Thay đổi gì",
+  outcomesTitle: "Không bán tool. Bán cách chạy việc.",
+  outcomesSupport:
+    "Cùng một Agent, anh chị bớt đi menu và bớt nhớ tay. Tool vẫn là Booking, Customer, Reports — khác ở chỗ mở đúng lúc.",
+  outcomesNotLabel: "Trước",
+  outcomesYesLabel: "Với Ops",
+  outcomes: [
+    {
+      title: "Đặt lịch",
+      not: "Mở lịch → tìm khách → mở form → nhập từng ô chỉ để đặt một lịch.",
+      yes: "Nói việc cần làm. Form hiện chỗ còn thiếu để hoàn tất và xác nhận.",
+    },
+    {
+      title: "Hồ sơ khách",
+      not: "Thông tin khách nằm rải giữa chat, file và nhiều màn hình.",
+      yes: "Hỏi một khách — mở Customer 360, không phải đoạn chat liệt kê.",
+    },
+    {
+      title: "Báo cáo",
+      not: "Hỏi doanh thu rồi đọc một đoạn số.",
+      yes: "Reports mở chart để xem, không để đọc thành văn.",
+    },
+    {
+      title: "Admin",
+      not: "Đổi form hay công thức thì ticket cho bộ phận software.",
+      yes: "Admin nói nhu cầu trong tool đã bật. Tool cập nhật — không claim mọi thứ.",
+    },
+  ],
   controlEyebrow: "Human control",
   controlTitle: "AI xử lý độ phức tạp. Người giữ quyền quyết.",
   controlSupport:
@@ -406,25 +440,25 @@ const vi: DolphinOpsCopy = {
     "Human Control",
   ],
   whoEyebrow: "Dành cho ai",
-  whoTitle: "Spa, clinic, salon đang chạy việc nội bộ.",
+  whoTitle: "Spa, salon, clinic, shop dịch vụ — việc lặp mỗi ngày.",
   whoSupport:
-    "Phù hợp khi lịch, khách, báo cáo và nhắc hẹn nằm rải nhiều màn — và anh chị muốn nói việc thay vì học menu.",
+    "Ưu tiên doanh nghiệp dịch vụ đang xoay lịch, khách, nhắc hẹn. Chưa có mặt tiền để khách tìm thấy: xem /services/web/.",
   whoItems: [
     {
-      title: "Spa và salon có nhiều lịch trong ngày",
-      body: "Lịch hẹn, khách quay lại và nhắc lịch đang nằm rải nhiều màn — hoặc nhớ bằng tay.",
+      title: "Spa",
+      body: "Nhiều lịch trong ngày. Lịch hẹn và nhắc lịch đang nằm rải nhiều màn — hoặc nhớ bằng tay.",
     },
     {
-      title: "Clinic và phòng khám",
+      title: "Salon",
+      body: "Khách quay lại, dịch vụ lặp, nhắc lịch. Đội ngũ cần nói việc thay vì học menu.",
+    },
+    {
+      title: "Clinic",
       body: "Tra khách nhanh, kiểm soát thao tác nhạy, người có quyền duyệt ở bước quan trọng.",
     },
     {
-      title: "Shop dịch vụ và đội ngũ vận hành",
+      title: "Shop dịch vụ",
       body: "Xem lịch, khách, báo cáo mà không phải học phần mềm nặng menu.",
-    },
-    {
-      title: "Đã có web, thiếu lớp vận hành nội bộ",
-      body: "Website là mặt tiền khách tìm thấy anh chị. Ops là lớp đội ngũ chạy việc phía sau. Chưa có mặt tiền: xem /services/web/.",
     },
   ],
   faqEyebrow: "FAQ",
@@ -468,9 +502,9 @@ const vi: DolphinOpsCopy = {
     },
   ],
   closeEyebrow: "Bước tiếp",
-  closeTitle: "Muốn xem Ops trên nghiệp vụ của anh chị?",
+  closeTitle: "Xem Dolphin Ops có phù hợp với doanh nghiệp của bạn",
   closeSupport:
-    "Nếu anh chị đang cần lớp chăm khách trên website trước, xem /dolphin-care/. Nếu đang cần lộ trình ứng dụng AI rõ hơn, xem /ai-transform/.",
+    "Nói doanh nghiệp đang vướng gì. Chúng tôi xem quy trình hiện tại và đề xuất phần nào Ops có thể tự động hóa. Zalo hoặc form bên dưới. Chăm khách trên web trước: /dolphin-care/. Lộ trình AI rộng hơn: /ai-transform/.",
   closeCta: "Nói chuyện với chúng tôi",
   closeSecondary: "Xem lại demo",
   closeTrust:
@@ -486,7 +520,7 @@ const en: DolphinOpsCopy = {
   headline: "Dolphin Ops – [[Agent CRM]] for business operations",
   support:
     "Dolphin Ops is Agent CRM as SaaS: you say the job, the Agent picks the Business Tool and opens the right screen — bookings, customers, reports. Admins change enabled tools in chat. Sensitive work waits for a person.",
-  ctaPrimary: "Explore Dolphin Ops",
+  ctaPrimary: "See Ops run the job",
   ctaSecondary: "Talk to us",
   trustLine: "Not a CRM with chat bolted on.",
   heroChromeTitle: "Dolphin Ops",
@@ -576,7 +610,7 @@ const en: DolphinOpsCopy = {
   toolsEyebrow: "Business Tools",
   toolsTitle: "Reusable business tools the Agent can call.",
   toolsSupport:
-    "Each tool has capability, schema, permission, UI and execution. One tool can serve more than one part of the Dolphin ecosystem.",
+    "Not a module grid. Pick a tool — see the Agent open the matching preview.",
   tools: [
     {
       id: "booking",
@@ -706,6 +740,34 @@ const en: DolphinOpsCopy = {
       body: "“Revenue = bookings × price.” Reports draws columns from that formula. No sprint deploy.",
     },
   ],
+  outcomesEyebrow: "What changes",
+  outcomesTitle: "We don't sell tools. We sell how the day runs.",
+  outcomesSupport:
+    "Same Agent. Fewer menus, less memorizing. Booking, Customer, Reports stay — they open when the job needs them.",
+  outcomesNotLabel: "Before",
+  outcomesYesLabel: "With Ops",
+  outcomes: [
+    {
+      title: "Booking",
+      not: "Open the calendar → find the guest → open a form → fill every field just to book one visit.",
+      yes: "Say the job. The form shows only what is still missing, then you confirm.",
+    },
+    {
+      title: "Customer record",
+      not: "Guest details sit across chat, files, and too many screens.",
+      yes: "Ask about one guest — Customer 360 opens. Not a chat dump.",
+    },
+    {
+      title: "Reports",
+      not: "Ask for revenue, then read a paragraph of numbers.",
+      yes: "Reports opens a chart to see — not a block of text to scan.",
+    },
+    {
+      title: "Admin",
+      not: "A form or formula change waits on a software ticket.",
+      yes: "An admin asks inside an enabled tool. The tool updates — we do not claim everything.",
+    },
+  ],
   controlEyebrow: "Human control",
   controlTitle: "AI handles complexity. You keep the decision.",
   controlSupport:
@@ -744,25 +806,25 @@ const en: DolphinOpsCopy = {
     "Human Control",
   ],
   whoEyebrow: "Who it is for",
-  whoTitle: "Spa, clinic, salon — teams running the day.",
+  whoTitle: "Spa, salon, clinic, service shop — work that repeats every day.",
   whoSupport:
-    "A fit when bookings, customers, reports and reminders live on too many screens — and speaking the job beats learning a menu.",
+    "We start with service businesses juggling bookings, guests, and reminders. No shopfront yet: see /services/web/.",
   whoItems: [
     {
-      title: "Spas and salons with a full book",
-      body: "Appointments, returning guests and reminders sit on too many screens — or in someone's head.",
+      title: "Spa",
+      body: "A full book. Appointments and reminders sit on too many screens — or in someone's head.",
     },
     {
-      title: "Clinics and practices",
+      title: "Salon",
+      body: "Returning guests, repeating services, reminders. The team should say the job, not learn a menu.",
+    },
+    {
+      title: "Clinic",
       body: "Look a guest up fast, keep sensitive actions gated, and let the right person approve.",
     },
     {
-      title: "Service shops and operations teams",
+      title: "Service shop",
       body: "See bookings, customers and reports without learning a heavy menu.",
-    },
-    {
-      title: "You have a website, not an ops layer",
-      body: "The site is the shopfront. Ops is how the team runs work behind it. No shopfront yet: see /services/web/.",
     },
   ],
   faqEyebrow: "FAQ",
@@ -806,9 +868,9 @@ const en: DolphinOpsCopy = {
     },
   ],
   closeEyebrow: "Next step",
-  closeTitle: "Want to see Ops on your actual work?",
+  closeTitle: "See if Dolphin Ops fits your business",
   closeSupport:
-    "If you need on-site customer care first, see /dolphin-care/. For a broader AI rollout, see /ai-transform/.",
+    "Tell us where work gets stuck. We look at the current process and suggest what Ops can take on. Zalo or the form below. On-site customer care first: /dolphin-care/. A broader AI path: /ai-transform/.",
   closeCta: "Talk to us",
   closeSecondary: "Replay the demo",
   closeTrust:
@@ -824,7 +886,7 @@ const ja: DolphinOpsCopy = {
   headline: "Dolphin Ops – 事業運用の[[Agent CRM]]",
   support:
     "Dolphin OpsはSaaSのAgent CRMです。用件を伝えると、Agentが業務ツールを選び、予約・顧客・レポートの画面を開きます。有効なツールは管理者がチャットで直せます。機微な操作は人の確認を待ちます。",
-  ctaPrimary: "Dolphin Opsを見る",
+  ctaPrimary: "Opsの動きを見る",
   ctaSecondary: "相談する",
   trustLine: "チャットを後付けしたCRMではありません。",
   heroChromeTitle: "Dolphin Ops",
@@ -914,7 +976,7 @@ const ja: DolphinOpsCopy = {
   toolsEyebrow: "Business Tools",
   toolsTitle: "エージェントが呼び出せる業務ツール。",
   toolsSupport:
-    "各ツールは能力・スキーマ・権限・UI・実行を持ちます。同じツールをDolphinの別の場所でも使えます。",
+    "モジュール一覧ではない。ツールを選ぶと、エージェントが合う画面を開く。",
   tools: [
     {
       id: "booking",
@@ -1044,6 +1106,34 @@ const ja: DolphinOpsCopy = {
       body: "「売上＝予約数×単価。」その式でチャートが描かれる。スプリントのデプロイを待たない。",
     },
   ],
+  outcomesEyebrow: "何が変わるか",
+  outcomesTitle: "ツールを売るのではなく、仕事の回し方を変える。",
+  outcomesSupport:
+    "同じエージェント。メニューは減り、暗記も減る。Booking・Customer・Reportsは残る。違うのは、必要なときに開くこと。",
+  outcomesNotLabel: "これまで",
+  outcomesYesLabel: "Opsなら",
+  outcomes: [
+    {
+      title: "予約",
+      not: "カレンダーを開く → お客様を探す → フォームを開く → 予約1件のために全部入力する。",
+      yes: "用件を伝える。足りない欄だけ出る。確認して確定する。",
+    },
+    {
+      title: "顧客",
+      not: "お客様情報がチャット、ファイル、複数画面に散らばっている。",
+      yes: "一人を聞けば Customer 360 が開く。チャットの羅列ではない。",
+    },
+    {
+      title: "レポート",
+      not: "売上を聞いて、数字の文章を読む。",
+      yes: "Reportsがチャートを開く。読む文章ではなく、見る数字。",
+    },
+    {
+      title: "管理者",
+      not: "フォームや計算式を変えると、ソフト担当へのチケット待ち。",
+      yes: "有効なツールの範囲で管理者が話す。ツールが更新される。すべてを約束はしない。",
+    },
+  ],
   controlEyebrow: "Human control",
   controlTitle: "複雑さはAI。決めるのは人。",
   controlSupport:
@@ -1082,25 +1172,25 @@ const ja: DolphinOpsCopy = {
     "Human Control",
   ],
   whoEyebrow: "向いている人",
-  whoTitle: "スパ、クリニック、サロンの社内運用。",
+  whoTitle: "スパ、サロン、クリニック、サービス店 — 毎日繰り返す業務。",
   whoSupport:
-    "予約・顧客・レポート・リマインドが画面に散らばっていて、メニューを覚えるより用件を言った方が早いときに向きます。",
+    "予約・お客様・リマインドで回しているサービス業から。店先がまだなら /services/web/。",
   whoItems: [
     {
-      title: "予約が多いスパ・サロン",
-      body: "予約、再来、リマインドが画面に散らばっている、または人の記憶に載っているとき。",
+      title: "スパ",
+      body: "予約が多い一日。予約とリマインドが画面に散らばっている、または人の記憶に載っている。",
     },
     {
-      title: "クリニック・診療所",
+      title: "サロン",
+      body: "再来、繰り返しのメニュー、リマインド。メニューを覚えるより用件を言いたいとき。",
+    },
+    {
+      title: "クリニック",
       body: "お客様をすぐ引き、機微な操作を止め、権限のある人が承認する。",
     },
     {
-      title: "サービス店と運用チーム",
+      title: "サービス店",
       body: "重いメニューを覚えず、予約・顧客・数字を見る。",
-    },
-    {
-      title: "サイトはあるが、社内の回し方が足りない",
-      body: "サイトは客が見つける店先。Opsは裏側の運用。店先がまだなら /services/web/。",
     },
   ],
   faqEyebrow: "FAQ",
@@ -1144,9 +1234,9 @@ const ja: DolphinOpsCopy = {
     },
   ],
   closeEyebrow: "次の一歩",
-  closeTitle: "実際の業務でOpsを見たいですか？",
+  closeTitle: "Dolphin Opsが御社に合うか見る",
   closeSupport:
-    "先にサイト上の顧客ケアが必要なら /dolphin-care/。AIの進め方を広く見たいなら /ai-transform/。",
+    "いま詰まっている業務を話してください。現状の流れを見て、Opsで自動化できる部分を提案します。連絡はZaloか下のフォーム。先にサイト上の顧客ケアなら /dolphin-care/。AIの進め方を広く見るなら /ai-transform/。",
   closeCta: "相談する",
   closeSecondary: "デモをもう一度",
   closeTrust:

@@ -244,6 +244,8 @@
       "ops": "Dolphin Ops (Agent CRM / CRM 2.0): admin tự chỉnh tool đã bật bằng chat — không cần bộ phận software code từng thay đổi nhỏ."
     },
     "copySource": "lib/i18n/dolphin-ops-copy.ts",
+    "whoWedge": "Spa → Salon → Clinic → Shop dịch vụ. Việc lặp mỗi ngày — không claim mọi doanh nghiệp.",
+    "cta": "Xem Dolphin Ops có phù hợp với doanh nghiệp của bạn. Zalo là phương thức liên hệ.",
     "adminCustomize": [
       "Sửa form (thêm trường, bắt buộc) bằng chat — không ticket software",
       "Thêm report theo công thức admin; chart vẽ theo công thức đó",

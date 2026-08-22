@@ -201,6 +201,16 @@ describe("service detail pages", () => {
       }),
     ).toBeInTheDocument();
     expect(
+      screen.getByRole("heading", {
+        name: /Không bán tool\. Bán cách chạy việc/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", {
+        name: /Xem Dolphin Ops có phù hợp với doanh nghiệp của bạn/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
       screen.getByText(
         /Đổi form hay báo cáo, anh chị có phải chờ bộ phận software không/i,
       ),

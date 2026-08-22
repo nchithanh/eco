@@ -46,7 +46,7 @@ export function DolphinOpsContent() {
               </p>
               <div className="mt-8 flex flex-wrap items-center gap-3">
                 <a
-                  href="#ops-how"
+                  href="#ops-dynamic"
                   className="kuct-btn-primary inline-flex items-center rounded-lg px-5 py-3 text-sm font-semibold"
                 >
                   {c.ctaPrimary}
@@ -217,34 +217,8 @@ export function DolphinOpsContent() {
       </section>
 
       <section
-        id="ops-tools"
-        className="kuct-section-wash scroll-mt-20 py-16 sm:py-20"
-        aria-labelledby="ops-tools-heading"
-      >
-        <div className="mx-auto max-w-7xl px-6">
-          <Reveal variant="title" className="mx-auto max-w-3xl text-center">
-            <p className="text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
-              {c.toolsEyebrow}
-            </p>
-            <h2
-              id="ops-tools-heading"
-              className="mt-3 font-display text-2xl text-[var(--kuct-text)] sm:text-3xl"
-            >
-              {c.toolsTitle}
-            </h2>
-            <p className="mt-3 text-sm leading-relaxed text-[var(--kuct-muted)] sm:text-base">
-              {c.toolsSupport}
-            </p>
-          </Reveal>
-          <Reveal delay={50} className="mt-10">
-            <OpsToolsDemo copy={c} />
-          </Reveal>
-        </div>
-      </section>
-
-      <section
         id="ops-dynamic"
-        className="scroll-mt-20 py-16 sm:py-20"
+        className="kuct-section-wash scroll-mt-20 py-16 sm:py-20"
         aria-labelledby="ops-dynamic-heading"
       >
         <div className="mx-auto max-w-7xl px-6">
@@ -272,6 +246,32 @@ export function DolphinOpsContent() {
       </section>
 
       <section
+        id="ops-tools"
+        className="scroll-mt-20 py-16 sm:py-20"
+        aria-labelledby="ops-tools-heading"
+      >
+        <div className="mx-auto max-w-7xl px-6">
+          <Reveal variant="title" className="mx-auto max-w-3xl text-center">
+            <p className="text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
+              {c.toolsEyebrow}
+            </p>
+            <h2
+              id="ops-tools-heading"
+              className="mt-3 font-display text-2xl text-[var(--kuct-text)] sm:text-3xl"
+            >
+              {c.toolsTitle}
+            </h2>
+            <p className="mt-3 text-sm leading-relaxed text-[var(--kuct-muted)] sm:text-base">
+              {c.toolsSupport}
+            </p>
+          </Reveal>
+          <Reveal delay={50} className="mt-10">
+            <OpsToolsDemo copy={c} />
+          </Reveal>
+        </div>
+      </section>
+
+      <section
         id="ops-customize"
         className="kuct-section-wash scroll-mt-20 py-16 sm:py-20"
         aria-labelledby="ops-customize-heading"
@@ -294,43 +294,6 @@ export function DolphinOpsContent() {
           <Reveal delay={50} className="mt-10">
             <OpsAdminCustomizeDemo copy={c} />
           </Reveal>
-        </div>
-      </section>
-
-      <section
-        id="ops-examples"
-        className="scroll-mt-20 py-16 sm:py-20"
-        aria-labelledby="ops-examples-heading"
-      >
-        <div className="mx-auto max-w-7xl px-6">
-          <Reveal variant="title" className="mx-auto max-w-3xl text-center">
-            <p className="text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
-              {c.examplesEyebrow}
-            </p>
-            <h2
-              id="ops-examples-heading"
-              className="mt-3 font-display text-2xl text-[var(--kuct-text)] sm:text-3xl"
-            >
-              {c.examplesTitle}
-            </h2>
-            <p className="mt-3 text-sm leading-relaxed text-[var(--kuct-muted)] sm:text-base">
-              {c.examplesSupport}
-            </p>
-          </Reveal>
-          <div className="mt-10 grid gap-4 lg:grid-cols-3">
-            {c.examples.map((item, i) => (
-              <Reveal key={item.title} delay={i * 30}>
-                <article className="h-full rounded-xl border border-[var(--kuct-border)] bg-[var(--kuct-surface)] p-5">
-                  <h3 className="text-base font-semibold text-[var(--kuct-text)]">
-                    {item.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-[var(--kuct-muted)]">
-                    {item.body}
-                  </p>
-                </article>
-              </Reveal>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -380,57 +343,48 @@ export function DolphinOpsContent() {
       </section>
 
       <section
-        id="ops-philosophy"
+        id="ops-outcomes"
         className="kuct-section-wash scroll-mt-20 py-16 sm:py-20"
-        aria-labelledby="ops-philosophy-heading"
+        aria-labelledby="ops-outcomes-heading"
       >
         <div className="mx-auto max-w-7xl px-6">
           <Reveal variant="title" className="mx-auto max-w-3xl text-center">
             <p className="text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
-              {c.philosophyEyebrow}
+              {c.outcomesEyebrow}
             </p>
             <h2
-              id="ops-philosophy-heading"
+              id="ops-outcomes-heading"
               className="mt-3 font-display text-2xl text-[var(--kuct-text)] sm:text-3xl"
             >
-              {c.philosophyTitle}
+              {c.outcomesTitle}
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-[var(--kuct-muted)] sm:text-base">
-              {c.philosophySupport}
+              {c.outcomesSupport}
             </p>
           </Reveal>
           <div className="mt-10 grid gap-4 sm:grid-cols-2">
-            <Reveal>
-              <article className="h-full rounded-xl border border-[var(--kuct-border)] p-5">
-                <h3 className="text-base font-semibold text-[var(--kuct-text)]">
-                  {c.philosophyTraditional.title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-[var(--kuct-muted)]">
-                  {c.philosophyTraditional.body}
-                </p>
-              </article>
-            </Reveal>
-            <Reveal delay={30}>
-              <article className="h-full rounded-xl border border-[var(--kuct-accent)]/35 bg-[var(--kuct-accent)]/5 p-5">
-                <h3 className="text-base font-semibold text-[var(--kuct-text)]">
-                  {c.philosophyOps.title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-[var(--kuct-muted)]">
-                  {c.philosophyOps.body}
-                </p>
-              </article>
-            </Reveal>
-          </div>
-          <ul className="mt-8 flex flex-wrap justify-center gap-2">
-            {c.philosophyPills.map((pill) => (
-              <li
-                key={pill}
-                className="rounded-full border border-[var(--kuct-border)] px-3 py-1.5 text-xs font-semibold text-[var(--kuct-text)]"
-              >
-                {pill}
-              </li>
+            {c.outcomes.map((item, i) => (
+              <Reveal key={item.title} delay={i * 25}>
+                <article className="h-full rounded-xl border border-[var(--kuct-border)] bg-[var(--kuct-surface)] p-5">
+                  <h3 className="text-base font-semibold text-[var(--kuct-text)]">
+                    {item.title}
+                  </h3>
+                  <p className="mt-3 text-xs font-semibold tracking-wide text-[var(--kuct-muted)] uppercase">
+                    {c.outcomesNotLabel}
+                  </p>
+                  <p className="mt-1 text-sm leading-relaxed text-[var(--kuct-muted)]">
+                    {item.not}
+                  </p>
+                  <p className="mt-4 text-xs font-semibold tracking-wide text-[var(--kuct-accent)] uppercase">
+                    {c.outcomesYesLabel}
+                  </p>
+                  <p className="mt-1 text-sm leading-relaxed text-[var(--kuct-text)]">
+                    {item.yes}
+                  </p>
+                </article>
+              </Reveal>
             ))}
-          </ul>
+          </div>
         </div>
       </section>
 
@@ -454,7 +408,7 @@ export function DolphinOpsContent() {
               {c.whoSupport}
             </p>
           </Reveal>
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-2">
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {c.whoItems.map((item, i) => (
               <Reveal key={item.title} delay={i * 30}>
                 <article className="h-full rounded-xl border border-[var(--kuct-border)] p-5">
@@ -563,7 +517,7 @@ export function DolphinOpsContent() {
               >
                 {c.closeCta}
               </button>
-              <a href="#ops-how" className="kuct-btn-ghost inline-flex items-center">
+              <a href="#ops-dynamic" className="kuct-btn-ghost inline-flex items-center">
                 {c.closeSecondary}
               </a>
             </div>

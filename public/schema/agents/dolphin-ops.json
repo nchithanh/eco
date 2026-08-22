@@ -148,22 +148,23 @@
   },
   "whoFor": [
     {
-      "title": "Spa và salon có nhiều lịch trong ngày",
-      "body": "Phù hợp khi lịch hẹn, khách quay lại và nhắc lịch đang nằm rải trên nhiều màn hình hoặc nhiều người nhớ bằng tay."
+      "title": "Spa",
+      "body": "Nhiều lịch trong ngày. Lịch hẹn và nhắc lịch đang nằm rải nhiều màn — hoặc nhớ bằng tay."
     },
     {
-      "title": "Clinic và phòng khám",
-      "body": "Phù hợp khi cần tra khách nhanh, kiểm soát thao tác nhạy cảm và để người có quyền duyệt ở các bước quan trọng."
+      "title": "Salon",
+      "body": "Khách quay lại, dịch vụ lặp, nhắc lịch. Đội ngũ cần nói việc thay vì học menu."
     },
     {
-      "title": "Shop dịch vụ và đội ngũ vận hành",
-      "body": "Phù hợp khi chủ doanh nghiệp muốn xem lịch, khách, báo cáo và việc cần làm mà không phải học một phần mềm nặng menu."
+      "title": "Clinic",
+      "body": "Tra khách nhanh, kiểm soát thao tác nhạy, người có quyền duyệt ở bước quan trọng."
     },
     {
-      "title": "Doanh nghiệp đã có web nhưng thiếu lớp vận hành nội bộ",
-      "body": "Nếu website là mặt tiền để khách tìm thấy anh chị, thì Dolphin Ops là lớp giúp đội ngũ chạy việc phía sau. Nếu anh chị còn thiếu mặt tiền, xem thêm /services/web/."
+      "title": "Shop dịch vụ",
+      "body": "Xem lịch, khách, báo cáo mà không phải học phần mềm nặng menu."
     }
   ],
+  "whoWedge": "Service businesses with repetitive operations: spa → salon → clinic → shop dịch vụ. Chưa có mặt tiền: /services/web/.",
   "faq": [
     {
       "q": "AI vận hành doanh nghiệp là gì, và Dolphin Ops có phải kiểu đó không?",
@@ -203,11 +204,88 @@
     }
   ],
   "cta": {
-    "primary": "Nhắn Zalo để trao đổi scope Dolphin Ops: https://zalo.me/0779937633",
+    "primary": "Xem Dolphin Ops có phù hợp với doanh nghiệp của bạn",
+    "primaryHref": "#ops-dynamic",
+    "contact": "Nói doanh nghiệp đang vướng gì. Chúng tôi xem quy trình hiện tại và đề xuất phần nào Ops có thể tự động hóa.",
+    "zalo": "https://zalo.me/0779937633",
     "secondary": "Nếu anh chị đang cần lớp chăm khách trên website trước, xem /dolphin-care/. Nếu đang cần lộ trình ứng dụng AI rõ hơn, xem /ai-transform/.",
     "trust": "Dolphin Ops không bắt anh chị học thêm một lớp menu mới. Nó giúp đội ngũ nói việc cần làm, rồi chọn đúng tool để chạy."
   },
-  "messaging": "Dolphin Ops là AI vận hành doanh nghiệp giúp chủ doanh nghiệp và nhân sự xử lý lịch, khách, báo cáo và việc nội bộ bằng đúng công cụ và đúng giao diện.",
+  "pageStory": [
+    "problem",
+    "promise",
+    "seeIt",
+    "understandIt",
+    "trustIt",
+    "imagineIt",
+    "objections",
+    "cta"
+  ],
+  "problem": [
+    {
+      "id": "menu",
+      "title": "CRM bắt anh chị học menu",
+      "body": "Dashboard → module → form → Save. Đặt một lịch cũng phải mở nhiều màn."
+    },
+    {
+      "id": "ticket",
+      "title": "Đổi form hay báo cáo thì chờ software",
+      "body": "Ticket, sprint, deploy — ngay cả thay đổi nhỏ trong tool đã dùng."
+    },
+    {
+      "id": "scatter",
+      "title": "Lịch, khách, báo cáo nằm rải",
+      "body": "Chat, file, nhiều màn hình. Nhân viên nhớ bằng tay."
+    },
+    {
+      "id": "risk",
+      "title": "Sợ AI tự chạy việc nhạy",
+      "body": "Thanh toán, hoàn tiền, xóa dữ liệu, gửi hàng loạt — cần chỗ người duyệt."
+    }
+  ],
+  "outcomes": [
+    {
+      "id": "booking",
+      "title": "Đặt lịch",
+      "not": "Mở lịch → tìm khách → mở form → nhập từng ô chỉ để đặt một lịch.",
+      "yes": "Nói việc cần làm. Booking form hiện chỗ còn thiếu để hoàn tất và xác nhận."
+    },
+    {
+      "id": "customer",
+      "title": "Hồ sơ khách",
+      "not": "Thông tin khách nằm rải giữa chat, file và nhiều màn hình.",
+      "yes": "Hỏi một khách — mở Customer 360, không phải đoạn chat liệt kê."
+    },
+    {
+      "id": "reports",
+      "title": "Báo cáo",
+      "not": "Hỏi doanh thu rồi đọc một đoạn số.",
+      "yes": "Reports mở chart để xem, không để đọc thành văn."
+    },
+    {
+      "id": "admin",
+      "title": "Admin",
+      "not": "Đổi form hay công thức thì ticket cho bộ phận software.",
+      "yes": "Admin nói nhu cầu trong tool đã bật. Tool cập nhật — không claim mọi thứ."
+    }
+  ],
+  "proof": {
+    "note": "Chưa có metric / case công khai. Không bịa số. Chừa chỗ khi có demo thật hoặc case.",
+    "metrics": [],
+    "cases": [],
+    "testimonials": [],
+    "productScreens": []
+  },
+  "demo": {
+    "note": "Canvas marketing trên /dolphin-ops/ — chưa phải runtime Agent.",
+    "hero": { "anchor": "#top", "kind": "intent-to-booking" },
+    "model": { "anchor": "#ops-how", "kind": "pipeline" },
+    "dynamicUi": { "anchor": "#ops-dynamic", "kind": "four-scenes" },
+    "tools": { "anchor": "#ops-tools", "kind": "interactive-preview" },
+    "admin": { "anchor": "#ops-customize", "kind": "chat-to-form-report" },
+    "human": { "anchor": "#ops-control", "kind": "approve-before-send" }
+  },
+  "messaging": "Dolphin Ops là Agent CRM (SaaS) giúp spa, salon, clinic và shop dịch vụ nói việc cần làm, rồi mở đúng tool và đúng giao diện.",
   "copySource": "lib/i18n/dolphin-ops-copy.ts",
   "relatedRoutes": [
     "/dolphin-care/",
