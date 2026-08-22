@@ -187,7 +187,7 @@ describe("service detail pages", () => {
     expect(
       screen.getByRole("heading", {
         level: 1,
-        name: /AI vận hành doanh nghiệp cho team nhỏ/i,
+        name: /AI vận hành doanh nghiệp/i,
       }),
     ).toBeInTheDocument();
     expect(

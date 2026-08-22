@@ -141,11 +141,11 @@ export type DolphinOpsCopy = {
 };
 
 const vi: DolphinOpsCopy = {
-  metaTitle: "Dolphin Ops | AI vận hành doanh nghiệp cho team nhỏ",
+  metaTitle: "Dolphin Ops | AI vận hành doanh nghiệp",
   metaDescription:
     "Dolphin Ops là AI vận hành doanh nghiệp cho spa, clinic, salon và shop dịch vụ. Anh chị nói việc cần làm, hệ thống chọn đúng tool và UI để chạy.",
   eyebrow: "AI vận hành doanh nghiệp",
-  headline: "Dolphin Ops – [[AI vận hành doanh nghiệp]] cho team nhỏ",
+  headline: "Dolphin Ops – [[AI vận hành doanh nghiệp]]",
   support:
     "Dolphin Ops là AI vận hành doanh nghiệp cho đội ngũ nội bộ: anh chị nói việc cần làm, hệ thống hiểu ý định, chọn đúng Business Tool, mở đúng giao diện và chờ người xác nhận trước khi chạy.",
   ctaPrimary: "Khám phá Dolphin Ops",
@@ -273,7 +273,7 @@ const vi: DolphinOpsCopy = {
     {
       id: "staff",
       title: "Staff",
-      body: "Theo dõi nhân sự, phân việc và ca làm. Phù hợp team nhỏ đang xoay lịch, khách và người trên nhiều màn.",
+      body: "Theo dõi nhân sự, phân việc và ca làm. Phù hợp khi đang xoay lịch, khách và người trên nhiều màn.",
       previewLabel: "Nhân sự",
     },
   ],
@@ -406,7 +406,7 @@ const vi: DolphinOpsCopy = {
     "Human Control",
   ],
   whoEyebrow: "Dành cho ai",
-  whoTitle: "Spa, clinic, salon và team nhỏ đang chạy việc nội bộ.",
+  whoTitle: "Spa, clinic, salon đang chạy việc nội bộ.",
   whoSupport:
     "Phù hợp khi lịch, khách, báo cáo và nhắc hẹn nằm rải nhiều màn — và anh chị muốn nói việc thay vì học menu.",
   whoItems: [
@@ -415,11 +415,11 @@ const vi: DolphinOpsCopy = {
       body: "Lịch hẹn, khách quay lại và nhắc lịch đang nằm rải nhiều màn — hoặc nhớ bằng tay.",
     },
     {
-      title: "Clinic và phòng khám nhỏ",
+      title: "Clinic và phòng khám",
       body: "Tra khách nhanh, kiểm soát thao tác nhạy, người có quyền duyệt ở bước quan trọng.",
     },
     {
-      title: "Shop dịch vụ và team nhỏ",
+      title: "Shop dịch vụ và đội ngũ vận hành",
       body: "Xem lịch, khách, báo cáo mà không phải học phần mềm nặng menu.",
     },
     {
@@ -452,7 +452,7 @@ const vi: DolphinOpsCopy = {
     },
     {
       q: "Những ai nên dùng Dolphin Ops?",
-      a: "Phù hợp với spa, clinic, salon, shop dịch vụ và team nhỏ đang bị rối vì lịch, khách, báo cáo và nhắc hẹn nằm trên nhiều màn hình. Đây thường là nhu cầu sau khi anh chị đã có một lớp hiện diện online cơ bản hoặc đã có website. Nếu chưa có mặt tiền để khách tìm thấy, xem thêm /services/web/.",
+      a: "Phù hợp với spa, clinic, salon và shop dịch vụ đang bị rối vì lịch, khách, báo cáo và nhắc hẹn nằm trên nhiều màn hình. Đây thường là nhu cầu sau khi anh chị đã có một lớp hiện diện online cơ bản hoặc đã có website. Nếu chưa có mặt tiền để khách tìm thấy, xem thêm /services/web/.",
     },
     {
       q: "Dolphin Ops có tự động làm mọi thứ không cần người duyệt không?",
@@ -479,11 +479,11 @@ const vi: DolphinOpsCopy = {
 };
 
 const en: DolphinOpsCopy = {
-  metaTitle: "Dolphin Ops | AI operations for small teams",
+  metaTitle: "Dolphin Ops | AI operations for the business",
   metaDescription:
     "Dolphin Ops is AI for internal operations — spa, clinic, salon and service shops. You say the job; the system picks the right tool and UI.",
   eyebrow: "AI for business operations",
-  headline: "Dolphin Ops – [[AI operations]] for small teams",
+  headline: "Dolphin Ops – [[AI operations]] for the business",
   support:
     "Dolphin Ops is AI for the internal team: you say what you need, the system reads the intent, picks the Business Tool, opens the right UI, and waits for a person before sensitive actions run.",
   ctaPrimary: "Explore Dolphin Ops",
@@ -744,7 +744,7 @@ const en: DolphinOpsCopy = {
     "Human Control",
   ],
   whoEyebrow: "Who it is for",
-  whoTitle: "Spa, clinic, salon, and small teams running the day.",
+  whoTitle: "Spa, clinic, salon — teams running the day.",
   whoSupport:
     "A fit when bookings, customers, reports and reminders live on too many screens — and speaking the job beats learning a menu.",
   whoItems: [
@@ -753,11 +753,11 @@ const en: DolphinOpsCopy = {
       body: "Appointments, returning guests and reminders sit on too many screens — or in someone's head.",
     },
     {
-      title: "Clinics and small practices",
+      title: "Clinics and practices",
       body: "Look a guest up fast, keep sensitive actions gated, and let the right person approve.",
     },
     {
-      title: "Service shops and small teams",
+      title: "Service shops and operations teams",
       body: "See bookings, customers and reports without learning a heavy menu.",
     },
     {
@@ -790,7 +790,7 @@ const en: DolphinOpsCopy = {
     },
     {
       q: "Who is Dolphin Ops for?",
-      a: "Spas, clinics, salons, service shops and small teams juggling bookings, customers, reports and reminders across too many screens. Often after you already have a basic online presence or a website. If customers still cannot find you, see /services/web/.",
+      a: "Spas, clinics, salons and service shops juggling bookings, customers, reports and reminders across too many screens. Often after you already have a basic online presence or a website. If customers still cannot find you, see /services/web/.",
     },
     {
       q: "Does Dolphin Ops run everything with no human check?",
@@ -817,11 +817,11 @@ const en: DolphinOpsCopy = {
 };
 
 const ja: DolphinOpsCopy = {
-  metaTitle: "Dolphin Ops | 少人数チーム向け、事業を回すAI",
+  metaTitle: "Dolphin Ops | 事業を回すAI",
   metaDescription:
     "Dolphin Opsはスパ・クリニック・サロン・サービス店向けの社内運用AI。用件を伝えると、適切なツールと画面を開きます。",
   eyebrow: "事業オペレーションのAI",
-  headline: "Dolphin Ops – 少人数チームの[[事業運用AI]]",
+  headline: "Dolphin Ops – [[事業運用AI]]",
   support:
     "Dolphin Opsは社内向けの運用AIです。用件を伝えると意図を読み、業務ツールを選び、適切な画面を開き、機微な操作は人の確認を待ちます。",
   ctaPrimary: "Dolphin Opsを見る",
@@ -1082,7 +1082,7 @@ const ja: DolphinOpsCopy = {
     "Human Control",
   ],
   whoEyebrow: "向いている人",
-  whoTitle: "スパ、クリニック、サロン、少人数チーム。",
+  whoTitle: "スパ、クリニック、サロンの社内運用。",
   whoSupport:
     "予約・顧客・レポート・リマインドが画面に散らばっていて、メニューを覚えるより用件を言った方が早いときに向きます。",
   whoItems: [
@@ -1091,11 +1091,11 @@ const ja: DolphinOpsCopy = {
       body: "予約、再来、リマインドが画面に散らばっている、または人の記憶に載っているとき。",
     },
     {
-      title: "小さなクリニック",
+      title: "クリニック・診療所",
       body: "お客様をすぐ引き、機微な操作を止め、権限のある人が承認する。",
     },
     {
-      title: "サービス店と少人数チーム",
+      title: "サービス店と運用チーム",
       body: "重いメニューを覚えず、予約・顧客・数字を見る。",
     },
     {
@@ -1128,7 +1128,7 @@ const ja: DolphinOpsCopy = {
     },
     {
       q: "誰向けですか？",
-      a: "スパ、クリニック、サロン、サービス店、少人数チーム。予約・顧客・レポートが画面に散らばっているとき。オンラインの店先がまだなら /services/web/。",
+      a: "スパ、クリニック、サロン、サービス店。予約・顧客・レポートが画面に散らばっているとき。オンラインの店先がまだなら /services/web/。",
     },
     {
       q: "人の確認なしで全部走りますか？",

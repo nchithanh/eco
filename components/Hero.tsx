@@ -8,82 +8,50 @@ import { assetPath } from "@/lib/asset";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
 import { MASCOT } from "@/lib/mascot";
 
-const ISO_TICKS = [
-  { className: "kuct-hero-iso__tick--tl", label: "01.6" },
-  { className: "kuct-hero-iso__tick--tr", label: "08.4" },
-  { className: "kuct-hero-iso__tick--bl", label: "12.0" },
-  { className: "kuct-hero-iso__tick--br", label: "16.9" },
-] as const;
-
 function HeroSignature() {
   const { t } = useLocale();
   const metrics = t.hero.metrics;
 
   return (
-    <div className="kuct-hero-iso relative mx-auto w-full max-w-md touch-pan-y lg:mx-0 lg:max-w-none">
-      <div className="kuct-hero-iso__stage">
-        <div className="kuct-hero-iso__frame">
-          {ISO_TICKS.map((tick) => (
-            <span
-              key={tick.label}
-              className={`kuct-hero-iso__tick ${tick.className}`}
-              aria-hidden
-            >
-              {tick.label}
-            </span>
-          ))}
-          <div
-            className="kuct-hero-iso__card kuct-hero-iso__card--a"
-            aria-hidden
-          />
-          <div
-            className="kuct-hero-iso__card kuct-hero-iso__card--b"
-            aria-hidden
-          />
-          <div
-            className="kuct-hero-iso__card kuct-hero-iso__card--c"
-            aria-hidden
+    <div className="kuct-hero-demo relative mx-auto w-full max-w-md touch-pan-y lg:mx-0 lg:max-w-none">
+      <div className="kuct-hero-demo__frame">
+        <div className="relative min-h-[22rem] sm:min-h-[26rem]">
+          <EmbedSiteMock
+            url="yourbusiness.com"
+            showChat={false}
+            animate
+            className="relative flex h-full min-h-[22rem] flex-col overflow-hidden rounded-[0.85rem] border border-[var(--kuct-border)] bg-[var(--kuct-panel)] sm:min-h-[26rem]"
           />
 
-          <div className="relative min-h-[22rem] sm:min-h-[26rem]">
-            <EmbedSiteMock
-              url="yourbusiness.com"
-              showChat={false}
-              animate
-              className="relative flex h-full min-h-[22rem] flex-col overflow-hidden rounded-[0.85rem] border border-white/70 bg-[var(--kuct-panel)] sm:min-h-[26rem]"
+          <div
+            className="pointer-events-none absolute -bottom-2 -left-2 z-20 flex max-w-[min(100%,14rem)] gap-2 sm:-bottom-3 sm:-left-3"
+            aria-hidden
+          >
+            {metrics.map((m) => (
+              <div
+                key={m.label}
+                className="kuct-surface-card rounded-[10px] bg-white/95 px-3 py-2 backdrop-blur-sm"
+              >
+                <p className="font-display text-lg font-semibold tracking-tight text-[var(--kuct-text)]">
+                  {m.value}
+                </p>
+                <p className="text-[0.65rem] leading-snug font-medium text-[var(--kuct-muted)]">
+                  {m.label}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div className="pointer-events-none absolute -right-2 -bottom-3 z-20 max-w-[38%] sm:-right-4 sm:max-w-[36%] lg:-right-6 lg:-bottom-4 lg:max-w-[40%]">
+            <Image
+              src={assetPath(MASCOT.eco)}
+              alt=""
+              width={800}
+              height={994}
+              aria-hidden
+              priority
+              className="h-28 w-auto object-contain drop-shadow-[0_12px_28px_rgb(26_21_32/0.12)] select-none sm:h-36 lg:h-40"
             />
-
-            <div
-              className="pointer-events-none absolute -bottom-2 -left-2 z-20 flex max-w-[min(100%,14rem)] gap-2 sm:-bottom-3 sm:-left-3"
-              aria-hidden
-            >
-              {metrics.map((m, i) => (
-                <div
-                  key={m.label}
-                  className="kuct-hero-iso__chip kuct-surface-card rounded-[10px] bg-white/95 px-3 py-2 backdrop-blur-sm"
-                  style={{ animationDelay: `${280 + i * 90}ms` }}
-                >
-                  <p className="font-display text-lg font-semibold tracking-tight text-[var(--kuct-text)]">
-                    {m.value}
-                  </p>
-                  <p className="text-[0.65rem] leading-snug font-medium text-[var(--kuct-muted)]">
-                    {m.label}
-                  </p>
-                </div>
-              ))}
-            </div>
-
-            <div className="kuct-hero-iso__mascot pointer-events-none absolute -right-2 -bottom-3 z-20 max-w-[38%] sm:-right-4 sm:max-w-[36%] lg:-right-6 lg:-bottom-4 lg:max-w-[40%]">
-              <Image
-                src={assetPath(MASCOT.eco)}
-                alt=""
-                width={800}
-                height={994}
-                aria-hidden
-                priority
-                className="h-28 w-auto object-contain drop-shadow-[0_12px_28px_rgb(26_21_32/0.12)] select-none sm:h-36 lg:h-40"
-              />
-            </div>
           </div>
         </div>
       </div>

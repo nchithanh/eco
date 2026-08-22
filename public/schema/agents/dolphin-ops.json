@@ -6,18 +6,18 @@
     "brand": "Dolphin Software",
     "schemaPath": "/schema/agents/dolphin-ops/",
     "rawPath": "/schema/agents/dolphin-ops.json",
-    "updated": "2026-08-21",
+    "updated": "2026-08-22",
     "productRoute": "/dolphin-ops/"
   },
   "pillar": "Automate",
   "displayName": "Dolphin Ops",
   "productRoute": "/dolphin-ops/",
   "primaryKeyword": "AI vận hành doanh nghiệp",
-  "metaTitle": "Dolphin Ops | AI vận hành doanh nghiệp cho team nhỏ",
+  "metaTitle": "Dolphin Ops | AI vận hành doanh nghiệp",
   "metaDescription": "Dolphin Ops là AI vận hành doanh nghiệp cho spa, clinic, salon và shop dịch vụ. Anh chị nói việc cần làm, hệ thống chọn đúng tool và UI để chạy.",
-  "h1": "Dolphin Ops – AI vận hành doanh nghiệp cho team nhỏ",
+  "h1": "Dolphin Ops – AI vận hành doanh nghiệp",
   "openingDefinition": "Dolphin Ops là AI vận hành doanh nghiệp cho đội ngũ nội bộ: anh chị nói việc cần làm, hệ thống hiểu ý định, chọn đúng Business Tool, mở đúng giao diện và chờ người xác nhận trước khi chạy.",
-  "ogTitle": "Dolphin Ops | AI vận hành doanh nghiệp cho team nhỏ",
+  "ogTitle": "Dolphin Ops | AI vận hành doanh nghiệp",
   "ogDescription": "Dolphin Ops giúp anh chị đặt lịch, tra khách, xem báo cáo và xử lý việc nội bộ bằng AI. Chat là cửa vào, không phải toàn bộ sản phẩm.",
   "summary": "Dolphin Ops là AI vận hành nội bộ cho chủ doanh nghiệp và nhân sự. Hệ thống nhận ý định, gọi đúng AI Agent, chọn đúng Business Tool, mở đúng giao diện và để người xác nhận ở các bước nhạy cảm.",
   "headline": "AI giúp anh chị chạy doanh nghiệp.",
@@ -64,7 +64,7 @@
     {
       "id": "staff",
       "title": "Staff",
-      "body": "Dùng để theo dõi nhân sự, phân việc và xử lý các tác vụ liên quan đến ca làm. Phù hợp với team nhỏ đang phải xoay lịch, khách và người trên nhiều màn hình."
+      "body": "Dùng để theo dõi nhân sự, phân việc và xử lý các tác vụ liên quan đến ca làm. Phù hợp khi đang xoay lịch, khách và người trên nhiều màn hình."
     }
   ],
   "not": [
@@ -149,11 +149,11 @@
       "body": "Phù hợp khi lịch hẹn, khách quay lại và nhắc lịch đang nằm rải trên nhiều màn hình hoặc nhiều người nhớ bằng tay."
     },
     {
-      "title": "Clinic và phòng khám nhỏ",
+      "title": "Clinic và phòng khám",
       "body": "Phù hợp khi cần tra khách nhanh, kiểm soát thao tác nhạy cảm và để người có quyền duyệt ở các bước quan trọng."
     },
     {
-      "title": "Shop dịch vụ và team nhỏ",
+      "title": "Shop dịch vụ và đội ngũ vận hành",
       "body": "Phù hợp khi chủ doanh nghiệp muốn xem lịch, khách, báo cáo và việc cần làm mà không phải học một phần mềm nặng menu."
     },
     {
@@ -184,7 +184,7 @@
     },
     {
       "q": "Những ai nên dùng Dolphin Ops?",
-      "a": "Phù hợp với spa, clinic, salon, shop dịch vụ và team nhỏ đang bị rối vì lịch, khách, báo cáo và nhắc hẹn nằm trên nhiều màn hình. Đây thường là nhu cầu sau khi anh chị đã có một lớp hiện diện online cơ bản hoặc đã có website. Nếu chưa có mặt tiền để khách tìm thấy, xem thêm /services/web/."
+      "a": "Phù hợp với spa, clinic, salon và shop dịch vụ đang bị rối vì lịch, khách, báo cáo và nhắc hẹn nằm trên nhiều màn hình. Đây thường là nhu cầu sau khi anh chị đã có một lớp hiện diện online cơ bản hoặc đã có website. Nếu chưa có mặt tiền để khách tìm thấy, xem thêm /services/web/."
     },
     {
       "q": "Dolphin Ops có tự động làm mọi thứ không cần người duyệt không?",
