@@ -229,14 +229,14 @@
     "displayName": "Dolphin Ops",
     "route": "/dolphin-ops/",
     "pillar": "Automate",
-    "whatItIs": "Dolphin Ops là AI vận hành nội bộ: ý định → Agent → Business Tool → UI phù hợp → người xác nhận ở bước nhạy.",
+    "whatItIs": "Dolphin Ops là Agent CRM (SaaS): ý định → Agent → Business Tool → UI phù hợp → người xác nhận ở bước nhạy.",
     "versusCare": {
       "care": "Dolphin Care: AI chăm sóc khách hàng của bạn.",
-      "ops": "Dolphin Ops: AI giúp anh chị chạy doanh nghiệp."
+      "ops": "Dolphin Ops: Agent CRM — AI giúp anh chị chạy doanh nghiệp."
     },
     "whatItIsNot": [
       "Không phải chatbot trả lời văn bản rồi dừng",
-      "Không phải CRM gắn AI chat",
+      "Không phải CRM truyền thống gắn thêm chat",
       "Không phải ChatGPT wrapper"
     ],
     "versusCrm": {

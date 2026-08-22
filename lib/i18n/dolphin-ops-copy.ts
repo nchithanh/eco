@@ -141,16 +141,16 @@ export type DolphinOpsCopy = {
 };
 
 const vi: DolphinOpsCopy = {
-  metaTitle: "Dolphin Ops | AI vận hành doanh nghiệp",
+  metaTitle: "Dolphin Ops | Agent CRM · AI vận hành doanh nghiệp",
   metaDescription:
-    "Dolphin Ops là AI vận hành doanh nghiệp cho spa, clinic, salon và shop dịch vụ. Anh chị nói việc cần làm, hệ thống chọn đúng tool và UI để chạy.",
-  eyebrow: "AI vận hành doanh nghiệp",
-  headline: "Dolphin Ops – [[AI vận hành doanh nghiệp]]",
+    "Dolphin Ops là Agent CRM (SaaS) cho vận hành nội bộ: spa, clinic, salon và shop dịch vụ. Anh chị nói việc cần làm, hệ thống chọn đúng tool và UI để chạy.",
+  eyebrow: "SaaS · Agent CRM · CRM 2.0",
+  headline: "Dolphin Ops – [[Agent CRM]] cho vận hành doanh nghiệp",
   support:
-    "Dolphin Ops là AI vận hành doanh nghiệp cho đội ngũ nội bộ: anh chị nói việc cần làm, hệ thống hiểu ý định, chọn đúng Business Tool, mở đúng giao diện và chờ người xác nhận trước khi chạy.",
+    "Dolphin Ops là SaaS Agent CRM: anh chị nói việc cần làm, Agent chọn Business Tool và mở đúng màn — lịch, khách, báo cáo. Admin chỉnh tool đã bật bằng chat. Việc nhạy thì người xác nhận trước khi chạy.",
   ctaPrimary: "Khám phá Dolphin Ops",
   ctaSecondary: "Nói chuyện với chúng tôi",
-  trustLine: "AI không thay giao diện. Nó chọn đúng giao diện.",
+  trustLine: "Không phải CRM gắn thêm chat.",
   heroChromeTitle: "Dolphin Ops",
   heroStatusReady: "Sẵn sàng",
   heroStatusRunning: "Đang xử lý",
@@ -432,15 +432,15 @@ const vi: DolphinOpsCopy = {
   faqItems: [
     {
       q: "AI vận hành doanh nghiệp là gì, và Dolphin Ops có phải kiểu đó không?",
-      a: "AI vận hành doanh nghiệp là cách dùng AI để xử lý công việc nội bộ như lịch hẹn, khách, báo cáo, thông báo và các bước cần phối hợp giữa người với công cụ. Dolphin Ops là sản phẩm của Dolphin Software theo hướng đó: anh chị nói việc cần làm, hệ thống chọn đúng tool và đúng UI để chạy.",
+      a: "AI vận hành doanh nghiệp là cách dùng AI để xử lý công việc nội bộ như lịch hẹn, khách, báo cáo, thông báo và các bước cần phối hợp giữa người với công cụ. Dolphin Ops là Agent CRM (SaaS) của Dolphin Software theo hướng đó: anh chị nói việc cần làm, hệ thống chọn đúng tool và đúng UI để chạy.",
     },
     {
       q: "Dolphin Ops khác Dolphin Care ở đâu?",
       a: "Dolphin Care là AI chăm sóc khách hàng của bạn trên website, tập trung vào lớp giao tiếp với khách. Dolphin Ops là AI giúp anh chị chạy doanh nghiệp ở bên trong, tập trung vào vận hành nội bộ. Nếu anh chị đang tìm lớp chăm khách trên web, xem /dolphin-care/. Nếu đang tìm lớp chạy việc nội bộ, xem /dolphin-ops/.",
     },
     {
-      q: "Dolphin Ops có phải CRM AI không?",
-      a: "Không theo kiểu CRM gắn thêm chat. CRM truyền thống thường bắt người dùng đi menu → module → form → Save. Đổi form hay báo cáo thì hay phải ticket cho bộ phận software, chờ code rồi deploy. Dolphin Ops đi từ việc anh chị muốn làm, chọn đúng Business Tool và UI; admin tự chỉnh tool đã bật bằng chat.",
+      q: "Dolphin Ops có phải CRM không?",
+      a: "Có — Agent CRM (CRM 2.0) dạng SaaS, không phải CRM truyền thống gắn thêm chat. CRM quen bắt đi menu → module → form → Save; đổi form hay báo cáo thì hay phải ticket, chờ sprint, rồi deploy. Dolphin Ops đi từ việc anh chị muốn làm, chọn đúng Business Tool và UI; admin tự chỉnh tool đã bật bằng chat.",
     },
     {
       q: "Đổi form hay báo cáo, anh chị có phải chờ bộ phận software không?",
@@ -479,16 +479,16 @@ const vi: DolphinOpsCopy = {
 };
 
 const en: DolphinOpsCopy = {
-  metaTitle: "Dolphin Ops | AI operations for the business",
+  metaTitle: "Dolphin Ops | Agent CRM · AI operations",
   metaDescription:
-    "Dolphin Ops is AI for internal operations — spa, clinic, salon and service shops. You say the job; the system picks the right tool and UI.",
-  eyebrow: "AI for business operations",
-  headline: "Dolphin Ops – [[AI operations]] for the business",
+    "Dolphin Ops is Agent CRM (SaaS) for internal ops — spa, clinic, salon and service shops. You say the job; the system picks the right tool and UI.",
+  eyebrow: "SaaS · Agent CRM · CRM 2.0",
+  headline: "Dolphin Ops – [[Agent CRM]] for business operations",
   support:
-    "Dolphin Ops is AI for the internal team: you say what you need, the system reads the intent, picks the Business Tool, opens the right UI, and waits for a person before sensitive actions run.",
+    "Dolphin Ops is Agent CRM as SaaS: you say the job, the Agent picks the Business Tool and opens the right screen — bookings, customers, reports. Admins change enabled tools in chat. Sensitive work waits for a person.",
   ctaPrimary: "Explore Dolphin Ops",
   ctaSecondary: "Talk to us",
-  trustLine: "AI doesn't replace the interface. It chooses the right one.",
+  trustLine: "Not a CRM with chat bolted on.",
   heroChromeTitle: "Dolphin Ops",
   heroStatusReady: "Ready",
   heroStatusRunning: "Working",
@@ -777,8 +777,8 @@ const en: DolphinOpsCopy = {
       a: "Dolphin Care is AI that takes care of your customers on the website. Dolphin Ops is AI that helps you run the business inside. For on-site customer care see /dolphin-care/. For internal ops see /dolphin-ops/.",
     },
     {
-      q: "Is Dolphin Ops a CRM with AI?",
-      a: "Not a CRM with chat bolted on. A traditional CRM walks menu → module → form → Save. A new field or report often waits on a software ticket, then a deploy. Dolphin Ops starts from the job you want, picks the Business Tool and UI, and lets an admin change enabled tools in chat.",
+      q: "Is Dolphin Ops a CRM?",
+      a: "Yes — Agent CRM (CRM 2.0) as SaaS, not a traditional CRM with chat bolted on. A familiar CRM walks menu → module → form → Save; a new field or report often waits on a ticket, then a deploy. Dolphin Ops starts from the job you want, picks the Business Tool and UI, and lets an admin change enabled tools in chat.",
     },
     {
       q: "Do form or report changes wait on the software team?",
@@ -817,16 +817,16 @@ const en: DolphinOpsCopy = {
 };
 
 const ja: DolphinOpsCopy = {
-  metaTitle: "Dolphin Ops | 事業を回すAI",
+  metaTitle: "Dolphin Ops | Agent CRM · 事業を回すAI",
   metaDescription:
-    "Dolphin Opsはスパ・クリニック・サロン・サービス店向けの社内運用AI。用件を伝えると、適切なツールと画面を開きます。",
-  eyebrow: "事業オペレーションのAI",
-  headline: "Dolphin Ops – [[事業運用AI]]",
+    "Dolphin Opsは社内運用向けのAgent CRM（SaaS）。スパ・クリニック・サロン・サービス店。用件を伝えると、適切なツールと画面を開きます。",
+  eyebrow: "SaaS · Agent CRM · CRM 2.0",
+  headline: "Dolphin Ops – 事業運用の[[Agent CRM]]",
   support:
-    "Dolphin Opsは社内向けの運用AIです。用件を伝えると意図を読み、業務ツールを選び、適切な画面を開き、機微な操作は人の確認を待ちます。",
+    "Dolphin OpsはSaaSのAgent CRMです。用件を伝えると、Agentが業務ツールを選び、予約・顧客・レポートの画面を開きます。有効なツールは管理者がチャットで直せます。機微な操作は人の確認を待ちます。",
   ctaPrimary: "Dolphin Opsを見る",
   ctaSecondary: "相談する",
-  trustLine: "AIは画面を消さない。適切な画面を選ぶ。",
+  trustLine: "チャットを後付けしたCRMではありません。",
   heroChromeTitle: "Dolphin Ops",
   heroStatusReady: "待機",
   heroStatusRunning: "処理中",
@@ -1115,8 +1115,8 @@ const ja: DolphinOpsCopy = {
       a: "Dolphin Careはサイト上でお客様をケアするAI。Dolphin Opsは社内で事業を回すAIです。サイト上の顧客ケアは /dolphin-care/。社内運用は /dolphin-ops/。",
     },
     {
-      q: "AI付きのCRMですか？",
-      a: "チャットを後付けしたCRMではありません。従来のCRMはメニュー→モジュール→フォーム→保存。欄やレポートを足すとソフト担当のチケットとデプロイ待ちになりがちです。Dolphin Opsはやりたいことから入り、有効なツールを管理者がチャットで直せます。",
+      q: "CRMですか？",
+      a: "はい。SaaSのAgent CRM（CRM 2.0）です。チャットを後付けした従来CRMではありません。メニュー→モジュール→フォーム→保存ではなく、用件から入り、有効なツールを管理者がチャットで直せます。",
     },
     {
       q: "フォームやレポートの変更はソフト担当待ちですか？",

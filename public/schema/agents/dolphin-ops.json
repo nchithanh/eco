@@ -13,16 +13,19 @@
   "displayName": "Dolphin Ops",
   "productRoute": "/dolphin-ops/",
   "primaryKeyword": "AI vận hành doanh nghiệp",
-  "metaTitle": "Dolphin Ops | AI vận hành doanh nghiệp",
-  "metaDescription": "Dolphin Ops là AI vận hành doanh nghiệp cho spa, clinic, salon và shop dịch vụ. Anh chị nói việc cần làm, hệ thống chọn đúng tool và UI để chạy.",
-  "h1": "Dolphin Ops – AI vận hành doanh nghiệp",
-  "openingDefinition": "Dolphin Ops là AI vận hành doanh nghiệp cho đội ngũ nội bộ: anh chị nói việc cần làm, hệ thống hiểu ý định, chọn đúng Business Tool, mở đúng giao diện và chờ người xác nhận trước khi chạy.",
-  "ogTitle": "Dolphin Ops | AI vận hành doanh nghiệp",
-  "ogDescription": "Dolphin Ops giúp anh chị đặt lịch, tra khách, xem báo cáo và xử lý việc nội bộ bằng AI. Chat là cửa vào, không phải toàn bộ sản phẩm.",
-  "summary": "Dolphin Ops là AI vận hành nội bộ cho chủ doanh nghiệp và nhân sự. Hệ thống nhận ý định, gọi đúng AI Agent, chọn đúng Business Tool, mở đúng giao diện và để người xác nhận ở các bước nhạy cảm.",
-  "headline": "AI giúp anh chị chạy doanh nghiệp.",
+  "category": "Agent CRM",
+  "eyebrow": "SaaS · Agent CRM · CRM 2.0",
+  "aliases": ["CRM 2.0"],
+  "metaTitle": "Dolphin Ops | Agent CRM · AI vận hành doanh nghiệp",
+  "metaDescription": "Dolphin Ops là Agent CRM (SaaS) cho vận hành nội bộ: spa, clinic, salon và shop dịch vụ. Anh chị nói việc cần làm, hệ thống chọn đúng tool và UI để chạy.",
+  "h1": "Dolphin Ops – Agent CRM cho vận hành doanh nghiệp",
+  "openingDefinition": "Dolphin Ops là SaaS Agent CRM: anh chị nói việc cần làm, Agent chọn Business Tool và mở đúng giao diện — lịch, khách, báo cáo — rồi chờ người xác nhận ở bước nhạy.",
+  "ogTitle": "Dolphin Ops | Agent CRM · AI vận hành doanh nghiệp",
+  "ogDescription": "Dolphin Ops là Agent CRM (SaaS). Nói việc cần làm, hệ thống mở đúng màn. Không phải CRM gắn thêm chat.",
+  "summary": "Dolphin Ops là Agent CRM dạng SaaS cho chủ doanh nghiệp và nhân sự. Hệ thống nhận ý định, gọi đúng AI Agent, chọn đúng Business Tool, mở đúng giao diện và để người xác nhận ở các bước nhạy cảm.",
+  "headline": "Agent CRM cho vận hành doanh nghiệp.",
   "support": "Chat là cửa vào, không phải toàn bộ sản phẩm.",
-  "trustLine": "AI không thay giao diện. Nó chọn đúng giao diện.",
+  "trustLine": "Không phải CRM gắn thêm chat.",
   "versusCare": {
     "care": "Dolphin Care: AI chăm sóc khách hàng của bạn.",
     "ops": "Dolphin Ops: AI giúp anh chị chạy doanh nghiệp."
@@ -69,7 +72,7 @@
   ],
   "not": [
     "Không phải chatbot hỏi-đáp văn bản rồi dừng.",
-    "Không phải CRM gắn AI chat.",
+    "Không phải CRM truyền thống gắn thêm chat.",
     "Không phải ChatGPT wrapper.",
     "Không phải chat-only UI."
   ],
@@ -164,15 +167,15 @@
   "faq": [
     {
       "q": "AI vận hành doanh nghiệp là gì, và Dolphin Ops có phải kiểu đó không?",
-      "a": "AI vận hành doanh nghiệp là cách dùng AI để xử lý công việc nội bộ như lịch hẹn, khách, báo cáo, thông báo và các bước cần phối hợp giữa người với công cụ. Dolphin Ops là sản phẩm của Dolphin Software theo hướng đó: anh chị nói việc cần làm, hệ thống chọn đúng tool và đúng UI để chạy."
+      "a": "AI vận hành doanh nghiệp là cách dùng AI để xử lý công việc nội bộ như lịch hẹn, khách, báo cáo, thông báo và các bước cần phối hợp giữa người với công cụ. Dolphin Ops là Agent CRM (SaaS) của Dolphin Software theo hướng đó: anh chị nói việc cần làm, hệ thống chọn đúng tool và đúng UI để chạy."
     },
     {
       "q": "Dolphin Ops khác Dolphin Care ở đâu?",
       "a": "Dolphin Care là AI chăm sóc khách hàng của bạn trên website, tập trung vào lớp giao tiếp với khách. Dolphin Ops là AI giúp anh chị chạy doanh nghiệp ở bên trong, tập trung vào vận hành nội bộ. Nếu anh chị đang tìm lớp chăm khách trên web, xem /dolphin-care/. Nếu đang tìm lớp chạy việc nội bộ, xem /dolphin-ops/."
     },
     {
-      "q": "Dolphin Ops có phải CRM AI không?",
-      "a": "Không theo kiểu CRM gắn thêm chat. CRM truyền thống thường bắt người dùng đi menu → module → form → Save. Đổi form hay báo cáo thì hay phải ticket cho bộ phận software, chờ code rồi deploy. Dolphin Ops đi từ việc anh chị muốn làm, chọn đúng Business Tool và UI; admin tự chỉnh tool đã bật bằng chat."
+      "q": "Dolphin Ops có phải CRM không?",
+      "a": "Có — Agent CRM (CRM 2.0) dạng SaaS, không phải CRM truyền thống gắn thêm chat. CRM quen bắt đi menu → module → form → Save; đổi form hay báo cáo thì hay phải ticket, chờ sprint, rồi deploy. Dolphin Ops đi từ việc anh chị muốn làm, chọn đúng Business Tool và UI; admin tự chỉnh tool đã bật bằng chat."
     },
     {
       "q": "Đổi form hay báo cáo, anh chị có phải chờ bộ phận software không?",
