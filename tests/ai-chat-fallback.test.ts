@@ -32,4 +32,30 @@ describe("matchAiChatReply follow-up examples", () => {
   it("asks which topic when example request has no recent context", () => {
     expect(matchAiChatReply("cho ví dụ", copy)).toBe(copy.exampleGeneric);
   });
+
+  it("explains Ops without mentioning Care", () => {
+    const reply = matchAiChatReply("giải thích dolphin ops", copy);
+    expect(reply).toBe(copy.explainOps);
+    expect(reply).not.toMatch(/Care/i);
+  });
+
+  it("answers CRM follow-up on Ops without repeating Care", () => {
+    const reply = matchAiChatReply("là crm nhỉ ?", copy, {
+      recentTranscript:
+        "user: giải thích dolphin ops\nassistant: Dolphin Ops là Agent CRM cho vận hành nội bộ",
+    });
+    expect(reply).toBe(copy.explainOpsCrm);
+    expect(reply).not.toMatch(/Care/i);
+    expect(reply).not.toBe(copy.explainOps);
+  });
+
+  it("deepens Ops on a detail follow-up instead of looping the intro", () => {
+    const reply = matchAiChatReply("giải thích chi tiết dolphin ops", copy, {
+      recentTranscript:
+        "user: giải thích dolphin ops\nassistant: Dolphin Ops là Agent CRM",
+    });
+    expect(reply).toBe(copy.explainOpsDetail);
+    expect(reply).not.toMatch(/Care/i);
+    expect(reply).not.toBe(copy.explainOps);
+  });
 });

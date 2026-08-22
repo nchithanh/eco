@@ -45,6 +45,14 @@ export type AiChatCopy = {
   exampleCare: string;
   /** Follow-up example when recent context is Dolphin Ops / Agent CRM */
   exampleOps: string;
+  /** First explain of Ops — never mention Care */
+  explainOps: string;
+  /** Follow-up: “là CRM?” while talking Ops */
+  explainOpsCrm: string;
+  /** Follow-up: “chi tiết hơn” while talking Ops */
+  explainOpsDetail: string;
+  /** Only when user explicitly asks Ops vs Care */
+  explainOpsVsCare: string;
   /** Follow-up example when recent context is Dolphin Intelligence / workflow */
   exampleIntelligence: string;
   /** Follow-up example when recent context is website / Build */
@@ -108,7 +116,7 @@ const vi: AiChatCopy = {
     {
       title: "Dolphin Ops",
       body: "Agent CRM · nói việc, mở đúng màn",
-      prompt: "Dolphin Ops là gì? Khác Care thế nào?",
+      prompt: "Giải thích Dolphin Ops",
     },
   ],
   rules: [
@@ -129,10 +137,9 @@ const vi: AiChatCopy = {
         "crm 2.0",
         "vận hành doanh nghiệp",
         "van hanh",
-        "crm",
       ],
       reply:
-        "**Dolphin Ops** là **Agent CRM** (SaaS): anh chị nói việc cần làm, hệ thống chọn tool và mở đúng màn — lịch, khách, báo cáo ✅ Chat là cửa vào, không phải cả sản phẩm. Khác **Dolphin Care** (chăm khách trên web). Xem /dolphin-ops/ hoặc nói em đang vướng khâu nào.",
+        "**Dolphin Ops** là **Agent CRM** (SaaS): anh chị nói việc cần làm, hệ thống chọn tool và mở đúng màn — lịch, khách, báo cáo ✅ Chat là cửa vào, không phải cả sản phẩm. Xem /dolphin-ops/ hoặc nói em đang vướng khâu nào.",
     },
     {
       keywords: [
@@ -173,6 +180,14 @@ const vi: AiChatCopy = {
     "Ví dụ nhanh 💡 Spa / phòng khám: khách vào web ngoài giờ hỏi “còn lịch chiều mai?”, **Dolphin Care** trả lời theo giờ mở cửa + gợi ý để lại SĐT — sáng staff thấy lead trong báo cáo insight, khỏi trả lời cùng một câu hỏi hàng trăm lần. Shop: hỏi phí ship / size → Care trả theo bảng giá đã nạp, escalate Zalo khi phức tạp. Xem /dolphin-care/ hoặc nhắn **Zalo** để gắn vào site anh/chị.",
   exampleOps:
     "Ví dụ nhanh 💡 Spa: nhân viên nói “Đặt lịch cho Lan thứ Bảy” — **Dolphin Ops** mở **Booking form**, không đi menu CRM. Hỏi “lịch sử Hương” → **Customer 360**. “Doanh thu hôm nay?” → chart. Admin có thể nói “thêm ghi chú bắt buộc” trong tool đã bật. Xem /dolphin-ops/ hoặc nói em đang vướng khâu nào.",
+  explainOps:
+    "**Dolphin Ops** là **Agent CRM** (SaaS) cho vận hành nội bộ: anh chị nói việc cần làm, hệ thống chọn tool và mở đúng màn — lịch, khách, báo cáo ✅ Chat là cửa vào, không phải cả sản phẩm. Xem /dolphin-ops/ hoặc nói em đang vướng khâu nào.",
+  explainOpsCrm:
+    "Đúng — **Agent CRM**, không phải CRM học menu rồi Save 👍 Anh chị nói việc; hệ thống mở form, Customer 360 hoặc chart. Admin chỉnh tool đã bật bằng chat. Việc nhạy thì người duyệt. Chi tiết /dolphin-ops/.",
+  explainOpsDetail:
+    "Mô hình **Dolphin Ops**: ý định → Agent → Business Tool → đúng UI → người xác nhận ở bước nhạy → action 💡 Signature: AI không thay giao diện, nó chọn đúng giao diện. Admin có thể nói để thêm trường, công thức report, quy tắc duyệt trong tool đã bật. Ưu tiên spa, salon, clinic, shop dịch vụ. Xem /dolphin-ops/.",
+  explainOpsVsCare:
+    "Hai sản phẩm khác nhau, không dùng lẫn. **Dolphin Ops** = Agent CRM cho đội ngũ chạy việc nội bộ. Chi tiết /dolphin-ops/.",
   exampleIntelligence:
     "Ví dụ nhanh 💡 **Daily Content Engine** trên **Dolphin Intelligence**: cron sáng → Research Agent → Content Agent → **Human Check** topic → Jasper/SEO/Review → publish hoặc landing → Media → overview report → lặp ngày hôm sau. Nhiều bước nối nhau, có chỗ người duyệt — không phải chatbot trả lời từng câu. Xem /dolphin-intelligence/ hoặc mô tả quy trình anh/chị muốn tự động hóa.",
   exampleWeb:
@@ -235,7 +250,7 @@ const en: AiChatCopy = {
     {
       title: "Dolphin Ops",
       body: "Agent CRM · say the job, open the screen",
-      prompt: "What is Dolphin Ops? How is it different from Care?",
+      prompt: "Explain Dolphin Ops",
     },
   ],
   rules: [
@@ -256,10 +271,9 @@ const en: AiChatCopy = {
         "crm 2.0",
         "business operations",
         "internal ops",
-        "crm",
       ],
       reply:
-        "**Dolphin Ops** is an **Agent CRM** (SaaS): you say the job, it picks the tool and opens the right screen — bookings, guests, reports ✅ Chat is the entry, not the whole product. Different from **Dolphin Care** (customers on the website). See /dolphin-ops/ or tell me where work gets stuck.",
+        "**Dolphin Ops** is an **Agent CRM** (SaaS): you say the job, it picks the tool and opens the right screen — bookings, guests, reports ✅ Chat is the entry, not the whole product. See /dolphin-ops/ or tell me where work gets stuck.",
     },
     {
       keywords: [
@@ -300,6 +314,14 @@ const en: AiChatCopy = {
     "Quick example 💡 Spa / clinic: a visitor asks after hours “any slots tomorrow afternoon?” — **Dolphin Care** answers from your hours + offers a callback number; next morning staff see the lead in the daily insight report instead of repeating the same FAQ. Shop: shipping / size questions → Care answers from your loaded price sheet, escalates to Zalo when needed. See /dolphin-care/ or ping **Zalo** to embed on your site.",
   exampleOps:
     "Quick example 💡 Spa staff say “Book Lan for Saturday” — **Dolphin Ops** opens the **booking form**, not a CRM menu. “Huong’s history” → **Customer 360**. “Revenue today?” → a chart. An admin can ask for a required notes field inside an enabled tool. See /dolphin-ops/ or tell me where work gets stuck.",
+  explainOps:
+    "**Dolphin Ops** is an **Agent CRM** (SaaS) for internal ops: you say the job, it picks the tool and opens the right screen — bookings, guests, reports ✅ Chat is the entry, not the whole product. See /dolphin-ops/ or tell me where work gets stuck.",
+  explainOpsCrm:
+    "Yes — **Agent CRM**, not a menu CRM you learn then hit Save 👍 You say the job; it opens a form, Customer 360, or a chart. Admins change enabled tools in chat. Sensitive steps wait for a person. More at /dolphin-ops/.",
+  explainOpsDetail:
+    "**Dolphin Ops** model: intent → Agent → Business Tool → the right UI → a person confirms sensitive steps → action 💡 AI does not replace the interface; it picks the right one. Admins can ask for a field, a report formula, or an approval rule inside enabled tools. We start with spa, salon, clinic, service shop. See /dolphin-ops/.",
+  explainOpsVsCare:
+    "Two separate products. **Dolphin Ops** is Agent CRM for the team running internal work. Details at /dolphin-ops/.",
   exampleIntelligence:
     "Quick example 💡 **Daily Content Engine** on **Dolphin Intelligence**: morning cron → Research Agent → Content Agent → **Human Check** → Jasper/SEO/Review → publish or landing → Media → overview report → next day. Linked steps with human oversight — not a one-shot chatbot. See /dolphin-intelligence/ or describe your process.",
   exampleWeb:
@@ -363,7 +385,7 @@ const ja: AiChatCopy = {
     {
       title: "Dolphin Ops",
       body: "Agent CRM · 用件を言えば画面が開く",
-      prompt: "Dolphin Ops とは？Care との違いは？",
+      prompt: "Dolphin Ops を説明して",
     },
   ],
   rules: [
@@ -384,10 +406,9 @@ const ja: AiChatCopy = {
         "crm 2.0",
         "事業運用",
         "社内運用",
-        "crm",
       ],
       reply:
-        "**Dolphin Ops** は **Agent CRM**（SaaS）です。用件を伝えると、ツールを選び予約・顧客・レポートの画面を開きます ✅ チャットは入口であり、製品の全部ではありません。**Dolphin Care**（サイト上の顧客ケア）とは別です。詳しくは /dolphin-ops/、または詰まっている業務をお聞かせください。",
+        "**Dolphin Ops** は **Agent CRM**（SaaS）です。用件を伝えると、ツールを選び予約・顧客・レポートの画面を開きます ✅ チャットは入口であり、製品の全部ではありません。詳しくは /dolphin-ops/、または詰まっている業務をお聞かせください。",
     },
     {
       keywords: [
@@ -428,6 +449,14 @@ const ja: AiChatCopy = {
     "例 💡 スパ／クリニック：営業時間外に「明日の午後は空いていますか？」→ **Dolphin Care** が営業時間に沿って回答し電話番号も案内。翌朝スタッフは insight レポートでリードを確認し、同じFAQを何度も返さずに済みます。ショップ：送料／サイズ質問は登録済みの料金表で回答し、複雑な場合は Zalo へ。詳しくは /dolphin-care/ または **Zalo** へ。",
   exampleOps:
     "例 💡 スパのスタッフが「土曜、Lanさんを予約」と言うと、**Dolphin Ops** が **予約フォーム**を開きます。CRMメニューは辿りません。「Hươngさんの履歴」→ **Customer 360**。「今日の売上？」→チャート。管理者は有効なツールの範囲で「必須のメモ欄を足して」と話せます。詳しくは /dolphin-ops/ へ。",
+  explainOps:
+    "**Dolphin Ops** は社内運用向けの **Agent CRM**（SaaS）です。用件を伝えると、ツールを選び予約・顧客・レポートの画面を開きます ✅ チャットは入口であり、製品の全部ではありません。詳しくは /dolphin-ops/ へ。",
+  explainOpsCrm:
+    "はい。**Agent CRM** です。メニューを覚えて保存する従来CRMではありません 👍 用件を言えばフォーム、Customer 360、チャートが開きます。有効なツールは管理者がチャットで直せます。機微な操作は人の確認。詳しくは /dolphin-ops/。",
+  explainOpsDetail:
+    "**Dolphin Ops** の流れ：用件 → Agent → 業務ツール → 正しい画面 → 機微な操作は人の確認 → 実行 💡 AIは画面を置き換えず、正しい画面を選びます。管理者は有効なツールの範囲で欄・計算式・承認ルールを話せます。スパ、サロン、クリニック、サービス店から。詳しくは /dolphin-ops/。",
+  explainOpsVsCare:
+    "別製品です。**Dolphin Ops** は社内運用の Agent CRM。詳しくは /dolphin-ops/。",
   exampleIntelligence:
     "例 💡 **Dolphin Intelligence** の **Daily Content Engine**：朝の cron → Research Agent → Content Agent → **Human Check** → Jasper/SEO/Review → 公開または LP → Media → 概要レポート → 翌日へ。多段連携＋人の確認で、単発チャットボットではありません。詳しくは /dolphin-intelligence/ へ。",
   exampleWeb:
@@ -447,6 +476,25 @@ export function getAiChatCopy(locale: Locale): AiChatCopy {
   return aiChatCopy[locale];
 }
 
+const OPS_TOPIC =
+  /dolphin ops|\bops\b|agent crm|crm 2\.0|vận hành doanh nghiệp|van hanh|社内運用|事業運用/;
+
+function asksOpsVsCare(q: string): boolean {
+  return /khác (dolphin )?care|khac (dolphin )?care|vs care|different from care|careとの違い|とcare/.test(
+    q,
+  );
+}
+
+function asksOpsCrm(q: string): boolean {
+  return /\bcrm\b|agent crm|crm 2/.test(q);
+}
+
+function asksOpsDetail(q: string): boolean {
+  return /chi tiết|chi tiet|rõ hơn|ro hon|giải thích chi tiết|detail|more detail|詳しく|詳しく説明/.test(
+    q,
+  );
+}
+
 export function matchAiChatReply(
   input: string,
   copy: AiChatCopy,
@@ -456,6 +504,13 @@ export function matchAiChatReply(
   if (!q) return copy.fallback;
 
   const recent = (opts?.recentTranscript ?? "").toLowerCase();
+  const opsRecent = OPS_TOPIC.test(recent);
+  const opsInQuery = OPS_TOPIC.test(q);
+
+  if (asksOpsVsCare(q) && (opsRecent || opsInQuery)) {
+    return copy.explainOpsVsCare;
+  }
+
   const asksExample =
     q.includes("ví dụ") ||
     q.includes("vi du") ||
@@ -471,10 +526,7 @@ export function matchAiChatReply(
         recent,
       ) ||
       /dolphin intelligence|ai workflow|workflow|human check/.test(q);
-    const opsCtx =
-      /dolphin ops|\bops\b|agent crm|crm 2\.0|vận hành|van hanh|社内運用|事業運用/.test(
-        recent,
-      ) || /dolphin ops|\bops\b|agent crm|vận hành/.test(q);
+    const opsCtx = opsRecent || opsInQuery;
     const careCtx =
       /dolphin care|\bcare\b|chăm sóc|cham soc|chatbot|insight|24\/7/.test(
         recent,
@@ -490,6 +542,16 @@ export function matchAiChatReply(
     if (webCtx) return copy.exampleWeb;
     return copy.exampleGeneric;
   }
+
+  if (opsRecent || opsInQuery) {
+    if (asksOpsCrm(q)) return copy.explainOpsCrm;
+    if (opsRecent && asksOpsDetail(q)) return copy.explainOpsDetail;
+    if (asksOpsDetail(q)) return copy.explainOpsDetail;
+    if (opsRecent && !opsInQuery) return copy.explainOpsDetail;
+    return copy.explainOps;
+  }
+
+  if (asksOpsCrm(q)) return copy.explainOpsCrm;
 
   for (const rule of copy.rules) {
     if (rule.keywords.some((k) => q.includes(k.toLowerCase()))) {
