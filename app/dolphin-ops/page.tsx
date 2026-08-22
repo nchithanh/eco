@@ -29,7 +29,7 @@ export default function Page() {
         id="dolphin-ops-jsonld"
         data={[
           serviceJsonLd({
-            name: "Dolphin Ops",
+            name: "Dolphin Ops — Agent CRM (CRM 2.0)",
             description: c.metaDescription,
             path,
           }),

@@ -4,7 +4,7 @@
     "schemaPath": "/schema/agents/",
     "rawPath": "/schema/agents/index.json",
     "brand": "Dolphin Software",
-    "updated": "2026-08-21"
+    "updated": "2026-08-22"
   },
   "items": [
     {
@@ -18,6 +18,8 @@
     {
       "id": "dolphin-ops",
       "title": "Dolphin Ops",
+      "category": "Agent CRM",
+      "eyebrow": "SaaS · Agent CRM · CRM 2.0",
       "pillar": "Automate",
       "productRoute": "/dolphin-ops/",
       "schemaPath": "/schema/agents/dolphin-ops/",

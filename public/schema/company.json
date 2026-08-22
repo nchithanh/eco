@@ -241,7 +241,7 @@
     ],
     "versusCrm": {
       "crm": "CRM truyền thống: đổi form hay báo cáo thì thường ticket, chờ sprint, chờ deploy.",
-      "ops": "Dolphin Ops: admin tự chỉnh tool đã bật bằng chat — không cần bộ phận software code từng thay đổi nhỏ."
+      "ops": "Dolphin Ops (Agent CRM / CRM 2.0): admin tự chỉnh tool đã bật bằng chat — không cần bộ phận software code từng thay đổi nhỏ."
     },
     "copySource": "lib/i18n/dolphin-ops-copy.ts",
     "adminCustomize": [
