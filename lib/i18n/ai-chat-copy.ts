@@ -43,6 +43,8 @@ export type AiChatCopy = {
   fallback: string;
   /** Follow-up “cho ví dụ” when recent context is Dolphin Care */
   exampleCare: string;
+  /** Follow-up example when recent context is Dolphin Ops / Agent CRM */
+  exampleOps: string;
   /** Follow-up example when recent context is Dolphin Intelligence / workflow */
   exampleIntelligence: string;
   /** Follow-up example when recent context is website / Build */
@@ -71,10 +73,10 @@ const vi: AiChatCopy = {
   send: "Gửi",
   ask: "Ask",
   greeting:
-    "Xin chào! 👋 Em là **Dolphin Assist** của Dolphin Software. Anh/chị đang cần tư vấn **website**, **Dolphin Care**, **Dolphin Intelligence** (AI workflow), hay lộ trình chuyển đổi AI?",
+    "Xin chào! 👋 Em là **Dolphin Assist** của Dolphin Software. Anh/chị đang cần tư vấn **website**, **Dolphin Care**, **Dolphin Ops** (vận hành nội bộ), hay lộ trình AI?",
   suggestions: [
     "Báo giá dự án",
-    "Dolphin Intelligence",
+    "Dolphin Ops",
     "Dolphin Care",
     "Chat Zalo với người thật",
   ],
@@ -104,9 +106,9 @@ const vi: AiChatCopy = {
       prompt: "Giới thiệu Dolphin Care và cách tích hợp",
     },
     {
-      title: "Dolphin Intelligence",
-      body: "AI workflow · agent + human check",
-      prompt: "Dolphin Intelligence là gì? Khác Care thế nào?",
+      title: "Dolphin Ops",
+      body: "Agent CRM · nói việc, mở đúng màn",
+      prompt: "Dolphin Ops là gì? Khác Care thế nào?",
     },
   ],
   rules: [
@@ -119,6 +121,18 @@ const vi: AiChatCopy = {
       keywords: ["báo giá", "quote", "giá", "chi phí", "ngân sách"],
       reply:
         "Để **báo giá** sát, Dolphin cần mục tiêu, deadline và phạm vi sơ bộ 💡 Anh/chị mô tả ngắn ở đây, mở form “Nhận báo giá” trên trang — hoặc chat **Zalo** để trao đổi nhanh.",
+    },
+    {
+      keywords: [
+        "dolphin ops",
+        "agent crm",
+        "crm 2.0",
+        "vận hành doanh nghiệp",
+        "van hanh",
+        "crm",
+      ],
+      reply:
+        "**Dolphin Ops** là **Agent CRM** (SaaS): anh chị nói việc cần làm, hệ thống chọn tool và mở đúng màn — lịch, khách, báo cáo ✅ Chat là cửa vào, không phải cả sản phẩm. Khác **Dolphin Care** (chăm khách trên web). Xem /dolphin-ops/ hoặc nói em đang vướng khâu nào.",
     },
     {
       keywords: [
@@ -150,19 +164,21 @@ const vi: AiChatCopy = {
     {
       keywords: ["xin chào", "hello", "hi", "chào"],
       reply:
-        "Chào anh/chị! 👋 Em sẵn sàng. Cứ nói nhu cầu — **báo giá**, **Dolphin Care**, **Dolphin Intelligence**, chuyển đổi AI, hay liên hệ **Zalo**.",
+        "Chào anh/chị! 👋 Em sẵn sàng. Cứ nói nhu cầu — **báo giá**, **website**, **Dolphin Care**, **Dolphin Ops**, hay liên hệ **Zalo**.",
     },
   ],
   fallback:
-    "Em đã nhận tin 👍 Để trả lời sát hơn, anh/chị nói rõ: **website**/app, **Dolphin Care**, **Dolphin Intelligence** (AI workflow), chuyển đổi AI, hay muốn gặp người Dolphin qua **Zalo**?",
+    "Em đã nhận tin 👍 Để trả lời sát hơn, anh/chị nói rõ: **website**/app, **Dolphin Care**, **Dolphin Ops** (vận hành nội bộ), chuyển đổi AI, hay muốn gặp người Dolphin qua **Zalo**?",
   exampleCare:
     "Ví dụ nhanh 💡 Spa / phòng khám: khách vào web ngoài giờ hỏi “còn lịch chiều mai?”, **Dolphin Care** trả lời theo giờ mở cửa + gợi ý để lại SĐT — sáng staff thấy lead trong báo cáo insight, khỏi trả lời cùng một câu hỏi hàng trăm lần. Shop: hỏi phí ship / size → Care trả theo bảng giá đã nạp, escalate Zalo khi phức tạp. Xem /dolphin-care/ hoặc nhắn **Zalo** để gắn vào site anh/chị.",
+  exampleOps:
+    "Ví dụ nhanh 💡 Spa: nhân viên nói “Đặt lịch cho Lan thứ Bảy” — **Dolphin Ops** mở **Booking form**, không đi menu CRM. Hỏi “lịch sử Hương” → **Customer 360**. “Doanh thu hôm nay?” → chart. Admin có thể nói “thêm ghi chú bắt buộc” trong tool đã bật. Xem /dolphin-ops/ hoặc nói em đang vướng khâu nào.",
   exampleIntelligence:
     "Ví dụ nhanh 💡 **Daily Content Engine** trên **Dolphin Intelligence**: cron sáng → Research Agent → Content Agent → **Human Check** topic → Jasper/SEO/Review → publish hoặc landing → Media → overview report → lặp ngày hôm sau. Nhiều bước nối nhau, có chỗ người duyệt — không phải chatbot trả lời từng câu. Xem /dolphin-intelligence/ hoặc mô tả quy trình anh/chị muốn tự động hóa.",
   exampleWeb:
     "Ví dụ nhanh 💡 Studio cưới cần khách xem váy online trước khi đến: làm **website** catalog + form tư vấn (thường gói business / shop tùy scope). Campaign ra mắt dịch vụ mới: **landing** 3–5 ngày, CTA + form lead. Anh/chị đang nghiêng website giới thiệu, bán hàng, hay landing?",
   exampleGeneric:
-    "Ví dụ em có thể kể: (1) **Dolphin Care** — chatbot site 24/7 + insight; (2) **Dolphin Intelligence** — AI workflow nhiều bước + human check; (3) **website** SMB. Anh/chị muốn ví dụ theo hướng nào?",
+    "Ví dụ em có thể kể: (1) **Dolphin Care** — chatbot site 24/7 + insight; (2) **Dolphin Ops** — nói việc, mở đúng màn vận hành; (3) **website** SMB. Anh/chị muốn ví dụ theo hướng nào?",
   escalateHint: "Cần người thật? Bấm nút liên hệ góc dưới (Zalo / gọi / email).",
 };
 
@@ -184,10 +200,10 @@ const en: AiChatCopy = {
   send: "Send",
   ask: "Ask",
   greeting:
-    "Hello! 👋 I’m **Dolphin Assist** from Dolphin Software. Need help with a **website**, **Dolphin Care**, **Dolphin Intelligence** (AI workflow), or AI transformation?",
+    "Hello! 👋 I’m **Dolphin Assist** from Dolphin Software. Need help with a **website**, **Dolphin Care**, **Dolphin Ops** (internal ops), or an AI path?",
   suggestions: [
     "Project quote",
-    "Dolphin Intelligence",
+    "Dolphin Ops",
     "Dolphin Care",
     "Talk to a human on Zalo",
   ],
@@ -217,9 +233,9 @@ const en: AiChatCopy = {
       prompt: "Tell me about Dolphin Care and how to embed it",
     },
     {
-      title: "Dolphin Intelligence",
-      body: "AI workflow · agents + human checks",
-      prompt: "What is Dolphin Intelligence? How is it different from Care?",
+      title: "Dolphin Ops",
+      body: "Agent CRM · say the job, open the screen",
+      prompt: "What is Dolphin Ops? How is it different from Care?",
     },
   ],
   rules: [
@@ -232,6 +248,18 @@ const en: AiChatCopy = {
       keywords: ["quote", "price", "cost", "budget", "pricing"],
       reply:
         "For a solid **quote** we need goals, timing, and rough scope 💡 Share a short note here, use “Get a quote” on the site, or hop on **Zalo**.",
+    },
+    {
+      keywords: [
+        "dolphin ops",
+        "agent crm",
+        "crm 2.0",
+        "business operations",
+        "internal ops",
+        "crm",
+      ],
+      reply:
+        "**Dolphin Ops** is an **Agent CRM** (SaaS): you say the job, it picks the tool and opens the right screen — bookings, guests, reports ✅ Chat is the entry, not the whole product. Different from **Dolphin Care** (customers on the website). See /dolphin-ops/ or tell me where work gets stuck.",
     },
     {
       keywords: [
@@ -263,19 +291,21 @@ const en: AiChatCopy = {
     {
       keywords: ["hello", "hi", "hey"],
       reply:
-        "Hi! 👋 I’m ready — ask about **quotes**, **Dolphin Care**, **Dolphin Intelligence**, transformation, or **Zalo** contact.",
+        "Hi! 👋 I’m ready — ask about **quotes**, **website**, **Dolphin Care**, **Dolphin Ops**, or **Zalo**.",
     },
   ],
   fallback:
-    "Got it 👍 To help better, tell me if you need **website**/app, **Dolphin Care**, **Dolphin Intelligence** (AI workflow), AI transformation, or a human on **Zalo**.",
+    "Got it 👍 To help better, tell me if you need **website**/app, **Dolphin Care**, **Dolphin Ops** (internal ops), AI transformation, or a human on **Zalo**.",
   exampleCare:
     "Quick example 💡 Spa / clinic: a visitor asks after hours “any slots tomorrow afternoon?” — **Dolphin Care** answers from your hours + offers a callback number; next morning staff see the lead in the daily insight report instead of repeating the same FAQ. Shop: shipping / size questions → Care answers from your loaded price sheet, escalates to Zalo when needed. See /dolphin-care/ or ping **Zalo** to embed on your site.",
+  exampleOps:
+    "Quick example 💡 Spa staff say “Book Lan for Saturday” — **Dolphin Ops** opens the **booking form**, not a CRM menu. “Huong’s history” → **Customer 360**. “Revenue today?” → a chart. An admin can ask for a required notes field inside an enabled tool. See /dolphin-ops/ or tell me where work gets stuck.",
   exampleIntelligence:
     "Quick example 💡 **Daily Content Engine** on **Dolphin Intelligence**: morning cron → Research Agent → Content Agent → **Human Check** → Jasper/SEO/Review → publish or landing → Media → overview report → next day. Linked steps with human oversight — not a one-shot chatbot. See /dolphin-intelligence/ or describe your process.",
   exampleWeb:
     "Quick example 💡 Wedding studio wants clients to browse dresses before visiting → **business / shop** site with catalog + consult form. New service launch → **landing** in ~3–5 days with CTA + lead form. Are you closer to a company site, e-commerce, or a landing?",
   exampleGeneric:
-    "I can give an example for: (1) **Dolphin Care** — 24/7 site answers + insight; (2) **Dolphin Intelligence** — multi-step AI workflow + human checks; (3) **website**. Which direction?",
+    "I can give an example for: (1) **Dolphin Care** — 24/7 site answers + insight; (2) **Dolphin Ops** — say the job, open the right ops screen; (3) **website**. Which direction?",
   escalateHint: "Need a human? Use the contact button (Zalo / call / email).",
 };
 
@@ -298,10 +328,10 @@ const ja: AiChatCopy = {
   send: "送信",
   ask: "Ask",
   greeting:
-    "こんにちは！👋 Dolphin Software の **Dolphin Assist** です。**Web**、**Dolphin Care**、**Dolphin Intelligence**（AIワークフロー）、または AI 変革について、どのようなご相談でしょうか？",
+    "こんにちは！👋 Dolphin Software の **Dolphin Assist** です。**Web**、**Dolphin Care**、**Dolphin Ops**（社内運用）、または AI の進め方について、どのようなご相談でしょうか？",
   suggestions: [
     "見積もり依頼",
-    "Dolphin Intelligence",
+    "Dolphin Ops",
     "Dolphin Care",
     "Zaloで担当者と話す",
   ],
@@ -331,9 +361,9 @@ const ja: AiChatCopy = {
       prompt: "Dolphin Care の概要と導入方法を教えて",
     },
     {
-      title: "Dolphin Intelligence",
-      body: "AIワークフロー · エージェント + 人の確認",
-      prompt: "Dolphin Intelligence とは？Care との違いは？",
+      title: "Dolphin Ops",
+      body: "Agent CRM · 用件を言えば画面が開く",
+      prompt: "Dolphin Ops とは？Care との違いは？",
     },
   ],
   rules: [
@@ -346,6 +376,18 @@ const ja: AiChatCopy = {
       keywords: ["見積", "料金", "価格", "費用", "予算"],
       reply:
         "正確な**見積もり**には、目的・期限・概要が必要です 💡 こちらで簡単にご説明いただくか、サイトの「見積もり依頼」フォームをご利用ください。または **Zalo** で直接ご相談も可能です。",
+    },
+    {
+      keywords: [
+        "dolphin ops",
+        "agent crm",
+        "crm 2.0",
+        "事業運用",
+        "社内運用",
+        "crm",
+      ],
+      reply:
+        "**Dolphin Ops** は **Agent CRM**（SaaS）です。用件を伝えると、ツールを選び予約・顧客・レポートの画面を開きます ✅ チャットは入口であり、製品の全部ではありません。**Dolphin Care**（サイト上の顧客ケア）とは別です。詳しくは /dolphin-ops/、または詰まっている業務をお聞かせください。",
     },
     {
       keywords: [
@@ -377,19 +419,21 @@ const ja: AiChatCopy = {
     {
       keywords: ["こんにちは", "hello", "hi", "はじめまして"],
       reply:
-        "こんにちは！👋 ご用件をお聞かせください — **見積もり**、**Dolphin Care**、**Dolphin Intelligence**、変革、または **Zalo** での担当者連絡など。",
+        "こんにちは！👋 ご用件をお聞かせください — **見積もり**、**Web**、**Dolphin Care**、**Dolphin Ops**、または **Zalo**。",
     },
   ],
   fallback:
-    "承知いたしました 👍 **Web**/アプリ、**Dolphin Care**、**Dolphin Intelligence**（AIワークフロー）、AI 変革、または **Zalo** での担当者連絡のうち、どれに近いかお聞かせいただけますか？",
+    "承知いたしました 👍 **Web**/アプリ、**Dolphin Care**、**Dolphin Ops**（社内運用）、AI 変革、または **Zalo** での担当者連絡のうち、どれに近いかお聞かせいただけますか？",
   exampleCare:
     "例 💡 スパ／クリニック：営業時間外に「明日の午後は空いていますか？」→ **Dolphin Care** が営業時間に沿って回答し電話番号も案内。翌朝スタッフは insight レポートでリードを確認し、同じFAQを何度も返さずに済みます。ショップ：送料／サイズ質問は登録済みの料金表で回答し、複雑な場合は Zalo へ。詳しくは /dolphin-care/ または **Zalo** へ。",
+  exampleOps:
+    "例 💡 スパのスタッフが「土曜、Lanさんを予約」と言うと、**Dolphin Ops** が **予約フォーム**を開きます。CRMメニューは辿りません。「Hươngさんの履歴」→ **Customer 360**。「今日の売上？」→チャート。管理者は有効なツールの範囲で「必須のメモ欄を足して」と話せます。詳しくは /dolphin-ops/ へ。",
   exampleIntelligence:
     "例 💡 **Dolphin Intelligence** の **Daily Content Engine**：朝の cron → Research Agent → Content Agent → **Human Check** → Jasper/SEO/Review → 公開または LP → Media → 概要レポート → 翌日へ。多段連携＋人の確認で、単発チャットボットではありません。詳しくは /dolphin-intelligence/ へ。",
   exampleWeb:
     "例 💡 衣装スタジオが来店前にドレスを見せたい → カタログ＋相談フォームの **企業／ECサイト**。新サービス告知 → CTA＋リードフォームの **LP**（目安3–5日）。企業サイト、EC、LPのどれに近いですか？",
   exampleGeneric:
-    "例として：(1) **Dolphin Care** — サイトで24/7回答＋insight、(2) **Dolphin Intelligence** — 多段AIワークフロー＋人の確認、(3) **Web**。どれが近いですか？",
+    "例として：(1) **Dolphin Care** — サイトで24/7回答＋insight、(2) **Dolphin Ops** — 用件を言えば運用画面が開く、(3) **Web**。どれが近いですか？",
   escalateHint: "担当者と直接お話しされたい場合は、右下の連絡ボタン（Zalo / 電話 / メール）をご利用ください。",
 };
 
@@ -427,6 +471,10 @@ export function matchAiChatReply(
         recent,
       ) ||
       /dolphin intelligence|ai workflow|workflow|human check/.test(q);
+    const opsCtx =
+      /dolphin ops|\bops\b|agent crm|crm 2\.0|vận hành|van hanh|社内運用|事業運用/.test(
+        recent,
+      ) || /dolphin ops|\bops\b|agent crm|vận hành/.test(q);
     const careCtx =
       /dolphin care|\bcare\b|chăm sóc|cham soc|chatbot|insight|24\/7/.test(
         recent,
@@ -437,6 +485,7 @@ export function matchAiChatReply(
       ) || /website|\bweb\b|landing/.test(q);
 
     if (intelligenceCtx) return copy.exampleIntelligence;
+    if (opsCtx) return copy.exampleOps;
     if (careCtx) return copy.exampleCare;
     if (webCtx) return copy.exampleWeb;
     return copy.exampleGeneric;

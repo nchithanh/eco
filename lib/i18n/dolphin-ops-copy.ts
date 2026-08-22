@@ -1253,3 +1253,114 @@ const byLocale: Record<Locale, DolphinOpsCopy> = {
 export function getDolphinOpsCopy(locale: Locale): DolphinOpsCopy {
   return byLocale[locale] ?? vi;
 }
+
+export type DolphinOpsHomeCopy = {
+  eyebrow: string;
+  title: string;
+  support: string;
+  quote: string;
+  vsCare: string;
+  benefits: { title: string; body: string }[];
+  wedgeLabel: string;
+  wedge: string[];
+  cta: string;
+  ctaSecondary: string;
+  trust: string;
+};
+
+const homeVi: DolphinOpsHomeCopy = {
+  eyebrow: "SaaS · Agent CRM",
+  title: "[[Agent CRM]] cho vận hành nội bộ",
+  support:
+    "Anh chị nói việc cần làm. Agent chọn Business Tool và mở đúng giao diện — lịch, khách, báo cáo. Chat là cửa vào, không phải toàn bộ sản phẩm.",
+  quote: "AI không thay giao diện. Nó chọn đúng giao diện.",
+  vsCare:
+    "Dolphin Care chăm khách trên website. Dolphin Ops giúp đội ngũ chạy việc bên trong.",
+  benefits: [
+    {
+      title: "Nói việc — mở đúng màn",
+      body: "Không đi menu → module → form. Form, Customer 360 hay chart hiện đúng lúc cần.",
+    },
+    {
+      title: "Admin chỉnh tool bằng chat",
+      body: "Thêm trường, công thức báo cáo, quy tắc duyệt trong tool đã bật — không ticket software từng thay đổi nhỏ.",
+    },
+    {
+      title: "Việc nhạy thì người duyệt",
+      body: "Thanh toán, hoàn tiền, xóa dữ liệu, gửi hàng loạt có thể dừng để người có quyền xác nhận.",
+    },
+  ],
+  wedgeLabel: "Ưu tiên",
+  wedge: ["Spa", "Salon", "Clinic", "Shop dịch vụ"],
+  cta: "Xem Ops chạy việc",
+  ctaSecondary: "Nói chuyện với chúng tôi",
+  trust: "Không phải CRM gắn thêm chat.",
+};
+
+const homeEn: DolphinOpsHomeCopy = {
+  eyebrow: "SaaS · Agent CRM",
+  title: "[[Agent CRM]] for running the day",
+  support:
+    "Say the job. The Agent picks the Business Tool and opens the right screen — bookings, guests, reports. Chat is the entry, not the whole product.",
+  quote: "AI does not replace the interface. It picks the right one.",
+  vsCare:
+    "Dolphin Care takes care of customers on the website. Dolphin Ops helps the team run work inside.",
+  benefits: [
+    {
+      title: "Say the job — open the right screen",
+      body: "No menu → module → form. A form, Customer 360, or a chart appears when the job needs it.",
+    },
+    {
+      title: "Admins change tools in chat",
+      body: "Add a field, a report formula, or an approval rule inside enabled tools — no software ticket for each small tweak.",
+    },
+    {
+      title: "Sensitive work waits for a person",
+      body: "Payments, refunds, deletions and bulk sends can pause for someone with permission.",
+    },
+  ],
+  wedgeLabel: "We start with",
+  wedge: ["Spa", "Salon", "Clinic", "Service shop"],
+  cta: "See Ops run the job",
+  ctaSecondary: "Talk to us",
+  trust: "Not a CRM with chat bolted on.",
+};
+
+const homeJa: DolphinOpsHomeCopy = {
+  eyebrow: "SaaS · Agent CRM",
+  title: "社内運用の[[Agent CRM]]",
+  support:
+    "用件を伝えると、Agentが業務ツールを選び、予約・顧客・レポートの画面を開きます。チャットは入口であり、製品の全部ではありません。",
+  quote: "AIは画面を置き換えない。正しい画面を選ぶ。",
+  vsCare:
+    "Dolphin Careはサイト上でお客様をケアする。Dolphin Opsは社内で事業を回す。",
+  benefits: [
+    {
+      title: "用件を言えば、正しい画面が開く",
+      body: "メニュー→モジュール→フォームと辿らない。フォーム、Customer 360、チャートが必要なときに出る。",
+    },
+    {
+      title: "管理者がチャットでツールを直す",
+      body: "有効なツールの範囲で欄・計算式・承認ルールを話して直す。小さな変更ごとにソフト担当へ頼まない。",
+    },
+    {
+      title: "機微な操作は人の確認",
+      body: "決済、返金、削除、一斉送信は、権限のある人の確認で止まれる。",
+    },
+  ],
+  wedgeLabel: "まず向いている業種",
+  wedge: ["スパ", "サロン", "クリニック", "サービス店"],
+  cta: "Opsの動きを見る",
+  ctaSecondary: "相談する",
+  trust: "チャットを後付けしたCRMではありません。",
+};
+
+const homeByLocale: Record<Locale, DolphinOpsHomeCopy> = {
+  vi: homeVi,
+  en: homeEn,
+  ja: homeJa,
+};
+
+export function getDolphinOpsHomeCopy(locale: Locale): DolphinOpsHomeCopy {
+  return homeByLocale[locale] ?? homeVi;
+}

@@ -12,6 +12,7 @@ const labels: Record<(typeof SCHEMA_HOMEPAGE_SLUGS)[number], string> = {
  capabilities: "How we help",
  works: "Projects",
  "dolphin-care": "Dolphin Care",
+ "dolphin-ops": "Dolphin Ops",
  technology: "Technology",
  "ai-edge": "Dolphin Intelligence / AiEdge",
  stack: "Tech stack (#stack)",

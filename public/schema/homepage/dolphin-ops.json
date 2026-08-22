@@ -1,0 +1,50 @@
+{
+  "meta": {
+    "kind": "homepage-section",
+    "id": "dolphin-ops",
+    "locale": "vi",
+    "brand": "Dolphin Software",
+    "updated": "2026-08-22",
+    "schemaPath": "/schema/homepage/dolphin-ops/",
+    "rawPath": "/schema/homepage/dolphin-ops.json",
+    "productRoute": "/"
+  },
+  "content": {
+    "order": 7,
+    "id": "dolphin-ops",
+    "section_label": "SaaS · Agent CRM",
+    "headline": "Agent CRM cho vận hành nội bộ",
+    "subheadline": "Anh chị nói việc cần làm. Agent chọn Business Tool và mở đúng giao diện — lịch, khách, báo cáo. Chat là cửa vào, không phải toàn bộ sản phẩm.",
+    "signature": "AI không thay giao diện. Nó chọn đúng giao diện.",
+    "versusCare": "Dolphin Care chăm khách trên website. Dolphin Ops giúp đội ngũ chạy việc bên trong.",
+    "benefits": [
+      {
+        "title": "Nói việc — mở đúng màn",
+        "body": "Không đi menu → module → form. Form, Customer 360 hay chart hiện đúng lúc cần."
+      },
+      {
+        "title": "Admin chỉnh tool bằng chat",
+        "body": "Thêm trường, công thức báo cáo, quy tắc duyệt trong tool đã bật — không ticket software từng thay đổi nhỏ."
+      },
+      {
+        "title": "Việc nhạy thì người duyệt",
+        "body": "Thanh toán, hoàn tiền, xóa dữ liệu, gửi hàng loạt có thể dừng để người có quyền xác nhận."
+      }
+    ],
+    "wedge": ["Spa", "Salon", "Clinic", "Shop dịch vụ"],
+    "ctas": [
+      {
+        "label": "Xem Ops chạy việc",
+        "href": "https://dolphin-software.io.vn/dolphin-ops/",
+        "style": "primary"
+      },
+      {
+        "label": "Nói chuyện với chúng tôi",
+        "href": "#contact",
+        "style": "secondary"
+      }
+    ],
+    "trust": "Không phải CRM gắn thêm chat.",
+    "visual": "OpsHeroDemo — intent → Booking form (canvas marketing, chưa phải runtime Agent)"
+  }
+}

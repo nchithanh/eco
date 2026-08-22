@@ -35,6 +35,7 @@ describe("Dolphin Software homepage", () => {
     const capabilities = document.getElementById("capabilities");
     const works = document.getElementById("works");
     const agentDolphin = document.getElementById("dolphin-care");
+    const dolphinOps = document.getElementById("dolphin-ops");
     const technology = document.getElementById("technology");
     const aiEdge = document.getElementById("ai-edge");
     const stack = document.getElementById("stack");
@@ -51,6 +52,7 @@ describe("Dolphin Software homepage", () => {
     expect(capabilities).toBeTruthy();
     expect(works).toBeTruthy();
     expect(agentDolphin).toBeTruthy();
+    expect(dolphinOps).toBeTruthy();
     expect(technology).toBeTruthy();
     expect(aiEdge).toBeTruthy();
     expect(stack).toBeTruthy();
@@ -71,7 +73,8 @@ describe("Dolphin Software homepage", () => {
     expect(why!.compareDocumentPosition(capabilities!) & following).toBeTruthy();
     expect(capabilities!.compareDocumentPosition(works!) & following).toBeTruthy();
     expect(works!.compareDocumentPosition(agentDolphin!) & following).toBeTruthy();
-    expect(agentDolphin!.compareDocumentPosition(technology!) & following).toBeTruthy();
+    expect(agentDolphin!.compareDocumentPosition(dolphinOps!) & following).toBeTruthy();
+    expect(dolphinOps!.compareDocumentPosition(technology!) & following).toBeTruthy();
     expect(technology!.compareDocumentPosition(aiEdge!) & following).toBeTruthy();
     expect(aiEdge!.compareDocumentPosition(process!) & following).toBeTruthy();
     expect(process!.compareDocumentPosition(popular!) & following).toBeTruthy();
@@ -96,6 +99,15 @@ describe("Dolphin Software homepage", () => {
     expect(within(agentDolphin!).getByText(/24時間の文脈対応/i)).toBeInTheDocument();
     expect(within(agentDolphin!).getByText(/Spa · 予約/i)).toBeInTheDocument();
     expect(
+      within(dolphinOps!).getByRole("heading", {
+        level: 2,
+        name: /Agent CRM/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      within(dolphinOps!).getByRole("link", { name: /Opsの動きを見る/i }),
+    ).toHaveAttribute("href", expect.stringMatching(/\/dolphin-ops\/?$/));
+    expect(
       screen.getByRole("link", { name: /Webサービスを見る/i }),
     ).toHaveAttribute("href", "#capabilities");
   });
@@ -103,15 +115,21 @@ describe("Dolphin Software homepage", () => {
   it("renders ai transformation after dolphin care", () => {
     renderHome();
     const agentDolphin = document.getElementById("dolphin-care");
+    const dolphinOps = document.getElementById("dolphin-ops");
     const technology = document.getElementById("technology");
     const aiEdge = document.getElementById("ai-edge");
     const process = document.getElementById("process");
     expect(agentDolphin).toBeTruthy();
+    expect(dolphinOps).toBeTruthy();
     expect(technology).toBeTruthy();
     expect(aiEdge).toBeTruthy();
     expect(process).toBeTruthy();
     expect(
-      agentDolphin!.compareDocumentPosition(technology!) &
+      agentDolphin!.compareDocumentPosition(dolphinOps!) &
+        Node.DOCUMENT_POSITION_FOLLOWING,
+    ).toBeTruthy();
+    expect(
+      dolphinOps!.compareDocumentPosition(technology!) &
         Node.DOCUMENT_POSITION_FOLLOWING,
     ).toBeTruthy();
     expect(

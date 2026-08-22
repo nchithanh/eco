@@ -7,6 +7,7 @@ import { WhyKuct } from "@/components/WhyKuct";
 import { Capabilities } from "@/components/Capabilities";
 import { WorksShowcase } from "@/components/WorksShowcase";
 import { AgentDolphinHome } from "@/components/AgentDolphinHome";
+import { DolphinOpsHome } from "@/components/DolphinOpsHome";
 import { Technology } from "@/components/Technology";
 import { AiEdge } from "@/components/AiEdge";
 import { TechStack } from "@/components/TechStack";
@@ -21,7 +22,7 @@ import { Footer } from "@/components/Footer";
 /**
  * Homepage story (outcome-first):
  * Hero → Tech stack → Fit → Outcomes → Why → How we help → Projects → Care →
- * Ops AI → Process → Solutions → News → FAQ → CTA
+ * Ops → Ops AI → Process → Solutions → News → FAQ → CTA
  */
 export function HomePage() {
  return (
@@ -35,6 +36,7 @@ export function HomePage() {
  <Capabilities />
  <WorksShowcase />
  <AgentDolphinHome />
+ <DolphinOpsHome />
  <Technology />
  <AiEdge />
  <Process />
