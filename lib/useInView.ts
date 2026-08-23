@@ -12,7 +12,9 @@ export function useInView<T extends HTMLElement = HTMLDivElement>(
   options: UseInViewOptions = {},
 ): { ref: RefObject<T | null>; inView: boolean } {
   const {
-    threshold = 0.12,
+    // Any pixel visible. 0.12 never fires when the target is taller than
+    // the viewport (e.g. /news/ list on mobile stayed opacity 0).
+    threshold = 0,
     rootMargin = "0px 0px -4% 0px",
     once = true,
   } = options;

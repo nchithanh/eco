@@ -97,17 +97,21 @@ function NewsGridCard({
  item,
  categoryLabel,
  readMoreLabel,
+ embedded,
+ delay,
 }: {
  item: NewsListItem;
  categoryLabel: string;
  readMoreLabel: string;
+ embedded?: boolean;
+ delay?: number;
 }) {
  const { locale } = useLocale();
  const { theme } = useTheme();
  const href = assetPath(`/news/${item.slug}/`);
 
  return (
- <li className="h-full">
+ <Reveal as="li" delay={delay} immediate={embedded} className="h-full">
  <article className="h-full">
  <a
  href={href}
@@ -154,7 +158,7 @@ function NewsGridCard({
  </div>
  </a>
  </article>
- </li>
+ </Reveal>
  );
 }
 
@@ -225,6 +229,7 @@ export function NewsContent({ embedded = false }: { embedded?: boolean }) {
  ))}
  </div>
  </div>
+ </Reveal>
 
  {items.length === 0 ? (
  <p className="mt-12 text-center text-sm leading-relaxed text-[var(--kuct-muted)] sm:text-base">
@@ -233,31 +238,32 @@ export function NewsContent({ embedded = false }: { embedded?: boolean }) {
  ) : (
  <>
  {featured ? (
- <div className="mt-10 sm:mt-12">
+ <Reveal delay={80} immediate={embedded} className="mt-10 sm:mt-12">
  <FeaturedArticleBlock
  item={featured}
  categoryLabel={n.categories[featured.category]}
  featuredLabel={n.featuredLabel}
  readMoreLabel={n.readMore}
  />
- </div>
+ </Reveal>
  ) : null}
 
  {restItems.length > 0 ? (
  <ul className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:mt-10 lg:grid-cols-3">
- {restItems.map((item) => (
+ {restItems.map((item, index) => (
  <NewsGridCard
  key={item.slug}
  item={item}
  categoryLabel={n.categories[item.category]}
  readMoreLabel={n.readMore}
+ embedded={embedded}
+ delay={Math.min(index * 40, 160)}
  />
  ))}
  </ul>
  ) : null}
  </>
  )}
- </Reveal>
  </div>
  </section>
  </div>
