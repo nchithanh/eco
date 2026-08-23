@@ -13,6 +13,7 @@ import { websiteHayFacebookDoanhNghiepNhoCopy } from "@/lib/news-articles/websit
 import { websiteDoanhNghiepCanCoNhungGiChecklist2026Copy } from "@/lib/news-articles/website-doanh-nghiep-can-co-nhung-gi-checklist-2026";
 import { websiteCoTrafficKhongRaKhachHangCopy } from "@/lib/news-articles/website-co-traffic-khong-ra-khach-hang";
 import { saasLaGiGiaiThichChoChuDoanhNghiepCopy } from "@/lib/news-articles/saas-la-gi-giai-thich-cho-chu-doanh-nghiep";
+import { dolphinOpsThucTheSong247Copy } from "@/lib/news-articles/dolphin-ops-thuc-the-song-24-7";
 import { websiteGioiThieuXeShowroomCopy } from "@/lib/news-articles/website-gioi-thieu-xe-showroom";
 
 export const NEWS_CATEGORIES = [
@@ -26,6 +27,7 @@ export const NEWS_CATEGORIES = [
 export type NewsCategory = (typeof NEWS_CATEGORIES)[number];
 
 export const NEWS_SLUGS = [
+  "dolphin-ops-thuc-the-song-24-7",
   "saas-la-gi-giai-thich-cho-chu-doanh-nghiep",
   "website-co-traffic-khong-ra-khach-hang",
   "website-doanh-nghiep-can-co-nhung-gi-checklist-2026",
@@ -102,6 +104,10 @@ type NewsMeta = {
 };
 
 const metaBySlug: Record<NewsSlug, NewsMeta> = {
+  "dolphin-ops-thuc-the-song-24-7": {
+    category: "product",
+    date: "2026-08-24",
+  },
   "saas-la-gi-giai-thich-cho-chu-doanh-nghiep": {
     category: "process",
     date: "2026-08-20",
@@ -177,6 +183,7 @@ const categoryImages: Record<NewsCategory, string> = {
 };
 
 const slugImages: Partial<Record<NewsSlug, string>> = {
+  "dolphin-ops-thuc-the-song-24-7": "/news/dolphin-ops-thuc-the-song-24-7.jpg",
   "saas-la-gi-giai-thich-cho-chu-doanh-nghiep":
     "/news/saas-la-gi-giai-thich-cho-chu-doanh-nghiep.jpg",
   "website-co-traffic-khong-ra-khach-hang":
@@ -215,6 +222,7 @@ export function getNewsImage(slug: NewsSlug): string {
 
 const copyByLocale: Record<Locale, Record<NewsSlug, NewsArticleCopy>> = {
   vi: {
+    "dolphin-ops-thuc-the-song-24-7": dolphinOpsThucTheSong247Copy.vi,
     "saas-la-gi-giai-thich-cho-chu-doanh-nghiep":
       saasLaGiGiaiThichChoChuDoanhNghiepCopy.vi,
     "website-co-traffic-khong-ra-khach-hang":
@@ -409,6 +417,7 @@ const copyByLocale: Record<Locale, Record<NewsSlug, NewsArticleCopy>> = {
     },
   },
   en: {
+    "dolphin-ops-thuc-the-song-24-7": dolphinOpsThucTheSong247Copy.en,
     "saas-la-gi-giai-thich-cho-chu-doanh-nghiep":
       saasLaGiGiaiThichChoChuDoanhNghiepCopy.en,
     "website-co-traffic-khong-ra-khach-hang":
@@ -531,6 +540,7 @@ const copyByLocale: Record<Locale, Record<NewsSlug, NewsArticleCopy>> = {
     },
   },
   ja: {
+    "dolphin-ops-thuc-the-song-24-7": dolphinOpsThucTheSong247Copy.ja,
     "saas-la-gi-giai-thich-cho-chu-doanh-nghiep":
       saasLaGiGiaiThichChoChuDoanhNghiepCopy.ja,
     "website-co-traffic-khong-ra-khach-hang":
