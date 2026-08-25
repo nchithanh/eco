@@ -185,6 +185,11 @@
   letter-spacing: -0.02em;
 }
 
+.demo-index__ext {
+  font-weight: 500;
+  color: #a5b4fc;
+}
+
 .demo-index__card p {
   margin: 0.45rem 0 0;
   font-size: 0.88rem;

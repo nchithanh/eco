@@ -7,7 +7,19 @@ export type DemoCatalogItem = {
   tag: string;
 };
 
+export function isExternalDemoHref(href: string): boolean {
+  return href.startsWith("https://") || href.startsWith("http://");
+}
+
 export const demoCatalog: DemoCatalogItem[] = [
+  {
+    slug: "edu",
+    href: "https://edu.dolphin-software.io.vn/",
+    title: "Dolphin Edu",
+    blurb:
+      "Dashboard vận hành trung tâm — lớp học, học viên, học phí, chuyên cần, gợi ý AI. Live demo trên subdomain (số liệu placeholder).",
+    tag: "Education",
+  },
   {
     slug: "wedding-saler",
     href: "/demos/wedding-saler/",

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { assetPath } from "@/lib/asset";
-import { demoCatalog } from "@/lib/demos/catalog";
+import { demoCatalog, isExternalDemoHref } from "@/lib/demos/catalog";
 import { buildPageMetadata } from "@/lib/seo";
 
 const path = "/demos/";
@@ -28,19 +28,47 @@ export default function DemosIndexPage() {
         </p>
         <h1>Demos</h1>
         <p className="demo-index__lead">
-          Landing minh họa theo ngành — dùng khi pitch khách. Nội dung và số liệu
-          là placeholder trừ khi ghi chú khác.
+          Landing và dashboard minh họa theo ngành — dùng khi pitch khách. Nội
+          dung và số liệu là placeholder trừ khi ghi chú khác.
         </p>
         <ul className="demo-index__list">
-          {demoCatalog.map((item) => (
-            <li key={item.slug}>
-              <Link href={assetPath(item.href)} className="demo-index__card">
+          {demoCatalog.map((item) => {
+            const external = isExternalDemoHref(item.href);
+            const body = (
+              <>
                 <span className="demo-index__tag">{item.tag}</span>
-                <h2>{item.title}</h2>
+                <h2>
+                  {item.title}
+                  {external ? (
+                    <span className="demo-index__ext" aria-hidden>
+                      {" "}
+                      ↗
+                    </span>
+                  ) : null}
+                </h2>
                 <p>{item.blurb}</p>
-              </Link>
-            </li>
-          ))}
+              </>
+            );
+            return (
+              <li key={item.slug}>
+                {external ? (
+                  <a
+                    href={item.href}
+                    className="demo-index__card"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="Mở tab mới"
+                  >
+                    {body}
+                  </a>
+                ) : (
+                  <Link href={assetPath(item.href)} className="demo-index__card">
+                    {body}
+                  </Link>
+                )}
+              </li>
+            );
+          })}
         </ul>
         <p className="demo-index__note">
           Vault bảo vệ bằng Cloudflare Worker (cookie). Trên production cần mật
