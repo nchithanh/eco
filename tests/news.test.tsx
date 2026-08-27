@@ -29,6 +29,16 @@ describe("Dolphin Software news page", () => {
     expect(screen.getByText(/^Nổi bật$/i)).toBeInTheDocument();
     expect(
       screen.getByRole("link", {
+        name: /Trung tâm nhỏ, ít người: càng nên có CRM/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("link", {
+        name: /Mai GV nghỉ — phải nhắn từng nhóm Zalo/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("link", {
         name: /SaaS là gì\? Giải thích thẳng cho chủ doanh nghiệp/i,
       }),
     ).toBeInTheDocument();
@@ -170,6 +180,68 @@ describe("Dolphin Software news page", () => {
     expect(
       screen.getByRole("button", {
         name: /Copy prompt AI trên Facebook có sao không/i,
+      }),
+    ).toBeInTheDocument();
+  });
+
+  it("renders small-center CRM leak article with FAQ", async () => {
+    const page = await NewsArticlePage({
+      params: Promise.resolve({
+        slug: "trung-tam-nho-it-nguoi-cang-nen-co-crm",
+      }),
+    });
+    render(<AppProviders>{page}</AppProviders>);
+    expect(
+      screen.getByRole("heading", {
+        level: 1,
+        name: /Trung tâm nhỏ, ít người: càng nên có CRM/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", {
+        level: 2,
+        name: /Vì sao trung tâm nhỏ lại dễ rơi học viên hơn/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", {
+        name: /Trung tâm chỉ có vài chục học viên thì có cần CRM không/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("img", {
+        name: /vừa nhắn Zalo vừa mở sổ và Excel/i,
+      }),
+    ).toBeInTheDocument();
+  });
+
+  it("renders dance-studio Excel/Zalo ops article with FAQ", async () => {
+    const page = await NewsArticlePage({
+      params: Promise.resolve({
+        slug: "mai-gv-nghi-nhan-zalo-sua-excel",
+      }),
+    });
+    render(<AppProviders>{page}</AppProviders>);
+    expect(
+      screen.getByRole("heading", {
+        level: 1,
+        name: /Mai GV nghỉ — phải nhắn từng nhóm Zalo/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", {
+        level: 2,
+        name: /Quản lý học viên trung tâm cần thấy khóa, buổi, danh sách/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", {
+        name: /Excel có đủ để quản lý học viên trung tâm không/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("img", {
+        name: /vừa nhắn Zalo vừa mở Excel/i,
       }),
     ).toBeInTheDocument();
   });
