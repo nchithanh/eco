@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { BrandName } from "@/components/BrandName";
+import { BrandMotto, BrandName } from "@/components/BrandName";
 import { BASE_PATH, assetPath } from "@/lib/asset";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
 
@@ -51,10 +51,13 @@ export function Footer() {
  <footer className="py-12 sm:py-14">
  <div className="mx-auto max-w-7xl px-6">
  <div className="flex flex-col gap-10 lg:flex-row lg:justify-between lg:gap-14">
- <p className="flex shrink-0 items-center gap-2 text-sm font-medium text-[var(--kuct-text)]">
+ <div className="flex shrink-0 flex-col gap-3">
+ <p className="flex items-center gap-2 text-sm font-medium text-[var(--kuct-text)]">
  <BrandName size="sm" />
  <span className="text-xs text-[var(--kuct-muted)]">· © 2026</span>
  </p>
+ <BrandMotto />
+ </div>
 
  <nav
  className="grid flex-1 grid-cols-2 gap-8 sm:grid-cols-4 sm:gap-6"

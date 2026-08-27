@@ -3,7 +3,7 @@
     "brand": "Dolphin Software",
     "site": "https://dolphin-software.io.vn/",
     "source": ".cursor/knowledge/",
-    "updated": "2026-08-21",
+    "updated": "2026-08-28",
     "note": "Company knowledge pack as JSON — SoT for agents; missing facts stay TODO in source markdown.",
     "schemaId": "company",
     "schemaPath": "/schema/company/",
@@ -21,6 +21,8 @@
       "Mục tiêu: giúp doanh nghiệp vận hành hiệu quả hơn bằng công nghệ."
     ],
     "displayBrand": "Dolphin Software",
+    "motto": "Dreams come true when you don't sleep",
+    "mottoNote": "English canonical; always pair with the Dolphin logo in footers and documents. Do not translate.",
     "whatWeDo": [
       "Thiết kế website theo yêu cầu",
       "Phát triển phần mềm theo yêu cầu",

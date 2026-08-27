@@ -21,6 +21,14 @@ export const demoCatalog: DemoCatalogItem[] = [
     tag: "Education",
   },
   {
+    slug: "bao-gia-crm-nhay",
+    href: "/demos/bao-gia-crm-nhay/",
+    title: "Báo giá CRM Booking — lớp nhảy",
+    blurb:
+      "Phiếu báo giá CRM booking studio nhảy — gói cố định + hạng mục tùy chọn. Tick rồi In / PDF.",
+    tag: "Quote",
+  },
+  {
     slug: "wedding-saler",
     href: "/demos/wedding-saler/",
     title: "Saler Studio Wedding",

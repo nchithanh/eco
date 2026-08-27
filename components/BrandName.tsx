@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { assetPath } from "@/lib/asset";
-import { BRAND_DISPLAY_NAME } from "@/components/Logo";
+import { BRAND_DISPLAY_NAME, BRAND_LOGO_SRC, BRAND_MOTTO } from "@/components/Logo";
 
 type BrandNameProps = {
  className?: string;
@@ -9,7 +9,7 @@ type BrandNameProps = {
  onDark?: boolean;
 };
 
-const LOGO_SRC = "/brand/logo-dolphin.webp";
+const LOGO_SRC = BRAND_LOGO_SRC;
 
 const sizeClass = {
  xs: {
@@ -136,7 +136,25 @@ export function renderMaybeBrand(
  return <BrandText {...opts}>{text}</BrandText>;
 }
 
-/** Marks accent words in copy: `[[keyword]]` → plain text (markers stripped). */
+/** Motto lockup: Dolphin logo + English motto (do not translate). */
+export function BrandMotto({ className = "" }: { className?: string }) {
+ return (
+ <p
+ className={`flex items-center gap-2 text-sm leading-snug text-[var(--kuct-muted)] ${className}`}
+ >
+ <img
+ src={assetPath(LOGO_SRC)}
+ alt=""
+ className="h-7 w-auto shrink-0 object-contain"
+ width={28}
+ height={28}
+ aria-hidden
+ />
+ <span className="italic">{BRAND_MOTTO}</span>
+ </p>
+ );
+}
+
 type AccentTextProps = {
  children: string;
  className?: string;

@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Báo giá — CRM Booking lớp nhảy · Dolphin Software</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Quicksand:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --kuct-bg: #fcfcfd;
+        --kuct-surface: #ffffff;
+        --kuct-accent: #6b56d6;
+        --kuct-accent-2: #5644b8;
+        --kuct-accent-3: #9b8ce8;
+        --kuct-text: #1a1625;
+        --kuct-muted: #5c5668;
+        --kuct-border: rgba(26, 22, 37, 0.08);
+        --kuct-shadow: 0 8px 24px rgb(26 22 37 / 0.05);
+        --kuct-btn-from: #5644b8;
+        --kuct-btn-mid: #6b56d6;
+        --kuct-btn-to: #7d6ce0;
+        --kuct-menu-hover: #f4f3f8;
+        --kuct-panel: #f5f4f8;
+        --bg: var(--kuct-bg);
+        --surface: var(--kuct-surface);
+        --accent: var(--kuct-accent);
+        --accent-2: var(--kuct-accent-2);
+        --text: var(--kuct-text);
+        --muted: var(--kuct-muted);
+        --border: var(--kuct-border);
+        --ok: #1b7a4a;
+        --warn: #8a5a12;
+        --font: Quicksand, "Noto Sans", system-ui, sans-serif;
+        --font-serif: "Instrument Serif", Georgia, serif;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: var(--font);
+        font-weight: 500;
+        letter-spacing: 0.005em;
+        background: var(--kuct-bg);
+        color: var(--kuct-text);
+        line-height: 1.65;
+      }
+      .wrap {
+        max-width: 76rem;
+        margin: 0 auto;
+        padding: 1.5rem 1.25rem 4rem;
+      }
+      .table-scroll {
+        overflow-x: auto;
+      }
+      header {
+        display: flex;
+        justify-content: space-between;
+        gap: 1.5rem;
+        align-items: flex-start;
+        border-bottom: 1px solid var(--kuct-border);
+        padding-bottom: 1.25rem;
+        margin-bottom: 1.35rem;
+      }
+      .brand-lockup {
+        display: flex;
+        align-items: center;
+        gap: 0.65rem;
+        margin-bottom: 0.85rem;
+      }
+      .brand-logo {
+        height: 2.5rem;
+        width: auto;
+        object-fit: contain;
+      }
+      .brand-word {
+        margin: 0;
+        font-family: var(--font);
+        font-size: 1.125rem;
+        font-weight: 700;
+        letter-spacing: -0.025em;
+        line-height: 1;
+        color: var(--kuct-text);
+      }
+      .brand-tag {
+        margin: 0.28rem 0 0;
+        font-size: 0.625rem;
+        font-weight: 500;
+        letter-spacing: 0.34em;
+        text-transform: uppercase;
+        color: var(--kuct-muted);
+      }
+      .eyebrow {
+        margin: 0 0 0.4rem;
+        font-size: 0.6875rem;
+        font-weight: 600;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--kuct-accent);
+      }
+      h1 {
+        font-family: var(--font);
+        font-size: 1.65rem;
+        margin: 0 0 0.45rem;
+        font-weight: 600;
+        letter-spacing: -0.03em;
+        line-height: 1.12;
+        color: var(--kuct-text);
+      }
+      .en {
+        display: block;
+        font-weight: 400;
+        font-size: 0.72rem;
+        color: var(--muted);
+        margin-top: 0.12rem;
+      }
+      th .en,
+      h2 .en,
+      td.num .en {
+        font-size: 0.65rem;
+        text-transform: none;
+        letter-spacing: 0;
+      }
+      .contact {
+        font-size: 0.85rem;
+        line-height: 1.5;
+        color: var(--kuct-text);
+      }
+      .contact a {
+        color: var(--kuct-accent-2);
+        text-decoration: none;
+        font-weight: 600;
+      }
+      .price-note {
+        display: block;
+        font-size: 0.68rem;
+        font-weight: 400;
+        color: var(--muted);
+        white-space: normal;
+        margin-top: 0.2rem;
+        text-align: right;
+      }
+      .meta {
+        display: grid;
+        gap: 0.4rem;
+        min-width: 14rem;
+      }
+      label.field {
+        display: grid;
+        gap: 0.2rem;
+        font-size: 0.6875rem;
+        font-weight: 600;
+        color: var(--kuct-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+      }
+      label.field .en {
+        text-transform: none;
+        letter-spacing: 0;
+      }
+      input.plain,
+      textarea.plain {
+        font: inherit;
+        font-weight: 500;
+        color: var(--kuct-text);
+        border: 1px solid var(--kuct-border);
+        border-radius: 10px;
+        padding: 0.5rem 0.7rem;
+        background: var(--kuct-surface);
+        box-shadow: var(--kuct-shadow);
+      }
+      input.plain:focus,
+      textarea.plain:focus {
+        outline: 2px solid color-mix(in srgb, var(--kuct-accent) 40%, transparent);
+        outline-offset: 1px;
+      }
+      textarea.plain {
+        min-height: 4.5rem;
+        width: 100%;
+        resize: vertical;
+      }
+      h2 {
+        font-family: var(--font);
+        font-size: 1.15rem;
+        margin: 1.75rem 0 0.7rem;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+        line-height: 1.15;
+        color: var(--kuct-text);
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        background: var(--kuct-surface);
+        border: 1px solid var(--kuct-border);
+        border-radius: 10px;
+        overflow: hidden;
+        font-size: 0.88rem;
+        box-shadow: var(--kuct-shadow);
+      }
+      th,
+      td {
+        padding: 0.65rem 0.8rem;
+        border-bottom: 1px solid var(--kuct-border);
+        vertical-align: top;
+        text-align: left;
+      }
+      th {
+        background: var(--kuct-panel);
+        font-size: 0.6875rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: var(--kuct-muted);
+        font-weight: 600;
+      }
+      tr:last-child td {
+        border-bottom: 0;
+      }
+      #extras tr.is-selected td {
+        background: color-mix(in srgb, var(--kuct-accent) 5%, var(--kuct-surface));
+      }
+      .num {
+        text-align: right;
+        font-variant-numeric: tabular-nums;
+        white-space: nowrap;
+      }
+      .inc {
+        color: var(--ok);
+        font-weight: 600;
+        font-size: 0.78rem;
+      }
+      .exc {
+        color: var(--warn);
+        font-weight: 600;
+        font-size: 0.78rem;
+      }
+      ul.incl {
+        margin: 0.35rem 0 0;
+        padding-left: 1.1rem;
+        color: var(--muted);
+        font-size: 0.82rem;
+      }
+      ol.benefits {
+        margin: 0;
+        padding: 1rem 1rem 1rem 2.15rem;
+        background: var(--kuct-surface);
+        border: 1px solid var(--kuct-border);
+        border-radius: 10px;
+        box-shadow: var(--kuct-shadow);
+        font-size: 0.88rem;
+      }
+      ol.benefits li {
+        margin: 0.35rem 0;
+      }
+      ol.benefits li + li {
+        margin-top: 0.5rem;
+      }
+      .price-input {
+        width: 6.5rem;
+        text-align: right;
+        font: inherit;
+        font-variant-numeric: tabular-nums;
+        border: 0;
+        border-radius: 0;
+        padding: 0;
+        background: transparent;
+        color: inherit;
+        pointer-events: none;
+        cursor: default;
+      }
+      .muted-num {
+        color: var(--kuct-muted);
+        font-size: 0.78rem;
+      }
+      .toolbar {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        margin: 1rem 0;
+      }
+      button {
+        font-family: var(--font);
+        font-weight: 600;
+        font-size: 0.85rem;
+        letter-spacing: -0.01em;
+        border: 0;
+        border-radius: 10px;
+        padding: 0.55rem 1rem;
+        cursor: pointer;
+        color: #fff;
+        background: linear-gradient(
+          135deg,
+          var(--kuct-btn-from),
+          var(--kuct-btn-mid),
+          var(--kuct-btn-to)
+        );
+        box-shadow: var(--kuct-shadow);
+      }
+      button.ghost {
+        background: var(--kuct-surface);
+        color: var(--kuct-text);
+        border: 1px solid var(--kuct-border);
+        box-shadow: none;
+      }
+      button.ghost:hover {
+        background: var(--kuct-menu-hover);
+      }
+      table.totals-table tbody td {
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--kuct-accent-2);
+        padding: 0.8rem 0.8rem;
+      }
+      table.totals-table tbody td:first-child {
+        color: var(--kuct-text);
+        font-weight: 650;
+        text-align: left;
+      }
+      table.totals-table tbody tr.subtotal td {
+        font-size: 0.88rem;
+        font-weight: 600;
+        color: var(--kuct-text);
+      }
+      table.totals-table tbody tr.discount td {
+        font-size: 0.88rem;
+        font-weight: 600;
+        color: var(--ok);
+      }
+      table.totals-table tbody tr.discount td:first-child,
+      table.totals-table tbody tr.subtotal td:first-child {
+        color: var(--kuct-muted);
+        font-weight: 600;
+      }
+      table.totals-table tbody tr.due td {
+        background: var(--kuct-panel);
+      }
+      .note {
+        font-size: 0.8rem;
+        color: var(--kuct-muted);
+        margin-top: 0.75rem;
+      }
+      footer {
+        margin-top: 2rem;
+        padding-top: 1.25rem;
+        border-top: 1px solid var(--kuct-border);
+        font-size: 0.8rem;
+        color: var(--kuct-muted);
+      }
+      .motto {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin: 0 0 0.75rem;
+        font-size: 0.9rem;
+        line-height: 1.4;
+        color: var(--kuct-muted);
+      }
+      .motto img {
+        height: 1.75rem;
+        width: auto;
+        object-fit: contain;
+      }
+      .motto-text {
+        font-family: var(--font-serif);
+        font-style: italic;
+        font-weight: 400;
+        letter-spacing: 0;
+        color: var(--kuct-text);
+      }
+      @media print {
+        body {
+          background: #fff;
+        }
+        .toolbar,
+        .no-print {
+          display: none !important;
+        }
+        .wrap {
+          max-width: none;
+          padding: 0;
+        }
+        table,
+        ol.benefits,
+        input.plain,
+        textarea.plain {
+          box-shadow: none;
+        }
+        .price-input {
+          border: 0;
+          padding: 0;
+        }
+        input.plain,
+        textarea.plain {
+          border: 0;
+          padding: 0;
+        }
+        a {
+          color: inherit;
+          text-decoration: none;
+        }
+        table {
+          font-size: 0.75rem;
+        }
+        .price-input {
+          width: auto;
+        }
+        #extras tr[data-key]:not(.is-selected) {
+          display: none !important;
+        }
+        .print-empty {
+          display: none !important;
+        }
+      }
+      @media (max-width: 40rem) {
+        header {
+          flex-direction: column;
+        }
+        .meta {
+          min-width: 0;
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <div>
+          <div class="brand-lockup">
+            <img
+              class="brand-logo"
+              src="/brand/logo-dolphin.webp"
+              alt=""
+              width="40"
+              height="40"
+            />
+            <div>
+              <p class="brand-word">Dolphin Software</p>
+              <p class="brand-tag">Since 2026</p>
+            </div>
+          </div>
+          <p class="eyebrow">Báo giá / Quote</p>
+          <h1>
+            Báo giá CRM Booking — lớp dạy nhảy
+            <span class="en">Dance class CRM Booking quote</span>
+          </h1>
+          <div class="contact">
+            Nguyễn Chí Thành
+            <br />
+            <a href="tel:0779937633">0779937633</a>
+            <span class="en">Prepared by / Contact</span>
+          </div>
+        </div>
+        <div class="meta">
+          <label class="field"
+            >Khách hàng
+            <span class="en">Client</span>
+            <input class="plain" id="client" placeholder="Tên trung tâm / Studio name" />
+          </label>
+          <label class="field"
+            >Ngày
+            <span class="en">Date</span>
+            <input class="plain" id="quoteDate" type="date" />
+          </label>
+        </div>
+      </header>
+
+      <div class="toolbar no-print">
+        <button type="button" id="btnPrint">In / PDF</button>
+        <button type="button" class="ghost" id="btnReset">Xóa giá đã điền</button>
+      </div>
+
+      <h2>
+        A. Hạng mục trong gói
+        <span class="en">Included</span>
+      </h2>
+      <div class="table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>Hạng mục<span class="en">Item</span></th>
+            <th>Phạm vi<span class="en">Scope</span></th>
+            <th class="num">Thời hạn<span class="en">Term</span></th>
+            <th class="num">Giá 1 lần<span class="en">One-time</span></th>
+            <th class="num">Giá / tháng<span class="en">Monthly</span></th>
+            <th class="num">Giá / năm<span class="en">Yearly</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <strong>CRM Booking lớp nhảy</strong>
+              <span class="en">Dance class booking CRM</span>
+              <ul class="incl">
+                <li>Khóa học, lịch tuần, buổi, bảo lưu<span class="en">Courses, weekly schedule, sessions, freeze</span></li>
+                <li>Hồ sơ học viên, ghi danh vào khóa<span class="en">Students and enrollment</span></li>
+                <li>Giáo viên, gán khóa / buổi<span class="en">Teachers assigned to courses / sessions</span></li>
+                <li>Phân quyền xem / sửa trên CRM<span class="en">Role-based access</span></li>
+                <li>Điểm danh QR bằng điện thoại<span class="en">QR attendance on phone</span></li>
+                <li>Khuyến mãi<span class="en">Promotions</span></li>
+                <li>Thông báo Zalo và email<span class="en">Zalo and email notifications</span></li>
+                <li>Không giới hạn số lượng user<span class="en">Unlimited users</span></li>
+                <li>Quản lý đa chi nhánh<span class="en">Multi-branch</span></li>
+              </ul>
+            </td>
+            <td>Vận hành trung tâm<span class="en">Studio operations</span></td>
+            <td class="num">Theo kỳ<span class="en">Subscription</span></td>
+            <td class="num muted-num">—</td>
+            <td class="num">500.000đ</td>
+            <td class="num">
+              5.000.000đ
+              <span class="price-note">500.000đ × 12 = 6.000.000đ, giảm còn 5.000.000đ / năm<span class="en">500,000 × 12 = 6,000,000, discounted to 5,000,000 / year</span></span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <strong>Website hoàn chỉnh</strong>
+              <span class="en">Complete website</span>
+              <ul class="incl">
+                <li>Đăng ký học trên website<span class="en">Class registration on the site</span></li>
+                <li>Admin sửa ảnh, nội dung, YouTube<span class="en">Admin: photos, copy, YouTube</span></li>
+                <li>SEO nền: meta, cấu trúc, mobile<span class="en">Baseline SEO: meta, structure, mobile</span></li>
+                <li>Đăng nhập Facebook, Google, hoặc user / mật khẩu<span class="en">Login via Facebook, Google, or account</span></li>
+              </ul>
+            </td>
+            <td>Website hoàn chỉnh<span class="en">Full website</span></td>
+            <td class="num">Bàn giao<span class="en">Handover</span></td>
+            <td class="num">5.000.000đ</td>
+            <td class="num muted-num">—</td>
+            <td class="num muted-num">—</td>
+          </tr>
+          <tr>
+            <td>
+              <strong>Phí tên miền nhà nước</strong>
+              <span class="en">National domain fee</span>
+              <ul class="incl">
+                <li>Lệ phí đăng ký / duy trì qua VNNIC. Hosting do Dolphin cung cấp miễn phí.<span class="en">VNNIC domain fee. Hosting is included free by Dolphin.</span></li>
+              </ul>
+            </td>
+            <td>Tên miền<span class="en">Domain</span></td>
+            <td class="num">Theo kỳ tên miền<span class="en">Per domain term</span></td>
+            <td class="num muted-num">—</td>
+            <td class="num muted-num">—</td>
+            <td class="num">550.000đ</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+
+      <div id="sectionExtras">
+      <h2>
+        B. Hạng mục tùy chọn
+        <span class="en">Optional add-ons</span>
+      </h2>
+      <p class="note no-print">
+        Tick mục khách chọn rồi In / PDF. Dòng chưa tick sẽ ẩn trên file gửi khách.
+      </p>
+      <div class="table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th class="no-print">Chọn</th>
+            <th>Hạng mục<span class="en">Item</span></th>
+            <th>Phạm vi<span class="en">Scope</span></th>
+            <th class="num">Giá 1 lần<span class="en">One-time</span></th>
+            <th class="num">Giá / tháng<span class="en">Monthly</span></th>
+            <th class="num">Giá / năm<span class="en">Yearly</span></th>
+          </tr>
+        </thead>
+        <tbody id="extras">
+          <tr data-key="payment" data-once-item="1">
+            <td class="no-print"><input type="checkbox" class="pick" /></td>
+            <td>
+              <strong>Thanh toán</strong>
+              <span class="en">Payment</span>
+            </td>
+            <td>Tích hợp thanh toán tự động<span class="en">Automated payment integration</span></td>
+            <td class="num">
+              <input class="price-input" readonly tabindex="-1" data-period="once" inputmode="numeric" placeholder="0" />
+            </td>
+            <td class="num">
+              <input class="price-input" readonly tabindex="-1" data-period="month" inputmode="numeric" placeholder="—" />
+            </td>
+            <td class="num">
+              <input class="price-input" readonly tabindex="-1" data-period="year" inputmode="numeric" placeholder="—" />
+            </td>
+          </tr>
+          <tr data-key="booking-room" data-once-item="1">
+            <td class="no-print"><input type="checkbox" class="pick" /></td>
+            <td>
+              <strong>Đặt phòng tập</strong>
+              <span class="en">Room booking</span>
+            </td>
+            <td>Đặt / quản lý phòng tập, gán lớp vào phòng, tránh trùng lịch<span class="en">Book and assign rooms; avoid clashes</span></td>
+            <td class="num">
+              <input class="price-input" readonly tabindex="-1" data-period="once" inputmode="numeric" placeholder="0" />
+            </td>
+            <td class="num">
+              <input class="price-input" readonly tabindex="-1" data-period="month" inputmode="numeric" placeholder="—" />
+            </td>
+            <td class="num">
+              <input class="price-input" readonly tabindex="-1" data-period="year" inputmode="numeric" placeholder="—" />
+            </td>
+          </tr>
+          <tr data-key="content-daily">
+            <td class="no-print"><input type="checkbox" class="pick" /></td>
+            <td>
+              <strong>Content — AI tạo bài post hàng ngày (website + Facebook + Instagram)</strong>
+              <span class="en">Daily AI posts for website, Facebook, Instagram</span>
+            </td>
+            <td>Từ ảnh / video + tiêu đề + mô tả ngắn → AI tạo bài và đăng<span class="en">From photo/video + title + short caption → AI writes and publishes</span></td>
+            <td class="num">
+              <input class="price-input" readonly tabindex="-1" data-period="once" inputmode="numeric" placeholder="—" />
+            </td>
+            <td class="num">
+              <input class="price-input" readonly tabindex="-1" data-period="month" inputmode="numeric" placeholder="0" />
+            </td>
+            <td class="num">
+              <input class="price-input" readonly tabindex="-1" data-period="year" inputmode="numeric" placeholder="0" />
+            </td>
+          </tr>
+          <tr data-key="care">
+            <td class="no-print"><input type="checkbox" class="pick" /></td>
+            <td>
+              <strong>Chatbot AI — Dolphin Care</strong>
+              <span class="en">Dolphin Care AI chatbot</span>
+            </td>
+            <td>Chăm sóc, giải đáp khách trên website<span class="en">Visitor Q&amp;A on the website</span></td>
+            <td class="num">
+              <input class="price-input" readonly tabindex="-1" data-period="once" inputmode="numeric" placeholder="—" />
+            </td>
+            <td class="num">
+              <input class="price-input" readonly tabindex="-1" data-period="month" inputmode="numeric" placeholder="0" />
+            </td>
+            <td class="num">
+              <input class="price-input" readonly tabindex="-1" data-period="year" inputmode="numeric" placeholder="0" />
+            </td>
+          </tr>
+          <tr data-key="crm-chat-basic">
+            <td class="no-print"><input type="checkbox" class="pick" /></td>
+            <td>
+              <strong>Chatbot AI CRM — gói 1: chat cơ bản</strong>
+              <span class="en">CRM AI chat pack 1: basic</span>
+            </td>
+            <td>Hỏi đáp / điều hướng trên màn CRM (khóa, học viên, GV)<span class="en">Q&amp;A and navigation in CRM screens</span></td>
+            <td class="num">
+              <input class="price-input" readonly tabindex="-1" data-period="once" inputmode="numeric" placeholder="—" />
+            </td>
+            <td class="num">
+              <input class="price-input" readonly tabindex="-1" data-period="month" inputmode="numeric" placeholder="0" />
+            </td>
+            <td class="num">
+              <input class="price-input" readonly tabindex="-1" data-period="year" inputmode="numeric" placeholder="0" />
+            </td>
+          </tr>
+          <tr data-key="crm-chat-fast">
+            <td class="no-print"><input type="checkbox" class="pick" /></td>
+            <td>
+              <strong>Chatbot AI CRM — gói 2: chat nhanh tính năng</strong>
+              <span class="en">CRM AI chat pack 2: quick actions</span>
+            </td>
+            <td>Nói việc → mở form / thao tác nhanh (ghi danh, hủy buổi…)<span class="en">Speak a task → open the matching form</span></td>
+            <td class="num">
+              <input class="price-input" readonly tabindex="-1" data-period="once" inputmode="numeric" placeholder="—" />
+            </td>
+            <td class="num">
+              <input class="price-input" readonly tabindex="-1" data-period="month" inputmode="numeric" placeholder="0" />
+            </td>
+            <td class="num">
+              <input class="price-input" readonly tabindex="-1" data-period="year" inputmode="numeric" placeholder="0" />
+            </td>
+          </tr>
+          <tr data-key="crm-chat-247">
+            <td class="no-print"><input type="checkbox" class="pick" /></td>
+            <td>
+              <strong>Chatbot AI CRM — gói 3: trợ lý theo dõi 24/7</strong>
+              <span class="en">CRM AI chat pack 3: 24/7 assistant</span>
+            </td>
+            <td>Canh lệch lịch / buổi, gợi ý xử lý; việc nhạy chờ người duyệt<span class="en">Watch schedule gaps; sensitive actions wait for approval</span></td>
+            <td class="num">
+              <input class="price-input" readonly tabindex="-1" data-period="once" inputmode="numeric" placeholder="—" />
+            </td>
+            <td class="num">
+              <input class="price-input" readonly tabindex="-1" data-period="month" inputmode="numeric" placeholder="0" />
+            </td>
+            <td class="num">
+              <input class="price-input" readonly tabindex="-1" data-period="year" inputmode="numeric" placeholder="0" />
+            </td>
+          </tr>
+          <tr data-key="ecom" data-once-item="1">
+            <td class="no-print"><input type="checkbox" class="pick" /></td>
+            <td>
+              <strong>Website ecommerce cơ bản</strong>
+              <span class="en">Basic ecommerce website</span>
+            </td>
+            <td>Catalog, giỏ hàng, thanh toán cơ bản — tách khỏi website hoàn chỉnh 5tr<span class="en">Catalog, cart, basic checkout — separate from the 5M website</span></td>
+            <td class="num">
+              <input class="price-input" readonly tabindex="-1" data-period="once" inputmode="numeric" placeholder="0" />
+            </td>
+            <td class="num">
+              <input class="price-input" readonly tabindex="-1" data-period="month" inputmode="numeric" placeholder="—" />
+            </td>
+            <td class="num">
+              <input class="price-input" readonly tabindex="-1" data-period="year" inputmode="numeric" placeholder="—" />
+            </td>
+          </tr>
+          <tr data-key="app-hv-gv" data-once-item="1">
+            <td class="no-print"><input type="checkbox" class="pick" /></td>
+            <td>
+              <strong>Website / app chuyên biệt học viên &amp; giáo viên</strong>
+              <span class="en">Student &amp; teacher portal</span>
+            </td>
+            <td>Cổng học viên / giáo viên (xem lịch, điểm danh phía họ)<span class="en">Portal to view schedule and attendance</span></td>
+            <td class="num">
+              <input class="price-input" readonly tabindex="-1" data-period="once" inputmode="numeric" placeholder="0" />
+            </td>
+            <td class="num">
+              <input class="price-input" readonly tabindex="-1" data-period="month" inputmode="numeric" placeholder="—" />
+            </td>
+            <td class="num">
+              <input class="price-input" readonly tabindex="-1" data-period="year" inputmode="numeric" placeholder="—" />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+      </div>
+
+      <h2>
+        Tổng
+        <span class="en">Total</span>
+      </h2>
+      <div class="table-scroll">
+      <table class="totals-table">
+        <thead>
+          <tr>
+            <th>Hạng mục<span class="en">Item</span></th>
+            <th class="num">Giá 1 lần<span class="en">One-time</span></th>
+            <th class="num">Trả hàng tháng<span class="en">Monthly</span></th>
+            <th class="num">Trả hàng năm<span class="en">Yearly</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="subtotal">
+            <td>Tổng<span class="en">Subtotal</span></td>
+            <td class="num" id="sumOnce">5.000.000đ</td>
+            <td class="num" id="sumMonth">0đ</td>
+            <td class="num" id="sumYear">5.550.000đ</td>
+          </tr>
+          <tr class="discount" id="rowDiscount">
+            <td>
+              Giảm 10% (khi giá 1 lần + trả năm trên 10.000.000đ)
+              <span class="en">10% off when one-time + yearly exceed 10,000,000đ</span>
+            </td>
+            <td class="num" id="discOnce">−500.000đ</td>
+            <td class="num" id="discMonth">—</td>
+            <td class="num" id="discYear">−555.000đ</td>
+          </tr>
+          <tr class="due">
+            <td>Thành tiền<span class="en">Amount due</span></td>
+            <td class="num" id="dueOnce">4.500.000đ</td>
+            <td class="num" id="dueMonth">0đ</td>
+            <td class="num" id="dueYear">4.995.000đ</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+
+      <h2>
+        Quyền lợi đi kèm
+        <span class="en">Included benefits</span>
+      </h2>
+      <ol class="benefits">
+        <li>
+          Hosting miễn phí vô hạn.
+          <span class="en">Unlimited free hosting.</span>
+        </li>
+        <li>
+          Bảo hành website 36 tháng (hỗ trợ chỉnh sửa, nâng cấp miễn phí cơ bản).
+          <span class="en">36-month website warranty (free basic edits and upgrades).</span>
+        </li>
+        <li>
+          Đối với AI: hỗ trợ điều chỉnh thông tin trả lời miễn phí.
+          <span class="en">AI: free updates to answer content.</span>
+        </li>
+        <li>
+          Cam kết duy trì sự ổn định phần mềm; hỗ trợ bất kỳ giờ nào, luôn có đội
+          ngũ giữ hệ thống ổn định.
+          <span class="en">Software stability; support at any hour, with a team always keeping the system running.</span>
+        </li>
+        <li>
+          Cam kết bảo mật thông tin khách hàng.
+          <span class="en">Customer data confidentiality.</span>
+        </li>
+        <li>
+          Đào tạo bàn giao: hướng dẫn chủ / nhân viên dùng website và CRM.
+          <span class="en">Handover training for owners and staff on the website and CRM.</span>
+        </li>
+        <li>
+          Sao lưu dữ liệu định kỳ; sự cố thì khôi phục.
+          <span class="en">Periodic backups; restore if something goes wrong.</span>
+        </li>
+        <li>
+          Hỗ trợ Zalo trực tiếp — Nguyễn Chí Thành, 0779937633.
+          <span class="en">Direct Zalo support — Nguyễn Chí Thành, 0779937633.</span>
+        </li>
+        <li>
+          Xuất dữ liệu khi dừng hợp đồng (học viên, khóa, lịch) — không giữ data.
+          <span class="en">Data export on contract end (students, courses, schedule) — no lock-in.</span>
+        </li>
+        <li>
+          Luôn cập nhật, hỗ trợ tối ưu quy trình theo xu hướng thế giới.
+          <span class="en">Ongoing updates to optimize workflows with global best practice.</span>
+        </li>
+        <li>
+          Tặng voucher hoàn 30% không giới hạn khi giới thiệu khách mới cho Dolphin.
+          <span class="en">Unlimited 30% refund voucher for referring new clients to Dolphin.</span>
+        </li>
+      </ol>
+
+      <h2>
+        Ghi chú
+        <span class="en">Notes</span>
+      </h2>
+      <label class="field" style="text-transform: none; letter-spacing: 0"
+        ><span class="no-print">Nội dung thêm trên báo giá / Extra notes</span>
+        <textarea class="plain" id="notes" placeholder="Bàn giao, điều khoản…"></textarea>
+      </label>
+
+      <footer>
+        <p class="motto">
+          <img
+            src="/brand/logo-dolphin.webp"
+            alt=""
+            width="28"
+            height="28"
+          />
+          <span class="motto-text">Dreams come true when you don't sleep</span>
+        </p>
+        Dolphin Software · dolphin-software.io.vn · Nguyễn Chí Thành ·
+        0779937633
+        <br />
+        Website thanh toán một lần. CRM: 500.000đ / tháng hoặc 5.000.000đ / năm
+        (đã giảm từ 6.000.000đ). Tên miền theo kỳ VNNIC.
+        <span class="en">Website is one-time. CRM is 500,000 / month or 5,000,000 / year (discounted from 6,000,000). Domain billed per VNNIC term.</span>
+      </footer>
+    </div>
+    <script>
+      const STORAGE = "dolphin-quote-crm-nhay-20260827c";
+      const STORAGE_KEYS_OLD = [
+        "dolphin-quote-crm-nhay-20260827b",
+        "dolphin-quote-crm-nhay-20260827",
+      ];
+      const ONCE_KEYS = new Set(["payment", "booking-room", "ecom", "app-hv-gv"]);
+      const FIXED_ONCE = 5_000_000;
+      const FIXED_MONTH = 0;
+      const FIXED_YEAR = 5_000_000 + 550_000;
+
+      const DISCOUNT_RATE = 0.1;
+      const DISCOUNT_OVER = 10_000_000;
+
+      function parseVnd(raw) {
+        const n = String(raw || "").replace(/[^\d]/g, "");
+        return n ? Number(n) : 0;
+      }
+      function formatVnd(n) {
+        return n.toLocaleString("vi-VN") + "đ";
+      }
+      function formatInput(el) {
+        const n = parseVnd(el.value);
+        el.value = n ? n.toLocaleString("vi-VN") : "";
+      }
+      function setInput(el, n) {
+        el.value = n ? Number(n).toLocaleString("vi-VN") : "";
+      }
+
+      function extrasState() {
+        return [...document.querySelectorAll("#extras tr[data-key]")].map((tr) => ({
+          key: tr.dataset.key,
+          on: tr.querySelector(".pick").checked,
+          once: parseVnd(tr.querySelector('[data-period="once"]').value),
+          month: parseVnd(tr.querySelector('[data-period="month"]').value),
+          year: parseVnd(tr.querySelector('[data-period="year"]').value),
+        }));
+      }
+
+      function sumExtra(period) {
+        return extrasState().reduce((s, r) => {
+          const n = r[period];
+          return r.on && n ? s + n : s;
+        }, 0);
+      }
+
+      function syncPrint() {
+        let any = false;
+        document.querySelectorAll("#extras tr[data-key]").forEach((tr) => {
+          const on = tr.querySelector(".pick").checked;
+          tr.classList.toggle("is-selected", on);
+          if (on) any = true;
+        });
+        const section = document.getElementById("sectionExtras");
+        if (section) section.classList.toggle("print-empty", !any);
+      }
+
+      function formatVndOff(n) {
+        if (!n) return "—";
+        return "−" + n.toLocaleString("vi-VN") + "đ";
+      }
+
+      function render() {
+        const once = FIXED_ONCE + sumExtra("once");
+        const month = FIXED_MONTH + sumExtra("month");
+        const year = FIXED_YEAR + sumExtra("year");
+        const on = once + year > DISCOUNT_OVER;
+        const offOnce = on ? Math.round(once * DISCOUNT_RATE) : 0;
+        const offMonth = on ? Math.round(month * DISCOUNT_RATE) : 0;
+        const offYear = on ? Math.round(year * DISCOUNT_RATE) : 0;
+        document.getElementById("sumOnce").textContent = formatVnd(once);
+        document.getElementById("sumMonth").textContent = formatVnd(month);
+        document.getElementById("sumYear").textContent = formatVnd(year);
+        document.getElementById("discOnce").textContent = formatVndOff(offOnce);
+        document.getElementById("discMonth").textContent = formatVndOff(offMonth);
+        document.getElementById("discYear").textContent = formatVndOff(offYear);
+        document.getElementById("dueOnce").textContent = formatVnd(once - offOnce);
+        document.getElementById("dueMonth").textContent = formatVnd(month - offMonth);
+        document.getElementById("dueYear").textContent = formatVnd(year - offYear);
+        document.getElementById("rowDiscount").hidden = !on;
+        syncPrint();
+      }
+
+      function save() {
+        const data = {
+          client: document.getElementById("client").value,
+          quoteDate: document.getElementById("quoteDate").value,
+          notes: document.getElementById("notes").value,
+          extras: extrasState(),
+        };
+        localStorage.setItem(STORAGE, JSON.stringify(data));
+      }
+
+      function migrateRow(r) {
+        const legacy = Number(r.price) || 0;
+        let once = Number(r.once) || 0;
+        let month = Number(r.month) || 0;
+        let year = Number(r.year) || 0;
+        if (ONCE_KEYS.has(r.key)) {
+          if (!once) once = year || legacy;
+          if (r.once == null && (year || legacy)) year = 0;
+        } else if (!year) {
+          year = legacy;
+        }
+        return { once, month, year };
+      }
+
+      function applyExtras(list) {
+        (list || []).forEach((r) => {
+          const tr = document.querySelector(`#extras tr[data-key="${r.key}"]`);
+          if (!tr) return;
+          tr.querySelector(".pick").checked = !!r.on;
+          const { once, month, year } = migrateRow(r);
+          setInput(tr.querySelector('[data-period="once"]'), once);
+          setInput(tr.querySelector('[data-period="month"]'), month);
+          setInput(tr.querySelector('[data-period="year"]'), year);
+        });
+      }
+
+      function load() {
+        const dateEl = document.getElementById("quoteDate");
+        if (!dateEl.value) dateEl.value = new Date().toISOString().slice(0, 10);
+        try {
+          let data = JSON.parse(localStorage.getItem(STORAGE) || "null");
+          if (!data) {
+            for (const key of STORAGE_KEYS_OLD) {
+              data = JSON.parse(localStorage.getItem(key) || "null");
+              if (data) break;
+            }
+          }
+          if (!data) return;
+          document.getElementById("client").value = data.client || "";
+          if (data.quoteDate) dateEl.value = data.quoteDate;
+          document.getElementById("notes").value = data.notes || "";
+          applyExtras(data.extras);
+        } catch (_) {}
+      }
+
+      document.querySelectorAll(".price-input").forEach((el) => {
+        el.addEventListener("blur", () => {
+          formatInput(el);
+          save();
+          render();
+        });
+        el.addEventListener("input", () => {
+          save();
+          render();
+        });
+      });
+      document.querySelectorAll(".pick").forEach((el) => {
+        el.addEventListener("change", () => {
+          save();
+          render();
+        });
+      });
+      ["client", "quoteDate", "notes"].forEach((id) => {
+        document.getElementById(id).addEventListener("input", save);
+        document.getElementById(id).addEventListener("change", save);
+      });
+      document.getElementById("btnPrint").addEventListener("click", () => window.print());
+      document.getElementById("btnReset").addEventListener("click", () => {
+        localStorage.removeItem(STORAGE);
+        STORAGE_KEYS_OLD.forEach((k) => localStorage.removeItem(k));
+        document.querySelectorAll(".price-input").forEach((el) => {
+          el.value = "";
+        });
+        document.querySelectorAll(".pick").forEach((el) => {
+          el.checked = false;
+        });
+        document.getElementById("notes").value = "";
+        render();
+      });
+
+      load();
+      render();
+    </script>
+  </body>
+</html>

@@ -2,6 +2,9 @@ import { assetPath } from "@/lib/asset";
 
 export const BRAND_DISPLAY_NAME = "Dolphin Software";
 export const BRAND_TAGLINE = "Since 2026";
+/** Canonical motto — English, do not translate. Pair with the Dolphin logo. */
+export const BRAND_MOTTO = "Dreams come true when you don't sleep";
+export const BRAND_LOGO_SRC = "/brand/logo-dolphin.webp";
 
 type LogoProps = {
  className?: string;
@@ -13,7 +16,7 @@ type LogoProps = {
  wordmarkTaglineClassName?: string;
 };
 
-const LOGO_SRC = "/brand/logo-dolphin.webp";
+const LOGO_SRC = BRAND_LOGO_SRC;
 
 const defaultImageClass = "h-9 w-auto sm:h-10";
 const defaultWordmarkClass =
