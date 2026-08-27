@@ -492,6 +492,7 @@ export type Dictionary = {
     groupStudio: string;
     groupUpdates: string;
     groupConnect: string;
+    privacy: string;
   };
   loader: {
     aria: string;
@@ -507,6 +508,7 @@ export type Dictionary = {
     open: string;
     close: string;
     zalo: string;
+    messenger: string;
     phone: string;
     email: string;
   };

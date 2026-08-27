@@ -194,7 +194,7 @@ const vi: AiChatCopy = {
     "Ví dụ nhanh 💡 Studio cưới cần khách xem váy online trước khi đến: làm **website** catalog + form tư vấn (thường gói business / shop tùy scope). Campaign ra mắt dịch vụ mới: **landing** 3–5 ngày, CTA + form lead. Anh/chị đang nghiêng website giới thiệu, bán hàng, hay landing?",
   exampleGeneric:
     "Ví dụ em có thể kể: (1) **Dolphin Care** — chatbot site 24/7 + insight; (2) **Dolphin Ops** — nói việc, mở đúng màn vận hành; (3) **website** SMB. Anh/chị muốn ví dụ theo hướng nào?",
-  escalateHint: "Cần người thật? Bấm nút liên hệ góc dưới (Zalo / gọi / email).",
+  escalateHint: "Cần người thật? Bấm nút liên hệ góc dưới (Zalo / Messenger / gọi / email).",
 };
 
 const en: AiChatCopy = {
@@ -328,7 +328,7 @@ const en: AiChatCopy = {
     "Quick example 💡 Wedding studio wants clients to browse dresses before visiting → **business / shop** site with catalog + consult form. New service launch → **landing** in ~3–5 days with CTA + lead form. Are you closer to a company site, e-commerce, or a landing?",
   exampleGeneric:
     "I can give an example for: (1) **Dolphin Care** — 24/7 site answers + insight; (2) **Dolphin Ops** — say the job, open the right ops screen; (3) **website**. Which direction?",
-  escalateHint: "Need a human? Use the contact button (Zalo / call / email).",
+  escalateHint: "Need a human? Use the contact button (Zalo / Messenger / call / email).",
 };
 
 const ja: AiChatCopy = {
@@ -463,7 +463,7 @@ const ja: AiChatCopy = {
     "例 💡 衣装スタジオが来店前にドレスを見せたい → カタログ＋相談フォームの **企業／ECサイト**。新サービス告知 → CTA＋リードフォームの **LP**（目安3–5日）。企業サイト、EC、LPのどれに近いですか？",
   exampleGeneric:
     "例として：(1) **Dolphin Care** — サイトで24/7回答＋insight、(2) **Dolphin Ops** — 用件を言えば運用画面が開く、(3) **Web**。どれが近いですか？",
-  escalateHint: "担当者と直接お話しされたい場合は、右下の連絡ボタン（Zalo / 電話 / メール）をご利用ください。",
+  escalateHint: "担当者と直接お話しされたい場合は、右下の連絡ボタン（Zalo / Messenger / 電話 / メール）をご利用ください。",
 };
 
 export const aiChatCopy: Record<Locale, AiChatCopy> = {

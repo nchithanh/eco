@@ -20,13 +20,8 @@ import {
 } from "@/lib/i18n/ai-chat-copy";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
 import { MASCOT } from "@/lib/mascot";
+import { CONTACTS } from "@/lib/contacts";
 import { acquirePageScroll, releasePageScroll } from "@/lib/scroll-lock";
-
-const CONTACTS = {
- phone: "0779937633",
- zalo: "https://zalo.me/0779937633",
- email: "nchithanh9999@gmail.com",
-} as const;
 
 const WELCOME_MASCOT = MASCOT.contact;
 
@@ -72,6 +67,22 @@ function IconChat({ className }: { className?: string }) {
  );
 }
 
+function IconMessenger({ className }: { className?: string }) {
+ return (
+ <svg viewBox="0 0 24 24" className={className} fill="none" aria-hidden>
+ <path
+ d="M12 3.6c-4.6 0-8.2 3.3-8.2 7.4 0 2.3 1.1 4.4 2.9 5.8v2.5c0 .4.4.6.7.4l2.4-1.3c.7.2 1.4.3 2.2.3 4.6 0 8.2-3.3 8.2-7.4S16.6 3.6 12 3.6z"
+ stroke="currentColor"
+ strokeWidth="1.7"
+ strokeLinejoin="round"
+ />
+ <path
+ d="M8.2 11.2l2.7 2.7 2.4-2.1 2.5 2.1-2.7-2.7-2.4 2.1-2.5-2.1z"
+ fill="currentColor"
+ />
+ </svg>
+ );
+}
 function IconPhone({ className }: { className?: string }) {
  return (
  <svg viewBox="0 0 24 24" className={className} fill="none" aria-hidden>
@@ -399,6 +410,13 @@ export function AiChatWidget() {
  href: CONTACTS.zalo,
  label: fab.zalo,
  icon: <IconChat className="size-5" />,
+ external: true,
+ },
+ {
+ key: "messenger",
+ href: CONTACTS.messenger,
+ label: fab.messenger,
+ icon: <IconMessenger className="size-5" />,
  external: true,
  },
  {

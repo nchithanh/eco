@@ -40,7 +40,10 @@ export function Footer() {
  },
  {
  label: f.groupConnect,
- links: [{ href: `${sectionBase}#contact`, label: t.nav.contact }],
+ links: [
+ { href: `${sectionBase}#contact`, label: t.nav.contact },
+ { href: assetPath("/privacy/"), label: f.privacy },
+ ],
  },
  ] as const;
 

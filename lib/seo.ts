@@ -75,7 +75,10 @@ export function organizationJsonLd() {
     name: "Dolphin Software",
     url: SITE_URL,
     logo: absoluteUrl("/brand/logo-dolphin.webp"),
-    sameAs: [],
+    sameAs: [
+      "https://m.me/61592428631532",
+      "https://www.facebook.com/61592428631532",
+    ],
     contactPoint: [
       {
         "@type": "ContactPoint",

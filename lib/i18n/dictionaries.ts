@@ -538,6 +538,7 @@ const vi: Dictionary = {
     groupStudio: "Studio",
     groupUpdates: "Updates",
     groupConnect: "Connect",
+    privacy: "Quyền riêng tư",
   },
   loader: {
     aria: "Đang khởi động hệ thống agent",
@@ -553,6 +554,7 @@ const vi: Dictionary = {
     open: "Mở liên hệ nhanh",
     close: "Đóng liên hệ nhanh",
     zalo: "Chat Zalo",
+    messenger: "Chat Messenger",
     phone: "Gọi điện",
     email: "Gửi email",
   },
@@ -1122,6 +1124,7 @@ const en: Dictionary = {
     groupStudio: "Studio",
     groupUpdates: "Updates",
     groupConnect: "Connect",
+    privacy: "Privacy",
   },
   loader: {
     aria: "Booting agent system",
@@ -1137,6 +1140,7 @@ const en: Dictionary = {
     open: "Open quick contact",
     close: "Close quick contact",
     zalo: "Chat on Zalo",
+    messenger: "Chat on Messenger",
     phone: "Call",
     email: "Send email",
   },
@@ -1707,6 +1711,7 @@ const ja: Dictionary = {
     groupStudio: "Studio",
     groupUpdates: "Updates",
     groupConnect: "Connect",
+    privacy: "プライバシー",
   },
   loader: {
     aria: "エージェントシステムを起動中",
@@ -1722,6 +1727,7 @@ const ja: Dictionary = {
     open: "クイック連絡を開く",
     close: "クイック連絡を閉じる",
     zalo: "Zaloでチャット",
+    messenger: "Messengerでチャット",
     phone: "電話する",
     email: "メールを送る",
   },
