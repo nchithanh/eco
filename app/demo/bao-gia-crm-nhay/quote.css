@@ -3,9 +3,16 @@
   background: #0b0d10;
 }
 
-.quote-crm .demo-index__bar {
+.quote-crm__bar {
   margin: 0;
   padding: 0.75rem 1.25rem;
+  font-size: 0.75rem;
+  color: rgba(244, 244, 245, 0.55);
+  font-family: var(--font-quicksand), system-ui, sans-serif;
+}
+
+.quote-crm__bar a {
+  color: #a5b4fc;
 }
 
 .quote-crm-frame {

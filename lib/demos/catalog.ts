@@ -38,10 +38,10 @@ export const demoCatalog: DemoCatalogItem[] = [
   },
   {
     slug: "bao-gia-crm-nhay",
-    href: "/demos/bao-gia-crm-nhay/",
-    title: "Báo giá CRM Booking — lớp nhảy",
+    href: "/demo/bao-gia-crm-nhay/",
+    title: "Báo giá CRM",
     blurb:
-      "Phiếu báo giá CRM booking studio nhảy — gói cố định + hạng mục tùy chọn. Tick rồi In / PDF.",
+      "Phiếu báo giá CRM — gói cố định + hạng mục tùy chọn. Public `/demo/bao-gia-crm-nhay/` — không mật khẩu. Tick rồi In / PDF.",
     tag: "Quote",
   },
   {

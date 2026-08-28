@@ -25,7 +25,7 @@ export function QuoteFrame({ html }: QuoteFrameProps) {
 
   return (
     <iframe
-      title="Báo giá CRM Booking — lớp dạy nhảy"
+      title="Báo giá CRM"
       className="quote-crm-frame"
       srcDoc={srcDoc}
     />

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Báo giá — CRM Booking lớp nhảy · Dolphin Software</title>
+    <title>Báo giá CRM · Dolphin Software</title>
     <meta name="robots" content="noindex, nofollow" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -222,6 +222,16 @@
       tr:last-child td {
         border-bottom: 0;
       }
+      .col-pick {
+        width: 2.4rem;
+        text-align: center;
+        vertical-align: middle;
+      }
+      .col-pick input.pick {
+        width: 1rem;
+        height: 1rem;
+        accent-color: var(--kuct-accent);
+      }
       #extras tr.is-selected td {
         background: color-mix(in srgb, var(--kuct-accent) 5%, var(--kuct-surface));
       }
@@ -410,11 +420,22 @@
         .price-input {
           width: auto;
         }
-        #extras tr[data-key]:not(.is-selected) {
-          display: none !important;
+        #extras tr[data-key]:not(.is-selected) td,
+        #extras tr[data-key]:not(.is-selected) .en,
+        #extras tr[data-key]:not(.is-selected) strong,
+        #extras tr[data-key]:not(.is-selected) .price-input {
+          color: #9a96a3;
+          font-weight: 400;
         }
-        .print-empty {
-          display: none !important;
+        #extras tr[data-key]:not(.is-selected) {
+          background: #faf9fb;
+        }
+        #extras tr.is-selected td {
+          background: transparent;
+        }
+        .col-pick input.pick {
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
         }
       }
       @media (max-width: 40rem) {
@@ -447,8 +468,8 @@
           </div>
           <p class="eyebrow">Báo giá / Quote</p>
           <h1>
-            Báo giá CRM Booking — lớp dạy nhảy
-            <span class="en">Dance class CRM Booking quote</span>
+            Báo giá CRM
+            <span class="en">CRM quote</span>
           </h1>
           <div class="contact">
             Nguyễn Chí Thành
@@ -495,16 +516,19 @@
         <tbody>
           <tr>
             <td>
-              <strong>CRM Booking lớp nhảy</strong>
-              <span class="en">Dance class booking CRM</span>
+              <strong>CRM Booking</strong>
+              <span class="en">Booking CRM</span>
               <ul class="incl">
                 <li>Khóa học, lịch tuần, buổi, bảo lưu<span class="en">Courses, weekly schedule, sessions, freeze</span></li>
                 <li>Hồ sơ học viên, ghi danh vào khóa<span class="en">Students and enrollment</span></li>
+                <li>Học viên cũ và mới<span class="en">Existing and new students</span></li>
                 <li>Giáo viên, gán khóa / buổi<span class="en">Teachers assigned to courses / sessions</span></li>
+                <li>Giáo viên cũ và mới<span class="en">Existing and new teachers</span></li>
                 <li>Phân quyền xem / sửa trên CRM<span class="en">Role-based access</span></li>
                 <li>Điểm danh QR bằng điện thoại<span class="en">QR attendance on phone</span></li>
                 <li>Khuyến mãi<span class="en">Promotions</span></li>
                 <li>Thông báo Zalo và email<span class="en">Zalo and email notifications</span></li>
+                <li>Chăm sóc khách hàng hàng loạt<span class="en">Bulk customer care</span></li>
                 <li>Không giới hạn số lượng user<span class="en">Unlimited users</span></li>
                 <li>Quản lý đa chi nhánh<span class="en">Multi-branch</span></li>
               </ul>
@@ -559,13 +583,13 @@
         <span class="en">Optional add-ons</span>
       </h2>
       <p class="note no-print">
-        Tick mục khách chọn rồi In / PDF. Dòng chưa tick sẽ ẩn trên file gửi khách.
+        Tick mục khách chọn rồi In / PDF. Dòng chưa chọn vẫn in ra, chữ mờ, không tick.
       </p>
       <div class="table-scroll">
       <table>
         <thead>
           <tr>
-            <th class="no-print">Chọn</th>
+            <th class="col-pick">Chọn</th>
             <th>Hạng mục<span class="en">Item</span></th>
             <th>Phạm vi<span class="en">Scope</span></th>
             <th class="num">Giá 1 lần<span class="en">One-time</span></th>
@@ -575,7 +599,7 @@
         </thead>
         <tbody id="extras">
           <tr data-key="payment" data-once-item="1">
-            <td class="no-print"><input type="checkbox" class="pick" /></td>
+            <td class="col-pick"><input type="checkbox" class="pick" /></td>
             <td>
               <strong>Thanh toán</strong>
               <span class="en">Payment</span>
@@ -592,12 +616,12 @@
             </td>
           </tr>
           <tr data-key="booking-room" data-once-item="1">
-            <td class="no-print"><input type="checkbox" class="pick" /></td>
+            <td class="col-pick"><input type="checkbox" class="pick" /></td>
             <td>
               <strong>Đặt phòng tập</strong>
               <span class="en">Room booking</span>
             </td>
-            <td>Đặt / quản lý phòng tập, gán lớp vào phòng, tránh trùng lịch<span class="en">Book and assign rooms; avoid clashes</span></td>
+            <td>Gồm 1 trang để user đặt phòng, 1 trang quản lý trên CRM (gán lớp vào phòng, tránh trùng lịch).<span class="en">Includes 1 page for users to book a room, and 1 CRM page to manage rooms (assign classes, avoid clashes).</span></td>
             <td class="num">
               <input class="price-input" readonly tabindex="-1" data-period="once" value="1.000.000" />
             </td>
@@ -609,7 +633,7 @@
             </td>
           </tr>
           <tr data-key="content-daily">
-            <td class="no-print"><input type="checkbox" class="pick" /></td>
+            <td class="col-pick"><input type="checkbox" class="pick" /></td>
             <td>
               <strong>Content — AI tạo bài post hàng ngày (website + Facebook + Instagram)</strong>
               <span class="en">Daily AI posts for website, Facebook, Instagram</span>
@@ -626,7 +650,7 @@
             </td>
           </tr>
           <tr data-key="care">
-            <td class="no-print"><input type="checkbox" class="pick" /></td>
+            <td class="col-pick"><input type="checkbox" class="pick" /></td>
             <td>
               <strong>Chatbot AI — Dolphin Care</strong>
               <span class="en">Dolphin Care AI chatbot</span>
@@ -643,7 +667,7 @@
             </td>
           </tr>
           <tr data-key="crm-chat-basic">
-            <td class="no-print"><input type="checkbox" class="pick" /></td>
+            <td class="col-pick"><input type="checkbox" class="pick" /></td>
             <td>
               <strong>Chatbot AI CRM — gói 1: chat cơ bản</strong>
               <span class="en">CRM AI chat pack 1: basic</span>
@@ -660,29 +684,29 @@
             </td>
           </tr>
           <tr data-key="crm-chat-fast">
-            <td class="no-print"><input type="checkbox" class="pick" /></td>
+            <td class="col-pick"><input type="checkbox" class="pick" /></td>
             <td>
               <strong>Chatbot AI CRM — gói 2: chat nhanh tính năng</strong>
               <span class="en">CRM AI chat pack 2: quick actions</span>
             </td>
-            <td>Nói việc → mở form / thao tác nhanh (ghi danh, hủy buổi…)<span class="en">Speak a task → open the matching form</span></td>
+            <td>Nói việc → mở form / thao tác nhanh (ghi danh, hủy buổi…). Đã gồm gói 1.<span class="en">Speak a task → open the matching form. Includes pack 1.</span></td>
             <td class="num">
               <input class="price-input" readonly tabindex="-1" data-period="once" placeholder="—" />
             </td>
             <td class="num">
-              <input class="price-input" readonly tabindex="-1" data-period="month" value="2.000.000" />
+              <input class="price-input" readonly tabindex="-1" data-period="month" value="3.000.000" />
             </td>
             <td class="num">
               <input class="price-input" readonly tabindex="-1" data-period="year" value="0" />
             </td>
           </tr>
           <tr data-key="crm-chat-247">
-            <td class="no-print"><input type="checkbox" class="pick" /></td>
+            <td class="col-pick"><input type="checkbox" class="pick" /></td>
             <td>
               <strong>Chatbot AI CRM — gói 3: trợ lý theo dõi 24/7</strong>
               <span class="en">CRM AI chat pack 3: 24/7 assistant</span>
             </td>
-            <td>Canh lệch lịch / buổi, gợi ý xử lý; việc nhạy chờ người duyệt<span class="en">Watch schedule gaps; sensitive actions wait for approval</span></td>
+            <td>Canh lệch lịch / buổi, gợi ý xử lý; việc nhạy chờ người duyệt. Đã gồm gói 1 và gói 2.<span class="en">Watch schedule gaps; sensitive actions wait for approval. Includes packs 1 and 2.</span></td>
             <td class="num">
               <input class="price-input" readonly tabindex="-1" data-period="once" placeholder="—" />
             </td>
@@ -694,10 +718,10 @@
             </td>
           </tr>
           <tr data-key="ecom" data-once-item="1">
-            <td class="no-print"><input type="checkbox" class="pick" /></td>
+            <td class="col-pick"><input type="checkbox" class="pick" /></td>
             <td>
-              <strong>Website ecommerce cơ bản</strong>
-              <span class="en">Basic ecommerce website</span>
+              <strong>Toàn bộ 1 website bán hàng cơ bản</strong>
+              <span class="en">A complete basic online store</span>
             </td>
             <td>Catalog, giỏ hàng, thanh toán cơ bản — tách khỏi website hoàn chỉnh 5tr<span class="en">Catalog, cart, basic checkout — separate from the 5M website</span></td>
             <td class="num">
@@ -711,10 +735,10 @@
             </td>
           </tr>
           <tr data-key="app-hv-gv" data-once-item="1">
-            <td class="no-print"><input type="checkbox" class="pick" /></td>
+            <td class="col-pick"><input type="checkbox" class="pick" /></td>
             <td>
-              <strong>Website / app chuyên biệt học viên &amp; giáo viên</strong>
-              <span class="en">Student &amp; teacher portal</span>
+              <strong>Website / web mobile chuyên biệt học viên &amp; giáo viên</strong>
+              <span class="en">Student &amp; teacher website / mobile web</span>
             </td>
             <td>Cổng học viên / giáo viên (xem lịch, điểm danh phía họ)<span class="en">Portal to view schedule and attendance</span></td>
             <td class="num">
@@ -755,18 +779,18 @@
           </tr>
           <tr class="discount" id="rowDiscount">
             <td>
-              Giảm 10% (khi giá 1 lần + trả năm trên 10.000.000đ)
-              <span class="en">10% off when one-time + yearly exceed 10,000,000đ</span>
+              <span id="discountRule">Giảm 10% (khi giá 1 lần + trả năm trên 13.000.000đ)</span>
+              <span class="en" id="discountRuleEn">10% off when one-time + yearly exceed 13,000,000đ</span>
             </td>
-            <td class="num" id="discOnce">−500.000đ</td>
+            <td class="num" id="discOnce">—</td>
             <td class="num" id="discMonth">—</td>
-            <td class="num" id="discYear">−555.000đ</td>
+            <td class="num" id="discYear">—</td>
           </tr>
           <tr class="due">
             <td>Thành tiền<span class="en">Amount due</span></td>
-            <td class="num" id="dueOnce">4.500.000đ</td>
+            <td class="num" id="dueOnce">5.000.000đ</td>
             <td class="num" id="dueMonth">0đ</td>
-            <td class="num" id="dueYear">4.995.000đ</td>
+            <td class="num" id="dueYear">5.550.000đ</td>
           </tr>
         </tbody>
       </table>
@@ -864,7 +888,7 @@
         "content-daily": { once: null, month: 1_000_000, year: 0 },
         care: { once: null, month: 3_000_000, year: 0 },
         "crm-chat-basic": { once: null, month: 1_000_000, year: 0 },
-        "crm-chat-fast": { once: null, month: 2_000_000, year: 0 },
+        "crm-chat-fast": { once: null, month: 3_000_000, year: 0 },
         "crm-chat-247": { once: null, month: 10_000_000, year: 0 },
         ecom: { once: 5_000_000, month: null, year: null },
         "app-hv-gv": { once: 3_000_000, month: null, year: null },
@@ -874,7 +898,7 @@
       const FIXED_YEAR = 5_000_000 + 550_000;
 
       const DISCOUNT_RATE = 0.1;
-      const DISCOUNT_OVER = 10_000_000;
+      const DISCOUNT_OVER = 13_000_000;
 
       function parseVnd(raw) {
         const n = String(raw || "").replace(/[^\d]/g, "");
@@ -925,21 +949,26 @@
       }
 
       function sumExtra(period) {
-        return extrasState().reduce((s, r) => {
+        const rows = extrasState();
+        const on = Object.fromEntries(rows.map((r) => [r.key, r.on]));
+        return rows.reduce((s, r) => {
           const n = r[period];
-          return r.on && n ? s + n : s;
+          if (!r.on || !n) return s;
+          if (r.key === "crm-chat-basic" && (on["crm-chat-fast"] || on["crm-chat-247"])) {
+            return s;
+          }
+          if (r.key === "crm-chat-fast" && on["crm-chat-247"]) {
+            return s;
+          }
+          return s + n;
         }, 0);
       }
 
       function syncPrint() {
-        let any = false;
         document.querySelectorAll("#extras tr[data-key]").forEach((tr) => {
           const on = tr.querySelector(".pick").checked;
           tr.classList.toggle("is-selected", on);
-          if (on) any = true;
         });
-        const section = document.getElementById("sectionExtras");
-        if (section) section.classList.toggle("print-empty", !any);
       }
 
       function formatVndOff(n) {
@@ -955,6 +984,17 @@
         const offOnce = on ? Math.round(once * DISCOUNT_RATE) : 0;
         const offMonth = on ? Math.round(month * DISCOUNT_RATE) : 0;
         const offYear = on ? Math.round(year * DISCOUNT_RATE) : 0;
+        const thresholdLabel = DISCOUNT_OVER.toLocaleString("vi-VN") + "đ";
+        const ruleVi = document.getElementById("discountRule");
+        const ruleEn = document.getElementById("discountRuleEn");
+        if (ruleVi) {
+          ruleVi.textContent =
+            "Giảm 10% (khi giá 1 lần + trả năm trên " + thresholdLabel + ")";
+        }
+        if (ruleEn) {
+          ruleEn.textContent =
+            "10% off when one-time + yearly exceed " + thresholdLabel;
+        }
         document.getElementById("sumOnce").textContent = formatVnd(once);
         document.getElementById("sumMonth").textContent = formatVnd(month);
         document.getElementById("sumYear").textContent = formatVnd(year);
@@ -964,7 +1004,6 @@
         document.getElementById("dueOnce").textContent = formatVnd(once - offOnce);
         document.getElementById("dueMonth").textContent = formatVnd(month - offMonth);
         document.getElementById("dueYear").textContent = formatVnd(year - offYear);
-        document.getElementById("rowDiscount").hidden = !on;
         syncPrint();
       }
 
