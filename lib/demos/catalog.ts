@@ -29,6 +29,14 @@ export const demoCatalog: DemoCatalogItem[] = [
     tag: "Moto",
   },
   {
+    slug: "tam-the",
+    href: "/demo/tam-the/",
+    title: "Tam Thể — Coffee · Brunch · Night",
+    blurb:
+      "Landing brand F&B Q1: hero split ngày/đêm, collage, đặt bàn. Public `/demo/tam-the/` — không mật khẩu. Tên quán thật — món/giờ/giá placeholder.",
+    tag: "F&B",
+  },
+  {
     slug: "bao-gia-crm-nhay",
     href: "/demos/bao-gia-crm-nhay/",
     title: "Báo giá CRM Booking — lớp nhảy",
