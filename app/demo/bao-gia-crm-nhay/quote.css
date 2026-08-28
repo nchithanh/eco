@@ -1,11 +1,12 @@
 .quote-crm {
-  min-height: 100vh;
+  min-height: 100dvh;
   background: #0b0d10;
 }
 
 .quote-crm__bar {
   margin: 0;
   padding: 0.75rem 1.25rem;
+  padding-top: max(0.75rem, env(safe-area-inset-top));
   font-size: 0.75rem;
   color: rgba(244, 244, 245, 0.55);
   font-family: var(--font-quicksand), system-ui, sans-serif;
@@ -18,7 +19,15 @@
 .quote-crm-frame {
   display: block;
   width: 100%;
-  height: calc(100vh - 2.75rem);
+  min-height: calc(100dvh - 2.75rem);
   border: 0;
+  overflow: hidden;
   background: #fcfcfd;
+}
+
+@media (max-width: 48rem) {
+  .quote-crm__bar {
+    padding: 0.65rem 1rem;
+    padding-top: max(0.65rem, env(safe-area-inset-top));
+  }
 }

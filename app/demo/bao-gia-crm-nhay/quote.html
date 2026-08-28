@@ -416,6 +416,15 @@
         }
         table {
           font-size: 0.75rem;
+          min-width: 0;
+        }
+        table.totals-table {
+          min-width: 0;
+        }
+        .table-scroll {
+          margin-inline: 0;
+          padding-inline: 0;
+          overflow: visible;
         }
         .price-input {
           width: auto;
@@ -438,13 +447,113 @@
           print-color-adjust: exact;
         }
       }
-      @media (max-width: 40rem) {
+      @media (max-width: 48rem) {
+        .wrap {
+          padding: 1rem 0.85rem calc(2.5rem + env(safe-area-inset-bottom));
+        }
         header {
           flex-direction: column;
+          gap: 1rem;
         }
         .meta {
           min-width: 0;
           width: 100%;
+        }
+        h1 {
+          font-size: 1.35rem;
+        }
+        h2 {
+          font-size: 1.05rem;
+          margin-top: 1.35rem;
+        }
+        .brand-tag {
+          letter-spacing: 0.18em;
+        }
+        .toolbar {
+          position: sticky;
+          top: 0;
+          z-index: 2;
+          background: var(--kuct-bg);
+          padding: 0.5rem 0;
+          margin: 0.35rem 0 1rem;
+        }
+        button {
+          min-height: 2.75rem;
+          flex: 1 1 8rem;
+        }
+        .table-scroll {
+          max-width: 100%;
+          margin-inline: -0.85rem;
+          padding: 0;
+          -webkit-overflow-scrolling: touch;
+          overscroll-behavior-x: contain;
+          border: 1px solid var(--kuct-border);
+          border-radius: 0;
+          border-left: 0;
+          border-right: 0;
+          box-shadow: none;
+          background: var(--kuct-surface);
+        }
+        table {
+          font-size: 0.8rem;
+          width: max-content;
+          min-width: 42rem;
+          border: 0;
+          border-radius: 0;
+          overflow: visible;
+          box-shadow: none;
+        }
+        table.totals-table {
+          min-width: 32rem;
+        }
+        .table-scroll td:first-child,
+        .table-scroll th:first-child {
+          max-width: 16rem;
+        }
+        #extras td.col-pick,
+        #extras th.col-pick {
+          max-width: none;
+          min-width: 2.4rem;
+        }
+        #extras td:nth-child(2),
+        #extras th:nth-child(2) {
+          max-width: 14rem;
+        }
+        .num {
+          min-width: 6.25rem;
+          font-size: 0.78rem;
+        }
+        th,
+        td {
+          padding: 0.5rem 0.55rem;
+        }
+        .col-pick input.pick {
+          width: 1.25rem;
+          height: 1.25rem;
+        }
+        .price-input {
+          width: 5.25rem;
+        }
+        input.plain {
+          width: 100%;
+          min-height: 2.75rem;
+        }
+        ul.incl {
+          font-size: 0.78rem;
+          padding-left: 1rem;
+        }
+        ol.benefits {
+          padding: 0.85rem 0.85rem 0.85rem 1.6rem;
+          font-size: 0.82rem;
+        }
+        table.totals-table tbody td {
+          font-size: 0.88rem;
+        }
+        table.totals-table tbody td:first-child {
+          white-space: normal;
+        }
+        .motto {
+          flex-wrap: wrap;
         }
       }
     </style>
