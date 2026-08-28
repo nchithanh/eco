@@ -21,6 +21,14 @@ export const demoCatalog: DemoCatalogItem[] = [
     tag: "Education",
   },
   {
+    slug: "dolphin-racing",
+    href: "/demo/dolphin-racing/",
+    title: "Dolphin Racing",
+    blurb:
+      "Landing đồ chơi xe máy TPHCM: pit-lane đêm, dàn áo, rack phụ tùng. Public `/demo/dolphin-racing/` — không mật khẩu. Ảnh/SĐT placeholder.",
+    tag: "Moto",
+  },
+  {
     slug: "bao-gia-crm-nhay",
     href: "/demos/bao-gia-crm-nhay/",
     title: "Báo giá CRM Booking — lớp nhảy",
