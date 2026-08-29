@@ -55,12 +55,30 @@ next-env.d.ts
 # Cloudflare Workers (paste-deploy locally; not part of Pages repo)
 /workers/
 
+# Nested FE *app code* lives in nchithanh/dolphinOps — keep context/docs in this tree
+/products/saas/dolphin_ops/frontend/**
+!/products/saas/dolphin_ops/frontend/context/
+!/products/saas/dolphin_ops/frontend/context/**
+!/products/saas/dolphin_ops/frontend/documentations/
+!/products/saas/dolphin_ops/frontend/documentations/**
+!/products/saas/dolphin_ops/frontend/AGENTS.md
+!/products/saas/dolphin_ops/frontend/README.md
+!/products/saas/dolphin_ops/frontend/FRONTEND.md
+
+# Nested BE *app code* lives in nchithanh/dolphinOpsBackend — keep docs in this tree
+/products/saas/dolphin_ops/backend/**
+!/products/saas/dolphin_ops/backend/documentations/
+!/products/saas/dolphin_ops/backend/documentations/**
+!/products/saas/dolphin_ops/backend/README.md
+!/products/saas/dolphin_ops/backend/AGENTS.md
+
+
 !.env.example
 
-# Local AI agent packs & internal docs (not part of Pages site)
+# Local AI agent packs & internal docs (marketing site only — not product apps)
 .cursor/
 .claude/
 /docs/
 /documentations/
-AGENTS.md
-CLAUDE.md
+/AGENTS.md
+/CLAUDE.md
