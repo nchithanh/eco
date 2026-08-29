@@ -1,8 +1,8 @@
 # Dolphin Edu
 
-Agent CRM hardcoded FE cho **booking lớp nhảy** (courses, teachers, students, classes).
+Agent CRM hardcoded FE cho **booking lớp** (courses, teachers, students, classes).
 
-Clone từ Dolphin Ops canvas — **không** clone backend.
+Tạm thời **chưa có GitHub repo riêng** — code nằm trong `eco` tại `products/saas/dolphin_edu/frontend/`.
 
 ```bash
 cd frontend && npm install && npm run dev
@@ -11,3 +11,5 @@ cd frontend && npm install && npm run dev
 http://localhost:3011
 
 SoT: `AGENTS.md` + `context/` + `frontend/documentations/`.
+
+Code hoặc đổi requirement → cập nhật docs **trong folder này** (cùng task).

@@ -12,5 +12,5 @@ Mirror of Dolphin Software visual tokens for apps under `products/`.
 When you change **tone / brand** at repo root (`app/globals.css` `:root` / `html[data-theme="violet"]`, `BRAND_DISPLAY_NAME` in `components/Logo.tsx`, or brand facts in `.cursor/knowledge/company.md`):
 
 1. Update `tokens.css` and `brand.md` here.
-2. Copy `tokens.css` → each product FE that vendors it (Ops: `saas/dolphin_ops/frontend/app/tokens.css`).
+2. Copy `tokens.css` → each product FE that vendors it (Ops: `saas/dolphin_ops/frontend/app/tokens.css`; Edu: `saas/dolphin_edu/frontend/app/tokens.css`).
 3. Do **not** copy marketing ICP, news, Care copy, or homepage section order into product `context/`.

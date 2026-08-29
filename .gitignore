@@ -72,6 +72,15 @@ next-env.d.ts
 !/products/saas/dolphin_ops/backend/README.md
 !/products/saas/dolphin_ops/backend/AGENTS.md
 
+# Dolphin Edu FE lives in this repo for now (no separate GitHub repo yet)
+/products/saas/dolphin_edu/frontend/.git/
+/products/saas/dolphin_edu/frontend/node_modules/
+/products/saas/dolphin_edu/frontend/.next/
+/products/saas/dolphin_edu/frontend/out/
+/products/saas/dolphin_edu/frontend/.wrangler/
+/products/saas/dolphin_edu/frontend/.open-next/
+/products/saas/dolphin_edu/frontend/.cursor/
+
 
 !.env.example
 
