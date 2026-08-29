@@ -10,6 +10,8 @@ dolphin_edu/
 
 Local: frontend `:3011`. Menu is `HARDCODED_MENU` in `frontend/lib/api-menu.ts` — **does not** call Dolphin Ops `:8081`.
 
+Marketing `eco` (`next build` / Pages) **excludes** this frontend in root `tsconfig.json` — do not type-check Edu (quarantine spa, separate `@/`) as part of the marketing site.
+
 Canvas seed: `frontend/lib/seed.ts`. Domain helpers: `frontend/lib/edu.ts` (course/class status, generate classes, enroll).
 
 Shell: 2 cột **nav | canvas**. Chat là drawer phải (`translateX`), overlay, không đẩy layout bảng.

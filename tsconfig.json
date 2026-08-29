@@ -30,5 +30,12 @@
     ".next/dev/types/**/*.ts",
     "**/*.mts"
   ],
-  "exclude": ["node_modules", "dolphin-tech"]
+  "exclude": [
+    "node_modules",
+    "dolphin-tech",
+    "products/saas/dolphin_edu/frontend",
+    "products/saas/dolphin_ops/frontend",
+    "products/saas/dolphin_ops/backend",
+    "go-saas-backend-prompt"
+  ]
 }

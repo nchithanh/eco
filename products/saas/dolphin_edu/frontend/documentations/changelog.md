@@ -2,6 +2,7 @@
 
 ## 2026-08-30
 
+- Marketing `eco` `tsconfig.json` excludes `products/saas/dolphin_edu/frontend` so GitHub Pages `next build` does not type-check this app (broken `_quarantine_spa` imports vs marketing `@/`).
 - SoT + docs stay in `products/saas/dolphin_edu/` (`context/` + this folder). Code/requirement changes update these docs in the same task. FE lives in `eco` until a separate GitHub repo exists.
 
 ## 2026-08-25
