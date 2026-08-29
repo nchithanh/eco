@@ -29,6 +29,11 @@ describe("Dolphin Software news page", () => {
     expect(screen.getByText(/^Nổi bật$/i)).toBeInTheDocument();
     expect(
       screen.getByRole("link", {
+        name: /Bạn đang điều hành doanh nghiệp hay đang làm tổng đài/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("link", {
         name: /Trung tâm nhỏ, ít người: càng nên có CRM/i,
       }),
     ).toBeInTheDocument();
@@ -180,6 +185,37 @@ describe("Dolphin Software news page", () => {
     expect(
       screen.getByRole("button", {
         name: /Copy prompt AI trên Facebook có sao không/i,
+      }),
+    ).toBeInTheDocument();
+  });
+
+  it("renders owner-as-switchboard CRM article with FAQ", async () => {
+    const page = await NewsArticlePage({
+      params: Promise.resolve({
+        slug: "ban-dang-dieu-hanh-doanh-nghiep-hay-di-hoi-tung-nhan-vien",
+      }),
+    });
+    render(<AppProviders>{page}</AppProviders>);
+    expect(
+      screen.getByRole("heading", {
+        level: 1,
+        name: /Bạn đang điều hành doanh nghiệp hay đang làm tổng đài/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", {
+        level: 2,
+        name: /CRM cho doanh nghiệp: mua xong rồi bỏ xó/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", {
+        name: /CRM cho doanh nghiệp nhỏ là gì và có cần thiết không/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("img", {
+        name: /vừa nhắn tin vừa mở sổ và Excel/i,
       }),
     ).toBeInTheDocument();
   });

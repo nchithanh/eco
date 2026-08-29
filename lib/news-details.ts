@@ -15,6 +15,7 @@ import { websiteCoTrafficKhongRaKhachHangCopy } from "@/lib/news-articles/websit
 import { saasLaGiGiaiThichChoChuDoanhNghiepCopy } from "@/lib/news-articles/saas-la-gi-giai-thich-cho-chu-doanh-nghiep";
 import { dolphinOpsThucTheSong247Copy } from "@/lib/news-articles/dolphin-ops-thuc-the-song-24-7";
 import { maiGvNghiNhanZaloSuaExcelCopy } from "@/lib/news-articles/mai-gv-nghi-nhan-zalo-sua-excel";
+import { banDangDieuHanhDoanhNghiepHayDiHoiTungNhanVienCopy } from "@/lib/news-articles/ban-dang-dieu-hanh-doanh-nghiep-hay-di-hoi-tung-nhan-vien";
 import { trungTamNhoItNguoiCangNenCoCrmCopy } from "@/lib/news-articles/trung-tam-nho-it-nguoi-cang-nen-co-crm";
 import { websiteGioiThieuXeShowroomCopy } from "@/lib/news-articles/website-gioi-thieu-xe-showroom";
 
@@ -29,6 +30,7 @@ export const NEWS_CATEGORIES = [
 export type NewsCategory = (typeof NEWS_CATEGORIES)[number];
 
 export const NEWS_SLUGS = [
+  "ban-dang-dieu-hanh-doanh-nghiep-hay-di-hoi-tung-nhan-vien",
   "trung-tam-nho-it-nguoi-cang-nen-co-crm",
   "mai-gv-nghi-nhan-zalo-sua-excel",
   "dolphin-ops-thuc-the-song-24-7",
@@ -108,6 +110,10 @@ type NewsMeta = {
 };
 
 const metaBySlug: Record<NewsSlug, NewsMeta> = {
+  "ban-dang-dieu-hanh-doanh-nghiep-hay-di-hoi-tung-nhan-vien": {
+    category: "product",
+    date: "2026-08-30",
+  },
   "trung-tam-nho-it-nguoi-cang-nen-co-crm": {
     category: "product",
     date: "2026-08-27",
@@ -195,6 +201,8 @@ const categoryImages: Record<NewsCategory, string> = {
 };
 
 const slugImages: Partial<Record<NewsSlug, string>> = {
+  "ban-dang-dieu-hanh-doanh-nghiep-hay-di-hoi-tung-nhan-vien":
+    "/news/ban-dang-dieu-hanh-doanh-nghiep-hay-di-hoi-tung-nhan-vien.jpg",
   "trung-tam-nho-it-nguoi-cang-nen-co-crm":
     "/news/trung-tam-nho-it-nguoi-cang-nen-co-crm.jpg",
   "mai-gv-nghi-nhan-zalo-sua-excel":
@@ -238,6 +246,8 @@ export function getNewsImage(slug: NewsSlug): string {
 
 const copyByLocale: Record<Locale, Record<NewsSlug, NewsArticleCopy>> = {
   vi: {
+    "ban-dang-dieu-hanh-doanh-nghiep-hay-di-hoi-tung-nhan-vien":
+      banDangDieuHanhDoanhNghiepHayDiHoiTungNhanVienCopy.vi,
     "trung-tam-nho-it-nguoi-cang-nen-co-crm":
       trungTamNhoItNguoiCangNenCoCrmCopy.vi,
     "mai-gv-nghi-nhan-zalo-sua-excel": maiGvNghiNhanZaloSuaExcelCopy.vi,
@@ -436,6 +446,8 @@ const copyByLocale: Record<Locale, Record<NewsSlug, NewsArticleCopy>> = {
     },
   },
   en: {
+    "ban-dang-dieu-hanh-doanh-nghiep-hay-di-hoi-tung-nhan-vien":
+      banDangDieuHanhDoanhNghiepHayDiHoiTungNhanVienCopy.en,
     "trung-tam-nho-it-nguoi-cang-nen-co-crm":
       trungTamNhoItNguoiCangNenCoCrmCopy.en,
     "mai-gv-nghi-nhan-zalo-sua-excel": maiGvNghiNhanZaloSuaExcelCopy.en,
@@ -562,6 +574,8 @@ const copyByLocale: Record<Locale, Record<NewsSlug, NewsArticleCopy>> = {
     },
   },
   ja: {
+    "ban-dang-dieu-hanh-doanh-nghiep-hay-di-hoi-tung-nhan-vien":
+      banDangDieuHanhDoanhNghiepHayDiHoiTungNhanVienCopy.ja,
     "trung-tam-nho-it-nguoi-cang-nen-co-crm":
       trungTamNhoItNguoiCangNenCoCrmCopy.ja,
     "mai-gv-nghi-nhan-zalo-sua-excel": maiGvNghiNhanZaloSuaExcelCopy.ja,
