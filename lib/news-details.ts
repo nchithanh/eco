@@ -18,6 +18,7 @@ import { maiGvNghiNhanZaloSuaExcelCopy } from "@/lib/news-articles/mai-gv-nghi-n
 import { banDangDieuHanhDoanhNghiepHayDiHoiTungNhanVienCopy } from "@/lib/news-articles/ban-dang-dieu-hanh-doanh-nghiep-hay-di-hoi-tung-nhan-vien";
 import { trungTamNhoItNguoiCangNenCoCrmCopy } from "@/lib/news-articles/trung-tam-nho-it-nguoi-cang-nen-co-crm";
 import { websiteGioiThieuXeShowroomCopy } from "@/lib/news-articles/website-gioi-thieu-xe-showroom";
+import { websiteChoKinhDoanhNhoCopy } from "@/lib/news-articles/website-cho-kinh-doanh-nho";
 
 export const NEWS_CATEGORIES = [
   "process",
@@ -30,6 +31,7 @@ export const NEWS_CATEGORIES = [
 export type NewsCategory = (typeof NEWS_CATEGORIES)[number];
 
 export const NEWS_SLUGS = [
+  "website-cho-kinh-doanh-nho",
   "ban-dang-dieu-hanh-doanh-nghiep-hay-di-hoi-tung-nhan-vien",
   "trung-tam-nho-it-nguoi-cang-nen-co-crm",
   "mai-gv-nghi-nhan-zalo-sua-excel",
@@ -110,6 +112,10 @@ type NewsMeta = {
 };
 
 const metaBySlug: Record<NewsSlug, NewsMeta> = {
+  "website-cho-kinh-doanh-nho": {
+    category: "process",
+    date: "2026-08-31",
+  },
   "ban-dang-dieu-hanh-doanh-nghiep-hay-di-hoi-tung-nhan-vien": {
     category: "product",
     date: "2026-08-30",
@@ -201,6 +207,8 @@ const categoryImages: Record<NewsCategory, string> = {
 };
 
 const slugImages: Partial<Record<NewsSlug, string>> = {
+  "website-cho-kinh-doanh-nho":
+    "/news/website-cho-kinh-doanh-nho-cover.jpg",
   "ban-dang-dieu-hanh-doanh-nghiep-hay-di-hoi-tung-nhan-vien":
     "/news/ban-dang-dieu-hanh-doanh-nghiep-hay-di-hoi-tung-nhan-vien.jpg",
   "trung-tam-nho-it-nguoi-cang-nen-co-crm":
@@ -246,6 +254,7 @@ export function getNewsImage(slug: NewsSlug): string {
 
 const copyByLocale: Record<Locale, Record<NewsSlug, NewsArticleCopy>> = {
   vi: {
+    "website-cho-kinh-doanh-nho": websiteChoKinhDoanhNhoCopy.vi,
     "ban-dang-dieu-hanh-doanh-nghiep-hay-di-hoi-tung-nhan-vien":
       banDangDieuHanhDoanhNghiepHayDiHoiTungNhanVienCopy.vi,
     "trung-tam-nho-it-nguoi-cang-nen-co-crm":
@@ -446,6 +455,7 @@ const copyByLocale: Record<Locale, Record<NewsSlug, NewsArticleCopy>> = {
     },
   },
   en: {
+    "website-cho-kinh-doanh-nho": websiteChoKinhDoanhNhoCopy.en,
     "ban-dang-dieu-hanh-doanh-nghiep-hay-di-hoi-tung-nhan-vien":
       banDangDieuHanhDoanhNghiepHayDiHoiTungNhanVienCopy.en,
     "trung-tam-nho-it-nguoi-cang-nen-co-crm":
@@ -574,6 +584,7 @@ const copyByLocale: Record<Locale, Record<NewsSlug, NewsArticleCopy>> = {
     },
   },
   ja: {
+    "website-cho-kinh-doanh-nho": websiteChoKinhDoanhNhoCopy.ja,
     "ban-dang-dieu-hanh-doanh-nghiep-hay-di-hoi-tung-nhan-vien":
       banDangDieuHanhDoanhNghiepHayDiHoiTungNhanVienCopy.ja,
     "trung-tam-nho-it-nguoi-cang-nen-co-crm":

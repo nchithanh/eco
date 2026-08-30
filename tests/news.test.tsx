@@ -29,6 +29,11 @@ describe("Dolphin Software news page", () => {
     expect(screen.getByText(/^Nổi bật$/i)).toBeInTheDocument();
     expect(
       screen.getByRole("link", {
+        name: /Kinh doanh nhỏ có cần website không\? Câu trả lời thật lòng/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("link", {
         name: /Bạn đang điều hành doanh nghiệp hay đang làm tổng đài/i,
       }),
     ).toBeInTheDocument();
@@ -117,6 +122,37 @@ describe("Dolphin Software news page", () => {
       </AppProviders>,
     );
     expect(screen.getAllByRole("link", { name: /^Tin tức$/i }).length).toBeGreaterThanOrEqual(1);
+  });
+
+  it("renders small-business website need article with FAQ", async () => {
+    const page = await NewsArticlePage({
+      params: Promise.resolve({
+        slug: "website-cho-kinh-doanh-nho",
+      }),
+    });
+    render(<AppProviders>{page}</AppProviders>);
+    expect(
+      screen.getByRole("heading", {
+        level: 1,
+        name: /Kinh doanh nhỏ có cần website không\? Câu trả lời thật lòng/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", {
+        level: 2,
+        name: /Website dành cho kinh doanh nhỏ cần những gì/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", {
+        name: /Kinh doanh nhỏ có thật sự cần website không/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("img", {
+        name: /màn hình Google gõ tên quán nhưng gần như không ra kết quả/i,
+      }),
+    ).toBeInTheDocument();
   });
 
   it("renders article detail with FAQ", async () => {
