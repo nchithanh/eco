@@ -58,33 +58,37 @@ export type AboutCopy = {
 
 const vi: AboutCopy = {
   metaTitle:
-    "Dolphin Software là gì? | Công ty thiết kế web & AI cho SMB Việt Nam",
+    "Dolphin Software là gì? | Giải pháp AI & công nghệ cho doanh nghiệp",
   metaDescription:
-    "Dolphin Software là studio phát triển phần mềm tại Việt Nam — thiết kế website theo yêu cầu, AI automation, bàn giao mã nguồn đầy đủ. Báo giá minh bạch, hỗ trợ sau bàn giao.",
+    "Dolphin Software là công ty giải pháp AI và công nghệ cho doanh nghiệp — bắt đầu từ vấn đề vận hành, rồi mới chọn website, AI Agent, CRM, automation hoặc phần mềm theo yêu cầu.",
   eyebrow: "Studio",
   title: "Dolphin Software",
   motto:
-    "Studio phát triển phần mềm & [[AI automation]] cho doanh nghiệp Việt Nam",
+    "Công ty [[giải pháp AI & công nghệ]] — bắt đầu từ vấn đề, không từ sản phẩm",
   support:
-    "Dolphin Software là studio phát triển phần mềm tại Việt Nam, chuyên xây dựng website theo yêu cầu, ứng dụng, và AI automation cho doanh nghiệp vừa và nhỏ (SMB). Dolphin Software bàn giao mã nguồn đầy đủ, hướng dẫn vận hành, và hỗ trợ sau triển khai — không khóa vendor, không phát sinh ngoài scope đã chốt. Từ mục tiêu kinh doanh đến hệ thống vận hành thực tế: Dolphin Software xác định scope rõ ràng, giao đúng mốc, và đồng hành cho đến khi đội ngũ của bạn tự vận hành được.",
-  ctaPrimary: "Nhận báo giá",
-  ctaSecondary: "Xem dịch vụ",
+    "Dolphin Software giúp doanh nghiệp xác định nghẽn vận hành và xây đúng thứ cần: website, AI Agent, CRM, automation, tích hợp, hoặc phần mềm theo yêu cầu. Bàn giao mã nguồn, hướng dẫn vận hành, hỗ trợ sau triển khai — không khóa vendor. Không chắc cần công nghệ gì vẫn bắt đầu được: kể chỗ đang nghẽn.",
+  ctaPrimary: "Nói về doanh nghiệp của bạn",
+  ctaSecondary: "Xem giải pháp",
   mindsetEyebrow: "Approach",
   mindsetTitle: "Dolphin Software tiếp cận dự án như thế nào?",
   mindsetSupport:
-    "Dolphin Software xây dựng hệ thống để chạy thực tế — không dừng lại ở demo. Mỗi dự án hướng đến một hệ thống ổn định, đo lường được, và do đội ngũ khách hàng tự vận hành sau bàn giao.",
+    "Bắt đầu từ doanh nghiệp, không từ sản phẩm. Bốn bước: hiểu → xác định nghẽn → xây đúng thứ → đo và cải thiện.",
   mindset: [
     {
-      title: "Chỉ ship khi live",
-      body: "Demo không phải đích đến. Mỗi dự án hướng đến hệ thống live — ổn định, đo lường được, và thuộc sở hữu của đội ngũ bạn.",
+      title: "Hiểu",
+      body: "Nghe cách anh chị đang bán, chăm khách, và vận hành — bằng ngôn ngữ kinh doanh, chưa mở catalog.",
     },
     {
-      title: "Quy trình chuẩn, không may rủi",
-      body: "Discovery → lên kế hoạch → sprint → UAT → bàn giao — từng bước có đầu ra rõ ràng, không bỏ giai đoạn nào.",
+      title: "Xác định nghẽn",
+      body: "Chỉ ra chỗ đang mất thời gian, mất lead, hoặc phụ thuộc một người.",
     },
     {
-      title: "Vấn đề khó vẫn có lối ra",
-      body: "Scope rõ và thực thi nghiêm túc là cách Dolphin Software giải quyết bài toán phức tạp — từ legacy sang microservices, từ vận hành thủ công sang tự động hóa.",
+      title: "Xây đúng thứ",
+      body: "Website, AI, CRM, tích hợp hoặc phần mềm riêng — chỉ những gì khớp pain. Không bán đống tính năng.",
+    },
+    {
+      title: "Đo và cải thiện",
+      body: "Bàn giao để đội anh chị tự chạy; chỉnh khi thực tế phát sinh — không bỏ xó.",
     },
   ],
   buildEyebrow: "Capabilities",
@@ -191,7 +195,7 @@ const vi: AboutCopy = {
   faqItems: [
     {
       q: "Dolphin Software là công ty gì?",
-      a: "Dolphin Software là studio phát triển phần mềm tại Việt Nam, chuyên xây dựng website theo yêu cầu, ứng dụng di động, hệ thống backend, và AI automation cho doanh nghiệp vừa và nhỏ. Dolphin Software bàn giao mã nguồn đầy đủ và hỗ trợ vận hành sau khi go-live.",
+      a: "Dolphin Software là công ty giải pháp AI và công nghệ cho doanh nghiệp. Chúng tôi bắt đầu từ vấn đề vận hành — rồi mới chọn website, AI Agent, CRM, automation, tích hợp hoặc phần mềm theo yêu cầu.",
     },
     {
       q: "Doanh nghiệp không có đội kỹ thuật có làm việc với Dolphin Software được không?",
@@ -215,40 +219,44 @@ const vi: AboutCopy = {
     },
   ],
   ctaEyebrow: "Start",
-  ctaTitle: "Bắt đầu dự án với [[Dolphin Software]]",
+  ctaTitle: "Nói về doanh nghiệp với [[Dolphin Software]]",
   ctaSupport:
-    "Cho Dolphin Software biết mục tiêu — bán hàng, thu lead, nhận booking, hay vận hành nội bộ. Dolphin Software chốt scope và triển khai cho đến khi đội ngũ của bạn tự vận hành được.",
+    "Kể chỗ đang nghẽn — bán hàng, lead trôi, làm tay, hay site không ra khách. Dolphin đề xuất phạm vi khớp pain, không ép gói.",
 };
 
 const en: AboutCopy = {
   metaTitle:
-    "What is Dolphin Software? | Web & AI development studio for Vietnamese SMBs",
+    "What is Dolphin Software? | AI & technology solutions for business",
   metaDescription:
-    "Dolphin Software is a software development studio in Vietnam — custom websites, AI automation, full source handover. Transparent quotes and post-handover support.",
+    "Dolphin Software is an AI and technology solutions company — we start from the operational problem, then choose a website, AI agent, CRM, automation, or custom software.",
   eyebrow: "Studio",
   title: "Dolphin Software",
   motto:
-    "Software development studio & [[AI automation]] for Vietnamese businesses",
+    "[[AI & technology solutions]] — we start with the problem, not the product",
   support:
-    "Dolphin Software is a software development studio in Vietnam that builds custom websites, apps, and AI automation for small and mid-size businesses (SMBs). Dolphin Software hands over full source, ops guidance, and post-launch support — no vendor lock-in, no scope overruns. From business goals to operable systems: Dolphin Software defines clear scope, delivers on time, and partners until your team can run it.",
-  ctaPrimary: "Get a quote",
-  ctaSecondary: "View services",
+    "Dolphin Software helps businesses spot operational bottlenecks and build the right fix: website, AI agent, CRM, automation, integrations, or custom software. Full source handover, ops guidance, post-launch support — no vendor lock-in. Not sure which technology you need? Start by describing the bottleneck.",
+  ctaPrimary: "Talk about your business",
+  ctaSecondary: "See solutions",
   mindsetEyebrow: "Approach",
   mindsetTitle: "How does Dolphin Software approach projects?",
   mindsetSupport:
-    "Dolphin Software builds systems meant to run in production — not stop at demos. Every project aims at a stable, measurable system your team can operate after handover.",
+    "Start with the business, not the product. Four steps: understand → identify the bottleneck → build the right thing → measure and improve.",
   mindset: [
     {
-      title: "Ship only when it’s live",
-      body: "Demos are not the finish line. Every project aims at a live system — stable, measurable, owned by your team.",
+      title: "Understand",
+      body: "Hear how you sell, care for customers, and run the shop — in business language, before opening a catalog.",
     },
     {
-      title: "Standard process, not luck",
-      body: "Discovery → plan → sprint → UAT → handover — clear outputs at each step, no skipped stages.",
+      title: "Identify the bottleneck",
+      body: "Point to where time, leads, or a single person is the choke point.",
     },
     {
-      title: "Hard problems still have a path",
-      body: "Clear scope and disciplined execution is how Dolphin Software solves complexity — legacy to microservices, manual ops to automation.",
+      title: "Build the right thing",
+      body: "Website, AI, CRM, integrations, or custom software — only what matches the pain. We don't sell a pile of features.",
+    },
+    {
+      title: "Measure and improve",
+      body: "Handover so your team can run it; adjust when reality shows up — not a dump-and-leave.",
     },
   ],
   buildEyebrow: "Capabilities",
@@ -355,7 +363,7 @@ const en: AboutCopy = {
   faqItems: [
     {
       q: "What kind of company is Dolphin Software?",
-      a: "Dolphin Software is a software studio in Vietnam building custom websites, mobile apps, backends, and AI automation for SMBs — with full source handover and post-launch support.",
+      a: "Dolphin Software is an AI and technology solutions company. We start from the operational problem — then choose a website, AI agent, CRM, automation, integration, or custom software.",
     },
     {
       q: "Can non-technical businesses work with Dolphin Software?",
@@ -379,40 +387,44 @@ const en: AboutCopy = {
     },
   ],
   ctaEyebrow: "Start",
-  ctaTitle: "Start a project with [[Dolphin Software]]",
+  ctaTitle: "Talk about your business with [[Dolphin Software]]",
   ctaSupport:
-    "Tell Dolphin Software the goal — sell, capture leads, take bookings, or run internal ops. We lock scope and ship until your team can operate it.",
+    "Describe the bottleneck — sales, leaking leads, manual work, or a site that doesn't convert. Dolphin proposes scope that matches the pain, no package pushing.",
 };
 
 const ja: AboutCopy = {
   metaTitle:
-    "Dolphin Softwareとは？ | ベトナムSMB向けWeb・AI開発スタジオ",
+    "Dolphin Softwareとは？ | 企業向けAI・テクノロジーソリューション",
   metaDescription:
-    "Dolphin Softwareはベトナムのソフトウェア開発スタジオ — オーダーメイドWeb、AI自動化、ソース一式納品。見積もり明確、納品後サポートあり。",
+    "Dolphin Softwareは企業向けのAI・テクノロジーソリューション会社です。運用の課題から始め、Webサイト、AIエージェント、CRM、自動化、専用ソフトを選びます。",
   eyebrow: "Studio",
   title: "Dolphin Software",
   motto:
-    "ベトナム企業向けソフトウェア開発スタジオ & [[AI automation]]",
+    "[[AI・テクノロジーソリューション]] — 技術からではなく、課題から始める",
   support:
-    "Dolphin Softwareはベトナムのソフトウェア開発スタジオで、中小企業（SMB）向けにオーダーメイドWeb、アプリ、AI自動化を構築します。ソース一式、運用ガイド、本番後サポートまで — ベンダーロックインなし、合意スコープ外の追加費用なし。ビジネス目標から運用できるシステムへ：Dolphin Softwareはスコープを明確に定義し、期日どおりに納品し、御社チームが自走できるまで伴走します。",
-  ctaPrimary: "見積もりを依頼",
-  ctaSecondary: "サービスを見る",
+    "Dolphinは運用の詰まりを特定し、Webサイト、AIエージェント、CRM、自動化、連携、専用ソフトで解消します。ソース一式、運用ガイド、本番後サポート — ベンダーロックなし。どの技術が必要か分からなくても、詰まっている箇所から始められます。",
+  ctaPrimary: "事業について話す",
+  ctaSecondary: "ソリューションを見る",
   mindsetEyebrow: "Approach",
   mindsetTitle: "Dolphin Softwareはプロジェクトをどう進めますか？",
   mindsetSupport:
-    "Dolphin Softwareはデモで終わらず、本番で動くシステムを作ります。安定・計測可能・引継ぎ後に自社チームで運用できることを目指します。",
+    "製品ではなく事業から。4ステップ：理解する → 詰まりを特定する → 必要なものだけ作る → 測って改善する。",
   mindset: [
     {
-      title: "本番に乗せてからがゴール",
-      body: "デモはゴールではありません。すべてのプロジェクトで、安定して測定可能、自社チームが所有する本番システムを目指します。",
+      title: "理解する",
+      body: "販売、顧客対応、運用の実態を、ビジネスの言葉で聞く。カタログは後。",
     },
     {
-      title: "標準プロセス、運に頼らない",
-      body: "Discovery → 計画 → スプリント → UAT → 納品 — 各ステップに明確な成果物があり、段階を飛ばしません。",
+      title: "詰まりを特定する",
+      body: "時間、リード、または特定の人に依存している箇所を示す。",
     },
     {
-      title: "難しい課題にも道はある",
-      body: "明確なスコープと規律ある実行がDolphin Softwareの解法です — レガシーからマイクロサービス、手作業から自動化まで。",
+      title: "必要なものだけ作る",
+      body: "Web、AI、CRM、連携、または専用ソフト — 痛みに合うものだけ。機能の山は売らない。",
+    },
+    {
+      title: "測って改善する",
+      body: "自走できる形で納品し、現場が出たら直す — 置いて終わりにしない。",
     },
   ],
   buildEyebrow: "Capabilities",
@@ -519,7 +531,7 @@ const ja: AboutCopy = {
   faqItems: [
     {
       q: "Dolphin Softwareはどんな会社ですか？",
-      a: "ベトナムのソフトウェアスタジオで、SMB向けにオーダーメイドWeb、モバイル、バックエンド、AI自動化を提供し、ソース一式納品と本番後サポートを行います。",
+      a: "企業向けのAI・テクノロジーソリューション会社です。運用の課題から始め、Webサイト、AIエージェント、CRM、自動化、連携、専用ソフトを選びます。",
     },
     {
       q: "技術チームがなくてもDolphin Softwareに依頼できますか？",
@@ -543,9 +555,9 @@ const ja: AboutCopy = {
     },
   ],
   ctaEyebrow: "Start",
-  ctaTitle: "[[Dolphin Software]]でプロジェクトを始めましょう",
+  ctaTitle: "[[Dolphin Software]]に事業の話をする",
   ctaSupport:
-    "ゴールを教えてください — 販売、リード獲得、予約受付、社内運用。スコープを固め、チームが自走できるまで届けます。",
+    "詰まっている箇所を教えてください — 販売、リード漏れ、手作業、効かないサイト。Dolphinが痛みに合う範囲を提案します。パッケージの押し付けはありません。",
 };
 
 export const aboutCopy: Record<Locale, AboutCopy> = { vi, en, ja };

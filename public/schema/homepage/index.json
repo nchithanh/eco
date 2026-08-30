@@ -5,22 +5,22 @@
     "rawPath": "/schema/homepage/index.json",
     "brand": "Dolphin Software",
     "locale": "vi",
-    "updated": "2026-08-22",
+    "updated": "2026-08-31",
     "seo": {
-      "title": "Dolphin Software – Thiết Kế Website & AI Cho Doanh Nghiệp Vừa Và Nhỏ",
-      "description": "Dolphin Software xây dựng website theo yêu cầu, nâng cấp hệ thống cũ và tích hợp AI automation cho doanh nghiệp vừa và nhỏ tại Việt Nam. Báo giá minh bạch, bàn giao đúng hạn.",
-      "og_title": "Dolphin Software – Thiết Kế Website · Nâng Cấp Hệ Thống · AI Automation",
-      "og_description": "Chúng tôi giúp doanh nghiệp SMB xây website vận hành được, nâng cấp hệ thống cũ và ứng dụng AI đúng chỗ — tiết kiệm thời gian, tăng hiệu quả hoạt động.",
+      "title": "Dolphin Software – Giải Pháp AI & Công Nghệ Cho Doanh Nghiệp",
+      "description": "Dolphin Software giúp doanh nghiệp xác định nghẽn vận hành và xây giải pháp phù hợp — website, AI Agent, CRM, automation, tích hợp và phần mềm theo yêu cầu. Bắt đầu từ vấn đề, không từ sản phẩm.",
+      "og_title": "Dolphin Software – Giải Pháp AI & Công Nghệ Cho Doanh Nghiệp",
+      "og_description": "Không bắt đầu từ công nghệ. Bắt đầu từ vấn đề. Website, AI, CRM, automation và phần mềm riêng — chỉ những gì doanh nghiệp thực sự cần.",
       "canonical": "https://dolphin-software.io.vn/",
       "keywords": [
+        "giải pháp AI và công nghệ cho doanh nghiệp",
         "thiết kế website theo yêu cầu",
-        "nâng cấp hệ thống cũ",
-        "AI automation cho doanh nghiệp",
-        "thiết kế web cho doanh nghiệp vừa và nhỏ",
+        "CRM cho doanh nghiệp vừa và nhỏ",
+        "tự động hóa quy trình doanh nghiệp",
+        "phần mềm quản lý theo yêu cầu",
         "Dolphin Software",
         "Dolphin Care",
-        "tích hợp AI cho website",
-        "công ty thiết kế web Việt Nam"
+        "Dolphin Ops"
       ]
     }
   },
@@ -32,22 +32,10 @@
       "rawPath": "/schema/homepage/hero.json"
     },
     {
-      "id": "stack",
-      "anchor": "#stack",
-      "schemaPath": "/schema/homepage/stack/",
-      "rawPath": "/schema/homepage/stack.json"
-    },
-    {
-      "id": "fit",
-      "anchor": "#fit",
-      "schemaPath": "/schema/homepage/fit/",
-      "rawPath": "/schema/homepage/fit.json"
-    },
-    {
-      "id": "stats",
-      "anchor": "#stats",
-      "schemaPath": "/schema/homepage/stats/",
-      "rawPath": "/schema/homepage/stats.json"
+      "id": "problems",
+      "anchor": "#problems",
+      "schemaPath": "/schema/homepage/problems/",
+      "rawPath": "/schema/homepage/problems.json"
     },
     {
       "id": "why",
@@ -57,15 +45,9 @@
     },
     {
       "id": "capabilities",
-      "anchor": "#capabilities",
+      "anchor": "#solutions",
       "schemaPath": "/schema/homepage/capabilities/",
       "rawPath": "/schema/homepage/capabilities.json"
-    },
-    {
-      "id": "works",
-      "anchor": "#works",
-      "schemaPath": "/schema/homepage/works/",
-      "rawPath": "/schema/homepage/works.json"
     },
     {
       "id": "dolphin-care",
@@ -80,16 +62,10 @@
       "rawPath": "/schema/homepage/dolphin-ops.json"
     },
     {
-      "id": "technology",
-      "anchor": "#technology",
-      "schemaPath": "/schema/homepage/technology/",
-      "rawPath": "/schema/homepage/technology.json"
-    },
-    {
-      "id": "ai-edge",
-      "anchor": "#ai-edge",
-      "schemaPath": "/schema/homepage/ai-edge/",
-      "rawPath": "/schema/homepage/ai-edge.json"
+      "id": "works",
+      "anchor": "#works",
+      "schemaPath": "/schema/homepage/works/",
+      "rawPath": "/schema/homepage/works.json"
     },
     {
       "id": "process",
@@ -102,6 +78,24 @@
       "anchor": "#popular-services",
       "schemaPath": "/schema/homepage/popular-services/",
       "rawPath": "/schema/homepage/popular-services.json"
+    },
+    {
+      "id": "stack",
+      "anchor": "#stack",
+      "schemaPath": "/schema/homepage/stack/",
+      "rawPath": "/schema/homepage/stack.json"
+    },
+    {
+      "id": "technology",
+      "anchor": "#technology",
+      "schemaPath": "/schema/homepage/technology/",
+      "rawPath": "/schema/homepage/technology.json"
+    },
+    {
+      "id": "ai-edge",
+      "anchor": "#ai-edge",
+      "schemaPath": "/schema/homepage/ai-edge/",
+      "rawPath": "/schema/homepage/ai-edge.json"
     },
     {
       "id": "faq",

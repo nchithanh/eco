@@ -7,22 +7,65 @@ export const homepageLangJa: HomepageLang = {
   hero: {
     eyebrow: "Dolphin Software",
     aiPill: "",
-    headline: "テクノロジーを企業の[[負担]]にさせない",
-    subhead: "Webサイト構築 · レガシーシステム刷新 · 適切なAI統合",
-    support: "Dolphin Softwareは中小企業向けに、要件に応じたWebサイト設計、レガシーシステムの刷新、実用的なAI自動化を支援し、時間を節約し運用効率を実質的に向上させます。",
-    trustLine: "まず理解する · 明確な見積り · 不要な営業なし",
-    ctaPrimary: "見積りを依頼",
-    ctaSecondary: "Webサービスを見る",
-    tags: ["Automation", "Web & App", "適切なAI"],
+    headline: "ビジネスの課題を[[AIとテクノロジー]]で解く",
+    subhead: "まず事業を理解し、技術が本当に効く箇所を見極め、必要なものだけを作る。",
+    support: "Dolphinは成長中の企業の運用ボトルネックを特定し、Webサイト、AIエージェント、CRM、自動化、カスタムソフトウェアなど、合う手段で解消します。",
+    trustLine: "We don't start with technology. We start with your problem.",
+    ctaPrimary: "事業について話す",
+    ctaSecondary: "ソリューションを見る",
+    tags: ["課題から", "AIと技術", "Webは一つの手段"],
     metrics: [
       { value: "6+", label: "掲載ケース" },
-      { value: "Build", label: "SMB向け優先" },
+      { value: "Pain", label: "課題から始める" },
     ],
     visual: {
       web: "Web & App",
       automation: "Automation",
       ai: "AI統合"
     }
+  },
+  problems: {
+    eyebrow: "What is slowing you down?",
+    title: "何が事業を[[遅らせて]]いますか？",
+    support: "カタログから始めません。詰まっている箇所から始め、それから手段を選びます。",
+    items: [
+      {
+        title: "手作業が多すぎる",
+        body: "チームが毎日同じ作業に時間を使っている。",
+        href: "/ai-transform/",
+        solution: "自動化",
+      },
+      {
+        title: "顧客を取りこぼす",
+        body: "リード、フォロー、メッセージが散らばり、冷める。CRMで台帳、Careでサイト対応。",
+        href: "/dolphin-ops/",
+        solution: "CRM / AI対応",
+      },
+      {
+        title: "サイトが集客に効かない",
+        body: "ページはあるが、訪問者が電話も連絡も残さない。",
+        href: "/services/web/",
+        solution: "Webサイト",
+      },
+      {
+        title: "ツール同士がつながっていない",
+        body: "顧客、販売、運用が別々のシステムに分かれている。",
+        href: "/services/integrations/",
+        solution: "連携",
+      },
+      {
+        title: "人に依存しすぎている",
+        body: "手順と顧客情報がスタッフの頭の中にある。",
+        href: "/services/software/",
+        solution: "システム / CRM",
+      },
+      {
+        title: "AIは欲しいが、どこから始めるか不明",
+        body: "AIの重要性は分かるが、どの用途が価値を出すか不明。",
+        href: "/ai-transform/",
+        solution: "AIソリューション",
+      },
+    ],
   },
   siteOutcomes: {
     eyebrow: "Outcomes",
@@ -99,68 +142,89 @@ export const homepageLangJa: HomepageLang = {
   },
   why: {
     eyebrow: "Why Dolphin",
-    title: "長期パートナー、コードを渡すだけ[[ではない]]",
-    support: "明確なタイムライン、確約された範囲、納品後サポート——技術的な霧はありません。",
-    promise: "まず理解 · 明確な見積り · 範囲どおり納品",
+    title: "機能の山を[[売りません]]",
+    support: "多くの企業に必要なのは、ボタンが百個あるシステムではありません。遅れの原因を外すことです。Dolphinは製品ではなく、事業から始めます。",
+    promise: "We don't start with technology. We start with your problem.",
     reasons: [
       {
-        title: "実戦経験",
-        body: "7年間の実運用——信頼性、観察力、中小企業向けエンドツーエンド納品。"
+        title: "理解する",
+        body: "販売、顧客対応、運用の実態を、ビジネスの言葉で聞く。"
       },
       {
-        title: "エンドツーエンドの納品",
-        body: "ディスカバリーからデプロイまで——1チームが責任を持ち、将来の拡張に対応する構造。"
+        title: "詰まりを特定する",
+        body: "時間、リード、または特定の人に依存している箇所を示す。"
       },
       {
-        title: "透明なプロセス",
-        body: "マイルストーン、定期デモ、範囲ベースの見積り——実際の納品物で測定。"
+        title: "必要なものだけ作る",
+        body: "Web、AI、CRM、連携、または専用ソフト — 痛みに合うものだけ。"
       },
       {
-        title: "納品後サポート",
-        body: "運用ガイド、合意されたバグ保証、実際のニーズに応じた最適化。"
+        title: "測って改善する",
+        body: "自走できる形で納品し、現場が出たら直す — 置いて終わりにしない。"
       }
     ]
   },
   capabilities: {
-    eyebrow: "How we help",
-    title: "明確なWebサイト、企業が[[実際に]]運用できる",
-    support: "短いブリーフで十分です。最も近いアウトカムを選択——Dolphin Softwareがアプローチと具体的な見積りを提案します。",
-    ctaPrimary: "見積りを依頼",
-    ctaSecondary: "サービスパッケージを見る",
-    ctaSecondaryHref: "#popular-services",
-    learnMore: "詳細を見る",
+    eyebrow: "Solutions",
+    title: "事業の回り方に沿った[[ソリューション]]",
+    support: "7つのバラバラな受託サービスではありません。運用の一つの詰まりを外すための手段です。",
+    ctaPrimary: "事業について話す",
+    ctaSecondary: "事業について話す",
+    ctaSecondaryHref: "#contact",
+    learnMore: "詳しく見る",
     prevPage: "前へ",
     nextPage: "次へ",
     pauseCarousel: "カルーセルを一時停止",
     playCarousel: "カルーセルを再生",
     offers: [
       {
-        id: "build",
-        title: "Build",
-        body: "販売・運用に合うWebサイトとソフトウェアを要件どおり構築——紹介だけのサイトではありません。",
-        meta: "SMB優先",
+        id: "website",
+        title: "Webサイト",
+        body: "事業目標に沿ったWebサイトとWebアプリ — 見つかり、理解され、連絡しやすい。",
+        meta: "発見とコンバージョン",
         href: "/services/web/"
       },
       {
-        id: "modernize",
-        title: "Modernize",
-        body: "一から作り直す前に、稼働中のシステムを拡張・最適化・モダナイズ。",
-        meta: "既存システム",
-        href: "/services/software/"
-      },
-      {
-        id: "automate",
-        title: "Automate",
-        body: "価値がある反復作業にAI——人の代わりではなく、手作業を減らす。",
-        meta: "反復ワークフロー",
+        id: "ai",
+        title: "AIソリューション",
+        body: "実務のAI：反復作業、分類、チーム支援 — 痛みが明確になってから。",
+        meta: "効く場所に",
         href: "/ai-transform/"
       },
       {
-        id: "care",
-        title: "Care",
+        id: "agents",
+        title: "AIエージェント",
         body: "Dolphin Care — サイト上の顧客対応、リード記録、知識範囲内の時間外サポート。",
         meta: "サイト上",
         href: "/dolphin-care/"
+      },
+      {
+        id: "crm",
+        title: "CRMと顧客",
+        body: "Dolphin Ops — 顧客、予定、フォローを一箇所に。チャットに散らさない。",
+        meta: "社内運用",
+        href: "/dolphin-ops/"
+      },
+      {
+        id: "automation",
+        title: "自動化",
+        body: "反復の手作業を減らす：リマインド、レポート、入力 — 手順が明確になってから。",
+        meta: "反復作業",
+        href: "/ai-transform/"
+      },
+      {
+        id: "integrations",
+        title: "連携",
+        body: "決済、Zalo、CRM、既存システムをつなぎ、情報が一本で流れるようにする。",
+        meta: "既存システム",
+        href: "/services/integrations/"
+      },
+      {
+        id: "custom",
+        title: "専用ソフトとレガシー",
+        body: "既製品が合わないときに社内システムを作る — または動いているものを、作り直し前提にせず改善。",
+        meta: "業務に合わせて",
+        href: "/services/software/"
       }
     ],
     moreServices: [
@@ -183,48 +247,61 @@ export const homepageLangJa: HomepageLang = {
     ],
     items: [
       {
-        id: "build",
-        category: "Build",
-        title: "Build",
-        body: "販売・運用に合うWebサイトとソフトウェアを要件どおり構築——紹介だけのサイトではありません。",
-        tags: [
-          "SMB優先"
-        ]
+        id: "website",
+        category: "Website",
+        title: "Webサイト",
+        body: "事業目標に沿ったWebサイトとWebアプリ — 見つかり、理解され、連絡しやすい。",
+        tags: ["発見とコンバージョン"]
       },
       {
-        id: "modernize",
-        category: "Modernize",
-        title: "Modernize",
-        body: "一から作り直す前に、稼働中のシステムを拡張・最適化・モダナイズ。",
-        tags: [
-          "既存システム"
-        ]
+        id: "ai",
+        category: "AI",
+        title: "AIソリューション",
+        body: "実務のAI：反復作業、分類、チーム支援 — 痛みが明確になってから。",
+        tags: ["効く場所に"]
       },
       {
-        id: "automate",
-        category: "Automate",
-        title: "Automate",
-        body: "価値がある反復作業にAI——人の代わりではなく、手作業を減らす。",
-        tags: [
-          "反復ワークフロー"
-        ]
-      },
-      {
-        id: "care",
-        category: "Care",
-        title: "Care",
+        id: "agents",
+        category: "AI Agent",
+        title: "AIエージェント",
         body: "Dolphin Care — サイト上の顧客対応、リード記録、知識範囲内の時間外サポート。",
-        tags: [
-          "サイト上"
-        ]
+        tags: ["サイト上"]
+      },
+      {
+        id: "crm",
+        category: "CRM",
+        title: "CRMと顧客",
+        body: "Dolphin Ops — 顧客、予定、フォローを一箇所に。チャットに散らさない。",
+        tags: ["社内運用"]
+      },
+      {
+        id: "automation",
+        category: "Automation",
+        title: "自動化",
+        body: "反復の手作業を減らす：リマインド、レポート、入力 — 手順が明確になってから。",
+        tags: ["反復作業"]
+      },
+      {
+        id: "integrations",
+        category: "Integrations",
+        title: "連携",
+        body: "決済、Zalo、CRM、既存システムをつなぎ、情報が一本で流れるようにする。",
+        tags: ["既存システム"]
+      },
+      {
+        id: "custom",
+        category: "Custom",
+        title: "専用ソフトとレガシー",
+        body: "既製品が合わないときに社内システムを作る — または動いているものを、作り直し前提にせず改善。",
+        tags: ["業務に合わせて"]
       }
     ]
   },
   works: {
     eyebrow: "Projects",
-    title: "実際に展開したWebサイト",
-    support: "以下の各プロジェクト：課題 → 範囲 → 測定可能な結果。",
-    cta: "このようなWebサイトをご希望ですか？",
+    title: "実際に外した[[詰まり]] — きれいな写真だけではない",
+    support: "各ケース：詰まっていた箇所 → 作った範囲 → 納品後に変わったこと。技術スタックは下に。",
+    cta: "御社の課題について話す",
     ctaHint: "ご相談ください——ソリューション提案前に一緒に分析します。",
     industries: [
       "スパ",
@@ -423,9 +500,9 @@ export const homepageLangJa: HomepageLang = {
     ]
   },
   popularServicesChrome: {
-    eyebrow: "Solutions",
-    title: "[[人気]]サービス",
-    support: "4つの主要パッケージを比較——適合するパッケージを選択し、見積りを依頼またはZaloチャット。カスタム範囲、レガシーシステム統合、業界特化SEOが必要ですか？Dolphin Softwareは見積り前に各項目を詳細に分析します。"
+    eyebrow: "Website packages",
+    title: "見つけてもらい、[[転換]]するためのWebパッケージ",
+    support: "痛みがGoogle / LP / ショップのときの4パッケージ — Dolphinの全カタログではありません。パッケージを選び、見積りまたはZaloへ。"
   },
   faq: {
     eyebrow: "FAQ",
@@ -434,7 +511,7 @@ export const homepageLangJa: HomepageLang = {
     items: [
       {
         q: "Dolphin Softwareは何をしますか？",
-        a: "Dolphin Softwareは中小企業（SMB）がビジネス課題から運用可能なシステムへ移行するのを支援します——Webサイト、モバイル、自動化、AI。目標を述べるだけで、Dolphin Softwareが適切な範囲を提案します。"
+        a: "Dolphin Softwareは企業向けのAI・テクノロジーソリューション会社です。運用の課題から始め、Webサイト、AIエージェント、CRM、自動化、連携、専用ソフトを選びます。どの技術が必要か分からなくても始められます。詰まっている箇所を教えてください。"
       },
       {
         q: "技術に詳しくない企業でも協力できますか？",
@@ -482,37 +559,37 @@ export const homepageLangJa: HomepageLang = {
       },
       {
         q: "どうやって始めますか？",
-        a: "「見積りを依頼」をクリック、Zaloチャット、または目標、期限、推定予算（あれば）を記載したContactフォームを送信。"
+        a: "ContactフォームまたはZaloで詰まっている箇所を教えてください。「WebかAIか」を先に決める必要はありません。Dolphinが痛みに合う範囲を提案します。"
       }
     ]
   },
   contactChrome: {
     eyebrow: "Next step",
-    title: "Webサイト構築またはワークフロー[[自動化]]の準備はできましたか？",
-    support: "短いブリーフを送信——Dolphin Softwareがアプローチと適切な範囲で回答、パッケージ押し付けなし。",
+    title: "[[御社の事業]]について話す",
+    support: "どの技術が必要か分からなくても大丈夫です。詰まっている箇所を教えてください。Dolphinがアプローチと適切な範囲で返します。パッケージの押し付けはありません。",
     nextHint: "通常営業日内に回答。",
     afterSubmitTitle: "ブリーフ送信後、以下を受け取ります：",
     afterSubmitItems: [
       "御社の課題に対する初期アプローチ",
-      "範囲提案：Webサイト · 刷新 · AI自動化 · Dolphin Care",
+      "痛みに合う範囲提案：Webサイト · AI · CRM · 連携 · 専用ソフト",
       "タイムラインマイルストーンと推定コスト範囲"
     ]
   },
   seo: {
-    title: "Dolphin Software – 中小企業向けWebサイト設計とAI",
-    description: "Dolphin Softwareはベトナムの中小企業向けに、カスタムWebサイト構築、レガシーシステム刷新、AI自動化統合を提供。透明な見積り、期限内納品。",
-    og_title: "Dolphin Software – Webサイト設計 · システム刷新 · AI自動化",
-    og_description: "中小企業が運用可能なWebサイトを構築し、レガシーシステムを刷新し、適切な場所にAIを適用——時間を節約し、運用効率を向上。",
+    title: "Dolphin Software – 企業向けAI・テクノロジーソリューション",
+    description: "Dolphin Softwareは運用の詰まりを特定し、Webサイト、AIエージェント、CRM、自動化、連携、専用ソフトで解消します。技術からではなく、課題から始めます。",
+    og_title: "Dolphin Software – 企業向けAI・テクノロジーソリューション",
+    og_description: "技術から始めません。課題から始めます。Web、AI、CRM、自動化、専用ソフト — 事業に本当に必要なものだけ。",
     canonical: "https://dolphin-software.io.vn/",
     keywords: [
+      "企業向けAIとテクノロジーソリューション",
       "カスタムWebサイト設計",
-      "レガシーシステム刷新",
-      "企業向けAI自動化",
-      "中小企業向けWebサイト設計",
+      "中小企業向けCRM",
+      "業務プロセス自動化",
+      "専用管理ソフト",
       "Dolphin Software",
       "Dolphin Care",
-      "WebサイトへのAI統合",
-      "ベトナムWeb設計会社"
+      "Dolphin Ops"
     ]
   }
 };

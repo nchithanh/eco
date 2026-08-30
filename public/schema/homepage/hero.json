@@ -4,7 +4,7 @@
     "id": "hero",
     "locale": "vi",
     "brand": "Dolphin Software",
-    "updated": "2026-08-10",
+    "updated": "2026-08-31",
     "schemaPath": "/schema/homepage/hero/",
     "rawPath": "/schema/homepage/hero.json",
     "productRoute": "/"
@@ -12,28 +12,28 @@
   "content": {
     "order": 1,
     "id": "hero",
-    "headline": "Đừng để công nghệ trở thành gánh nặng cho doanh nghiệp",
-    "subheadline": "Xây website · Nâng cấp hệ thống cũ · Tích hợp AI đúng chỗ",
-    "body": "Dolphin Software giúp doanh nghiệp vừa và nhỏ thiết kế website theo yêu cầu, nâng cấp hệ thống cũ và ứng dụng AI automation — để tiết kiệm thời gian và nâng cao hiệu quả vận hành thực sự.",
+    "headline": "Giải quyết vấn đề doanh nghiệp bằng AI & Công nghệ",
+    "subheadline": "Hiểu doanh nghiệp trước, xác định chỗ công nghệ tạo giá trị thật, rồi chỉ xây những gì anh chị thực sự cần.",
+    "body": "Dolphin giúp doanh nghiệp xác định những điểm nghẽn trong vận hành và xây dựng giải pháp phù hợp — từ website, AI Agent, CRM, automation đến phần mềm riêng.",
     "trust_strip": [
-      "Hiểu trước · Báo giá rõ ràng · Không đẩy dịch vụ không cần thiết"
+      "We don't start with technology. We start with your problem."
     ],
     "ctas": [
       {
-        "label": "Nhận báo giá",
+        "label": "Nói về doanh nghiệp của bạn",
         "href": "#contact",
         "style": "primary"
       },
       {
-        "label": "Xem dịch vụ website",
-        "href": "#capabilities",
+        "label": "Xem giải pháp",
+        "href": "#solutions",
         "style": "secondary"
       }
     ],
-    "tags": ["Automation", "Web & App", "AI đúng chỗ"],
+    "tags": ["Vấn đề trước", "AI & công nghệ", "Website là một giải pháp"],
     "metrics": [
       { "value": "6+", "label": "Case trên site" },
-      { "value": "Build", "label": "Ưu tiên SMB cold" }
+      { "value": "Pain", "label": "Bắt đầu từ vấn đề" }
     ],
     "visual": "EmbedSiteMock browser wireframe + dolphin-eco mascot"
   }

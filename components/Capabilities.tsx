@@ -36,6 +36,13 @@ const OFFER_IMAGES: Record<string, string> = {
   business: "/capabilities/design.jpg",
   shop: "/capabilities/integrations.jpg",
   webapp: "/capabilities/backend.jpg",
+  website: "/capabilities/web.jpg",
+  ai: "/capabilities/integrations.jpg",
+  agents: "/capabilities/agent-dolphin.jpg",
+  crm: "/capabilities/backend.jpg",
+  automation: "/capabilities/design.jpg",
+  integrations: "/capabilities/integrations.jpg",
+  custom: "/capabilities/backend.jpg",
   build: "/capabilities/web.jpg",
   modernize: "/capabilities/design.jpg",
   automate: "/capabilities/integrations.jpg",
@@ -276,14 +283,15 @@ export function Capabilities() {
 
   return (
     <section
-      id="capabilities"
+      id="solutions"
       aria-labelledby="home-capabilities-heading"
       className="kuct-capabilities relative scroll-mt-20 overflow-hidden py-20 sm:py-24"
     >
+      <span id="capabilities" className="sr-only" />
       <div className="relative mx-auto max-w-7xl px-6">
         <Reveal variant="title">
           <div className="flex flex-wrap items-center gap-3 sm:gap-4">
-            <p className="kuct-type-eyebrow text-[11px] sm:text-xs">{c.eyebrow}</p>
+            <p className="kuct-section-eyebrow">{c.eyebrow}</p>
             <span
               className="hidden h-px min-w-[3rem] flex-1 border-t border-dashed border-[var(--kuct-border)] sm:block"
               aria-hidden

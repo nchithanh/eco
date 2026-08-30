@@ -46,7 +46,7 @@ const ui: Record<Locale, WorkDetailUi> = {
     scopeTitle: "Phạm vi",
     highlightsTitle: "Tính năng chính",
     outcomesTitle: "Kết quả",
-    cta: "Muốn làm website tương tự?",
+    cta: "Nói về bài toán tương tự?",
     viewDesign: "Xem design",
     mockupAlt: "Mockup trang chủ portal quán bida cao cấp",
     viewerClose: "Đóng",
@@ -58,7 +58,7 @@ const ui: Record<Locale, WorkDetailUi> = {
     scopeTitle: "Scope",
     highlightsTitle: "Key features",
     outcomesTitle: "Outcomes",
-    cta: "Want a similar website?",
+    cta: "Talk about a similar bottleneck?",
     viewDesign: "View design",
     mockupAlt: "Premium billiard portal homepage mockup",
     viewerClose: "Close",
@@ -70,7 +70,7 @@ const ui: Record<Locale, WorkDetailUi> = {
     scopeTitle: "スコープ",
     highlightsTitle: "主な機能",
     outcomesTitle: "成果",
-    cta: "同様のサイトを作りたいですか？",
+    cta: "同様の課題について話す",
     viewDesign: "デザインを見る",
     mockupAlt: "プレミアムビリヤードポータルのホームページモックアップ",
     viewerClose: "閉じる",
@@ -96,7 +96,7 @@ const copyByLocale: Record<Locale, Record<WorkSlug, WorkCopy>> = {
       title: "Quản lý cửa hàng bida",
       tag: "Website · Đặt bàn",
       intro:
-        "Website quán bida đã làm: đặt bàn, theo dõi bàn / giờ chơi, trạng thái và doanh thu theo ca — phục vụ vận hành thực tế.",
+        "Bài toán: giấy/Excel khó thấy bàn trống, doanh thu ca dễ thất thoát. Website ops đã làm: đặt bàn, theo dõi giờ chơi, trạng thái và doanh thu theo ca.",
       problem:
         "Chủ quán thường ghi sổ tay hoặc Excel: khó biết bàn nào trống, giờ kết thúc khi nào, và cuối ngày phải cộng tay dễ sai.",
       scope:
@@ -224,7 +224,7 @@ const copyByLocale: Record<Locale, Record<WorkSlug, WorkCopy>> = {
       title: "Billiard shop management",
       tag: "Website · Booking",
       intro:
-        "Delivered billiard-shop website: table booking, play-time tracking, live status, shift revenue — built for real shop operations.",
+        "Problem: notebooks/Excel hid free tables and shift revenue leaked. Delivered: table booking, play-time tracking, live status, shift revenue.",
       problem:
         "Owners track tables in notebooks or Excel: hard to see which tables are free, when sessions end, and manual end-of-day totals invite errors.",
       scope:

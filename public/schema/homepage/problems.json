@@ -1,0 +1,57 @@
+{
+  "meta": {
+    "kind": "homepage-section",
+    "id": "problems",
+    "locale": "vi",
+    "brand": "Dolphin Software",
+    "updated": "2026-08-31",
+    "schemaPath": "/schema/homepage/problems/",
+    "rawPath": "/schema/homepage/problems.json",
+    "productRoute": "/"
+  },
+  "content": {
+    "order": 2,
+    "id": "problems",
+    "section_label": "What is slowing you down?",
+    "headline": "Điều gì đang làm chậm doanh nghiệp của anh chị?",
+    "subheadline": "Không mở bằng catalog. Mở bằng việc đang nghẽn — rồi mới chọn công cụ.",
+    "items": [
+      {
+        "title": "Quá nhiều việc làm tay",
+        "body": "Team mất giờ cho việc lặp lại mỗi ngày.",
+        "href": "/ai-transform/",
+        "solution": "Tự động hóa"
+      },
+      {
+        "title": "Khách bị bỏ sót",
+        "body": "Lead, follow-up và tin nhắn nằm rải, rồi trôi.",
+        "href": "/dolphin-ops/",
+        "solution": "CRM / AI chăm khách"
+      },
+      {
+        "title": "Website không giúp tiệm lớn lên",
+        "body": "Có trang, nhưng khách vào rồi không gọi, không để lại thông tin.",
+        "href": "/services/web/",
+        "solution": "Website"
+      },
+      {
+        "title": "Công cụ không nói chuyện với nhau",
+        "body": "Khách, bán hàng, vận hành nằm ở nhiều hệ thống.",
+        "href": "/services/integrations/",
+        "solution": "Tích hợp"
+      },
+      {
+        "title": "Doanh nghiệp phụ thuộc quá nhiều vào người",
+        "body": "Quy trình và dữ liệu khách nằm trong đầu nhân viên.",
+        "href": "/services/software/",
+        "solution": "Hệ thống / CRM"
+      },
+      {
+        "title": "Muốn dùng AI, chưa biết bắt đầu đâu",
+        "body": "Biết AI quan trọng, chưa rõ use case nào ra giá trị.",
+        "href": "/ai-transform/",
+        "solution": "Giải pháp AI"
+      }
+    ]
+  }
+}

@@ -3,14 +3,13 @@
 import Image from "next/image";
 import { AccentText, BrandText } from "@/components/BrandName";
 import { EmbedSiteMock } from "@/components/EmbedSiteMock";
-import { useQuote } from "@/components/QuoteProvider";
-import { assetPath } from "@/lib/asset";
+import { useMascotSrc } from "@/components/useMascotSrc";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
-import { MASCOT } from "@/lib/mascot";
 
 function HeroSignature() {
   const { t } = useLocale();
   const metrics = t.hero.metrics;
+  const ecoSrc = useMascotSrc("eco");
 
   return (
     <div className="kuct-hero-demo relative mx-auto w-full max-w-md touch-pan-y lg:mx-0 lg:max-w-none">
@@ -44,7 +43,7 @@ function HeroSignature() {
 
           <div className="pointer-events-none absolute -right-2 -bottom-3 z-20 max-w-[38%] sm:-right-4 sm:max-w-[36%] lg:-right-6 lg:-bottom-4 lg:max-w-[40%]">
             <Image
-              src={assetPath(MASCOT.eco)}
+              src={ecoSrc}
               alt=""
               width={800}
               height={994}
@@ -61,7 +60,6 @@ function HeroSignature() {
 
 export function Hero() {
   const { t } = useLocale();
-  const { openQuote } = useQuote();
 
   return (
     <section
@@ -74,9 +72,7 @@ export function Hero() {
       />
       <div className="relative mx-auto grid w-full max-w-7xl items-center gap-10 px-6 py-16 sm:py-20 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-14 lg:py-16">
         <div className="relative z-10 max-w-xl touch-pan-y">
-          <p className="kuct-type-eyebrow text-[11px] sm:text-xs">
-            {t.hero.eyebrow}
-          </p>
+          <p className="kuct-section-eyebrow">{t.hero.eyebrow}</p>
           {t.hero.aiPill ? (
             <span className="kuct-badge mt-3">{t.hero.aiPill}</span>
           ) : null}
@@ -99,17 +95,16 @@ export function Hero() {
             ))}
           </ul>
 
-          <div className="mt-8 flex flex-wrap items-center gap-4">
-            <button
-              type="button"
-              onClick={openQuote}
-              className="kuct-btn-primary inline-flex items-center rounded-lg px-5 py-3.5 text-sm font-semibold shadow-[var(--kuct-shadow)]"
+          <div className="mt-8 flex flex-wrap items-center gap-3 sm:gap-4">
+            <a
+              href="#contact"
+              className="kuct-btn-primary inline-flex items-center rounded-lg px-6 py-3.5 text-sm font-semibold"
             >
               {t.hero.ctaPrimary}
-            </button>
+            </a>
             <a
-              href="#capabilities"
-              className="kuct-btn-ghost inline-flex items-center self-center"
+              href="#solutions"
+              className="kuct-btn-outline inline-flex items-center rounded-lg px-6 py-3.5 text-sm"
             >
               {t.hero.ctaSecondary}
             </a>

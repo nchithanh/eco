@@ -14,6 +14,7 @@ import aiTransform from "../../public/schema/agents/ai-transform.json";
 import dolphinIntelligence from "../../public/schema/agents/dolphin-intelligence.json";
 import homepageIndex from "../../public/schema/homepage/index.json";
 import homepageHero from "../../public/schema/homepage/hero.json";
+import homepageProblems from "../../public/schema/homepage/problems.json";
 import homepageStats from "../../public/schema/homepage/stats.json";
 import homepageWhy from "../../public/schema/homepage/why.json";
 import homepageCapabilities from "../../public/schema/homepage/capabilities.json";
@@ -52,20 +53,21 @@ export type SchemaAgentSlug = (typeof SCHEMA_AGENT_SLUGS)[number];
 
 export const SCHEMA_HOMEPAGE_SLUGS = [
   "hero",
-  "stack",
-  "stats",
+  "problems",
   "why",
   "capabilities",
-  "works",
   "dolphin-care",
   "dolphin-ops",
+  "works",
+  "process",
+  "popular-services",
+  "stack",
   "technology",
   "ai-edge",
-  "process",
-  "fit",
-  "popular-services",
   "faq",
   "contact",
+  "stats",
+  "fit",
 ] as const;
 
 export type SchemaHomepageSlug = (typeof SCHEMA_HOMEPAGE_SLUGS)[number];
@@ -108,6 +110,7 @@ export const schemaAgentsBySlug: Record<SchemaAgentSlug, object> = {
 
 export const schemaHomepageBySlug: Record<SchemaHomepageSlug, object> = {
   hero: homepageHero,
+  problems: homepageProblems,
   stats: homepageStats,
   why: homepageWhy,
   capabilities: homepageCapabilities,

@@ -64,8 +64,8 @@ export function PopularServices({
  id={sectionId}
  className={
  embedded
- ? "scroll-mt-20 py-12 sm:py-16"
- : "scroll-mt-20 py-16 sm:py-20 lg:py-24"
+ ? "kuct-section-soft scroll-mt-20 py-12 sm:py-16"
+ : "kuct-section-soft scroll-mt-20 py-16 sm:py-20 lg:py-24"
  }
  >
  <div className="mx-auto max-w-7xl px-4 sm:px-6">
@@ -77,7 +77,7 @@ export function PopularServices({
  {/* Left — section intro */}
  <div className="flex flex-col justify-between px-4 py-6 sm:px-8 sm:py-10 lg:border-b-0 lg:border-r lg:px-10 lg:py-12">
  <Reveal variant="title">
- <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
+ <p className="kuct-section-eyebrow">
  {eyebrow}
  </p>
  <h2 className="mt-3 max-w-[18ch] font-display text-[1.65rem] font-semibold leading-[1.15] tracking-tight sm:mt-4 sm:text-[2.15rem] lg:text-[2.35rem] lg:leading-[1.1]">

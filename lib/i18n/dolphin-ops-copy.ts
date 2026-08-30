@@ -151,9 +151,9 @@ const vi: DolphinOpsCopy = {
   metaDescription:
     "Dolphin Ops là Agent CRM (SaaS) cho vận hành nội bộ: spa, clinic, salon và shop dịch vụ. Anh chị nói việc cần làm, hệ thống chọn đúng tool và UI để chạy.",
   eyebrow: "SaaS · Agent CRM · CRM 2.0",
-  headline: "Dolphin Ops – [[Agent CRM]] cho vận hành doanh nghiệp",
+  headline: "Lead nằm rải tin nhắn, follow-up trôi — [[Agent CRM]] cho vận hành",
   support:
-    "Dolphin Ops là SaaS Agent CRM: anh chị nói việc cần làm, Agent chọn Business Tool và mở đúng màn — lịch, khách, báo cáo. Admin chỉnh tool đã bật bằng chat. Việc nhạy thì người xác nhận trước khi chạy.",
+    "Khách, lịch, follow-up nằm rải. Dolphin Ops: anh chị nói việc cần làm, Agent chọn tool và mở đúng màn. Admin chỉnh tool bằng chat. Việc nhạy thì người xác nhận trước khi chạy.",
   ctaPrimary: "Xem Ops chạy việc",
   ctaSecondary: "Nói chuyện với chúng tôi",
   trustLine: "Không phải CRM gắn thêm chat.",
@@ -517,9 +517,9 @@ const en: DolphinOpsCopy = {
   metaDescription:
     "Dolphin Ops is Agent CRM (SaaS) for internal ops — spa, clinic, salon and service shops. You say the job; the system picks the right tool and UI.",
   eyebrow: "SaaS · Agent CRM · CRM 2.0",
-  headline: "Dolphin Ops – [[Agent CRM]] for business operations",
+  headline: "Leads scattered in chats, follow-ups going cold — [[Agent CRM]] for ops",
   support:
-    "Dolphin Ops is Agent CRM as SaaS: you say the job, the Agent picks the Business Tool and opens the right screen — bookings, customers, reports. Admins change enabled tools in chat. Sensitive work waits for a person.",
+    "Customers, calendar, and follow-up sit scattered. Dolphin Ops: you say the job, the Agent picks the tool and opens the right screen. Admins change enabled tools in chat. Sensitive work waits for a person.",
   ctaPrimary: "See Ops run the job",
   ctaSecondary: "Talk to us",
   trustLine: "Not a CRM with chat bolted on.",
@@ -883,9 +883,9 @@ const ja: DolphinOpsCopy = {
   metaDescription:
     "Dolphin Opsは社内運用向けのAgent CRM（SaaS）。スパ・クリニック・サロン・サービス店。用件を伝えると、適切なツールと画面を開きます。",
   eyebrow: "SaaS · Agent CRM · CRM 2.0",
-  headline: "Dolphin Ops – 事業運用の[[Agent CRM]]",
+  headline: "チャットに散らばるリード、冷めるフォロー — 運用の[[Agent CRM]]",
   support:
-    "Dolphin OpsはSaaSのAgent CRMです。用件を伝えると、Agentが業務ツールを選び、予約・顧客・レポートの画面を開きます。有効なツールは管理者がチャットで直せます。機微な操作は人の確認を待ちます。",
+    "顧客、予定、フォローが散らばっている。Dolphin Ops：用件を伝えるとAgentがツールを選び、正しい画面を開きます。機微な操作は人の確認を待ちます。",
   ctaPrimary: "Opsの動きを見る",
   ctaSecondary: "相談する",
   trustLine: "チャットを後付けしたCRMではありません。",

@@ -44,7 +44,7 @@ export function AboutContent() {
  {a.ctaPrimary}
  </button>
  <a
- href={assetPath("/#capabilities")}
+ href={assetPath("/#solutions")}
  className="kuct-btn-ghost inline-flex items-center self-center "
  >
  {a.ctaSecondary}
@@ -274,7 +274,7 @@ export function AboutContent() {
  {a.ctaPrimary}
  </button>
  <a
- href={assetPath("/#capabilities")}
+ href={assetPath("/#solutions")}
  className="kuct-btn-ghost inline-flex items-center self-center "
  >
  {a.ctaSecondary}

@@ -113,13 +113,13 @@ export function WorksShowcase() {
     <section id="works" className="scroll-mt-20 py-24">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal variant="title">
-          <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
+          <p className="kuct-section-eyebrow">
             {w.eyebrow}
           </p>
           <h2 className="mt-4 max-w-3xl font-display text-3xl font-semibold leading-[1.12] tracking-tight sm:text-[2.15rem] lg:text-[2.35rem] lg:leading-[1.1]">
             <AccentText>{w.title}</AccentText>
           </h2>
-          <p className="mt-5 max-w-[48ch] text-base leading-[1.7] text-[var(--kuct-muted)]">
+          <p className="mt-5 max-w-[64ch] text-base leading-[1.7] text-[var(--kuct-muted)]">
             {w.support}
           </p>
           {w.industries && w.industries.length > 0 ? (

@@ -41,6 +41,10 @@ export type Dictionary = {
     aiTransform: string;
     dolphinIntelligence: string;
     contact: string;
+    /** First GNB item → `/#solutions` */
+    solutions: string;
+    /** Utility CTA → `#contact` */
+    talk: string;
     /** Opens site AI chat drawer */
     askAi: string;
   };
@@ -315,6 +319,13 @@ export type Dictionary = {
     /** SEO/GEO fit matrix (preferred when present) */
     matrix?: { profile: string; recommended: string; note: string }[];
   };
+  /** Homepage pain cards → real service URLs. */
+  problems?: {
+    eyebrow: string;
+    title: string;
+    support: string;
+    items: { title: string; body: string; href: string; solution: string }[];
+  };
   cofounder: {
     eyebrow: string;
     role: string;
@@ -493,6 +504,8 @@ export type Dictionary = {
     groupUpdates: string;
     groupConnect: string;
     privacy: string;
+    /** Short GEO blurb under brand */
+    blurb: string;
   };
   loader: {
     aria: string;
@@ -526,6 +539,7 @@ export type Dictionary = {
   theme: {
     aria: string;
     violet: string;
+    orangered: string;
     ocean: string;
     forest: string;
     coral: string;

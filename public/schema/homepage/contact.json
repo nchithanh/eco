@@ -13,11 +13,11 @@
     "order": 13,
     "id": "contact",
     "section_label": "Liên hệ",
-    "headline": "Sẵn sàng làm website hoặc tự động hóa quy trình?",
-    "subheadline": "Gửi brief ngắn — Dolphin Software phản hồi hướng tiếp cận và phạm vi phù hợp, không ép gói.",
+    "headline": "Nói về doanh nghiệp của anh chị",
+    "subheadline": "Không chắc cần công nghệ gì — kể chỗ đang nghẽn. Dolphin phản hồi hướng tiếp cận và phạm vi phù hợp, không ép gói.",
     "after_submit": [
       "Hướng tiếp cận ban đầu cho bài toán của bạn",
-      "Gợi ý phạm vi: website · nâng cấp · AI automation · Dolphin Care",
+      "Gợi ý phạm vi khớp pain: website · AI · CRM · tích hợp · phần mềm riêng",
       "Mốc thời gian và khoảng chi phí ước tính"
     ],
     "next_hint": "Thường phản hồi trong ngày làm việc.",

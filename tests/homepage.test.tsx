@@ -13,15 +13,26 @@ function renderHome() {
   );
 }
 
+/** Desktop + mobile both mount a Language control — pick the first. */
+async function openLanguageMenu(
+  user: ReturnType<typeof userEvent.setup>,
+) {
+  const buttons = screen.getAllByRole("button", { name: /^Language$/i });
+  await user.click(buttons[0]!);
+}
+
 describe("Dolphin Software homepage", () => {
   it("renders hero brand and primary CTA", () => {
     renderHome();
     expect(screen.getAllByLabelText(/Dolphin Software/i).length).toBeGreaterThanOrEqual(1);
     expect(
       screen.getByRole("heading", {
-        name: /テクノロジーを企業の負担にさせない/i,
+        name: /ビジネスの課題をAIとテクノロジーで解く/i,
       }),
     ).toBeInTheDocument();
+    expect(
+      screen.getAllByRole("link", { name: /事業について話す/i })[0],
+    ).toHaveAttribute("href", "#contact");
     expect(
       screen.getAllByRole("button", { name: /見積もりを依頼|見積りを依頼/i }).length,
     ).toBeGreaterThanOrEqual(1);
@@ -30,8 +41,10 @@ describe("Dolphin Software homepage", () => {
   it("renders homepage schema order", () => {
     renderHome();
     const top = document.getElementById("top");
-    const stats = document.getElementById("stats");
+    const fit = document.getElementById("fit");
+    const problems = document.getElementById("problems");
     const why = document.getElementById("why");
+    const solutions = document.getElementById("solutions");
     const capabilities = document.getElementById("capabilities");
     const works = document.getElementById("works");
     const agentDolphin = document.getElementById("dolphin-care");
@@ -40,15 +53,16 @@ describe("Dolphin Software homepage", () => {
     const aiEdge = document.getElementById("ai-edge");
     const stack = document.getElementById("stack");
     const process = document.getElementById("process");
-    const fit = document.getElementById("fit");
     const popular = document.getElementById("popular-services");
     const news = document.getElementById("news");
     const faq = document.getElementById("faq");
     const contact = document.getElementById("contact");
 
     expect(top).toBeTruthy();
-    expect(stats).toBeTruthy();
+    expect(fit).toBeTruthy();
+    expect(problems).toBeTruthy();
     expect(why).toBeTruthy();
+    expect(solutions).toBeTruthy();
     expect(capabilities).toBeTruthy();
     expect(works).toBeTruthy();
     expect(agentDolphin).toBeTruthy();
@@ -66,27 +80,22 @@ describe("Dolphin Software homepage", () => {
     expect(document.getElementById("handover")).toBeNull();
     expect(document.getElementById("what-you-get")).toBeNull();
     expect(document.getElementById("ui-gallery")).toBeNull();
+    expect(document.getElementById("stats")).toBeNull();
 
     const following = Node.DOCUMENT_POSITION_FOLLOWING;
-    expect(top!.compareDocumentPosition(stats!) & following).toBeTruthy();
-    expect(stats!.compareDocumentPosition(why!) & following).toBeTruthy();
-    expect(why!.compareDocumentPosition(capabilities!) & following).toBeTruthy();
-    expect(capabilities!.compareDocumentPosition(works!) & following).toBeTruthy();
-    expect(works!.compareDocumentPosition(agentDolphin!) & following).toBeTruthy();
+    expect(top!.compareDocumentPosition(fit!) & following).toBeTruthy();
+    expect(fit!.compareDocumentPosition(problems!) & following).toBeTruthy();
+    expect(problems!.compareDocumentPosition(why!) & following).toBeTruthy();
+    expect(why!.compareDocumentPosition(solutions!) & following).toBeTruthy();
+    expect(solutions!.compareDocumentPosition(agentDolphin!) & following).toBeTruthy();
     expect(agentDolphin!.compareDocumentPosition(dolphinOps!) & following).toBeTruthy();
-    expect(dolphinOps!.compareDocumentPosition(technology!) & following).toBeTruthy();
-    expect(technology!.compareDocumentPosition(aiEdge!) & following).toBeTruthy();
-    expect(aiEdge!.compareDocumentPosition(process!) & following).toBeTruthy();
+    expect(dolphinOps!.compareDocumentPosition(works!) & following).toBeTruthy();
+    expect(works!.compareDocumentPosition(process!) & following).toBeTruthy();
     expect(process!.compareDocumentPosition(popular!) & following).toBeTruthy();
-    // Tech stack sits immediately under Hero
-    expect(top!.compareDocumentPosition(stack!) & following).toBeTruthy();
-    if (fit) {
-      expect(stack!.compareDocumentPosition(fit) & following).toBeTruthy();
-      expect(fit.compareDocumentPosition(stats!) & following).toBeTruthy();
-    } else {
-      expect(stack!.compareDocumentPosition(stats!) & following).toBeTruthy();
-    }
-    expect(popular!.compareDocumentPosition(news!) & following).toBeTruthy();
+    expect(popular!.compareDocumentPosition(stack!) & following).toBeTruthy();
+    expect(stack!.compareDocumentPosition(technology!) & following).toBeTruthy();
+    expect(technology!.compareDocumentPosition(aiEdge!) & following).toBeTruthy();
+    expect(aiEdge!.compareDocumentPosition(news!) & following).toBeTruthy();
     expect(news!.compareDocumentPosition(faq!) & following).toBeTruthy();
     expect(faq!.compareDocumentPosition(contact!) & following).toBeTruthy();
 
@@ -108,50 +117,53 @@ describe("Dolphin Software homepage", () => {
       within(dolphinOps!).getByRole("link", { name: /Opsの動きを見る/i }),
     ).toHaveAttribute("href", expect.stringMatching(/\/dolphin-ops\/?$/));
     expect(
-      screen.getByRole("link", { name: /Webサービスを見る/i }),
-    ).toHaveAttribute("href", "#capabilities");
+      screen.getByRole("link", { name: /ソリューションを見る/i }),
+    ).toHaveAttribute("href", "#solutions");
   });
 
-  it("renders ai transformation after dolphin care", () => {
+  it("renders ai transformation after process and website packages", () => {
     renderHome();
     const agentDolphin = document.getElementById("dolphin-care");
     const dolphinOps = document.getElementById("dolphin-ops");
+    const process = document.getElementById("process");
+    const popular = document.getElementById("popular-services");
+    const stack = document.getElementById("stack");
     const technology = document.getElementById("technology");
     const aiEdge = document.getElementById("ai-edge");
-    const process = document.getElementById("process");
     expect(agentDolphin).toBeTruthy();
     expect(dolphinOps).toBeTruthy();
+    expect(process).toBeTruthy();
+    expect(popular).toBeTruthy();
+    expect(stack).toBeTruthy();
     expect(technology).toBeTruthy();
     expect(aiEdge).toBeTruthy();
-    expect(process).toBeTruthy();
+    const following = Node.DOCUMENT_POSITION_FOLLOWING;
     expect(
-      agentDolphin!.compareDocumentPosition(dolphinOps!) &
-        Node.DOCUMENT_POSITION_FOLLOWING,
+      agentDolphin!.compareDocumentPosition(dolphinOps!) & following,
+    ).toBeTruthy();
+    expect(process!.compareDocumentPosition(popular!) & following).toBeTruthy();
+    expect(popular!.compareDocumentPosition(stack!) & following).toBeTruthy();
+    expect(stack!.compareDocumentPosition(technology!) & following).toBeTruthy();
+    expect(
+      technology!.compareDocumentPosition(aiEdge!) & following,
     ).toBeTruthy();
     expect(
-      dolphinOps!.compareDocumentPosition(technology!) &
-        Node.DOCUMENT_POSITION_FOLLOWING,
-    ).toBeTruthy();
-    expect(
-      technology!.compareDocumentPosition(aiEdge!) &
-        Node.DOCUMENT_POSITION_FOLLOWING,
-    ).toBeTruthy();
-    expect(
-      aiEdge!.compareDocumentPosition(process!) &
-        Node.DOCUMENT_POSITION_FOLLOWING,
-    ).toBeTruthy();
-    expect(
-      screen.getByRole("heading", {
+      within(technology!).getByRole("heading", {
         level: 2,
-        name: /Webサイトが基盤.*AI.*スマートレイヤー/i,
+        name: /運用向けのAIソリューション/i,
       }),
     ).toBeInTheDocument();
     expect(
-      within(aiEdge!).getByRole("link", { name: /企業AI変革/i }),
+      within(aiEdge!).getByRole("link", { name: /AI変革のロードマップ/i }),
     ).toHaveAttribute("href", expect.stringMatching(/\/ai-transform\/?$/));
     expect(
-      within(aiEdge!).getByRole("link", { name: /Dolphin Careを見る/i }),
-    ).toHaveAttribute("href", expect.stringMatching(/\/dolphin-care\/?$/));
+      within(aiEdge!).getByRole("link", {
+        name: /Dolphin Intelligence を見る/i,
+      }),
+    ).toHaveAttribute(
+      "href",
+      expect.stringMatching(/\/dolphin-intelligence\/?$/),
+    );
   });
 
   it("renders popular services click-select with landing price focus", async () => {
@@ -162,7 +174,7 @@ describe("Dolphin Software homepage", () => {
     expect(
       screen.getByRole("heading", {
         level: 2,
-        name: /人気サービス/i,
+        name: /見つけてもらい、転換するためのWebパッケージ/i,
       }),
     ).toBeInTheDocument();
     const section = within(popular as HTMLElement);
@@ -185,42 +197,42 @@ describe("Dolphin Software homepage", () => {
     const popular = document.getElementById("popular-services") as HTMLElement;
     expect(within(popular).getByText("￥9,300")).toBeInTheDocument();
 
-    await user.click(screen.getByRole("button", { name: /^Language$/i }));
+    await openLanguageMenu(user);
     await user.click(screen.getByRole("button", { name: /English/i }));
     expect(within(popular).getByText("$57")).toBeInTheDocument();
 
-    await user.click(screen.getByRole("button", { name: /^Language$/i }));
+    await openLanguageMenu(user);
     await user.click(screen.getByRole("button", { name: /Tiếng Việt/i }));
     expect(within(popular).getByText("1.500.000đ")).toBeInTheDocument();
 
-    await user.click(screen.getByRole("button", { name: /^Language$/i }));
+    await openLanguageMenu(user);
     await user.click(screen.getByRole("button", { name: /日本語/i }));
     expect(within(popular).getByText("￥9,300")).toBeInTheDocument();
   });
 
-  it("renders projects and care before solutions (packages near end)", () => {
+  it("renders projects and care before website packages", () => {
     renderHome();
     const popular = document.getElementById("popular-services");
     const works = document.getElementById("works");
     const agentDolphin = document.getElementById("dolphin-care");
-    const stats = document.getElementById("stats");
+    const problems = document.getElementById("problems");
     const why = document.getElementById("why");
-    const capabilities = document.getElementById("capabilities");
+    const solutions = document.getElementById("solutions");
     const process = document.getElementById("process");
     expect(document.getElementById("ui-gallery")).toBeNull();
     expect(document.getElementById("outcomes")).toBeNull();
-    expect(capabilities).toBeTruthy();
+    expect(solutions).toBeTruthy();
     expect(agentDolphin).toBeTruthy();
     expect(popular).toBeTruthy();
     expect(works).toBeTruthy();
-    expect(stats).toBeTruthy();
+    expect(problems).toBeTruthy();
     expect(why).toBeTruthy();
     expect(process).toBeTruthy();
     const following = Node.DOCUMENT_POSITION_FOLLOWING;
-    expect(stats!.compareDocumentPosition(why!) & following).toBeTruthy();
-    expect(why!.compareDocumentPosition(capabilities!) & following).toBeTruthy();
-    expect(works!.compareDocumentPosition(agentDolphin!) & following).toBeTruthy();
-    expect(agentDolphin!.compareDocumentPosition(process!) & following).toBeTruthy();
+    expect(problems!.compareDocumentPosition(why!) & following).toBeTruthy();
+    expect(why!.compareDocumentPosition(solutions!) & following).toBeTruthy();
+    expect(agentDolphin!.compareDocumentPosition(works!) & following).toBeTruthy();
+    expect(works!.compareDocumentPosition(process!) & following).toBeTruthy();
     expect(process!.compareDocumentPosition(popular!) & following).toBeTruthy();
   });
 
@@ -233,18 +245,18 @@ describe("Dolphin Software homepage", () => {
     expect(screen.getByText(/納品とパートナーシップ/i)).toBeInTheDocument();
   });
 
-  it("renders stats before what-we-do and process before faq", () => {
+  it("renders problems before solutions and process before faq", () => {
     renderHome();
-    const stats = document.getElementById("stats");
-    const capabilities = document.getElementById("capabilities");
+    const problems = document.getElementById("problems");
+    const solutions = document.getElementById("solutions");
     const process = document.getElementById("process");
     const faq = document.getElementById("faq");
-    expect(stats).toBeTruthy();
-    expect(capabilities).toBeTruthy();
+    expect(problems).toBeTruthy();
+    expect(solutions).toBeTruthy();
     expect(process).toBeTruthy();
     expect(faq).toBeTruthy();
     expect(
-      stats!.compareDocumentPosition(capabilities!) &
+      problems!.compareDocumentPosition(solutions!) &
         Node.DOCUMENT_POSITION_FOLLOWING,
     ).toBeTruthy();
     expect(
@@ -254,13 +266,12 @@ describe("Dolphin Software homepage", () => {
     expect(
       screen.getByRole("heading", {
         level: 2,
-        name: /納品後、御社が自ら運用できる業務/i,
+        name: /何が事業を遅らせていますか/i,
       }),
     ).toBeInTheDocument();
     expect(
-      within(stats!).getAllByRole("heading", { level: 3 }).length,
+      within(problems!).getAllByRole("heading", { level: 3 }).length,
     ).toBeGreaterThanOrEqual(6);
-    expect(within(stats!).getAllByText(/詳しく見る/i).length).toBeGreaterThanOrEqual(6);
   });
 
   it("does not render handover strip on homepage", () => {
@@ -286,7 +297,7 @@ describe("Dolphin Software homepage", () => {
     expect(document.getElementById("cofounder")).toBeNull();
     expect(
       screen.getByRole("heading", {
-        name: /長期パートナー、コードを渡すだけではない/i,
+        name: /機能の山を売りません/i,
       }),
     ).toBeInTheDocument();
     expect(document.getElementById("services")).toBeNull();
@@ -294,7 +305,7 @@ describe("Dolphin Software homepage", () => {
     const contact = within(document.getElementById("contact")!);
     expect(
       contact.getByRole("heading", {
-        name: /Webサイト構築またはワークフロー自動化の準備はできましたか/i,
+        name: /御社の事業について話す/i,
       }),
     ).toBeInTheDocument();
     expect(
@@ -311,7 +322,7 @@ describe("Dolphin Software homepage", () => {
     expect(news).toBeTruthy();
     expect(
       within(news!).getByRole("link", {
-        name: /Dolphin Care：チャットbotだけではない/i,
+        name: /小さな店にウェブサイトは必要か/i,
       }),
     ).toHaveAttribute("aria-current", "true");
     expect(
@@ -328,11 +339,11 @@ describe("Dolphin Software homepage", () => {
 
     expect(
       within(news!).getByRole("link", {
-        name: /Dolphin Care: Không Chỉ Chatbot AI/i,
+        name: /Kinh doanh nhỏ có cần website không/i,
       }),
     ).toHaveAttribute(
       "href",
-      expect.stringMatching(/dolphin-care-bao-cao-insight-hang-ngay/),
+      expect.stringMatching(/website-cho-kinh-doanh-nho/),
     );
   });
 
@@ -348,10 +359,10 @@ describe("Dolphin Software homepage", () => {
 
     const mobileNav = screen.getByRole("navigation", { name: /モバイルナビ/i });
     expect(
-      within(mobileNav).getByRole("link", { name: /お問い合わせ/i }),
+      within(mobileNav).getByRole("link", { name: /Dolphinに相談/i }),
     ).toHaveAttribute("href", "#contact");
     expect(
-      within(mobileNav).getByRole("link", { name: /Webサイト制作/i }),
+      within(mobileNav).getByRole("link", { name: /ソリューション/i }),
     ).toBeInTheDocument();
     expect(
       within(mobileNav).queryByRole("button", { name: /^サービス$/i }),
@@ -369,14 +380,9 @@ describe("Dolphin Software homepage", () => {
     const user = userEvent.setup();
     renderHome();
 
-    const toggle = screen.getByRole("button", {
-      name: /Dolphin Assist チャットを開く/i,
-    });
-    expect(toggle).toBeInTheDocument();
-    await user.click(toggle);
-    expect(
-      screen.getByRole("button", { name: /Dolphin Assist チャットを閉じる/i }),
-    ).toBeInTheDocument();
+    const askAi = screen.getByRole("button", { name: /^Ask AI$/i });
+    expect(askAi).toBeInTheDocument();
+    await user.click(askAi);
     expect(
       screen.getByRole("dialog", { name: /Dolphin Assist/i }),
     ).toBeInTheDocument();
@@ -406,50 +412,52 @@ describe("Dolphin Software homepage", () => {
     const user = userEvent.setup();
     renderHome();
 
-    await user.click(screen.getByRole("button", { name: /^Language$/i }));
+    await openLanguageMenu(user);
     await user.click(screen.getByRole("button", { name: /Tiếng Việt/i }));
 
     expect(
       screen.getByRole("heading", {
-        name: /Đừng để công nghệ trở thành gánh nặng cho doanh nghiệp/i,
+        name: /Giải quyết vấn đề doanh nghiệp bằng AI & Công nghệ/i,
       }),
     ).toBeInTheDocument();
     expect(
-      screen.getAllByRole("button", { name: /Nhận báo giá/i }).length,
-    ).toBeGreaterThanOrEqual(1);
+      screen.getAllByRole("link", { name: /Nói về doanh nghiệp của bạn/i })[0],
+    ).toHaveAttribute("href", "#contact");
   });
 
   it("switches language to English", async () => {
     const user = userEvent.setup();
     renderHome();
 
-    await user.click(screen.getByRole("button", { name: /^Language$/i }));
+    await openLanguageMenu(user);
     await user.click(screen.getByRole("button", { name: /English/i }));
 
     expect(
       screen.getByRole("heading", {
-        name: /Don't let technology become a burden for your business/i,
+        name: /Solve Business Problems with AI & Technology/i,
       }),
     ).toBeInTheDocument();
     expect(
-      screen.getAllByRole("button", { name: /Get a quote/i }).length,
-    ).toBeGreaterThanOrEqual(1);
+      screen.getAllByRole("link", { name: /Talk about your business/i })[0],
+    ).toHaveAttribute("href", "#contact");
   });
 
   it("switches language to Japanese", async () => {
     const user = userEvent.setup();
     renderHome();
 
-    await user.click(screen.getByRole("button", { name: /^Language$/i }));
+    await openLanguageMenu(user);
+    await user.click(screen.getByRole("button", { name: /English/i }));
+    await openLanguageMenu(user);
     await user.click(screen.getByRole("button", { name: /日本語/i }));
 
     expect(
       screen.getByRole("heading", {
-        name: /テクノロジーを企業の負担にさせない/i,
+        name: /ビジネスの課題をAIとテクノロジーで解く/i,
       }),
     ).toBeInTheDocument();
     expect(
-      screen.getAllByRole("button", { name: /見積もりを依頼|見積りを依頼/i }).length,
-    ).toBeGreaterThanOrEqual(1);
+      screen.getAllByRole("link", { name: /事業について話す/i })[0],
+    ).toHaveAttribute("href", "#contact");
   });
 });

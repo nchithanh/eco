@@ -15,6 +15,7 @@ export function Footer() {
  {
  label: f.groupExplore,
  links: [
+ { href: `${sectionBase}#solutions`, label: t.nav.solutions },
  { href: assetPath("/services/web/"), label: t.nav.serviceWeb },
  { href: assetPath("/services/mobile/"), label: t.nav.serviceMobile },
  { href: assetPath("/ai-transform/"), label: t.nav.aiTransform },
@@ -48,6 +49,8 @@ export function Footer() {
  ] as const;
 
  return (
+ <>
+ <BrandMotto className="pointer-events-none fixed inset-x-0 bottom-0 z-[90] mb-0 justify-center bg-white px-4 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-2 text-center" />
  <footer className="py-12 sm:py-14">
  <div className="mx-auto max-w-7xl px-6">
  <div className="flex flex-col gap-10 lg:flex-row lg:justify-between lg:gap-14">
@@ -56,7 +59,9 @@ export function Footer() {
  <BrandName size="sm" />
  <span className="text-xs text-[var(--kuct-muted)]">· © 2026</span>
  </p>
- <BrandMotto />
+ <p className="max-w-[28ch] text-sm leading-relaxed text-[var(--kuct-muted)]">
+ {f.blurb}
+ </p>
  </div>
 
  <nav
@@ -86,5 +91,6 @@ export function Footer() {
  </div>
  </div>
  </footer>
+ </>
  );
 }

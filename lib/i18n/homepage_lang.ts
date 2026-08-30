@@ -23,6 +23,7 @@ export function applyHomepageLang(
   return {
     ...dict,
     hero: overlay.hero ?? dict.hero,
+    problems: overlay.problems ?? dict.problems,
     capabilities: overlay.capabilities ?? dict.capabilities,
     siteOutcomes: overlay.siteOutcomes ?? dict.siteOutcomes,
     why: overlay.why ?? dict.why,

@@ -279,7 +279,7 @@ export function HomeNews() {
  <Reveal variant="title">
  <div className="max-w-3xl">
  <div className="flex items-center gap-3">
- <p className="shrink-0 text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
+ <p className="kuct-section-eyebrow shrink-0">
  {n.homeCarouselEyebrow}
  </p>
  <span

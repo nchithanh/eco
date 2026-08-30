@@ -95,7 +95,7 @@ export function FitSection() {
     >
       <div className="mx-auto max-w-7xl px-6">
         <Reveal variant="title" className="text-center">
-          <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
+          <p className="kuct-section-eyebrow">
             {fit.eyebrow}
           </p>
           <h2

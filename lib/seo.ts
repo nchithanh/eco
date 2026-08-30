@@ -1,9 +1,17 @@
 import type { Metadata } from "next";
+import { brandLogoSrc } from "@/lib/brand-logo";
 import { DEFAULT_LOCALE } from "@/lib/i18n/types";
 
 export const SITE_URL = "https://dolphin-software.io.vn";
 export const OG_IMAGE_PATH = "/og-default.png";
 export const SEO_LOCALE = DEFAULT_LOCALE;
+
+/** GEO / Organization — VI public identity. */
+export const ORG_DESCRIPTION_VI =
+  "Dolphin Software là công ty cung cấp giải pháp AI và công nghệ cho doanh nghiệp, tập trung giải quyết các vấn đề vận hành thực tế thông qua website, AI Agent, CRM, automation, tích hợp hệ thống và phần mềm theo yêu cầu.";
+
+export const ORG_DESCRIPTION_EN =
+  "Dolphin Software is an AI and technology solutions company helping growing businesses solve operational problems through practical technology. Its solutions include websites, AI agents, CRM, automation, integrations and custom software.";
 
 export function absoluteUrl(path = "/"): string {
   const normalized = path.startsWith("/") ? path : `/${path}`;
@@ -74,7 +82,8 @@ export function organizationJsonLd() {
     "@type": "Organization",
     name: "Dolphin Software",
     url: SITE_URL,
-    logo: absoluteUrl("/brand/logo-dolphin.webp"),
+    logo: absoluteUrl(brandLogoSrc()),
+    description: ORG_DESCRIPTION_VI,
     sameAs: [
       "https://m.me/61592428631532",
       "https://www.facebook.com/61592428631532",
@@ -96,6 +105,7 @@ export function websiteJsonLd() {
     "@type": "WebSite",
     name: "Dolphin Software",
     url: SITE_URL,
+    description: ORG_DESCRIPTION_VI,
     publisher: {
       "@type": "Organization",
       name: "Dolphin Software",
@@ -151,7 +161,7 @@ export function articleJsonLd(input: {
       url: SITE_URL,
       logo: {
         "@type": "ImageObject",
-        url: absoluteUrl("/brand/logo-dolphin.webp"),
+        url: absoluteUrl(brandLogoSrc()),
       },
     },
     ...(input.image
@@ -216,7 +226,7 @@ export function jobPostingJsonLd(input: {
       "@type": "Organization",
       name: "Dolphin Software",
       sameAs: SITE_URL,
-      logo: absoluteUrl("/brand/logo-dolphin.webp"),
+      logo: absoluteUrl(brandLogoSrc()),
     },
     jobLocationType: "TELECOMMUTE",
     applicantLocationRequirements: {

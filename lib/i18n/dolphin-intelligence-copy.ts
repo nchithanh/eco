@@ -89,9 +89,9 @@ const vi: DolphinIntelligenceCopy = {
     "Dolphin Intelligence là nền tảng AI workflow giúp doanh nghiệp tự động hóa quy trình bằng AI agent, action và human checkpoint — không cần code, không mất kiểm soát.",
   eyebrow: "Nền tảng AI Workflow cho doanh nghiệp",
   headline:
-    "Dolphin Intelligence: Biến Quy Trình Lặp Lại Thành AI Workflow [[Chạy Tự Động]]",
+    "Việc lặp mỗi ngày đang đốt giờ team — biến thành AI workflow [[chạy tự động]]",
   support:
-    "Dolphin Intelligence là nền tảng AI workflow cho phép doanh nghiệp thiết kế, điều phối và vận hành các quy trình làm việc thông minh — kết hợp AI agent, action thực tế, logic điều kiện, và human checkpoint — trong một hệ thống duy nhất, không cần code, không mất kiểm soát.",
+    "Team mất giờ cho bước lặp: research, viết, duyệt, publish. Dolphin Intelligence ghép AI agent, action, logic và human checkpoint thành một chuỗi — không phải chatbot từng câu, không mất kiểm soát.",
   audienceLine:
     "Không phải chatbot. Không phải AI assistant. Đây là hệ thống workflow hoàn chỉnh: agent tư duy, action thực thi, con người tham gia đúng lúc — đúng chỗ.",
   ctaPrimary: "Đặt lịch tư vấn",
@@ -499,9 +499,9 @@ const en: DolphinIntelligenceCopy = {
     "Dolphin Intelligence is an AI workflow platform that automates processes with agents, actions, and human checkpoints — no code required, control retained.",
   eyebrow: "AI workflow platform for business",
   headline:
-    "Dolphin Intelligence: Turn Repeatable Processes Into [[Automated AI Workflows]]",
+    "Repeat work burning team hours — turn it into an [[automated AI workflow]]",
   support:
-    "Design, orchestrate, and run intelligent workflows that combine AI agents, real-world actions, conditional logic, and human checkpoints in one system — without coding away control.",
+    "The team spends hours on the same loop: research, write, review, publish. Dolphin Intelligence chains agents, actions, logic, and human checkpoints — not a per-message chatbot, without giving up control.",
   audienceLine:
     "Not a chatbot. Not a single assistant. A full workflow system: agents think, actions execute, people join at the right moment.",
   ctaPrimary: "Book a consult",
@@ -906,9 +906,9 @@ const ja: DolphinIntelligenceCopy = {
     "Dolphin Intelligenceは、AIエージェント・アクション・ヒューマンチェックポイントで業務を自動化するAIワークフロー基盤です。コード不要、コントロールは維持。",
   eyebrow: "企業向けAIワークフロー基盤",
   headline:
-    "Dolphin Intelligence：繰り返し業務を[[自動AIワークフロー]]へ",
+    "毎日の反復が時間を燃やしている — [[自動AIワークフロー]]へ",
   support:
-    "AIエージェント、実世界アクション、条件ロジック、ヒューマンチェックポイントを一つのシステムで設計・運用。コードなしでも統制を失いません。",
+    "リサーチ、執筆、レビュー、公開の同じループ。Dolphin Intelligenceはエージェント、アクション、ロジック、人の確認を一本のチェーンにします。一文ずつのチャットボットではありません。統制は残します。",
   audienceLine:
     "チャットボットでも単発アシスタントでもありません。考えるエージェント、実行するアクション、適切なタイミングの人の関与です。",
   ctaPrimary: "相談を予約",

@@ -64,9 +64,9 @@ const vi: AgentDolphinCopy = {
     "Dolphin Care là chatbot AI chăm sóc khách hàng trên website cho SMB Việt Nam — trả lời 24/7, tích hợp Zalo & CRM, và gửi báo cáo insight hằng ngày cho admin. Tìm hiểu ngay.",
   eyebrow: "Dolphin Care",
   headline:
-    "Dolphin Care – AI Chăm Sóc Khách Hàng Trên [[Website]] Cho SMB Việt Nam",
+    "Ngoài giờ không ai trả lời, câu hỏi lặp làm chậm team — [[Dolphin Care]] chăm khách trên website",
   support:
-    "Dolphin Care là giải pháp AI chăm sóc khách hàng trên website dành cho doanh nghiệp vừa và nhỏ (SMB) tại Việt Nam. Không chỉ trả lời khách hàng tự động 24/7 đúng nghiệp vụ và đúng giọng thương hiệu — Dolphin Care còn tổng hợp báo cáo insight hằng ngày cho admin, bao gồm câu hỏi phổ biến, lead tiềm năng cần follow-up, điểm nghẽn lặp lại và gợi ý marketing từ hội thoại thực tế.",
+    "Khách hỏi ngoài giờ hoặc hỏi đi hỏi lại cùng một việc. Dolphin Care trả lời trên website đúng nghiệp vụ và giọng thương hiệu, ghi lead, gửi insight hằng ngày cho admin — trong phạm vi kiến thức đã khóa.",
   ctaPrimary: "Nhận tư vấn Dolphin Care",
   ctaSecondary: "Chat Zalo",
   trustLine:
@@ -286,9 +286,9 @@ const en: AgentDolphinCopy = {
     "Dolphin Care is an AI website chatbot for Vietnamese SMBs — 24/7 replies, Zalo & CRM integration, and daily insight reports for admins.",
   eyebrow: "Dolphin Care",
   headline:
-    "Dolphin Care – AI Customer Care on Your [[Website]] for Vietnamese SMBs",
+    "After-hours silence and repeat questions slowing the team — [[Dolphin Care]] on your website",
   support:
-    "Dolphin Care is AI customer care for SMB websites in Vietnam. It answers 24/7 in your business voice — and delivers a daily insight report for admins: top questions, warm leads, recurring friction, and marketing ideas from real chats.",
+    "Customers ask after hours or ask the same thing again. Dolphin Care answers on the website in your voice, captures leads, and sends a daily insight report for admins — within locked knowledge scope.",
   ctaPrimary: "Talk about Dolphin Care",
   ctaSecondary: "Chat on Zalo",
   trustLine:
@@ -503,9 +503,9 @@ const ja: AgentDolphinCopy = {
     "ベトナムSMB向け。Webサイト上のAIチャットが24時間対応し、Zalo・CRM連携と管理者向け日次インサイトレポートを提供します。",
   eyebrow: "Dolphin Care",
   headline:
-    "Dolphin Care – ベトナムSMB向け[[Webサイト]]AIカスタマーケア",
+    "時間外は無応答、同じ質問でチームが止まる — サイト上の[[Dolphin Care]]",
   support:
-    "Dolphin Careはベトナムの中小企業向けに、Webサイト上で24時間対応するAIカスタマーケアです。ブランドの声と業務知識に沿い回答し、よくある質問・ホットリード・繰り返しの摩擦・マーケ提案を日次レポートで管理者に届けます。",
+    "時間外の問い合わせや繰り返し質問。Dolphin Careはサイト上でブランドの声に沿い回答し、リードを記録し、管理者へ日次インサイトを送ります — ロックした知識範囲内で。",
   ctaPrimary: "Dolphin Careを相談",
   ctaSecondary: "Zaloでチャット",
   trustLine:

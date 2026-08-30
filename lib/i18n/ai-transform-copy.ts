@@ -74,9 +74,9 @@ const vi: AiTransformCopy = {
     "Dolphin Software tư vấn chuyển đổi AI cho SMB Việt Nam: kiểm toán quy trình, ưu tiên use-case, pilot có số đo, agent tùy chỉnh — báo giá minh bạch, không phí ẩn.",
   eyebrow: "Enterprise AI transformation",
   headline:
-    "Chuyển Đổi AI cho Doanh Nghiệp: Lộ Trình Triển Khai [[Có Kiểm Soát]]",
+    "Muốn dùng AI, chưa biết bắt đầu đâu — lộ trình triển khai [[có kiểm soát]]",
   support:
-    "Chuyển đổi AI trong vận hành không bắt đầu bằng việc mua phần mềm — mà bắt đầu bằng việc hiểu đúng quy trình nào đang đốt tiền và thời gian của bạn. Dolphin Software rà soát quy trình thực tế, xác định 1–2 việc ưu tiên, thiết kế AI agent phù hợp, và đo kết quả trước khi nhân rộng. Lộ trình theo từng cột mốc — bắt đầu nhỏ, mở rộng sau khi có bằng chứng.",
+    "Biết AI quan trọng, chưa rõ việc nào ra giá trị. Dolphin không bắt đầu bằng mua phần mềm: rà soát quy trình đang đốt thời gian, chọn 1–2 việc, chạy pilot có số đo — rồi mới nhân rộng.",
   audienceLine:
     "Phù hợp với: SMB Việt Nam muốn triển khai AI có kiểm soát, không rủi ro, đo được ROI ngay từ pilot đầu tiên.",
   ctaPrimary: "Nhận lộ trình sơ bộ",
@@ -325,9 +325,9 @@ const en: AiTransformCopy = {
     "Dolphin Software advises AI transformation for Vietnamese SMBs: process audit, use-case priority, measured pilots, custom agents — transparent quotes, no hidden fees.",
   eyebrow: "Enterprise AI transformation",
   headline:
-    "AI Transformation for Business: a [[Controlled]] Implementation Roadmap",
+    "Want AI, don't know where to start — a [[controlled]] implementation path",
   support:
-    "Operational AI transformation does not start by buying software — it starts by understanding which processes burn your money and time. Dolphin Software reviews real workflows, picks 1–2 priorities, designs fitting AI agents, and measures results before scaling. A milestone roadmap — start small, expand after proof.",
+    "You know AI matters, not which job pays off. Dolphin doesn't start by buying software: we review the processes burning time, pick 1–2 jobs, run a measured pilot — then scale.",
   audienceLine:
     "Best for: Vietnamese SMBs that want controlled AI rollout, low risk, and measurable ROI from the first pilot.",
   ctaPrimary: "Get a rough roadmap",
@@ -575,9 +575,9 @@ const ja: AiTransformCopy = {
   metaDescription:
     "Dolphin SoftwareがベトナムSMB向けにAI変革を支援：プロセス監査、ユースケース優先、数値付きパイロット、カスタムエージェント — 見積もり明確、隠れた費用なし。",
   eyebrow: "Enterprise AI transformation",
-  headline: "企業向けAI変革：[[制御可能な]]導入ロードマップ",
+  headline: "AIは欲しいが、どこから始めるか不明 — [[制御可能な]]導入パス",
   support:
-    "運用のAI変革はソフト購入から始まりません — どのプロセスがお金と時間を燃やしているかを正しく理解することから始まります。Dolphin Softwareが実プロセスを精査し、1〜2の優先業務を決め、適合するAIエージェントを設計し、拡大前に結果を測ります。マイルストーン型 — 小さく始め、証拠の後に拡大。",
+    "AIの重要性は分かるが、どの業務が価値を出すか不明。Dolphinはソフト購入から始めません。時間を燃やしているプロセスを精査し、1〜2件でパイロットし、測ってから拡大します。",
   audienceLine:
     "向いている方：リスクを抑え、最初のパイロットからROIを測れる形でAIを導入したいベトナムのSMB。",
   ctaPrimary: "概略ロードマップを相談",

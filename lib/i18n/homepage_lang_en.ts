@@ -7,22 +7,65 @@ export const homepageLangEn: HomepageLang = {
   hero: {
     eyebrow: "Dolphin Software",
     aiPill: "",
-    headline: "Don't let technology become a [[burden]] for your business",
-    subhead: "Build websites · Modernize legacy systems · Integrate AI where it matters",
-    support: "Dolphin Software helps small and medium businesses design custom websites, modernize legacy systems, and apply AI automation — saving time and genuinely improving operational efficiency.",
-    trustLine: "Understand first · Clear quotes · No unnecessary upselling",
-    ctaPrimary: "Get a quote",
-    ctaSecondary: "View website services",
-    tags: ["Automation", "Web & App", "AI where it fits"],
+    headline: "Solve Business Problems with [[AI & Technology]]",
+    subhead: "Understand the business first, find where technology actually pays off, then build only what you need.",
+    support: "Dolphin helps growing businesses spot operational bottlenecks and build the right fix — website, AI agent, CRM, automation, or custom software.",
+    trustLine: "We don't start with technology. We start with your problem.",
+    ctaPrimary: "Talk about your business",
+    ctaSecondary: "See solutions",
+    tags: ["Problem first", "AI & technology", "Website is one solution"],
     metrics: [
       { value: "6+", label: "Cases on site" },
-      { value: "Build", label: "SMB cold-first" },
+      { value: "Pain", label: "Start with the problem" },
     ],
     visual: {
       web: "Web & App",
       automation: "Automation",
       ai: "AI Integration"
     }
+  },
+  problems: {
+    eyebrow: "What is slowing you down?",
+    title: "What is [[slowing down]] your business?",
+    support: "We don't open with a catalog. We open with the bottleneck — then pick the tool.",
+    items: [
+      {
+        title: "Too much manual work",
+        body: "The team spends hours on the same tasks every day.",
+        href: "/ai-transform/",
+        solution: "Automation",
+      },
+      {
+        title: "Customers slip through",
+        body: "Leads, follow-ups, and messages sit scattered — then go cold. CRM holds the book; Care covers the website.",
+        href: "/dolphin-ops/",
+        solution: "CRM / AI care",
+      },
+      {
+        title: "The website doesn't grow the shop",
+        body: "You have a page, but visitors don't call or leave details.",
+        href: "/services/web/",
+        solution: "Website",
+      },
+      {
+        title: "Tools don't talk to each other",
+        body: "Customers, sales, and ops live in separate systems.",
+        href: "/services/integrations/",
+        solution: "Integrations",
+      },
+      {
+        title: "The business depends on a few people",
+        body: "Process and customer knowledge live in staff heads.",
+        href: "/services/software/",
+        solution: "Systems / CRM",
+      },
+      {
+        title: "Want AI, don't know where to start",
+        body: "You know AI matters, not which use case actually pays off.",
+        href: "/ai-transform/",
+        solution: "AI solutions",
+      },
+    ],
   },
   siteOutcomes: {
     eyebrow: "Outcomes",
@@ -99,35 +142,35 @@ export const homepageLangEn: HomepageLang = {
   },
   why: {
     eyebrow: "Why Dolphin",
-    title: "Long-term partner, [[not just]] delivering code",
-    support: "Clear timeline, committed scope, and post-handoff support — no technical fog.",
-    promise: "Understand first · Clear quotes · Scope-true handoff",
+    title: "We don't sell a [[pile of features]]",
+    support: "Most businesses don't need a system with a hundred buttons. They need the bottleneck removed. Dolphin starts with the business — not the product.",
+    promise: "We don't start with technology. We start with your problem.",
     reasons: [
       {
-        title: "Real-world experience",
-        body: "7 years of operational practice — reliable, observant, end-to-end handoff for SMB businesses."
+        title: "Understand",
+        body: "Hear how you sell, care for customers, and run the shop — in business language."
       },
       {
-        title: "End-to-end handoff",
-        body: "From discovery to deploy — one team accountable; structured for future expansion."
+        title: "Identify the bottleneck",
+        body: "Point to where time, leads, or a single person is the choke point."
       },
       {
-        title: "Transparent process",
-        body: "Milestones, regular demos, scope-based quotes — measured by actual delivered product."
+        title: "Build the right thing",
+        body: "Website, AI, CRM, integrations, or custom software — only what matches the pain."
       },
       {
-        title: "Post-handoff support",
-        body: "Operations guide, agreed warranty for bugs, optimization when real-world needs emerge."
+        title: "Measure and improve",
+        body: "Handover so you can run it; adjust when reality shows up — not a dump-and-leave."
       }
     ]
   },
   capabilities: {
-    eyebrow: "How we help",
-    title: "Clear website, business can [[actually]] operate it",
-    support: "A short brief is enough to start. Pick the closest outcome — Dolphin Software will propose an approach and a concrete quote.",
-    ctaPrimary: "Get a quote",
-    ctaSecondary: "View service packages",
-    ctaSecondaryHref: "#popular-services",
+    eyebrow: "Solutions",
+    title: "Solutions that follow how the business [[actually runs]]",
+    support: "This is not seven separate agency services. These are the tools Dolphin uses to fix one operational problem.",
+    ctaPrimary: "Talk about your business",
+    ctaSecondary: "Talk about your business",
+    ctaSecondaryHref: "#contact",
     learnMore: "Learn more",
     prevPage: "Previous",
     nextPage: "Next",
@@ -135,32 +178,53 @@ export const homepageLangEn: HomepageLang = {
     playCarousel: "Play carousel",
     offers: [
       {
-        id: "build",
-        title: "Build",
-        body: "Custom websites and software for how you sell and operate — not brochure-only sites.",
-        meta: "SMB first",
+        id: "website",
+        title: "Website",
+        body: "Websites and web apps tied to a business goal — found, understood, and easy to contact.",
+        meta: "Find & convert",
         href: "/services/web/"
       },
       {
-        id: "modernize",
-        title: "Modernize",
-        body: "Upgrade, extend, and tune what you already run before rebuilding from scratch.",
-        meta: "Living systems",
-        href: "/services/software/"
-      },
-      {
-        id: "automate",
-        title: "Automate",
-        body: "AI on repeatable work when it earns its keep — assist people, cut manual steps.",
-        meta: "Repeat workflows",
+        id: "ai",
+        title: "AI solutions",
+        body: "Practical AI: repeat work, classification, team support — once the pain is clear.",
+        meta: "Where it pays",
         href: "/ai-transform/"
       },
       {
-        id: "care",
-        title: "Care",
+        id: "agents",
+        title: "AI Agent",
         body: "Dolphin Care — website customer care, lead capture, after-hours help within knowledge scope.",
         meta: "On your site",
         href: "/dolphin-care/"
+      },
+      {
+        id: "crm",
+        title: "CRM & customers",
+        body: "Dolphin Ops — customers, calendar, follow-up in one place — not scattered in chats.",
+        meta: "Internal ops",
+        href: "/dolphin-ops/"
+      },
+      {
+        id: "automation",
+        title: "Automation",
+        body: "Cut manual steps on repeats: reminders, reports, data entry — once the process is clear.",
+        meta: "Repeat work",
+        href: "/ai-transform/"
+      },
+      {
+        id: "integrations",
+        title: "Integrations",
+        body: "Connect payments, Zalo, CRM, and what you already run so information flows in one line.",
+        meta: "Existing systems",
+        href: "/services/integrations/"
+      },
+      {
+        id: "custom",
+        title: "Custom software & legacy",
+        body: "Build internal systems when off-the-shelf doesn't fit — or upgrade what already runs, not rebuild by default.",
+        meta: "By workflow",
+        href: "/services/software/"
       }
     ],
     moreServices: [
@@ -183,48 +247,61 @@ export const homepageLangEn: HomepageLang = {
     ],
     items: [
       {
-        id: "build",
-        category: "Build",
-        title: "Build",
-        body: "Custom websites and software for how you sell and operate — not brochure-only sites.",
-        tags: [
-          "SMB first"
-        ]
+        id: "website",
+        category: "Website",
+        title: "Website",
+        body: "Websites and web apps tied to a business goal — found, understood, and easy to contact.",
+        tags: ["Find & convert"]
       },
       {
-        id: "modernize",
-        category: "Modernize",
-        title: "Modernize",
-        body: "Upgrade, extend, and tune what you already run before rebuilding from scratch.",
-        tags: [
-          "Living systems"
-        ]
+        id: "ai",
+        category: "AI",
+        title: "AI solutions",
+        body: "Practical AI: repeat work, classification, team support — once the pain is clear.",
+        tags: ["Where it pays"]
       },
       {
-        id: "automate",
-        category: "Automate",
-        title: "Automate",
-        body: "AI on repeatable work when it earns its keep — assist people, cut manual steps.",
-        tags: [
-          "Repeat workflows"
-        ]
-      },
-      {
-        id: "care",
-        category: "Care",
-        title: "Care",
+        id: "agents",
+        category: "AI Agent",
+        title: "AI Agent",
         body: "Dolphin Care — website customer care, lead capture, after-hours help within knowledge scope.",
-        tags: [
-          "On your site"
-        ]
+        tags: ["On your site"]
+      },
+      {
+        id: "crm",
+        category: "CRM",
+        title: "CRM & customers",
+        body: "Dolphin Ops — customers, calendar, follow-up in one place — not scattered in chats.",
+        tags: ["Internal ops"]
+      },
+      {
+        id: "automation",
+        category: "Automation",
+        title: "Automation",
+        body: "Cut manual steps on repeats: reminders, reports, data entry — once the process is clear.",
+        tags: ["Repeat work"]
+      },
+      {
+        id: "integrations",
+        category: "Integrations",
+        title: "Integrations",
+        body: "Connect payments, Zalo, CRM, and what you already run so information flows in one line.",
+        tags: ["Existing systems"]
+      },
+      {
+        id: "custom",
+        category: "Custom",
+        title: "Custom software & legacy",
+        body: "Build internal systems when off-the-shelf doesn't fit — or upgrade what already runs, not rebuild by default.",
+        tags: ["By workflow"]
       }
     ]
   },
   works: {
     eyebrow: "Projects",
-    title: "Real websites we've deployed",
-    support: "Each project below: problem → scope → measurable result.",
-    cta: "Want a website like this?",
+    title: "Real bottlenecks we [[unblocked]] — not just pretty shots",
+    support: "Each case: the bottleneck → what we built → what changed after handoff. Tech stack sits below.",
+    cta: "Talk about your bottleneck",
     ctaHint: "Talk to us — we analyze together before proposing solutions.",
     industries: [
       "Spa",
@@ -423,9 +500,9 @@ export const homepageLangEn: HomepageLang = {
     ]
   },
   popularServicesChrome: {
-    eyebrow: "Solutions",
-    title: "[[Popular]] services",
-    support: "Compare four main packages — choose the fit, then request a quote or chat Zalo. Need custom scope, legacy system integration, or industry-specific SEO? Dolphin Software analyzes each item in detail before quoting."
+    eyebrow: "Website packages",
+    title: "Website packages when the problem is [[being found]] and converting",
+    support: "Four packages when the pain is Google / landing / shop — not Dolphin's whole catalog. Pick a package, then request a quote or chat Zalo."
   },
   faq: {
     eyebrow: "FAQ",
@@ -434,7 +511,7 @@ export const homepageLangEn: HomepageLang = {
     items: [
       {
         q: "What does Dolphin Software do?",
-        a: "Dolphin Software helps small and medium businesses (SMB) go from business problem to operational system — website, mobile, automation, and AI. You just state the goal; Dolphin Software proposes the right scope."
+        a: "Dolphin Software is an AI and technology solutions company. We start from the operational problem — then choose a website, AI agent, CRM, automation, integration, or custom software. Not sure which technology you need? Start by describing the bottleneck."
       },
       {
         q: "Can non-technical businesses work with you?",
@@ -482,37 +559,37 @@ export const homepageLangEn: HomepageLang = {
       },
       {
         q: "How do I get started?",
-        a: "Click 'Get a quote,' chat Zalo, or send Contact form with goal, deadline, and estimated budget if available."
+        a: "Describe the bottleneck via the Contact form or Zalo. You don't need to know 'website or AI' first — Dolphin proposes scope that matches the pain."
       }
     ]
   },
   contactChrome: {
     eyebrow: "Next step",
-    title: "Ready to build a website or [[automate]] workflow?",
-    support: "Send a short brief — Dolphin Software responds with approach and right scope, no package pushing.",
+    title: "Talk about [[your business]]",
+    support: "Not sure which technology you need — describe the bottleneck. Dolphin replies with an approach and the right scope, no package pushing.",
     nextHint: "Typically responds within business day.",
     afterSubmitTitle: "After you send the brief, you will receive:",
     afterSubmitItems: [
       "Initial approach for your problem",
-      "Scope suggestions: website · modernization · AI automation · Dolphin Care",
+      "Scope suggestions that match the pain: website · AI · CRM · integrations · custom software",
       "Timeline milestones and estimated cost range"
     ]
   },
   seo: {
-    title: "Dolphin Software – Website Design & AI for Small and Medium Businesses",
-    description: "Dolphin Software builds custom websites, modernizes legacy systems, and integrates AI automation for small and medium businesses in Vietnam. Transparent quotes, on-time handoff.",
-    og_title: "Dolphin Software – Website Design · System Modernization · AI Automation",
-    og_description: "We help SMB businesses build operational websites, modernize legacy systems, and apply AI where it matters — save time, increase operational efficiency.",
+    title: "Dolphin Software – AI & Technology Solutions for Business",
+    description: "Dolphin Software helps businesses identify operational bottlenecks and build the right solution — website, AI agent, CRM, automation, integrations, and custom software. We start with the problem, not the product.",
+    og_title: "Dolphin Software – AI & Technology Solutions for Business",
+    og_description: "We don't start with technology. We start with your problem. Website, AI, CRM, automation, and custom software — only what the business actually needs.",
     canonical: "https://dolphin-software.io.vn/",
     keywords: [
+      "AI and technology solutions for business",
       "custom website design",
-      "modernize legacy systems",
-      "AI automation for business",
-      "website design for small and medium businesses",
+      "CRM for small and medium businesses",
+      "business process automation",
+      "custom management software",
       "Dolphin Software",
       "Dolphin Care",
-      "AI integration for websites",
-      "web design company Vietnam"
+      "Dolphin Ops"
     ]
   }
 };

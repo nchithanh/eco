@@ -7,9 +7,9 @@ import { SCHEMA_HOMEPAGE_SLUGS } from "@/lib/schema/catalog";
 
 const labels: Record<(typeof SCHEMA_HOMEPAGE_SLUGS)[number], string> = {
  hero: "Hero",
- stats: "Outcomes (#stats)",
- why: "Why Dolphin",
- capabilities: "How we help",
+ problems: "Problems (#problems)",
+ why: "Why Dolphin (4 steps)",
+ capabilities: "Solutions (#solutions)",
  works: "Projects",
  "dolphin-care": "Dolphin Care",
  "dolphin-ops": "Dolphin Ops",
@@ -17,8 +17,9 @@ const labels: Record<(typeof SCHEMA_HOMEPAGE_SLUGS)[number], string> = {
  "ai-edge": "Dolphin Intelligence / AiEdge",
  stack: "Tech stack (#stack)",
  process: "Process",
- fit: "Fit",
- "popular-services": "Solutions",
+ fit: "Fit (#fit)",
+ stats: "Outcomes (#stats, archived JSON)",
+ "popular-services": "Website packages",
  faq: "FAQ",
  contact: "Contact CTA",
 };

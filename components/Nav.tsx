@@ -142,8 +142,12 @@ export function Nav() {
     { href: assetPath("/careers/"), label: t.nav.careers },
   ];
 
-  const desktopGnbLinks: NavLink[] = [...serviceItems, ...agentItems];
-  const allNavLinks = [...serviceItems, ...agentItems, ...pageLinks];
+  const solutionsLink: NavLink = {
+    href: `${sectionBase}#solutions`,
+    label: t.nav.solutions,
+  };
+  const desktopGnbLinks: NavLink[] = [solutionsLink, ...serviceItems, ...agentItems];
+  const allNavLinks = [solutionsLink, ...serviceItems, ...agentItems, ...pageLinks];
 
   const isPageActive = (href: string) => {
     const [pathPart, hashPart] = href.split("#");
@@ -157,8 +161,7 @@ export function Nav() {
     return !hashOwnedBySibling;
   };
 
-  const isHomeActive =
-    current === "/" && hash !== "contact" && (hash === "" || hash === "top");
+  const isHomeActive = current === "/" && (hash === "" || hash === "top");
   const isContactActive = hash === "contact";
 
   useEffect(() => {
@@ -248,7 +251,7 @@ export function Nav() {
                   isContactActive ? gnbLinkActiveClass : ""
                 }`}
               >
-                {t.nav.contact}
+                {t.nav.talk}
               </a>
               <div className="kuct-nav-utility kuct-gnb-link flex h-[2.75rem] items-center text-[0.875rem]">
                 <LanguageSwitcher />
@@ -381,6 +384,16 @@ export function Nav() {
             </div>
 
             <ul className="mx-auto flex min-h-0 w-full max-w-lg flex-1 flex-col overflow-y-auto overscroll-contain px-4 py-3">
+              <li>
+                <a
+                  href={solutionsLink.href}
+                  aria-current={isPageActive(solutionsLink.href) ? "page" : undefined}
+                  className="kuct-mobile-nav__link"
+                  onClick={closeMenu}
+                >
+                  {solutionsLink.label}
+                </a>
+              </li>
               <li className="kuct-mobile-nav__label" aria-hidden="true">
                 {t.nav.services}
               </li>
@@ -440,7 +453,7 @@ export function Nav() {
                 className="kuct-btn-primary inline-flex w-full items-center justify-center rounded-lg px-4 py-3.5 text-sm font-semibold"
                 onClick={closeMenu}
               >
-                {t.nav.contact}
+                {t.nav.talk}
               </a>
             </div>
           </nav>

@@ -3,10 +3,10 @@ import type { Dictionary, Locale } from "./types";
 type PopularServices = Dictionary["popularServices"];
 
 const vi: PopularServices = {
-  eyebrow: "Pricing",
-  title: "Dịch vụ [[nổi bật]]",
-  support:
-    "So sánh bốn gói dịch vụ chính — chọn gói phù hợp, sau đó nhận báo giá hoặc nhắn Zalo để tư vấn.",
+    eyebrow: "Website packages",
+    title: "Gói website khi vấn đề là [[tìm thấy]] và chuyển đổi",
+    support:
+      "Bốn gói khi pain là Google / landing / shop — không phải toàn bộ catalog Dolphin. Chọn gói rồi nhận báo giá hoặc nhắn Zalo.",
   categoryLabel: "Hạng mục",
   rowLabels: {
     price: "Giá khuyến mãi",
@@ -100,10 +100,10 @@ const vi: PopularServices = {
 };
 
 const en: PopularServices = {
-  eyebrow: "Pricing",
-  title: "[[Popular]] services",
+  eyebrow: "Website packages",
+  title: "Website packages when the problem is [[being found]] and converting",
   support:
-    "Compare four main packages — choose the fit, then request a quote or chat on Zalo for consultation.",
+    "Four packages when the pain is Google / landing / shop — not Dolphin's whole catalog. Pick a package, then request a quote or chat Zalo.",
   categoryLabel: "Item",
   rowLabels: {
     price: "Promo price",
@@ -197,10 +197,10 @@ const en: PopularServices = {
 };
 
 const ja: PopularServices = {
-  eyebrow: "Pricing",
-  title: "[[人気]]サービス",
+  eyebrow: "Website packages",
+  title: "見つけてもらい、[[転換]]するためのWebパッケージ",
   support:
-    "主要4パッケージを比較 — 適したものを選び、見積りを依頼またはZaloで相談してください。",
+    "痛みがGoogle / LP / ショップのときの4パッケージ — Dolphinの全カタログではありません。パッケージを選び、見積りまたはZaloへ。",
   categoryLabel: "項目",
   rowLabels: {
     price: "特別価格",

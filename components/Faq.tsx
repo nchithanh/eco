@@ -12,16 +12,16 @@ export function Faq() {
  const [openIndex, setOpenIndex] = useState<number | null>(0);
 
  return (
- <section id="faq" className="scroll-mt-20 py-24">
+ <section id="faq" className="kuct-section-soft scroll-mt-20 py-24">
  <div className="mx-auto max-w-7xl px-6">
- <Reveal variant="title" className="mx-auto max-w-2xl text-center">
- <p className="kuct-type-eyebrow">
+ <Reveal variant="title" className="mx-auto max-w-3xl text-center">
+ <p className="kuct-section-eyebrow">
  {f.eyebrow}
  </p>
- <h2 className="kuct-type-h2 mt-4 font-display text-3xl text-[var(--kuct-text)] sm:text-[2.15rem] lg:text-[2.35rem]">
+ <h2 className="mt-4 font-display text-3xl font-semibold leading-[1.12] tracking-tight text-[var(--kuct-text)] sm:text-[2.15rem] lg:text-[2.35rem] lg:leading-[1.1]">
  <AccentText>{f.title}</AccentText>
  </h2>
- <p className="kuct-type-body mx-auto mt-5 max-w-[68ch] sm:whitespace-nowrap">
+ <p className="mx-auto mt-5 max-w-[64ch] text-base leading-[1.7] text-[var(--kuct-muted)]">
  {f.support}
  </p>
  </Reveal>

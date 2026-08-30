@@ -3,7 +3,7 @@
     "brand": "Dolphin Software",
     "site": "https://dolphin-software.io.vn/",
     "source": ".cursor/knowledge/",
-    "updated": "2026-08-28",
+    "updated": "2026-08-31",
     "note": "Company knowledge pack as JSON — SoT for agents; missing facts stay TODO in source markdown.",
     "schemaId": "company",
     "schemaPath": "/schema/company/",
@@ -16,9 +16,9 @@
   },
   "company": {
     "whatWeAre": [
-      "Dolphin Software là studio phát triển phần mềm và AI cho doanh nghiệp vừa và nhỏ (SMB).",
-      "Chúng tôi không chỉ làm website.",
-      "Mục tiêu: giúp doanh nghiệp vận hành hiệu quả hơn bằng công nghệ."
+      "Dolphin Software là công ty cung cấp giải pháp AI và công nghệ cho doanh nghiệp đang tăng trưởng (SMB).",
+      "Không bắt đầu từ công nghệ. Bắt đầu từ vấn đề của khách.",
+      "Mục tiêu: xác định nghẽn vận hành và xây giải pháp thực tế — website, AI Agent, CRM, automation, tích hợp, phần mềm theo yêu cầu."
     ],
     "displayBrand": "Dolphin Software",
     "motto": "Dreams come true when you don't sleep",
@@ -38,7 +38,7 @@
       "Automate": "AI hóa quy trình lặp lại, giảm việc tay",
       "Care": "Dolphin Care — chăm sóc khách trên website"
     },
-    "outreachNote": "Cold outreach / social ưu tiên Build (website) trước Care/AI."
+    "outreachNote": "Outreach bắt đầu từ pain; website là một giải pháp khi khách không tìm ra hoặc site không ra lead. Không mở cold bằng AI Agent."
   },
   "opinion": {
     "beliefs": [
@@ -54,8 +54,8 @@
     "messaging": [
       "Đừng mở mọi bài bằng “AI Agent” / “AI sẽ đổi mọi thứ”.",
       "Đừng giả định khách phải rebuild từ đầu.",
-      "Đề xuất Care / Automate chỉ khi khớp pain (ngoài giờ, hỏi lặp, thiếu người chăm).",
-      "Build (website rõ) thường là bước nền trước khi bán AI."
+      "Đề xuất Care / Automate / Ops chỉ khi khớp pain (ngoài giờ, hỏi lặp, lead trôi, thiếu người chăm).",
+      "Website là một giải pháp khi khách không tìm ra tiệm hoặc site không ra lead — không phải toàn bộ nhận diện Dolphin."
     ]
   },
   "values": {

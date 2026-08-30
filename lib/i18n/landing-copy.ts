@@ -71,7 +71,7 @@ const vi: LandingCopy = {
     "Dịch vụ thiết kế landing page cho SMB Việt Nam — bàn giao trong 3–5 ngày, CTA rõ ràng, tối ưu chuyển đổi. Báo giá cố định, không phát sinh chi phí ngoài scope.",
   eyebrow: "Service · Landing Page",
   title: "Dịch vụ thiết kế Landing Page cho doanh nghiệp vừa và nhỏ",
-  lead: "Dolphin Software thiết kế landing page với một mục tiêu duy nhất: biến người truy cập thành khách hàng tiềm năng. Mỗi trang được bàn giao trong 3–5 ngày làm việc, có CTA rõ ràng, responsive trên mọi thiết bị, và đi kèm hướng dẫn vận hành sau bàn giao.",
+  lead: "Khách click quảng cáo rồi không để lại thông tin — landing là trang một mục tiêu: biến người truy cập thành lead. Dolphin bàn giao trong 3–5 ngày làm việc, CTA rõ, responsive, kèm hướng dẫn vận hành.",
   fitLine:
     "Phù hợp cho: chiến dịch quảng cáo, ra mắt dịch vụ mới, thu lead nhanh — không cần website nhiều trang.",
   ctaPrimary: "Nhận báo giá ngay",
@@ -271,7 +271,7 @@ const en: LandingCopy = {
     "Landing page design for Vietnamese SMBs — delivered in 3–5 days, clear CTAs, conversion-focused. Fixed scope pricing, no surprise fees.",
   eyebrow: "Service · Landing Page",
   title: "Landing page design for small and mid-size businesses",
-  lead: "Dolphin Software designs landing pages with one goal: turn visitors into leads. Each page ships in 3–5 business days, with clear CTAs, full responsiveness, and a short ops guide after handover.",
+  lead: "Visitors click the ad and leave nothing — a landing page has one job: turn that visit into a lead. Each page ships in 3–5 business days, with clear CTAs, full responsiveness, and a short ops guide after handover.",
   fitLine:
     "Best for: ad campaigns, new service launches, fast lead capture — without a multi-page website.",
   ctaPrimary: "Get a quote",
@@ -468,7 +468,7 @@ const ja: LandingCopy = {
     "ベトナムSMB向けランディングページ — 3〜5営業日で納品、明確なCTA、コンバージョン重視。スコープ固定の見積、追加費用なし。",
   eyebrow: "Service · Landing Page",
   title: "中小企業向けランディングページ制作",
-  lead: "Dolphin Softwareは訪問者を見込み客に変えることを唯一の目的にLPを設計します。3〜5営業日で納品、明確なCTA、全デバイス対応、納品後の運用ガイド付き。",
+  lead: "広告をクリックしても何も残さない — LPの目的は訪問をリードに変えること。3〜5営業日で納品、明確なCTA、全デバイス対応、納品後の運用ガイド付き。",
   fitLine:
     "向いている用途：広告キャンペーン、新サービス公開、リード獲得 — 多ページサイトは不要。",
   ctaPrimary: "見積もりを依頼",

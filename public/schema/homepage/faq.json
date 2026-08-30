@@ -20,7 +20,7 @@
       {
         "id": "faq-what",
         "question": "Dolphin Software làm gì?",
-        "answer": "Dolphin Software giúp doanh nghiệp vừa và nhỏ (SMB) đi từ vấn đề kinh doanh đến hệ thống có thể vận hành — website, mobile, automation và AI. Bạn chỉ cần nêu mục tiêu; Dolphin Software đề xuất phạm vi phù hợp.",
+          "answer": "Dolphin Software là công ty giải pháp AI và công nghệ cho doanh nghiệp. Chúng tôi bắt đầu từ vấn đề vận hành — rồi mới chọn website, AI Agent, CRM, automation, tích hợp hoặc phần mềm theo yêu cầu. Không chắc cần công nghệ gì vẫn bắt đầu được: kể chỗ đang nghẽn.",
         "open": true
       },
       {
@@ -81,7 +81,7 @@
       {
         "id": "faq-start",
         "question": "Làm sao để bắt đầu?",
-        "answer": "Nhấn 'Nhận báo giá', chat Zalo, hoặc gửi form Contact với mục tiêu, deadline và ngân sách ước lượng nếu có."
+          "answer": "Kể vấn đề đang nghẽn qua form Contact hoặc Zalo. Không cần biết sẵn 'cần website hay AI' — Dolphin đề xuất phạm vi khớp pain."
       }
     ]
   }

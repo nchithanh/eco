@@ -21,13 +21,13 @@ export function DolphinOpsHome() {
   return (
     <section
       id="dolphin-ops"
-      className="kuct-section-wash scroll-mt-20 py-20 sm:py-24"
+      className="scroll-mt-20 py-20 sm:py-24"
       aria-labelledby="home-ops-heading"
     >
       <div className="mx-auto grid max-w-7xl items-center gap-10 px-6 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-14">
         <div className="min-w-0">
           <Reveal variant="title" className="max-w-xl">
-            <p className="kuct-type-eyebrow text-[11px] sm:text-xs">{c.eyebrow}</p>
+            <p className="kuct-section-eyebrow">{c.eyebrow}</p>
             <h2
               id="home-ops-heading"
               className="kuct-type-h2 mt-4 text-3xl text-[var(--kuct-text)] sm:text-[2.15rem] lg:text-[2.35rem]"
@@ -87,7 +87,7 @@ export function DolphinOpsHome() {
               <button
                 type="button"
                 onClick={openQuote}
-                className="kuct-btn-ghost inline-flex w-full items-center justify-center self-center sm:w-auto"
+                className="kuct-btn-outline inline-flex w-full items-center justify-center rounded-lg px-5 py-3.5 text-sm sm:w-auto"
               >
                 {c.ctaSecondary}
               </button>
@@ -97,7 +97,9 @@ export function DolphinOpsHome() {
         </div>
 
         <Reveal delay={100} className="min-w-0 lg:justify-self-stretch">
-          <OpsHeroDemo copy={demo} />
+          <div className="kuct-product-panel">
+            <OpsHeroDemo copy={demo} />
+          </div>
         </Reveal>
       </div>
     </section>

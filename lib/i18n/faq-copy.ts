@@ -16,7 +16,7 @@ const vi: FaqCopy = {
   items: [
       {
           "q": "Dolphin Software làm gì?",
-          "a": "Dolphin Software giúp doanh nghiệp vừa và nhỏ (SMB) đi từ vấn đề kinh doanh đến hệ thống có thể vận hành — website, mobile, automation và AI. Bạn chỉ cần nêu mục tiêu; Dolphin Software đề xuất phạm vi phù hợp."
+          "a": "Dolphin Software là công ty giải pháp AI và công nghệ cho doanh nghiệp. Chúng tôi bắt đầu từ vấn đề vận hành — rồi mới chọn website, AI Agent, CRM, automation, tích hợp hoặc phần mềm theo yêu cầu. Không chắc cần công nghệ gì vẫn bắt đầu được: kể chỗ đang nghẽn."
       },
       {
           "q": "Doanh nghiệp không rành kỹ thuật có làm việc được không?",
@@ -64,7 +64,7 @@ const vi: FaqCopy = {
       },
       {
           "q": "Làm sao để bắt đầu?",
-          "a": "Nhấn 'Nhận báo giá', chat Zalo, hoặc gửi form Contact với mục tiêu, deadline và ngân sách ước lượng nếu có."
+          "a": "Kể vấn đề đang nghẽn qua form Contact hoặc Zalo. Không cần biết sẵn 'cần website hay AI' — Dolphin đề xuất phạm vi khớp pain."
       }
   ],
 };
@@ -77,7 +77,7 @@ const en: FaqCopy = {
   items: [
     {
       q: "What does Dolphin Software do?",
-      a: "Dolphin Software helps small and medium businesses (SMB) go from business problem to operational system — website, mobile, automation, and AI. You just state the goal; Dolphin Software proposes the right scope.",
+      a: "Dolphin Software is an AI and technology solutions company. We start from the operational problem — then choose a website, AI agent, CRM, automation, integration, or custom software. Not sure which technology you need? Start by describing the bottleneck.",
     },
     {
       q: "Can non-technical businesses work with you?",
@@ -125,7 +125,7 @@ const en: FaqCopy = {
     },
     {
       q: "How do I get started?",
-      a: "Click 'Get a quote,' chat Zalo, or send Contact form with goal, deadline, and estimated budget if available.",
+      a: "Describe the bottleneck via the Contact form or Zalo. You don't need to know 'website or AI' first — Dolphin proposes scope that matches the pain.",
     },
   ],
 };
@@ -137,7 +137,7 @@ const ja: FaqCopy = {
   items: [
     {
       q: "Dolphin Softwareは何をしますか？",
-      a: "Dolphin Softwareは中小企業（SMB）がビジネス課題から運用可能なシステムへ移行するのを支援します — Webサイト、モバイル、自動化、AI。目標を述べるだけで、Dolphin Softwareが適切な範囲を提案します。",
+      a: "Dolphin Softwareは企業向けのAI・テクノロジーソリューション会社です。運用の課題から始め、Webサイト、AIエージェント、CRM、自動化、連携、専用ソフトを選びます。どの技術が必要か分からなくても始められます。詰まっている箇所を教えてください。",
     },
     {
       q: "技術に詳しくない企業でも協力できますか？",
@@ -185,7 +185,7 @@ const ja: FaqCopy = {
     },
     {
       q: "どうやって始めますか？",
-      a: "「見積りを依頼」をクリック、Zaloチャット、または目標、期限、推定予算（あれば）を記載したContactフォームを送信。",
+      a: "ContactフォームまたはZaloで詰まっている箇所を教えてください。「WebかAIか」を先に決める必要はありません。Dolphinが痛みに合う範囲を提案します。",
     },
   ],
 };

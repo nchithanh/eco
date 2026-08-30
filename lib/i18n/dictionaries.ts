@@ -12,7 +12,7 @@ const vi: Dictionary = {
   meta: {
     title: "Dolphin Software",
     description:
-      "Studio web & app cho SMB: từ bài toán kinh doanh đến hệ thống dễ vận hành — phạm vi rõ, kết quả đo được, đồng hành sau bàn giao.",
+      "Dolphin Software là công ty giải pháp AI và công nghệ cho doanh nghiệp, tập trung giải quyết các vấn đề vận hành thực tế thông qua website, AI Agent, CRM, automation, tích hợp hệ thống và phần mềm theo yêu cầu.",
   },
   nav: {
     ariaMain: "Chính",
@@ -38,6 +38,8 @@ const vi: Dictionary = {
     aiTransform: "AI-Transform",
     dolphinIntelligence: "Dolphin Intelligence",
     contact: "Liên hệ",
+    solutions: "Giải pháp",
+    talk: "Nói với Dolphin",
     askAi: "Ask AI",
   },
   banner: {
@@ -50,13 +52,13 @@ const vi: Dictionary = {
   hero: {
     eyebrow: "Dolphin Software",
     aiPill: "",
-    headline: "Đừng để công nghệ trở thành [[gánh nặng]] cho doanh nghiệp",
-    subhead: "Xây website · nâng cấp hệ thống cũ · AI đúng chỗ cần",
+    headline: "Giải quyết vấn đề doanh nghiệp bằng [[AI & Công nghệ]]",
+    subhead: "Hiểu doanh nghiệp trước, xác định chỗ công nghệ tạo giá trị thật, rồi chỉ xây những gì anh chị thực sự cần.",
     support:
-      "Chúng tôi giúp doanh nghiệp xây dựng website, nâng cấp hệ thống cũ và ứng dụng AI vào đúng nơi cần thiết — để tiết kiệm thời gian và nâng cao hiệu quả.",
-    trustLine: "Hiểu vấn đề · Báo giá rõ · Không bán thừa",
-    ctaPrimary: "Nhận báo giá",
-    ctaSecondary: "Xem dịch vụ website",
+      "Dolphin giúp doanh nghiệp xác định những điểm nghẽn trong vận hành và xây dựng giải pháp phù hợp — từ website, AI Agent, CRM, automation đến phần mềm riêng.",
+    trustLine: "We don't start with technology. We start with your problem.",
+    ctaPrimary: "Nói về doanh nghiệp của bạn",
+    ctaSecondary: "Xem giải pháp",
     tags: ["Automation", "Web & App", "AI đúng chỗ"],
     metrics: [
       { value: "6+", label: "Case trên site" },
@@ -539,6 +541,8 @@ const vi: Dictionary = {
     groupUpdates: "Updates",
     groupConnect: "Connect",
     privacy: "Quyền riêng tư",
+    blurb:
+      "Giải pháp AI và công nghệ cho doanh nghiệp — bắt đầu từ vấn đề vận hành, không từ sản phẩm.",
   },
   loader: {
     aria: "Đang khởi động hệ thống agent",
@@ -572,6 +576,7 @@ const vi: Dictionary = {
   theme: {
     aria: "Màu giao diện",
     violet: "Tím",
+    orangered: "Cam đỏ",
     ocean: "Ocean",
     forest: "Rêu",
     coral: "Coral",
@@ -584,7 +589,7 @@ const en: Dictionary = {
   meta: {
     title: "Dolphin Software",
     description:
-      "Web & app studio for SMBs: from business problems to systems you can run — clear scope, measurable outcomes, support after handover.",
+      "Dolphin Software is an AI and technology solutions company helping growing businesses solve operational problems through practical technology. Its solutions include websites, AI agents, CRM, automation, integrations and custom software.",
   },
   nav: {
     ariaMain: "Main",
@@ -610,6 +615,8 @@ const en: Dictionary = {
     aiTransform: "AI-Transform",
     dolphinIntelligence: "Dolphin Intelligence",
     contact: "Contact",
+    solutions: "Solutions",
+    talk: "Talk to Dolphin",
     askAi: "Ask AI",
   },
   banner: {
@@ -622,13 +629,13 @@ const en: Dictionary = {
   hero: {
     eyebrow: "Dolphin Software",
     aiPill: "",
-    headline: "Don't let technology become a [[burden]] on your business",
-    subhead: "Build websites · modernize legacy systems · AI where it helps",
+    headline: "Solve Business Problems with [[AI & Technology]]",
+    subhead: "Understand the business first, find where technology actually pays off, then build only what you need.",
     support:
-      "We help businesses build websites, upgrade existing systems, and apply AI only where it matters — to save time and raise efficiency.",
-    trustLine: "Understand first · Clear quotes · No upsell you don't need",
-    ctaPrimary: "Get a quote",
-    ctaSecondary: "See website services",
+      "Dolphin helps growing businesses spot operational bottlenecks and build the right fix — website, AI agent, CRM, automation, or custom software.",
+    trustLine: "We don't start with technology. We start with your problem.",
+    ctaPrimary: "Talk about your business",
+    ctaSecondary: "See solutions",
     tags: ["Automation", "Web & App", "AI where it fits"],
     metrics: [
       { value: "6+", label: "Cases on site" },
@@ -1125,6 +1132,8 @@ const en: Dictionary = {
     groupUpdates: "Updates",
     groupConnect: "Connect",
     privacy: "Privacy",
+    blurb:
+      "AI and technology solutions for business — we start with the problem, not the product.",
   },
   loader: {
     aria: "Booting agent system",
@@ -1158,6 +1167,7 @@ const en: Dictionary = {
   theme: {
     aria: "Color theme",
     violet: "Violet",
+    orangered: "Orangered",
     ocean: "Ocean",
     forest: "Forest",
     coral: "Coral",
@@ -1171,7 +1181,7 @@ const ja: Dictionary = {
   meta: {
     title: "Dolphin Software",
     description:
-      "SMB向けWeb & Appスタジオ。ビジネス課題から運用しやすいシステムまで — スコープ明確、成果を測れる、引き渡し後も伴走。",
+      "Dolphin Softwareは企業向けのAI・テクノロジーソリューション会社です。Webサイト、AIエージェント、CRM、自動化、連携、専用ソフトで運用課題を解消します。",
   },
   nav: {
     ariaMain: "メイン",
@@ -1197,6 +1207,8 @@ const ja: Dictionary = {
     aiTransform: "AI-Transform",
     dolphinIntelligence: "Dolphin Intelligence",
     contact: "お問い合わせ",
+    solutions: "ソリューション",
+    talk: "Dolphinに相談",
     askAi: "Ask AI",
   },
   banner: {
@@ -1209,13 +1221,13 @@ const ja: Dictionary = {
   hero: {
     eyebrow: "Dolphin Software",
     aiPill: "",
-    headline: "テクノロジーを企業の[[負担]]にさせない",
-    subhead: "Webサイト構築 · レガシーシステム刷新 · 適切な場所へのAI",
+    headline: "ビジネスの課題を[[AIとテクノロジー]]で解く",
+    subhead: "まず事業を理解し、技術が本当に効く箇所を見極め、必要なものだけを作る。",
     support:
-      "ウェブサイト構築、既存システムのアップグレード、本当に必要な場所へのAI適用で、時間を節約し効率を高めます。",
-    trustLine: "課題を理解 · 見積もり明確 · 不要な提案はしない",
-    ctaPrimary: "見積もりを依頼",
-    ctaSecondary: "Webサービスを見る",
+      "Dolphinは成長中の企業の運用ボトルネックを特定し、Webサイト、AIエージェント、CRM、自動化、カスタムソフトウェアなど、合う手段で解消します。",
+    trustLine: "We don't start with technology. We start with your problem.",
+    ctaPrimary: "事業について話す",
+    ctaSecondary: "ソリューションを見る",
     tags: ["Automation", "Web & App", "適切なAI"],
     metrics: [
       { value: "6+", label: "掲載ケース" },
@@ -1712,6 +1724,8 @@ const ja: Dictionary = {
     groupUpdates: "Updates",
     groupConnect: "Connect",
     privacy: "プライバシー",
+    blurb:
+      "企業向けAI・テクノロジーソリューション — 技術からではなく、課題から始めます。",
   },
   loader: {
     aria: "エージェントシステムを起動中",
@@ -1745,6 +1759,7 @@ const ja: Dictionary = {
   theme: {
     aria: "カラーテーマ",
     violet: "バイオレット",
+    orangered: "オレンジレッド",
     ocean: "オーシャン",
     forest: "フォレスト",
     coral: "コーラル",

@@ -80,7 +80,7 @@ const vi: Record<ServiceSlug, ServiceDetail> = {
     metaDescription:
       "Dolphin Software thiết kế website doanh nghiệp, landing page và e-commerce theo yêu cầu — báo giá rõ ràng, bàn giao đúng hạn, dễ mở rộng về sau. Xem gói dịch vụ.",
     intro:
-      "Dolphin Software xây dựng website doanh nghiệp, landing page, và cửa hàng trực tuyến — phạm vi rõ ràng, tiến độ minh bạch, dễ báo giá và mở rộng về sau. Phù hợp cho SMB, startup, và đội marketing cần ra hàng nhanh mà không cần am hiểu kỹ thuật.",
+      "Khách tìm Google không ra tiệm, hoặc vào site rồi không gọi — đó là lúc website là giải pháp đúng. Dolphin Software xây website doanh nghiệp, landing và shop với phạm vi rõ, tiến độ minh bạch, dễ mở rộng. Không phải mọi vấn đề đều bắt đầu bằng website; khi pain là tìm thấy và chuyển đổi, đây là chỗ bắt đầu.",
     highlightsTitle: "Bạn nhận được gì từ dịch vụ thiết kế web của Dolphin Software?",
     highlightsLead:
       "Mỗi website do Dolphin Software xây dựng đều được thiết kế hướng đến chuyển đổi — không chỉ đẹp về hình thức mà còn hoạt động hiệu quả cho doanh nghiệp.",
@@ -148,7 +148,7 @@ const vi: Record<ServiceSlug, ServiceDetail> = {
     metaDescription:
       "Dolphin Software phát triển phần mềm theo yêu cầu cho doanh nghiệp: website, web app, hệ thống nội bộ, backend, API và tích hợp bên thứ ba. Phạm vi rõ ràng, bàn giao đầy đủ, hỗ trợ sau triển khai.",
     intro:
-      "Dolphin Software xây dựng phần mềm theo yêu cầu dựa trên bài toán thực tế của doanh nghiệp — từ website, web app và hệ thống nội bộ đến backend, API và tích hợp bên thứ ba. Dolphin Software tập trung vào phạm vi rõ ràng, kiến trúc phù hợp và sản phẩm có thể vận hành, mở rộng sau khi bàn giao.",
+      "Phần mềm có sẵn không khớp cách anh chị đang chạy — hoặc kiến thức khách nằm trong đầu nhân viên. Dolphin xây phần mềm theo yêu cầu từ bài toán thực tế: web app, hệ thống nội bộ, backend, API, tích hợp. Không mặc định làm lại toàn bộ cái đang chạy.",
     highlightsTitle: "Dolphin Software có thể xây dựng những gì?",
     highlightsLead:
       "Dịch vụ phát triển phần mềm của Dolphin Software bao gồm các lớp cần thiết để biến một yêu cầu kinh doanh thành sản phẩm phần mềm có thể sử dụng và phát triển tiếp.",
@@ -203,7 +203,7 @@ const vi: Record<ServiceSlug, ServiceDetail> = {
   integrations: {
     title: "Tích hợp dịch vụ bên thứ ba",
     intro:
-      "Gắn thanh toán MoMo / ZaloPay / VNPay, Zalo OA, SMS, email và các API khác vào hệ thống hiện có — an toàn, rõ luồng, dễ vận hành.",
+      "Khách, bán hàng, vận hành nằm ở nhiều hệ thống — thông tin không chảy một mạch. Dolphin gắn thanh toán MoMo / ZaloPay / VNPay, Zalo OA, SMS, email và API vào hệ thống đang chạy — an toàn, rõ luồng, dễ vận hành.",
     highlights: [
       "Thanh toán: MoMo, ZaloPay, VNPay, Stripe…",
       "Zalo OA / Messaging / webhook realtime",
@@ -255,7 +255,7 @@ const en: Record<ServiceSlug, ServiceDetail> = {
     metaDescription:
       "Dolphin Software builds business websites, landing pages, and e-commerce sites to order — clear quotes, on-time delivery, easy to scale later. See packages.",
     intro:
-      "Dolphin Software builds business websites, landing pages, and online stores — clear scope, transparent timeline, easy to quote and extend later. Fit for SMBs, startups, and marketing teams who need to ship fast without deep technical knowledge.",
+      "Customers can't find you on Google, or they land and never call — that's when a website is the right fix. Dolphin Software builds business sites, landings, and shops with clear scope and a transparent timeline. Not every problem starts with a website; when the pain is being found and converting, this is where we start.",
     highlightsTitle: "What you get from Dolphin Software's website service?",
     highlightsLead:
       "Every website built by Dolphin Software is designed for conversion — not just good looks but real business performance.",
@@ -323,7 +323,7 @@ const en: Record<ServiceSlug, ServiceDetail> = {
     metaDescription:
       "Dolphin Software builds custom software for businesses: websites, web apps, internal systems, backends, APIs, and third-party integrations. Clear scope, full handover, post-launch support.",
     intro:
-      "Dolphin Software builds custom software from real business problems — from websites, web apps, and internal systems to backends, APIs, and third-party integrations. We focus on clear scope, fitting architecture, and products you can operate and extend after handover.",
+      "Off-the-shelf software doesn't match how you run — or customer knowledge lives in staff heads. Dolphin builds custom software from the real problem: web apps, internal systems, backends, APIs, integrations. We don't rebuild a living system by default.",
     highlightsTitle: "What can Dolphin Software build?",
     highlightsLead:
       "Our custom software service covers the layers needed to turn a business requirement into usable software you can keep developing.",
@@ -378,7 +378,7 @@ const en: Record<ServiceSlug, ServiceDetail> = {
   integrations: {
     title: "Third-party service integration",
     intro:
-      "Wire MoMo / ZaloPay / VNPay, Zalo OA, SMS, email, and other APIs into your existing system — securely, with clear flows and operable runbooks.",
+      "Customers, sales, and ops live in separate systems — information doesn't flow. Dolphin wires MoMo / ZaloPay / VNPay, Zalo OA, SMS, email, and APIs into what you already run — securely, with clear flows.",
     highlights: [
       "Payments: MoMo, ZaloPay, VNPay, Stripe…",
       "Zalo OA / messaging / realtime webhooks",
@@ -430,7 +430,7 @@ const ja: Record<ServiceSlug, ServiceDetail> = {
     metaDescription:
       "Dolphin Softwareは企業サイト、LP、ECサイトをオーダーメイドで制作 — 明確な見積もり、期日厳守、後から拡張しやすい。料金パッケージを見る。",
     intro:
-      "Dolphin Softwareは企業サイト、LP、オンラインストアを構築します — 範囲が明確で、進捗が透明、見積もりしやすく後から拡張できる形で。SMB、スタートアップ、技術知識がなくても速く公開したいマーケチーム向けです。",
+      "Googleで店が見つからない、サイトに来ても電話しない — それがWebサイトが正しい手段のときです。Dolphinは企業サイト、LP、ショップを明確な範囲で作ります。すべての課題がWebから始まるわけではありません。見つかり、転換することが痛みなら、ここから始めます。",
     highlightsTitle: "Dolphin SoftwareのWebサイト制作サービスで得られるもの",
     highlightsLead:
       "Dolphin Softwareが構築する全てのWebサイトはコンバージョンを重視した設計 — 見た目だけでなくビジネスに実際に効果をもたらします。",
@@ -498,7 +498,7 @@ const ja: Record<ServiceSlug, ServiceDetail> = {
     metaDescription:
       "Dolphin Softwareは企業向けにカスタムソフトウェアを開発：ウェブサイト、Webアプリ、社内システム、バックエンド、API、外部連携。範囲明確、納品完備、導入後サポート。",
     intro:
-      "Dolphin Softwareは企業の実課題に基づきカスタムソフトウェアを構築します — ウェブサイト、Webアプリ、社内システムからバックエンド、API、外部連携まで。明確な範囲、適切な設計、納品後も運用・拡張できる成果物を重視します。",
+      "既製品が現場の回り方に合わない — または顧客知識がスタッフの頭の中にある。Dolphinは実課題から専用ソフトを作ります。動いているシステムを、作り直し前提にはしません。",
     highlightsTitle: "Dolphin Softwareは何を作れますか？",
     highlightsLead:
       "カスタムソフトウェア開発は、ビジネス要件を使える・続けて育てられる製品に変えるために必要なレイヤーをカバーします。",
@@ -553,7 +553,7 @@ const ja: Record<ServiceSlug, ServiceDetail> = {
   integrations: {
     title: "外部サービス連携",
     intro:
-      "MoMo / ZaloPay / VNPay、Zalo OA、SMS、メールなどを既存システムへ安全に接続 — フローを明確にし、運用しやすい形で実装します。",
+      "顧客、販売、運用が別システムのまま — 情報が一本で流れない。DolphinはMoMo / ZaloPay / VNPay、Zalo OA、SMS、メール、APIを既存システムへ安全に接続します。",
     highlights: [
       "決済: MoMo、ZaloPay、VNPay、Stripe…",
       "Zalo OA / メッセージ / Webhook",

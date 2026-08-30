@@ -5,17 +5,16 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 import { AccentText } from "@/components/BrandName";
 import { Reveal } from "@/components/Reveal";
 import { useQuote } from "@/components/QuoteProvider";
-import { assetPath, routePath } from "@/lib/asset";
+import { routePath } from "@/lib/asset";
 import {
  getAgentDolphinHomeCopy,
  type AgentDolphinHomeCard,
  type AgentDolphinHomeMessage,
 } from "@/lib/i18n/agent-dolphin-copy";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
-import { MASCOT } from "@/lib/mascot";
+import { useMascotSrc } from "@/components/useMascotSrc";
 import { useDesktopMotion } from "@/lib/motion";
 
-const CHAT_AVATAR = MASCOT.chat;
 const CHAR_MS = 28;
 const USER_GAP_MS = 480;
 const BEFORE_TYPE_MS = 420;
@@ -88,6 +87,7 @@ function ChatCard({
  inputPlaceholder: string;
  animate: boolean;
 }) {
+ const chatAvatar = useMascotSrc("chat");
  const panelRef = useRef<HTMLDivElement>(null);
  const [inView, setInView] = useState(false);
  const [committed, setCommitted] = useState<AgentDolphinHomeMessage[]>(
@@ -203,7 +203,7 @@ function ChatCard({
  <header className="flex items-center gap-3 bg-gradient-to-r from-[var(--kuct-btn-from)] via-[var(--kuct-btn-mid)] to-[var(--kuct-btn-to)] px-3.5 py-2.5 text-white sm:px-4 sm:py-3">
  <span className="relative shrink-0">
  <img
- src={assetPath(CHAT_AVATAR)}
+ src={chatAvatar}
  alt=""
  width={36}
  height={36}
@@ -284,11 +284,11 @@ export function AgentDolphinHome() {
  const motion = useDesktopMotion();
 
  return (
- <section id="dolphin-care" className="scroll-mt-20 py-20 sm:py-24" aria-labelledby="home-care-heading">
+ <section id="dolphin-care" className="kuct-section-soft scroll-mt-20 py-20 sm:py-24" aria-labelledby="home-care-heading">
  <div className="mx-auto grid max-w-7xl items-center gap-10 px-6 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-14">
  <div className="min-w-0">
  <Reveal variant="title" className="max-w-xl">
- <p className="kuct-type-eyebrow text-[11px] sm:text-xs">
+ <p className="kuct-section-eyebrow">
  {c.eyebrow}
  </p>
  <h2 id="home-care-heading" className="kuct-type-h2 mt-4 text-3xl text-[var(--kuct-text)] sm:text-[2.15rem] lg:text-[2.35rem]">
@@ -366,7 +366,7 @@ export function AgentDolphinHome() {
  <button
  type="button"
  onClick={openQuote}
- className="kuct-btn-ghost inline-flex w-full items-center justify-center self-center sm:w-auto"
+ className="kuct-btn-outline inline-flex w-full items-center justify-center rounded-lg px-5 py-3.5 text-sm sm:w-auto"
  >
  {c.ctaSecondary}
  </button>
@@ -376,6 +376,7 @@ export function AgentDolphinHome() {
  </div>
 
  <Reveal delay={100} className="min-w-0 lg:justify-self-stretch">
+ <div className="kuct-product-panel">
  <ChatCard
  card={c.card}
  agentName={c.agentName}
@@ -384,8 +385,8 @@ export function AgentDolphinHome() {
  animate={motion}
  />
  {c.pipeline && c.pipeline.length > 0 ? (
- <div className="kuct-surface-card mt-4 px-4 py-3.5">
- <p className="kuct-type-eyebrow text-[11px]">
+ <div className="mt-4 rounded-[10px] border border-[var(--kuct-border)] bg-[var(--kuct-surface)] px-4 py-3.5">
+ <p className="kuct-section-eyebrow text-[10px] tracking-[0.16em]">
  {c.pipelineLabel}
  </p>
  <p className="mt-2 text-sm leading-relaxed text-[var(--kuct-muted)]">
@@ -393,6 +394,7 @@ export function AgentDolphinHome() {
  </p>
  </div>
  ) : null}
+ </div>
  </Reveal>
  </div>
  </section>

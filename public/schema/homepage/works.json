@@ -13,10 +13,10 @@
     "order": 5,
     "id": "works",
     "section_label": "Projects",
-    "headline": "Các website thực tế đã triển khai",
-    "subheadline": "Mỗi dự án dưới đây: vấn đề → phạm vi → kết quả đo được.",
+    "headline": "Bài toán thực tế đã gỡ — không chỉ ảnh đẹp",
+    "subheadline": "Mỗi case: vấn đề đang nghẽn → phạm vi làm → kết quả sau bàn giao. Stack kỹ thuật nằm dưới.",
     "cta_inline": {
-      "label": "Muốn một website như thế này?",
+      "label": "Nói về bài toán của anh chị",
       "href": "#contact"
     },
     "items": [

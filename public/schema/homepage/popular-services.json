@@ -12,9 +12,9 @@
   "content": {
     "order": 11,
     "id": "popular-services",
-    "section_label": "Bảng giá",
-    "headline": "Dịch vụ phổ biến",
-    "subheadline": "Chọn gói bên trái — xem hạng mục bao gồm bên phải, rồi yêu cầu báo giá hoặc chat Zalo.",
+    "section_label": "Website packages",
+    "headline": "Gói website khi vấn đề là tìm thấy và chuyển đổi",
+    "subheadline": "Bốn gói khi pain là Google / landing / shop — không phải toàn bộ catalog Dolphin. Chọn gói rồi yêu cầu báo giá hoặc chat Zalo.",
     "ui_pattern": "click-select-split",
     "note_fx": "Giá VND quy đổi xấp xỉ, tỷ giá tham chiếu 2026-07-30. Giá USD hiển thị để tiện so sánh.",
     "packages": [

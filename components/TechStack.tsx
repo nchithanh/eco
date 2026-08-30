@@ -62,7 +62,7 @@ export function TechStack() {
 
  <div className="relative mx-auto max-w-7xl px-6 text-center">
  <Reveal variant="title">
- <p className="kuct-type-eyebrow text-[11px] sm:text-xs">
+ <p className="kuct-section-eyebrow">
  {eyebrow}
  </p>
 
