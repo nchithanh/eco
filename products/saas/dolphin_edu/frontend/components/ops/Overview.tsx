@@ -220,6 +220,9 @@ export function Overview({ title, courses, classes, students: _students, teacher
             <h2 id="ops-over-tasks" className="ops-over__table-title">
               Việc cần xử lý hôm nay
             </h2>
+            <button type="button" className="ops-table__detail" onClick={() => onOpen("tasks")}>
+              Xem tất cả
+            </button>
           </div>
           <ul className="ops-over__tasks">
             {DASH_TASKS.map((task) => (

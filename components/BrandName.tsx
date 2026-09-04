@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
-import { assetPath } from "@/lib/asset";
-import { BRAND_DISPLAY_NAME, BRAND_LOGO_SRC, BRAND_MOTTO } from "@/components/Logo";
+import { ThemedLogoImg } from "@/components/ThemedLogoImg";
+import { BRAND_DISPLAY_NAME, BRAND_MOTTO } from "@/components/Logo";
 
 type BrandNameProps = {
  className?: string;
@@ -8,8 +8,6 @@ type BrandNameProps = {
  /** Light mark for dark / gradient surfaces (announcement bar). */
  onDark?: boolean;
 };
-
-const LOGO_SRC = BRAND_LOGO_SRC;
 
 const sizeClass = {
  xs: {
@@ -64,9 +62,7 @@ export function BrandName({
  className={`inline-flex items-center ${s.gap} align-middle ${className}`}
  aria-label={BRAND_DISPLAY_NAME}
  >
- <img
- src={assetPath(LOGO_SRC)}
- alt=""
+ <ThemedLogoImg
  className={`${s.logo} w-auto object-contain`}
  width={size === "xs" ? 20 : size === "sm" ? 24 : 28}
  height={size === "xs" ? 20 : size === "sm" ? 24 : 28}
@@ -142,13 +138,10 @@ export function BrandMotto({ className = "" }: { className?: string }) {
  <p
  className={`flex items-center gap-2 text-sm leading-snug text-[var(--kuct-muted)] ${className}`}
  >
- <img
- src={assetPath(LOGO_SRC)}
- alt=""
+ <ThemedLogoImg
  className="h-7 w-auto shrink-0 object-contain"
  width={28}
  height={28}
- aria-hidden
  />
  <span className="italic">{BRAND_MOTTO}</span>
  </p>

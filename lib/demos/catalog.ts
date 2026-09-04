@@ -39,9 +39,9 @@ export const demoCatalog: DemoCatalogItem[] = [
   {
     slug: "bao-gia-crm-nhay",
     href: "/demo/bao-gia-crm-nhay/",
-    title: "Báo giá CRM",
+    title: "Báo giá CRM — MA Dance",
     blurb:
-      "Phiếu báo giá CRM — gói cố định + hạng mục tùy chọn. Public `/demo/bao-gia-crm-nhay/` — không mật khẩu. Tick rồi In / PDF.",
+      "Phiếu báo giá CRM cho MA Dance — gói A 9,5tr (CRM + web) + checklist (tác vụ, cổng login GV/HV, …). Public `/demo/bao-gia-crm-nhay/` — không mật khẩu. Tick rồi In / PDF.",
     tag: "Quote",
   },
   {

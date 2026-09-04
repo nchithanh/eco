@@ -14,7 +14,7 @@ Shell: **nav | canvas**. Chat **kéo ra từ phải** (Ask Dolphin / Escape / ov
 - Giữa: CanvasBar — search · Ask Dolphin · VI|EN · user. Canvas + chat + seed **VI**.
 - Domain: **Khóa → ghi danh học viên → sinh lớp**. Không matching spa 1:1.
 
-Nav nhóm: **Tổng quan** (Dashboard live; Lịch / Hoạt động stub) · **Quản lý** (Học viên, Khóa học, Lớp học, Giáo viên, Phòng) · **Tuyển sinh** / **Tài chính** / **Cài đặt** stub.
+Nav nhóm: **Tổng quan** (Dashboard live; Lịch / Hoạt động stub) · **Quản lý** (Học viên, Khóa học, Lớp học, Giáo viên, Phòng, Tác vụ) · **Tuyển sinh** / **Tài chính** / **Cài đặt** stub.
 
 | Nav | Canvas |
 | --- | --- |
@@ -24,13 +24,14 @@ Nav nhóm: **Tổng quan** (Dashboard live; Lịch / Hoạt động stub) · **Q
 | Học viên | KPI demo (`students-demo.ts`) · phân khúc + chart · bảng chuyên cần/TT · panel profile + tab · auto chọn HV đầu |
 | Giáo viên | KPI demo (`teachers-demo.ts`) · timeline hôm nay · bảng + rating/ca rảnh · panel tab Tổng quan / Lịch dạy / Lịch sử / Hiệu suất · khóa gán + CTA |
 | Phòng | KPI demo (`rooms-demo.ts`) · timeline sử dụng hôm nay · bảng filter + % lấp · panel tab Tổng quan / Lịch hôm nay / Lịch sử / Bảo trì · form thêm/sửa |
+| Tác vụ | KPI từ seed (`tasks-demo.ts`) · bảng lọc trạng thái / người / hạn · panel chi tiết + form thêm việc · đổi status/assignee/due local |
 | Stub | CRM bảng + panel · badge **Sắp có** · KPI `—` (không số liệu giả) |
 
-Ẩn: Inbox, Tác vụ spa (`disabled`). Spa leftover: `components/ops/_quarantine_spa/`.
+Ẩn: Inbox (`disabled`). Spa leftover: `components/ops/_quarantine_spa/` (không import `TaskList` spa).
 
 KPI / roster Khóa học: số **demo hardcode** (`lib/courses-demo.ts`) — trend %, mã khóa, % điểm danh, Đã/Chưa TT trên roster.
 
-Seed: **12 phòng** · **14 GV** · ~24 khóa (9 core + filler) · ~39 HV (3 chưa ghi danh). Đồng hồ demo **24/08/2026 17:15 VN** (`DEMO_AS_OF_ISO`). Hero chat: Lan, Hương, Minh, An, Long (Long chưa trong Hip-hop). Lớp hôm nay có filler để board Phòng / Giáo viên đầy lịch.
+Seed: **12 phòng** · **14 GV** · ~24 khóa (9 core + filler) · ~39 HV (3 chưa ghi danh) · **12 tác vụ** nội bộ. Đồng hồ demo **24/08/2026 17:15 VN** (`DEMO_AS_OF_ISO`). Hero chat: Lan, Hương, Minh, An, Long (Long chưa trong Hip-hop). Lớp hôm nay có filler để board Phòng / Giáo viên đầy lịch.
 
 ## Chat
 
@@ -38,6 +39,6 @@ Mặc định đóng. Mở = drawer overlay, canvas không co.
 
 `data/chat-actions.json` → `lib/intent.ts` `resolveChat`. Không NLU, không mở stub.
 
-Thứ tự: ghi danh → sinh lớp → form khóa → 360 học viên → list học viên → lớp đang diễn ra → khóa học → tổng quan → list lớp.
+Thứ tự: ghi danh → sinh lớp → Tác vụ → form khóa → 360 học viên → list học viên → lớp đang diễn ra → khóa học → tổng quan → list lớp.
 
 Tile: Lớp hôm nay · Ghi danh Long · Hồ sơ Hương · Sinh lớp Waacking.

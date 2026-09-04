@@ -1,6 +1,4 @@
-import { assetPath } from "@/lib/asset";
-
-const WATERMARK_LOGO = "/brand/logo-dolphin.webp";
+import { ThemedLogoImg } from "@/components/ThemedLogoImg";
 
 /** Subtle Dolphin logo overlay for content images (top-right). */
 export function ImageWatermark({ className = "" }: { className?: string }) {
@@ -9,9 +7,7 @@ export function ImageWatermark({ className = "" }: { className?: string }) {
       aria-hidden
       className={`kuct-img-watermark ${className}`.trim()}
     >
-      <img
-        src={assetPath(WATERMARK_LOGO)}
-        alt=""
+      <ThemedLogoImg
         width={28}
         height={28}
         className="h-6 w-auto object-contain sm:h-7"

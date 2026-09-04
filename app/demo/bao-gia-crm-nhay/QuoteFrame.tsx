@@ -2,12 +2,15 @@
 
 import { useEffect, useRef, useState } from "react";
 import { BASE_PATH } from "@/lib/asset";
+import { brandLogoSrc } from "@/lib/brand-logo";
+import { useTheme } from "@/lib/theme";
 
 type QuoteFrameProps = {
   html: string;
 };
 
 export function QuoteFrame({ html }: QuoteFrameProps) {
+  const { theme } = useTheme();
   const [srcDoc, setSrcDoc] = useState<string | null>(null);
   const iframeRef = useRef<HTMLIFrameElement>(null);
 
@@ -15,10 +18,10 @@ export function QuoteFrame({ html }: QuoteFrameProps) {
     const origin = window.location.origin;
     const root = `${origin}${BASE_PATH}`.replace(/\/$/, "");
     const base = `${root}/`;
-    const logo = `${root}/brand/logo-dolphin.webp`;
+    const logo = `${root}${brandLogoSrc(theme)}`;
     const withBase = html.replace("<head>", `<head>\n    <base href="${base}">`);
     setSrcDoc(withBase.replaceAll("/brand/logo-dolphin.webp", logo));
-  }, [html]);
+  }, [html, theme]);
 
   useEffect(() => {
     const iframe = iframeRef.current;

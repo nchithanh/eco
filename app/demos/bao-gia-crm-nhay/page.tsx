@@ -7,12 +7,12 @@ const canonical = "/demo/bao-gia-crm-nhay/";
 
 export const metadata: Metadata = {
   ...buildPageMetadata({
-    title: "Báo giá CRM | Dolphin Software",
+    title: "Báo giá CRM — MA Dance | Dolphin Software",
     description: "Redirect to /demo/bao-gia-crm-nhay/.",
     path: canonical,
     noIndex: true,
   }),
-  title: { absolute: "Báo giá CRM | Dolphin Software" },
+  title: { absolute: "Báo giá CRM — MA Dance | Dolphin Software" },
   robots: { index: false, follow: false },
 };
 

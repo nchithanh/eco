@@ -11,7 +11,7 @@ import { Reveal } from "@/components/Reveal";
 import { assetPath } from "@/lib/asset";
 import { getAgentDolphinCopy } from "@/lib/i18n/agent-dolphin-copy";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
-import { MASCOT } from "@/lib/mascot";
+import { useMascotSrc } from "@/components/useMascotSrc";
 import { useDesktopMotion } from "@/lib/motion";
 import { useQuote } from "@/components/QuoteProvider";
 
@@ -21,7 +21,6 @@ const IMG = {
  care: "/services/agent-dolphin/care.jpg",
 } as const;
 
-const CHAT_AVATAR = MASCOT.chat;
 const CHAR_MS = 26;
 const BEFORE_TYPE_MS = 420;
 const AFTER_CARD_MS = 700;
@@ -38,6 +37,7 @@ function HeroChatCards({
  cards: readonly [string, string, string];
  priority?: boolean;
 }) {
+ const chatAvatar = useMascotSrc("chat");
  const motion = useDesktopMotion();
  const [inView, setInView] = useState(false);
  const [visibleCards, setVisibleCards] = useState(0);
@@ -166,7 +166,7 @@ function HeroChatCards({
  <span className="flex items-center gap-2">
  <span className="kuct-ai-chat__toast-avatar" aria-hidden>
  <img
- src={assetPath(CHAT_AVATAR)}
+ src={chatAvatar}
  alt=""
  width={28}
  height={28}

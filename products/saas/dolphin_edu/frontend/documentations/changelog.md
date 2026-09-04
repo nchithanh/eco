@@ -1,5 +1,10 @@
 # Changelog — Dolphin Edu frontend
 
+## 2026-09-03
+
+- **Tác vụ live (demo FE):** nav Quản lý · seed 12 việc Pulse Studio (`lib/tasks-demo.ts`) · `TasksBoard` lọc trạng thái/người/hạn · thêm việc + đổi status local · chat «tác vụ» / «quản lý tác vụ». Inbox vẫn ẩn. Không Jira sprint/epic.
+- Báo giá deal **Ma Dance**: gói A CRM 5tr + website 4,5tr = **9,5tr**. Tác vụ 2tr và cổng login GV/HV 3tr = checklist mục B. SoT `context/quotes/ma-dance.md`. Phiếu `/demo/bao-gia-crm-nhay/`.
+
 ## 2026-08-30
 
 - Marketing `eco` `tsconfig.json` excludes `products/saas/dolphin_edu/frontend` so GitHub Pages `next build` does not type-check this app (broken `_quarantine_spa` imports vs marketing `@/`).

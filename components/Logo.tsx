@@ -1,10 +1,10 @@
-import { assetPath } from "@/lib/asset";
+import { ThemedLogoImg } from "@/components/ThemedLogoImg";
+export { BRAND_LOGO_ORANGERED_SRC, BRAND_LOGO_SRC } from "@/lib/brand-logo";
 
 export const BRAND_DISPLAY_NAME = "Dolphin Software";
 export const BRAND_TAGLINE = "Since 2026";
 /** Canonical motto — English, do not translate. Pair with the Dolphin logo. */
 export const BRAND_MOTTO = "Dreams come true when you don't sleep";
-export const BRAND_LOGO_SRC = "/brand/logo-dolphin.webp";
 
 type LogoProps = {
  className?: string;
@@ -15,8 +15,6 @@ type LogoProps = {
  wordmarkClassName?: string;
  wordmarkTaglineClassName?: string;
 };
-
-const LOGO_SRC = BRAND_LOGO_SRC;
 
 const defaultImageClass = "h-9 w-auto sm:h-10";
 const defaultWordmarkClass =
@@ -39,9 +37,7 @@ export function Logo({
  (variant === "mark" ? "h-8 w-auto" : defaultImageClass);
 
  const image = (
- <img
- src={assetPath(LOGO_SRC)}
- alt=""
+ <ThemedLogoImg
  className={`shrink-0 object-contain ${imgClass}`}
  width={variant === "mark" ? 32 : 40}
  height={variant === "mark" ? 32 : 40}

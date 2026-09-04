@@ -11,6 +11,7 @@ Each tool: capability → UI. Chat routes to canvas, not text-only.
 | `generate` | Sinh lớp từ lịch mẫu | “Sinh lớp Waacking” |
 | `class` | Board lớp + filter status | “Lớp đang diễn ra”, “Lớp hôm nay” |
 | `student` | Student 360 | “Hồ sơ học viên Hương” |
+| `task` | Bảng việc + lọc trạng thái/người/hạn · form thêm · đổi status | “Tác vụ”, “quản lý tác vụ” |
 
 Chat demo: `frontend/data/chat-actions.json`. Router `frontend/lib/intent.ts`.
 
@@ -18,4 +19,4 @@ Chat demo: `frontend/data/chat-actions.json`. Router `frontend/lib/intent.ts`.
 
 Hủy lớp, payment, refund, delete.
 
-Nav live vs stub: `HARDCODED_MENU`. Chat không mở stub / inbox / tác vụ spa. Chat drawer overlay (Ask Dolphin).
+Nav live vs stub: `HARDCODED_MENU`. Chat không mở stub / inbox. Chat drawer overlay (Ask Dolphin).

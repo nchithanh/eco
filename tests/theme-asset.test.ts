@@ -35,15 +35,18 @@ describe("themeAsset", () => {
     );
   });
 
-  it("falls back to violet path for assets without slate overrides", () => {
+  it("falls back to default path for assets without slate overrides", () => {
     expect(themeAsset("/tech/react.jpg", "slate")).toBe("/tech/react.jpg");
   });
 
-  it("uses non-themed path for ocean and violet", () => {
+  it("uses non-themed path for ocean, violet, and orangered", () => {
     expect(themeAsset("/capabilities/web.jpg", "ocean")).toBe(
       "/capabilities/web.jpg",
     );
     expect(themeAsset("/capabilities/web.jpg", "violet")).toBe(
+      "/capabilities/web.jpg",
+    );
+    expect(themeAsset("/capabilities/web.jpg", "orangered")).toBe(
       "/capabilities/web.jpg",
     );
     expect(themeAsset("/service-architecture.jpg", "ocean")).toBe(

@@ -19,11 +19,9 @@ import {
  dayPartHello,
 } from "@/lib/i18n/ai-chat-copy";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
-import { MASCOT } from "@/lib/mascot";
 import { CONTACTS } from "@/lib/contacts";
 import { acquirePageScroll, releasePageScroll } from "@/lib/scroll-lock";
-
-const WELCOME_MASCOT = MASCOT.contact;
+import { useMascotSrc } from "@/components/useMascotSrc";
 
 const REPLY_TYPEWRITER_BASE_MS = 16;
 const AI_CHAT_PANEL_MS = 280;
@@ -193,6 +191,7 @@ function nextId(prefix: string) {
 export function AiChatWidget() {
  const { locale, t } = useLocale();
  const c = getAiChatCopy(locale);
+ const welcomeMascot = useMascotSrc("contact");
  const fab = t.contactFab;
  const panelId = useId();
  const listRef = useRef<HTMLDivElement>(null);
@@ -514,7 +513,7 @@ export function AiChatWidget() {
 
  <div className="flex flex-col items-center text-center">
  <img
- src={assetPath(WELCOME_MASCOT)}
+ src={welcomeMascot}
  alt=""
  width={120}
  height={120}

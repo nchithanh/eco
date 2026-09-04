@@ -1,11 +1,9 @@
 "use client";
 
 import { useEffect, useState, type CSSProperties } from "react";
-import { assetPath } from "@/lib/asset";
-import { MASCOT } from "@/lib/mascot";
+import { useMascotSrc } from "@/components/useMascotSrc";
 import { useDesktopMotion } from "@/lib/motion";
 
-const CHAT_AVATAR = MASCOT.chat;
 /** Full scroll cycle (down with pauses + quick return). */
 const SCROLL_CYCLE_MS = 7000;
 
@@ -129,12 +127,13 @@ function ChatOverlay({
   agentLines: readonly [string, string, string];
   inputPlaceholder: string;
 }) {
+  const chatAvatar = useMascotSrc("chat");
   return (
     <div className="pointer-events-none absolute right-3 bottom-3 w-[min(13.5rem,68%)] sm:right-4 sm:bottom-4 sm:w-[15rem]">
       <div className="overflow-hidden rounded-xl bg-[var(--kuct-panel)] shadow-[0_12px_32px_rgba(0,0,0,0.45),0_0_20px_rgb(26_21_32/0.13)] backdrop-blur-md">
         <div className="flex items-center gap-2 bg-gradient-to-r from-[var(--kuct-btn-from)] via-[var(--kuct-btn-mid)] to-[var(--kuct-btn-to)] px-2.5 py-2 text-white">
           <img
-            src={assetPath(CHAT_AVATAR)}
+            src={chatAvatar}
             alt=""
             width={22}
             height={22}
@@ -173,7 +172,7 @@ function ChatOverlay({
       <div className="mt-2 flex justify-end">
         <span className="grid size-9 place-items-center overflow-hidden rounded-[10px] border-2 border-white/90 bg-gradient-to-br from-[var(--kuct-fab-from)] to-[var(--kuct-fab-to)] shadow-[0_8px_20px_rgb(26_21_32/0.18)]">
           <img
-            src={assetPath(CHAT_AVATAR)}
+            src={chatAvatar}
             alt=""
             width={36}
             height={36}

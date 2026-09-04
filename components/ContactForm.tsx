@@ -3,12 +3,12 @@
 import Image from "next/image";
 import { AccentText, BrandText } from "@/components/BrandName";
 import { Reveal } from "@/components/Reveal";
-import { assetPath } from "@/lib/asset";
+import { useMascotSrc } from "@/components/useMascotSrc";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
-import { MASCOT } from "@/lib/mascot";
 
 /** Contact panel visual — lg+ only. */
 function ContactVisualScene() {
+ const contactSrc = useMascotSrc("contact");
  return (
  <div
  className="relative hidden min-h-[14rem] items-center justify-center overflow-hidden rounded-xl bg-[var(--kuct-panel)] lg:flex"
@@ -19,7 +19,7 @@ function ContactVisualScene() {
  aria-hidden
  >
  <Image
- src={assetPath(MASCOT.contact)}
+ src={contactSrc}
  alt=""
  width={800}
  height={994}

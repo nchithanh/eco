@@ -10,6 +10,7 @@ Read in order when implementing:
 | [tools.md](./tools.md) | Tool registry (capability → UI) |
 | [constraints.md](./constraints.md) | Hard limits, TODO |
 | [google-form/](./google-form/) | Apps Script tạo Google Form khảo sát nghiệp vụ CRM (khách) |
+| [quotes/ma-dance.md](./quotes/ma-dance.md) | Báo giá deal Ma Dance (gói A 9,5tr; tác vụ + cổng login = checklist B) |
 
 **Docs — same task:** code **or** requirement/scope change → update files in this folder and/or `frontend/documentations/` (+ `changelog.md`). Do not write Edu app truth into marketing `documentations/`.
 

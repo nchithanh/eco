@@ -12,6 +12,7 @@ import {
 
 export const THEME_IDS = [
   "violet",
+  "orangered",
   "ocean",
   "forest",
   "coral",
@@ -30,6 +31,7 @@ export const THEME_STORAGE_KEY = "kuct-theme";
 
 export const THEME_SWATCH: Record<ThemeId, string> = {
   violet: "#6b56d6",
+  orangered: "#ff4500",
   ocean: "#0d9488",
   forest: "#3d8b6e",
   coral: "#e11d48",
