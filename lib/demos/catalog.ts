@@ -45,6 +45,14 @@ export const demoCatalog: DemoCatalogItem[] = [
     tag: "Quote",
   },
   {
+    slug: "ma-dance-discovery",
+    href: "/demos/ma-dance-discovery/",
+    title: "MA Dance — CRM discovery",
+    blurb:
+      "Business collect từ form discovery (chi nhánh, khóa, gói, điểm danh, bảo lưu, follow-up). Trong vault `/demos/` — cần mật khẩu.",
+    tag: "Discovery",
+  },
+  {
     slug: "wedding-saler",
     href: "/demos/wedding-saler/",
     title: "Saler Studio Wedding",
