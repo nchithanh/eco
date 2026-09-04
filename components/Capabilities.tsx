@@ -1,29 +1,170 @@
 "use client";
 
-import type { MouseEvent, PointerEvent as ReactPointerEvent } from "react";
-import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { AccentText } from "@/components/BrandName";
-import { LazyImage } from "@/components/LazyImage";
 import { Reveal } from "@/components/Reveal";
-import { assetPath, routePath, themeAsset } from "@/lib/asset";
+import { routePath } from "@/lib/asset";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
-import { useTheme } from "@/lib/theme";
 
-const DRAG_THRESHOLD_PX = 48;
-const AUTOPLAY_MS = 5500;
+function OfferIcon({ id }: { id: string }) {
+  const cls = "size-12 shrink-0";
+  if (id === "website") {
+    return (
+      <svg viewBox="0 0 24 24" className={cls} fill="none" aria-hidden>
+        <circle cx="12" cy="12" r="8" stroke="currentColor" strokeWidth="1.55" />
+        <path
+          d="M4.5 12h15M12 4c2.2 2.4 3.3 5 3.3 8s-1.1 5.6-3.3 8c-2.2-2.4-3.3-5-3.3-8s1.1-5.6 3.3-8z"
+          stroke="currentColor"
+          strokeWidth="1.55"
+        />
+      </svg>
+    );
+  }
+  if (id === "ai") {
+    return (
+      <svg viewBox="0 0 24 24" className={cls} fill="none" aria-hidden>
+        <path
+          d="M12 4.5c2.8 0 5 2.6 5 5.8 0 2.2-1 4-2.5 5.1V17H9.5v-1.6C8 14.3 7 12.5 7 10.3c0-3.2 2.2-5.8 5-5.8z"
+          stroke="currentColor"
+          strokeWidth="1.55"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M9.5 17h5M10.2 19.5h3.6"
+          stroke="currentColor"
+          strokeWidth="1.55"
+          strokeLinecap="round"
+        />
+        <path
+          d="M10 10h.01M14 10h.01M10.8 12.5c.7.6 1.7.6 2.4 0"
+          stroke="currentColor"
+          strokeWidth="1.55"
+          strokeLinecap="round"
+        />
+      </svg>
+    );
+  }
+  if (id === "agents") {
+    return (
+      <svg viewBox="0 0 24 24" className={cls} fill="none" aria-hidden>
+        <rect
+          x="6.5"
+          y="7"
+          width="11"
+          height="10"
+          rx="3"
+          stroke="currentColor"
+          strokeWidth="1.55"
+        />
+        <path
+          d="M12 4.5V7M9.5 11.2h.01M14.5 11.2h.01M10 14h4"
+          stroke="currentColor"
+          strokeWidth="1.55"
+          strokeLinecap="round"
+        />
+        <path
+          d="M6.5 12H5.2M18.8 12H17.5"
+          stroke="currentColor"
+          strokeWidth="1.55"
+          strokeLinecap="round"
+        />
+      </svg>
+    );
+  }
+  if (id === "crm") {
+    return (
+      <svg viewBox="0 0 24 24" className={cls} fill="none" aria-hidden>
+        <circle cx="8" cy="8" r="2.2" stroke="currentColor" strokeWidth="1.55" />
+        <circle cx="16" cy="8" r="2.2" stroke="currentColor" strokeWidth="1.55" />
+        <circle cx="12" cy="13.5" r="2.2" stroke="currentColor" strokeWidth="1.55" />
+        <path
+          d="M4.5 18c.6-1.6 2-2.6 3.8-2.6M19.5 18c-.6-1.6-2-2.6-3.8-2.6M9.2 17c.7-.5 1.7-.8 2.8-.8s2.1.3 2.8.8"
+          stroke="currentColor"
+          strokeWidth="1.55"
+          strokeLinecap="round"
+        />
+      </svg>
+    );
+  }
+  if (id === "automation") {
+    return (
+      <svg viewBox="0 0 24 24" className={cls} fill="none" aria-hidden>
+        <path
+          d="M7.5 8.5A5.5 5.5 0 0117 10.2M16.5 15.5A5.5 5.5 0 017 13.8"
+          stroke="currentColor"
+          strokeWidth="1.55"
+          strokeLinecap="round"
+        />
+        <path
+          d="M15.2 7.2l1.8 3-3.2.2M8.8 16.8l-1.8-3 3.2-.2"
+          stroke="currentColor"
+          strokeWidth="1.55"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    );
+  }
+  if (id === "integrations") {
+    return (
+      <svg viewBox="0 0 24 24" className={cls} fill="none" aria-hidden>
+        <path
+          d="M9.5 8.5H8A2.5 2.5 0 005.5 11v2A2.5 2.5 0 008 15.5h1.5M14.5 8.5H16a2.5 2.5 0 012.5 2.5v2a2.5 2.5 0 01-2.5 2.5h-1.5"
+          stroke="currentColor"
+          strokeWidth="1.55"
+          strokeLinecap="round"
+        />
+        <path
+          d="M9.5 12h5"
+          stroke="currentColor"
+          strokeWidth="1.55"
+          strokeLinecap="round"
+        />
+      </svg>
+    );
+  }
+  return (
+    <svg viewBox="0 0 24 24" className={cls} fill="none" aria-hidden>
+      <rect
+        x="5"
+        y="5"
+        width="14"
+        height="14"
+        rx="2"
+        stroke="currentColor"
+        strokeWidth="1.55"
+      />
+      <path
+        d="M9.2 10.2l-1.8 1.8 1.8 1.8M14.8 10.2l1.8 1.8-1.8 1.8M11.2 14.5l1.6-5"
+        stroke="currentColor"
+        strokeWidth="1.55"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
 
-type SlideDirection = 1 | -1;
+function ArrowIcon() {
+  return (
+    <svg aria-hidden viewBox="0 0 24 24" className="size-4 shrink-0" fill="none">
+      <path
+        d="M5 12h12M13 6l6 6-6 6"
+        stroke="currentColor"
+        strokeWidth="1.75"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
 
-type DragState = {
-  pointerId: number | null;
-  startX: number;
-  deltaX: number;
-  dragging: boolean;
-  suppressClick: boolean;
-};
+function offerHref(href: string) {
+  if (href.startsWith("#")) return href;
+  return routePath(href.endsWith("/") ? href : `${href}/`);
+}
 
-type Offer = {
+type OfferCardData = {
   id: string;
   title: string;
   body: string;
@@ -31,396 +172,136 @@ type Offer = {
   href: string;
 };
 
-const OFFER_IMAGES: Record<string, string> = {
-  landing: "/capabilities/web.jpg",
-  business: "/capabilities/design.jpg",
-  shop: "/capabilities/integrations.jpg",
-  webapp: "/capabilities/backend.jpg",
-  website: "/capabilities/web.jpg",
-  ai: "/capabilities/integrations.jpg",
-  agents: "/capabilities/agent-dolphin.jpg",
-  crm: "/capabilities/backend.jpg",
-  automation: "/capabilities/design.jpg",
-  integrations: "/capabilities/integrations.jpg",
-  custom: "/capabilities/backend.jpg",
-  build: "/capabilities/web.jpg",
-  modernize: "/capabilities/design.jpg",
-  automate: "/capabilities/integrations.jpg",
-  care: "/capabilities/agent-dolphin.jpg",
-};
-
-function resolveSlideDirection(
-  from: number,
-  to: number,
-  total: number,
-): SlideDirection {
-  if (from === to) return 1;
-  const forward = (to - from + total) % total;
-  return forward <= total / 2 ? 1 : -1;
-}
-
-function OfferCard({
+function SolutionOfferCard({
   offer,
-  learnMore,
-  active,
-  onNavigate,
+  delay,
 }: {
-  offer: Offer;
-  learnMore: string;
-  active: boolean;
-  onNavigate: (event: MouseEvent<HTMLAnchorElement>) => void;
+  offer: OfferCardData;
+  delay: number;
 }) {
-  const { theme } = useTheme();
-  const imageSrc = themeAsset(
-    OFFER_IMAGES[offer.id] ?? "/capabilities/web.jpg",
-    theme,
-  );
-  const href = offer.href.startsWith("#")
-    ? offer.href
-    : routePath(offer.href.endsWith("/") ? offer.href : `${offer.href}/`);
-
   return (
-    <article className="contents">
-      <Link
-        href={href}
-        draggable={false}
-        onClick={onNavigate}
-        className={
-          active
-            ? "group relative flex w-[min(100%,18.5rem)] shrink-0 flex-col overflow-hidden rounded-[10px] border border-[var(--kuct-accent)]/35 bg-[var(--kuct-surface)] shadow-[0_14px_36px_rgb(26_21_32/0.08)] transition duration-500 sm:w-[20rem] lg:w-[21.5rem]"
-            : "group relative flex w-[min(78vw,14.5rem)] shrink-0 flex-col overflow-hidden rounded-[10px] border border-[var(--kuct-border)] bg-[var(--kuct-surface)] opacity-60 transition duration-500 hover:opacity-80 sm:w-[15.5rem] lg:w-[16.5rem]"
-        }
-        aria-current={active ? "true" : undefined}
-      >
-        <div className="p-3 sm:p-4">
-          <div className="relative aspect-[4/3] overflow-hidden rounded-[10px] bg-[var(--kuct-panel)]">
-            <LazyImage
-              src={imageSrc}
-              alt={offer.title}
-              fill
-              className="object-cover transition duration-500 group-hover:scale-[1.03]"
-              sizes="(max-width: 640px) 78vw, 22rem"
-            />
-            <div
-              className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[rgba(4,4,12,0.35)] via-transparent to-transparent"
-              aria-hidden
-            />
-            <span className="absolute left-3 top-3 kuct-badge bg-[var(--kuct-panel-2)]/95 backdrop-blur-sm">
-              {offer.meta}
+    <Reveal as="li" delay={delay} className="h-full">
+      <article className="h-full">
+        <Link
+          href={offerHref(offer.href)}
+          className="kuct-pastel-card kuct-solution-card group flex h-full flex-col no-underline"
+          data-tone="lavender"
+        >
+          <div className="flex flex-1 flex-col p-4 sm:p-5">
+            <div className="flex items-start gap-3">
+              <span className="kuct-solution-card__icon shrink-0 text-[var(--pastel-ink)]">
+                <OfferIcon id={offer.id} />
+              </span>
+              <div className="min-w-0 flex-1 pt-0.5">
+                <p className="text-[10px] font-semibold tracking-[0.14em] text-[var(--pastel-ink)] uppercase opacity-90">
+                  {offer.meta}
+                </p>
+                <h3 className="mt-1 font-display text-base font-semibold leading-snug text-[var(--kuct-text)] sm:text-lg">
+                  {offer.title}
+                </h3>
+              </div>
+            </div>
+            <p className="mt-3 text-sm leading-snug text-[var(--kuct-muted)]">
+              {offer.body}
+            </p>
+            <span className="mt-3 self-end text-[var(--kuct-accent)]">
+              <ArrowIcon />
             </span>
           </div>
-        </div>
-
-        <div className="flex flex-1 flex-col items-center px-4 pb-4 pt-4 text-center sm:px-5 sm:pb-5">
-          <h3
-            className={
-              active
-                ? "font-display text-lg font-semibold leading-snug text-[var(--kuct-text)] transition group-hover:text-[var(--kuct-accent)] sm:text-xl"
-                : "font-display text-base font-semibold leading-snug text-[var(--kuct-text)] transition group-hover:text-[var(--kuct-accent)]"
-            }
-          >
-            {offer.title}
-          </h3>
-          <p
-            className={
-              active
-                ? "mt-2 line-clamp-3 text-sm leading-relaxed text-[var(--kuct-muted)]"
-                : "mt-2 line-clamp-2 text-sm leading-relaxed text-[var(--kuct-muted)]"
-            }
-          >
-            {offer.body}
-          </p>
-          <span className="mt-4 inline-flex w-fit items-center border-b border-current pb-0.5 text-sm font-bold text-[var(--kuct-text)] transition group-hover:text-[var(--kuct-accent)]">
-            {learnMore}
-          </span>
-        </div>
-      </Link>
-    </article>
+        </Link>
+      </article>
+    </Reveal>
   );
 }
 
+/** Solutions (#solutions) — Jasper pastel grid of 7 offers + CTA. */
 export function Capabilities() {
   const { t } = useLocale();
   const c = t.capabilities;
   const offers = c.offers;
+  const more = c.moreServices ?? [];
 
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [slideDirection, setSlideDirection] = useState<SlideDirection>(1);
-  const [slideTick, setSlideTick] = useState(0);
-  const [dragOffset, setDragOffset] = useState(0);
-  const [isDragging, setIsDragging] = useState(false);
-  const [paused, setPaused] = useState(false);
+  const ctaHref = (c.ctaSecondaryHref ?? "#contact").startsWith("#")
+    ? (c.ctaSecondaryHref ?? "#contact")
+    : offerHref(c.ctaSecondaryHref!);
 
-  const dragRef = useRef<DragState>({
-    pointerId: null,
-    startX: 0,
-    deltaX: 0,
-    dragging: false,
-    suppressClick: false,
-  });
-
-  const count = offers.length;
-  const safeIndex = count > 0 ? activeIndex % count : 0;
-  const prevIndex = (safeIndex - 1 + count) % count;
-  const nextIndex = (safeIndex + 1) % count;
-  const showSideCards = count > 1;
-  const showNextSide = showSideCards && count > 2;
-
-  const hubHref = (c.ctaSecondaryHref ?? "#popular-services").startsWith("#")
-    ? (c.ctaSecondaryHref ?? "#popular-services")
-    : assetPath(c.ctaSecondaryHref!);
-
-  const navigate = (next: number, direction: SlideDirection) => {
-    if (next === safeIndex || count === 0) return;
-    setSlideDirection(direction);
-    setSlideTick((tick) => tick + 1);
-    setActiveIndex(next);
-  };
-
-  const goPrev = () => navigate(prevIndex, -1);
-  const goNext = () => navigate(nextIndex, 1);
-  const goTo = (index: number) => {
-    navigate(index, resolveSlideDirection(safeIndex, index, count));
-  };
-
-  useEffect(() => {
-    if (paused || count < 2) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const id = window.setInterval(() => {
-      setActiveIndex((current) => {
-        const from = current % count;
-        const to = (from + 1) % count;
-        setSlideDirection(1);
-        setSlideTick((tick) => tick + 1);
-        return to;
-      });
-    }, AUTOPLAY_MS);
-    return () => window.clearInterval(id);
-  }, [paused, count]);
-
-  const handleCardNavigate = (event: MouseEvent<HTMLAnchorElement>) => {
-    if (dragRef.current.suppressClick) {
-      event.preventDefault();
-      dragRef.current.suppressClick = false;
-    }
-  };
-
-  const finishDrag = (event: ReactPointerEvent<HTMLDivElement>) => {
-    if (event.pointerType === "mouse") return;
-    const drag = dragRef.current;
-    if (drag.pointerId !== event.pointerId) return;
-
-    const target = event.currentTarget;
-    if (target.hasPointerCapture(event.pointerId)) {
-      target.releasePointerCapture(event.pointerId);
-    }
-
-    if (drag.dragging && Math.abs(drag.deltaX) >= DRAG_THRESHOLD_PX) {
-      drag.suppressClick = true;
-      if (drag.deltaX < 0) goNext();
-      else goPrev();
-    }
-
-    dragRef.current = {
-      pointerId: null,
-      startX: 0,
-      deltaX: 0,
-      dragging: false,
-      suppressClick: drag.suppressClick,
-    };
-    setDragOffset(0);
-    setIsDragging(false);
-  };
-
-  const onTrackPointerDown = (event: ReactPointerEvent<HTMLDivElement>) => {
-    if (!showSideCards || event.button !== 0) return;
-    if (event.pointerType === "mouse") return;
-
-    dragRef.current = {
-      pointerId: event.pointerId,
-      startX: event.clientX,
-      deltaX: 0,
-      dragging: false,
-      suppressClick: false,
-    };
-    event.currentTarget.setPointerCapture(event.pointerId);
-  };
-
-  const onTrackPointerMove = (event: ReactPointerEvent<HTMLDivElement>) => {
-    if (event.pointerType === "mouse") return;
-    const drag = dragRef.current;
-    if (drag.pointerId !== event.pointerId) return;
-
-    const deltaX = event.clientX - drag.startX;
-    drag.deltaX = deltaX;
-
-    if (!drag.dragging && Math.abs(deltaX) > 8) {
-      drag.dragging = true;
-      setIsDragging(true);
-    }
-
-    if (drag.dragging) {
-      setDragOffset(deltaX);
-    }
-  };
-
-  const slideClass =
-    slideTick > 0 && !isDragging
-      ? slideDirection === 1
-        ? "kuct-home-news-slide-next"
-        : "kuct-home-news-slide-prev"
-      : "";
-
-  const trackStyle =
-    dragOffset !== 0
-      ? {
-          transform: `translateX(${dragOffset}px)`,
-          transition: isDragging
-            ? "none"
-            : "transform 0.35s cubic-bezier(0.22, 1, 0.36, 1)",
-        }
-      : undefined;
+  const topRow = offers.slice(0, 4);
+  const bottomRow = offers.slice(4);
 
   return (
     <section
       id="solutions"
       aria-labelledby="home-capabilities-heading"
-      className="kuct-capabilities relative scroll-mt-20 overflow-hidden py-20 sm:py-24"
+      className="kuct-capabilities relative scroll-mt-20 py-20 sm:py-24"
     >
       <span id="capabilities" className="sr-only" />
       <div className="relative mx-auto max-w-7xl px-6">
-        <Reveal variant="title">
-          <div className="flex flex-wrap items-center gap-3 sm:gap-4">
-            <p className="kuct-section-eyebrow">{c.eyebrow}</p>
-            <span
-              className="hidden h-px min-w-[3rem] flex-1 border-t border-dashed border-[var(--kuct-border)] sm:block"
-              aria-hidden
-            />
-            <a
-              href={hubHref}
-              className="ml-auto inline-flex shrink-0 items-center rounded-[10px] border border-[var(--kuct-text)] px-4 py-2 text-xs font-bold tracking-wide text-[var(--kuct-text)] transition hover:border-[var(--kuct-accent)] hover:text-[var(--kuct-accent)] sm:px-5 sm:text-sm"
-            >
-              {c.ctaSecondary}
-            </a>
-          </div>
-
-          <div className="mt-8 grid gap-5 lg:grid-cols-2 lg:items-end lg:gap-12">
-            <h2
-              id="home-capabilities-heading"
-              className="kuct-type-h2 max-w-[20ch] text-3xl text-[var(--kuct-text)] sm:text-[2.15rem] lg:text-[2.35rem]"
-            >
-              <AccentText>{c.title}</AccentText>
-            </h2>
-            <p className="kuct-type-body max-w-[46ch] text-base lg:justify-self-end">
-              {c.support}
-            </p>
-          </div>
+        <Reveal variant="title" className="mx-auto max-w-3xl text-center">
+          <p className="kuct-section-eyebrow">{c.eyebrow}</p>
+          <h2
+            id="home-capabilities-heading"
+            className="mx-auto mt-4 max-w-2xl font-display text-3xl font-semibold leading-[1.12] tracking-tight text-[var(--kuct-text)] sm:text-[2.15rem] lg:text-[2.35rem] lg:leading-[1.1]"
+          >
+            <AccentText>{c.title}</AccentText>
+          </h2>
+          <p className="mx-auto mt-4 max-w-[64ch] text-base leading-[1.7] text-[var(--kuct-muted)]">
+            {c.support}
+          </p>
         </Reveal>
 
-        {count > 0 ? (
-          <Reveal delay={60} className="relative mt-10 sm:mt-12">
-            <div className="flex items-center justify-center gap-2 sm:gap-4">
-              {showSideCards ? (
-                <button
-                  type="button"
-                  onClick={goPrev}
-                  aria-label={c.prevPage}
-                  className="hidden size-10 shrink-0 place-items-center rounded-[10px] bg-[var(--kuct-panel-2)] text-[var(--kuct-muted)] shadow-[0_4px_14px_rgb(26_21_32/0.08)] transition hover:text-[var(--kuct-text)] sm:grid"
-                >
-                  <span aria-hidden>←</span>
-                </button>
-              ) : null}
+        {offers.length > 0 ? (
+          <div className="mt-12 space-y-4">
+            <ul className="kuct-solutions-grid grid list-none grid-cols-1 gap-4 p-0 sm:grid-cols-2 lg:grid-cols-4">
+              {topRow.map((offer, i) => (
+                <SolutionOfferCard
+                  key={offer.id}
+                  offer={offer}
+                  delay={i * 30}
+                />
+              ))}
+            </ul>
 
-              <div
-                role="region"
-                aria-roledescription="carousel"
-                aria-label={c.eyebrow}
-                className={`kuct-home-news-track min-w-0 flex-1 sm:flex-none ${isDragging ? "is-dragging" : ""}`.trim()}
-                onPointerDown={onTrackPointerDown}
-                onPointerMove={onTrackPointerMove}
-                onPointerUp={finishDrag}
-                onPointerCancel={finishDrag}
-                onMouseEnter={() => setPaused(true)}
-                onMouseLeave={() => setPaused(false)}
-                onFocusCapture={() => setPaused(true)}
-                onBlurCapture={(event) => {
-                  if (!event.currentTarget.contains(event.relatedTarget as Node)) {
-                    setPaused(false);
-                  }
-                }}
-              >
-                <div
-                  key={slideTick}
-                  style={trackStyle}
-                  className={`flex min-w-0 items-stretch justify-center gap-3 overflow-hidden sm:gap-5 lg:gap-6 ${slideClass}`.trim()}
-                >
-                  {showSideCards ? (
-                    <OfferCard
-                      offer={offers[prevIndex]!}
-                      learnMore={c.learnMore}
-                      active={false}
-                      onNavigate={handleCardNavigate}
-                    />
-                  ) : null}
-
-                  <OfferCard
-                    offer={offers[safeIndex]!}
-                    learnMore={c.learnMore}
-                    active
-                    onNavigate={handleCardNavigate}
+            {bottomRow.length > 0 ? (
+              <ul className="kuct-solutions-grid mx-auto grid list-none grid-cols-1 gap-4 p-0 sm:grid-cols-2 lg:grid-cols-3 lg:max-w-[75%]">
+                {bottomRow.map((offer, i) => (
+                  <SolutionOfferCard
+                    key={offer.id}
+                    offer={offer}
+                    delay={(i + 4) * 30}
                   />
-
-                  {showNextSide ? (
-                    <OfferCard
-                      offer={offers[nextIndex]!}
-                      learnMore={c.learnMore}
-                      active={false}
-                      onNavigate={handleCardNavigate}
-                    />
-                  ) : null}
-                </div>
-              </div>
-
-              {showSideCards ? (
-                <button
-                  type="button"
-                  onClick={goNext}
-                  aria-label={c.nextPage}
-                  className="hidden size-10 shrink-0 place-items-center rounded-[10px] bg-[var(--kuct-panel-2)] text-[var(--kuct-muted)] shadow-[0_4px_14px_rgb(26_21_32/0.08)] transition hover:text-[var(--kuct-text)] sm:grid"
-                >
-                  <span aria-hidden>→</span>
-                </button>
-              ) : null}
-            </div>
-
-            <div className="mt-6 flex justify-center">
-              <div
-                role="tablist"
-                aria-label={c.eyebrow}
-                className="flex items-center gap-2"
-              >
-                {offers.map((offer, index) => {
-                  const selected = index === safeIndex;
-                  return (
-                    <button
-                      key={offer.id}
-                      type="button"
-                      role="tab"
-                      aria-selected={selected}
-                      aria-label={`${offer.title}`}
-                      onClick={() => goTo(index)}
-                      className={
-                        selected
-                          ? "h-2 w-6 rounded-full bg-[var(--kuct-accent)]"
-                          : "size-2 rounded-full bg-[var(--kuct-border)] transition hover:bg-[var(--kuct-muted)]"
-                      }
-                    />
-                  );
-                })}
-              </div>
-            </div>
-          </Reveal>
+                ))}
+              </ul>
+            ) : null}
+          </div>
         ) : null}
+
+        <Reveal delay={120} className="mt-10 flex flex-col items-center gap-5 text-center sm:mt-12">
+          <a
+            href={ctaHref}
+            className="kuct-btn-primary inline-flex min-w-[12rem] items-center justify-center rounded-[10px] px-6 py-3.5 text-sm font-semibold no-underline"
+          >
+            {c.ctaPrimary}
+          </a>
+          {more.length > 0 ? (
+            <ul className="m-0 flex list-none flex-wrap items-center justify-center gap-x-1 gap-y-2 p-0 text-sm font-semibold text-[var(--kuct-accent)]">
+              {more.map((item, index) => (
+                <li key={item.href} className="inline-flex items-center">
+                  {index > 0 ? (
+                    <span className="mx-2 text-[var(--kuct-border)]" aria-hidden>
+                      ·
+                    </span>
+                  ) : null}
+                  <Link
+                    href={offerHref(item.href)}
+                    className="no-underline transition hover:underline"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          ) : null}
+        </Reveal>
       </div>
     </section>
   );

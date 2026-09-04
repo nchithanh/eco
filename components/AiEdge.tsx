@@ -62,6 +62,7 @@ export function AiEdge() {
 
         <PastelPlatformGrid
           columns={3}
+          tone="lavender"
           items={copy.items.map((item) => ({
             key: item.id,
             title: item.title,

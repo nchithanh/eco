@@ -125,9 +125,12 @@ function CardShell({
 export function PastelPlatformGrid({
   items,
   columns = 3,
+  tone: toneOverride,
 }: {
   items: PastelPlatformItem[];
   columns?: 3 | 4;
+  /** Force every card to one pastel tone (e.g. Why → lavender/violet). */
+  tone?: PastelTone;
 }) {
   const gridClass =
     columns === 4
@@ -137,7 +140,8 @@ export function PastelPlatformGrid({
   return (
     <ul className={gridClass} data-pastel-cols={columns}>
       {items.map((item, index) => {
-        const tone = PASTEL_TONES[index % PASTEL_TONES.length] ?? "mint";
+        const tone =
+          toneOverride ?? PASTEL_TONES[index % PASTEL_TONES.length] ?? "mint";
         return (
           <Reveal as="li" key={item.key} delay={index * 40} className="h-full">
             <article className="h-full">

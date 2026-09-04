@@ -55,6 +55,7 @@ export function Technology() {
 
         <PastelPlatformGrid
           columns={3}
+          tone="lavender"
           items={tech.items.map((item) => ({
             key: item.id,
             title: item.title,

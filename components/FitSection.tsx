@@ -15,15 +15,80 @@ const FIT_IMAGES = [
   "/fit/slide-04.jpg",
 ] as const;
 
-/** Soft qualifier carousel: who Dolphin Software fits (SEO). */
+function FitProfileIcon({ index }: { index: number }) {
+  const cls = "size-4 shrink-0";
+  if (index === 0) {
+    return (
+      <svg viewBox="0 0 24 24" className={cls} fill="none" aria-hidden>
+        <circle cx="12" cy="12" r="8" stroke="currentColor" strokeWidth="1.7" />
+        <path
+          d="M4 12h16M12 4c2.2 2.3 3.2 4.8 3.2 8S14.2 17.7 12 20c-2.2-2.3-3.2-4.8-3.2-8S9.8 6.3 12 4z"
+          stroke="currentColor"
+          strokeWidth="1.7"
+        />
+      </svg>
+    );
+  }
+  if (index === 1) {
+    return (
+      <svg viewBox="0 0 24 24" className={cls} fill="none" aria-hidden>
+        <path
+          d="M5 17l5-9 3 5 2-3 4 7H5z"
+          stroke="currentColor"
+          strokeWidth="1.7"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M14 8l2-3 2 3"
+          stroke="currentColor"
+          strokeWidth="1.7"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    );
+  }
+  if (index === 2) {
+    return (
+      <svg viewBox="0 0 24 24" className={cls} fill="none" aria-hidden>
+        <circle cx="6.5" cy="12" r="2.2" stroke="currentColor" strokeWidth="1.7" />
+        <circle cx="17.5" cy="7" r="2.2" stroke="currentColor" strokeWidth="1.7" />
+        <circle cx="17.5" cy="17" r="2.2" stroke="currentColor" strokeWidth="1.7" />
+        <path
+          d="M8.5 11.2l6.2-3.2M8.5 12.8l6.2 3.2"
+          stroke="currentColor"
+          strokeWidth="1.7"
+        />
+      </svg>
+    );
+  }
+  return (
+    <svg viewBox="0 0 24 24" className={cls} fill="none" aria-hidden>
+      <rect
+        x="6"
+        y="7"
+        width="12"
+        height="10"
+        rx="2"
+        stroke="currentColor"
+        strokeWidth="1.7"
+      />
+      <path
+        d="M9 7V5.8A1.8 1.8 0 0110.8 4h2.4A1.8 1.8 0 0115 5.8V7M8 12h8M8 15h5"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+/** Soft qualifier tour: ICP list + original Fit slide images. */
 export function FitSection() {
   const { t } = useLocale();
   const { theme } = useTheme();
   const fit = t.fit;
-  const { prevPage, nextPage } = t.capabilities;
   const [activeIndex, setActiveIndex] = useState(0);
-  const [slideDirection, setSlideDirection] = useState<1 | -1>(1);
-  const [slideTick, setSlideTick] = useState(0);
 
   if (!fit) return null;
 
@@ -35,7 +100,7 @@ export function FitSection() {
 
   if (!hasMatrix && !hasYesNo) return null;
 
-  const slides = hasMatrix
+  const items = hasMatrix
     ? matrix!.map((row, index) => ({
         key: row.profile,
         title: row.profile,
@@ -60,165 +125,112 @@ export function FitSection() {
         },
       ];
 
-  const count = slides.length;
+  const count = items.length;
   const safeIndex = count > 0 ? activeIndex % count : 0;
-  const slide = slides[safeIndex]!;
-
-  const navigate = (next: number, direction: 1 | -1) => {
-    if (next === safeIndex || count === 0) return;
-    setSlideDirection(direction);
-    setSlideTick((tick) => tick + 1);
-    setActiveIndex(next);
-  };
-
-  const goPrev = () => navigate((safeIndex - 1 + count) % count, -1);
-  const goNext = () => navigate((safeIndex + 1) % count, 1);
-  const goTo = (index: number) => {
-    if (index === safeIndex) return;
-    const forward = (index - safeIndex + count) % count;
-    const direction: 1 | -1 = forward <= count / 2 ? 1 : -1;
-    navigate(index, direction);
-  };
-
-  const slideClass =
-    slideTick > 0
-      ? slideDirection === 1
-        ? "kuct-home-news-slide-next"
-        : "kuct-home-news-slide-prev"
-      : "";
+  const active = items[safeIndex]!;
+  const exploreCta = fit.exploreCta ?? "→";
 
   return (
     <section
       id="fit"
       aria-labelledby="home-fit-heading"
-      className="scroll-mt-20 py-20 sm:py-24"
+      className="scroll-mt-20 bg-white py-20 sm:py-24"
     >
       <div className="mx-auto max-w-7xl px-6">
-        <Reveal variant="title" className="text-center">
-          <p className="kuct-section-eyebrow">
-            {fit.eyebrow}
-          </p>
+        <Reveal variant="title" className="mx-auto max-w-4xl text-center">
+          <p className="kuct-section-eyebrow">{fit.eyebrow}</p>
           <h2
             id="home-fit-heading"
             className="mt-4 font-display text-3xl font-semibold leading-[1.12] tracking-tight text-[var(--kuct-text)] sm:text-[2.15rem] lg:text-[2.35rem] lg:leading-[1.1]"
           >
-            <AccentText>{fit.title}</AccentText>
+            <AccentText className="text-[var(--kuct-accent)]">
+              {fit.title}
+            </AccentText>
           </h2>
-          <p className="mt-5 text-base leading-[1.7] text-[var(--kuct-muted)]">
+          <p className="mx-auto mt-5 max-w-3xl text-base leading-[1.7] text-[var(--kuct-muted)]">
             {fit.support}
           </p>
         </Reveal>
 
-        <Reveal delay={60} className="relative mt-10 sm:mt-14">
-          <div className="flex items-center gap-3 sm:gap-5">
-            {count > 1 ? (
-              <button
-                type="button"
-                onClick={goPrev}
-                aria-label={prevPage}
-                className="hidden size-10 shrink-0 place-items-center rounded-[10px] bg-[var(--kuct-panel)] text-[var(--kuct-muted)] shadow-[0_4px_14px_rgb(26_21_32/0.08)] transition hover:text-[var(--kuct-text)] sm:grid"
-              >
-                <span aria-hidden>←</span>
-              </button>
-            ) : null}
+        <Reveal delay={60} className="mt-10 sm:mt-14">
+          <div className="kuct-fit-stage grid items-start gap-8 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.15fr)] lg:gap-10 xl:gap-12">
+            <div className="relative z-10">
+              <ul className="m-0 flex list-none flex-col gap-2.5 p-0" role="list">
+                {items.map((item, index) => {
+                  const selected = index === safeIndex;
+                  return (
+                    <li key={item.key}>
+                      <button
+                        type="button"
+                        aria-pressed={selected}
+                        onClick={() => setActiveIndex(index)}
+                        className={
+                          selected
+                            ? "kuct-fit-item kuct-fit-item--active w-full text-left"
+                            : "kuct-fit-item w-full text-left"
+                        }
+                      >
+                        <span
+                          className="kuct-fit-item__icon"
+                          aria-hidden
+                        >
+                          <FitProfileIcon index={index % 4} />
+                        </span>
+                        <span className="min-w-0 flex-1">
+                          <span className="block font-display text-sm font-semibold leading-snug text-[var(--kuct-text)] sm:text-[0.95rem]">
+                            {item.title}
+                          </span>
+                          {selected && item.lead ? (
+                            <span className="mt-2 inline-flex rounded-[10px] bg-[color-mix(in_srgb,var(--kuct-accent)_12%,white)] px-2.5 py-1 text-[0.7rem] font-semibold text-[var(--kuct-accent)]">
+                              {item.lead}
+                            </span>
+                          ) : null}
+                          {selected ? (
+                            <span className="mt-2 block text-sm leading-relaxed text-[var(--kuct-muted)]">
+                              {item.body}
+                            </span>
+                          ) : null}
+                        </span>
+                        {!selected ? (
+                          <span
+                            className="shrink-0 text-[var(--kuct-muted)]"
+                            aria-hidden
+                          >
+                            →
+                          </span>
+                        ) : null}
+                      </button>
+                    </li>
+                  );
+                })}
+              </ul>
 
-            <div
-              role="region"
-              aria-roledescription="carousel"
-              aria-label={fit.eyebrow}
-              className="min-w-0 flex-1 overflow-hidden"
-            >
-              <div
-                key={`${safeIndex}-${slideTick}`}
-                className={`grid items-center gap-8 lg:grid-cols-2 lg:gap-12 ${slideClass}`.trim()}
+              <a
+                href="#contact"
+                className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-[var(--kuct-accent)] no-underline transition hover:opacity-90"
               >
-                <div className="order-2 text-left lg:order-1">
-                  <h3 className="font-display text-2xl font-semibold leading-snug tracking-tight text-[var(--kuct-text)] sm:text-[1.75rem] lg:text-[2rem] lg:leading-[1.15]">
-                    {slide.title}
-                  </h3>
-                  {slide.lead ? (
-                    <p className="mt-4 text-sm font-semibold text-[var(--kuct-accent)] sm:text-base">
-                      {slide.lead}
-                    </p>
-                  ) : null}
-                  <p className="mt-3 max-w-[42ch] text-base leading-[1.7] text-[var(--kuct-muted)]">
-                    {slide.body}
-                  </p>
-                </div>
+                {exploreCta}
+                <span aria-hidden> →</span>
+              </a>
 
-                <div className="order-1 lg:order-2">
-                  <div className="relative mx-auto aspect-[4/3] w-full max-w-lg overflow-hidden rounded-[10px] bg-[var(--kuct-panel)]">
-                    <LazyImage
-                      src={themeAsset(slide.image, theme)}
-                      alt={slide.title}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 1024px) 90vw, 32rem"
-                    />
-                  </div>
-                </div>
+              <p className="sr-only" aria-live="polite">
+                {active.title}. {active.lead}. {active.body}
+              </p>
+            </div>
+
+            <div className="relative z-10">
+              <div className="relative mx-auto aspect-[4/3] w-full overflow-hidden rounded-[10px] bg-[var(--kuct-panel)] shadow-[0_1rem_2.5rem_rgb(26_22_37/0.08)]">
+                <LazyImage
+                  key={active.image}
+                  src={themeAsset(active.image, theme)}
+                  alt={active.title}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 90vw, 36rem"
+                />
               </div>
             </div>
-
-            {count > 1 ? (
-              <button
-                type="button"
-                onClick={goNext}
-                aria-label={nextPage}
-                className="hidden size-10 shrink-0 place-items-center rounded-[10px] bg-[var(--kuct-panel)] text-[var(--kuct-muted)] shadow-[0_4px_14px_rgb(26_21_32/0.08)] transition hover:text-[var(--kuct-text)] sm:grid"
-              >
-                <span aria-hidden>→</span>
-              </button>
-            ) : null}
           </div>
-
-          {count > 1 ? (
-            <div className="mt-8 flex items-center justify-center gap-3 sm:hidden">
-              <button
-                type="button"
-                onClick={goPrev}
-                aria-label={prevPage}
-                className="grid size-10 place-items-center rounded-[10px] bg-[var(--kuct-panel)] text-[var(--kuct-muted)] shadow-[0_4px_14px_rgb(26_21_32/0.08)]"
-              >
-                <span aria-hidden>←</span>
-              </button>
-              <button
-                type="button"
-                onClick={goNext}
-                aria-label={nextPage}
-                className="grid size-10 place-items-center rounded-[10px] bg-[var(--kuct-panel)] text-[var(--kuct-muted)] shadow-[0_4px_14px_rgb(26_21_32/0.08)]"
-              >
-                <span aria-hidden>→</span>
-              </button>
-            </div>
-          ) : null}
-
-          {count > 1 ? (
-            <div
-              role="tablist"
-              aria-label={fit.eyebrow}
-              className="mt-6 flex justify-center gap-2"
-            >
-              {slides.map((item, index) => {
-                const selected = index === safeIndex;
-                return (
-                  <button
-                    key={item.key}
-                    type="button"
-                    role="tab"
-                    aria-selected={selected}
-                    aria-label={item.title}
-                    onClick={() => goTo(index)}
-                    className={
-                      selected
-                        ? "h-2 w-6 rounded-[10px] bg-[var(--kuct-accent)]"
-                        : "size-2 rounded-[10px] bg-[var(--kuct-border)] transition hover:bg-[var(--kuct-muted)]"
-                    }
-                  />
-                );
-              })}
-            </div>
-          ) : null}
         </Reveal>
       </div>
     </section>

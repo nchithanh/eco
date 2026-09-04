@@ -476,6 +476,7 @@ export const homepageLangJa: HomepageLang = {
     eyebrow: "Fit",
     title: "Dolphin Softwareは誰に[[最適]]か？",
     support: "Dolphin Softwareは、ベトナムの中小企業（SMB）で次のニーズがある場合に最適です：ゼロからのカスタムWebサイト設計、運用困難を引き起こすレガシーシステムの刷新、または実際のワークフローへのAI自動化統合。技術に詳しくなくても大丈夫——チームはビジネス言語で作業し、運用可能になるまで納品します。",
+    exploreCta: "適合するプロファイルを見る",
     matrix: [
       {
         profile: "自ら運用できるWebサイトが必要な企業",

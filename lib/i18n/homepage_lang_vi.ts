@@ -507,6 +507,7 @@ export const homepageLangVi: HomepageLang = {
     eyebrow: "Fit",
     title: "Dolphin Software [[phù hợp]] nhất với ai?",
     support: "Dolphin Software phù hợp nhất với doanh nghiệp vừa và nhỏ (SMB) tại Việt Nam đang cần: thiết kế website theo yêu cầu từ đầu, nâng cấp hệ thống cũ đang gây khó khăn vận hành, hoặc tích hợp AI automation vào quy trình thực tế. Nếu bạn không rành kỹ thuật — không sao; đội ngũ làm việc bằng ngôn ngữ kinh doanh và bàn giao đến khi vận hành được.",
+    exploreCta: "Xem hồ sơ phù hợp",
     matrix: [
       {
         profile: "Doanh nghiệp cần website có thể tự vận hành",

@@ -311,6 +311,8 @@ export type Dictionary = {
     eyebrow: string;
     title: string;
     support: string;
+    /** CTA under ICP list (Jasper-style tour) */
+    exploreCta?: string;
     /** Legacy yes/no columns */
     noTitle?: string;
     noItems?: string[];

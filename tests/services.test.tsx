@@ -37,25 +37,32 @@ describe("service detail pages", () => {
       </AppProviders>,
     );
 
-    const capabilities = container.querySelector("#capabilities");
-    expect(capabilities).toBeTruthy();
-    const section = within(capabilities as HTMLElement);
+    const solutions = container.querySelector("#solutions");
+    expect(solutions).toBeTruthy();
+    const section = within(solutions as HTMLElement);
 
     expect(
       await section.findByRole("heading", {
         level: 2,
-        name: /Website rõ ràng, doanh nghiệp thực sự vận hành được/i,
+        name: /Giải pháp xoay quanh cách doanh nghiệp đang chạy/i,
       }),
     ).toBeInTheDocument();
     expect(
+      section.getByRole("heading", { level: 3, name: /^Website$/i }),
+    ).toBeInTheDocument();
+    expect(
       section.getByRole("link", { name: /Landing Page/i }),
-    ).toHaveAttribute("href", "/services/web");
+    ).toHaveAttribute("href", "/services/landing");
     expect(
       section.getByRole("link", { name: /Mobile App/i }),
     ).toHaveAttribute("href", "/services/mobile");
     expect(
-      section.getByRole("button", { name: /Nhận báo giá/i }),
-    ).toBeInTheDocument();
+      section.getByRole("link", { name: /Nói về doanh nghiệp của bạn/i }),
+    ).toHaveAttribute("href", "#contact");
+    expect(
+      within(solutions as HTMLElement).getAllByRole("heading", { level: 3 })
+        .length,
+    ).toBeGreaterThanOrEqual(7);
   });
 
   it("works showcase lists VI homepage_lang projects", async () => {

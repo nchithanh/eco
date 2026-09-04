@@ -22,35 +22,32 @@ function ProcessStep({
   const num = String(index + 1).padStart(2, "0");
 
   return (
-    <Reveal as="li" delay={index * 50} className="h-full">
-      <article className="flex h-full flex-col gap-4 rounded-[10px] border border-[var(--kuct-border)] bg-[var(--kuct-surface)] p-5 sm:flex-row sm:gap-6 sm:p-6">
-        <span
-          aria-hidden
-          className="font-display text-4xl font-semibold leading-none tracking-tight text-[var(--kuct-accent)] tabular-nums sm:text-5xl"
-        >
-          {num}
-        </span>
-        <div className="min-w-0 flex-1">
-          <h3 className="font-display text-lg font-semibold leading-snug text-[var(--kuct-text)] sm:text-xl">
-            {step.name}
-          </h3>
-          <p className="mt-2 text-sm leading-relaxed text-[var(--kuct-muted)]">
-            {step.detail}
-          </p>
-          <dl className="mt-4 border-t border-[var(--kuct-border)] pt-3">
-            <dt className="text-[11px] font-semibold tracking-[0.14em] text-[var(--kuct-accent)] uppercase">
-              {deliverableLabel}:
-            </dt>
-            <dd className="mt-1 text-sm leading-relaxed text-[var(--kuct-text)]">
-              {step.deliverable}
-            </dd>
-          </dl>
-        </div>
+    <Reveal as="li" delay={index * 40} className="h-full">
+      <article
+        className="kuct-process-card flex h-full flex-col p-5 sm:p-6"
+      >
+        <h3 className="font-display text-lg font-semibold leading-snug text-[var(--kuct-text)] sm:text-xl">
+          <span className="tabular-nums text-[var(--kuct-accent)]">{num}. </span>
+          {step.name}
+        </h3>
+        <div className="kuct-process-card__rule mt-4 mb-4" aria-hidden />
+        <p className="text-sm leading-relaxed text-[var(--kuct-muted)]">
+          {step.detail}
+        </p>
+        <dl className="kuct-process-card__out mt-auto pt-3">
+          <dt className="text-[10px] font-semibold tracking-[0.14em] text-[var(--kuct-accent)] uppercase">
+            {deliverableLabel}:
+          </dt>
+          <dd className="mt-1 text-sm leading-snug text-[var(--kuct-text)]">
+            {step.deliverable}
+          </dd>
+        </dl>
       </article>
     </Reveal>
   );
 }
 
+/** Process (#process) — Jasper horizontal pastel step cards. */
 export function Process() {
   const { t } = useLocale();
   const { eyebrow, title, support, steps, deliverableLabel } = t.process;
@@ -58,7 +55,7 @@ export function Process() {
   return (
     <section
       id="process"
-      className="kuct-section-soft scroll-mt-20 py-24"
+      className="scroll-mt-20 py-20 sm:py-24"
       aria-labelledby="process-heading"
     >
       <div className="mx-auto max-w-7xl px-6">
@@ -75,7 +72,7 @@ export function Process() {
           </p>
         </Reveal>
 
-        <ol className="mx-auto mt-12 grid max-w-4xl list-none grid-cols-1 gap-4 p-0 sm:mt-14">
+        <ol className="kuct-process-grid mt-12 grid list-none grid-cols-1 gap-4 p-0 sm:mt-14 sm:grid-cols-2 lg:grid-cols-5 lg:gap-3 xl:gap-4">
           {steps.map((step, index) => (
             <ProcessStep
               key={step.name}

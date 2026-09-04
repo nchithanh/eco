@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { AnnouncementBar } from "@/components/AnnouncementBar";
+import { useAiChat } from "@/components/AiChatProvider";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { ThemeSwitcher } from "@/components/ThemeSwitcher";
 import { Logo } from "@/components/Logo";
@@ -53,6 +54,7 @@ function NavItemLink({
 
 export function Nav() {
   const { t } = useLocale();
+  const { openChat, open: chatOpen } = useAiChat();
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [headerHidden, setHeaderHidden] = useState(false);
@@ -63,6 +65,7 @@ export function Nav() {
   const contactHref = `${sectionBase}#contact`;
   const homeHref = pathname === "/" ? "#top" : assetPath("/");
   const current = normalizePath(pathname);
+  const isHome = current === "/";
 
   useEffect(() => {
     const syncHash = () => setHash(window.location.hash.replace(/^#/, ""));
@@ -244,6 +247,15 @@ export function Nav() {
                   </a>
                 );
               })}
+              <button
+                type="button"
+                onClick={() => openChat()}
+                aria-expanded={chatOpen}
+                aria-haspopup="dialog"
+                className={utilityLinkClass}
+              >
+                {t.nav.askAi}
+              </button>
               <a
                 href={contactHref}
                 aria-current={isContactActive ? "page" : undefined}
@@ -447,7 +459,19 @@ export function Nav() {
               </li>
             </ul>
 
-            <div className="kuct-mobile-nav__foot shrink-0">
+            <div className="kuct-mobile-nav__foot shrink-0 flex flex-col gap-2">
+              <button
+                type="button"
+                onClick={() => {
+                  closeMenu();
+                  openChat();
+                }}
+                aria-expanded={chatOpen}
+                aria-haspopup="dialog"
+                className="kuct-btn-outline inline-flex w-full items-center justify-center rounded-lg px-4 py-3.5 text-sm font-semibold"
+              >
+                {t.nav.askAi}
+              </button>
               <a
                 href={contactHref}
                 className="kuct-btn-primary inline-flex w-full items-center justify-center rounded-lg px-4 py-3.5 text-sm font-semibold"

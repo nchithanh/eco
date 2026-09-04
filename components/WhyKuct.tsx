@@ -37,6 +37,7 @@ export function WhyKuct() {
 
         <PastelPlatformGrid
           columns={4}
+          tone="lavender"
           items={reasons.map((reason, index) => ({
             key: reason.title,
             title: reason.title,

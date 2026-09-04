@@ -476,6 +476,7 @@ export const homepageLangEn: HomepageLang = {
     eyebrow: "Fit",
     title: "Who is Dolphin Software [[best suited]] for?",
     support: "Dolphin Software is best suited for small and medium businesses (SMB) in Vietnam who need: custom website design from scratch, modernize legacy systems causing operational difficulties, or integrate AI automation into real-world workflow. If you're not tech-savvy — that's fine; the team works in business language and hands off until it's operational.",
+    exploreCta: "See who we fit",
     matrix: [
       {
         profile: "Business needs website they can operate",
