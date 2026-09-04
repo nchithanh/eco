@@ -506,6 +506,8 @@ export type Dictionary = {
     privacy: string;
     /** Short GEO blurb under brand */
     blurb: string;
+    /** Nav label for social profile icons */
+    socialAria: string;
   };
   loader: {
     aria: string;

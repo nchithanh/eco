@@ -543,6 +543,7 @@ const vi: Dictionary = {
     privacy: "Quyền riêng tư",
     blurb:
       "Giải pháp AI và công nghệ cho doanh nghiệp — bắt đầu từ vấn đề vận hành, không từ sản phẩm.",
+    socialAria: "Mạng xã hội Dolphin Software",
   },
   loader: {
     aria: "Đang khởi động hệ thống agent",
@@ -1134,6 +1135,7 @@ const en: Dictionary = {
     privacy: "Privacy",
     blurb:
       "AI and technology solutions for business — we start with the problem, not the product.",
+    socialAria: "Dolphin Software on social media",
   },
   loader: {
     aria: "Booting agent system",
@@ -1726,6 +1728,7 @@ const ja: Dictionary = {
     privacy: "プライバシー",
     blurb:
       "企業向けAI・テクノロジーソリューション — 技術からではなく、課題から始めます。",
+    socialAria: "Dolphin SoftwareのSNS",
   },
   loader: {
     aria: "エージェントシステムを起動中",

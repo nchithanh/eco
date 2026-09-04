@@ -2,6 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import { BrandMotto, BrandName } from "@/components/BrandName";
+import { SocialProfiles } from "@/components/SocialProfiles";
 import { BASE_PATH, assetPath } from "@/lib/asset";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
 
@@ -62,6 +63,7 @@ export function Footer() {
  <p className="max-w-[28ch] text-sm leading-relaxed text-[var(--kuct-muted)]">
  {f.blurb}
  </p>
+ <SocialProfiles ariaLabel={f.socialAria} className="mt-4" />
  </div>
 
  <nav

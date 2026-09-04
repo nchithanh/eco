@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { brandLogoSrc } from "@/lib/brand-logo";
+import { CONTACTS } from "@/lib/contacts";
 import { DEFAULT_LOCALE } from "@/lib/i18n/types";
 
 export const SITE_URL = "https://dolphin-software.io.vn";
@@ -85,8 +86,12 @@ export function organizationJsonLd() {
     logo: absoluteUrl(brandLogoSrc()),
     description: ORG_DESCRIPTION_VI,
     sameAs: [
-      "https://m.me/61592428631532",
-      "https://www.facebook.com/61592428631532",
+      CONTACTS.social.facebook,
+      CONTACTS.social.instagram,
+      CONTACTS.social.tiktok,
+      CONTACTS.social.linkedin,
+      CONTACTS.social.youtube,
+      CONTACTS.messenger,
     ],
     contactPoint: [
       {

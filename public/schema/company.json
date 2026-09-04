@@ -3,7 +3,7 @@
     "brand": "Dolphin Software",
     "site": "https://dolphin-software.io.vn/",
     "source": ".cursor/knowledge/",
-    "updated": "2026-08-31",
+    "updated": "2026-09-04",
     "note": "Company knowledge pack as JSON — SoT for agents; missing facts stay TODO in source markdown.",
     "schemaId": "company",
     "schemaPath": "/schema/company/",
@@ -392,5 +392,20 @@
       "Prefer: khách (khái quát) → vấn đề → cách làm → kết quả"
     ],
     "source": "lib/works-details.ts"
+  },
+  "contacts": {
+    "phone": "0779937633",
+    "email": "nchithanh9999@gmail.com",
+    "zalo": "https://zalo.me/0779937633",
+    "messenger": "https://m.me/61592428631532",
+    "facebookPageId": "61592428631532",
+    "social": {
+      "facebook": "https://www.facebook.com/profile.php?id=61592428631532",
+      "instagram": "https://www.instagram.com/c.thanhdev/",
+      "tiktok": "https://www.tiktok.com/@dolphin_software",
+      "linkedin": "https://www.linkedin.com/company/143083083/",
+      "youtube": "https://www.youtube.com/channel/UCXquYc8wzFCJjKEXEg2O9vA"
+    },
+    "sameAsSource": "lib/contacts.ts · Organization JSON-LD sameAs in lib/seo.ts · footer SocialProfiles"
   }
 }
