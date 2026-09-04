@@ -85,6 +85,14 @@ export function organizationJsonLd() {
     url: SITE_URL,
     logo: absoluteUrl(brandLogoSrc()),
     description: ORG_DESCRIPTION_VI,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: CONTACTS.address.streetAddress,
+      addressLocality: CONTACTS.address.addressLocality,
+      addressRegion: CONTACTS.address.addressRegion,
+      addressCountry: CONTACTS.address.addressCountry,
+    },
+    hasMap: CONTACTS.maps.url,
     sameAs: [
       CONTACTS.social.facebook,
       CONTACTS.social.instagram,
@@ -97,7 +105,7 @@ export function organizationJsonLd() {
       {
         "@type": "ContactPoint",
         contactType: "sales",
-        email: "nchithanh9999@gmail.com",
+        email: CONTACTS.email,
         availableLanguage: ["Vietnamese", "Japanese", "English"],
       },
     ],

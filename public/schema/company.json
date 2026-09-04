@@ -399,6 +399,17 @@
     "zalo": "https://zalo.me/0779937633",
     "messenger": "https://m.me/61592428631532",
     "facebookPageId": "61592428631532",
+    "address": {
+      "streetAddress": "2 Hùng Hà",
+      "addressLocality": "Hồ Chí Minh",
+      "addressRegion": "Tân Sơn Hòa",
+      "addressCountry": "VN",
+      "label": "2 Hùng Hà, Tân Sơn Hòa, Hồ Chí Minh, Việt Nam"
+    },
+    "maps": {
+      "url": "https://www.google.com/maps/place/2+H%C3%B9ng+H%C3%A0,+T%C3%A2n+S%C6%A1n+H%C3%B2a,+H%E1%BB%93+Ch%C3%AD+Minh,+Vi%E1%BB%87t+Nam/@10.8132216,106.6637733,17z",
+      "embedOn": "/#contact"
+    },
     "social": {
       "facebook": "https://www.facebook.com/profile.php?id=61592428631532",
       "instagram": "https://www.instagram.com/c.thanhdev/",
@@ -406,6 +417,6 @@
       "linkedin": "https://www.linkedin.com/company/143083083/",
       "youtube": "https://www.youtube.com/channel/UCXquYc8wzFCJjKEXEg2O9vA"
     },
-    "sameAsSource": "lib/contacts.ts · Organization JSON-LD sameAs in lib/seo.ts · footer SocialProfiles"
+    "sameAsSource": "lib/contacts.ts · Organization JSON-LD sameAs / address / hasMap in lib/seo.ts · footer SocialProfiles · ContactForm map"
   }
 }

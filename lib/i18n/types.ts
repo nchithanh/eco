@@ -343,6 +343,10 @@ export type Dictionary = {
     afterSubmitItems?: string[];
     ctaZalo: string;
     ctaEmail: string;
+    /** Label above office address + map */
+    addressLabel: string;
+    /** iframe title for Google Maps */
+    mapTitle: string;
     name: string;
     contact: string;
     message: string;
