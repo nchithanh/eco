@@ -4,7 +4,7 @@
     "id": "fit",
     "locale": "vi",
     "brand": "Dolphin Software",
-    "updated": "2026-08-07",
+    "updated": "2026-09-06",
     "schemaPath": "/schema/homepage/fit/",
     "rawPath": "/schema/homepage/fit.json",
     "productRoute": "/"
@@ -37,12 +37,8 @@
         "note": "Dolphin Software phân tích hệ thống hiện tại trước khi báo giá — không đẩy thêm tính năng không cần."
       }
     ],
-    "layout": "centered-header-carousel",
-    "images": [
-      "/fit/slide-01.jpg",
-      "/fit/slide-02.jpg",
-      "/fit/slide-03.jpg",
-      "/fit/slide-04.jpg"
-    ]
+    "layout": "list-plus-dom-preview",
+    "preview": "FitSitePreview (CMS / Landing-MVP / Booking+Care / Modernize+AI)",
+    "images": []
   }
 }

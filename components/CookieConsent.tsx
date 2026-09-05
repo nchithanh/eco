@@ -92,10 +92,10 @@ export function CookieConsent() {
       aria-modal="false"
       aria-labelledby="kuct-cookie-title"
       aria-describedby="kuct-cookie-body"
-      className="pointer-events-none fixed inset-x-0 bottom-0 z-[130]"
+      className="pointer-events-none fixed inset-x-0 bottom-0 z-[130] px-6"
     >
-      <div className="kuct-cookie-banner pointer-events-auto relative w-full rounded-t-2xl px-4 py-5 sm:px-6 sm:py-6">
-        <div className="mx-auto flex w-full max-w-7xl flex-col gap-5 lg:flex-row lg:items-center lg:justify-between lg:gap-8">
+      <div className="kuct-cookie-banner pointer-events-auto relative mx-auto w-full max-w-7xl rounded-t-[10px] px-4 py-5 sm:px-6 sm:py-6">
+        <div className="flex w-full flex-col gap-5 lg:flex-row lg:items-center lg:justify-between lg:gap-8">
           <div className="min-w-0 flex-1">
             <p
               id="kuct-cookie-title"
@@ -113,7 +113,7 @@ export function CookieConsent() {
           <div className="flex shrink-0 flex-wrap items-center gap-3">
             <button
               type="button"
-              className="kuct-btn-primary rounded-lg px-4 py-2.5 text-sm font-semibold"
+              className="kuct-btn-primary rounded-[10px] px-4 py-2.5 text-sm font-semibold"
               onClick={() => choose("accepted")}
             >
               {c.accept}

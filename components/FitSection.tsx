@@ -2,18 +2,9 @@
 
 import { useState } from "react";
 import { AccentText } from "@/components/BrandName";
-import { LazyImage } from "@/components/LazyImage";
+import { FitSitePreview } from "@/components/FitSitePreview";
 import { Reveal } from "@/components/Reveal";
-import { themeAsset } from "@/lib/asset";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
-import { useTheme } from "@/lib/theme";
-
-const FIT_IMAGES = [
-  "/fit/slide-01.jpg",
-  "/fit/slide-02.jpg",
-  "/fit/slide-03.jpg",
-  "/fit/slide-04.jpg",
-] as const;
 
 function FitProfileIcon({ index }: { index: number }) {
   const cls = "size-4 shrink-0";
@@ -83,10 +74,8 @@ function FitProfileIcon({ index }: { index: number }) {
   );
 }
 
-/** Soft qualifier tour: ICP list + original Fit slide images. */
 export function FitSection() {
   const { t } = useLocale();
-  const { theme } = useTheme();
   const fit = t.fit;
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -101,12 +90,11 @@ export function FitSection() {
   if (!hasMatrix && !hasYesNo) return null;
 
   const items = hasMatrix
-    ? matrix!.map((row, index) => ({
+    ? matrix!.map((row) => ({
         key: row.profile,
         title: row.profile,
         lead: row.recommended,
         body: row.note,
-        image: FIT_IMAGES[index % FIT_IMAGES.length]!,
       }))
     : [
         {
@@ -114,14 +102,12 @@ export function FitSection() {
           title: fit.noTitle!,
           lead: "",
           body: fit.noItems!.join(" · "),
-          image: FIT_IMAGES[0]!,
         },
         {
           key: "yes",
           title: fit.yesTitle!,
           lead: "",
           body: fit.yesItems!.join(" · "),
-          image: FIT_IMAGES[1]!,
         },
       ];
 
@@ -219,15 +205,18 @@ export function FitSection() {
             </div>
 
             <div className="relative z-10">
-              <div className="relative mx-auto aspect-[4/3] w-full overflow-hidden rounded-[10px] bg-[var(--kuct-panel)] shadow-[0_1rem_2.5rem_rgb(26_22_37/0.08)]">
-                <LazyImage
-                  key={active.image}
-                  src={themeAsset(active.image, theme)}
-                  alt={active.title}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 90vw, 36rem"
-                />
+              <div
+                className="relative mx-auto w-full overflow-hidden rounded-[10px] bg-[color-mix(in_srgb,var(--kuct-accent)_5%,#fff)] shadow-[0_16px_40px_rgb(26_22_37/0.06)]"
+                aria-hidden
+              >
+                <div className="p-2 sm:p-3">
+                  <FitSitePreview
+                    key={safeIndex}
+                    variant={safeIndex}
+                    title={active.title}
+                    recommended={active.lead}
+                  />
+                </div>
               </div>
             </div>
           </div>

@@ -110,13 +110,13 @@ export function AboutContent() {
  {a.buildSupport}
  </p>
  </Reveal>
- <ul className="mt-12 grid list-none grid-cols-1 gap-0 divide-y divide-[var(--kuct-border)] border-y border-[var(--kuct-border)] p-0 sm:mt-14 sm:grid-cols-2 sm:divide-x lg:grid-cols-4 lg:divide-y-0">
+ <ul className="mt-12 grid list-none grid-cols-1 gap-0 divide-y divide-[var(--kuct-border)] border-y border-[var(--kuct-border)] bg-white p-0 sm:mt-14 sm:grid-cols-2 sm:divide-x lg:grid-cols-4 lg:divide-y-0">
  {a.buildItems.map((item, index) => (
  <Reveal
  as="li"
  key={item.title}
  delay={index * 40}
- className="group flex flex-col gap-3 px-0 py-6 sm:px-5 sm:py-7 lg:px-4 xl:px-5"
+ className="group flex flex-col gap-3 bg-white px-0 py-6 sm:px-5 sm:py-7 lg:px-4 xl:px-5"
  >
  <h3 className="font-display text-base font-semibold leading-snug text-[var(--kuct-text)] sm:text-lg">
  {item.href ? (

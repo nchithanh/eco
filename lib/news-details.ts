@@ -19,6 +19,7 @@ import { banDangDieuHanhDoanhNghiepHayDiHoiTungNhanVienCopy } from "@/lib/news-a
 import { trungTamNhoItNguoiCangNenCoCrmCopy } from "@/lib/news-articles/trung-tam-nho-it-nguoi-cang-nen-co-crm";
 import { websiteGioiThieuXeShowroomCopy } from "@/lib/news-articles/website-gioi-thieu-xe-showroom";
 import { websiteChoKinhDoanhNhoCopy } from "@/lib/news-articles/website-cho-kinh-doanh-nho";
+import { crmChoStudioWeddingThayViExcelCopy } from "@/lib/news-articles/crm-cho-studio-wedding-thay-vi-excel";
 
 export const NEWS_CATEGORIES = [
   "process",
@@ -31,6 +32,7 @@ export const NEWS_CATEGORIES = [
 export type NewsCategory = (typeof NEWS_CATEGORIES)[number];
 
 export const NEWS_SLUGS = [
+  "crm-cho-studio-wedding-thay-vi-excel",
   "website-cho-kinh-doanh-nho",
   "ban-dang-dieu-hanh-doanh-nghiep-hay-di-hoi-tung-nhan-vien",
   "trung-tam-nho-it-nguoi-cang-nen-co-crm",
@@ -112,6 +114,10 @@ type NewsMeta = {
 };
 
 const metaBySlug: Record<NewsSlug, NewsMeta> = {
+  "crm-cho-studio-wedding-thay-vi-excel": {
+    category: "cases",
+    date: "2026-09-06",
+  },
   "website-cho-kinh-doanh-nho": {
     category: "process",
     date: "2026-08-31",
@@ -207,6 +213,8 @@ const categoryImages: Record<NewsCategory, string> = {
 };
 
 const slugImages: Partial<Record<NewsSlug, string>> = {
+  "crm-cho-studio-wedding-thay-vi-excel":
+    "/news/crm-cho-studio-wedding-thay-vi-excel.jpg",
   "website-cho-kinh-doanh-nho":
     "/news/website-cho-kinh-doanh-nho-cover.jpg",
   "ban-dang-dieu-hanh-doanh-nghiep-hay-di-hoi-tung-nhan-vien":
@@ -254,6 +262,8 @@ export function getNewsImage(slug: NewsSlug): string {
 
 const copyByLocale: Record<Locale, Record<NewsSlug, NewsArticleCopy>> = {
   vi: {
+    "crm-cho-studio-wedding-thay-vi-excel":
+      crmChoStudioWeddingThayViExcelCopy.vi,
     "website-cho-kinh-doanh-nho": websiteChoKinhDoanhNhoCopy.vi,
     "ban-dang-dieu-hanh-doanh-nghiep-hay-di-hoi-tung-nhan-vien":
       banDangDieuHanhDoanhNghiepHayDiHoiTungNhanVienCopy.vi,
@@ -455,6 +465,8 @@ const copyByLocale: Record<Locale, Record<NewsSlug, NewsArticleCopy>> = {
     },
   },
   en: {
+    "crm-cho-studio-wedding-thay-vi-excel":
+      crmChoStudioWeddingThayViExcelCopy.en,
     "website-cho-kinh-doanh-nho": websiteChoKinhDoanhNhoCopy.en,
     "ban-dang-dieu-hanh-doanh-nghiep-hay-di-hoi-tung-nhan-vien":
       banDangDieuHanhDoanhNghiepHayDiHoiTungNhanVienCopy.en,
@@ -584,6 +596,8 @@ const copyByLocale: Record<Locale, Record<NewsSlug, NewsArticleCopy>> = {
     },
   },
   ja: {
+    "crm-cho-studio-wedding-thay-vi-excel":
+      crmChoStudioWeddingThayViExcelCopy.ja,
     "website-cho-kinh-doanh-nho": websiteChoKinhDoanhNhoCopy.ja,
     "ban-dang-dieu-hanh-doanh-nghiep-hay-di-hoi-tung-nhan-vien":
       banDangDieuHanhDoanhNghiepHayDiHoiTungNhanVienCopy.ja,

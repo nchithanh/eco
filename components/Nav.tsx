@@ -3,7 +3,6 @@
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { AnnouncementBar } from "@/components/AnnouncementBar";
-import { useAiChat } from "@/components/AiChatProvider";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { ThemeSwitcher } from "@/components/ThemeSwitcher";
 import { Logo } from "@/components/Logo";
@@ -54,7 +53,6 @@ function NavItemLink({
 
 export function Nav() {
   const { t } = useLocale();
-  const { openChat, open: chatOpen } = useAiChat();
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [headerHidden, setHeaderHidden] = useState(false);
@@ -62,7 +60,6 @@ export function Nav() {
   const [hash, setHash] = useState("");
   const lastScrollY = useRef(0);
   const sectionBase = pathname === "/" ? "" : `${BASE_PATH}/`;
-  const contactHref = `${sectionBase}#contact`;
   const homeHref = pathname === "/" ? "#top" : assetPath("/");
   const current = normalizePath(pathname);
   const isHome = current === "/";
@@ -175,7 +172,6 @@ export function Nav() {
   };
 
   const isHomeActive = current === "/" && (hash === "" || hash === "top");
-  const isContactActive = hash === "contact";
 
   useEffect(() => {
     if (typeof window.matchMedia !== "function") return;
@@ -257,24 +253,6 @@ export function Nav() {
                   </a>
                 );
               })}
-              <button
-                type="button"
-                onClick={() => openChat()}
-                aria-expanded={chatOpen}
-                aria-haspopup="dialog"
-                className={utilityLinkClass}
-              >
-                {t.nav.askAi}
-              </button>
-              <a
-                href={contactHref}
-                aria-current={isContactActive ? "page" : undefined}
-                className={`${utilityLinkClass}${
-                  isContactActive ? gnbLinkActiveClass : ""
-                }`}
-              >
-                {t.nav.talk}
-              </a>
               <div className="kuct-nav-utility kuct-gnb-link flex h-[2.75rem] items-center text-[0.875rem]">
                 <LanguageSwitcher />
               </div>
@@ -468,28 +446,6 @@ export function Nav() {
                 <ThemeSwitcher />
               </li>
             </ul>
-
-            <div className="kuct-mobile-nav__foot shrink-0 flex flex-col gap-2">
-              <button
-                type="button"
-                onClick={() => {
-                  closeMenu();
-                  openChat();
-                }}
-                aria-expanded={chatOpen}
-                aria-haspopup="dialog"
-                className="kuct-btn-outline inline-flex w-full items-center justify-center rounded-lg px-4 py-3.5 text-sm font-semibold"
-              >
-                {t.nav.askAi}
-              </button>
-              <a
-                href={contactHref}
-                className="kuct-btn-primary inline-flex w-full items-center justify-center rounded-lg px-4 py-3.5 text-sm font-semibold"
-                onClick={closeMenu}
-              >
-                {t.nav.talk}
-              </a>
-            </div>
           </nav>
         ) : null}
     </>

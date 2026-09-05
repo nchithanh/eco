@@ -54,7 +54,7 @@ export function isSwitcherThemeId(value: string | null): value is SwitcherThemeI
   return (SWITCHER_THEME_IDS as readonly string[]).includes(value ?? "");
 }
 
-/** Resolve stored theme; non-switcher themes fall back to violet. */
+/** Resolve stored theme; non-switcher themes fall back to default. */
 export function resolveThemeId(value: string | null): ThemeId {
   if (isSwitcherThemeId(value)) return value;
   return DEFAULT_THEME;
