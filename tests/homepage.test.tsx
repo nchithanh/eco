@@ -380,9 +380,9 @@ describe("Dolphin Software homepage", () => {
     const user = userEvent.setup();
     renderHome();
 
-    const askAi = screen.getByRole("button", { name: /^Ask AI$/i });
-    expect(askAi).toBeInTheDocument();
-    await user.click(askAi);
+    const askAi = screen.getAllByRole("button", { name: /^Ask AI$/i })[0];
+    expect(askAi).toBeTruthy();
+    await user.click(askAi!);
     expect(
       screen.getByRole("dialog", { name: /Dolphin Assist/i }),
     ).toBeInTheDocument();

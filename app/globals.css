@@ -1651,14 +1651,11 @@ html[data-theme="violet"] .kuct-banner-cta-outline:hover {
 .kuct-hero-collage__stage {
   position: absolute;
   inset: 6% 0 0;
-  border-radius: 1.5rem;
-  background-color: color-mix(in srgb, var(--kuct-accent) 9%, var(--kuct-bg));
-  background-image:
-    linear-gradient(rgb(26 22 37 / 0.055) 1px, transparent 1px),
-    linear-gradient(90deg, rgb(26 22 37 / 0.055) 1px, transparent 1px);
-  background-size: 1.35rem 1.35rem;
-  overflow: hidden;
-  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--kuct-accent) 8%, transparent);
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  overflow: visible;
+  pointer-events: none;
 }
 
 .kuct-hero-collage__shape {
@@ -2148,65 +2145,28 @@ html[data-theme="black"] .kuct-glass-panel {
   animation: kuct-fade-in 1s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-/* Scroll-triggered reveal (IntersectionObserver toggles .is-inview) */
-.kuct-reveal {
-  opacity: 0;
-  transform: translateY(24px);
-  transition:
-    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-  transition-delay: var(--kuct-reveal-delay, 0ms);
-  will-change: opacity, transform;
-}
-
-.kuct-reveal.is-inview {
+/* Scroll reveal disabled — keep selectors inert for any leftover classes */
+.kuct-reveal,
+.kuct-reveal-left,
+.kuct-reveal-right,
+.kuct-reveal-scale,
+.kuct-reveal-title {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
+  filter: none;
+  letter-spacing: inherit;
+  transition: none;
   will-change: auto;
 }
 
-.kuct-reveal-left {
-  transform: translateX(-28px);
-}
-
-.kuct-reveal-left.is-inview {
-  transform: translateX(0);
-}
-
-.kuct-reveal-right {
-  transform: translateX(28px);
-}
-
-.kuct-reveal-right.is-inview {
-  transform: translateX(0);
-}
-
-.kuct-reveal-scale {
-  transform: scale(0.94);
-}
-
-.kuct-reveal-scale.is-inview {
-  transform: scale(1);
-}
-
-.kuct-reveal-title {
-  opacity: 0;
-  transform: translateY(36px);
-  filter: blur(8px);
-  letter-spacing: 0.04em;
-  transition:
-    opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.85s cubic-bezier(0.22, 1, 0.36, 1),
-    filter 0.85s cubic-bezier(0.22, 1, 0.36, 1),
-    letter-spacing 0.85s cubic-bezier(0.22, 1, 0.36, 1);
-  transition-delay: var(--kuct-reveal-delay, 0ms);
-  will-change: opacity, transform, filter;
-}
-
+.kuct-reveal.is-inview,
+.kuct-reveal-left.is-inview,
+.kuct-reveal-right.is-inview,
+.kuct-reveal-scale.is-inview,
 .kuct-reveal-title.is-inview {
   opacity: 1;
-  transform: translateY(0);
-  filter: blur(0);
+  transform: none;
+  filter: none;
   letter-spacing: inherit;
   will-change: auto;
 }
