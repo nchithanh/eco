@@ -306,7 +306,7 @@ export function AgentDolphinHome() {
  key={benefit.title}
  className="kuct-surface-card flex items-start gap-3 px-4 py-3"
  >
- <span className="mt-0.5 grid size-9 shrink-0 place-items-center rounded-[10px] border border-[var(--kuct-border)] bg-white text-[var(--kuct-accent)]">
+ <span className="mt-0.5 grid size-9 shrink-0 place-items-center rounded-[10px] bg-white text-[var(--kuct-accent)] shadow-[0_1px_3px_rgb(26_22_37/0.06)]">
  {BENEFIT_ICONS[index] ?? BENEFIT_ICONS[0]}
  </span>
  <div className="min-w-0">
@@ -385,7 +385,7 @@ export function AgentDolphinHome() {
  animate={motion}
  />
  {c.pipeline && c.pipeline.length > 0 ? (
- <div className="mt-4 rounded-[10px] border border-[var(--kuct-border)] bg-[var(--kuct-surface)] px-4 py-3.5">
+ <div className="mt-4 rounded-[10px] bg-[var(--kuct-surface)] px-4 py-3.5 shadow-[0_0.35rem_1rem_rgb(26_22_37/0.05)]">
  <p className="kuct-section-eyebrow text-[10px] tracking-[0.16em]">
  {c.pipelineLabel}
  </p>

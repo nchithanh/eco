@@ -31,7 +31,7 @@ function ArrowIcon() {
     <svg
       aria-hidden
       viewBox="0 0 24 24"
-      className="size-4 shrink-0 text-[var(--kuct-text)]"
+      className="size-4 shrink-0 text-[var(--kuct-accent)]"
       fill="none"
     >
       <path
@@ -45,7 +45,28 @@ function ArrowIcon() {
   );
 }
 
-export function PastelPlatformHeader({
+function RowShell({
+  item,
+  children,
+}: {
+  item: PastelPlatformItem;
+  children: ReactNode;
+}) {
+  if (item.href) {
+    return (
+      <Link
+        href={item.href}
+        className="kuct-pastel-scroll-row group flex gap-4 no-underline transition-colors hover:bg-[color-mix(in_srgb,var(--kuct-accent)_5%,transparent)]"
+      >
+        {children}
+      </Link>
+    );
+  }
+  return <div className="kuct-pastel-scroll-row flex gap-4">{children}</div>;
+}
+
+/** FAQ-style split: sticky copy left, scroll panel of items right. */
+export function PastelPlatformSplit({
   eyebrow,
   headingId,
   title,
@@ -53,6 +74,8 @@ export function PastelPlatformHeader({
   subline,
   footnote,
   actions,
+  items,
+  tone = "lavender",
 }: {
   eyebrow: ReactNode;
   headingId: string;
@@ -61,134 +84,95 @@ export function PastelPlatformHeader({
   subline?: ReactNode;
   footnote?: ReactNode;
   actions?: ReactNode;
-}) {
-  return (
-    <Reveal variant="title" className="mx-auto max-w-3xl text-center">
-      <p className="kuct-section-eyebrow">
-        {eyebrow}
-      </p>
-      <h2
-        id={headingId}
-        className="mt-5 font-display text-3xl font-semibold leading-[1.12] tracking-tight text-[var(--kuct-text)] sm:text-[2.15rem] lg:text-[2.35rem] lg:leading-[1.1]"
-      >
-        {title}
-      </h2>
-      {subline ? (
-        <p className="mt-3 text-sm font-semibold tracking-wide text-[var(--kuct-accent)] sm:text-base">
-          {subline}
-        </p>
-      ) : null}
-      <p className="mx-auto mt-4 max-w-[64ch] text-base leading-[1.7] text-[var(--kuct-muted)]">
-        {support}
-      </p>
-      {footnote ? (
-        <p className="mx-auto mt-4 text-sm font-medium tracking-wide text-[var(--kuct-text)]">
-          {footnote}
-        </p>
-      ) : null}
-      {actions ? (
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-          {actions}
-        </div>
-      ) : null}
-    </Reveal>
-  );
-}
-
-function CardShell({
-  item,
-  tone,
-  children,
-}: {
-  item: PastelPlatformItem;
-  tone: PastelTone;
-  children: ReactNode;
-}) {
-  if (item.href) {
-    return (
-      <Link
-        href={item.href}
-        className="kuct-pastel-card group flex h-full flex-col no-underline"
-        data-tone={tone}
-      >
-        {children}
-      </Link>
-    );
-  }
-  return (
-    <div className="kuct-pastel-card flex h-full flex-col" data-tone={tone}>
-      {children}
-    </div>
-  );
-}
-
-export function PastelPlatformGrid({
-  items,
-  columns = 3,
-  tone: toneOverride,
-}: {
   items: PastelPlatformItem[];
-  columns?: 3 | 4;
-  /** Force every card to one pastel tone (e.g. Why → lavender/violet). */
   tone?: PastelTone;
 }) {
-  const gridClass =
-    columns === 4
-      ? "mt-12 grid list-none grid-cols-1 gap-4 p-0 sm:grid-cols-2 lg:grid-cols-4"
-      : "mt-12 grid list-none grid-cols-1 gap-4 p-0 sm:grid-cols-2 lg:grid-cols-3";
-
   return (
-    <ul className={gridClass} data-pastel-cols={columns}>
-      {items.map((item, index) => {
-        const tone =
-          toneOverride ?? PASTEL_TONES[index % PASTEL_TONES.length] ?? "mint";
-        return (
-          <Reveal as="li" key={item.key} delay={index * 40} className="h-full">
-            <article className="h-full">
-              <CardShell item={item} tone={tone}>
-                <div className="kuct-pastel-card__body flex flex-1 flex-col p-5 sm:p-6">
-                  <div className="kuct-pastel-card__head">
-                    <p
-                      className={
-                        item.tag
-                          ? "text-[10px] font-semibold tracking-[0.16em] text-[var(--pastel-ink)] uppercase opacity-80"
-                          : "invisible text-[10px] font-semibold tracking-[0.16em] uppercase"
-                      }
-                      aria-hidden={!item.tag}
-                    >
-                      {item.tag ?? "·"}
-                    </p>
-                    <h3 className="mt-2 font-display text-xl font-semibold leading-snug text-[var(--kuct-text)] sm:text-2xl">
-                      {item.title}
-                    </h3>
-                  </div>
-                  <div
-                    className="kuct-pastel-card__art mt-4 flex flex-1 items-center justify-center text-[var(--pastel-ink)]"
-                    aria-hidden
-                  >
+    <div className="grid gap-10 lg:grid-cols-[minmax(0,0.34fr)_minmax(0,0.66fr)] lg:items-start lg:gap-14">
+      <Reveal variant="title" className="lg:sticky lg:top-28">
+        <p className="kuct-section-eyebrow">{eyebrow}</p>
+        <h2
+          id={headingId}
+          className="mt-5 max-w-[16ch] font-display text-3xl font-semibold leading-[1.12] tracking-tight text-[var(--kuct-text)] sm:text-[2.15rem] lg:text-[2.35rem] lg:leading-[1.1]"
+        >
+          {title}
+        </h2>
+        {subline ? (
+          <p className="mt-3 text-sm font-semibold tracking-wide text-[var(--kuct-accent)] sm:text-base">
+            {subline}
+          </p>
+        ) : null}
+        <p className="mt-4 max-w-[36ch] text-base leading-[1.7] text-[var(--kuct-muted)]">
+          {support}
+        </p>
+        {footnote ? (
+          <p className="mt-4 text-sm font-medium tracking-wide text-[var(--kuct-text)]">
+            {footnote}
+          </p>
+        ) : null}
+        {actions ? (
+          <div className="mt-8 flex flex-wrap items-center gap-3">{actions}</div>
+        ) : null}
+      </Reveal>
+
+      <Reveal delay={40} className="min-w-0">
+        <div
+          className="kuct-pastel-scroll-panel"
+          data-tone={tone}
+          tabIndex={0}
+          role="region"
+          aria-labelledby={headingId}
+        >
+          <ul className="m-0 list-none p-0">
+            {items.map((item, index) => {
+              const isLast = index === items.length - 1;
+              return (
+                <li
+                  key={item.key}
+                  className={
+                    isLast
+                      ? "kuct-pastel-scroll-item"
+                      : "kuct-pastel-scroll-item kuct-pastel-scroll-item--divided"
+                  }
+                >
+                  <RowShell item={item}>
                     <span
-                      className="kuct-pastel-card__art-stage"
-                      style={{ animationDelay: `${(index % 4) * -0.9}s` }}
+                      className="kuct-pastel-scroll-art shrink-0 text-[var(--pastel-ink,var(--kuct-accent))]"
+                      aria-hidden
                     >
                       <PastelPlatformArt id={item.art} />
                     </span>
-                  </div>
-                </div>
-                <div className="kuct-pastel-card__bar flex items-start justify-between gap-3 px-5 py-4 sm:px-6">
-                  <p className="kuct-pastel-card__copy min-w-0 flex-1 text-sm leading-relaxed text-[var(--kuct-text)]">
-                    {item.body}
-                  </p>
-                  {item.href ? (
-                    <span className="mt-0.5 shrink-0">
-                      <ArrowIcon />
-                    </span>
-                  ) : null}
-                </div>
-              </CardShell>
-            </article>
-          </Reveal>
-        );
-      })}
-    </ul>
+                    <div className="min-w-0 flex-1">
+                      {item.tag ? (
+                        <p className="text-[10px] font-semibold tracking-[0.16em] text-[var(--pastel-ink,var(--kuct-accent))] uppercase opacity-80">
+                          {item.tag}
+                        </p>
+                      ) : null}
+                      <h3
+                        className={
+                          item.tag
+                            ? "mt-1.5 font-display text-lg font-semibold leading-snug text-[var(--kuct-text)] sm:text-xl"
+                            : "font-display text-lg font-semibold leading-snug text-[var(--kuct-text)] sm:text-xl"
+                        }
+                      >
+                        {item.title}
+                      </h3>
+                      <p className="mt-2 text-sm leading-relaxed text-[var(--kuct-muted)]">
+                        {item.body}
+                      </p>
+                    </div>
+                    {item.href ? (
+                      <span className="mt-1 shrink-0 self-start">
+                        <ArrowIcon />
+                      </span>
+                    ) : null}
+                  </RowShell>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      </Reveal>
+    </div>
   );
 }

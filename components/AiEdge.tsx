@@ -3,10 +3,7 @@
 import Link from "next/link";
 import { AccentText } from "@/components/BrandName";
 import type { PastelArtId } from "@/components/PastelPlatformArt";
-import {
-  PastelPlatformGrid,
-  PastelPlatformHeader,
-} from "@/components/PastelPlatformCards";
+import { PastelPlatformSplit } from "@/components/PastelPlatformCards";
 import { routePath } from "@/lib/asset";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
 
@@ -29,7 +26,7 @@ export function AiEdge() {
       aria-labelledby="home-ai-edge-heading"
     >
       <div className="mx-auto max-w-7xl px-6">
-        <PastelPlatformHeader
+        <PastelPlatformSplit
           eyebrow={
             <>
               {copy.eyebrow}
@@ -42,11 +39,12 @@ export function AiEdge() {
           headingId="home-ai-edge-heading"
           title={<AccentText>{copy.title}</AccentText>}
           support={copy.support}
+          tone="lavender"
           actions={
             <>
               <Link
                 href={detailHref}
-                className="kuct-btn-primary inline-flex items-center rounded-lg px-5 py-3 text-sm"
+                className="kuct-btn-primary inline-flex items-center rounded-[10px] px-5 py-3 text-sm"
               >
                 {copy.ctaPrimary}
               </Link>
@@ -58,11 +56,6 @@ export function AiEdge() {
               </Link>
             </>
           }
-        />
-
-        <PastelPlatformGrid
-          columns={3}
-          tone="lavender"
           items={copy.items.map((item) => ({
             key: item.id,
             title: item.title,

@@ -5,8 +5,8 @@ import { Logo } from "@/components/Logo";
 /** Decorative site preview inside Hero collage (matches design mock; aria-hidden parent). */
 export function HeroSitePreview() {
   return (
-    <div className="kuct-hero-preview flex h-full min-h-[18rem] flex-col overflow-hidden rounded-[0.85rem] border border-[var(--kuct-border)] bg-[var(--kuct-surface)] sm:min-h-[22rem] lg:min-h-[24rem]">
-      <div className="flex items-center gap-2 border-b border-[var(--kuct-border)] px-3 py-2.5 sm:gap-3 sm:px-4 sm:py-3">
+    <div className="kuct-hero-preview flex h-full min-h-[18rem] flex-col overflow-hidden rounded-[10px] bg-[var(--kuct-surface)] shadow-[0_0.5rem_1.5rem_rgb(26_22_37/0.06)] sm:min-h-[22rem] lg:min-h-[24rem]">
+      <div className="flex items-center gap-2 border-b border-black/[0.06] px-3 py-2.5 sm:gap-3 sm:px-4 sm:py-3">
         <div className="flex min-w-0 items-center gap-1.5 sm:gap-2">
           <Logo variant="mark" imageClassName="h-5 w-auto sm:h-6" />
           <span className="font-display truncate text-[0.7rem] font-bold tracking-tight text-[var(--kuct-text)] sm:text-xs">
@@ -40,7 +40,7 @@ export function HeroSitePreview() {
             <span className="inline-flex rounded-md bg-[var(--kuct-accent)] px-2.5 py-1.5 text-[0.6rem] font-semibold text-white sm:text-[0.65rem]">
               Tìm hiểu giải pháp
             </span>
-            <span className="inline-flex rounded-md border border-[var(--kuct-accent)]/45 bg-white px-2.5 py-1.5 text-[0.6rem] font-semibold text-[var(--kuct-accent)] sm:text-[0.65rem]">
+            <span className="inline-flex rounded-[10px] bg-white px-2.5 py-1.5 text-[0.6rem] font-semibold text-[var(--kuct-accent)] shadow-[0_1px_3px_rgb(26_22_37/0.08)] sm:text-[0.65rem]">
               Liên hệ tư vấn
             </span>
           </div>
@@ -73,7 +73,7 @@ export function HeroSitePreview() {
       </div>
 
       <div
-        className="grid shrink-0 grid-cols-3 gap-2 border-t border-[var(--kuct-border)] p-2.5 sm:gap-2.5 sm:p-3"
+        className="grid shrink-0 grid-cols-3 gap-2 border-t border-black/[0.06] p-2.5 sm:gap-2.5 sm:p-3"
         aria-hidden
       >
         {[0, 1, 2].map((i) => (

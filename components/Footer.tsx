@@ -50,8 +50,6 @@ export function Footer() {
  ] as const;
 
  return (
- <>
- <BrandMotto className="pointer-events-none fixed inset-x-0 bottom-0 z-[90] mb-0 justify-center bg-white px-4 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-2 text-center" />
  <footer className="py-12 sm:py-14">
  <div className="mx-auto max-w-7xl px-6">
  <div className="flex flex-col gap-10 lg:flex-row lg:justify-between lg:gap-14">
@@ -91,8 +89,8 @@ export function Footer() {
  ))}
  </nav>
  </div>
+ <BrandMotto className="mt-10 justify-center text-center" />
  </div>
  </footer>
- </>
  );
 }

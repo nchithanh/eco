@@ -100,6 +100,16 @@ export function Nav() {
     if (isMenuOpen) setHeaderHidden(false);
   }, [isMenuOpen]);
 
+  useEffect(() => {
+    const root = document.documentElement;
+    if (isMenuOpen) {
+      root.setAttribute("data-mobile-nav-open", "");
+    } else {
+      root.removeAttribute("data-mobile-nav-open");
+    }
+    return () => root.removeAttribute("data-mobile-nav-open");
+  }, [isMenuOpen]);
+
   const serviceItems: NavLink[] = [
     {
       href: assetPath("/services/web/"),

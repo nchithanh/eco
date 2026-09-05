@@ -82,7 +82,7 @@ export function ContactForm() {
           </Reveal>
 
           <Reveal variant="right" delay={100}>
-            <div className="overflow-hidden rounded-xl border border-[var(--kuct-border)] bg-[var(--kuct-panel)] shadow-[0_1px_0_rgb(26_21_32/0.04)]">
+            <div className="overflow-hidden rounded-[10px] bg-[var(--kuct-panel)] shadow-[0_0.35rem_1.25rem_rgb(26_22_37/0.06)]">
               <iframe
                 title={c.mapTitle}
                 src={CONTACTS.maps.embedSrc}

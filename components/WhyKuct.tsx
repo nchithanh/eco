@@ -1,10 +1,7 @@
 "use client";
 
 import { AccentText, BrandText, hasBrand } from "@/components/BrandName";
-import {
-  PastelPlatformGrid,
-  PastelPlatformHeader,
-} from "@/components/PastelPlatformCards";
+import { PastelPlatformSplit } from "@/components/PastelPlatformCards";
 import type { PastelArtId } from "@/components/PastelPlatformArt";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
 
@@ -21,7 +18,7 @@ export function WhyKuct() {
       aria-labelledby="home-why-heading"
     >
       <div className="relative mx-auto max-w-7xl px-6">
-        <PastelPlatformHeader
+        <PastelPlatformSplit
           eyebrow={
             hasBrand(eyebrow) ? (
               <BrandText size="xs">{eyebrow}</BrandText>
@@ -33,10 +30,6 @@ export function WhyKuct() {
           title={<AccentText>{title}</AccentText>}
           support={support}
           footnote={promise}
-        />
-
-        <PastelPlatformGrid
-          columns={4}
           tone="lavender"
           items={reasons.map((reason, index) => ({
             key: reason.title,

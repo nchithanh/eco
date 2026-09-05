@@ -96,6 +96,7 @@ export function organizationJsonLd() {
     sameAs: [
       CONTACTS.social.facebook,
       CONTACTS.social.instagram,
+      CONTACTS.social.threads,
       CONTACTS.social.tiktok,
       CONTACTS.social.linkedin,
       CONTACTS.social.youtube,

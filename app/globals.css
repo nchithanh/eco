@@ -528,15 +528,15 @@ html[data-theme="orangered"] .kuct-feature-card {
   color: var(--kuct-accent);
 }
 
-/* Component language — thin card / soft badge */
+/* Component language — soft card (no hairline border — anti vibe-code) */
 .kuct-surface-card {
   background: var(--kuct-surface);
-  border: 1px solid var(--kuct-border);
+  border: none;
   border-radius: 10px;
   box-shadow: var(--kuct-shadow);
 }
 
-/* FAQ (#faq): Jasper 2-col — violet badge + bordered accordion */
+/* FAQ (#faq): Jasper 2-col — violet badge + accordion (no box border) */
 .kuct-faq {
   background-color: color-mix(in srgb, var(--kuct-accent) 3%, #fcfcfd);
 }
@@ -560,8 +560,9 @@ html[data-theme="orangered"] .kuct-feature-card {
 .kuct-faq-panel {
   overflow: hidden;
   border-radius: 10px;
-  border: 1px solid color-mix(in srgb, var(--kuct-accent) 28%, var(--kuct-border));
+  border: none;
   background: color-mix(in srgb, var(--kuct-accent) 6%, #fff);
+  box-shadow: 0 0.35rem 1.25rem rgb(26 22 37 / 0.05);
 }
 
 .kuct-faq-row--divided {
@@ -580,9 +581,58 @@ html[data-theme="orangered"] .kuct-feature-card {
 }
 
 .kuct-faq-chevron {
-  border: 1px solid color-mix(in srgb, var(--kuct-accent) 28%, var(--kuct-border));
-  background: color-mix(in srgb, var(--kuct-accent) 4%, #fff);
+  border: none;
+  background: color-mix(in srgb, var(--kuct-accent) 8%, #fff);
   color: var(--kuct-accent);
+  box-shadow: 0 0.15rem 0.45rem rgb(26 22 37 / 0.06);
+}
+
+/* Why / Ops AI / Intelligence — FAQ-like scroll panel (right column) */
+.kuct-pastel-scroll-panel {
+  --pastel-ink: var(--kuct-accent);
+  overflow-x: hidden;
+  overflow-y: auto;
+  max-height: min(36rem, 70vh);
+  border-radius: 10px;
+  border: none;
+  background: color-mix(in srgb, var(--kuct-accent) 6%, #fff);
+  box-shadow: 0 0.35rem 1.25rem rgb(26 22 37 / 0.05);
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+}
+
+.kuct-pastel-scroll-item--divided {
+  border-bottom: 1px solid color-mix(in srgb, var(--kuct-accent) 16%, var(--kuct-border));
+}
+
+.kuct-pastel-scroll-row {
+  padding: 1.15rem 1.25rem;
+  color: inherit;
+}
+
+@media (min-width: 640px) {
+  .kuct-pastel-scroll-row {
+    padding: 1.35rem 1.5rem;
+  }
+}
+
+.kuct-pastel-scroll-art {
+  display: grid;
+  place-items: center;
+  width: 4.75rem;
+  height: 3.75rem;
+}
+
+.kuct-pastel-scroll-art svg.kuct-pastel-scene {
+  width: 4.75rem;
+  height: auto;
+  aspect-ratio: 200 / 160;
+}
+
+.kuct-pastel-scroll-art .kuct-pastel-scene__g,
+.kuct-pastel-scroll-art .kuct-pastel-scene__g--orbit-a,
+.kuct-pastel-scroll-art .kuct-pastel-scene__g--orbit-b {
+  animation: none !important;
 }
 
 /* Soft section rhythm (Jasper-inspired canvas tint + faint grid) */
@@ -597,7 +647,7 @@ html[data-theme="orangered"] .kuct-feature-card {
 /* Process (#process): white cards, no pastel grid */
 .kuct-process-card {
   border-radius: 10px;
-  border: 1px solid color-mix(in srgb, var(--kuct-accent) 18%, var(--kuct-border));
+  border: none;
   background: var(--kuct-surface, #fff);
   box-shadow: 0 0.35rem 1.1rem rgb(26 22 37 / 0.04);
   color: var(--kuct-text);
@@ -631,7 +681,7 @@ html[data-theme="orangered"] .kuct-feature-card {
   position: relative;
   overflow: hidden;
   border-radius: 10px;
-  border: 1px solid var(--kuct-border);
+  border: none;
   background-color: color-mix(in srgb, var(--kuct-accent) 5%, #fff);
   background-image:
     linear-gradient(rgb(26 22 37 / 0.045) 1px, transparent 1px),
@@ -669,15 +719,14 @@ html[data-theme="orangered"] .kuct-feature-card {
   --pastel-grid: transparent;
   overflow: hidden;
   border-radius: 10px;
-  border: 1px solid color-mix(in srgb, var(--kuct-accent) 18%, var(--kuct-border));
+  border: none;
   background-color: var(--pastel-bg);
   background-image: none;
   box-shadow: 0 0.35rem 1.1rem rgb(26 22 37 / 0.04);
   color: var(--kuct-text);
   transition:
     transform 220ms ease,
-    box-shadow 220ms ease,
-    border-color 220ms ease;
+    box-shadow 220ms ease;
 }
 
 .kuct-pastel-card[data-tone="mint"],
@@ -696,14 +745,13 @@ html[data-theme="orangered"] .kuct-feature-card {
   position: relative;
   overflow: hidden;
   border-radius: 10px;
-  border: 1px solid color-mix(in srgb, var(--kuct-accent) 22%, var(--kuct-border));
+  border: none;
   background-color: var(--kuct-surface, #fff);
   box-shadow: 0 0.35rem 1.25rem rgb(26 22 37 / 0.04);
   color: var(--kuct-text);
   transition:
     transform 220ms ease,
-    box-shadow 220ms ease,
-    border-color 220ms ease;
+    box-shadow 220ms ease;
 }
 
 .kuct-problem-card::before {
@@ -729,7 +777,6 @@ html[data-theme="orangered"] .kuct-feature-card {
 
 @media (hover: hover) and (pointer: fine) {
   a.kuct-problem-card:hover {
-    border-color: color-mix(in srgb, var(--kuct-accent) 55%, transparent);
     box-shadow: 0 0.75rem 1.75rem rgb(26 22 37 / 0.08);
     transform: translateY(-2px);
   }
@@ -937,7 +984,7 @@ ul[data-pastel-cols="4"] .kuct-pastel-card__art svg.kuct-pastel-scene {
   display: inline-flex;
   align-items: center;
   border-radius: 10px;
-  border: 1px solid color-mix(in srgb, var(--kuct-accent) 22%, transparent);
+  border: none;
   background: color-mix(in srgb, var(--kuct-accent) 10%, var(--kuct-bg));
   padding: 0.2rem 0.55rem;
   font-size: 0.625rem;
@@ -1116,13 +1163,12 @@ html[data-theme="black"] .kuct-btn-ghost::after {
 }
 
 .kuct-solution-card {
-  border: 1px solid color-mix(in srgb, var(--pastel-ink) 16%, transparent);
+  border: none;
   box-shadow: 0 0.35rem 1.25rem rgb(26 22 37 / 0.04);
 }
 
 @media (hover: hover) and (pointer: fine) {
   a.kuct-solution-card:hover {
-    border-color: color-mix(in srgb, var(--kuct-accent) 50%, transparent);
     box-shadow: 0 0.75rem 1.75rem rgb(26 22 37 / 0.08);
     transform: translateY(-2px);
   }
@@ -1570,7 +1616,7 @@ html[data-theme="violet"] .kuct-banner-cta-outline:hover {
 
 /* Jasper-style announcement pill — above Hero eyebrow */
 .kuct-hero-announce {
-  border: 1px solid color-mix(in srgb, var(--kuct-accent) 18%, transparent);
+  border: none;
   background: color-mix(in srgb, var(--kuct-accent) 10%, var(--kuct-bg));
   box-shadow: 0 0.35rem 1rem rgb(26 22 37 / 0.04);
   color: inherit;
@@ -1590,7 +1636,8 @@ html[data-theme="violet"] .kuct-banner-cta-outline:hover {
   align-items: flex-start;
   gap: 0.75rem;
   border-radius: 10px;
-  border: 1px solid transparent;
+  border: none;
+  border-left: 3px solid transparent;
   background: transparent;
   padding: 0.85rem 0.95rem;
   cursor: pointer;
@@ -1605,8 +1652,7 @@ html[data-theme="violet"] .kuct-banner-cta-outline:hover {
 }
 
 .kuct-fit-item--active {
-  border-color: color-mix(in srgb, var(--kuct-accent) 22%, transparent);
-  border-left: 3px solid var(--kuct-accent);
+  border-left-color: var(--kuct-accent);
   background: var(--kuct-surface);
   box-shadow: 0 0.6rem 1.4rem rgb(26 22 37 / 0.07);
 }
@@ -1762,7 +1808,7 @@ html[data-theme="violet"] .kuct-banner-cta-outline:hover {
   align-items: center;
   gap: 0.5rem;
   border-radius: 0.75rem;
-  border: 1px solid var(--kuct-border);
+  border: none;
   background: rgb(255 255 255 / 0.96);
   padding: 0.65rem 0.9rem;
   font-size: 0.8125rem;
@@ -1776,7 +1822,7 @@ html[data-theme="violet"] .kuct-banner-cta-outline:hover {
 
 .kuct-hero-metric {
   border-radius: 0.75rem;
-  border: 1px solid var(--kuct-border);
+  border: none;
   background: rgb(255 255 255 / 0.96);
   padding: 0.7rem 0.95rem;
   text-align: right;
@@ -1876,7 +1922,7 @@ html[data-theme="violet"] .kuct-banner-cta-outline:hover {
   position: relative;
   padding: 0.7rem;
   border-radius: 1.25rem;
-  border: 1px solid var(--kuct-border);
+  border: none;
   background: var(--kuct-surface);
   box-shadow: 0 0.75rem 2rem rgb(26 21 32 / 0.08);
 }
@@ -2448,6 +2494,14 @@ html[data-theme="black"] .kuct-loader-progress {
 }
 
 .kuct-ai-chat.is-fab-hidden {
+  transform: translateY(calc(100% + 1.25rem));
+}
+
+/* Hide contact/chat FAB while mobile nav overlay is open */
+html[data-mobile-nav-open] .kuct-ai-chat {
+  visibility: hidden;
+  pointer-events: none;
+  opacity: 0;
   transform: translateY(calc(100% + 1.25rem));
 }
 
