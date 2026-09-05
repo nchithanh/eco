@@ -60,7 +60,10 @@ describe("Dolphin Software careers page", () => {
     ).toBeInTheDocument();
     expect(screen.getAllByText(/^Đã đóng$/i).length).toBeGreaterThanOrEqual(6);
     expect(screen.getAllByText(/^Freelance$/i).length).toBeGreaterThanOrEqual(5);
-    expect(screen.getAllByText(/1\.000 USD/i).length).toBeGreaterThanOrEqual(1);
+    expect(
+      screen.getAllByText(/Thù lao linh hoạt · thỏa thuận theo giờ \/ deliverable/i)
+        .length,
+    ).toBeGreaterThanOrEqual(1);
     expect(
       screen.getByText(/Hoa hồng 30% · không lương cứng/i),
     ).toBeInTheDocument();

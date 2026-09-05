@@ -12,7 +12,7 @@ const vi: CareersCopy = {
     eyebrow: "Careers",
     headline: "Làm freelance với Dolphin Software",
     support:
-      "Dolphin Software tuyển cộng tác viên freelance linh hoạt theo dự án — không yêu cầu toàn thời gian. Mức tương đương khoảng 1.000 USD/tháng khi làm full-capacity, thanh toán theo giờ hoặc theo đầu việc tùy thỏa thuận. Dolphin Software là công ty phần mềm chuyên phát triển web, ứng dụng di động và các giải pháp AI. Cộng tác viên làm việc từ xa, chủ động lịch trình, thù lao theo kết quả thực tế — không phải giờ ngồi văn phòng.",
+      "Dolphin Software tuyển cộng tác viên freelance linh hoạt theo dự án — không yêu cầu toàn thời gian. Thù lao thỏa thuận linh hoạt theo giờ hoặc theo đầu việc, tùy năng lực và khối lượng. Dolphin Software là công ty phần mềm chuyên phát triển web, ứng dụng di động và các giải pháp AI. Cộng tác viên làm việc từ xa, chủ động lịch trình, thù lao theo kết quả thực tế — không phải giờ ngồi văn phòng.",
   },
   model: {
     eyebrow: "Model",
@@ -22,7 +22,7 @@ const vi: CareersCopy = {
     bullets: [
       "Làm việc từ xa 100%, không cần lên văn phòng",
       "Thanh toán theo giờ hoặc theo deliverable, tùy từng vị trí",
-      "Mức tham chiếu: ~1.000 USD/tháng khi làm full-capacity",
+      "Thù lao linh hoạt theo giờ hoặc deliverable, thỏa thuận theo năng lực & khối lượng",
       "Sales/BD: hoa hồng 30% trên mỗi deal chốt thành công, không lương cứng",
       "Phù hợp freelancer có kinh nghiệm, sinh viên cuối khóa hoặc fresher muốn tích lũy thực chiến",
     ],
@@ -58,7 +58,7 @@ const vi: CareersCopy = {
       },
       {
         q: "Mức thu nhập khi làm freelance tại Dolphin Software là bao nhiêu?",
-        a: "Các vị trí kỹ thuật (QA, Fullstack, Mobile, AI Engineer, Backend) có mức tham chiếu khoảng 1.000 USD/tháng khi làm full-capacity, thanh toán theo giờ linh hoạt. Vị trí Sales/BD hoạt động theo hoa hồng 30% trên mỗi deal chốt thành công — không có lương cứng. Marketing/Growth được thanh toán theo deliverable hoặc giờ tùy thỏa thuận.",
+        a: "Các vị trí kỹ thuật (QA, Fullstack, Mobile, AI Engineer, Backend) thanh toán linh hoạt theo giờ hoặc deliverable — mức cụ thể thỏa thuận theo năng lực và khối lượng. Vị trí Sales/BD hoạt động theo hoa hồng 30% trên mỗi deal chốt thành công — không có lương cứng. Marketing/Growth được thanh toán theo deliverable hoặc giờ tùy thỏa thuận.",
       },
       {
         q: "Có cần lên văn phòng không?",
@@ -79,7 +79,7 @@ const vi: CareersCopy = {
     ],
   },
   engagement: "Freelance",
-  comp: "~1.000 USD/tháng tương đương · linh hoạt theo giờ",
+  comp: "Thù lao linh hoạt · thỏa thuận theo giờ / deliverable",
   applyCta: "Ứng tuyển",
   viewDetailCta: "Xem chi tiết",
   detailClose: "Đóng",
@@ -218,7 +218,7 @@ const vi: CareersCopy = {
         "Có portfolio AI thực tế hoặc repo public trên GitHub",
       ],
       tags: ["LLM", "AI Agent", "RAG"],
-      comp: "~1.000 USD/tháng tương đương · linh hoạt theo giờ",
+      comp: "Thù lao linh hoạt · thỏa thuận theo giờ / deliverable",
     },
     {
       id: "intern-fullstack",
@@ -232,7 +232,7 @@ const vi: CareersCopy = {
         "Junior vững hoặc Middle — có portfolio / repo thực tế",
       ],
       tags: ["Fullstack", "Next.js", "CRM", "E-commerce"],
-      comp: "~1.000 USD/tháng tương đương · linh hoạt theo giờ",
+      comp: "Thù lao linh hoạt · thỏa thuận theo giờ / deliverable",
       priority: "Ưu tiên",
       detail: {
         sections: [
@@ -281,7 +281,7 @@ const vi: CareersCopy = {
         "Cam kết timeline milestone và sync tiến độ hàng tuần với đội",
       ],
       tags: ["QA", "Middle+", "BA mindset", "Product"],
-      comp: "~1.000 USD/tháng tương đương · linh hoạt theo giờ",
+      comp: "Thù lao linh hoạt · thỏa thuận theo giờ / deliverable",
       priority: "Ưu tiên",
       detail: {
         sections: [
@@ -330,7 +330,7 @@ const vi: CareersCopy = {
         "Viết tài liệu API ngắn gọn, rõ ràng",
       ],
       tags: ["Node.js", "API", "PostgreSQL"],
-      comp: "~1.000 USD/tháng tương đương · linh hoạt theo giờ",
+      comp: "Thù lao linh hoạt · thỏa thuận theo giờ / deliverable",
     },
     {
       id: "frontend",
@@ -356,7 +356,7 @@ const vi: CareersCopy = {
         "Có app đã ship hoặc demo gần production",
       ],
       tags: ["Mobile", "Flutter", "React Native", "CRM"],
-      comp: "~1.000 USD/tháng tương đương · linh hoạt theo giờ",
+      comp: "Thù lao linh hoạt · thỏa thuận theo giờ / deliverable",
       priority: "Ưu tiên",
       detail: {
         sections: [
@@ -444,7 +444,7 @@ const en: CareersCopy = {
     eyebrow: "Careers",
     headline: "Freelance with Dolphin Software",
     support:
-      "Dolphin Software hires flexible freelance collaborators per project — not full-time. About USD 1,000/mo full-capacity equivalent, paid hourly or by deliverable depending on role. Dolphin Software is a software development company that builds websites, mobile apps, and AI solutions. Freelancers work remote, own their schedule, and are paid for outcomes — not office hours.",
+      "Dolphin Software hires flexible freelance collaborators per project — not full-time. Pay is flexible by hour or deliverable, agreed by skill and scope. Dolphin Software is a software development company that builds websites, mobile apps, and AI solutions. Freelancers work remote, own their schedule, and are paid for outcomes — not office hours.",
   },
   model: {
     eyebrow: "Model",
@@ -454,7 +454,7 @@ const en: CareersCopy = {
     bullets: [
       "100% remote — no office required",
       "Paid hourly or by deliverable, depending on the role",
-      "Reference rate: ~USD 1,000/mo at full capacity",
+      "Flexible pay by hour or deliverable — agreed by skill and scope",
       "Sales/BD: 30% commission per closed deal, no base salary",
       "Fit for experienced freelancers, final-year students, or freshers seeking real production work",
     ],
@@ -491,7 +491,7 @@ const en: CareersCopy = {
       },
       {
         q: "What is the pay for freelancing at Dolphin Software?",
-        a: "Technical roles (QA, Fullstack, Mobile, AI Engineer, Backend) reference about USD 1,000/mo at full capacity, billed hourly. Sales/BD is 30% commission per closed deal with no base salary. Marketing/Growth is paid by deliverable or hour by agreement.",
+        a: "Technical roles (QA, Fullstack, Mobile, AI Engineer, Backend) are paid flexibly by hour or deliverable — amount agreed by skill and scope. Sales/BD is 30% commission per closed deal with no base salary. Marketing/Growth is paid by deliverable or hour by agreement.",
       },
       {
         q: "Do I need to come to an office?",
@@ -512,7 +512,7 @@ const en: CareersCopy = {
     ],
   },
   engagement: "Freelance",
-  comp: "~USD 1,000/mo equivalent · hourly flexible",
+  comp: "Flexible pay · by hour / deliverable agreement",
   applyCta: "Apply",
   viewDetailCta: "View details",
   detailClose: "Close",
@@ -651,7 +651,7 @@ const en: CareersCopy = {
         "Real AI portfolio or public GitHub repos",
       ],
       tags: ["LLM", "AI Agent", "RAG"],
-      comp: "~USD 1,000/mo equivalent · hourly flexible",
+      comp: "Flexible pay · by hour / deliverable agreement",
     },
     {
       id: "intern-fullstack",
@@ -665,7 +665,7 @@ const en: CareersCopy = {
         "Solid Junior or Middle — real portfolio / repos",
       ],
       tags: ["Fullstack", "Next.js", "CRM", "E-commerce"],
-      comp: "~USD 1,000/mo equivalent · hourly flexible",
+      comp: "Flexible pay · by hour / deliverable agreement",
       priority: "Priority",
       detail: {
         sections: [
@@ -714,7 +714,7 @@ const en: CareersCopy = {
         "Own milestone timelines and weekly progress sync with the team",
       ],
       tags: ["QA", "Middle+", "BA mindset", "Product"],
-      comp: "~USD 1,000/mo equivalent · hourly flexible",
+      comp: "Flexible pay · by hour / deliverable agreement",
       priority: "Priority",
       detail: {
         sections: [
@@ -762,7 +762,7 @@ const en: CareersCopy = {
         "Write short, clear API docs",
       ],
       tags: ["Node.js", "API", "PostgreSQL"],
-      comp: "~USD 1,000/mo equivalent · hourly flexible",
+      comp: "Flexible pay · by hour / deliverable agreement",
     },
     {
       id: "frontend",
@@ -788,7 +788,7 @@ const en: CareersCopy = {
         "Shipped app or near-production demo",
       ],
       tags: ["Mobile", "Flutter", "React Native", "CRM"],
-      comp: "~USD 1,000/mo equivalent · hourly flexible",
+      comp: "Flexible pay · by hour / deliverable agreement",
       priority: "Priority",
       detail: {
         sections: [
@@ -875,7 +875,7 @@ const ja: CareersCopy = {
     eyebrow: "Careers",
     headline: "Dolphin Softwareとフリーランスで働く",
     support:
-      "Dolphin Softwareはプロジェクト単位のフリーランス協業を募集します — 正社員ではありません。フル稼働換算で約1,000 USD/月、役割に応じて時間単価または成果物ベースでお支払いします。Dolphin Softwareは、Webサイト、モバイルアプリ、AIソリューションを開発するソフトウェア開発会社です。リモートでスケジュールを自分で管理し、成果に応じて報酬を受け取ります — オフィス時間ではありません。",
+      "Dolphin Softwareはプロジェクト単位のフリーランス協業を募集します — 正社員ではありません。報酬はスキルとボリュームに応じて時間単価または成果物ベースで柔軟に合意します。Dolphin Softwareは、Webサイト、モバイルアプリ、AIソリューションを開発するソフトウェア開発会社です。リモートでスケジュールを自分で管理し、成果に応じて報酬を受け取ります — オフィス時間ではありません。",
   },
   model: {
     eyebrow: "Model",
@@ -885,7 +885,7 @@ const ja: CareersCopy = {
     bullets: [
       "完全リモート — 出社不要",
       "時間単価または成果物ベース（ポジションによる）",
-      "目安: フル稼働換算で約1,000 USD/月",
+      "報酬は時間単価または成果物ベースで柔軟に合意（スキル・ボリュームによる）",
       "Sales/BD: 成約ごとにコミッション30%、基本給なし",
       "経験者フリーランス、最終学年、実務経験を積みたいフレッシャー向け",
     ],
@@ -922,7 +922,7 @@ const ja: CareersCopy = {
       },
       {
         q: "報酬の目安は？",
-        a: "技術職（QA、Fullstack、Mobile、AI Engineer、Backend）はフル稼働換算で約1,000 USD/月、時間単価。Sales/BDは成約コミッション30%で基本給なし。Marketing/Growthは成果物または時間単価で合意します。",
+        a: "技術職（QA、Fullstack、Mobile、AI Engineer、Backend）は時間単価または成果物ベースで柔軟に支払い — 金額はスキルとボリュームで合意。Sales/BDは成約コミッション30%で基本給なし。Marketing/Growthは成果物または時間単価で合意します。",
       },
       {
         q: "出社は必要ですか？",
@@ -943,7 +943,7 @@ const ja: CareersCopy = {
     ],
   },
   engagement: "Freelance",
-  comp: "約1,000 USD/月相当 · 時間単価で柔軟",
+  comp: "報酬は柔軟 · 時間単価 / 成果物で合意",
   applyCta: "応募する",
   viewDetailCta: "詳細を見る",
   detailClose: "閉じる",
@@ -1082,7 +1082,7 @@ const ja: CareersCopy = {
         "実AIポートフォリオまたは公開GitHub",
       ],
       tags: ["LLM", "AI Agent", "RAG"],
-      comp: "約1,000 USD/月相当 · 時間単価で柔軟",
+      comp: "報酬は柔軟 · 時間単価 / 成果物で合意",
     },
     {
       id: "intern-fullstack",
@@ -1096,7 +1096,7 @@ const ja: CareersCopy = {
         "しっかりしたJuniorまたはMiddle — 実ポートフォリオ / リポジトリ",
       ],
       tags: ["Fullstack", "Next.js", "CRM", "E-commerce"],
-      comp: "約1,000 USD/月相当 · 時間単価で柔軟",
+      comp: "報酬は柔軟 · 時間単価 / 成果物で合意",
       priority: "優先",
       detail: {
         sections: [
@@ -1145,7 +1145,7 @@ const ja: CareersCopy = {
         "マイルストーンのタイムラインと週次進捗シンクを担う",
       ],
       tags: ["QA", "Middle+", "BA mindset", "Product"],
-      comp: "約1,000 USD/月相当 · 時間単価で柔軟",
+      comp: "報酬は柔軟 · 時間単価 / 成果物で合意",
       priority: "優先",
       detail: {
         sections: [
@@ -1193,7 +1193,7 @@ const ja: CareersCopy = {
         "簡潔で明確なAPIドキュメント",
       ],
       tags: ["Node.js", "API", "PostgreSQL"],
-      comp: "約1,000 USD/月相当 · 時間単価で柔軟",
+      comp: "報酬は柔軟 · 時間単価 / 成果物で合意",
     },
     {
       id: "frontend",
@@ -1219,7 +1219,7 @@ const ja: CareersCopy = {
         "リリース済みアプリまたはほぼ本番のデモ",
       ],
       tags: ["Mobile", "Flutter", "React Native", "CRM"],
-      comp: "約1,000 USD/月相当 · 時間単価で柔軟",
+      comp: "報酬は柔軟 · 時間単価 / 成果物で合意",
       priority: "優先",
       detail: {
         sections: [
