@@ -9,7 +9,7 @@ type JobHiringMeta =
   | { kind: "open"; durationDays?: undefined };
 
 /**
- * Open priority: QA Middle+ · Fullstack Jr/Mid · Mobile · Sales.
+ * Open priority: DevOps · QA Middle+ · Fullstack Jr/Mid · Mobile · Sales.
  * Partner Automation Test closed.
  */
 export const JOB_HIRING: Record<JobId, JobHiringMeta> = {
@@ -23,10 +23,12 @@ export const JOB_HIRING: Record<JobId, JobHiringMeta> = {
   frontend: { kind: "closed" },
   design: { kind: "closed" },
   mobile: { kind: "open" },
+  devops: { kind: "open" },
 };
 
 /** Display / form order: open & priority first, closed last. */
 export const JOB_DISPLAY_ORDER: JobId[] = [
+  "devops",
   "fresher-tester",
   "intern-fullstack",
   "mobile",

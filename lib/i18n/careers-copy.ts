@@ -30,7 +30,8 @@ const vi: CareersCopy = {
   roles: {
     eyebrow: "Open roles",
     title: "Vị trí đang tuyển dụng",
-    support: "Ưu tiên QA Middle+, Fullstack Jr/Mid, Mobile — gắn CRM booking Edu và dự án e-commerce khách.",
+    support:
+      "Ưu tiên DevOps (Agent SaaS 24/7), QA Middle+, Fullstack Jr/Mid, Mobile, Sales — Edu CRM, ecom & hạ tầng Agent.",
   },
   closedRoles: {
     title: "Đã đóng tuyển",
@@ -58,7 +59,7 @@ const vi: CareersCopy = {
       },
       {
         q: "Mức thu nhập khi làm freelance tại Dolphin Software là bao nhiêu?",
-        a: "Các vị trí kỹ thuật (QA, Fullstack, Mobile, AI Engineer, Backend) thanh toán linh hoạt theo giờ hoặc deliverable — mức cụ thể thỏa thuận theo năng lực và khối lượng. Vị trí Sales/BD hoạt động theo hoa hồng 30% trên mỗi deal chốt thành công — không có lương cứng. Marketing/Growth được thanh toán theo deliverable hoặc giờ tùy thỏa thuận.",
+        a: "Các vị trí kỹ thuật (DevOps, QA, Fullstack, Mobile, AI Engineer, Backend) thanh toán linh hoạt theo giờ hoặc deliverable — mức cụ thể thỏa thuận theo năng lực và khối lượng. Vị trí Sales/BD hoạt động theo hoa hồng 30% trên mỗi deal chốt thành công — không có lương cứng. Marketing/Growth được thanh toán theo deliverable hoặc giờ tùy thỏa thuận.",
       },
       {
         q: "Có cần lên văn phòng không?",
@@ -186,6 +187,61 @@ const vi: CareersCopy = {
               "Bạn có mạng lưới với các doanh nghiệp SMB và biết cách tạo dựng quan hệ",
               "Bạn muốn làm thêm một vai trò linh hoạt — không ràng buộc giờ giấc cố định",
               "Bạn thích làm việc dựa trên kết quả, không phải quy trình",
+            ],
+          },
+        ],
+      },
+    },
+    {
+      id: "devops",
+      title: "DevOps / System Admin — Agent SaaS 24/7",
+      summary:
+        "Dolphin đang mở rộng hạ tầng cho hệ thống Agent đã chạy thực tế với khách SaaS — cần ổn định, nhanh và sẵn sàng 24/7. TP.HCM / remote-friendly.",
+      bullets: [
+        "Vận hành, deploy, monitor hạ tầng Agent / SaaS",
+        "Giảm downtime, giữ latency và sẵn sàng dịch vụ",
+        "Làm việc với đội product khi Agent scale theo khách",
+        "DevOps / SysAdmin có kinh nghiệm thực tế — ưu tiên",
+      ],
+      tags: ["DevOps", "SaaS", "AI Agent", "24/7"],
+      comp: "Thù lao linh hoạt · thỏa thuận theo giờ / deliverable",
+      priority: "Ưu tiên",
+      detail: {
+        sections: [
+          {
+            title: "Bối cảnh",
+            paragraphs: [
+              "Các Agent của Dolphin đã bắt đầu chạy thực tế cho khách hàng. Bài toán tiếp theo là đảm bảo hệ thống ổn định, nhanh và luôn sẵn sàng 24/7 khi mở rộng hạ tầng.",
+            ],
+          },
+          {
+            title: "Việc chính",
+            bullets: [
+              "Thiết kế / vận hành môi trường deploy (CI/CD, server, container nếu trong scope)",
+              "Monitor uptime, log, alert; xử lý sự cố và postmortem ngắn",
+              "Tối ưu chi phí & hiệu năng khi tải tăng theo khách SaaS",
+              "Tài liệu hóa runbook để team ship được khi bạn offline",
+            ],
+          },
+          {
+            title: "Bạn phù hợp nếu",
+            bullets: [
+              "DevOps hoặc System Admin đã vận hành dịch vụ thật (không chỉ lab)",
+              "Quen Linux, mạng cơ bản, backup/restore, bảo mật tối thiểu",
+              "Chủ động báo cáo rủi ro hạ tầng; giữ timeline rõ với đội",
+              "TP.HCM hoặc remote-friendly — sync tuần với Dolphin",
+            ],
+          },
+          {
+            title: "Non-tech",
+            paragraphs: [
+              "Sale / marketing / content: ứng tuyển Business Development Partner (hoặc inbox) — không gộp vào role DevOps này.",
+            ],
+          },
+          {
+            title: "Cách ứng tuyển",
+            paragraphs: [
+              "Gửi form Careers (chọn DevOps), kèm CV / stack đã vận hành và khung giờ available.",
             ],
           },
         ],
@@ -463,7 +519,7 @@ const en: CareersCopy = {
     eyebrow: "Open roles",
     title: "Open positions",
     support:
-      "Priority: Middle+ QA, Jr/Mid Fullstack, Mobile — Edu booking CRM and client e-commerce.",
+      "Priority: DevOps (Agent SaaS 24/7), Middle+ QA, Jr/Mid Fullstack, Mobile, Sales — Edu CRM, ecom & Agent infra.",
   },
   closedRoles: {
     title: "Closed roles",
@@ -491,7 +547,7 @@ const en: CareersCopy = {
       },
       {
         q: "What is the pay for freelancing at Dolphin Software?",
-        a: "Technical roles (QA, Fullstack, Mobile, AI Engineer, Backend) are paid flexibly by hour or deliverable — amount agreed by skill and scope. Sales/BD is 30% commission per closed deal with no base salary. Marketing/Growth is paid by deliverable or hour by agreement.",
+        a: "Technical roles (DevOps, QA, Fullstack, Mobile, AI Engineer, Backend) are paid flexibly by hour or deliverable — amount agreed by skill and scope. Sales/BD is 30% commission per closed deal with no base salary. Marketing/Growth is paid by deliverable or hour by agreement.",
       },
       {
         q: "Do I need to come to an office?",
@@ -619,6 +675,61 @@ const en: CareersCopy = {
               "Have an SMB network and know how to build relationships",
               "Want a flexible side role — no fixed hours",
               "Prefer results-based work over process theater",
+            ],
+          },
+        ],
+      },
+    },
+    {
+      id: "devops",
+      title: "DevOps / System Admin — Agent SaaS 24/7",
+      summary:
+        "Dolphin is expanding infra for Agents already running for SaaS customers — need stability, speed, and 24/7 readiness. HCMC / remote-friendly.",
+      bullets: [
+        "Operate, deploy, and monitor Agent / SaaS infrastructure",
+        "Cut downtime; keep latency and service readiness healthy",
+        "Partner with product as Agents scale with customers",
+        "Hands-on DevOps / SysAdmin experience preferred",
+      ],
+      tags: ["DevOps", "SaaS", "AI Agent", "24/7"],
+      comp: "Flexible pay · by hour / deliverable agreement",
+      priority: "Priority",
+      detail: {
+        sections: [
+          {
+            title: "Context",
+            paragraphs: [
+              "Dolphin Agents are already live with customers. Next: keep the system stable, fast, and ready 24/7 as we grow infrastructure.",
+            ],
+          },
+          {
+            title: "Core work",
+            bullets: [
+              "Own deploy environments (CI/CD, servers, containers if in scope)",
+              "Monitoring, logs, alerts; incident response and short postmortems",
+              "Tune cost and performance as SaaS load grows",
+              "Write runbooks so the team can ship when you are offline",
+            ],
+          },
+          {
+            title: "You fit if",
+            bullets: [
+              "DevOps or SysAdmin who has run real production services",
+              "Comfortable with Linux, basic networking, backup/restore, baseline security",
+              "Flag infra risk early; keep clear timelines with the team",
+              "Based in HCMC or remote-friendly — weekly sync with Dolphin",
+            ],
+          },
+          {
+            title: "Non-tech",
+            paragraphs: [
+              "Sales / marketing / content: apply via Business Development Partner (or inbox) — not this DevOps role.",
+            ],
+          },
+          {
+            title: "How to apply",
+            paragraphs: [
+              "Careers form (select DevOps), plus CV / stacks you have operated and weekly availability.",
             ],
           },
         ],
@@ -894,7 +1005,7 @@ const ja: CareersCopy = {
     eyebrow: "Open roles",
     title: "募集中のポジション",
     support:
-      "優先: Middle+ QA、Jr/Mid Fullstack、Mobile — Edu予約CRMと顧客EC。",
+      "優先: DevOps（Agent SaaS 24/7）、Middle+ QA、Jr/Mid Fullstack、Mobile、Sales — Edu CRM・EC・Agent基盤。",
   },
   closedRoles: {
     title: "募集終了",
@@ -922,7 +1033,7 @@ const ja: CareersCopy = {
       },
       {
         q: "報酬の目安は？",
-        a: "技術職（QA、Fullstack、Mobile、AI Engineer、Backend）は時間単価または成果物ベースで柔軟に支払い — 金額はスキルとボリュームで合意。Sales/BDは成約コミッション30%で基本給なし。Marketing/Growthは成果物または時間単価で合意します。",
+        a: "技術職（DevOps、QA、Fullstack、Mobile、AI Engineer、Backend）は時間単価または成果物ベースで柔軟に支払い — 金額はスキルとボリュームで合意。Sales/BDは成約コミッション30%で基本給なし。Marketing/Growthは成果物または時間単価で合意します。",
       },
       {
         q: "出社は必要ですか？",
@@ -1050,6 +1161,61 @@ const ja: CareersCopy = {
               "SMBネットワークがあり関係構築ができる",
               "固定時間のない柔軟な副業を求める",
               "プロセスより成果ベースで働きたい",
+            ],
+          },
+        ],
+      },
+    },
+    {
+      id: "devops",
+      title: "DevOps / System Admin — Agent SaaS 24/7",
+      summary:
+        "顧客向けに稼働中のAgent向けに、SaaS基盤を拡大中 — 安定・高速・24/7可用性。ホーチミン / リモート歓迎。",
+      bullets: [
+        "Agent / SaaS基盤の運用・デプロイ・監視",
+        "ダウンタイム削減、レイテンシと可用性の維持",
+        "顧客拡大に合わせプロダクトと連携",
+        "実務経験のあるDevOps / SysAdminを優先",
+      ],
+      tags: ["DevOps", "SaaS", "AI Agent", "24/7"],
+      comp: "報酬は柔軟 · 時間単価 / 成果物で合意",
+      priority: "優先",
+      detail: {
+        sections: [
+          {
+            title: "背景",
+            paragraphs: [
+              "DolphinのAgentはすでに顧客環境で稼働しています。次の課題は、基盤拡大のなかで安定・高速・24/7の可用性を守ることです。",
+            ],
+          },
+          {
+            title: "主な仕事",
+            bullets: [
+              "デプロイ環境の設計・運用（CI/CD、サーバ、必要ならコンテナ）",
+              "監視・ログ・アラート、障害対応と短いポストモーテム",
+              "SaaS負荷増に合わせたコストと性能の調整",
+              "オフライン時もチームが動けるランブック整備",
+            ],
+          },
+          {
+            title: "こんな方にフィット",
+            bullets: [
+              "本番サービスを運んだ経験があるDevOps / SysAdmin",
+              "Linux、基本ネットワーク、バックアップ/リストア、最低限のセキュリティ",
+              "インフラリスクを早めに共有し、タイムラインを明確に保てる",
+              "ホーチミンまたはリモート歓迎 — 週次シンク",
+            ],
+          },
+          {
+            title: "ノンテク",
+            paragraphs: [
+              "セールス / マーケ / コンテンツは Business Development Partner（またはinbox）へ — 本DevOpsロールには含めません。",
+            ],
+          },
+          {
+            title: "応募方法",
+            paragraphs: [
+              "Careersフォーム（DevOpsを選択）、運用してきたスタックのCVと稼働可能時間を添えて。",
             ],
           },
         ],

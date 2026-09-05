@@ -28,6 +28,11 @@ describe("Dolphin Software careers page", () => {
     ).toBeInTheDocument();
     expect(
       screen.getByRole("heading", {
+        name: /DevOps \/ System Admin — Agent SaaS 24\/7/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", {
         name: /QA \/ Tester \(Middle\+\) — 3 slots/i,
       }),
     ).toBeInTheDocument();
@@ -67,7 +72,7 @@ describe("Dolphin Software careers page", () => {
     expect(
       screen.getByText(/Hoa hồng 30% · không lương cứng/i),
     ).toBeInTheDocument();
-    expect(screen.getAllByText(/^Ưu tiên$/i).length).toBeGreaterThanOrEqual(4);
+    expect(screen.getAllByText(/^Ưu tiên$/i).length).toBeGreaterThanOrEqual(5);
   });
 
   it("opens sales detail popup then apply selects role in the form", async () => {

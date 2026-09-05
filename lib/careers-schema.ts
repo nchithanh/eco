@@ -11,6 +11,7 @@ export const JOB_IDS = [
   "intern-fullstack",
   "fresher-tester",
   "partner-automation-test",
+  "devops",
 ] as const;
 export type JobId = (typeof JOB_IDS)[number];
 
