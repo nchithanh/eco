@@ -9,32 +9,32 @@ type JobHiringMeta =
   | { kind: "open"; durationDays?: undefined };
 
 /**
- * Only priority open roles: Partner Automation Test + Sales (BD).
- * All other listed roles are closed.
+ * Open priority: QA Middle+ · Fullstack Jr/Mid · Mobile · Sales.
+ * Partner Automation Test closed.
  */
 export const JOB_HIRING: Record<JobId, JobHiringMeta> = {
-  "partner-automation-test": { kind: "open" },
+  "partner-automation-test": { kind: "closed" },
   sales: { kind: "open" },
   marketing: { kind: "closed" },
   "ai-engineer": { kind: "closed" },
-  "intern-fullstack": { kind: "closed" },
-  "fresher-tester": { kind: "closed" },
+  "intern-fullstack": { kind: "open" },
+  "fresher-tester": { kind: "open" },
   backend: { kind: "closed" },
   frontend: { kind: "closed" },
   design: { kind: "closed" },
-  mobile: { kind: "closed" },
+  mobile: { kind: "open" },
 };
 
 /** Display / form order: open & priority first, closed last. */
 export const JOB_DISPLAY_ORDER: JobId[] = [
-  "partner-automation-test",
-  "sales",
-  "ai-engineer",
-  "intern-fullstack",
   "fresher-tester",
+  "intern-fullstack",
+  "mobile",
+  "sales",
+  "partner-automation-test",
+  "ai-engineer",
   "backend",
   "frontend",
-  "mobile",
   "design",
   "marketing",
 ];

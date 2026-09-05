@@ -30,7 +30,7 @@ const vi: CareersCopy = {
   roles: {
     eyebrow: "Open roles",
     title: "Vị trí đang tuyển dụng",
-    support: "Nhiều mảng: dịch vụ, AI, và kiểm thử chất lượng. Remote-friendly.",
+    support: "Ưu tiên QA Middle+, Fullstack Jr/Mid, Mobile — gắn CRM booking Edu và dự án e-commerce khách.",
   },
   closedRoles: {
     title: "Đã đóng tuyển",
@@ -58,19 +58,19 @@ const vi: CareersCopy = {
       },
       {
         q: "Mức thu nhập khi làm freelance tại Dolphin Software là bao nhiêu?",
-        a: "Các vị trí kỹ thuật (AI Engineer, Backend Developer) có mức tham chiếu khoảng 1.000 USD/tháng khi làm full-capacity, thanh toán theo giờ linh hoạt. Vị trí Sales/BD hoạt động theo hoa hồng 30% trên mỗi deal chốt thành công — không có lương cứng. Marketing/Growth được thanh toán theo deliverable hoặc giờ tùy thỏa thuận.",
+        a: "Các vị trí kỹ thuật (QA, Fullstack, Mobile, AI Engineer, Backend) có mức tham chiếu khoảng 1.000 USD/tháng khi làm full-capacity, thanh toán theo giờ linh hoạt. Vị trí Sales/BD hoạt động theo hoa hồng 30% trên mỗi deal chốt thành công — không có lương cứng. Marketing/Growth được thanh toán theo deliverable hoặc giờ tùy thỏa thuận.",
       },
       {
         q: "Có cần lên văn phòng không?",
         a: "Không. Tất cả các vị trí đều remote-friendly — bạn có thể làm việc từ bất kỳ đâu tại Việt Nam hoặc nước ngoài, miễn đảm bảo tiến độ và chất lượng công việc.",
       },
       {
-        q: "Sinh viên chưa có nhiều kinh nghiệm có thể ứng tuyển không?",
-        a: "Có. Vị trí Intern Fullstack và Fresher Tester được thiết kế dành cho sinh viên cuối khóa hoặc mới ra trường. Hai vị trí này có mentor kèm cặp sát, phù hợp để tích lũy kinh nghiệm thực chiến từ các sản phẩm thật.",
+        q: "Yêu cầu tiến độ và sync như thế nào?",
+        a: "Các vị trí đang mở (QA, Fullstack, Mobile) cần cam kết giữ timeline sprint, báo cáo tiến độ rõ ràng và sync hàng tuần với đội Dolphin. Không bắt buộc giờ ngồi cố định, nhưng deliverable và deadline phải đúng thỏa thuận.",
       },
       {
         q: "Dolphin Software có các dự án thuộc lĩnh vực nào?",
-        a: "Dolphin Software phát triển các sản phẩm web, ứng dụng di động, và giải pháp AI — bao gồm nền tảng AI content và Vibe Coding. Khách hàng chủ yếu là SME và startup. Xem thêm tại /services/web/ và /about/.",
+        a: "Hiện ưu tiên cộng tác viên cho CRM booking lớp học (Dolphin Edu) và dự án e-commerce khách hàng — cùng website, app, AI và tích hợp hệ thống cho SMB. Xem thêm tại /services/web/ và /about/.",
       },
       {
         q: "Quy trình review và thanh toán như thế nào?",
@@ -222,31 +222,101 @@ const vi: CareersCopy = {
     },
     {
       id: "intern-fullstack",
-      title: "Intern Fullstack",
+      title: "Fullstack Developer (Junior / Middle) — 2 slots",
       summary:
-        "Thực tập fullstack trên hệ thống AI content và nền tảng Vibe Coding của Dolphin Software.",
+        "Cần 2 freelance Junior/Middle fullstack cho CRM booking lớp học (Dolphin Edu) và website/app e-commerce khách — ship theo sprint, giữ timeline, sync hàng tuần.",
       bullets: [
-        "Biết cơ bản React/Next.js hoặc Node.js; ham học hỏi",
-        "Tham gia task thực tế trên nền tảng AI content nội bộ",
-        "Được mentor kèm sát và review code thường xuyên",
-        "Ưu tiên sinh viên năm cuối hoặc mới ra trường",
+        "Next.js / React + API (Node hoặc tương đương); TypeScript là lợi thế",
+        "Làm feature end-to-end trên CRM booking hoặc storefront / checkout ecom",
+        "Cam kết tiến độ sprint và sync hàng tuần với đội Dolphin",
+        "Junior vững hoặc Middle — có portfolio / repo thực tế",
       ],
-      tags: ["Intern", "Next.js", "Vibe Coding"],
-      comp: "Intern · có mentor",
+      tags: ["Fullstack", "Next.js", "CRM", "E-commerce"],
+      comp: "~1.000 USD/tháng tương đương · linh hoạt theo giờ",
+      priority: "Ưu tiên",
+      detail: {
+        sections: [
+          {
+            title: "Bối cảnh dự án",
+            paragraphs: [
+              "Bạn sẽ tham gia xây/mở rộng CRM booking cho lớp học (học viên, lịch, giáo viên — Dolphin Edu) và/hoặc sản phẩm e-commerce khách hàng SMB: catalog, giỏ hàng, thanh toán, vận hành đơn.",
+            ],
+          },
+          {
+            title: "Việc chính",
+            bullets: [
+              "Nhận user story rõ, implement FE + API trong phạm vi sprint",
+              "Viết code sạch, PR có mô tả, demo được khi kết thúc sprint",
+              "Phối hợp QA/tester để đóng bug trước milestone",
+              "Báo cáo tiến độ ngắn mỗi tuần (blocker, % done, kế hoạch tuần sau)",
+            ],
+          },
+          {
+            title: "Bạn phù hợp nếu",
+            bullets: [
+              "Junior đã ship ít nhất một sản phẩm web thực tế, hoặc Middle tự chủ feature",
+              "Hiểu REST, auth cơ bản, state UI và responsive",
+              "Ưu tiên đúng deadline hơn “làm đẹp muộn”",
+              "Remote-friendly, giao tiếp tiếng Việt rõ",
+            ],
+          },
+          {
+            title: "Cách ứng tuyển",
+            paragraphs: [
+              "Gửi form Careers (chọn Fullstack), kèm GitHub/portfolio và lịch available hàng tuần.",
+            ],
+          },
+        ],
+      },
     },
     {
       id: "fresher-tester",
-      title: "Fresher Tester (Manual + Automation)",
+      title: "QA / Tester (Middle+) — 3 slots",
       summary:
-        "Kiểm thử sản phẩm web/app — QA manual có cấu trúc, bắt đầu học automation từ ngày đầu.",
+        "Cần 3 tester từ Middle trở lên — tư duy BA, nắm chắc product CRM booking Edu & e-commerce khách, đảm bảo chất lượng và tiến độ timeline; sync hàng tuần.",
       bullets: [
-        "Viết test case và bug report rõ ràng với repro steps",
-        "Kiểm thử web/mobile thực tế trong sprint",
-        "Học và áp dụng Playwright/Cypress hoặc tương đương",
-        "Chú ý chi tiết, chủ động và giao tiếp tốt với developer",
+        "Thiết kế test case / checklist theo user journey và acceptance criteria",
+        "Tư duy BA: làm rõ yêu cầu mơ hồ trước khi test; ưu tiên risk theo product",
+        "Báo cáo bug rõ (repro, severity, impact); theo dõi đến khi đóng",
+        "Cam kết timeline milestone và sync tiến độ hàng tuần với đội",
       ],
-      tags: ["QA", "Manual", "Automation"],
-      comp: "Fresher · manual + automation",
+      tags: ["QA", "Middle+", "BA mindset", "Product"],
+      comp: "~1.000 USD/tháng tương đương · linh hoạt theo giờ",
+      priority: "Ưu tiên",
+      detail: {
+        sections: [
+          {
+            title: "Bối cảnh dự án",
+            paragraphs: [
+              "Kiểm thử trên CRM booking lớp học (đặt lịch, học viên, giáo viên, vận hành lớp — Dolphin Edu) và luồng e-commerce khách (catalog, giỏ, thanh toán, đơn hàng). Không phải chỉ “click cho có” — cần hiểu sản phẩm đang giải quyết pain gì.",
+            ],
+          },
+          {
+            title: "Việc chính",
+            bullets: [
+              "Đọc brief / story, viết test plan ngắn gọn trước sprint test",
+              "Regression theo milestone; regression smoke trước bàn giao",
+              "Góp ý gap nghiệp vụ (thiếu flow, edge case) như BA nhẹ",
+              "Sync hàng tuần: coverage, bug còn mở, rủi ro timeline",
+            ],
+          },
+          {
+            title: "Bạn phù hợp nếu",
+            bullets: [
+              "Kinh nghiệm QA từ Middle trở lên (manual vững; automation là lợi thế)",
+              "Đã test CRM, booking, hoặc e-commerce là điểm cộng",
+              "Giao tiếp rõ với Dev/PM; không để blocker im lặng",
+              "Remote-friendly, chủ động lịch nhưng giữ deadline",
+            ],
+          },
+          {
+            title: "Cách ứng tuyển",
+            paragraphs: [
+              "Gửi form Careers (chọn QA / Tester), kèm CV hoặc mô tả sản phẩm đã test và lịch sync hàng tuần bạn có thể commit.",
+            ],
+          },
+        ],
+      },
     },
     {
       id: "backend",
@@ -276,15 +346,52 @@ const vi: CareersCopy = {
     },
     {
       id: "mobile",
-      title: "Mobile Developer (Flutter / React Native)",
-      summary: "App iOS/Android hoặc cross-platform theo nhu cầu sản phẩm.",
+      title: "Mobile Developer (Flutter / React Native) — 1 slot",
+      summary:
+        "Cần 1 freelance mobile cho app gắn CRM booking lớp học và/hoặc trải nghiệm e-commerce khách — giữ timeline sprint, sync hàng tuần.",
       bullets: [
-        "Flutter và/hoặc React Native",
-        "Hiểu lifecycle, navigation, API integration",
-        "Ưu tiên UX và ổn định release",
-        "Có app đã ship hoặc demo rõ",
+        "Flutter và/hoặc React Native; tích hợp API ổn định",
+        "Flow đặt lịch / học viên hoặc mua hàng / đơn trên mobile",
+        "Ưu tiên UX rõ, release ổn; cam kết tiến độ và sync hàng tuần",
+        "Có app đã ship hoặc demo gần production",
       ],
-      tags: ["Flutter", "React Native", "Mobile"],
+      tags: ["Mobile", "Flutter", "React Native", "CRM"],
+      comp: "~1.000 USD/tháng tương đương · linh hoạt theo giờ",
+      priority: "Ưu tiên",
+      detail: {
+        sections: [
+          {
+            title: "Bối cảnh dự án",
+            paragraphs: [
+              "Xây hoặc mở rộng app mobile phục vụ booking/CRM lớp học (Edu) và/hoặc kênh bán hàng e-commerce khách SMB — đồng bộ với backend/web đã có.",
+            ],
+          },
+          {
+            title: "Việc chính",
+            bullets: [
+              "Implement màn hình theo design/Figma, nối API, xử lý offline/error cơ bản",
+              "Test trên thiết bị thật trước milestone",
+              "Phối hợp fullstack/QA để đóng bug đúng sprint",
+              "Sync tiến độ hàng tuần với đội Dolphin",
+            ],
+          },
+          {
+            title: "Bạn phù hợp nếu",
+            bullets: [
+              "Thành thạo Flutter hoặc React Native (một stack sâu hơn hai stack nông)",
+              "Hiểu navigation, auth token, push (nếu trong scope)",
+              "Giữ được deadline release nhỏ, không “để cuối sprint mới merge”",
+              "Remote-friendly, giao tiếp tiếng Việt rõ",
+            ],
+          },
+          {
+            title: "Cách ứng tuyển",
+            paragraphs: [
+              "Gửi form Careers (chọn Mobile), kèm store link / APK demo / GitHub và lịch available.",
+            ],
+          },
+        ],
+      },
     },
     {
       id: "design",
@@ -355,7 +462,8 @@ const en: CareersCopy = {
   roles: {
     eyebrow: "Open roles",
     title: "Open positions",
-    support: "Tracks across services, AI, and quality. Remote-friendly.",
+    support:
+      "Priority: Middle+ QA, Jr/Mid Fullstack, Mobile — Edu booking CRM and client e-commerce.",
   },
   closedRoles: {
     title: "Closed roles",
@@ -383,19 +491,19 @@ const en: CareersCopy = {
       },
       {
         q: "What is the pay for freelancing at Dolphin Software?",
-        a: "Technical roles (AI Engineer, Backend) reference about USD 1,000/mo at full capacity, billed hourly. Sales/BD is 30% commission per closed deal with no base salary. Marketing/Growth is paid by deliverable or hour by agreement.",
+        a: "Technical roles (QA, Fullstack, Mobile, AI Engineer, Backend) reference about USD 1,000/mo at full capacity, billed hourly. Sales/BD is 30% commission per closed deal with no base salary. Marketing/Growth is paid by deliverable or hour by agreement.",
       },
       {
         q: "Do I need to come to an office?",
         a: "No. All roles are remote-friendly — work from anywhere in Vietnam or abroad as long as you hit timeline and quality.",
       },
       {
-        q: "Can students with little experience apply?",
-        a: "Yes. Intern Fullstack and Fresher Tester are designed for final-year students or fresh graduates, with close mentoring on real products.",
+        q: "What are the delivery and sync expectations?",
+        a: "Open roles (QA, Fullstack, Mobile) require keeping sprint timelines, clear progress updates, and a weekly sync with the Dolphin team. No fixed office hours, but deliverables and deadlines must match the agreement.",
       },
       {
         q: "What kinds of projects does Dolphin Software ship?",
-        a: "Web, mobile apps, and AI solutions — including internal AI content and Vibe Coding platforms. Clients are mainly SMEs and startups. See /services/web/ and /about/.",
+        a: "Current priority is class booking CRM (Dolphin Edu) and client e-commerce — plus websites, apps, AI, and integrations for SMBs. See /services/web/ and /about/.",
       },
       {
         q: "How do review and payment work?",
@@ -547,31 +655,101 @@ const en: CareersCopy = {
     },
     {
       id: "intern-fullstack",
-      title: "Intern Fullstack",
+      title: "Fullstack Developer (Junior / Middle) — 2 slots",
       summary:
-        "Fullstack internship on Dolphin Software’s AI content system and Vibe Coding platform.",
+        "Need 2 Junior/Middle freelance fullstackers for class booking CRM (Dolphin Edu) and client e-commerce sites/apps — sprint delivery, keep timeline, weekly sync.",
       bullets: [
-        "Basics of React/Next.js or Node.js; eager to learn",
-        "Real tasks on the internal AI content platform",
-        "Close mentoring and frequent code review",
-        "Prefer final-year students or fresh graduates",
+        "Next.js / React + API (Node or equivalent); TypeScript is a plus",
+        "End-to-end features on booking CRM or storefront / checkout",
+        "Commit to sprint progress and weekly sync with Dolphin",
+        "Solid Junior or Middle — real portfolio / repos",
       ],
-      tags: ["Intern", "Next.js", "Vibe Coding"],
-      comp: "Intern · mentored",
+      tags: ["Fullstack", "Next.js", "CRM", "E-commerce"],
+      comp: "~USD 1,000/mo equivalent · hourly flexible",
+      priority: "Priority",
+      detail: {
+        sections: [
+          {
+            title: "Project context",
+            paragraphs: [
+              "You will build/extend class booking CRM (students, schedule, teachers — Dolphin Edu) and/or SMB e-commerce: catalog, cart, payments, order ops.",
+            ],
+          },
+          {
+            title: "Core work",
+            bullets: [
+              "Take clear user stories; ship FE + API in sprint scope",
+              "Clean PRs with description; demo at sprint end",
+              "Work with QA to close bugs before milestones",
+              "Short weekly progress note (blockers, % done, next week)",
+            ],
+          },
+          {
+            title: "You fit if",
+            bullets: [
+              "Junior who has shipped at least one real web product, or Middle who owns features",
+              "Comfortable with REST, basic auth, UI state, responsive",
+              "Prefer hitting deadlines over late polish",
+              "Remote-friendly; clear communication",
+            ],
+          },
+          {
+            title: "How to apply",
+            paragraphs: [
+              "Careers form (select Fullstack), plus GitHub/portfolio and weekly availability.",
+            ],
+          },
+        ],
+      },
     },
     {
       id: "fresher-tester",
-      title: "Fresher Tester (Manual + Automation)",
+      title: "QA / Tester (Middle+) — 3 slots",
       summary:
-        "Test web/app products — structured manual QA, learn automation from day one.",
+        "Need 3 Middle+ testers — BA mindset, deep product sense on Edu booking CRM & client e-commerce, protect quality and timeline; weekly sync.",
       bullets: [
-        "Clear test cases and bug reports with repro steps",
-        "Real web/mobile testing in sprints",
-        "Learn Playwright/Cypress or equivalent",
-        "Detail-oriented, proactive, good with developers",
+        "Design test cases / checklists from journeys and acceptance criteria",
+        "BA thinking: clarify fuzzy requirements before testing; risk by product impact",
+        "Clear bug reports (repro, severity, impact); follow through to close",
+        "Own milestone timelines and weekly progress sync with the team",
       ],
-      tags: ["QA", "Manual", "Automation"],
-      comp: "Fresher · manual + automation",
+      tags: ["QA", "Middle+", "BA mindset", "Product"],
+      comp: "~USD 1,000/mo equivalent · hourly flexible",
+      priority: "Priority",
+      detail: {
+        sections: [
+          {
+            title: "Project context",
+            paragraphs: [
+              "Test class booking CRM (schedule, students, teachers, class ops — Dolphin Edu) and client e-commerce flows (catalog, cart, payment, orders).",
+            ],
+          },
+          {
+            title: "Core work",
+            bullets: [
+              "Read briefs/stories; short test plan before test sprints",
+              "Regression by milestone; smoke before handoff",
+              "Flag business gaps with a light BA lens",
+              "Weekly sync: coverage, open bugs, timeline risk",
+            ],
+          },
+          {
+            title: "You fit if",
+            bullets: [
+              "Middle+ QA experience (strong manual; automation is a plus)",
+              "Prior CRM, booking, or e-commerce testing is a plus",
+              "Clear with Dev/PM; do not leave blockers silent",
+              "Remote-friendly; flexible hours but keep deadlines",
+            ],
+          },
+          {
+            title: "How to apply",
+            paragraphs: [
+              "Careers form (select QA / Tester), plus CV or products tested and weekly sync commitment.",
+            ],
+          },
+        ],
+      },
     },
     {
       id: "backend",
@@ -600,15 +778,52 @@ const en: CareersCopy = {
     },
     {
       id: "mobile",
-      title: "Mobile Developer (Flutter / React Native)",
-      summary: "iOS/Android or cross-platform apps for product needs.",
+      title: "Mobile Developer (Flutter / React Native) — 1 slot",
+      summary:
+        "Need 1 freelance mobile engineer for class booking CRM apps and/or client e-commerce UX — keep sprint timeline, weekly sync.",
       bullets: [
-        "Flutter and/or React Native",
-        "Lifecycle, navigation, API integration",
-        "UX and stable releases first",
-        "Shipped app or clear demo",
+        "Flutter and/or React Native; stable API integration",
+        "Booking / student flows or shop / order flows on mobile",
+        "Clear UX, stable releases; commit to progress + weekly sync",
+        "Shipped app or near-production demo",
       ],
-      tags: ["Flutter", "React Native", "Mobile"],
+      tags: ["Mobile", "Flutter", "React Native", "CRM"],
+      comp: "~USD 1,000/mo equivalent · hourly flexible",
+      priority: "Priority",
+      detail: {
+        sections: [
+          {
+            title: "Project context",
+            paragraphs: [
+              "Build or extend mobile apps for class booking/CRM (Edu) and/or SMB e-commerce channels — aligned with existing backend/web.",
+            ],
+          },
+          {
+            title: "Core work",
+            bullets: [
+              "Ship screens from design/Figma, wire APIs, handle basic offline/errors",
+              "Device testing before milestones",
+              "Work with fullstack/QA to close bugs in sprint",
+              "Weekly progress sync with Dolphin",
+            ],
+          },
+          {
+            title: "You fit if",
+            bullets: [
+              "Strong Flutter or React Native (depth over two shallow stacks)",
+              "Navigation, auth tokens, push (if in scope)",
+              "Small release deadlines — not last-day merges",
+              "Remote-friendly; clear communication",
+            ],
+          },
+          {
+            title: "How to apply",
+            paragraphs: [
+              "Careers form (select Mobile), plus store link / APK demo / GitHub and availability.",
+            ],
+          },
+        ],
+      },
     },
     {
       id: "design",
@@ -678,7 +893,8 @@ const ja: CareersCopy = {
   roles: {
     eyebrow: "Open roles",
     title: "募集中のポジション",
-    support: "サービス・AI・品質の複数トラック。リモート歓迎。",
+    support:
+      "優先: Middle+ QA、Jr/Mid Fullstack、Mobile — Edu予約CRMと顧客EC。",
   },
   closedRoles: {
     title: "募集終了",
@@ -706,19 +922,19 @@ const ja: CareersCopy = {
       },
       {
         q: "報酬の目安は？",
-        a: "技術職（AI Engineer、Backend）はフル稼働換算で約1,000 USD/月、時間単価。Sales/BDは成約コミッション30%で基本給なし。Marketing/Growthは成果物または時間単価で合意します。",
+        a: "技術職（QA、Fullstack、Mobile、AI Engineer、Backend）はフル稼働換算で約1,000 USD/月、時間単価。Sales/BDは成約コミッション30%で基本給なし。Marketing/Growthは成果物または時間単価で合意します。",
       },
       {
         q: "出社は必要ですか？",
         a: "不要です。全ポジションがリモート歓迎で、進捗と品質を守れる限りベトナム国内外どこからでも働けます。",
       },
       {
-        q: "経験の少ない学生でも応募できますか？",
-        a: "はい。Intern FullstackとFresher Testerは最終学年や新卒向けで、実プロダクトでの密なメンタリングがあります。",
+        q: "納期と週次シンクの期待値は？",
+        a: "募集中のポジション（QA、Fullstack、Mobile）はスプリントのタイムライン遵守、進捗の明確な共有、週次シンクが必要です。固定出社時間はありませんが、成果物と期限は合意どおりです。",
       },
       {
         q: "どんなプロジェクトがありますか？",
-        a: "Web、モバイル、AI（社内AIコンテンツやVibe Coding基盤を含む）。主な顧客はSMEとスタートアップです。/services/web/ と /about/ もご覧ください。",
+        a: "現在の優先はクラス予約CRM（Dolphin Edu）と顧客向けEC — 加えてSMB向けWeb、アプリ、AI、連携。/services/web/ と /about/ もご覧ください。",
       },
       {
         q: "レビューと支払いの流れは？",
@@ -870,31 +1086,101 @@ const ja: CareersCopy = {
     },
     {
       id: "intern-fullstack",
-      title: "Intern Fullstack",
+      title: "Fullstack Developer (Junior / Middle) — 2 slots",
       summary:
-        "Dolphin SoftwareのAIコンテンツ基盤とVibe Codingプラットフォームでのフルスタックインターン。",
+        "クラス予約CRM（Dolphin Edu）と顧客向けEC向けに、Junior/Middleフルスタックフリーランスを2名募集 — スプリント納品、タイムライン遵守、週次シンク。",
       bullets: [
-        "React/Next.jsまたはNode.jsの基礎、学習意欲",
-        "社内AIコンテンツ基盤の実タスク",
-        "密なメンタリングとコードレビュー",
-        "最終学年・新卒を優先",
+        "Next.js / React + API（Node等）; TypeScriptがあると尚可",
+        "予約CRMまたはストアフロント / チェックアウトのエンドツーエンド機能",
+        "スプリント進捗と週次シンクへのコミット",
+        "しっかりしたJuniorまたはMiddle — 実ポートフォリオ / リポジトリ",
       ],
-      tags: ["Intern", "Next.js", "Vibe Coding"],
-      comp: "インターン · メンターあり",
+      tags: ["Fullstack", "Next.js", "CRM", "E-commerce"],
+      comp: "約1,000 USD/月相当 · 時間単価で柔軟",
+      priority: "優先",
+      detail: {
+        sections: [
+          {
+            title: "プロジェクト背景",
+            paragraphs: [
+              "クラス予約CRM（受講者・スケジュール・講師 — Dolphin Edu）および/またはSMB向けEC（カタログ、カート、決済、受注）の構築・拡張に関わります。",
+            ],
+          },
+          {
+            title: "主な仕事",
+            bullets: [
+              "明確なユーザーストーリーを受け、スプリント範囲でFE + APIを実装",
+              "クリーンなPRと説明、スプリント末のデモ",
+              "QAと連携しマイルストーン前にバグを閉じる",
+              "週次の短い進捗メモ（ブロッカー、進捗%、翌週計画）",
+            ],
+          },
+          {
+            title: "こんな方にフィット",
+            bullets: [
+              "実Webを1本以上出したJunior、または機能を自律できるMiddle",
+              "REST、基本認証、UI状態、レスポンシブに慣れている",
+              "遅い完璧主義より期限遵守を優先",
+              "リモート歓迎、コミュニケーションが明確",
+            ],
+          },
+          {
+            title: "応募方法",
+            paragraphs: [
+              "Careersフォーム（Fullstackを選択）、GitHub/ポートフォリオと週次の稼働可能時間を添えて。",
+            ],
+          },
+        ],
+      },
     },
     {
       id: "fresher-tester",
-      title: "Fresher Tester (Manual + Automation)",
+      title: "QA / Tester (Middle+) — 3 slots",
       summary:
-        "Web/Appのテスト — 構造化されたマニュアルQA、初日から自動化も学習。",
+        "Middle+テスターを3名募集 — BA思考、Edu予約CRMと顧客ECのプロダクト理解、品質とタイムラインを守り週次シンク。",
       bullets: [
-        "再現手順つきの明確なテストケースとバグレポート",
-        "スプリントでの実Web/モバイルテスト",
-        "Playwright/Cypress等を学習・適用",
-        "細部に注意、主体的、開発者と円滑に連携",
+        "ジャーニーと受け入れ基準からテストケース / チェックリストを設計",
+        "BA思考: 曖昧な要件をテスト前に明確化; プロダクト影響でリスク優先",
+        "明確なバグレポート（再現、重大度、影響）; クローズまで追跡",
+        "マイルストーンのタイムラインと週次進捗シンクを担う",
       ],
-      tags: ["QA", "Manual", "Automation"],
-      comp: "フレッシャー · マニュアル + 自動化",
+      tags: ["QA", "Middle+", "BA mindset", "Product"],
+      comp: "約1,000 USD/月相当 · 時間単価で柔軟",
+      priority: "優先",
+      detail: {
+        sections: [
+          {
+            title: "プロジェクト背景",
+            paragraphs: [
+              "クラス予約CRM（スケジュール、受講者、講師、クラス運営 — Dolphin Edu）と顧客ECフロー（カタログ、カート、決済、注文）をテストします。",
+            ],
+          },
+          {
+            title: "主な仕事",
+            bullets: [
+              "ブリーフ/ストーリーを読み、テスト前に短いテスト計画を書く",
+              "マイルストーンごとのリグレッション; ハンドオフ前のスモーク",
+              "業務ギャップを軽いBA視点で指摘",
+              "週次シンク: カバレッジ、未解決バグ、タイムラインリスク",
+            ],
+          },
+          {
+            title: "こんな方にフィット",
+            bullets: [
+              "Middle+ QA経験（マニュアルが強い; 自動化は尚可）",
+              "CRM・予約・ECのテスト経験があると尚可",
+              "Dev/PMと明確に連携; ブロッカーを黙らない",
+              "リモート歓迎; 柔軟な時間だが期限は守る",
+            ],
+          },
+          {
+            title: "応募方法",
+            paragraphs: [
+              "Careersフォーム（QA / Testerを選択）、CVまたは検証したプロダクトと週次シンクのコミットを添えて。",
+            ],
+          },
+        ],
+      },
     },
     {
       id: "backend",
@@ -923,15 +1209,52 @@ const ja: CareersCopy = {
     },
     {
       id: "mobile",
-      title: "Mobile Developer (Flutter / React Native)",
-      summary: "iOS/Androidまたはクロスプラットフォームアプリ。",
+      title: "Mobile Developer (Flutter / React Native) — 1 slot",
+      summary:
+        "クラス予約CRMアプリおよび/または顧客EC向けにモバイルフリーランスを1名募集 — スプリントタイムライン遵守、週次シンク。",
       bullets: [
-        "Flutterおよび/またはReact Native",
-        "ライフサイクル、ナビゲーション、API連携",
-        "UXと安定リリースを優先",
-        "リリース済みアプリまたは明確なデモ",
+        "Flutterおよび/またはReact Native; 安定したAPI連携",
+        "予約 / 受講者フロー、またはショップ / 注文フロー",
+        "明確なUX、安定リリース; 進捗と週次シンクへのコミット",
+        "リリース済みアプリまたはほぼ本番のデモ",
       ],
-      tags: ["Flutter", "React Native", "Mobile"],
+      tags: ["Mobile", "Flutter", "React Native", "CRM"],
+      comp: "約1,000 USD/月相当 · 時間単価で柔軟",
+      priority: "優先",
+      detail: {
+        sections: [
+          {
+            title: "プロジェクト背景",
+            paragraphs: [
+              "クラス予約/CRM（Edu）および/またはSMB ECチャネル向けモバイルを既存backend/webと整合して構築・拡張します。",
+            ],
+          },
+          {
+            title: "主な仕事",
+            bullets: [
+              "デザイン/Figmaから画面実装、API接続、基本的なオフライン/エラー処理",
+              "マイルストーン前の実機テスト",
+              "フルスタック/QAと連携しスプリント内でバグを閉じる",
+              "週次の進捗シンク",
+            ],
+          },
+          {
+            title: "こんな方にフィット",
+            bullets: [
+              "FlutterまたはReact Nativeに強い（浅い二刀流より深い一刀）",
+              "ナビゲーション、認証トークン、プッシュ（スコープ内なら）",
+              "小さなリリース期限を守る — 最終日マージを避ける",
+              "リモート歓迎、コミュニケーションが明確",
+            ],
+          },
+          {
+            title: "応募方法",
+            paragraphs: [
+              "Careersフォーム（Mobileを選択）、ストアリンク / APKデモ / GitHubと稼働可能時間を添えて。",
+            ],
+          },
+        ],
+      },
     },
     {
       id: "design",
