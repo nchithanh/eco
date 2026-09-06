@@ -29,6 +29,11 @@ describe("Dolphin Software news page", () => {
     expect(screen.getByText(/^Nổi bật$/i)).toBeInTheDocument();
     expect(
       screen.getByRole("link", {
+        name: /Chuyển quản lý task từ Zalo sang CRM/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("link", {
         name: /Kinh doanh nhỏ có cần website không\? Câu trả lời thật lòng/i,
       }),
     ).toBeInTheDocument();
@@ -221,6 +226,37 @@ describe("Dolphin Software news page", () => {
     expect(
       screen.getByRole("button", {
         name: /Copy prompt AI trên Facebook có sao không/i,
+      }),
+    ).toBeInTheDocument();
+  });
+
+  it("renders Zalo-to-CRM task article with FAQ", async () => {
+    const page = await NewsArticlePage({
+      params: Promise.resolve({
+        slug: "chuyen-quan-ly-task-tu-zalo-sang-crm",
+      }),
+    });
+    render(<AppProviders>{page}</AppProviders>);
+    expect(
+      screen.getByRole("heading", {
+        level: 1,
+        name: /Chuyển quản lý task từ Zalo sang CRM/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", {
+        level: 2,
+        name: /Zalo gãy ở đâu khi dùng để quản lý task/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", {
+        name: /Dùng Zalo quản lý công việc có gì sai đâu/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("img", {
+        name: /cuộn điện thoại tìm tin nhắn giao việc/i,
       }),
     ).toBeInTheDocument();
   });
