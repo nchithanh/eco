@@ -309,22 +309,155 @@
       ol.benefits li + li {
         margin-top: 0.5rem;
       }
+      ul.scope-list {
+        margin: 0;
+        padding: 1rem 1rem 1rem 2.15rem;
+        background: var(--kuct-surface);
+        border: 1px solid var(--kuct-border);
+        border-radius: 10px;
+        box-shadow: var(--kuct-shadow);
+        font-size: 0.88rem;
+        color: var(--kuct-text);
+      }
+      ul.scope-list li + li {
+        margin-top: 0.45rem;
+      }
       .price-input {
-        width: 6.5rem;
+        width: 7rem;
         text-align: right;
         font: inherit;
         font-variant-numeric: tabular-nums;
-        border: 0;
-        border-radius: 0;
-        padding: 0;
-        background: transparent;
+        border: 1px solid var(--kuct-border);
+        border-radius: 0.4rem;
+        padding: 0.35rem 0.45rem;
+        background: var(--kuct-surface);
         color: inherit;
+        pointer-events: auto;
+        cursor: text;
+      }
+      .price-input:focus {
+        outline: 2px solid color-mix(in srgb, var(--kuct-accent) 45%, transparent);
+        outline-offset: 1px;
+      }
+      .price-input[readonly],
+      .price-input.is-locked {
         pointer-events: none;
         cursor: default;
+        border-color: transparent;
+        background: transparent;
+        box-shadow: none;
+        padding-inline: 0;
+        font-weight: 650;
+      }
+      .price-input[readonly]:focus,
+      .price-input.is-locked:focus {
+        outline: none;
+      }
+      .extras-table tr.is-ai td,
+      .extras-table tr.is-ai .en,
+      .extras-table tr.is-ai ul.incl {
+        color: var(--kuct-accent);
+      }
+      .extras-table tr.is-ai strong {
+        color: var(--kuct-accent-2);
+      }
+      .extras-table tr.is-ai .price-input {
+        color: var(--kuct-accent);
+      }
+      .extras-table .vp {
+        display: block;
+        margin-top: 0.4rem;
+        font-size: 0.78rem;
+        font-weight: 550;
+        line-height: 1.35;
+        color: color-mix(in srgb, var(--kuct-accent) 85%, var(--kuct-muted));
+      }
+      .extras-table tr.is-ai .vp {
+        color: color-mix(in srgb, var(--kuct-accent-2) 70%, var(--kuct-muted));
       }
       .muted-num {
         color: var(--kuct-muted);
         font-size: 0.78rem;
+      }
+      .price-cell {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 0.2rem;
+      }
+      .price-hint {
+        font-size: 0.68rem;
+        font-weight: 500;
+        color: var(--kuct-muted);
+        white-space: nowrap;
+      }
+      .scope-label {
+        display: block;
+      }
+      .term-picks {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+        margin-top: 0.7rem;
+        padding: 0;
+        border: 0;
+        min-inline-size: 0;
+      }
+      .term-picks legend {
+        float: left;
+        width: 100%;
+        margin: 0 0 0.35rem;
+        padding: 0;
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--kuct-muted);
+      }
+      .term-picks label {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        margin: 0;
+        padding: 0.28rem 0.6rem;
+        border: 1px solid var(--kuct-border);
+        border-radius: 10px;
+        font-size: 0.78rem;
+        font-weight: 600;
+        color: var(--kuct-text);
+        cursor: pointer;
+        background: var(--kuct-surface);
+      }
+      .term-picks label:has(:checked) {
+        border-color: color-mix(in srgb, var(--kuct-accent) 50%, var(--kuct-border));
+        background: color-mix(in srgb, var(--kuct-accent) 10%, var(--kuct-surface));
+        color: var(--kuct-accent-2);
+      }
+      .term-picks input {
+        width: 0.9rem;
+        height: 0.9rem;
+        margin: 0;
+        accent-color: var(--kuct-accent);
+      }
+      .extras-table tr.is-ai .price-hint {
+        color: color-mix(in srgb, var(--kuct-accent) 55%, var(--kuct-muted));
+      }
+      .price-was {
+        font-size: 0.78rem;
+        font-weight: 500;
+        color: var(--kuct-muted);
+        text-decoration: line-through;
+      }
+      .price-offer {
+        display: block;
+        margin-top: 0.2rem;
+        font-size: 0.68rem;
+        font-weight: 600;
+        color: var(--ok);
+        white-space: normal;
+        max-width: 9rem;
+        text-align: right;
+        line-height: 1.3;
       }
       .toolbar {
         display: flex;
@@ -388,6 +521,17 @@
       table.totals-table tbody tr.due td {
         background: var(--kuct-panel);
       }
+      table.totals-table tbody tr.grand-sum td:first-child {
+        color: var(--kuct-text);
+        font-weight: 650;
+        text-align: left;
+      }
+      table.totals-table tbody tr.grand-sum td.num {
+        text-align: center;
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--kuct-accent-2);
+      }
       .note {
         font-size: 0.8rem;
         color: var(--kuct-muted);
@@ -429,12 +573,16 @@
         .no-print {
           display: none !important;
         }
+        .en {
+          display: none !important;
+        }
         .wrap {
           max-width: none;
           padding: 0;
         }
         table,
         ol.benefits,
+        ul.scope-list,
         input.plain,
         textarea.plain {
           box-shadow: none;
@@ -442,6 +590,8 @@
         .price-input {
           border: 0;
           padding: 0;
+          background: transparent;
+          pointer-events: none;
         }
         input.plain,
         textarea.plain {
@@ -483,6 +633,12 @@
         .col-pick input.pick {
           -webkit-print-color-adjust: exact;
           print-color-adjust: exact;
+        }
+        .term-picks label:not(:has(:checked)) {
+          display: none;
+        }
+        .term-picks input {
+          display: none;
         }
       }
       @media (max-width: 48rem) {
@@ -656,12 +812,21 @@
 
       <div class="toolbar no-print">
         <button type="button" id="btnPrint">In / PDF</button>
-        <button type="button" class="ghost" id="btnReset">Xóa giá đã điền</button>
+        <button type="button" id="btnExportJson">Xuất giá JSON</button>
+        <button type="button" class="ghost" id="btnReset">Đặt lại lựa chọn</button>
       </div>
 
+      <p class="note">
+        Báo giá phần mềm CRM theo vận hành hiện tại của
+        <strong>MA Dance</strong> (chi nhánh, lớp, học viên, thu phí, điểm danh,
+        bảo lưu…). Các hạng mục tùy chọn ở phần B đánh dấu và ghi giá nếu sử
+        dụng.
+      </p>
+
+      <div id="sectionExtras">
       <h2>
-        A. Hạng mục trong gói
-        <span class="en">Included</span>
+        A. CRM — chuyển đổi vận hành MA
+        <span class="en">CRM — digitize MA operations</span>
       </h2>
       <div class="table-scroll">
       <table>
@@ -669,81 +834,165 @@
           <tr>
             <th>Hạng mục<span class="en">Item</span></th>
             <th>Phạm vi<span class="en">Scope</span></th>
-            <th class="num">Thời hạn<span class="en">Term</span></th>
+            <th class="num">Trả hàng năm<span class="en">Yearly</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <strong>CRM chuyển đổi vận hành MA</strong>
+              <span class="en">MA ops CRM</span>
+              <ul class="incl">
+                <li>
+                  <strong>A1 · Nền tảng &amp; phân quyền</strong> — 3 chi nhánh ·
+                  7 phòng; khóa gắn chi nhánh, phòng linh hoạt trong chi nhánh;
+                  quyền chủ / quản lý / lễ tân / giáo viên (giáo viên không xem
+                  học phí &amp; số điện thoại học viên)
+                </li>
+                <li>
+                  <strong>A2 · Khóa học &amp; buổi</strong> — thể loại, level,
+                  khung giờ, giáo viên, ngày bắt đầu–kết thúc, chi nhánh; lịch
+                  tuần cố định; khoảng 8 buổi/tháng; tạo buổi; trạng thái; hủy
+                  buổi (học viên không mất buổi); đổi giờ / phòng / giáo viên; 1
+                  giáo viên/buổi; không trùng phòng–giờ
+                </li>
+                <li>
+                  <strong>A3 · Tuyển sinh / ghi danh</strong> — cửa sổ ghi danh;
+                  nhận giữa khóa theo level (Begin khoảng buổi 4–5; Inter buổi
+                  lẻ; Advance buổi 1 &amp; 5); sĩ số 10–15; lớp đầy → gợi ý khung
+                  giờ khác; nhiều khóa song song; đổi lớp cuối tháng / bảo lưu
+                  chuyển lớp; nghỉ học vẫn giữ hồ sơ
+                </li>
+                <li>
+                  <strong>A4 · Học viên &amp; phụ huynh</strong> — hồ sơ, ngày
+                  sinh, email; trẻ em: điểm danh theo tên học viên, liên hệ &amp;
+                  thanh toán theo phụ huynh
+                </li>
+                <li>
+                  <strong>A5 · Giáo viên</strong> — tên, số điện thoại, email,
+                  phong cách dạy, lớp, chi nhánh; nghỉ dạy → giáo viên dự phòng
+                </li>
+                <li>
+                  <strong>A6 · Gói buổi &amp; trừ buổi</strong> — thu theo gói;
+                  điểm danh xong trừ 1 buổi; không học bù; nghỉ không bảo lưu →
+                  mất buổi, không hoàn
+                </li>
+                <li>
+                  <strong>A7 · Thu học phí &amp; công nợ</strong> — đóng một lần
+                  hoặc từng đợt; tiền mặt / chuyển khoản + ảnh bill; cọc gói 6
+                  tháng &amp; 12 tháng; còn nợ vẫn vào lớp, thu sau; báo cáo đã
+                  thu / còn nợ theo chi nhánh
+                </li>
+                <li>
+                  <strong>A8 · Bảo lưu</strong> — gói từ 3 tháng trở lên tặng bảo
+                  lưu / gói ngắn mua bảo lưu lẻ; đã đóng học phí + nghỉ dài;
+                  quản lý duyệt trên CRM; theo hạn gói bảo lưu + số buổi còn;
+                  hết hạn không học → trừ buổi; ngày lễ / hủy lớp không tính hạn
+                  bảo lưu; khi bảo lưu vẫn giữ chỗ sĩ số; quay lại hỗ trợ đổi
+                  giáo viên / lịch
+                </li>
+                <li>
+                  <strong>A9 · Điểm danh tay</strong> — có mặt / vắng trên CRM
+                  (lễ tân / quản lý)
+                </li>
+                <li>
+                  <strong>A10 · Điểm danh QR</strong> — điểm danh bằng mã QR
+                </li>
+                <li>
+                  <strong>A11 · Lịch / Google Calendar</strong> — đồng bộ lịch
+                  học viên / giáo viên với Google Calendar của trung tâm (MA
+                  Dance đang dùng Google Calendar)
+                </li>
+                <li>
+                  <strong>A12 · Promotion / voucher</strong> — quản lý chương
+                  trình khuyến mãi, mã giảm giá / voucher
+                </li>
+                <li>
+                  <strong>A13 · Chăm sóc &amp; thông báo</strong> — chúc mừng
+                  sinh nhật học viên; gửi tin Zalo / email hàng loạt cho học viên
+                  (hoặc phụ huynh)
+                </li>
+                <li>
+                  <strong>A14 · Theo dõi doanh thu</strong> — theo dõi và báo cáo
+                  doanh thu theo chi nhánh / kỳ (đã thu, còn nợ, theo gói)
+                </li>
+              </ul>
+            </td>
+            <td>Đã gồm trong gói</td>
+            <td class="num">
+              <div class="price-cell">
+                <span class="price-was">6.000.000đ</span>
+                <strong id="crmBaseYearLabel">5.000.000đ</strong>
+                <span class="price-hint">500k × 12</span>
+                <span class="price-offer">Ưu đãi riêng MA Dance</span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+
+      <h2>
+        Onboarding &amp; Setup
+        <span class="en">Onboarding &amp; setup</span>
+      </h2>
+      <div class="table-scroll">
+      <table class="extras-table">
+        <thead>
+          <tr>
+            <th class="col-pick">Chọn</th>
+            <th>Hạng mục<span class="en">Item</span></th>
+            <th>Phạm vi<span class="en">Scope</span></th>
             <th class="num">Giá 1 lần<span class="en">One-time</span></th>
             <th class="num">Giá / tháng<span class="en">Monthly</span></th>
             <th class="num">Giá / năm<span class="en">Yearly</span></th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>
-              <strong>CRM quản lý</strong>
-              <span class="en">Studio CRM</span>
-              <ul class="incl">
-                <li>Chi nhánh, phòng tập<span class="en">Branches and studios</span></li>
-                <li>Khóa học, lịch tuần, buổi, sĩ số<span class="en">Courses, weekly schedule, sessions, capacity</span></li>
-                <li>Hồ sơ học viên, ghi danh, đổi ca<span class="en">Students, enrollment, class change</span></li>
-                <li>Giáo viên, phân công, dạy thay<span class="en">Teachers, assignment, substitute</span></li>
-                <li>Điểm danh tay (có mặt / vắng)<span class="en">Manual attendance</span></li>
-                <li>Phân quyền nhân sự trên CRM<span class="en">Staff roles on CRM</span></li>
-                <li>Không gồm: tác vụ, cổng login HV/GV, thanh toán, QR, Calendar, bảo lưu, book phòng, AI<span class="en">Excludes tasks, student/teacher portal, payment, QR, Calendar, freeze, room booking, AI</span></li>
-              </ul>
+          <tr
+            data-key="onboarding-setup"
+            data-section="setup"
+            data-once-item="1"
+          >
+            <td class="col-pick">
+              <input type="checkbox" class="pick" checked />
             </td>
-            <td>Vận hành trung tâm<span class="en">Studio operations</span></td>
-            <td class="num">Bàn giao<span class="en">Handover</span></td>
-            <td class="num">5.000.000đ</td>
-            <td class="num muted-num">—</td>
-            <td class="num muted-num">—</td>
-          </tr>
-          <tr>
             <td>
-              <strong>Website công khai</strong>
-              <span class="en">Public website</span>
+              <strong>Phí Onboarding &amp; Setup</strong>
+              <span class="en">Onboarding &amp; setup fee</span>
               <ul class="incl">
-                <li>Site giới thiệu, đa trang, điện thoại<span class="en">Multi-page site, mobile</span></li>
-                <li>Admin sửa ảnh, nội dung, blog<span class="en">Admin: photos, copy, blog</span></li>
-                <li>Form liên hệ / dẫn Zalo<span class="en">Contact form / Zalo</span></li>
-                <li>SEO nền: meta, cấu trúc, mobile<span class="en">Baseline SEO</span></li>
-                <li>Không gồm login học viên / giáo viên<span class="en">No student / teacher login</span></li>
+                <li>Setup website + CRM + import dữ liệu</li>
               </ul>
+              <span class="vp" style="color: var(--ok)"
+                >Ưu đãi Dolphin: giảm còn 500.000đ (niêm yết 2–3 triệu).</span
+              >
             </td>
-            <td>Website giới thiệu<span class="en">Marketing site</span></td>
-            <td class="num">Bàn giao<span class="en">Handover</span></td>
-            <td class="num">4.500.000đ</td>
-            <td class="num muted-num">—</td>
-            <td class="num muted-num">—</td>
-          </tr>
-          <tr>
-            <td>
-              <strong>Phí tên miền nhà nước</strong>
-              <span class="en">National domain fee</span>
-              <ul class="incl">
-                <li>Lệ phí đăng ký / duy trì qua VNNIC. Hosting do Dolphin cung cấp miễn phí.<span class="en">VNNIC domain fee. Hosting is included free by Dolphin.</span></li>
-              </ul>
+            <td>Thu một lần<span class="en">One-time</span></td>
+            <td class="num">
+              <div class="price-cell">
+                <span class="price-was">2–3.000.000đ</span>
+                <input class="price-input" data-period="once" placeholder="—" />
+                <span class="price-offer">Ưu đãi Dolphin</span>
+              </div>
             </td>
-            <td>Tên miền<span class="en">Domain</span></td>
-            <td class="num">Theo kỳ tên miền<span class="en">Per domain term</span></td>
             <td class="num muted-num">—</td>
             <td class="num muted-num">—</td>
-            <td class="num">550.000đ</td>
           </tr>
         </tbody>
       </table>
       </div>
 
-      <div id="sectionExtras">
       <h2>
-        B. Hạng mục tùy chọn
+        B. Tùy chọn mở rộng
         <span class="en">Optional add-ons</span>
       </h2>
       <p class="note no-print">
-        Tick mục khách chọn rồi In / PDF. Dòng chưa chọn vẫn in ra, chữ mờ, không tick.
+        Các hạng mục dưới đây không bắt buộc. Đánh dấu và ghi giá nếu sử dụng.
       </p>
 
       <h3>
-        B1. Website
-        <span class="en">Website</span>
+        B1. Website &amp; theo dõi
+        <span class="en">Website &amp; tracking</span>
       </h3>
       <div class="table-scroll">
       <table class="extras-table">
@@ -758,27 +1007,53 @@
           </tr>
         </thead>
         <tbody>
+          <tr data-key="website" data-once-item="1">
+            <td class="col-pick"><input type="checkbox" class="pick" /></td>
+            <td>
+              <strong>Website công khai</strong>
+              <span class="en">Public website</span>
+              <ul class="incl">
+                <li>Site giới thiệu, admin ảnh/nội dung/blog, form/Zalo, SEO nền</li>
+                <li>Không gồm login học viên / giáo viên</li>
+              </ul>
+            </td>
+            <td>Marketing site<span class="en">Marketing site</span></td>
+            <td class="num"><input class="price-input" data-period="once" placeholder="—" /></td>
+            <td class="num"><input class="price-input" data-period="month" placeholder="—" /></td>
+            <td class="num"><input class="price-input" data-period="year" placeholder="—" /></td>
+          </tr>
           <tr data-key="portal" data-once-item="1">
             <td class="col-pick"><input type="checkbox" class="pick" /></td>
             <td>
-              <strong>Cổng login giáo viên + học viên</strong>
-              <span class="en">Teacher &amp; student portal</span>
+              <strong>Website theo dõi dành cho học viên &amp; giáo viên</strong>
+              <span class="en">Student &amp; teacher tracking site</span>
               <ul class="incl">
-                <li>Đăng nhập riêng GV và HV<span class="en">Separate teacher and student login</span></li>
-                <li>GV xem lịch dạy, lớp, sĩ số, danh sách HV<span class="en">Teachers: schedule, class, roster</span></li>
-                <li>HV xem khóa, lịch buổi, hồ sơ — chỉ xem<span class="en">Students: courses, sessions, profile — read-only</span></li>
+                <li>
+                  Học viên / giáo viên đăng nhập để theo dõi thông tin của mình
+                  (lịch, lớp, sĩ số, khóa học, hồ sơ)
+                </li>
+                <li>
+                  Xem chương trình khuyến mãi / promotion của MA, video và tài
+                  liệu của trung tâm
+                </li>
+                <li>Chỉ xem — không thu tiền trên website này</li>
               </ul>
             </td>
-            <td>Cổng xem thông tin trên web (không thu tiền trên cổng)<span class="en">Web info portal (no payments)</span></td>
-            <td class="num">
-              <input class="price-input" readonly tabindex="-1" data-period="once" value="3.000.000" />
+            <td>Theo dõi + nội dung MA<span class="en">Tracking + MA content</span></td>
+            <td class="num"><input class="price-input" data-period="once" placeholder="—" /></td>
+            <td class="num"><input class="price-input" data-period="month" placeholder="—" /></td>
+            <td class="num"><input class="price-input" data-period="year" placeholder="—" /></td>
+          </tr>
+          <tr data-key="domain">
+            <td class="col-pick"><input type="checkbox" class="pick" /></td>
+            <td>
+              <strong>Phí tên miền VNNIC</strong>
+              <span class="en">VNNIC domain fee</span>
             </td>
-            <td class="num">
-              <input class="price-input" readonly tabindex="-1" data-period="month" placeholder="—" />
-            </td>
-            <td class="num">
-              <input class="price-input" readonly tabindex="-1" data-period="year" placeholder="—" />
-            </td>
+            <td>Đăng ký / duy trì theo kỳ; hosting theo quyền lợi đi kèm<span class="en">Per domain term</span></td>
+            <td class="num"><input class="price-input" data-period="once" placeholder="—" /></td>
+            <td class="num"><input class="price-input" data-period="month" placeholder="—" /></td>
+            <td class="num"><input class="price-input" data-period="year" placeholder="—" /></td>
           </tr>
           <tr data-key="ecom" data-once-item="1">
             <td class="col-pick"><input type="checkbox" class="pick" /></td>
@@ -786,66 +1061,63 @@
               <strong>Website bán hàng cơ bản</strong>
               <span class="en">Basic online store</span>
             </td>
-            <td>Catalog, giỏ hàng, thanh toán cơ bản — tách khỏi website công khai 4,5tr<span class="en">Catalog, cart, basic checkout — separate from the 4.5M public site</span></td>
-            <td class="num">
-              <input class="price-input" readonly tabindex="-1" data-period="once" value="5.000.000" />
-            </td>
-            <td class="num">
-              <input class="price-input" readonly tabindex="-1" data-period="month" placeholder="—" />
-            </td>
-            <td class="num">
-              <input class="price-input" readonly tabindex="-1" data-period="year" placeholder="—" />
-            </td>
+            <td>Catalog, giỏ hàng, thanh toán cơ bản — bán hàng online (ngoài vận hành lớp học)<span class="en">Online storefront</span></td>
+            <td class="num"><input class="price-input" data-period="once" placeholder="—" /></td>
+            <td class="num"><input class="price-input" data-period="month" placeholder="—" /></td>
+            <td class="num"><input class="price-input" data-period="year" placeholder="—" /></td>
           </tr>
-          <tr data-key="content-daily">
+          <tr
+            data-key="ai-marketing-omnichannel"
+            data-section="B1"
+            data-bill="prepaid"
+            data-hint-unit="900k"
+            data-hint-unit6="990k"
+            class="is-ai"
+          >
             <td class="col-pick"><input type="checkbox" class="pick" /></td>
             <td>
-              <strong>Content — AI tạo bài post hàng ngày (website + Facebook + Instagram)</strong>
-              <span class="en">Daily AI posts for website, Facebook, Instagram</span>
+              <strong>Combo AI Tuyển Sinh &amp; Trực Page 24/7 (Đa kênh)</strong>
+              <span class="en">AI enrollment &amp; page care 24/7</span>
+              <ul class="incl">
+                <li>
+                  Trực chat tự động trên Website + Fanpage + Zalo OA ngoài giờ
+                  hành chính; tự động tư vấn lớp, lấy SĐT và hẹn lịch học thử
+                </li>
+                <li>
+                  <strong>Dolphin Care</strong> — chăm sóc khách đa kênh (website,
+                  Fanpage, Zalo OA): trả lời FAQ, tư vấn, thu lead
+                </li>
+              </ul>
+              <span class="vp"
+                >Thay thế 1 nhân sự trực ca đêm/cuối tuần; không bỏ lỡ học viên
+                nhắn ngoài giờ; tăng 20–30% tỷ lệ chuyển đổi khách vào học
+                thử.</span
+              >
             </td>
-            <td>Từ ảnh / video + tiêu đề + mô tả ngắn → AI tạo bài và đăng<span class="en">From photo/video + title + short caption → AI writes and publishes</span></td>
-            <td class="num">
-              <input class="price-input" readonly tabindex="-1" data-period="once" placeholder="—" />
-            </td>
-            <td class="num">
-              <input class="price-input" readonly tabindex="-1" data-period="month" value="1.000.000" />
-            </td>
-            <td class="num">
-              <input class="price-input" readonly tabindex="-1" data-period="year" value="0" />
-            </td>
-          </tr>
-          <tr data-key="care">
-            <td class="col-pick"><input type="checkbox" class="pick" /></td>
             <td>
-              <strong>Chatbot AI — Dolphin Care</strong>
-              <span class="en">Dolphin Care AI chatbot</span>
+              <span class="scope-label"
+                >Dolphin Care đa kênh 24/7
+                <span class="en">Dolphin Care omnichannel</span></span
+              >
+              <fieldset class="term-picks">
+                <legend>Gói prepaid</legend>
+                <label
+                  ><input type="checkbox" class="term-pick" data-term="6" />
+                  6 tháng</label
+                >
+                <label
+                  ><input type="checkbox" class="term-pick" data-term="12" />
+                  12 tháng</label
+                >
+              </fieldset>
             </td>
-            <td>Chăm sóc, giải đáp khách trên website<span class="en">Visitor Q&amp;A on the website</span></td>
+            <td class="num"><input class="price-input" data-period="once" placeholder="—" /></td>
+            <td class="num"><input class="price-input" data-period="month" placeholder="—" /></td>
             <td class="num">
-              <input class="price-input" readonly tabindex="-1" data-period="once" placeholder="—" />
-            </td>
-            <td class="num">
-              <input class="price-input" readonly tabindex="-1" data-period="month" value="3.000.000" />
-            </td>
-            <td class="num">
-              <input class="price-input" readonly tabindex="-1" data-period="year" value="0" />
-            </td>
-          </tr>
-          <tr data-key="crm-chat-basic">
-            <td class="col-pick"><input type="checkbox" class="pick" /></td>
-            <td>
-              <strong>Gói 1 — Chăm sóc khách hàng trên website</strong>
-              <span class="en">Pack 1 — Website customer care</span>
-            </td>
-            <td>Chat AI trên website: giải đáp, tư vấn khách; lead vào CRM.<span class="en">Website AI chat: Q&amp;A, visitor guidance; leads into CRM.</span></td>
-            <td class="num">
-              <input class="price-input" readonly tabindex="-1" data-period="once" placeholder="—" />
-            </td>
-            <td class="num">
-              <input class="price-input" readonly tabindex="-1" data-period="month" value="1.000.000" />
-            </td>
-            <td class="num">
-              <input class="price-input" readonly tabindex="-1" data-period="year" value="0" />
+              <div class="price-cell">
+                <input class="price-input" data-period="year" placeholder="—" />
+                <span class="price-hint">990k × 6 / 900k × 12</span>
+              </div>
             </td>
           </tr>
         </tbody>
@@ -853,8 +1125,8 @@
       </div>
 
       <h3>
-        B2. CRM
-        <span class="en">CRM</span>
+        B2. Mở rộng vận hành
+        <span class="en">Operations add-ons</span>
       </h3>
       <div class="table-scroll">
       <table class="extras-table">
@@ -869,96 +1141,137 @@
           </tr>
         </thead>
         <tbody>
-          <tr data-key="tasks" data-once-item="1">
+          <tr data-key="tasks" data-once-item="1" data-section="B2">
             <td class="col-pick"><input type="checkbox" class="pick" /></td>
             <td>
               <strong>Quản lý tác vụ</strong>
               <span class="en">Task board</span>
               <ul class="incl">
-                <li>Giao việc, mô tả, hạn<span class="en">Assign, description, due date</span></li>
-                <li>Trạng thái: chờ / đang làm / xong / hủy<span class="en">Todo / doing / done / cancelled</span></li>
-                <li>Lọc theo người, trạng thái, hạn<span class="en">Filter by assignee, status, due</span></li>
-                <li>Thay chia việc trên Zalo — không gồm sprint / epic kiểu Jira<span class="en">Replaces Zalo tasking — not full Jira</span></li>
+                <li>Giao việc, hạn hoàn thành, trạng thái, lọc — thay chia việc qua Zalo</li>
               </ul>
             </td>
-            <td>Công việc nội bộ trên CRM<span class="en">Internal CRM work</span></td>
-            <td class="num">
-              <input class="price-input" readonly tabindex="-1" data-period="once" value="2.000.000" />
-            </td>
-            <td class="num">
-              <input class="price-input" readonly tabindex="-1" data-period="month" placeholder="—" />
-            </td>
-            <td class="num">
-              <input class="price-input" readonly tabindex="-1" data-period="year" placeholder="—" />
-            </td>
+            <td>Công việc nội bộ<span class="en">Internal tasks</span></td>
+            <td class="num"><input class="price-input" data-period="once" placeholder="—" /></td>
+            <td class="num"><input class="price-input" data-period="month" placeholder="—" /></td>
+            <td class="num"><input class="price-input" data-period="year" placeholder="—" /></td>
           </tr>
-          <tr data-key="payment" data-once-item="1">
+          <tr data-key="payment-online" data-once-item="1" data-section="B2">
             <td class="col-pick"><input type="checkbox" class="pick" /></td>
             <td>
-              <strong>Thanh toán</strong>
-              <span class="en">Payment</span>
+              <strong>Tích hợp thanh toán online</strong>
+              <span class="en">Online payment integration</span>
+              <ul class="incl">
+                <li>
+                  Học viên / phụ huynh thanh toán học phí hoặc gói qua cổng online
+                  trên hệ thống
+                </li>
+                <li>
+                  Khác thu tại quầy (tiền mặt / chuyển khoản + ảnh bill) — có cổng
+                  thanh toán và đối soát giao dịch
+                </li>
+              </ul>
             </td>
-            <td>Tích hợp thanh toán tự động trên CRM<span class="en">Automated payment on CRM</span></td>
-            <td class="num">
-              <input class="price-input" readonly tabindex="-1" data-period="once" value="2.000.000" />
-            </td>
-            <td class="num">
-              <input class="price-input" readonly tabindex="-1" data-period="month" placeholder="—" />
-            </td>
-            <td class="num">
-              <input class="price-input" readonly tabindex="-1" data-period="year" placeholder="—" />
-            </td>
+            <td>Thanh toán online trên CRM<span class="en">Online pay on CRM</span></td>
+            <td class="num"><input class="price-input" data-period="once" placeholder="—" /></td>
+            <td class="num"><input class="price-input" data-period="month" placeholder="—" /></td>
+            <td class="num"><input class="price-input" data-period="year" placeholder="—" /></td>
           </tr>
-          <tr data-key="booking-room" data-once-item="1">
+          <tr data-key="booking-room" data-once-item="1" data-section="B2">
             <td class="col-pick"><input type="checkbox" class="pick" /></td>
             <td>
-              <strong>Đặt phòng tập</strong>
-              <span class="en">Room booking</span>
+              <strong>Đặt phòng tập (thuê studio)</strong>
+              <span class="en">Public room booking</span>
             </td>
-            <td>1 trang user đặt phòng + 1 trang quản lý trên CRM (gán lớp, tránh trùng lịch).<span class="en">User booking page + CRM room manager (assign classes, avoid clashes).</span></td>
-            <td class="num">
-              <input class="price-input" readonly tabindex="-1" data-period="once" value="1.000.000" />
-            </td>
-            <td class="num">
-              <input class="price-input" readonly tabindex="-1" data-period="month" placeholder="—" />
-            </td>
-            <td class="num">
-              <input class="price-input" readonly tabindex="-1" data-period="year" placeholder="—" />
-            </td>
+            <td>Trang đặt phòng công khai + quản lý trên CRM<span class="en">Public booking + CRM</span></td>
+            <td class="num"><input class="price-input" data-period="once" placeholder="—" /></td>
+            <td class="num"><input class="price-input" data-period="month" placeholder="—" /></td>
+            <td class="num"><input class="price-input" data-period="year" placeholder="—" /></td>
           </tr>
-          <tr data-key="crm-chat-fast">
+          <tr
+            data-key="ai-ops-assistant"
+            data-section="B2"
+            data-bill="prepaid"
+            data-hint-unit="1tr"
+            data-hint-unit6="1,1tr"
+            class="is-ai"
+          >
             <td class="col-pick"><input type="checkbox" class="pick" /></td>
             <td>
-              <strong>Gói 2 — Hỗ trợ nhanh trên CRM</strong>
-              <span class="en">Pack 2 — Quick CRM support</span>
+              <strong>Combo AI Trợ Lý Vận Hành &amp; Chăm Sóc Lớp Học</strong>
+              <span class="en">AI ops &amp; class-care assistant</span>
+              <ul class="incl">
+                <li>
+                  Nhập liệu nhanh bằng giọng nói/văn bản (nói câu lệnh tự mở form
+                  thu tiền/xếp lớp)
+                </li>
+                <li>Cảnh báo học viên sắp hết buổi / chưa đóng phí</li>
+                <li>
+                  Tích hợp AI giải đáp nhanh nội quy &amp; lịch học trên Portal
+                  học viên
+                </li>
+              </ul>
+              <span class="vp"
+                >Giảm 70% thời gian thao tác nhập liệu thủ công của lễ tân; giảm
+                tỷ lệ học viên rơi rụng nhờ nhắc gia hạn buổi học đúng thời
+                điểm.</span
+              >
             </td>
-            <td>Nói việc → mở form / thao tác nhanh trên CRM (ghi danh, hủy buổi…).<span class="en">Speak a task → open the matching form or quick action in CRM.</span></td>
-            <td class="num">
-              <input class="price-input" readonly tabindex="-1" data-period="once" placeholder="—" />
+            <td>
+              <span class="scope-label"
+                >Trợ lý vận hành CRM
+                <span class="en">CRM ops assistant</span></span
+              >
+              <fieldset class="term-picks">
+                <legend>Gói prepaid</legend>
+                <label
+                  ><input type="checkbox" class="term-pick" data-term="6" />
+                  6 tháng</label
+                >
+                <label
+                  ><input type="checkbox" class="term-pick" data-term="12" />
+                  12 tháng</label
+                >
+              </fieldset>
             </td>
+            <td class="num"><input class="price-input" data-period="once" placeholder="—" /></td>
+            <td class="num"><input class="price-input" data-period="month" placeholder="—" /></td>
             <td class="num">
-              <input class="price-input" readonly tabindex="-1" data-period="month" value="3.000.000" />
-            </td>
-            <td class="num">
-              <input class="price-input" readonly tabindex="-1" data-period="year" value="0" />
+              <div class="price-cell">
+                <input class="price-input" data-period="year" placeholder="—" />
+                <span class="price-hint">1,1tr × 6 / 1tr × 12</span>
+              </div>
             </td>
           </tr>
-          <tr data-key="crm-chat-247">
+          <tr
+            data-key="dolphin-intelligent-alert"
+            data-section="B2"
+            class="is-ai"
+          >
             <td class="col-pick"><input type="checkbox" class="pick" /></td>
             <td>
-              <strong>Gói 3 — Agent Canh trực</strong>
-              <span class="en">Pack 3 — Watch Agent</span>
+              <strong>Dolphin Intelligent — cảnh báo &amp; xử lý dữ liệu</strong>
+              <span class="en">Dolphin Intelligent data alerts</span>
+              <ul class="incl">
+                <li>
+                  Giám sát dữ liệu cuối ngày; phát hiện vấn đề dữ liệu và đề xuất
+                  giải pháp
+                </li>
+                <li>
+                  Khi quản trị chọn giải pháp, hệ thống tự xử lý theo lựa chọn
+                </li>
+              </ul>
+              <span class="vp"
+                >Giảm rủi ro sai sót dữ liệu vận hành; admin chỉ duyệt giải pháp,
+                không phải sửa tay từng dòng.</span
+              >
             </td>
-            <td>AI giám sát vận hành 24/7: lệch lịch / buổi, cảnh báo, gợi ý và thực thi nhanh; việc nhạy chờ duyệt.<span class="en">24/7 ops watch agent: schedule gaps, alerts, suggests and executes; sensitive steps wait for approval.</span></td>
-            <td class="num">
-              <input class="price-input" readonly tabindex="-1" data-period="once" placeholder="—" />
+            <td>
+              Cảnh báo thông minh cuối ngày
+              <span class="en">EOD intelligent alerts</span>
             </td>
-            <td class="num">
-              <input class="price-input" readonly tabindex="-1" data-period="month" value="10.000.000" />
-            </td>
-            <td class="num">
-              <input class="price-input" readonly tabindex="-1" data-period="year" value="0" />
-            </td>
+            <td class="num"><input class="price-input" data-period="once" placeholder="—" /></td>
+            <td class="num"><input class="price-input" data-period="month" placeholder="—" /></td>
+            <td class="num muted-num">—</td>
           </tr>
         </tbody>
       </table>
@@ -969,6 +1282,16 @@
         Tổng
         <span class="en">Total</span>
       </h2>
+      <p class="note">
+        Tổng = <strong>5.000.000đ/năm (gói CRM — ưu đãi MA)</strong> +
+        <strong>Onboarding 500.000đ</strong> (nếu chọn) + các mục tùy chọn đã chọn
+        và ghi giá. Giá niêm yết gói CRM:
+        <strong>500.000đ/tháng × 12 = 6.000.000đ/năm</strong>; Onboarding niêm
+        yết 2–3 triệu.
+        <span class="en"
+          >Total = 5M/year CRM + 500k onboarding (if selected) + add-ons.</span
+        >
+      </p>
       <div class="table-scroll">
       <table class="totals-table">
         <thead>
@@ -981,10 +1304,10 @@
         </thead>
         <tbody>
           <tr class="subtotal">
-            <td>Tổng<span class="en">Subtotal</span></td>
-            <td class="num" id="sumOnce">9.500.000đ</td>
+            <td>Tạm tính<span class="en">Subtotal</span></td>
+            <td class="num" id="sumOnce">0đ</td>
             <td class="num" id="sumMonth">0đ</td>
-            <td class="num" id="sumYear">550.000đ</td>
+            <td class="num" id="sumYear">0đ</td>
           </tr>
           <tr class="discount" id="rowDiscount">
             <td>
@@ -997,30 +1320,178 @@
           </tr>
           <tr class="due">
             <td>Thành tiền<span class="en">Amount due</span></td>
-            <td class="num" id="dueOnce">9.500.000đ</td>
+            <td class="num" id="dueOnce">0đ</td>
             <td class="num" id="dueMonth">0đ</td>
-            <td class="num" id="dueYear">550.000đ</td>
+            <td class="num" id="dueYear">0đ</td>
+          </tr>
+          <tr class="due grand-sum">
+            <td>
+              Tổng
+              <span class="en">Total</span>
+            </td>
+            <td class="num" colspan="3" id="grandTotalOnce">5.000.000đ</td>
           </tr>
         </tbody>
       </table>
       </div>
 
-      <h2>
-        Quyền lợi đi kèm
-        <span class="en">Included benefits</span>
+      <section id="quote-quality" aria-labelledby="quote-quality-heading">
+      <h2 id="quote-quality-heading">
+        Cam kết chất lượng &amp; trách nhiệm
+        <span class="en">Quality &amp; accountability</span>
+      </h2>
+      <p class="note">
+        Nằm trong gói CRM / hạng mục B đã chọn trên phiếu — không phát sinh phí
+        riêng. Bảo hành sửa lỗi theo mục Bảo hành bên dưới.
+        <span class="en"
+          >Included in the CRM package and selected add-ons — no separate fee.
+          Defect warranty is described below.</span
+        >
+      </p>
+      <ol class="benefits">
+        <li>
+          <strong>Checklist nghiệm thu (UAT)</strong> — tiêu chí đạt / chưa đạt
+          theo gói A (A1–A14) và hạng mục B đã tick; hai bên ký trước khi đưa lên
+          môi trường chính thức.
+          <span class="en"
+            >Acceptance checklist against package A and selected B items; signed
+            before production.</span
+          >
+        </li>
+        <li>
+          <strong>Môi trường thử trước chính thức</strong> — MA kiểm website (nếu
+          chọn) và CRM trên môi trường thử trước khi go-live.
+          <span class="en"
+            >You review website (if selected) and CRM on staging before
+            go-live.</span
+          >
+        </li>
+        <li>
+          <strong>Phạm vi đã chốt</strong> — triển khai theo phiếu này; yêu cầu
+          mới hoặc thay đổi lớn sau khi chốt: đánh giá ảnh hưởng thời gian / chi
+          phí → báo giá bổ sung nếu cần → chỉ làm khi hai bên đồng ý.
+          <span class="en"
+            >Locked scope; larger changes go through impact assessment and an
+            optional change quote.</span
+          >
+        </li>
+        <li>
+          <strong>Bàn giao tài liệu</strong> — tài liệu vận hành CRM (và website
+          nếu chọn), checklist bàn giao khi nghiệm thu.
+          <span class="en">Ops docs + handover checklist at acceptance.</span>
+        </li>
+        <li>
+          <strong>Đào tạo bàn giao</strong> — hướng dẫn chủ / nhân viên dùng
+          website (nếu chọn) và CRM.
+          <span class="en"
+            >Handover training for owners and staff on the website (if selected)
+            and CRM.</span
+          >
+        </li>
+      </ol>
+      </section>
+
+      <section id="quote-handover" aria-labelledby="quote-handover-heading">
+      <h2 id="quote-handover-heading">
+        Quy trình bàn giao
+        <span class="en">Handover process</span>
+      </h2>
+      <p class="note">
+        Các bước tuần tự; lịch cụ thể chốt khi ký (không ghi số tháng trên phiếu).
+        <span class="en"
+          >Sequential steps; calendar dates are agreed at signing (no month
+          counts on this quote).</span
+        >
+      </p>
+      <div class="table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>Giai đoạn<span class="en">Stage</span></th>
+            <th>Nội dung<span class="en">Work</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1. Chốt phạm vi</strong></td>
+            <td>
+              Gói CRM A1–A14 + hạng mục B đã tick trên phiếu; hai bên xác nhận
+              trước khi làm.
+            </td>
+          </tr>
+          <tr>
+            <td><strong>2. Setup &amp; import</strong></td>
+            <td>
+              Onboarding: website (nếu chọn), CRM, nhập dữ liệu hiện có (học viên,
+              khóa, lịch…).
+            </td>
+          </tr>
+          <tr>
+            <td><strong>3. Preview / UAT</strong></td>
+            <td>
+              MA kiểm trên môi trường thử; điền checklist nghiệm thu (đạt / chưa
+              đạt).
+            </td>
+          </tr>
+          <tr>
+            <td><strong>4. Đào tạo &amp; go-live</strong></td>
+            <td>
+              Đào tạo chủ / nhân viên; nghiệm thu; đưa lên môi trường chính thức.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+      </section>
+
+      <section id="quote-warranty" aria-labelledby="quote-warranty-heading">
+      <h2 id="quote-warranty-heading">
+        Bảo hành
+        <span class="en">Warranty</span>
+      </h2>
+      <p class="note">
+        <strong>Website</strong> (nếu chọn B1 website / portal / bán hàng): bảo
+        hành <strong>36 tháng</strong> — hỗ trợ chỉnh sửa, nâng cấp miễn phí cơ
+        bản. <strong>CRM</strong>: sửa lỗi trong thời hạn gói năm đã thanh toán.
+        <strong>AI</strong> (nếu chọn combo): điều chỉnh thông tin trả lời miễn
+        phí.
+        <span class="en"
+          >Website (if selected): 36-month basic edits/upgrades. CRM: defect
+          fixes during the paid yearly term. AI (if selected): free answer-content
+          updates.</span
+        >
+      </p>
+      <h3 id="quote-warranty-in">Trong bảo hành<span class="en">Covered</span></h3>
+      <ul class="scope-list">
+        <li>Sửa lỗi chức năng đã triển khai theo phạm vi đã chốt</li>
+        <li>Sửa lỗi logic nghiệp vụ không đúng yêu cầu đã thống nhất</li>
+        <li>Sửa lỗi giao diện / chức năng trên môi trường được hỗ trợ</li>
+        <li>Hỗ trợ lỗi hệ thống trong phạm vi dự án (website / CRM đã bàn giao)</li>
+      </ul>
+      <h3 id="quote-warranty-out">
+        Ngoài bảo hành — báo riêng
+        <span class="en">Out of warranty — quoted separately</span>
+      </h3>
+      <ul class="scope-list">
+        <li>Chức năng mới, đổi nghiệp vụ sau nghiệm thu, đổi giao diện lớn</li>
+        <li>Tích hợp thêm bên thứ ba (Zalo OA, Google, cổng thanh toán mới…)</li>
+        <li>
+          Lỗi hạ tầng hoặc dịch vụ bên thứ ba (Zalo, Google Calendar, cổng thanh
+          toán, nhà tên miền…)
+        </li>
+        <li>Thay đổi ngoài phạm vi đã nghiệm thu trên phiếu này</li>
+      </ul>
+      </section>
+
+      <section id="quote-ops-benefits" aria-labelledby="quote-ops-benefits-heading">
+      <h2 id="quote-ops-benefits-heading">
+        Quyền lợi vận hành
+        <span class="en">Included operations benefits</span>
       </h2>
       <ol class="benefits">
         <li>
           Hosting miễn phí vô hạn.
           <span class="en">Unlimited free hosting.</span>
-        </li>
-        <li>
-          Bảo hành website 36 tháng (hỗ trợ chỉnh sửa, nâng cấp miễn phí cơ bản).
-          <span class="en">36-month website warranty (free basic edits and upgrades).</span>
-        </li>
-        <li>
-          Đối với AI: hỗ trợ điều chỉnh thông tin trả lời miễn phí.
-          <span class="en">AI: free updates to answer content.</span>
         </li>
         <li>
           Cam kết duy trì sự ổn định phần mềm; hỗ trợ bất kỳ giờ nào, luôn có đội
@@ -1030,10 +1501,6 @@
         <li>
           Cam kết bảo mật thông tin khách hàng.
           <span class="en">Customer data confidentiality.</span>
-        </li>
-        <li>
-          Đào tạo bàn giao: hướng dẫn chủ / nhân viên dùng website và CRM.
-          <span class="en">Handover training for owners and staff on the website and CRM.</span>
         </li>
         <li>
           Sao lưu dữ liệu định kỳ; sự cố thì khôi phục.
@@ -1056,14 +1523,15 @@
           <span class="en">Unlimited 30% refund voucher for referring new clients to Dolphin.</span>
         </li>
       </ol>
+      </section>
 
       <h2>
         Ghi chú
         <span class="en">Notes</span>
       </h2>
       <label class="field" style="text-transform: none; letter-spacing: 0"
-        ><span class="no-print">Nội dung thêm trên báo giá / Extra notes</span>
-        <textarea class="plain" id="notes" placeholder="Bàn giao, điều khoản…"></textarea>
+        ><span class="no-print">Ghi chú thêm trên báo giá</span>
+        <textarea class="plain" id="notes" placeholder="Điều khoản, lịch bàn giao…"></textarea>
       </label>
 
       <footer>
@@ -1079,15 +1547,35 @@
         Dolphin Software · dolphin-software.io.vn · Nguyễn Chí Thành ·
         0779937633
         <br />
-        Gói bàn giao 9.500.000đ: CRM 5tr + website công khai 4,5tr. Tác vụ 2tr và
-        cổng login GV/HV 3tr tick ở mục B. Tên miền theo kỳ VNNIC.
-        <span class="en">Handover package 9,500,000đ: CRM 5M + public site 4.5M. Task board 2M and teacher/student portal 3M are optional (section B). Domain billed per VNNIC term.</span>
+        Gói CRM (A1–A14): niêm yết <strong>500.000đ/tháng × 12 =
+        6.000.000đ/năm</strong>; ưu đãi riêng MA Dance
+        <strong>5.000.000đ/năm</strong>. Các mục tùy chọn tính thêm theo bảng
+        trên.
+        <span class="en"
+          >CRM list 500k×12 = 6M/year; MA offer 5M/year (A1–A14). Optional items
+          above.</span
+        >
       </footer>
     </div>
     <script>
-      const STORAGE = "dolphin-quote-ma-dance-20260903b";
+      const STORAGE = "dolphin-quote-ma-dance-20260908c";
       const CLIENT_NAME = "MA Dance";
       const STORAGE_KEYS_OLD = [
+        "dolphin-quote-ma-dance-20260908b",
+        "dolphin-quote-ma-dance-20260908a",
+        "dolphin-quote-ma-dance-20260907i",
+        "dolphin-quote-ma-dance-20260907h",
+        "dolphin-quote-ma-dance-20260907g",
+        "dolphin-quote-ma-dance-20260907f",
+        "dolphin-quote-ma-dance-20260907e",
+        "dolphin-quote-ma-dance-20260907d",
+        "dolphin-quote-ma-dance-20260907c",
+        "dolphin-quote-ma-dance-20260907b",
+        "dolphin-quote-ma-dance-20260907a",
+        "dolphin-quote-ma-dance-20260906c",
+        "dolphin-quote-ma-dance-20260906b",
+        "dolphin-quote-ma-dance-20260906a",
+        "dolphin-quote-ma-dance-20260903b",
         "dolphin-quote-ma-dance-20260903a",
         "dolphin-quote-ma-dance-20260901a",
         "dolphin-quote-crm-nhay-20260828a",
@@ -1095,24 +1583,117 @@
         "dolphin-quote-crm-nhay-20260827b",
         "dolphin-quote-crm-nhay-20260827",
       ];
+      /** Optional default prices (empty = blank inputs). */
       const EXTRA_PRICES = {
-        tasks: { once: 2_000_000, month: null, year: null },
-        portal: { once: 3_000_000, month: null, year: null },
-        payment: { once: 2_000_000, month: null, year: null },
-        "booking-room": { once: 1_000_000, month: null, year: null },
-        "content-daily": { once: null, month: 1_000_000, year: 0 },
-        care: { once: null, month: 3_000_000, year: 0 },
-        "crm-chat-basic": { once: null, month: 1_000_000, year: 0 },
-        "crm-chat-fast": { once: null, month: 3_000_000, year: 0 },
-        "crm-chat-247": { once: null, month: 10_000_000, year: 0 },
-        ecom: { once: 5_000_000, month: null, year: null },
+        "onboarding-setup": {
+          once: 500_000,
+          month: null,
+          year: null,
+        },
+        website: {
+          once: 4_500_000,
+          month: null,
+          year: null,
+        },
+        portal: {
+          once: 3_000_000,
+          month: null,
+          year: null,
+        },
+        domain: {
+          once: null,
+          month: null,
+          year: 550_000,
+        },
+        ecom: {
+          once: null,
+          month: null,
+          year: 5_000_000,
+        },
+        "ai-marketing-omnichannel": {
+          once: null,
+          month: 900_000,
+          month6: 990_000,
+          year6: 5_940_000,
+          year12: 10_800_000,
+        },
+        tasks: {
+          once: 2_000_000,
+          month: null,
+          year: null,
+        },
+        "payment-online": {
+          once: 2_000_000,
+          month: null,
+          year: null,
+        },
+        "booking-room": {
+          once: 1_000_000,
+          month: null,
+          year: null,
+        },
+        "ai-ops-assistant": {
+          once: null,
+          month: 1_000_000,
+          month6: 1_100_000,
+          year6: 6_600_000,
+          year12: 12_000_000,
+        },
+        "dolphin-intelligent-alert": {
+          once: null,
+          month: 2_000_000,
+          year: null,
+        },
       };
-      const FIXED_ONCE = 5_000_000 + 4_500_000;
+      const DEFAULT_PICKED = [
+        "onboarding-setup",
+        "website",
+        "portal",
+        "domain",
+        "ecom",
+        "tasks",
+        "payment-online",
+        "booking-room",
+      ];
+      const PRICES_LOCKED = true;
+      const FIXED_ONCE = 0;
       const FIXED_MONTH = 0;
-      const FIXED_YEAR = 550_000;
+      const FIXED_YEAR = 5_000_000;
+      const CRM_BASE_YEAR = 5_000_000;
+      const CRM_BASE_YEAR_LIST = 6_000_000;
+      const CRM_BASE_MONTH_LIST = 500_000;
 
+      const LEGACY_TERM_KEYS = {
+        "ai-marketing-omnichannel-6m": {
+          key: "ai-marketing-omnichannel",
+          term: "6",
+        },
+        "ai-marketing-omnichannel-12m": {
+          key: "ai-marketing-omnichannel",
+          term: "12",
+        },
+        "ai-ops-assistant-6m": { key: "ai-ops-assistant", term: "6" },
+        "ai-ops-assistant-12m": { key: "ai-ops-assistant", term: "12" },
+      };
       const DISCOUNT_RATE = 0.1;
       const DISCOUNT_OVER = 20_000_000;
+
+      const CRM_SCOPE = [
+        "A1 · Nền tảng & phân quyền — 3 chi nhánh · 7 phòng; khóa gắn chi nhánh; quyền chủ/quản lý/lễ tân/giáo viên (GV không xem học phí & SĐT học viên)",
+        "A2 · Khóa học & buổi — level, khung giờ, ~8 buổi/tháng; tạo buổi; hủy; đổi giờ/phòng/GV; không trùng phòng–giờ",
+        "A3 · Tuyển sinh / ghi danh — cửa sổ ghi danh; nhận giữa khóa theo level; sĩ số 10–15; đổi lớp cuối tháng / bảo lưu chuyển lớp",
+        "A4 · Học viên & phụ huynh — hồ sơ; trẻ em: điểm danh theo HV, liên hệ/thanh toán theo PH",
+        "A5 · Giáo viên — hồ sơ; nghỉ dạy → giáo viên dự phòng",
+        "A6 · Gói buổi & trừ buổi — điểm danh trừ 1 buổi; không học bù; nghỉ không bảo lưu → mất buổi",
+        "A7 · Thu học phí & công nợ — tiền mặt/CK+bill; cọc 6 & 12 tháng; nợ vẫn vào lớp; báo cáo theo chi nhánh",
+        "A8 · Bảo lưu — tặng/mua bảo lưu; quản lý duyệt trên CRM; hạn gói + buổi còn; giữ chỗ sĩ số",
+        "A9 · Điểm danh tay — có mặt / vắng (lễ tân / quản lý)",
+        "A10 · Điểm danh QR — điểm danh bằng mã QR",
+        "A11 · Lịch / Google Calendar — đồng bộ lịch học viên/giáo viên với Google Calendar trung tâm",
+        "A12 · Promotion / voucher — quản lý khuyến mãi, mã giảm giá / voucher",
+        "A13 · Chăm sóc & thông báo — chúc mừng sinh nhật; Zalo / email hàng loạt cho học viên (hoặc phụ huynh)",
+        "A14 · Theo dõi doanh thu — báo cáo doanh thu theo chi nhánh / kỳ (đã thu, còn nợ, theo gói)",
+      ];
 
       function parseVnd(raw) {
         const n = String(raw || "").replace(/[^\d]/g, "");
@@ -1130,9 +1711,9 @@
         el.value = n ? n.toLocaleString("vi-VN") : "";
       }
       function setInput(el, n) {
+        if (!el) return;
         if (n == null) {
           el.value = "";
-          el.placeholder = "—";
           return;
         }
         if (n === 0) {
@@ -1142,13 +1723,85 @@
         el.value = Number(n).toLocaleString("vi-VN");
       }
 
+      function isPrepaid(tr) {
+        return tr?.dataset.bill === "prepaid";
+      }
+
+      function selectedTerm(tr) {
+        const el = tr?.querySelector(".term-pick:checked");
+        return el?.dataset.term || null;
+      }
+
+      function setTerm(tr, term) {
+        tr.querySelectorAll(".term-pick").forEach((el) => {
+          el.checked = term != null && el.dataset.term === String(term);
+        });
+      }
+
+      function paintRowPrices(tr) {
+        const p = EXTRA_PRICES[tr.dataset.key];
+        if (!p) return;
+        setInput(tr.querySelector('[data-period="once"]'), p.once);
+        if (isPrepaid(tr)) {
+          const term = selectedTerm(tr);
+          const month = term === "6" ? p.month6 ?? p.month : p.month;
+          const year =
+            term === "6" ? p.year6 : term === "12" ? p.year12 : null;
+          setInput(tr.querySelector('[data-period="month"]'), month);
+          setInput(tr.querySelector('[data-period="year"]'), year);
+          const hint = tr.querySelector(".price-hint");
+          const unit12 = tr.dataset.hintUnit || "";
+          const unit6 = tr.dataset.hintUnit6 || unit12;
+          if (hint && unit12) {
+            hint.textContent =
+              term === "6"
+                ? `${unit6} × 6`
+                : term === "12"
+                  ? `${unit12} × 12`
+                  : `${unit6} × 6 / ${unit12} × 12`;
+          }
+          return;
+        }
+        setInput(tr.querySelector('[data-period="month"]'), p.month);
+        setInput(tr.querySelector('[data-period="year"]'), p.year);
+      }
+
       function paintHardcodedPrices() {
-        Object.entries(EXTRA_PRICES).forEach(([key, p]) => {
+        document
+          .querySelectorAll(".extras-table tr[data-key]")
+          .forEach(paintRowPrices);
+        lockPrices();
+      }
+
+      function syncPrepaidRow(tr, source) {
+        if (!isPrepaid(tr)) return;
+        const pick = tr.querySelector(".pick");
+        if (source === "term") {
+          if (pick) pick.checked = !!selectedTerm(tr);
+        } else if (source === "pick") {
+          if (pick?.checked) {
+            if (!selectedTerm(tr)) setTerm(tr, "12");
+          } else {
+            setTerm(tr, null);
+          }
+        }
+        paintRowPrices(tr);
+      }
+
+      function lockPrices() {
+        if (!PRICES_LOCKED) return;
+        document.querySelectorAll(".price-input").forEach((el) => {
+          el.readOnly = true;
+          el.classList.add("is-locked");
+          el.tabIndex = -1;
+        });
+      }
+
+      function applyDefaultPicks() {
+        DEFAULT_PICKED.forEach((key) => {
           const tr = document.querySelector(`.extras-table tr[data-key="${key}"]`);
-          if (!tr) return;
-          setInput(tr.querySelector('[data-period="once"]'), p.once);
-          setInput(tr.querySelector('[data-period="month"]'), p.month);
-          setInput(tr.querySelector('[data-period="year"]'), p.year);
+          const pick = tr?.querySelector(".pick");
+          if (pick) pick.checked = true;
         });
       }
 
@@ -1156,18 +1809,151 @@
         return [...document.querySelectorAll(".extras-table tr[data-key]")].map((tr) => ({
           key: tr.dataset.key,
           on: tr.querySelector(".pick").checked,
-          once: parseVnd(tr.querySelector('[data-period="once"]').value),
-          month: parseVnd(tr.querySelector('[data-period="month"]').value),
-          year: parseVnd(tr.querySelector('[data-period="year"]').value),
+          term: isPrepaid(tr) ? selectedTerm(tr) : null,
+          once: parseVnd(tr.querySelector('[data-period="once"]')?.value),
+          month: parseVnd(tr.querySelector('[data-period="month"]')?.value),
+          year: parseVnd(tr.querySelector('[data-period="year"]')?.value),
         }));
+      }
+
+      function rowMeta(tr) {
+        const title =
+          tr.querySelector("strong")?.textContent?.trim() || tr.dataset.key;
+        const scopeLis = [...tr.querySelectorAll("ul.incl li")]
+          .map((li) => li.textContent.replace(/\s+/g, " ").trim())
+          .filter(Boolean);
+        const scopeLabel = (
+          tr.querySelector(".scope-label")?.textContent || ""
+        )
+          .replace(/\s+/g, " ")
+          .trim();
+        const scopeCell = (tr.querySelector("td:nth-child(3)")?.textContent || "")
+          .replace(/\s+/g, " ")
+          .trim();
+        const scope =
+          scopeLis.length > 0
+            ? scopeLis.join("; ")
+            : scopeLabel || scopeCell;
+        const valueProposition =
+          tr.querySelector(".vp")?.textContent?.replace(/\s+/g, " ").trim() ||
+          null;
+        const section =
+          tr.dataset.section ||
+          (tr.dataset.key === "website" ||
+          tr.dataset.key === "portal" ||
+          tr.dataset.key === "domain" ||
+          tr.dataset.key === "ecom" ||
+          String(tr.dataset.key || "").startsWith("ai-marketing-omnichannel")
+            ? "B1"
+            : tr.dataset.key === "onboarding-setup"
+              ? "setup"
+              : "B2");
+        return { title, scope, valueProposition, section };
+      }
+
+      function buildQuoteJson() {
+        const once = FIXED_ONCE + sumExtra("once");
+        const month = FIXED_MONTH + sumExtra("month");
+        const year = FIXED_YEAR + sumExtra("year");
+        const crmAddOnsOnce = sumExtra("once");
+        const discountOn = once + year > DISCOUNT_OVER;
+        const offOnce = discountOn ? Math.round(once * DISCOUNT_RATE) : 0;
+        const offMonth = discountOn ? Math.round(month * DISCOUNT_RATE) : 0;
+        const offYear = discountOn ? Math.round(year * DISCOUNT_RATE) : 0;
+        const items = [...document.querySelectorAll(".extras-table tr[data-key]")].map(
+          (tr) => {
+            const meta = rowMeta(tr);
+            const onceN = parseVnd(tr.querySelector('[data-period="once"]')?.value);
+            const monthN = parseVnd(tr.querySelector('[data-period="month"]')?.value);
+            const yearN = parseVnd(tr.querySelector('[data-period="year"]')?.value);
+            return {
+              key: tr.dataset.key,
+              section: meta.section,
+              title: meta.title,
+              scope: meta.scope,
+              valueProposition: meta.valueProposition,
+              selected: tr.querySelector(".pick").checked,
+              term: isPrepaid(tr) ? selectedTerm(tr) : null,
+              prices: {
+                once: onceN || null,
+                month: monthN || null,
+                year: yearN || null,
+              },
+            };
+          },
+        );
+        return {
+          schema: "dolphin-quote-ma-dance/v1",
+          client: CLIENT_NAME,
+          quoteDate: document.getElementById("quoteDate").value || null,
+          notes: document.getElementById("notes").value || "",
+          currency: "VND",
+          exportedAt: new Date().toISOString(),
+          source: "/demo/bao-gia-crm-nhay/",
+          sot: "products/saas/dolphin_edu/context/quotes/ma-dance.md",
+          crmBaseYear: CRM_BASE_YEAR,
+          crmBaseYearList: CRM_BASE_YEAR_LIST,
+          crmBaseMonthList: CRM_BASE_MONTH_LIST,
+          crmBaseOffer: "Ưu đãi riêng MA Dance — 5.000.000đ/năm (niêm yết 500k×12 = 6tr)",
+          crmScope: CRM_SCOPE,
+          crmBaseNote:
+            "CRM list 500,000đ/month × 12 = 6,000,000đ/year; MA Dance offer 5,000,000đ/year; A1–A14 included.",
+          items,
+          totals: {
+            once,
+            month,
+            year,
+            crmBaseYear: CRM_BASE_YEAR,
+            crmAddOnsOnce,
+            discountApplied: discountOn,
+            discountRate: discountOn ? DISCOUNT_RATE : 0,
+            dueOnce: once - offOnce,
+            dueMonth: month - offMonth,
+            dueYear: year - offYear,
+            grandTotal: once - offOnce + (month - offMonth) + (year - offYear),
+          },
+        };
+      }
+
+      function exportQuoteJson() {
+        const payload = buildQuoteJson();
+        const text = JSON.stringify(payload, null, 2);
+        const blob = new Blob([text], { type: "application/json;charset=utf-8" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        const day = (payload.quoteDate || "draft").replaceAll("-", "");
+        a.href = url;
+        a.download = `ma-dance-quote-prices-${day}.json`;
+        a.click();
+        URL.revokeObjectURL(url);
+        if (navigator.clipboard?.writeText) {
+          navigator.clipboard.writeText(text).catch(() => {});
+        }
       }
 
       function sumExtra(period) {
         return extrasState().reduce((s, r) => {
           const n = r[period];
           if (!r.on || !n) return s;
+          const tr = document.querySelector(
+            `.extras-table tr[data-key="${r.key}"]`,
+          );
+          if (period === "month" && tr?.dataset.bill === "prepaid") return s;
           return s + n;
         }, 0);
+      }
+
+      function enforceExclusive(changedPick) {
+        const tr = changedPick.closest("tr[data-exclusive]");
+        if (!tr || !changedPick.checked) return;
+        const group = tr.dataset.exclusive;
+        document
+          .querySelectorAll(`.extras-table tr[data-exclusive="${group}"]`)
+          .forEach((other) => {
+            if (other === tr) return;
+            const pick = other.querySelector(".pick");
+            if (pick) pick.checked = false;
+          });
       }
 
       function syncPrint() {
@@ -1207,9 +1993,14 @@
         document.getElementById("discOnce").textContent = formatVndOff(offOnce);
         document.getElementById("discMonth").textContent = formatVndOff(offMonth);
         document.getElementById("discYear").textContent = formatVndOff(offYear);
-        document.getElementById("dueOnce").textContent = formatVnd(once - offOnce);
-        document.getElementById("dueMonth").textContent = formatVnd(month - offMonth);
-        document.getElementById("dueYear").textContent = formatVnd(year - offYear);
+        const dueOnceN = once - offOnce;
+        const dueMonthN = month - offMonth;
+        const dueYearN = year - offYear;
+        document.getElementById("dueOnce").textContent = formatVnd(dueOnceN);
+        document.getElementById("dueMonth").textContent = formatVnd(dueMonthN);
+        document.getElementById("dueYear").textContent = formatVnd(dueYearN);
+        const grand = document.getElementById("grandTotalOnce");
+        if (grand) grand.textContent = formatVnd(dueOnceN + dueMonthN + dueYearN);
         syncPrint();
       }
 
@@ -1224,10 +2015,33 @@
       }
 
       function applyExtras(list) {
-        (list || []).forEach((r) => {
-          const tr = document.querySelector(`.extras-table tr[data-key="${r.key}"]`);
+        const merged = new Map();
+        (list || []).forEach((raw) => {
+          const mapped = LEGACY_TERM_KEYS[raw.key];
+          const rec = mapped
+            ? { ...raw, key: mapped.key, term: raw.term || mapped.term }
+            : { ...raw };
+          const prev = merged.get(rec.key);
+          if (!prev || (rec.on && !prev.on)) merged.set(rec.key, rec);
+        });
+        merged.forEach((r) => {
+          const tr = document.querySelector(
+            `.extras-table tr[data-key="${r.key}"]`,
+          );
           if (!tr) return;
           tr.querySelector(".pick").checked = !!r.on;
+          if (isPrepaid(tr)) {
+            let term = r.term != null ? String(r.term) : null;
+            if (r.on && !term) term = "12";
+            if (!r.on) term = null;
+            setTerm(tr, term);
+          }
+          if (!PRICES_LOCKED) {
+            if (r.once) setInput(tr.querySelector('[data-period="once"]'), r.once);
+            if (r.month)
+              setInput(tr.querySelector('[data-period="month"]'), r.month);
+            if (r.year) setInput(tr.querySelector('[data-period="year"]'), r.year);
+          }
         });
       }
 
@@ -1249,9 +2063,21 @@
           }
         } catch (_) {}
         paintHardcodedPrices();
+        const hasSavedExtras = (() => {
+          try {
+            const raw = localStorage.getItem(STORAGE);
+            if (!raw) return false;
+            const d = JSON.parse(raw);
+            return Array.isArray(d?.extras) && d.extras.length > 0;
+          } catch (_) {
+            return false;
+          }
+        })();
+        if (!hasSavedExtras) applyDefaultPicks();
       }
 
       document.querySelectorAll(".price-input").forEach((el) => {
+        if (PRICES_LOCKED) return;
         el.addEventListener("blur", () => {
           formatInput(el);
           save();
@@ -1264,6 +2090,21 @@
       });
       document.querySelectorAll(".pick").forEach((el) => {
         el.addEventListener("change", () => {
+          enforceExclusive(el);
+          syncPrepaidRow(el.closest("tr[data-key]"), "pick");
+          save();
+          render();
+        });
+      });
+      document.querySelectorAll(".term-pick").forEach((el) => {
+        el.addEventListener("change", () => {
+          const tr = el.closest("tr[data-key]");
+          if (el.checked) {
+            tr.querySelectorAll(".term-pick").forEach((other) => {
+              if (other !== el) other.checked = false;
+            });
+          }
+          syncPrepaidRow(tr, "term");
           save();
           render();
         });
@@ -1273,15 +2114,28 @@
         document.getElementById(id).addEventListener("change", save);
       });
       document.getElementById("btnPrint").addEventListener("click", () => window.print());
+      document.getElementById("btnExportJson").addEventListener("click", () => {
+        exportQuoteJson();
+      });
       document.getElementById("btnReset").addEventListener("click", () => {
         localStorage.removeItem(STORAGE);
         STORAGE_KEYS_OLD.forEach((k) => localStorage.removeItem(k));
         document.querySelectorAll(".pick").forEach((el) => {
           el.checked = false;
         });
+        document.querySelectorAll(".term-pick").forEach((el) => {
+          el.checked = false;
+        });
+        if (!PRICES_LOCKED) {
+          document.querySelectorAll(".price-input").forEach((el) => {
+            el.value = "";
+          });
+        }
         document.getElementById("notes").value = "";
         paintHardcodedPrices();
+        applyDefaultPicks();
         render();
+        save();
       });
 
       load();

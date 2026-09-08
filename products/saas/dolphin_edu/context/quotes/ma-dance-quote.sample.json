@@ -1,0 +1,148 @@
+{
+  "schema": "dolphin-quote-ma-dance/v1",
+  "client": "MA Dance",
+  "quoteDate": null,
+  "notes": "",
+  "currency": "VND",
+  "exportedAt": "2026-09-08T00:00:00.000Z",
+  "source": "/demo/bao-gia-crm-nhay/",
+  "sot": "products/saas/dolphin_edu/context/quotes/ma-dance.md",
+  "crmBaseYear": 5000000,
+  "crmBaseYearList": 6000000,
+  "crmBaseMonthList": 500000,
+  "crmBaseOffer": "Ưu đãi riêng MA Dance — 5.000.000đ/năm (niêm yết 500k×12 = 6tr)",
+  "crmScope": [
+    "A1 · Nền tảng & phân quyền — 3 chi nhánh · 7 phòng; khóa gắn chi nhánh; quyền chủ/quản lý/lễ tân/giáo viên",
+    "A2 · Khóa học & buổi — level, khung giờ, ~8 buổi/tháng; tạo buổi; hủy; đổi giờ/phòng/GV",
+    "A3 · Tuyển sinh / ghi danh — cửa sổ ghi danh; nhận giữa khóa theo level; sĩ số 10–15",
+    "A4 · Học viên & phụ huynh — hồ sơ; trẻ em: điểm danh theo HV, liên hệ/thanh toán theo PH",
+    "A5 · Giáo viên — hồ sơ; nghỉ dạy → giáo viên dự phòng",
+    "A6 · Gói buổi & trừ buổi — điểm danh trừ 1 buổi; không học bù",
+    "A7 · Thu học phí & công nợ — tiền mặt/CK+bill; báo cáo theo chi nhánh",
+    "A8 · Bảo lưu — tặng/mua bảo lưu; quản lý duyệt trên CRM",
+    "A9 · Điểm danh tay — có mặt / vắng",
+    "A10 · Điểm danh QR — điểm danh bằng mã QR",
+    "A11 · Lịch / Google Calendar — đồng bộ lịch học viên/giáo viên với Google Calendar trung tâm",
+    "A12 · Promotion / voucher — quản lý khuyến mãi, mã giảm giá / voucher",
+    "A13 · Chăm sóc & thông báo — chúc mừng sinh nhật; Zalo / email hàng loạt cho học viên (hoặc phụ huynh)",
+    "A14 · Theo dõi doanh thu — báo cáo doanh thu theo chi nhánh / kỳ (đã thu, còn nợ, theo gói)"
+  ],
+  "crmBaseNote": "CRM list 500,000đ/month × 12 = 6,000,000đ/year; MA Dance offer 5,000,000đ/year; A1–A14 included.",
+  "items": [
+    {
+      "key": "onboarding-setup",
+      "section": "setup",
+      "title": "Phí Onboarding & Setup",
+      "scope": "Setup website + CRM + import dữ liệu",
+      "valueProposition": "Ưu đãi Dolphin: giảm còn 500.000đ (niêm yết 2–3 triệu).",
+      "selected": true,
+      "prices": { "once": 500000, "month": null, "year": null }
+    },
+    {
+      "key": "website",
+      "section": "B1",
+      "title": "Website công khai",
+      "scope": "Site giới thiệu — không login HV/GV",
+      "valueProposition": null,
+      "selected": true,
+      "prices": { "once": 4500000, "month": null, "year": null }
+    },
+    {
+      "key": "portal",
+      "section": "B1",
+      "title": "Website theo dõi học viên & giáo viên",
+      "scope": "Đăng nhập theo dõi lịch / lớp / khóa / hồ sơ; xem promotion, video, tài liệu MA — chỉ xem; không thu tiền",
+      "valueProposition": null,
+      "selected": true,
+      "prices": { "once": 3000000, "month": null, "year": null }
+    },
+    {
+      "key": "domain",
+      "section": "B1",
+      "title": "Phí tên miền VNNIC",
+      "scope": "Đăng ký/duy trì theo kỳ",
+      "valueProposition": null,
+      "selected": true,
+      "prices": { "once": null, "month": null, "year": 550000 }
+    },
+    {
+      "key": "ecom",
+      "section": "B1",
+      "title": "Website bán hàng cơ bản",
+      "scope": "Catalog, giỏ, thanh toán cơ bản — ngoài as-is lớp",
+      "valueProposition": null,
+      "selected": true,
+      "prices": { "once": null, "month": null, "year": 5000000 }
+    },
+    {
+      "key": "ai-marketing-omnichannel",
+      "section": "B1",
+      "title": "Combo AI Tuyển Sinh & Trực Page 24/7 (Đa kênh)",
+      "scope": "Trực chat tự động trên Website + Fanpage + Zalo OA ngoài giờ hành chính; tự động tư vấn lớp, lấy SĐT và hẹn lịch học thử; Dolphin Care — chăm sóc khách đa kênh (FAQ, tư vấn, thu lead).",
+      "valueProposition": "Thay thế 1 nhân sự trực ca đêm/cuối tuần; không bỏ lỡ học viên nhắn ngoài giờ; tăng 20-30% tỷ lệ chuyển đổi khách vào học thử.",
+      "selected": false,
+      "term": null,
+      "prices": { "once": null, "month": 900000, "year": null }
+    },
+    {
+      "key": "tasks",
+      "section": "B2",
+      "title": "Quản lý tác vụ",
+      "scope": "Giao việc, hạn, trạng thái, lọc — thay Zalo; không Jira đầy đủ",
+      "valueProposition": null,
+      "selected": true,
+      "prices": { "once": 2000000, "month": null, "year": null }
+    },
+    {
+      "key": "payment-online",
+      "section": "B2",
+      "title": "Tích hợp thanh toán online",
+      "scope": "Thanh toán học phí/gói qua cổng online trên CRM",
+      "valueProposition": null,
+      "selected": true,
+      "prices": { "once": 2000000, "month": null, "year": null }
+    },
+    {
+      "key": "booking-room",
+      "section": "B2",
+      "title": "Đặt phòng tập (thuê studio)",
+      "scope": "Khác gán phòng lớp — trang user + quản lý CRM",
+      "valueProposition": null,
+      "selected": true,
+      "prices": { "once": 1000000, "month": null, "year": null }
+    },
+    {
+      "key": "ai-ops-assistant",
+      "section": "B2",
+      "title": "Combo AI Trợ Lý Vận Hành & Chăm Sóc Lớp Học",
+      "scope": "Nhập liệu nhanh bằng giọng nói/văn bản (nói câu lệnh tự mở form thu tiền/xếp lớp); cảnh báo học viên sắp hết buổi/chưa đóng phí; tích hợp AI giải đáp nhanh nội quy & lịch học trên Portal học viên.",
+      "valueProposition": "Giảm 70% thời gian thao tác nhập liệu thủ công của lễ tân; giảm tỷ lệ học viên rơi rụng nhờ nhắc gia hạn buổi học đúng thời điểm.",
+      "selected": false,
+      "term": null,
+      "prices": { "once": null, "month": 1000000, "year": null }
+    },
+    {
+      "key": "dolphin-intelligent-alert",
+      "section": "B2",
+      "title": "Dolphin Intelligent — cảnh báo & xử lý dữ liệu",
+      "scope": "Giám sát dữ liệu cuối ngày; phát hiện vấn đề; đề xuất giải pháp; admin chọn → hệ thống tự xử lý.",
+      "valueProposition": "Giảm rủi ro sai sót dữ liệu vận hành; admin chỉ duyệt giải pháp, không phải sửa tay từng dòng.",
+      "selected": false,
+      "prices": { "once": null, "month": 2000000, "year": null }
+    }
+  ],
+  "totals": {
+    "once": 5500000,
+    "month": 0,
+    "year": 5000000,
+    "crmBaseYear": 5000000,
+    "crmAddOnsOnce": 5500000,
+    "discountApplied": false,
+    "discountRate": 0,
+    "dueOnce": 5500000,
+    "dueMonth": 0,
+    "dueYear": 5000000,
+    "grandTotal": 10500000
+  },
+  "_totalsNote": "Sample: A=5tr/năm + onboarding 500k + tasks+payment+booking once (2+2+1=5tr). Combo AI 1 dòng + term 6|12|null; gói 6 tháng = đơn giá 12th × 6 × 1,10; unit tháng không cộng tổng khi prepaid."
+}

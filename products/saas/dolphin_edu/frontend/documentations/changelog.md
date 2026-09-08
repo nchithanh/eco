@@ -1,9 +1,86 @@
 # Changelog — Dolphin Edu frontend
 
+## 2026-09-08
+
+- List CRM đồng bộ **Khóa học**: HV · Lớp · GV · Phòng · Tác vụ · quote (`FeatureBoard`) · stub — click hàng, thu panel `‹`, flush desktop (`ops-list`), bỏ nút Chi tiết trên dòng (HV giữ Hồ sơ → 360).
+- Báo giá MA Dance: thêm **cam kết chất lượng**, **quy trình bàn giao** (4 bước, không ghi số tháng), **bảo hành trong/ngoài** (website 36 tháng; CRM theo gói năm) — bố cục giống phiếu ecom. SoT `context/quotes/ma-dance.md` + phiếu `/demo/bao-gia-crm-nhay/`.
+- Báo giá MA Dance: gói AI **6 tháng mắc hơn 10%** so với đơn giá 12 tháng (tuyển sinh 5.940.000đ / vận hành 6.600.000đ). 12 tháng giữ linear. Combo vẫn **1 dòng** + checkbox kỳ hạn; JSON `term`. SoT `context/quotes/ma-dance.md` + phiếu `/demo/bao-gia-crm-nhay/`.
+- Gỡ banner xanh **Mô tả chức năng** (as-is → to-be) khỏi mọi tab vận hành.
+- Tab **Hướng dẫn sử dụng** (nhóm Tổng quan): playbook MA — luồng khóa→ghi danh→sinh lớp→điểm danh→thu phí→bảo lưu, 4 vai trò, A1–A14 + B, ngoài phạm vi.
+- Bỏ hub **Chức năng CRM · MA Dance** trên Tổng quan (lưới A1–A14 + B). Dashboard còn KPI / chart / list.
+- Light: bỏ nền caro trên canvas (và chat); `--kuct-bg` `#ffffff`. Dark vẫn caro.
+- Loading (`BootSplash` + `AiReveal`): nền trắng, logo không border / box-shadow; bỏ vòng sân khấu.
+- Học viên: bỏ hàng **Phân khúc** + **Xu hướng tuyển sinh** (`.ops-seg`). KPI + bảng giữ nguyên.
+- Lớp học: bỏ timeline **Lớp hôm nay** (`.ops-timeline`). KPI + bảng giữ nguyên.
+- Giáo viên: bỏ timeline **Lịch dạy hôm nay** (`.ops-timeline`). KPI + bảng giữ nguyên.
+- Phòng: bỏ thanh **Tổng quan sử dụng hôm nay** (`.ops-rooms__usage`). KPI + bảng giữ nguyên.
+- Nav: bỏ nhóm **Mặt ngoài** (Website · Portal · Bán hàng · AI tuyển sinh). Preview B1 vẫn mở từ Hướng dẫn.
+- Panel chi tiết (HV · Lớp · GV · Phòng · Khóa · Tác vụ): click dòng → `AiReveal` **1,5s** trong aside rồi hiện data.
+- Tổng quan: 5 list (lớp / học phí / chuyên cần / GV / phòng) — dòng cuối không `border-bottom`.
+- Hướng dẫn: 4 card **Vai trò** cùng chiều cao trong hàng.
+- Bảng: thanh filter + ô tìm/select/chip **#ffffff** (Light); Dark vẫn surface tối.
+- **Khóa học** UX: bỏ nút Chi tiết (click hàng mở panel) · lịch `T2, T5 · 19:00` · cột HV căn trái · badge đậm hơn · thu/phóng panel · CTA đáy ghost (Ghi danh vẫn chính).
+- Khóa học: panel chi tiết sát mép trên / phải / dưới canvas (desktop).
+- Khóa học: thanh filter (tìm / select / khoảng ngày) cùng chiều cao 40px.
+- Khóa học: bỏ nút **+ Thêm học viên** trên roster (vẫn ghi danh bằng form dưới).
+- Khóa học: nút **Thêm học viên** luôn đen cứng `#000` (kể cả disabled / Dark).
+- Khóa học roster: bỏ cột SĐT — số điện thoại dưới tên; hàng không xuống dòng.
+- Khóa học: bỏ nút **‹ Thu panel** trên header (vẫn thu bằng ‹ trên drawer; click hàng để hiện lại).
+- CanvasBar: bỏ search, vai trò demo, Light|Dark — còn **Ask Dolphin · VI|EN · notify · user**.
+- Canvas / list CRM (layout kiểu Leads): **title + count lên header**; nút tạo cùng hàng filter; KPI overview strip liền, không radius / box-shadow / border-bottom.
+- Bảng: header `th` nền gần trắng (`#fbfbfb`).
+- List filter: search / select / chip / CTA cùng height `40px` (`--ops-control-h`).
+- Bôi text: bỏ `::selection` custom (trắng/đen) — dùng highlight xanh mặc định của trình duyệt.
+
+## 2026-09-07
+
+- **Boot splash:** overlay sân khấu MA Dance (đen/ivory, logo jpeg trên ô trắng 10px, wordmark DANCE STUDIO, beat 2s) rồi fade vào CRM. Hardcode `BOOT_SPLASH_MS = 2000` — tạm, không fetch.
+- **Mobile gate:** `< 48rem` hiện lại trang thông báo tablet/desktop (`MobileGate`, logo MA, VI/EN) — ẩn shell CRM. Splash 2s rồi gate.
+- Loading đổi tab (`AiReveal`): logo MA Dance thay mascot Dolphin. Chat Ask Dolphin vẫn mascot cũ.
+- **Mobile all canvas:** Khóa học + Tác vụ xếp 1 cột như Lớp/HV (sửa CSS specificity). Phone `< 48rem`: toolbar full width, KPI/nút 1 cột, bảng `min-width` + cuộn ngang, canvas `overflow-x: hidden`. Tổng quan / 360 / quote roster / banner scope cùng breakpoint.
+- **Mobile** (`< 48rem`): bỏ gate tablet-only. Drawer nav (hamburger) · CanvasBar logo MA Dance + Ask icon · chat overlay full màn. Hub 1 cột. Bảng cuộn ngang / panel chi tiết xếp dưới (đã có từ `64rem`).
+- Hub **Chức năng CRM · MA Dance**: card hạng mục cùng chiều cao trong lưới (`grid-auto-rows: 1fr` + stretch).
+- Chat **Ask Dolphin**: drawer overlay như trước — mặc định đóng, click mới mở (hoàn tác dock luôn mở).
+- Demo dày hơn: **Phân quyền** — 24 quyền (7 nhóm) + 12 tài khoản staff, vẫn 4 vai A1; tab Quyền / Tài khoản. Seed gói/thu/BL/promo/chăm sóc/thuê phòng/lịch/tác vụ + cột nghiệp vụ (doanh thu TM/CK/online, BL loại tặng/mua lẻ).
+- Theme **Light | Dark** trên CanvasBar (cạnh VI|EN). Light = nền trắng hiện tại; Dark = palette đen/ivory trước đó. Persist `edu-theme`, mặc định Light. Boot script tránh nháy theme.
+- Thử **nền sáng** MA Dance: canvas `#F6F6F4` · surface trắng · accent `#171717` (nút đen chữ trắng) · `color-scheme: light`. Banner/hub A-B vẫn mint (mô tả chức năng). Logo MA giữ nguyên.
+- Chrome **MA Dance**: logo `public/brand/ma-dance-logo.jpeg` trên sidebar + gate mobile; org **MA Dance** / dòng phụ Dolphin Edu. Palette dark từ tím Dolphin → đen/charcoal + accent ivory `#F3EEE6` (nút chữ đen) — khớp logo đen-trắng. Tab title `MA Dance · CRM`. Banner/hub A-B vẫn nền xanh (khối mô tả chức năng).
+- Hub Tổng quan: card A/B nền xanh dịu + mã chữ xanh (không accent tím).
+- UI demo không ghi “báo giá”: hub **Chức năng CRM · MA Dance**; lede Tổng quan bỏ “Gói CRM A1–A14”.
+- Banner đầu mỗi tab: nhãn **Mô tả chức năng** + nền xanh (`--ops-paid`) — khối hướng dẫn, không phải data vận hành.
+- **Demo MA Dance theo báo giá:** hub A1–A14 + B trên Tổng quan; banner as-is → to-be mỗi canvas (`lib/quote-scope.ts`). Seed 3 CN Q10 / Q3 / Phú Nhuận · 7 phòng MI1–MI4 / MON3–MON4 / Room A. A11 = lịch Google **trung tâm** (nội bộ). A3 Begin dừng nhận từ buổi 4–5. B1 website/portal/store/AI Care = preview. B2 AI ops + Intelligent hardcode. SoT discovery + `context/quotes/ma-dance.md`.
+
+## 2026-09-07 (báo giá phiếu)
+
+- Báo giá Ma Dance: fill giá từ export 20260828 (web 4,5tr · portal 3tr · domain 550k/năm · ecom 5tr/năm · tasks/payment 2tr · booking 1tr); mặc định tick.
+- Báo giá Ma Dance: **khóa giá** trên phiếu (readonly); chỉ tick chọn mục.
+- Báo giá Ma Dance: **Onboarding & Setup** niêm yết 2–3tr → ưu đãi Dolphin **500k** (1 lần, mặc định chọn).
+- Báo giá Ma Dance: gói A thêm **A14 theo dõi doanh thu**.
+- Báo giá Ma Dance: B2 thêm **Dolphin Intelligent cảnh báo** — 2tr/tháng (không giá năm).
+- Báo giá Ma Dance: gói A thêm **A12 promotion/voucher**, **A13 chăm sóc & thông báo** (sinh nhật, Zalo/email hàng loạt).
+- Báo giá Ma Dance: gói A niêm yết **500k×12 = 6tr/năm**, ưu đãi MA **5tr/năm**.
+- Báo giá Ma Dance: copy phiếu **giọng gửi khách** (bỏ discovery/as-is/agent/Jira…); A1–A11 viết rõ; ẩn EN khi in.
+- Báo giá Ma Dance: gói A liệt kê đủ **A1–A11** (không tách giá); hint AI marketing **900k × 12**.
+- Báo giá Ma Dance: combo AI ops **1tr/tháng × 12 = 12tr/năm**; combo marketing **900k × 12**.
+- Báo giá Ma Dance: combo AI marketing **900k/tháng × 12 = 10,8tr/năm**.
+- Báo giá Ma Dance: **2 combo AI** (`ai-marketing-omnichannel`, `ai-ops-assistant`) thay 6 dòng AI rời; `crmAddOnsOnce` = tổng once B đã tick; sample `context/quotes/ma-dance-quote.sample.json`.
+- Báo giá Ma Dance: gói A **5tr/năm** (cột trả năm); Tổng bỏ hint + số canh giữa. SoT `context/quotes/ma-dance.md`.
+
+## 2026-09-06
+
+- Báo giá Ma Dance: **Gói A = 5tr** (1 dòng, scope gộp). Mục B điền giá + Xuất JSON + chatbot AI violet + thanh toán online. SoT `context/quotes/ma-dance.md`.
+
+## 2026-09-04
+
+- **Tác vụ — tab Comment:** thread gọn (tên + giờ, không card cao) · composer avatar | ô nhập | Gửi nhỏ trong một khung. Tổng quan vẫn preview 1 comment + Xem thêm. Chọn việc khác reset về Tổng quan.
+- **Avatar staff toàn CRM:** Hà / Mai / Khoa / Linh / An (`public/avatars/*.webp`) trên Dashboard, Giáo viên, Lớp, Khóa, Học viên (cột GV), Tác vụ, CanvasBar. GV khác: chữ cái tròn. SoT `lib/people-demo.ts`. CanvasBar user Hà.
+- **Tác vụ — thanh lọc kiểu Jira:** chip nhanh (Việc của tôi / Đang mở / Hôm nay / Quá hạn) · pill dropdown Trạng thái · Người nhận · Ưu tiên · Hạn · chip đang lọc + Xóa lọc. KPI không đổi. Không sprint/epic.
+
 ## 2026-09-03
 
+- **Tác vụ chi tiết đầy panel:** bỏ tab Cập nhật — gộp mô tả, thông tin (ưu tiên, người giao, phòng), checklist, form cập nhật và comment vào một cột cuộn.
 - **Tác vụ live (demo FE):** nav Quản lý · seed 12 việc Pulse Studio (`lib/tasks-demo.ts`) · `TasksBoard` lọc trạng thái/người/hạn · thêm việc + đổi status local · chat «tác vụ» / «quản lý tác vụ». Inbox vẫn ẩn. Không Jira sprint/epic.
-- Báo giá deal **Ma Dance**: gói A CRM 5tr + website 4,5tr = **9,5tr**. Tác vụ 2tr và cổng login GV/HV 3tr = checklist mục B. SoT `context/quotes/ma-dance.md`. Phiếu `/demo/bao-gia-crm-nhay/`.
+- Báo giá deal **Ma Dance** (tham chiếu cũ): gói A 9,5tr — đã thay bằng bảng module 2026-09-06.
 
 ## 2026-08-30
 

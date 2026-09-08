@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   ...buildPageMetadata({
     title: "Báo giá CRM — MA Dance | Dolphin Software",
     description:
-      "Phiếu báo giá CRM cho MA Dance: CRM + website; tác vụ và cổng login GV/HV tick thêm. Không index.",
+      "Phiếu chuyển đổi số MA Dance → CRM (gói A 5tr + hạng mục B điền giá). Không index.",
     path: pathName,
     noIndex: true,
   }),
