@@ -1,7 +1,7 @@
 # Báo giá — Ma Dance (CRM chuyển đổi số)
 
 Dolphin Software · **Chuyển đổi số vận hành** trung tâm nhảy → CRM.  
-Cập nhật **2026-09-08**.
+Cập nhật **2026-09-09**.
 
 **Nguồn nghiệp vụ (as-is):** form CRM discovery (Uyên · Quản lý) + `/demos/ma-dance-discovery/`.  
 Discovery = hiện trạng vận hành. Báo giá này = **phạm vi to-be** số hóa thành CRM — **không** copy 1:1 mọi thói quen Zalo/Excel nếu sau này chốt đơn giản hóa.
@@ -42,9 +42,9 @@ A1–A14 liệt kê **đủ phạm vi** trên phiếu — **không tách giá**.
 | A8 | Bảo lưu | ≥3 tháng tặng BL / gói ngắn mua BL lẻ; đã đóng HP + nghỉ dài; QL duyệt trên CRM; hạn gói + buổi còn; hết hạn không học → trừ buổi; lễ/hủy không tính hạn BL; giữ chỗ sĩ số; quay lại hỗ trợ đổi GV/lịch |
 | A9 | Điểm danh tay | Có mặt / vắng trên CRM (lễ tân / quản lý) |
 | A10 | Điểm danh QR | Điểm danh bằng mã QR |
-| A11 | Lịch / Google Calendar | Đồng bộ lịch học viên / giáo viên với Google Calendar của trung tâm (MA đang dùng Google Calendar) |
+| A11 | Lịch / Google Calendar | Đồng bộ lịch HV/GV với Google Calendar trung tâm. Tài khoản Google của MA; **phí Google (nếu có) ngoài giá Dolphin**. |
 | A12 | Promotion / voucher | Quản lý chương trình khuyến mãi, mã giảm giá / voucher |
-| A13 | Chăm sóc & thông báo | Chúc mừng sinh nhật học viên; gửi tin Zalo / email hàng loạt cho học viên (hoặc phụ huynh) |
+| A13 | Chăm sóc & thông báo | Chúc mừng sinh nhật HV; gửi tin Zalo / email hàng loạt cho HV hoặc PH. **Phần mềm trong gói A.** Phí Zalo OA, tin lẻ/ZNS, SMTP — khách trả NCC (mục Chi phí ngoài giá Dolphin). |
 | A14 | Theo dõi doanh thu | Theo dõi và báo cáo doanh thu theo chi nhánh / kỳ (đã thu, còn nợ, theo gói) |
 
 **Cộng A:** **5.000.000đ/năm** (sau ưu đãi MA; niêm yết 6.000.000đ/năm)
@@ -70,7 +70,7 @@ Giá điền trên phiếu (có thể tick). Sample JSON: [`ma-dance-quote.sampl
 | B1 | website | Website công khai | Site giới thiệu — **không** login HV/GV | **4.500.000đ** (1 lần) |
 | B1 | portal | Website theo dõi học viên & giáo viên | Đăng nhập theo dõi lịch / lớp / khóa / hồ sơ; xem promotion, video, tài liệu MA — chỉ xem; không thu tiền | **3.000.000đ** (1 lần) |
 | B1 | domain | Phí tên miền VNNIC | Đăng ký/duy trì theo kỳ | **550.000đ/năm** |
-| B1 | ecom | Website bán hàng cơ bản | Catalog / giỏ — ngoài as-is lớp | **5.000.000đ/năm** |
+| B1 | ecom | Website bán hàng cơ bản | Catalog / giỏ — ngoài as-is lớp. **Mặc định không tick** trên phiếu. | **4.500.000đ/năm** |
 | B1 | **ai-marketing-omnichannel** | **Combo AI Tuyển Sinh & Trực Page 24/7 (Đa kênh)** | Phạm vi: Dolphin Care đa kênh 24/7. Trên phiếu: **1 dòng** + checkbox **6 tháng / 12 tháng** (chọn một) trong cột phạm vi. Tick kỳ hạn → tick hàng; bỏ hết kỳ hạn → bỏ chọn. Tick hàng chưa chọn kỳ hạn → mặc định **12 tháng**. Cột tháng = đơn giá theo kỳ hạn (không cộng tổng khi prepaid). Gói 6 tháng **mắc hơn 10%** so với đơn giá 12 tháng (~3,33%/tháng). | **900.000đ/tháng** (12th) · prepaid **10.800.000đ / 12 tháng**. Gói 6 tháng: **990.000đ/tháng** · **5.940.000đ** (900k × 6 × 1,10) |
 | B2 | tasks | Quản lý tác vụ | Giao việc / hạn / trạng thái | **2.000.000đ** (1 lần) |
 | B2 | payment-online | Tích hợp thanh toán online | Cổng online trên CRM (khác thu tay A7) | **2.000.000đ** (1 lần) |
@@ -97,6 +97,7 @@ Bố cục tham khảo phiếu ecom; nội dung theo CRM lớp — **không** co
 | AI | Điều chỉnh thông tin trả lời miễn phí (nếu chọn combo) |
 | Ngoài bảo hành | Tính năng mới, đổi nghiệp vụ sau nghiệm thu, tích hợp bên thứ ba mới, lỗi Zalo/Google/cổng/hạ tầng ngoài Dolphin — **báo riêng** |
 | Quyền lợi vận hành | Hosting miễn phí; ổn định; bảo mật; backup; Zalo trực tiếp; xuất data khi dừng HĐ; cập nhật quy trình; voucher giới thiệu 30% |
+| **Chi phí ngoài giá Dolphin** | Zalo OA (gói + tin lẻ/ZNS); Fanpage/Meta; SMTP; Google (A11); phí giao dịch cổng (khác 2tr tích hợp B); VAT trên phiếu Dolphin chưa gồm. **Không cộng tổng phiếu.** |
 
 ---
 

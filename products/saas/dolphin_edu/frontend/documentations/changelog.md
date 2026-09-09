@@ -1,5 +1,9 @@
 # Changelog — Dolphin Edu frontend
 
+## 2026-09-09
+
+- Báo giá MA Dance: **Website bán hàng cơ bản** mặc định **không tick**; giá **4.500.000đ/năm**. Mục **Chi phí ngoài giá Dolphin** (Zalo OA, Fanpage/Meta, SMTP, Google, phí cổng, VAT). A13: phần mềm trong gói A. SoT `context/quotes/ma-dance.md` + phiếu `/demo/bao-gia-crm-nhay/`.
+
 ## 2026-09-08
 
 - List CRM đồng bộ **Khóa học**: HV · Lớp · GV · Phòng · Tác vụ · quote (`FeatureBoard`) · stub — click hàng, thu panel `‹`, flush desktop (`ops-list`), bỏ nút Chi tiết trên dòng (HV giữ Hồ sơ → 360).

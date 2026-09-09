@@ -537,6 +537,12 @@
         color: var(--kuct-muted);
         margin-top: 0.75rem;
       }
+      .note a {
+        color: var(--kuct-accent-2);
+        font-weight: 600;
+        text-decoration: underline;
+        text-underline-offset: 0.15em;
+      }
       footer {
         margin-top: 2rem;
         padding-top: 1.25rem;
@@ -821,6 +827,13 @@
         <strong>MA Dance</strong> (chi nhánh, lớp, học viên, thu phí, điểm danh,
         bảo lưu…). Các hạng mục tùy chọn ở phần B đánh dấu và ghi giá nếu sử
         dụng.
+        <strong>Giá trên phiếu là giá Dolphin</strong> — không gồm phí nền tảng
+        bên thứ ba (Zalo OA, tin lẻ, SMTP, cổng thanh toán, Google…). Xem mục
+        <a href="#quote-excluded">Chi phí ngoài giá Dolphin</a>.
+        <span class="en"
+          >Prices on this quote are Dolphin fees only — third-party platform
+          costs are listed under Not included.</span
+        >
       </p>
 
       <div id="sectionExtras">
@@ -901,7 +914,8 @@
                 <li>
                   <strong>A11 · Lịch / Google Calendar</strong> — đồng bộ lịch
                   học viên / giáo viên với Google Calendar của trung tâm (MA
-                  Dance đang dùng Google Calendar)
+                  Dance đang dùng Google Calendar). Tài khoản Google của MA; phí
+                  Google (nếu có) không nằm trong giá Dolphin.
                 </li>
                 <li>
                   <strong>A12 · Promotion / voucher</strong> — quản lý chương
@@ -910,7 +924,9 @@
                 <li>
                   <strong>A13 · Chăm sóc &amp; thông báo</strong> — chúc mừng
                   sinh nhật học viên; gửi tin Zalo / email hàng loạt cho học viên
-                  (hoặc phụ huynh)
+                  (hoặc phụ huynh). Phần mềm nằm trong gói A. Phí Zalo OA, tin
+                  lẻ/ZNS, SMTP — khách trả nhà cung cấp (xem
+                  <a href="#quote-excluded">Chi phí ngoài giá Dolphin</a>).
                 </li>
                 <li>
                   <strong>A14 · Theo dõi doanh thu</strong> — theo dõi và báo cáo
@@ -1087,6 +1103,11 @@
                   <strong>Dolphin Care</strong> — chăm sóc khách đa kênh (website,
                   Fanpage, Zalo OA): trả lời FAQ, tư vấn, thu lead
                 </li>
+                <li>
+                  Phí gói Zalo OA, tin lẻ/ZNS, Fanpage — khách trả nền tảng
+                  (không nằm trong giá combo; xem
+                  <a href="#quote-excluded">Chi phí ngoài giá Dolphin</a>)
+                </li>
               </ul>
               <span class="vp"
                 >Thay thế 1 nhân sự trực ca đêm/cuối tuần; không bỏ lỡ học viên
@@ -1168,6 +1189,10 @@
                 <li>
                   Khác thu tại quầy (tiền mặt / chuyển khoản + ảnh bill) — có cổng
                   thanh toán và đối soát giao dịch
+                </li>
+                <li>
+                  Phí giao dịch / duy trì cổng — khách trả nhà cung cấp cổng
+                  (không nằm trong giá tích hợp Dolphin)
                 </li>
               </ul>
             </td>
@@ -1525,8 +1550,105 @@
       </ol>
       </section>
 
+      <section id="quote-excluded" aria-labelledby="quote-excluded-heading">
+      <h2 id="quote-excluded-heading">
+        Chi phí ngoài giá Dolphin
+        <span class="en">Not included in Dolphin prices</span>
+      </h2>
+      <p class="note">
+        <strong>Không tính vào</strong> gói CRM 5tr/năm, onboarding, hạng mục B,
+        combo AI, hay tổng trên phiếu. Khách thanh toán trực tiếp nhà cung cấp
+        (hoặc Dolphin thu hộ theo báo giá riêng nếu hai bên thỏa thuận).
+        <span class="en"
+          >Not in CRM 5M/year, onboarding, add-ons, AI combos, or quote totals.
+          Paid to the vendor (or billed separately if we collect on your
+          behalf).</span
+        >
+      </p>
+      <div class="table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>Hạng mục<span class="en">Item</span></th>
+            <th>Ghi chú<span class="en">Note</span></th>
+            <th class="num">Ai trả<span class="en">Paid to</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <strong>Zalo Official Account</strong>
+              <span class="en">Zalo OA</span>
+            </td>
+            <td>
+              Tạo OA không mất phí. Xác thực OA do Zalo duyệt. Gói dịch vụ OA
+              (chatbot/API: gói Tăng trưởng trở lên theo bảng giá Zalo), tin tư
+              vấn lẻ, ZNS/template — A13 và combo AI Care dùng kênh OA nhưng
+              <strong>không gồm</strong> các khoản này.
+            </td>
+            <td class="num muted-num">Khách → Zalo</td>
+          </tr>
+          <tr>
+            <td>
+              <strong>Fanpage / Meta</strong>
+              <span class="en">Facebook Page</span>
+            </td>
+            <td>
+              Phí nền tảng / quảng cáo Meta nếu Meta thu — không nằm trong combo
+              AI Care.
+            </td>
+            <td class="num muted-num">Khách → Meta</td>
+          </tr>
+          <tr>
+            <td>
+              <strong>Email / SMTP</strong>
+              <span class="en">Email / SMTP</span>
+            </td>
+            <td>
+              Máy chủ gửi mail, hạn mức gửi hàng loạt (A13) — khách cung cấp /
+              trả nhà mail.
+            </td>
+            <td class="num muted-num">Khách → nhà mail</td>
+          </tr>
+          <tr>
+            <td>
+              <strong>Google Calendar</strong>
+              <span class="en">Google Calendar</span>
+            </td>
+            <td>
+              Tài khoản Google của trung tâm (A11). Phí Google Workspace / API
+              nếu Google thu.
+            </td>
+            <td class="num muted-num">Khách → Google</td>
+          </tr>
+          <tr>
+            <td>
+              <strong>Cổng thanh toán</strong>
+              <span class="en">Payment gateway</span>
+            </td>
+            <td>
+              Phí giao dịch, duy trì cổng. Khác phí tích hợp Dolphin (hạng mục B
+              nếu tick).
+            </td>
+            <td class="num muted-num">Khách → cổng</td>
+          </tr>
+          <tr>
+            <td>
+              <strong>VAT / hóa đơn nhà cung cấp khác</strong>
+              <span class="en">VAT / other invoices</span>
+            </td>
+            <td>
+              Giá Dolphin trên phiếu chưa gồm VAT (ghi khi gửi giấy chính thức).
+              Hóa đơn Zalo/Meta/Google/cổng theo từng nhà.
+            </td>
+            <td class="num muted-num">Theo từng nhà</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+      </section>
+
       <h2>
-        Ghi chú
         <span class="en">Notes</span>
       </h2>
       <label class="field" style="text-transform: none; letter-spacing: 0"
@@ -1550,17 +1672,19 @@
         Gói CRM (A1–A14): niêm yết <strong>500.000đ/tháng × 12 =
         6.000.000đ/năm</strong>; ưu đãi riêng MA Dance
         <strong>5.000.000đ/năm</strong>. Các mục tùy chọn tính thêm theo bảng
-        trên.
+        trên. Phí Zalo OA, tin lẻ, SMTP, cổng, Google — ngoài giá Dolphin.
         <span class="en"
           >CRM list 500k×12 = 6M/year; MA offer 5M/year (A1–A14). Optional items
-          above.</span
+          above. Third-party platform fees not included.</span
         >
       </footer>
     </div>
     <script>
-      const STORAGE = "dolphin-quote-ma-dance-20260908c";
+      const STORAGE = "dolphin-quote-ma-dance-20260909b";
       const CLIENT_NAME = "MA Dance";
       const STORAGE_KEYS_OLD = [
+        "dolphin-quote-ma-dance-20260909a",
+        "dolphin-quote-ma-dance-20260908c",
         "dolphin-quote-ma-dance-20260908b",
         "dolphin-quote-ma-dance-20260908a",
         "dolphin-quote-ma-dance-20260907i",
@@ -1608,7 +1732,7 @@
         ecom: {
           once: null,
           month: null,
-          year: 5_000_000,
+          year: 4_500_000,
         },
         "ai-marketing-omnichannel": {
           once: null,
@@ -1650,7 +1774,6 @@
         "website",
         "portal",
         "domain",
-        "ecom",
         "tasks",
         "payment-online",
         "booking-room",
@@ -1689,10 +1812,18 @@
         "A8 · Bảo lưu — tặng/mua bảo lưu; quản lý duyệt trên CRM; hạn gói + buổi còn; giữ chỗ sĩ số",
         "A9 · Điểm danh tay — có mặt / vắng (lễ tân / quản lý)",
         "A10 · Điểm danh QR — điểm danh bằng mã QR",
-        "A11 · Lịch / Google Calendar — đồng bộ lịch học viên/giáo viên với Google Calendar trung tâm",
+        "A11 · Lịch / Google Calendar — đồng bộ lịch HV/GV với Google Calendar trung tâm; phí Google (nếu có) ngoài giá Dolphin",
         "A12 · Promotion / voucher — quản lý khuyến mãi, mã giảm giá / voucher",
-        "A13 · Chăm sóc & thông báo — chúc mừng sinh nhật; Zalo / email hàng loạt cho học viên (hoặc phụ huynh)",
+        "A13 · Chăm sóc & thông báo — chúc mừng sinh nhật; Zalo / email hàng loạt cho HV hoặc PH. Phần mềm trong gói A; phí Zalo OA / tin lẻ / SMTP khách trả NCC",
         "A14 · Theo dõi doanh thu — báo cáo doanh thu theo chi nhánh / kỳ (đã thu, còn nợ, theo gói)",
+      ];
+      const NOT_INCLUDED = [
+        "Zalo OA: gói OA, tin lẻ, ZNS — khách trả Zalo (API/chatbot theo bảng giá Zalo, gói Tăng trưởng trở lên). A13 và combo AI Care không gồm khoản này.",
+        "Fanpage / Meta: phí nền tảng / quảng cáo nếu Meta thu.",
+        "Email / SMTP: máy chủ và hạn mức gửi — khách trả nhà mail.",
+        "Google Calendar (A11): tài khoản Google của MA; phí Google nếu có.",
+        "Cổng thanh toán: phí giao dịch / duy trì cổng — khác phí tích hợp Dolphin (B nếu tick).",
+        "VAT trên giá Dolphin: chưa gồm trên phiếu (ghi khi gửi giấy chính thức).",
       ];
 
       function parseVnd(raw) {
@@ -1896,8 +2027,9 @@
           crmBaseMonthList: CRM_BASE_MONTH_LIST,
           crmBaseOffer: "Ưu đãi riêng MA Dance — 5.000.000đ/năm (niêm yết 500k×12 = 6tr)",
           crmScope: CRM_SCOPE,
+          notIncluded: NOT_INCLUDED,
           crmBaseNote:
-            "CRM list 500,000đ/month × 12 = 6,000,000đ/year; MA Dance offer 5,000,000đ/year; A1–A14 included.",
+            "CRM list 500,000đ/month × 12 = 6,000,000đ/year; MA Dance offer 5,000,000đ/year; A1–A14 included. Third-party platform fees (Zalo OA, SMTP, gateway, Google) not in Dolphin totals.",
           items,
           totals: {
             once,
@@ -2073,7 +2205,13 @@
             return false;
           }
         })();
-        if (!hasSavedExtras) applyDefaultPicks();
+        if (!hasSavedExtras) {
+          applyDefaultPicks();
+          const ecomPick = document.querySelector(
+            '.extras-table tr[data-key="ecom"] .pick',
+          );
+          if (ecomPick) ecomPick.checked = false;
+        }
       }
 
       document.querySelectorAll(".price-input").forEach((el) => {

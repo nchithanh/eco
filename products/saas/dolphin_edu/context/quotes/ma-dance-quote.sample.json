@@ -22,12 +22,20 @@
     "A8 · Bảo lưu — tặng/mua bảo lưu; quản lý duyệt trên CRM",
     "A9 · Điểm danh tay — có mặt / vắng",
     "A10 · Điểm danh QR — điểm danh bằng mã QR",
-    "A11 · Lịch / Google Calendar — đồng bộ lịch học viên/giáo viên với Google Calendar trung tâm",
+    "A11 · Lịch / Google Calendar — đồng bộ lịch HV/GV với Google Calendar trung tâm; phí Google (nếu có) ngoài giá Dolphin",
     "A12 · Promotion / voucher — quản lý khuyến mãi, mã giảm giá / voucher",
-    "A13 · Chăm sóc & thông báo — chúc mừng sinh nhật; Zalo / email hàng loạt cho học viên (hoặc phụ huynh)",
+    "A13 · Chăm sóc & thông báo — chúc mừng sinh nhật; Zalo / email hàng loạt cho HV hoặc PH. Phần mềm trong gói A; phí Zalo OA / tin lẻ / SMTP khách trả NCC",
     "A14 · Theo dõi doanh thu — báo cáo doanh thu theo chi nhánh / kỳ (đã thu, còn nợ, theo gói)"
   ],
-  "crmBaseNote": "CRM list 500,000đ/month × 12 = 6,000,000đ/year; MA Dance offer 5,000,000đ/year; A1–A14 included.",
+  "notIncluded": [
+    "Zalo OA: gói OA, tin lẻ, ZNS — khách trả Zalo (API/chatbot theo bảng giá Zalo, gói Tăng trưởng trở lên). A13 và combo AI Care không gồm khoản này.",
+    "Fanpage / Meta: phí nền tảng / quảng cáo nếu Meta thu.",
+    "Email / SMTP: máy chủ và hạn mức gửi — khách trả nhà mail.",
+    "Google Calendar (A11): tài khoản Google của MA; phí Google nếu có.",
+    "Cổng thanh toán: phí giao dịch / duy trì cổng — khác phí tích hợp Dolphin (B nếu tick).",
+    "VAT trên giá Dolphin: chưa gồm trên phiếu (ghi khi gửi giấy chính thức)."
+  ],
+  "crmBaseNote": "CRM list 500,000đ/month × 12 = 6,000,000đ/year; MA Dance offer 5,000,000đ/year; A1–A14 included. Third-party platform fees (Zalo OA, SMTP, gateway, Google) not in Dolphin totals.",
   "items": [
     {
       "key": "onboarding-setup",
@@ -71,8 +79,8 @@
       "title": "Website bán hàng cơ bản",
       "scope": "Catalog, giỏ, thanh toán cơ bản — ngoài as-is lớp",
       "valueProposition": null,
-      "selected": true,
-      "prices": { "once": null, "month": null, "year": 5000000 }
+      "selected": false,
+      "prices": { "once": null, "month": null, "year": 4500000 }
     },
     {
       "key": "ai-marketing-omnichannel",
