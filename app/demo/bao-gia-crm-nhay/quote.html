@@ -475,12 +475,7 @@
         padding: 0.55rem 1rem;
         cursor: pointer;
         color: #fff;
-        background: linear-gradient(
-          135deg,
-          var(--kuct-btn-from),
-          var(--kuct-btn-mid),
-          var(--kuct-btn-to)
-        );
+        background: var(--kuct-accent);
         box-shadow: var(--kuct-shadow);
       }
       button.ghost {
@@ -828,11 +823,10 @@
         bảo lưu…). Các hạng mục tùy chọn ở phần B đánh dấu và ghi giá nếu sử
         dụng.
         <strong>Giá trên phiếu là giá Dolphin</strong> — không gồm phí nền tảng
-        bên thứ ba (Zalo OA, tin lẻ, SMTP, cổng thanh toán, Google…). Xem mục
-        <a href="#quote-excluded">Chi phí ngoài giá Dolphin</a>.
+        bên thứ ba (Zalo OA, tin lẻ, SMTP, cổng thanh toán, Google…).
         <span class="en"
           >Prices on this quote are Dolphin fees only — third-party platform
-          costs are listed under Not included.</span
+          costs are extra.</span
         >
       </p>
 
@@ -925,8 +919,7 @@
                   <strong>A13 · Chăm sóc &amp; thông báo</strong> — chúc mừng
                   sinh nhật học viên; gửi tin Zalo / email hàng loạt cho học viên
                   (hoặc phụ huynh). Phần mềm nằm trong gói A. Phí Zalo OA, tin
-                  lẻ/ZNS, SMTP — khách trả nhà cung cấp (xem
-                  <a href="#quote-excluded">Chi phí ngoài giá Dolphin</a>).
+                  lẻ/ZNS, SMTP — khách trả nhà cung cấp.
                 </li>
                 <li>
                   <strong>A14 · Theo dõi doanh thu</strong> — theo dõi và báo cáo
@@ -1105,8 +1098,7 @@
                 </li>
                 <li>
                   Phí gói Zalo OA, tin lẻ/ZNS, Fanpage — khách trả nền tảng
-                  (không nằm trong giá combo; xem
-                  <a href="#quote-excluded">Chi phí ngoài giá Dolphin</a>)
+                  (không nằm trong giá combo)
                 </li>
               </ul>
               <span class="vp"
@@ -1303,7 +1295,8 @@
       </div>
       </div>
 
-      <h2>
+      <section id="quote-totals" aria-labelledby="quote-totals-heading">
+      <h2 id="quote-totals-heading">
         Tổng
         <span class="en">Total</span>
       </h2>
@@ -1359,6 +1352,7 @@
         </tbody>
       </table>
       </div>
+      </section>
 
       <section id="quote-quality" aria-labelledby="quote-quality-heading">
       <h2 id="quote-quality-heading">
@@ -1632,17 +1626,6 @@
             </td>
             <td class="num muted-num">Khách → cổng</td>
           </tr>
-          <tr>
-            <td>
-              <strong>VAT / hóa đơn nhà cung cấp khác</strong>
-              <span class="en">VAT / other invoices</span>
-            </td>
-            <td>
-              Giá Dolphin trên phiếu chưa gồm VAT (ghi khi gửi giấy chính thức).
-              Hóa đơn Zalo/Meta/Google/cổng theo từng nhà.
-            </td>
-            <td class="num muted-num">Theo từng nhà</td>
-          </tr>
         </tbody>
       </table>
       </div>
@@ -1823,7 +1806,11 @@
         "Email / SMTP: máy chủ và hạn mức gửi — khách trả nhà mail.",
         "Google Calendar (A11): tài khoản Google của MA; phí Google nếu có.",
         "Cổng thanh toán: phí giao dịch / duy trì cổng — khác phí tích hợp Dolphin (B nếu tick).",
-        "VAT trên giá Dolphin: chưa gồm trên phiếu (ghi khi gửi giấy chính thức).",
+      ];
+      const QUOTE_OFFERS = [
+        "Ưu đãi riêng MA Dance — gói CRM A1–A14: niêm yết 6.000.000đ/năm → 5.000.000đ/năm (đã áp trên gói A).",
+        "Ưu đãi Dolphin — Onboarding: niêm yết 2–3 triệu → 500.000đ (đã áp trong giá 1 lần nếu chọn).",
+        "Giảm 10% thành tiền khi giá 1 lần + trả năm trên 20.000.000đ (dòng giảm trên bảng Tổng).",
       ];
 
       function parseVnd(raw) {
@@ -1982,15 +1969,32 @@
         return { title, scope, valueProposition, section };
       }
 
-      function buildQuoteJson() {
+      function quoteTotals() {
         const once = FIXED_ONCE + sumExtra("once");
         const month = FIXED_MONTH + sumExtra("month");
         const year = FIXED_YEAR + sumExtra("year");
-        const crmAddOnsOnce = sumExtra("once");
         const discountOn = once + year > DISCOUNT_OVER;
         const offOnce = discountOn ? Math.round(once * DISCOUNT_RATE) : 0;
         const offMonth = discountOn ? Math.round(month * DISCOUNT_RATE) : 0;
         const offYear = discountOn ? Math.round(year * DISCOUNT_RATE) : 0;
+        return {
+          once,
+          month,
+          year,
+          discountOn,
+          offOnce,
+          offMonth,
+          offYear,
+          dueOnce: once - offOnce,
+          dueMonth: month - offMonth,
+          dueYear: year - offYear,
+        };
+      }
+
+      function buildQuoteJson() {
+        const t = quoteTotals();
+        const crmAddOnsOnce = sumExtra("once");
+        const { once, month, year, discountOn } = t;
         const items = [...document.querySelectorAll(".extras-table tr[data-key]")].map(
           (tr) => {
             const meta = rowMeta(tr);
@@ -2028,6 +2032,7 @@
           crmBaseOffer: "Ưu đãi riêng MA Dance — 5.000.000đ/năm (niêm yết 500k×12 = 6tr)",
           crmScope: CRM_SCOPE,
           notIncluded: NOT_INCLUDED,
+          offers: QUOTE_OFFERS,
           crmBaseNote:
             "CRM list 500,000đ/month × 12 = 6,000,000đ/year; MA Dance offer 5,000,000đ/year; A1–A14 included. Third-party platform fees (Zalo OA, SMTP, gateway, Google) not in Dolphin totals.",
           items,
@@ -2039,10 +2044,10 @@
             crmAddOnsOnce,
             discountApplied: discountOn,
             discountRate: discountOn ? DISCOUNT_RATE : 0,
-            dueOnce: once - offOnce,
-            dueMonth: month - offMonth,
-            dueYear: year - offYear,
-            grandTotal: once - offOnce + (month - offMonth) + (year - offYear),
+            dueOnce: t.dueOnce,
+            dueMonth: t.dueMonth,
+            dueYear: t.dueYear,
+            grandTotal: t.dueOnce + t.dueMonth + t.dueYear,
           },
         };
       }
@@ -2101,13 +2106,7 @@
       }
 
       function render() {
-        const once = FIXED_ONCE + sumExtra("once");
-        const month = FIXED_MONTH + sumExtra("month");
-        const year = FIXED_YEAR + sumExtra("year");
-        const on = once + year > DISCOUNT_OVER;
-        const offOnce = on ? Math.round(once * DISCOUNT_RATE) : 0;
-        const offMonth = on ? Math.round(month * DISCOUNT_RATE) : 0;
-        const offYear = on ? Math.round(year * DISCOUNT_RATE) : 0;
+        const t = quoteTotals();
         const thresholdLabel = DISCOUNT_OVER.toLocaleString("vi-VN") + "đ";
         const ruleVi = document.getElementById("discountRule");
         const ruleEn = document.getElementById("discountRuleEn");
@@ -2119,20 +2118,17 @@
           ruleEn.textContent =
             "10% off when one-time + yearly exceed " + thresholdLabel;
         }
-        document.getElementById("sumOnce").textContent = formatVnd(once);
-        document.getElementById("sumMonth").textContent = formatVnd(month);
-        document.getElementById("sumYear").textContent = formatVnd(year);
-        document.getElementById("discOnce").textContent = formatVndOff(offOnce);
-        document.getElementById("discMonth").textContent = formatVndOff(offMonth);
-        document.getElementById("discYear").textContent = formatVndOff(offYear);
-        const dueOnceN = once - offOnce;
-        const dueMonthN = month - offMonth;
-        const dueYearN = year - offYear;
-        document.getElementById("dueOnce").textContent = formatVnd(dueOnceN);
-        document.getElementById("dueMonth").textContent = formatVnd(dueMonthN);
-        document.getElementById("dueYear").textContent = formatVnd(dueYearN);
+        document.getElementById("sumOnce").textContent = formatVnd(t.once);
+        document.getElementById("sumMonth").textContent = formatVnd(t.month);
+        document.getElementById("sumYear").textContent = formatVnd(t.year);
+        document.getElementById("discOnce").textContent = formatVndOff(t.offOnce);
+        document.getElementById("discMonth").textContent = formatVndOff(t.offMonth);
+        document.getElementById("discYear").textContent = formatVndOff(t.offYear);
+        document.getElementById("dueOnce").textContent = formatVnd(t.dueOnce);
+        document.getElementById("dueMonth").textContent = formatVnd(t.dueMonth);
+        document.getElementById("dueYear").textContent = formatVnd(t.dueYear);
         const grand = document.getElementById("grandTotalOnce");
-        if (grand) grand.textContent = formatVnd(dueOnceN + dueMonthN + dueYearN);
+        if (grand) grand.textContent = formatVnd(t.dueOnce + t.dueMonth + t.dueYear);
         syncPrint();
       }
 

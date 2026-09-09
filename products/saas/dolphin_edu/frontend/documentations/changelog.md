@@ -2,6 +2,10 @@
 
 ## 2026-09-09
 
+- Báo giá MA Dance: bảng Tổng **không** lặp ưu đãi MA / Onboarding — chỉ còn dòng giảm 10%; CRM 5tr/năm vẫn trên gói A.
+- Báo giá MA Dance: bỏ hàng **VAT / hóa đơn nhà cung cấp khác** khỏi bảng Chi phí ngoài.
+- Báo giá MA Dance: nút toolbar (In / Xuất JSON) **màu accent đặc**, bỏ gradient.
+- Báo giá MA Dance: bỏ câu **Xem mục Chi phí ngoài giá Dolphin** (intro / A13 / combo AI); bảng chi phí ngoài vẫn giữ.
 - Báo giá MA Dance: **Website bán hàng cơ bản** mặc định **không tick**; giá **4.500.000đ/năm**. Mục **Chi phí ngoài giá Dolphin** (Zalo OA, Fanpage/Meta, SMTP, Google, phí cổng, VAT). A13: phần mềm trong gói A. SoT `context/quotes/ma-dance.md` + phiếu `/demo/bao-gia-crm-nhay/`.
 
 ## 2026-09-08

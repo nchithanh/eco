@@ -27,7 +27,7 @@ Không bán Dolphin Ops spa (1 khách : 1 slot) cho deal này.
 ## A. CRM — chuyển đổi vận hành MA
 
 **Giá niêm yết:** 500.000đ/tháng × 12 = **6.000.000đ/năm**  
-**Ưu đãi riêng MA Dance:** **5.000.000đ/năm** (một dòng trên phiếu — cột trả hàng năm).  
+**Ưu đãi riêng MA Dance:** **5.000.000đ/năm** (một dòng trên gói A — cột trả hàng năm; bảng Tổng không lặp dòng ưu đãi này).  
 A1–A14 liệt kê **đủ phạm vi** trên phiếu — **không tách giá**.
 
 | # | Hạng mục | Phạm vi (theo discovery) |
@@ -44,7 +44,7 @@ A1–A14 liệt kê **đủ phạm vi** trên phiếu — **không tách giá**.
 | A10 | Điểm danh QR | Điểm danh bằng mã QR |
 | A11 | Lịch / Google Calendar | Đồng bộ lịch HV/GV với Google Calendar trung tâm. Tài khoản Google của MA; **phí Google (nếu có) ngoài giá Dolphin**. |
 | A12 | Promotion / voucher | Quản lý chương trình khuyến mãi, mã giảm giá / voucher |
-| A13 | Chăm sóc & thông báo | Chúc mừng sinh nhật HV; gửi tin Zalo / email hàng loạt cho HV hoặc PH. **Phần mềm trong gói A.** Phí Zalo OA, tin lẻ/ZNS, SMTP — khách trả NCC (mục Chi phí ngoài giá Dolphin). |
+| A13 | Chăm sóc & thông báo | Chúc mừng sinh nhật HV; gửi tin Zalo / email hàng loạt cho HV hoặc PH. **Phần mềm trong gói A.** Phí Zalo OA, tin lẻ/ZNS, SMTP — khách trả NCC. |
 | A14 | Theo dõi doanh thu | Theo dõi và báo cáo doanh thu theo chi nhánh / kỳ (đã thu, còn nợ, theo gói) |
 
 **Cộng A:** **5.000.000đ/năm** (sau ưu đãi MA; niêm yết 6.000.000đ/năm)
@@ -82,6 +82,8 @@ Giá điền trên phiếu (có thể tick). Sample JSON: [`ma-dance-quote.sampl
 
 **Totals (JSON):** `crmAddOnsOnce` = tổng **once** các mục B đã tick (không hardcode 0). `once` / `year` / `due*` sau discount 10% khi `once + year > 20.000.000`.
 
+**Ưu đãi:** CRM 6tr → **5tr/năm** (gói A); Onboarding 2–3tr → **500k** (mục setup). Bảng Tổng chỉ dòng giảm 10% khi 1 lần + năm > 20tr.
+
 ---
 
 ## Chất lượng · bàn giao · bảo hành (trên phiếu, không tách giá)
@@ -97,7 +99,7 @@ Bố cục tham khảo phiếu ecom; nội dung theo CRM lớp — **không** co
 | AI | Điều chỉnh thông tin trả lời miễn phí (nếu chọn combo) |
 | Ngoài bảo hành | Tính năng mới, đổi nghiệp vụ sau nghiệm thu, tích hợp bên thứ ba mới, lỗi Zalo/Google/cổng/hạ tầng ngoài Dolphin — **báo riêng** |
 | Quyền lợi vận hành | Hosting miễn phí; ổn định; bảo mật; backup; Zalo trực tiếp; xuất data khi dừng HĐ; cập nhật quy trình; voucher giới thiệu 30% |
-| **Chi phí ngoài giá Dolphin** | Zalo OA (gói + tin lẻ/ZNS); Fanpage/Meta; SMTP; Google (A11); phí giao dịch cổng (khác 2tr tích hợp B); VAT trên phiếu Dolphin chưa gồm. **Không cộng tổng phiếu.** |
+| **Chi phí ngoài giá Dolphin** | Zalo OA (gói + tin lẻ/ZNS); Fanpage/Meta; SMTP; Google (A11); phí giao dịch cổng (khác 2tr tích hợp B). **Không cộng tổng phiếu.** |
 
 ---
 
