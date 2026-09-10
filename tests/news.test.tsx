@@ -29,6 +29,11 @@ describe("Dolphin Software news page", () => {
     expect(screen.getByText(/^Nổi bật$/i)).toBeInTheDocument();
     expect(
       screen.getByRole("link", {
+        name: /ChatGPT Ads: Doanh nghiệp có nên quảng cáo trên ChatGPT/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("link", {
         name: /Chuyển quản lý task từ Zalo sang CRM/i,
       }),
     ).toBeInTheDocument();
@@ -226,6 +231,37 @@ describe("Dolphin Software news page", () => {
     expect(
       screen.getByRole("button", {
         name: /Copy prompt AI trên Facebook có sao không/i,
+      }),
+    ).toBeInTheDocument();
+  });
+
+  it("renders ChatGPT Ads evaluation article with FAQ", async () => {
+    const page = await NewsArticlePage({
+      params: Promise.resolve({
+        slug: "chatgpt-ads-doanh-nghiep-co-nen-chay",
+      }),
+    });
+    render(<AppProviders>{page}</AppProviders>);
+    expect(
+      screen.getByRole("heading", {
+        level: 1,
+        name: /ChatGPT Ads: Doanh nghiệp có nên quảng cáo trên ChatGPT/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", {
+        level: 2,
+        name: /ChatGPT Ads đang mở ra một kênh tiếp cận khách hàng mới/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", {
+        name: /ChatGPT Ads là gì/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("img", {
+        name: /thẻ quảng cáo gắn nhãn Sponsored/i,
       }),
     ).toBeInTheDocument();
   });

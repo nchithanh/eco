@@ -21,6 +21,7 @@ import { websiteGioiThieuXeShowroomCopy } from "@/lib/news-articles/website-gioi
 import { websiteChoKinhDoanhNhoCopy } from "@/lib/news-articles/website-cho-kinh-doanh-nho";
 import { crmChoStudioWeddingThayViExcelCopy } from "@/lib/news-articles/crm-cho-studio-wedding-thay-vi-excel";
 import { chuyenQuanLyTaskTuZaloSangCrmCopy } from "@/lib/news-articles/chuyen-quan-ly-task-tu-zalo-sang-crm";
+import { chatgptAdsDoanhNghiepCoNenChayCopy } from "@/lib/news-articles/chatgpt-ads-doanh-nghiep-co-nen-chay";
 
 export const NEWS_CATEGORIES = [
   "process",
@@ -33,6 +34,7 @@ export const NEWS_CATEGORIES = [
 export type NewsCategory = (typeof NEWS_CATEGORIES)[number];
 
 export const NEWS_SLUGS = [
+  "chatgpt-ads-doanh-nghiep-co-nen-chay",
   "chuyen-quan-ly-task-tu-zalo-sang-crm",
   "crm-cho-studio-wedding-thay-vi-excel",
   "website-cho-kinh-doanh-nho",
@@ -116,6 +118,10 @@ type NewsMeta = {
 };
 
 const metaBySlug: Record<NewsSlug, NewsMeta> = {
+  "chatgpt-ads-doanh-nghiep-co-nen-chay": {
+    category: "process",
+    date: "2026-09-10",
+  },
   "chuyen-quan-ly-task-tu-zalo-sang-crm": {
     category: "product",
     date: "2026-09-06",
@@ -219,6 +225,8 @@ const categoryImages: Record<NewsCategory, string> = {
 };
 
 const slugImages: Partial<Record<NewsSlug, string>> = {
+  "chatgpt-ads-doanh-nghiep-co-nen-chay":
+    "/news/chatgpt-ads-doanh-nghiep-co-nen-chay.jpg",
   "chuyen-quan-ly-task-tu-zalo-sang-crm":
     "/news/chuyen-quan-ly-task-tu-zalo-sang-crm.jpg",
   "crm-cho-studio-wedding-thay-vi-excel":
@@ -270,6 +278,8 @@ export function getNewsImage(slug: NewsSlug): string {
 
 const copyByLocale: Record<Locale, Record<NewsSlug, NewsArticleCopy>> = {
   vi: {
+    "chatgpt-ads-doanh-nghiep-co-nen-chay":
+      chatgptAdsDoanhNghiepCoNenChayCopy.vi,
     "chuyen-quan-ly-task-tu-zalo-sang-crm":
       chuyenQuanLyTaskTuZaloSangCrmCopy.vi,
     "crm-cho-studio-wedding-thay-vi-excel":
@@ -475,6 +485,8 @@ const copyByLocale: Record<Locale, Record<NewsSlug, NewsArticleCopy>> = {
     },
   },
   en: {
+    "chatgpt-ads-doanh-nghiep-co-nen-chay":
+      chatgptAdsDoanhNghiepCoNenChayCopy.en,
     "chuyen-quan-ly-task-tu-zalo-sang-crm":
       chuyenQuanLyTaskTuZaloSangCrmCopy.en,
     "crm-cho-studio-wedding-thay-vi-excel":
@@ -608,6 +620,8 @@ const copyByLocale: Record<Locale, Record<NewsSlug, NewsArticleCopy>> = {
     },
   },
   ja: {
+    "chatgpt-ads-doanh-nghiep-co-nen-chay":
+      chatgptAdsDoanhNghiepCoNenChayCopy.ja,
     "chuyen-quan-ly-task-tu-zalo-sang-crm":
       chuyenQuanLyTaskTuZaloSangCrmCopy.ja,
     "crm-cho-studio-wedding-thay-vi-excel":
