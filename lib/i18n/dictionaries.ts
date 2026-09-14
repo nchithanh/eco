@@ -543,6 +543,8 @@ const vi: Dictionary = {
     groupUpdates: "Updates",
     groupConnect: "Connect",
     privacy: "Quyền riêng tư",
+    pricingPolicy: "Chính sách giá",
+    warrantyPolicy: "Bảo hành & hỗ trợ",
     blurb:
       "Giải pháp AI và công nghệ cho doanh nghiệp — bắt đầu từ vấn đề vận hành, không từ sản phẩm.",
     socialAria: "Mạng xã hội Dolphin Software",
@@ -1137,6 +1139,8 @@ const en: Dictionary = {
     groupUpdates: "Updates",
     groupConnect: "Connect",
     privacy: "Privacy",
+    pricingPolicy: "Pricing policy",
+    warrantyPolicy: "Warranty & support",
     blurb:
       "AI and technology solutions for business — we start with the problem, not the product.",
     socialAria: "Dolphin Software on social media",
@@ -1732,6 +1736,8 @@ const ja: Dictionary = {
     groupUpdates: "Updates",
     groupConnect: "Connect",
     privacy: "プライバシー",
+    pricingPolicy: "料金ポリシー",
+    warrantyPolicy: "保証・サポート",
     blurb:
       "企業向けAI・テクノロジーソリューション — 技術からではなく、課題から始めます。",
     socialAria: "Dolphin SoftwareのSNS",

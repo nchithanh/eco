@@ -20,6 +20,7 @@ import {
   formatVnd,
   type ComboPackage,
 } from "@/lib/pricing/dolphin-pricing-policy-2026";
+import { WARRANTY_POLICY_PATH } from "@/lib/pricing/dolphin-warranty-policy-2026";
 
 function PrincipleIcon({ kind }: { kind: (typeof PRICING_PRINCIPLES)[number]["icon"] }) {
   const common = {
@@ -426,6 +427,12 @@ export function PricingPolicy2026Content() {
                   className="kuct-btn-ghost inline-flex items-center rounded-[10px] px-5 py-3.5 text-sm font-semibold"
                 >
                   {PRICING_CTA.contactLabel}
+                </Link>
+                <Link
+                  href={assetPath(WARRANTY_POLICY_PATH)}
+                  className="kuct-btn-ghost inline-flex items-center rounded-[10px] px-5 py-3.5 text-sm font-semibold"
+                >
+                  Chính sách bảo hành
                 </Link>
               </div>
               <p className="mt-4 text-sm text-[var(--kuct-muted)]">

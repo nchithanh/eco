@@ -511,6 +511,8 @@ export type Dictionary = {
     groupUpdates: string;
     groupConnect: string;
     privacy: string;
+    pricingPolicy: string;
+    warrantyPolicy: string;
     /** Short GEO blurb under brand */
     blurb: string;
     /** Nav label for social profile icons */

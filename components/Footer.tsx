@@ -45,6 +45,8 @@ export function Footer() {
  links: [
  { href: `${sectionBase}#contact`, label: t.nav.contact },
  { href: assetPath("/privacy/"), label: f.privacy },
+ { href: assetPath("/chinh-sach-gia-dolphin-2026/"), label: f.pricingPolicy },
+ { href: assetPath("/chinh-sach-bao-hanh-ho-tro-2026/"), label: f.warrantyPolicy },
  ],
  },
  ] as const;
