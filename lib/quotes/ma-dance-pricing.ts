@@ -107,7 +107,7 @@ export const COMBOS: readonly Combo[] = [
 
 export const PRODUCT_LABEL: Record<ComboProduct, string> = {
   crm: "CRM",
-  care: "Dolphin Care",
+  care: "Dolphin Care (chatbot AI trả lời khách hàng trên website / Zalo / Messenger)",
   ops: "Dolphin Ops",
 };
 

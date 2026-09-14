@@ -208,7 +208,8 @@ export function MaDanceQuote() {
           <>
             <h2>Gói thuê lẻ Dolphin Care</h2>
             <p className="note">
-              Gói combo <strong>{totals.combo.name}</strong> chưa gồm Dolphin Care. Tick một kỳ
+              <strong>Dolphin Care</strong> = chatbot AI trả lời khách hàng trên website / Zalo /
+              Messenger. Gói combo <strong>{totals.combo.name}</strong> chưa gồm Care. Tick một kỳ
               hạn bên dưới để cộng vào tổng — giá ưu đãi thuê lẻ, khác combo CRM + Care.
             </p>
             <div className="table-scroll">
@@ -467,8 +468,9 @@ export function MaDanceQuote() {
               <strong>Gói 6 tháng</strong> chỉ khi kèm Dolphin Care hoặc Dolphin Ops.
             </li>
             <li>
-              <strong>Thuê lẻ Dolphin Care</strong> (6 tháng {formatVnd(5_100_000)} · 12 tháng{" "}
-              {formatVnd(9_600_000)}) — chỉ khi gói combo <strong>chưa gồm Care</strong>.
+              <strong>Thuê lẻ Dolphin Care</strong> (chatbot AI trên website / Zalo / Messenger · 6
+              tháng {formatVnd(5_100_000)} · 12 tháng {formatVnd(9_600_000)}) — chỉ khi gói combo{" "}
+              <strong>chưa gồm Care</strong>.
             </li>
             <li>
               Từ <strong>CRM + Care 6</strong> trở đi: <strong>tặng Website doanh nghiệp</strong>{" "}
@@ -488,7 +490,7 @@ export function MaDanceQuote() {
               <strong>không bao gồm</strong> trong giá Dolphin.
             </li>
             <li>
-              Bảng giá tháng tham chiếu: CRM {formatVnd(MONTHLY.crm)}/th · Care{" "}
+              Bảng giá tháng tham chiếu: CRM {formatVnd(MONTHLY.crm)}/th · Care (chatbot AI){" "}
               {formatVnd(MONTHLY.care)}/th · Ops {formatVnd(MONTHLY.ops)}/th · Intelligence{" "}
               {formatVnd(MONTHLY.intelligence)}/th.
             </li>

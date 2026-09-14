@@ -2,6 +2,12 @@
 
 export const PRICING_POLICY_PATH = "/chinh-sach-gia-dolphin-2026/";
 
+/** Short gloss for customers who do not know the product. */
+export const DOLPHIN_CARE_GLOSS =
+  "chatbot AI trả lời khách hàng trên website / Zalo / Messenger";
+
+export const DOLPHIN_CARE_WITH_GLOSS = `Dolphin Care (${DOLPHIN_CARE_GLOSS})`;
+
 export const PRICING_POLICY_META = {
   title: "Chính sách giá Dolphin Software 2026",
   description:
@@ -36,7 +42,7 @@ export const PRICING_PRINCIPLES: readonly {
   {
     group: "Growth Revenue",
     title: "AI — doanh thu tăng trưởng",
-    body: "Dolphin Care, Ops và Intelligence thuộc Growth Revenue — bán kèm hoặc mở rộng sau CRM.",
+    body: `${DOLPHIN_CARE_WITH_GLOSS}, Ops và Intelligence thuộc Growth Revenue — bán kèm hoặc mở rộng sau CRM.`,
     icon: "growth",
   },
   {
@@ -67,7 +73,7 @@ export const PRICING_PRINCIPLES: readonly {
 
 export const SAAS_MONTHLY = [
   { product: "CRM", price: 500_000 },
-  { product: "Dolphin Care", price: 1_000_000 },
+  { product: DOLPHIN_CARE_WITH_GLOSS, price: 1_000_000 },
   { product: "Dolphin Ops", price: 1_000_000 },
   { product: "Dolphin Intelligence", price: 2_000_000 },
 ] as const;
@@ -109,7 +115,7 @@ export const COMBO_PACKAGES: readonly ComboPackage[] = [
   {
     no: 2,
     name: "CRM + Care 6",
-    components: "CRM + Dolphin Care",
+    components: `CRM + ${DOLPHIN_CARE_WITH_GLOSS}`,
     term: "6 tháng",
     prepaid: 9_000_000,
     webSupport: "Tặng Website (4.500.000đ)",
@@ -117,7 +123,7 @@ export const COMBO_PACKAGES: readonly ComboPackage[] = [
   {
     no: 3,
     name: "CRM + Care 12",
-    components: "CRM + Dolphin Care",
+    components: `CRM + ${DOLPHIN_CARE_WITH_GLOSS}`,
     term: "12 tháng",
     prepaid: 16_200_000,
     webSupport: "Tặng Website (4.500.000đ)",
@@ -180,7 +186,7 @@ export const IMPORTANT_RULES = [
   "Từ gói CRM + Care 6 trở đi → tặng toàn bộ Website doanh nghiệp (4.500.000đ) khi triển khai.",
   "CRM Base 12: tặng Landing Page hoặc giảm 50% Website doanh nghiệp.",
   "Dolphin Intelligence là add-on — chỉ bán khi khách đã có gói có CRM.",
-  "Gói thuê lẻ Dolphin Care chỉ dành cho khách đã có CRM — không tặng Website.",
+  `Gói thuê lẻ ${DOLPHIN_CARE_WITH_GLOSS} chỉ dành cho khách đã có CRM — không tặng Website.`,
   "Không có dùng thử miễn phí.",
   "Thanh toán trước theo đúng thời hạn gói đã chọn.",
 ] as const;

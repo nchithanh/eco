@@ -7,7 +7,6 @@ import { assetPath } from "@/lib/asset";
 import { CONTACTS } from "@/lib/contacts";
 import {
   CARE_STANDALONE,
-  CARE_STANDALONE_AUDIENCE,
   COMBO_PACKAGES,
   IMPORTANT_RULES,
   INTEGRATION_OUTSOURCE,
@@ -16,6 +15,8 @@ import {
   PRICING_POLICY_META,
   PRICING_PRINCIPLES,
   SAAS_MONTHLY,
+  DOLPHIN_CARE_GLOSS,
+  DOLPHIN_CARE_WITH_GLOSS,
   formatVnd,
   type ComboPackage,
 } from "@/lib/pricing/dolphin-pricing-policy-2026";
@@ -298,7 +299,9 @@ export function PricingPolicy2026Content() {
             </h2>
             <p className="mt-4 text-base leading-[1.7] text-[var(--kuct-muted)]">
               Giá thanh toán trước theo kỳ hạn. Hỗ trợ Website/Landing áp dụng khi khách triển
-              khai hạng mục tương ứng. Highlight: CRM + Care 12 và Full Growth 12.
+              khai hạng mục tương ứng.{" "}
+              <strong>Dolphin Care</strong> = {DOLPHIN_CARE_GLOSS}. Highlight: CRM + Care 12 và
+              Full Growth 12.
             </p>
           </Reveal>
           <div className="pp26__combo-grid mt-10">
@@ -325,8 +328,11 @@ export function PricingPolicy2026Content() {
             >
               Gói thuê lẻ Dolphin Care
             </h2>
+            <p className="mt-2 text-sm font-medium text-[var(--kuct-accent-2)]">
+              {DOLPHIN_CARE_WITH_GLOSS}
+            </p>
             <p className="mt-4 text-base leading-[1.7] text-[var(--kuct-muted)]">
-              {CARE_STANDALONE_AUDIENCE}
+              Dành cho khách đã có CRM — không tặng Website.
             </p>
           </Reveal>
           <div className="pp26__care-grid mt-10">

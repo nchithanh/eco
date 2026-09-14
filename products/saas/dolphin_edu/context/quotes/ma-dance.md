@@ -27,12 +27,12 @@ Chưa gồm VAT. Phí domain, Zalo OA, ZNS, SMTP, cổng, Google — khách tr�
 
 ## A. Giá SaaS tháng (niêm yết)
 
-| Sản phẩm | Giá / tháng |
-| --- | ---: |
-| CRM | 500.000đ |
-| Dolphin Care | 1.000.000đ |
-| Dolphin Ops | 1.000.000đ |
-| Dolphin Intelligence | 2.000.000đ |
+| Sản phẩm | Giá / tháng | Ghi chú |
+| --- | ---: | --- |
+| CRM | 500.000đ | |
+| Dolphin Care | 1.000.000đ | Chatbot AI trả lời khách trên website / Zalo / Messenger |
+| Dolphin Ops | 1.000.000đ | |
+| Dolphin Intelligence | 2.000.000đ | |
 
 ---
 
