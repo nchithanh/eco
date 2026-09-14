@@ -1,5 +1,13 @@
 # Changelog — Dolphin Edu frontend
 
+## 2026-09-14
+
+- Báo giá MA Dance: default **CRM Base 12** + Website DN + portal HV/GV + thanh toán online; chi phí ngoài thêm **Domain**.
+- Báo giá MA Dance: gói **thuê lẻ Dolphin Care** (5,1tr/6 th · 9,6tr/12 th) — tick khi combo chưa gồm Care.
+- Báo giá MA Dance: Outsource lên trên; Landing/Website trong extras; khoảng giá tham khảo (không tick).
+- Báo giá MA Dance: Website/Landing **opt-in** — tặng/giảm chỉ áp khi tick hạng mục; mặc định phiếu chỉ có giá SaaS gói.
+- Báo giá MA Dance: viết lại `/demo/bao-gia-crm-nhay/` — React + `lib/quotes/ma-dance-pricing.ts`; 6 gói combo chính thức Dolphin; Intelligence add-on; outsource MA (tác vụ 2tr, studio 1tr, portal 3tr, ecom 4,5tr). Bỏ iframe `quote.html`. JSON `dolphin-quote-ma-dance/v2`. SoT `context/quotes/ma-dance.md`.
+
 ## 2026-09-09
 
 - Báo giá MA Dance: bảng Tổng **không** lặp ưu đãi MA / Onboarding — chỉ còn dòng giảm 10%; CRM 5tr/năm vẫn trên gói A.

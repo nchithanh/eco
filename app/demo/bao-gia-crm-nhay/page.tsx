@@ -1,27 +1,18 @@
-import { readFileSync } from "node:fs";
-import path from "node:path";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { MaDanceQuote } from "@/components/quotes/MaDanceQuote";
 import { assetPath } from "@/lib/asset";
-import { brandLogoSrc } from "@/lib/brand-logo";
 import { buildPageMetadata } from "@/lib/seo";
-import { QuoteFrame } from "./QuoteFrame";
 import "./quote.css";
+import "./quote-form.css";
 
 const pathName = "/demo/bao-gia-crm-nhay/";
-
-function loadQuoteHtml() {
-  return readFileSync(
-    path.join(process.cwd(), "app/demo/bao-gia-crm-nhay/quote.html"),
-    "utf8",
-  ).replaceAll("/brand/logo-dolphin.webp", assetPath(brandLogoSrc()));
-}
 
 export const metadata: Metadata = {
   ...buildPageMetadata({
     title: "Báo giá CRM — MA Dance | Dolphin Software",
     description:
-      "Phiếu chuyển đổi số MA Dance → CRM (gói A 5tr + hạng mục B điền giá). Không index.",
+      "Phiếu báo giá CRM MA Dance — 6 gói combo Dolphin Software + tùy chọn outsource. Không index.",
     path: pathName,
     noIndex: true,
   }),
@@ -29,15 +20,14 @@ export const metadata: Metadata = {
 };
 
 export default function BaoGiaCrmNhayPage() {
-  const quoteHtml = loadQuoteHtml();
   return (
     <div className="quote-crm">
-      <p className="quote-crm__bar">
+      <p className="quote-crm__bar no-print">
         <Link href={assetPath("/demos/")}>← Demo vault</Link>
         {" · "}
         Báo giá CRM · MA Dance
       </p>
-      <QuoteFrame html={quoteHtml} />
+      <MaDanceQuote />
     </div>
   );
 }

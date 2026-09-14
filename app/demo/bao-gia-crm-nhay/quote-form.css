@@ -1,0 +1,529 @@
+/* MA Dance CRM quote — form (shared look with legacy quote.html) */
+
+.quote-form {
+  --kuct-bg: #fcfcfd;
+  --kuct-surface: #ffffff;
+  --kuct-accent: #6b56d6;
+  --kuct-accent-2: #5644b8;
+  --kuct-text: #1a1625;
+  --kuct-muted: #5c5668;
+  --kuct-border: rgba(26, 22, 37, 0.08);
+  --kuct-shadow: 0 8px 24px rgb(26 22 37 / 0.05);
+  --kuct-panel: #f5f4f8;
+  --ok: #1b7a4a;
+  --warn: #8a5a12;
+  font-family: var(--font-quicksand), Quicksand, "Noto Sans", system-ui, sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.005em;
+  background: var(--kuct-bg);
+  color: var(--kuct-text);
+  line-height: 1.65;
+}
+
+.quote-form__wrap {
+  max-width: 76rem;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 4rem;
+}
+
+.quote-form header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  align-items: flex-start;
+  border-bottom: 1px solid var(--kuct-border);
+  padding-bottom: 1.25rem;
+  margin-bottom: 1.35rem;
+}
+
+.quote-form .brand-lockup {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 0.85rem;
+}
+
+.quote-form .brand-logo {
+  height: 2.5rem;
+  width: auto;
+  object-fit: contain;
+}
+
+.quote-form .brand-word {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1;
+}
+
+.quote-form .brand-tag {
+  margin: 0.28rem 0 0;
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--kuct-muted);
+}
+
+.quote-form .client-lockup {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.quote-form .client-logo {
+  height: 3.25rem;
+  width: 3.25rem;
+  border-radius: 10px;
+  object-fit: cover;
+  border: 1px solid var(--kuct-border);
+  box-shadow: var(--kuct-shadow);
+}
+
+.quote-form .client-name {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.quote-form .client-label {
+  margin: 0.2rem 0 0;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--kuct-muted);
+}
+
+.quote-form .eyebrow {
+  margin: 0 0 0.4rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--kuct-accent);
+}
+
+.quote-form h1 {
+  font-size: 1.65rem;
+  margin: 0 0 0.45rem;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.12;
+}
+
+.quote-form .contact {
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.quote-form .contact a {
+  color: var(--kuct-accent-2);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.quote-form .meta {
+  display: grid;
+  gap: 0.4rem;
+  min-width: 14rem;
+}
+
+.quote-form label.field {
+  display: grid;
+  gap: 0.2rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: var(--kuct-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+}
+
+.quote-form input.plain,
+.quote-form textarea.plain {
+  font: inherit;
+  font-weight: 500;
+  color: var(--kuct-text);
+  border: 1px solid var(--kuct-border);
+  border-radius: 10px;
+  padding: 0.5rem 0.7rem;
+  background: var(--kuct-surface);
+  box-shadow: var(--kuct-shadow);
+}
+
+.quote-form textarea.plain {
+  min-height: 4.5rem;
+  width: 100%;
+  resize: vertical;
+}
+
+.quote-form h2 {
+  font-size: 1.15rem;
+  margin: 1.75rem 0 0.7rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.quote-form h3 {
+  font-size: 1rem;
+  margin: 1.15rem 0 0.5rem;
+  font-weight: 600;
+}
+
+.quote-form .note {
+  font-size: 0.8rem;
+  color: var(--kuct-muted);
+  margin-top: 0.75rem;
+}
+
+.quote-form .toolbar {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin: 1rem 0;
+}
+
+.quote-form button {
+  font: inherit;
+  font-weight: 600;
+  font-size: 0.85rem;
+  border: 0;
+  border-radius: 10px;
+  padding: 0.55rem 1rem;
+  cursor: pointer;
+  color: #fff;
+  background: var(--kuct-accent);
+  box-shadow: var(--kuct-shadow);
+}
+
+.quote-form button.ghost {
+  background: var(--kuct-surface);
+  color: var(--kuct-text);
+  border: 1px solid var(--kuct-border);
+  box-shadow: none;
+}
+
+.quote-form .table-scroll {
+  overflow-x: auto;
+}
+
+.quote-form table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--kuct-surface);
+  border: 1px solid var(--kuct-border);
+  border-radius: 10px;
+  overflow: hidden;
+  font-size: 0.88rem;
+  box-shadow: var(--kuct-shadow);
+}
+
+.quote-form th,
+.quote-form td {
+  padding: 0.65rem 0.8rem;
+  border-bottom: 1px solid var(--kuct-border);
+  vertical-align: top;
+  text-align: left;
+}
+
+.quote-form th {
+  background: var(--kuct-panel);
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--kuct-muted);
+  font-weight: 600;
+}
+
+.quote-form tr:last-child td {
+  border-bottom: 0;
+}
+
+.quote-form .num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.quote-form ul.incl {
+  margin: 0.35rem 0 0;
+  padding-left: 1.1rem;
+  color: var(--kuct-muted);
+  font-size: 0.82rem;
+}
+
+.quote-form ul.scope-list,
+.quote-form ol.benefits {
+  margin: 0;
+  padding: 1rem 1rem 1rem 2.15rem;
+  background: var(--kuct-surface);
+  border: 1px solid var(--kuct-border);
+  border-radius: 10px;
+  box-shadow: var(--kuct-shadow);
+  font-size: 0.88rem;
+}
+
+.quote-form .combo-grid {
+  display: grid;
+  gap: 0.75rem;
+}
+
+@media (min-width: 48rem) {
+  .quote-form .combo-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.quote-form .combo-card {
+  display: block;
+  position: relative;
+  padding: 1rem 1.05rem 1rem 2.75rem;
+  border: 1px solid var(--kuct-border);
+  border-radius: 10px;
+  background: var(--kuct-surface);
+  box-shadow: var(--kuct-shadow);
+  cursor: pointer;
+  text-align: left;
+}
+
+.quote-form .combo-card:has(input:checked) {
+  border-color: color-mix(in srgb, var(--kuct-accent) 45%, var(--kuct-border));
+  background: color-mix(in srgb, var(--kuct-accent) 6%, var(--kuct-surface));
+}
+
+.quote-form .combo-card input {
+  position: absolute;
+  left: 1rem;
+  top: 1.15rem;
+  width: 1rem;
+  height: 1rem;
+  accent-color: var(--kuct-accent);
+}
+
+.quote-form .combo-card__name {
+  margin: 0 0 0.35rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--kuct-text);
+}
+
+.quote-form .combo-card__meta {
+  margin: 0 0 0.35rem;
+  font-size: 0.78rem;
+  color: var(--kuct-muted);
+}
+
+.quote-form .combo-card__price {
+  margin: 0 0 0.35rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--kuct-accent-2);
+}
+
+.quote-form .combo-card__support {
+  margin: 0;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--ok);
+  line-height: 1.35;
+}
+
+.quote-form .care-standalone-table__selected td {
+  background: rgb(107 86 214 / 0.06);
+}
+
+.quote-form .care-standalone-table td.num,
+.quote-form .care-standalone-table th.num {
+  white-space: nowrap;
+}
+
+.quote-form .support-picks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.75rem 0 0;
+}
+
+.quote-form .support-picks label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.75rem;
+  border: 1px solid var(--kuct-border);
+  border-radius: 10px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: var(--kuct-surface);
+}
+
+.quote-form .support-picks label:has(input:checked) {
+  border-color: color-mix(in srgb, var(--kuct-accent) 50%, var(--kuct-border));
+  background: color-mix(in srgb, var(--kuct-accent) 10%, var(--kuct-surface));
+  color: var(--kuct-accent-2);
+}
+
+.quote-form .addon-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--kuct-border);
+  border-radius: 10px;
+  background: var(--kuct-surface);
+  margin-bottom: 0.5rem;
+}
+
+.quote-form .addon-row:has(input:checked) {
+  background: color-mix(in srgb, var(--kuct-accent) 5%, var(--kuct-surface));
+}
+
+.quote-form .addon-row input {
+  margin-top: 0.2rem;
+  accent-color: var(--kuct-accent);
+}
+
+.quote-form .addon-row__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.quote-form .addon-row__title {
+  margin: 0 0 0.2rem;
+  font-weight: 700;
+  font-size: 0.92rem;
+}
+
+.quote-form .addon-row__scope {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--kuct-muted);
+}
+
+.quote-form .addon-row__price {
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: var(--kuct-accent-2);
+  white-space: nowrap;
+}
+
+.quote-form .range-note {
+  font-size: 0.75rem;
+  color: var(--warn);
+  font-weight: 600;
+}
+
+.quote-form table.totals-table tbody td {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--kuct-accent-2);
+}
+
+.quote-form table.totals-table tbody td:first-child {
+  color: var(--kuct-text);
+  font-weight: 650;
+  text-align: left;
+}
+
+.quote-form table.totals-table tbody tr.subtotal td {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--kuct-text);
+}
+
+.quote-form table.totals-table tbody tr.gift td {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--ok);
+}
+
+.quote-form table.totals-table tbody tr.due td {
+  background: var(--kuct-panel);
+}
+
+.quote-form .policy-box {
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--kuct-border);
+  border-radius: 10px;
+  background: var(--kuct-surface);
+  font-size: 0.85rem;
+}
+
+.quote-form .policy-box ul {
+  margin: 0.5rem 0 0;
+  padding-left: 1.2rem;
+}
+
+.quote-form footer {
+  margin-top: 2rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--kuct-border);
+  font-size: 0.8rem;
+  color: var(--kuct-muted);
+}
+
+.quote-form .motto {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 0 0.75rem;
+  font-size: 0.9rem;
+}
+
+.quote-form .motto img {
+  height: 1.75rem;
+  width: auto;
+}
+
+.quote-form .motto-text {
+  font-family: var(--font-serif), "Instrument Serif", Georgia, serif;
+  font-style: italic;
+  color: var(--kuct-text);
+}
+
+@media print {
+  .quote-form {
+    background: #fff;
+  }
+  .quote-form .toolbar,
+  .quote-form .no-print {
+    display: none !important;
+  }
+  .quote-form__wrap {
+    max-width: none;
+    padding: 0;
+  }
+  .quote-form table,
+  .quote-form .combo-card,
+  .quote-form .policy-box {
+    box-shadow: none;
+  }
+  .quote-form .combo-card:not(:has(input:checked)) {
+    display: none;
+  }
+}
+
+@media (max-width: 48rem) {
+  .quote-form__wrap {
+    padding: 1rem 0.85rem calc(2.5rem + env(safe-area-inset-bottom));
+  }
+  .quote-form header {
+    flex-direction: column;
+  }
+  .quote-form h1 {
+    font-size: 1.35rem;
+  }
+  .quote-form .toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background: var(--kuct-bg);
+    padding: 0.5rem 0;
+  }
+  .quote-form button {
+    min-height: 2.75rem;
+    flex: 1 1 8rem;
+  }
+}

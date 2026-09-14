@@ -41,7 +41,7 @@ export const demoCatalog: DemoCatalogItem[] = [
     href: "/demo/bao-gia-crm-nhay/",
     title: "Báo giá CRM — MA Dance",
     blurb:
-      "Phiếu báo giá CRM cho MA Dance — gói A 9,5tr (CRM + web) + checklist (tác vụ, cổng login GV/HV, …). Public `/demo/bao-gia-crm-nhay/` — không mật khẩu. Tick rồi In / PDF.",
+      "Phiếu báo giá CRM MA Dance — 6 gói combo Dolphin (CRM / Care / Ops) + outsource tích hợp. Public `/demo/bao-gia-crm-nhay/` — In / PDF / JSON.",
     tag: "Quote",
   },
   {
