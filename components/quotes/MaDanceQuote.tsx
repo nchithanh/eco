@@ -29,6 +29,7 @@ import {
   type ExtraKey,
   computeQuoteTotals,
   extraPriceHint,
+  VOLUME_DISCOUNT_THRESHOLD,
   formatVnd,
   getCombo,
 } from "@/lib/quotes/ma-dance-pricing";
@@ -414,6 +415,13 @@ export function MaDanceQuote() {
                   <td className="num">{formatVnd(totals.intelligenceDue)}</td>
                 </tr>
               ) : null}
+              {totals.volumeDiscount > 0 ? (
+                <tr className="gift">
+                  <td>{totals.volumeDiscountLabel}</td>
+                  <td className="num">−{formatVnd(totals.volumeDiscount)}</td>
+                  <td className="num">−{formatVnd(totals.volumeDiscount)}</td>
+                </tr>
+              ) : null}
               <tr className="due">
                 <td>
                   <strong>Tổng thanh toán trước</strong>
@@ -481,6 +489,10 @@ export function MaDanceQuote() {
               CRM Base 12: <strong>tặng Landing Page</strong> hoặc{" "}
               <strong>giảm 50% Website</strong> (trả {formatVnd(ONCE.website / 2)}) — khi tick
               hạng mục tương ứng ở mục Outsource / Tích hợp.
+            </li>
+            <li>
+              Thanh toán trước <strong>trên {formatVnd(VOLUME_DISCOUNT_THRESHOLD)}</strong>: giảm
+              thêm <strong>10%</strong> trên tổng thanh toán (sau ưu đãi web / Care).
             </li>
             <li>
               <strong>Không dùng thử miễn phí.</strong>

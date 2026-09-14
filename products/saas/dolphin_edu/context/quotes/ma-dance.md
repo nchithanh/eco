@@ -22,6 +22,7 @@ Chưa gồm VAT. Phí domain, Zalo OA, ZNS, SMTP, cổng, Google — khách tr�
 | Khoảng giá | Bảng tham khảo nhóm giá — **không tick**, không cộng tổng |
 | Dùng thử | **Không** có dùng thử miễn phí |
 | Intelligence | Add-on **2.000.000đ/tháng** — chỉ khi đã chọn gói có CRM |
+| Giảm 10% | Tổng thanh toán trước **trên 15.000.000đ** → giảm thêm **10%** (sau ưu đãi web / Care) |
 
 ---
 

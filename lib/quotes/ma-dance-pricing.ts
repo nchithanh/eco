@@ -374,8 +374,16 @@ export type QuoteTotals = {
   extraLines: QuoteExtraLine[];
   extrasOnce: number;
   list: number;
+  /** Subtotal due before volume discount. */
+  prepaidBeforeVolume: number;
+  volumeDiscount: number;
+  volumeDiscountLabel: string;
   prepaid: number;
 };
+
+/** Volume discount when prepaid (before this discount) exceeds this amount. */
+export const VOLUME_DISCOUNT_THRESHOLD = 15_000_000;
+export const VOLUME_DISCOUNT_RATE = 0.1;
 
 export const EMPTY_EXTRAS: ExtraSelection = {
   landing: false,
@@ -497,7 +505,12 @@ export function computeQuoteTotals(input: QuoteInput): QuoteTotals {
   const careDue = careLine?.due ?? 0;
 
   const list = saasList + careList + extrasList + intelligenceDue;
-  const prepaid = combo.price + careDue + extrasDue + intelligenceDue;
+  const prepaidBeforeVolume = combo.price + careDue + extrasDue + intelligenceDue;
+  const volumeDiscount =
+    prepaidBeforeVolume > VOLUME_DISCOUNT_THRESHOLD
+      ? Math.round(prepaidBeforeVolume * VOLUME_DISCOUNT_RATE)
+      : 0;
+  const prepaid = prepaidBeforeVolume - volumeDiscount;
 
   return {
     combo,
@@ -507,6 +520,12 @@ export function computeQuoteTotals(input: QuoteInput): QuoteTotals {
     extraLines,
     extrasOnce: extrasDue,
     list,
+    prepaidBeforeVolume,
+    volumeDiscount,
+    volumeDiscountLabel:
+      volumeDiscount > 0
+        ? `Giảm ${VOLUME_DISCOUNT_RATE * 100}% khi thanh toán trước trên ${formatVnd(VOLUME_DISCOUNT_THRESHOLD)}`
+        : "",
     prepaid,
   };
 }
