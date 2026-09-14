@@ -1,7 +1,7 @@
 /** Official Dolphin SaaS / combo prices for MA Dance quote. */
 
 export const QUOTE_SCHEMA = "dolphin-quote-ma-dance/v2";
-export const QUOTE_STORAGE_KEY = "dolphin-quote-ma-dance-20260914b";
+export const QUOTE_STORAGE_KEY = "dolphin-quote-ma-dance-20260914c";
 export const QUOTE_SOURCE = "/demo/bao-gia-crm-nhay/";
 export const QUOTE_SOT = "products/saas/dolphin_edu/context/quotes/ma-dance.md";
 

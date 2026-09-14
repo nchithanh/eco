@@ -29,14 +29,6 @@
         "due": 3000000,
         "gift": null,
         "giftLabel": null
-      },
-      {
-        "key": "payment-online",
-        "title": "Tích hợp thanh toán online",
-        "list": 2000000,
-        "due": 2000000,
-        "gift": null,
-        "giftLabel": null
       }
     ]
   },
@@ -44,9 +36,9 @@
     "saasList": 6000000,
     "comboPrice": 5400000,
     "intelligenceDue": 0,
-    "extrasOnce": 7250000,
-    "listBeforeGift": 15500000,
-    "prepaidDue": 12650000,
-    "prepaidDueFormatted": "12.650.000đ"
+    "extrasOnce": 5250000,
+    "listBeforeGift": 13500000,
+    "prepaidDue": 10650000,
+    "prepaidDueFormatted": "10.650.000đ"
   }
 }

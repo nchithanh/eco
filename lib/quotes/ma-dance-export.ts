@@ -124,7 +124,7 @@ export function defaultMaDanceQuoteState(): MaDanceQuoteState {
       "booking-room": false,
       ecom: false,
       portal: true,
-      "payment-online": true,
+      "payment-online": false,
     },
     quoteDate: new Date().toISOString().slice(0, 10),
     notes: "",

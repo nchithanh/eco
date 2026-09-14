@@ -2,6 +2,7 @@
 
 ## 2026-09-14
 
+- Báo giá MA Dance: bỏ default tick **Tích hợp thanh toán online**.
 - Báo giá MA Dance: default **CRM Base 12** + Website DN + portal HV/GV + thanh toán online; chi phí ngoài thêm **Domain**.
 - Báo giá MA Dance: gói **thuê lẻ Dolphin Care** (5,1tr/6 th · 9,6tr/12 th) — tick khi combo chưa gồm Care.
 - Báo giá MA Dance: Outsource lên trên; Landing/Website trong extras; khoảng giá tham khảo (không tick).

@@ -7,6 +7,7 @@ import {
   PRICING_POLICY_META,
   PRICING_POLICY_PATH,
 } from "@/lib/pricing/dolphin-pricing-policy-2026";
+import "./pricing-policy.css";
 
 export const metadata: Metadata = {
   ...buildPageMetadata({
