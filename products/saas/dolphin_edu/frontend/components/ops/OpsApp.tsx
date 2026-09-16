@@ -1,8 +1,8 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import { CHIP } from "../../lib/chat";
-import { cancelClass, enrollStudent, generateClasses } from "../../lib/edu";
+import { cancelClass, enrollStudent, generateClasses, patchClass } from "../../lib/edu";
 import { resolveChat } from "../../lib/intent";
 import {
   DEFAULT_STUDENT,
@@ -17,11 +17,33 @@ import {
 } from "../../lib/seed";
 import { HARDCODED_MENU, mapMenuGroups } from "../../lib/api-menu";
 import { ALL_BRANCH_ID, readStoredBranch, writeStoredBranch } from "../../lib/branch";
+import { BOOT_SPLASH_FADE_MS, BOOT_SPLASH_MS } from "../../lib/brand";
 import { CHROME, readStoredLocale, writeStoredLocale, type OpsLocale } from "../../lib/locale";
+import { getPhoneSnapshot, subscribePhone } from "../../lib/phone";
+import { applyDocumentTheme, readStoredTheme, writeStoredTheme, type EduTheme } from "../../lib/theme";
 import { isLiveStage, navItemFromGroups, type NavGroup } from "../../lib/nav";
+import {
+  cloneQuoteSeed,
+  deductSession,
+  markAttendance,
+  restoreSession,
+} from "../../lib/quote-demo";
+import { readStoredRole, writeStoredRole, type DemoRole } from "../../lib/role";
 import { cloneSeedStudioTasks } from "../../lib/tasks-demo";
-import type { ChatMessage, ClassFilter, DemoClass, DemoCourse, DemoRoom, DemoStudent, DemoStudioTask, Stage } from "../../lib/types";
+import type {
+  ChatMessage,
+  ClassFilter,
+  DemoClass,
+  DemoCourse,
+  DemoRoom,
+  DemoStudent,
+  DemoStudioTask,
+  QuoteDemoState,
+  Stage,
+} from "../../lib/types";
 import { AiReveal } from "./AiReveal";
+import { BootSplash } from "./BootSplash";
+import { MobileGate } from "./MobileGate";
 import { ChatPanel } from "./ChatPanel";
 import { ClassesBoard } from "./ClassesBoard";
 import { ComingSoon } from "./ComingSoon";
@@ -33,10 +55,34 @@ import { Shell } from "./Shell";
 import { RoomsBoard } from "./RoomsBoard";
 import { StaffBoard } from "./StaffBoard";
 import { TasksBoard } from "./TasksBoard";
+import {
+  AccessBoard,
+  AttendanceDesk,
+  CalendarBoard,
+  CareBoard,
+  HoldsBoard,
+  MidEnrollBoard,
+  PackagesBoard,
+  PaymentsBoard,
+  PromosBoard,
+  QrBoard,
+  RentalsBoard,
+  RevenueBoard,
+} from "./QuoteBoards";
+import {
+  AiOpsBoard,
+  CareAiPreview,
+  IntelligentBoard,
+  PortalPreview,
+  StorePreview,
+  WebsitePreview,
+} from "./PreviewBoards";
+import { GuideBoard } from "./GuideBoard";
 import "./nexaflow.css";
 
 const FOCUS: Record<string, string> = {
   overview: "ops-over-heading",
+  guide: "ops-guide-heading",
   classes: "ops-classes-heading",
   students: "ops-clist-heading",
   "student-360": "ops-360-heading",
@@ -46,6 +92,24 @@ const FOCUS: Record<string, string> = {
   "course-form": "ops-courses-heading",
   "course-detail": "ops-courses-heading",
   tasks: "ops-tasks-heading",
+  packages: "ops-pack-heading",
+  attendance: "ops-att-heading",
+  qr: "ops-qr-heading",
+  schedule: "ops-cal-heading",
+  campaigns: "ops-care-heading",
+  promotions: "ops-promo-heading",
+  payment: "ops-pay-heading",
+  holds: "ops-hold-heading",
+  reports: "ops-rev-heading",
+  access: "ops-acl-heading",
+  leads: "ops-mid-heading",
+  rentals: "ops-rent-heading",
+  website: "ops-web-heading",
+  portal: "ops-portal-heading",
+  store: "ops-store-heading",
+  "care-ai": "ops-careai-heading",
+  "ai-ops": "ops-aiops-heading",
+  intelligent: "ops-intel-heading",
 };
 
 function focusId(key: string): string {
@@ -82,12 +146,18 @@ export function OpsApp() {
   const [classes, setClasses] = useState<DemoClass[]>(() => cloneSeedClasses());
   const [rooms, setRooms] = useState<DemoRoom[]>(() => cloneSeedRooms());
   const [studioTasks, setStudioTasks] = useState<DemoStudioTask[]>(() => cloneSeedStudioTasks());
+  const [quote, setQuote] = useState<QuoteDemoState>(() => cloneQuoteSeed());
   const [student, setStudent] = useState<DemoStudent>(DEFAULT_STUDENT);
   const [notice, setNotice] = useState<string | null>(null);
   const [reveal, setReveal] = useState<string | null>(null);
   const revealTimer = useRef<number | null>(null);
   const [locale, setLocaleState] = useState<OpsLocale>("vi");
+  const [theme, setThemeState] = useState<EduTheme>("light");
   const [branchId, setBranchIdState] = useState(ALL_BRANCH_ID);
+  const [role, setRoleState] = useState<DemoRole>("manager");
+  const [bootLeaving, setBootLeaving] = useState(false);
+  const [bootVisible, setBootVisible] = useState(true);
+  const phone = useSyncExternalStore(subscribePhone, getPhoneSnapshot, () => false);
 
   const menuGroups = useMemo(() => mapMenuGroups(HARDCODED_MENU, locale), [locale]);
   const orgName = HARDCODED_MENU.organization.name;
@@ -100,9 +170,20 @@ export function OpsApp() {
     document.documentElement.lang = next;
   }
 
+  function setTheme(next: EduTheme) {
+    setThemeState(next);
+    writeStoredTheme(next);
+    applyDocumentTheme(next);
+  }
+
   function setBranch(next: string) {
     setBranchIdState(next);
     writeStoredBranch(next);
+  }
+
+  function setRole(next: DemoRole) {
+    setRoleState(next);
+    writeStoredRole(next);
   }
 
   const loadMenu = useCallback(() => undefined, []);
@@ -111,8 +192,23 @@ export function OpsApp() {
     const stored = readStoredLocale();
     setLocaleState(stored);
     document.documentElement.lang = stored;
+    const storedTheme = readStoredTheme();
+    setThemeState(storedTheme);
+    applyDocumentTheme(storedTheme);
     setBranchIdState(readStoredBranch());
+    setRoleState(readStoredRole());
   }, []);
+
+  useEffect(() => {
+    const hold = window.setTimeout(() => setBootLeaving(true), BOOT_SPLASH_MS);
+    return () => window.clearTimeout(hold);
+  }, []);
+
+  useEffect(() => {
+    if (!bootLeaving) return;
+    const gone = window.setTimeout(() => setBootVisible(false), BOOT_SPLASH_FADE_MS);
+    return () => window.clearTimeout(gone);
+  }, [bootLeaving]);
 
   useEffect(() => {
     if (reveal) return;
@@ -227,6 +323,29 @@ export function OpsApp() {
     openCourses({ id: targetCourseId, thread, chip: chip ?? CHIP.generate });
   }
 
+  function markStudent(classId: string, studentId: string, mark: "present" | "absent") {
+    setQuote((current) => {
+      const prev = current.attendance[classId]?.[studentId];
+      let packages = current.packages;
+      if (mark === "present" && prev !== "present") packages = deductSession(packages, studentId);
+      if (mark === "absent" && prev === "present") packages = restoreSession(packages, studentId);
+      return { ...current, attendance: markAttendance(current.attendance, classId, studentId, mark), packages };
+    });
+    setNotice(mark === "present" ? "Có mặt — đã trừ 1 buổi gói (nếu còn)." : "Vắng — không trừ buổi, không học bù.");
+  }
+
+  function rescheduleClass(classId: string, patch: Partial<Pick<DemoClass, "startTime" | "endTime" | "teacherId" | "roomId">>) {
+    const result = patchClass(classes, classId, patch);
+    if (result.conflict) {
+      setNotice(`Trùng phòng hoặc GV với buổi ${result.conflict.id}. Không lưu.`);
+      return;
+    }
+    setClasses(result.classes);
+    setNotice("Đã đổi giờ / phòng / GV. Demo FE.");
+  }
+
+  const goCourses = () => selectNav("courses");
+
   function onSubmit(text: string) {
     const thread: ChatMessage[] = [...messages, { id: `u-${messages.length}`, role: "user", text }];
     const match = resolveChat(text);
@@ -260,8 +379,6 @@ export function OpsApp() {
     setDraft("");
   }
 
-  const goCourses = () => selectNav("courses");
-
   let canvas;
   if (reveal) {
     canvas = <AiReveal label={reveal} />;
@@ -277,6 +394,8 @@ export function OpsApp() {
         onOpen={selectNav}
       />
     );
+  } else if (stage === "guide") {
+    canvas = <GuideBoard title={stageTitle(menuGroups, "guide")} onOpen={selectNav} />;
   } else if (stage === "classes") {
     canvas = (
       <ClassesBoard
@@ -290,9 +409,14 @@ export function OpsApp() {
         onFilter={setClassFilter}
         onCancel={(id) => {
           setClasses((current) => cancelClass(current, id));
-          setNotice("Đã hủy lớp. Demo FE, chưa server.");
+          setNotice("Đã hủy lớp. HV không mất buổi. Demo FE.");
         }}
         onOpenCourse={(id) => openCourses({ id: id || null })}
+        attendance={quote.attendance}
+        onMark={markStudent}
+        onReschedule={rescheduleClass}
+        hideFees={role === "teacher"}
+        hidePhone={role === "teacher"}
       />
     );
   } else if (stage === "teachers") {
@@ -303,6 +427,7 @@ export function OpsApp() {
         courses={courses}
         classes={classes}
         onPromo={goCourses}
+        onCover={(classId, teacherId) => rescheduleClass(classId, { teacherId })}
       />
     );
   } else if (stage === "classrooms") {
@@ -354,6 +479,7 @@ export function OpsApp() {
         }}
         onEnroll={() => openCourses({ id: courses[0]?.id ?? null })}
         onPromo={goCourses}
+        role={role}
       />
     );
   } else if (stage === "students") {
@@ -365,8 +491,159 @@ export function OpsApp() {
         teachers={DEMO_TEACHERS}
         onOpen={(name) => openStudent(studentByName(name))}
         onPromo={goCourses}
+        role={role}
       />
     );
+  } else if (stage === "packages") {
+    canvas = <PackagesBoard packages={quote.packages} students={DEMO_STUDENTS} notice={notice} />;
+  } else if (stage === "payment") {
+    canvas = (
+      <PaymentsBoard
+        receipts={quote.receipts}
+        students={DEMO_STUDENTS}
+        role={role}
+        notice={notice}
+        onCollect={(id) => {
+          setQuote((q) => ({
+            ...q,
+            receipts: q.receipts.map((row) =>
+              row.id === id ? { ...row, debt: false, amount: 1200000, method: "cash", note: "Thu nợ demo · tiền mặt" } : row,
+            ),
+          }));
+          setNotice("Đã thu nợ (demo local).");
+        }}
+      />
+    );
+  } else if (stage === "holds") {
+    canvas = (
+      <HoldsBoard
+        holds={quote.holds}
+        students={DEMO_STUDENTS}
+        role={role}
+        notice={notice}
+        onDecide={(id, status) => {
+          setQuote((q) => ({
+            ...q,
+            holds: q.holds.map((row) => (row.id === id ? { ...row, status } : row)),
+          }));
+          setNotice(status === "approved" ? "Đã duyệt bảo lưu. Giữ chỗ sĩ số." : "Đã từ chối bảo lưu.");
+        }}
+      />
+    );
+  } else if (stage === "attendance") {
+    canvas = (
+      <AttendanceDesk
+        classes={classes}
+        courses={courses}
+        students={DEMO_STUDENTS}
+        attendance={quote.attendance}
+        notice={notice}
+        onMark={markStudent}
+      />
+    );
+  } else if (stage === "qr") {
+    canvas = (
+      <QrBoard
+        classes={classes}
+        courses={courses}
+        students={DEMO_STUDENTS}
+        attendance={quote.attendance}
+        notice={notice}
+        onMark={(classId, studentId) => markStudent(classId, studentId, "present")}
+      />
+    );
+  } else if (stage === "schedule") {
+    canvas = (
+      <CalendarBoard
+        links={quote.calendars}
+        classes={classes}
+        courses={courses}
+        teachers={DEMO_TEACHERS}
+        rooms={rooms}
+        notice={notice}
+        onToggle={(id) => {
+          setQuote((q) => ({
+            ...q,
+            calendars: q.calendars.map((row) => (row.id === id ? { ...row, synced: !row.synced } : row)),
+          }));
+          setNotice("Đã đổi trạng thái sync Google Calendar (demo, chưa OAuth).");
+        }}
+      />
+    );
+  } else if (stage === "promotions") {
+    canvas = (
+      <PromosBoard
+        promos={quote.promos}
+        notice={notice}
+        onToggle={(id) => {
+          setQuote((q) => ({
+            ...q,
+            promos: q.promos.map((row) => (row.id === id ? { ...row, active: !row.active } : row)),
+          }));
+        }}
+      />
+    );
+  } else if (stage === "campaigns") {
+    canvas = (
+      <CareBoard
+        blasts={quote.blasts}
+        notice={notice}
+        onSend={(id) => {
+          setQuote((q) => ({
+            ...q,
+            blasts: q.blasts.map((row) => (row.id === id ? { ...row, status: "sent", when: "2026-08-24 17:15" } : row)),
+          }));
+          setNotice("Đã gửi demo (chưa Zalo OA / SMTP).");
+        }}
+      />
+    );
+  } else if (stage === "reports") {
+    canvas = <RevenueBoard role={role} />;
+  } else if (stage === "access") {
+    canvas = <AccessBoard role={role} />;
+  } else if (stage === "rentals") {
+    canvas = (
+      <RentalsBoard
+        rentals={quote.rentals}
+        rooms={rooms}
+        notice={notice}
+        onConfirm={(id) => {
+          setQuote((q) => ({
+            ...q,
+            rentals: q.rentals.map((row) => (row.id === id ? { ...row, status: "confirmed" } : row)),
+          }));
+          setNotice("Đã xác nhận cọc thuê phòng.");
+        }}
+      />
+    );
+  } else if (stage === "leads") {
+    canvas = (
+      <MidEnrollBoard
+        courses={courses}
+        students={DEMO_STUDENTS}
+        notice={notice}
+        onEnroll={(cid, sid) => doEnroll(cid, sid)}
+      />
+    );
+  } else if (stage === "website") {
+    canvas = <WebsitePreview />;
+  } else if (stage === "portal") {
+    canvas = <PortalPreview />;
+  } else if (stage === "store") {
+    canvas = <StorePreview />;
+  } else if (stage === "care-ai") {
+    canvas = <CareAiPreview />;
+  } else if (stage === "ai-ops") {
+    canvas = (
+      <AiOpsBoard
+        packages={quote.packages}
+        receipts={quote.receipts}
+        students={DEMO_STUDENTS}
+        onOpenPayment={() => selectNav("payment")}
+      />
+    );
+  } else if (stage === "intelligent") {
+    canvas = <IntelligentBoard />;
   } else if (!isLiveStage(stage) || !navItemFromGroups(menuGroups, stage).ready) {
     canvas = (
       <ComingSoon
@@ -386,32 +663,43 @@ export function OpsApp() {
   }
 
   return (
-    <Shell
-      active={stage}
-      canvasKey={focusKey}
-      onSelect={selectNav}
-      groups={menuGroups}
-      orgName={orgName}
-      menuState={menuState}
-      onRetryMenu={loadMenu}
-      locale={locale}
-      onLocaleChange={setLocale}
-      branchId={branchId}
-      onBranchChange={setBranch}
-      canvas={canvas}
-      chat={
-        <ChatPanel
-          draft={draft}
-          onDraftChange={setDraft}
-          onSubmit={onSubmit}
-          onNew={() => {
-            setDraft("");
-            setMessages([]);
-          }}
-          messages={messages}
+    <>
+      {phone ? (
+        <MobileGate locale={locale} onLocaleChange={setLocale} />
+      ) : (
+        <Shell
+          active={stage}
+          canvasKey={focusKey}
+          onSelect={selectNav}
+          groups={menuGroups}
+          orgName={orgName}
+          menuState={menuState}
+          onRetryMenu={loadMenu}
+          locale={locale}
+          onLocaleChange={setLocale}
+          theme={theme}
+          onThemeChange={setTheme}
+          branchId={branchId}
+          onBranchChange={setBranch}
+          role={role}
+          onRoleChange={setRole}
+          canvas={canvas}
+          chat={
+            <ChatPanel
+              draft={draft}
+              onDraftChange={setDraft}
+              onSubmit={onSubmit}
+              onNew={() => {
+                setDraft("");
+                setMessages([]);
+              }}
+              messages={messages}
+            />
+          }
         />
-      }
-    />
+      )}
+      {bootVisible ? <BootSplash leaving={bootLeaving} /> : null}
+    </>
   );
 }
 

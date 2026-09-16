@@ -11,7 +11,10 @@ Each tool: capability → UI. Chat routes to canvas, not text-only.
 | `generate` | Sinh lớp từ lịch mẫu | “Sinh lớp Waacking” |
 | `class` | Board lớp + filter status | “Lớp đang diễn ra”, “Lớp hôm nay” |
 | `student` | Student 360 | “Hồ sơ học viên Hương” |
-| `task` | Bảng việc + lọc trạng thái/người/hạn · form thêm · đổi status | “Tác vụ”, “quản lý tác vụ” |
+| `task` | Bảng việc + lọc kiểu Jira + avatar · panel tab Tổng quan / Comment (preview 1 comment mới nhất) · form thêm | “Tác vụ”, “quản lý tác vụ” |
+| `guide` | Playbook nghiệp vụ MA — `GuideBoard` | “Hướng dẫn sử dụng”, “hướng dẫn” |
+| `ai-ops` | Câu lệnh demo → form thu; cảnh báo hết buổi / nợ | Preview B2 |
+| `intelligent` | Cảnh báo EOD + áp dụng giải pháp local | Preview B2 |
 
 Chat demo: `data/chat-actions.json`. Router `lib/intent.ts`.
 

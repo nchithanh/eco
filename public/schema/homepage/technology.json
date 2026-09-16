@@ -4,7 +4,7 @@
     "id": "technology",
     "locale": "vi",
     "brand": "Dolphin Software",
-    "updated": "2026-08-10",
+    "updated": "2026-09-17",
     "schemaPath": "/schema/homepage/technology/",
     "rawPath": "/schema/homepage/technology.json",
     "productRoute": "/"
@@ -13,30 +13,30 @@
     "order": 7,
     "id": "technology",
     "section_label": "Ops AI",
-    "headline": "Giải pháp AI cho vận hành",
-    "roadmap": "Lộ trình AI có kiểm soát: audit → pilot → nhân rộng",
-    "subheadline": "Dolphin không bán AI viển vông. Chúng tôi rà soát quy trình thực tế của bạn, chọn 1–2 việc đáng làm nhất, chạy pilot có số đo — rồi mới nhân rộng.",
+    "headline": "AI thực tế cho vận hành",
+    "roadmap": "Dữ liệu → hiểu → quyết định → hành động → tự động hóa (có kiểm soát)",
+    "subheadline": "AI hữu ích khi gắn thông tin và quy trình doanh nghiệp — không phải khẩu hiệu. Dolphin chọn 1–2 việc đáng làm, chạy pilot có kiểm soát, rồi mới nhân rộng.",
     "items": [
       {
         "id": "agents",
         "tag": "Agents",
-        "title": "AI Agents — tự động hóa đúng việc",
-        "body": "Agent tùy chỉnh cho từng workflow và vai trò cụ thể, xử lý phần lặp đi lặp lại đang đốt thời gian của team."
+        "title": "AI Agents — đúng việc đang tốn giờ",
+        "body": "Agent theo workflow và vai trò cụ thể: xử lý phần lặp, để người làm phần cần phán đoán."
       },
       {
         "id": "automation",
         "tag": "Automation",
-        "title": "AI Automation — bớt thao tác thủ công",
-        "body": "Tự động hóa các bước lặp trong vận hành: capture lead, nhắc follow-up, tổng hợp báo cáo."
+        "title": "Tự động hóa — bớt thao tác thủ công",
+        "body": "Nhắc follow-up, capture lead, tổng hợp báo cáo — khi bước đã rõ và dữ liệu đã sẵn."
       },
       {
         "id": "integration",
         "tag": "Integration",
-        "title": "AI Integration — kết nối hệ thống đang chạy",
-        "body": "Gắn AI vào CRM, chat, lịch và các công cụ hiện có — không cần thay toàn bộ hệ thống cũ."
+        "title": "Gắn vào hệ thống đang chạy",
+        "body": "Kết nối CRM, chat, lịch và tool hiện có — hiện đại hóa từng phần, không mặc định thay toàn bộ."
       }
     ],
-    "note": "Dolphin dùng chính AI agent workflow trong nội bộ — từ điều phối công việc, sản xuất nội dung, thiết kế đến phát triển software.",
+    "note": "Dolphin dùng AI workflow nội bộ cho điều phối và sản xuất — cùng tinh thần: gắn action thật, có checkpoint khi cần.",
     "cta": [
       {
         "label": "Xem lộ trình chuyển đổi AI",

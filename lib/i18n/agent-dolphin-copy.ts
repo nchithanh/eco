@@ -747,24 +747,24 @@ export type AgentDolphinHomeCopy = {
 
 const homeVi: AgentDolphinHomeCopy = {
   eyebrow: "Dolphin Care",
-  title: "AI chăm sóc khách trên website + [[báo cáo]] insight hằng ngày",
+  title: "AI tăng trưởng — Chatbot [[Web / Zalo / Messenger]]",
   support:
-    "Dolphin Care trả lời 24/7 đúng nghiệp vụ và giọng thương hiệu — đồng thời tổng hợp câu hỏi phổ biến, lead cần follow-up và gợi ý marketing cho admin mỗi ngày.",
+    "Care thuộc doanh thu tăng trưởng: chatbot AI chăm khách trên kênh, gắn CRM. Thường bán kèm combo CRM; từ CRM + Care 6 có thể tặng Website DN khi triển khai.",
   cta: "Tìm hiểu Dolphin Care",
   ctaSecondary: "Nhận báo giá",
-  trustMicro: "Nhúng vào website mới hoặc đang chạy · Zalo & CRM",
+  trustMicro: "Growth AI · thường kèm CRM · Web/Zalo/Messenger",
   benefits: [
     {
-      title: "Trả lời 24/7 đúng ngữ cảnh",
-      body: "FAQ, đặt lịch, thu lead — không cần nhân viên trực liên tục.",
+      title: "Chăm khách đa kênh đúng ngữ cảnh",
+      body: "Website · Zalo · Messenger — FAQ, đặt lịch, thu lead trong phạm vi kiến thức tiệm.",
     },
     {
       title: "Báo cáo insight hằng ngày",
-      body: "Câu hỏi phổ biến, lead nóng, điểm nghẽn và gợi ý nội dung từ hội thoại thật.",
+      body: "Câu hỏi phổ biến, lead cần follow-up và gợi ý từ hội thoại thật.",
     },
     {
-      title: "Không bỏ lỡ lead ngoài giờ",
-      body: "Khách vẫn nhận phản hồi đầu tiên; admin biết ai cần follow-up.",
+      title: "Kết hợp CRM + Web theo combo",
+      body: "AI tăng trưởng trên nền CRM; Website / Landing theo quyền lợi combo giá 2026.",
     },
   ],
   situationsLabel: "Dolphin Care xử lý được:",
@@ -785,7 +785,7 @@ const homeVi: AgentDolphinHomeCopy = {
     "Showroom",
     "Bất động sản",
   ],
-  pipelineLabel: "Cách hoạt động (không phải chatbot cứng)",
+  pipelineLabel: "Cách hoạt động (không phải kịch bản cứng)",
   pipeline: [
     "Hiểu ngữ cảnh",
     "Thu thông tin",
@@ -826,24 +826,24 @@ const homeVi: AgentDolphinHomeCopy = {
 
 const homeEn: AgentDolphinHomeCopy = {
   eyebrow: "Dolphin Care",
-  title: "Website AI care + [[daily]] insight reports",
+  title: "Growth AI — Chatbot on [[Web / Zalo / Messenger]]",
   support:
-    "Answers 24/7 on-brand — plus daily admin reports with top questions, warm leads, and marketing ideas from real chats.",
+    "Care is growth revenue: customer chatbot AI on your channels, tied to CRM. Usually sold with CRM combos; from CRM + Care 6, a business website may be gifted when deploying.",
   cta: "Explore Dolphin Care",
   ctaSecondary: "Get a quote",
-  trustMicro: "Embed on new or existing sites · Zalo & CRM",
+  trustMicro: "Growth AI · usually with CRM · Web/Zalo/Messenger",
   benefits: [
     {
-      title: "24/7 contextual replies",
-      body: "FAQs, booking, lead capture — without round-the-clock staffing.",
+      title: "Multi-channel, on-context care",
+      body: "Website · Zalo · Messenger — FAQs, booking, lead capture within your shop knowledge.",
     },
     {
       title: "Daily insight reports",
-      body: "Top questions, hot leads, friction, and content ideas from real chats.",
+      body: "Top questions, leads to follow up, and ideas from real chats.",
     },
     {
-      title: "Fewer missed after-hours leads",
-      body: "Visitors get a first reply; admins know who to follow up.",
+      title: "Pairs with CRM + Web combos",
+      body: "Growth AI on the CRM foundation; Website / Landing rights follow the 2026 combo rules.",
     },
   ],
   situationsLabel: "Dolphin Care handles:",
@@ -905,24 +905,24 @@ const homeEn: AgentDolphinHomeCopy = {
 
 const homeJa: AgentDolphinHomeCopy = {
   eyebrow: "Dolphin Care",
-  title: "サイト上のAIケア + [[日次]]インサイト",
+  title: "Web / Zalo / Messenger の Chatbot AI + [[日次]]インサイト",
   support:
-    "24時間ブランドに沿って回答 — 頻出質問・ホットリード・マーケ提案を実会話から管理者へ毎日レポート。",
+    "Dolphin Careは事業の文脈に沿う顧客向け Chatbot AI — 反復質問への回答、リード記録、知識範囲内の時間外サポート。あわせて管理者へ日次インサイトをまとめます。",
   cta: "Dolphin Careを見る",
   ctaSecondary: "見積もりを依頼",
-  trustMicro: "新規／既存サイトに埋め込み · Zalo & CRM",
+  trustMicro: "新規／既存サイトに埋め込み · Zalo & Messenger & CRM",
   benefits: [
     {
-      title: "24時間の文脈対応",
-      body: "FAQ・予約・リード取得 — 常時人員不要。",
+      title: "多チャネルで文脈に沿うケア",
+      body: "Website · Zalo · Messenger — FAQ・予約・リード取得を店舗知識の範囲で。",
     },
     {
       title: "日次インサイトレポート",
-      body: "頻出質問、ホットリード、摩擦、コンテンツ案を実会話から。",
+      body: "頻出質問、フォローが必要なリード、実会話からの提案。",
     },
     {
       title: "時間外の取りこぼしを減らす",
-      body: "最初の返信を届け、フォロー対象を管理者に明示。",
+      body: "最初の返信を届け、管理者に誰を追うべきか明示。",
     },
   ],
   situationsLabel: "Dolphin Care が対応できる内容：",

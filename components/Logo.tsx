@@ -3,8 +3,8 @@ export { BRAND_LOGO_ORANGERED_SRC, BRAND_LOGO_SRC } from "@/lib/brand-logo";
 
 export const BRAND_DISPLAY_NAME = "Dolphin Software";
 export const BRAND_TAGLINE = "Since 2026";
-/** Canonical motto — English, do not translate. Pair with the Dolphin logo. */
-export const BRAND_MOTTO = "Dreams come true when you don't sleep";
+/** Canonical motto — English philosophy lockup. Pair with the Dolphin logo. */
+export const BRAND_MOTTO = "Start from the problem, not the product";
 
 type LogoProps = {
  className?: string;

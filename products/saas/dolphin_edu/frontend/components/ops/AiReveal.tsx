@@ -1,19 +1,18 @@
 "use client";
 
-import { CHAT_MASCOT } from "../../lib/mascot";
+import { MA_DANCE_LOGO, MA_DANCE_LOGO_ALT } from "../../lib/brand";
 import "./AiReveal.css";
 
 type AiRevealProps = {
   label: string;
+  compact?: boolean;
 };
 
-export function AiReveal({ label }: AiRevealProps) {
+export function AiReveal({ label, compact = false }: AiRevealProps) {
   return (
-    <section className="ops-reveal" aria-live="polite" aria-busy="true">
+    <section className={compact ? "ops-reveal ops-reveal--panel" : "ops-reveal"} aria-live="polite" aria-busy="true">
       <div className="ops-reveal__orb" aria-hidden>
-        <span className="ops-reveal__ring" />
-        <span className="ops-reveal__ring ops-reveal__ring--late" />
-        <img className="ops-reveal__mascot" src={CHAT_MASCOT} alt="" width={88} height={88} />
+        <img className="ops-reveal__mascot" src={MA_DANCE_LOGO} alt={MA_DANCE_LOGO_ALT} width={88} height={88} />
       </div>
       <p className="ops-reveal__label">{label}</p>
     </section>

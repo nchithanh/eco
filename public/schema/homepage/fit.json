@@ -4,7 +4,7 @@
     "id": "fit",
     "locale": "vi",
     "brand": "Dolphin Software",
-    "updated": "2026-09-06",
+    "updated": "2026-09-17",
     "schemaPath": "/schema/homepage/fit/",
     "rawPath": "/schema/homepage/fit.json",
     "productRoute": "/"
@@ -12,29 +12,29 @@
   "content": {
     "order": 2,
     "id": "fit",
-    "section_label": "Ai phù hợp với Dolphin Software?",
-    "headline": "Dolphin Software phù hợp nhất với ai?",
-    "body": "Dolphin Software phù hợp nhất với doanh nghiệp vừa và nhỏ (SMB) tại Việt Nam đang cần: thiết kế website theo yêu cầu từ đầu, nâng cấp hệ thống cũ đang gây khó khăn vận hành, hoặc tích hợp AI automation vào quy trình thực tế. Nếu bạn không rành kỹ thuật — không sao; đội ngũ làm việc bằng ngôn ngữ kinh doanh và bàn giao đến khi vận hành được.",
+    "section_label": "Fit",
+    "headline": "Dolphin phù hợp với doanh nghiệp đang sẵn sàng nâng cấp vận hành",
+    "body": "SMB và startup đang lớn — spa, salon, edu, clinic, dịch vụ và các mô hình cần hệ thống linh hoạt. Pain thường gặp: Excel/tin nhắn rời, website chưa chuyển đổi, muốn AI thực tế hoặc hiện đại hóa cái đang chạy. Không rành kỹ thuật vẫn làm việc được: nói bằng ngôn ngữ kinh doanh.",
     "fit_matrix": [
       {
-        "profile": "Doanh nghiệp cần website có thể tự vận hành",
-        "recommended": "Business Website hoặc Web App",
-        "note": "Bao gồm CMS, hướng dẫn vận hành và bảo hành kỹ thuật."
+        "profile": "Cần website / hiện diện số tự vận hành được",
+        "recommended": "Business Website hoặc Landing",
+        "note": "CMS, hướng dẫn vận hành và bảo hành kỹ thuật — khi pain là tìm thấy & chuyển đổi."
       },
       {
-        "profile": "Startup cần ra mắt nhanh với ngân sách kiểm soát",
-        "recommended": "Landing Page hoặc MVP theo giai đoạn",
-        "note": "Bàn giao MVP trước, mở rộng theo milestone — kiểm soát ngân sách và xác thực sớm."
+        "profile": "Startup cần ra mắt nhanh, ngân sách kiểm soát",
+        "recommended": "Landing hoặc MVP theo giai đoạn",
+        "note": "Bàn giao đủ để chạy trước, mở rộng theo milestone."
       },
       {
-        "profile": "Doanh nghiệp muốn tự động hóa booking / lead / thanh toán",
-        "recommended": "Web App + Tích hợp thanh toán + Dolphin Care",
-        "note": "Phù hợp khi quy trình hiện tại dựa trên cuộc gọi thủ công hoặc Excel."
+        "profile": "Muốn bớt việc tay quanh đặt lịch / lead / chăm khách",
+        "recommended": "Ops CRM + Care (Web / Zalo / Messenger) ± tích hợp",
+        "note": "Phù hợp khi đang dựa gọi tay, Excel hoặc tin nhắn rời."
       },
       {
-        "profile": "Doanh nghiệp muốn nâng cấp hệ thống cũ hoặc thêm AI vào hạ tầng hiện có",
-        "recommended": "Nâng cấp hệ thống + AI Agent tùy chỉnh",
-        "note": "Dolphin Software phân tích hệ thống hiện tại trước khi báo giá — không đẩy thêm tính năng không cần."
+        "profile": "Muốn nâng cấp hệ thống cũ hoặc gắn AI vào hạ tầng sẵn",
+        "recommended": "Hiện đại hóa + lộ trình AI có kiểm soát",
+        "note": "Phân tích hệ thống hiện tại trước — không đẩy tính năng thừa."
       }
     ],
     "layout": "list-plus-dom-preview",

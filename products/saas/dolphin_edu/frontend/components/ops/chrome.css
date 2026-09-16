@@ -50,7 +50,7 @@
 }
 
 .ops-chip--done {
-  color: #f8f7ff;
+  color: var(--kuct-on-accent);
   background: var(--kuct-accent);
 }
 
@@ -677,7 +677,12 @@ span.ops-res__title:hover {
   }
 }
 
-@media (max-width: 40rem) {
+@media (max-width: 47.99rem) {
+  .ops-page__head {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
   .ops-kpi {
     grid-template-columns: 1fr;
   }
@@ -700,6 +705,10 @@ span.ops-res__title:hover {
   }
 
   .ops-info__dl {
+    grid-template-columns: 1fr;
+  }
+
+  .ops-stat-grid {
     grid-template-columns: 1fr;
   }
 }
@@ -775,4 +784,19 @@ span.ops-res__title:hover {
   margin: 0.2rem 0 0;
   font-size: 0.75rem;
   color: var(--kuct-muted);
+}
+
+.ops-clist__aside > .ops-reveal,
+.ops-staff__aside > .ops-reveal,
+.ops-rooms__aside > .ops-reveal,
+.ops-classes__aside > .ops-reveal,
+.ops-courses__aside > .ops-reveal,
+.ops-work__aside > .ops-reveal {
+  display: grid;
+  flex: 1 1 auto;
+  align-self: stretch;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 100%;
+  height: 100%;
 }

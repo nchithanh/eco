@@ -13,6 +13,7 @@ import {
 } from "../../lib/dashboard-demo";
 import { formatViDate, localIsoDate } from "../../lib/edu";
 import type { DemoClass, DemoCourse, DemoRoom, DemoStudent, DemoTeacher, Stage } from "../../lib/types";
+import { UserAvatar } from "./UserAvatar";
 import "./chrome.css";
 import "./EduTable.css";
 import "./Overview.css";
@@ -26,15 +27,6 @@ type OverviewProps = {
   rooms: DemoRoom[];
   onOpen: (id: Stage) => void;
 };
-
-function initials(name: string): string {
-  const parts = name.trim().split(/\s+/);
-  return parts
-    .slice(-2)
-    .map((part) => part[0] ?? "")
-    .join("")
-    .toUpperCase();
-}
 
 function roomLabel(rooms: DemoRoom[], id: string): string {
   return rooms.find((r) => r.id === id)?.label ?? id;
@@ -131,11 +123,11 @@ export function Overview({ title, courses, classes, students: _students, teacher
       });
     }
     return [
-      { id: "d1", time: "08:30", name: "Kids Stretch", room: "P.Kids", fill: "8/10", full: false },
-      { id: "d2", time: "10:00", name: "Ballet Beginner", room: "P.A", fill: "9/12", full: false },
-      { id: "d3", time: "17:00", name: "Heels", room: "P.102", fill: "10/12", full: false },
-      { id: "d4", time: "19:00", name: "Hip-hop Open", room: "P.101", fill: "16/16", full: true },
-      { id: "d5", time: "20:30", name: "Open Practice TD", room: "P.Open", fill: "7/20", full: false },
+      { id: "d1", time: "08:30", name: "Kids Stretch", room: "Room A", fill: "8/10", full: false },
+      { id: "d2", time: "10:00", name: "Ballet Beginner", room: "MON3", fill: "9/12", full: false },
+      { id: "d3", time: "17:00", name: "Heels", room: "MI2", fill: "10/12", full: false },
+      { id: "d4", time: "19:00", name: "Hip-hop Open", room: "MI1", fill: "16/16", full: true },
+      { id: "d5", time: "20:30", name: "Open Practice PN", room: "MI4", fill: "7/20", full: false },
     ];
   }, [todayClasses, courses, rooms]);
 
@@ -155,7 +147,7 @@ export function Overview({ title, courses, classes, students: _students, teacher
             {title}
           </h1>
           <p className="ops-page__lede">
-            Tổng quan hoạt động vận hành trung tâm ngày{" "}
+            Tổng quan hoạt động vận hành trung tâm MA Dance ngày{" "}
             <time dateTime={today}>{formatViDate(today)}</time>.
           </p>
         </div>
@@ -333,9 +325,7 @@ export function Overview({ title, courses, classes, students: _students, teacher
               return (
                 <li key={teacher.id}>
                   <button type="button" className="ops-over__row ops-over__row--teacher" onClick={() => onOpen("teachers")}>
-                    <span className="ops-mini-av" aria-hidden>
-                      {initials(teacher.name)}
-                    </span>
+                    <UserAvatar id={teacher.id} name={teacher.name} />
                     <span className="ops-over__row-main">
                       <span className="ops-table__name">{teacher.name}</span>
                       <span className="ops-table__id">{sessions} lớp</span>
@@ -390,7 +380,10 @@ export function Overview({ title, courses, classes, students: _students, teacher
                   {ev.time}
                 </time>
                 <p className="ops-over__tl-text">
-                  <strong>{ev.who}</strong> {ev.verb} <strong>{ev.focus}</strong>
+                  <UserAvatar id={ev.whoId} name={ev.who} size="xs" />
+                  <span>
+                    <strong>{ev.who}</strong> {ev.verb} <strong>{ev.focus}</strong>
+                  </span>
                 </p>
                 <span className={`ops-over__tag ops-over__tag--${ev.tone}`}>{ev.tag}</span>
               </li>

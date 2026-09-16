@@ -4,7 +4,7 @@
     "id": "ai-edge",
     "locale": "vi",
     "brand": "Dolphin Software",
-    "updated": "2026-08-12",
+    "updated": "2026-09-17",
     "schemaPath": "/schema/homepage/ai-edge/",
     "rawPath": "/schema/homepage/ai-edge.json",
     "productRoute": "/dolphin-intelligence/"
@@ -13,23 +13,23 @@
     "order": 8,
     "id": "ai-edge",
     "section_label": "Dolphin Intelligence",
-    "headline": "Biến quy trình lặp lại thành AI workflow chạy tự động",
-    "subheadline": "Dolphin Intelligence kết hợp AI agent, action thực tế, logic điều kiện và human checkpoint — chuỗi bước liên kết, không phải chatbot trả lời từng câu.",
+    "headline": "Agent / workflow AI — không phải chatbot kênh khách",
+    "subheadline": "Intelligence là add-on điều phối nhiều bước: agent + action + logic + human checkpoint. Chatbot Web / Zalo / Messenger thuộc Dolphin Care — khác lớp sản phẩm.",
     "capabilities": [
       {
         "context": "Agent",
         "title": "AI Agent theo vai trò",
-        "body": "Research, Content, SEO, Review… mỗi agent có ngữ cảnh, hướng dẫn và schema — tư duy nhất quán trong workflow."
+        "body": "Mỗi agent có ngữ cảnh và hướng dẫn riêng — tư duy nhất quán trong chuỗi bước nghiệp vụ."
       },
       {
         "context": "Action · Logic",
         "title": "Action & logic điều phối",
-        "body": "Gọi API, CMS, email, publish; cron, nhánh và vòng lặp — agent quyết định, action thực thi đúng lúc."
+        "body": "Gọi API, CMS, email, nhánh điều kiện — agent quyết định, action thực thi đúng lúc."
       },
       {
         "context": "Human",
-        "title": "Human Checkpoint đúng chỗ",
-        "body": "Con người duyệt topic, SEO hay publish trước khi tiếp tục — kiểm soát được, không phải hộp đen."
+        "title": "Human checkpoint đúng chỗ",
+        "body": "Người duyệt bước nhạy cảm trước khi tiếp tục — kiểm soát được, không hộp đen."
       }
     ],
     "links": [
@@ -42,6 +42,6 @@
         "href": "https://dolphin-software.io.vn/ai-transform/"
       }
     ],
-    "aeo_snippet": "Dolphin Intelligence là nền tảng AI workflow của Dolphin Software: AI agent theo vai trò, action kết nối hệ thống thực, logic điều phối, và human checkpoint — tự động hóa chuỗi quy trình nhiều bước, khác chatbot chăm sóc website (Dolphin Care)."
+    "aeo_snippet": "Dolphin Intelligence là add-on workflow AI của Dolphin Software: agent theo vai trò, action kết nối hệ thống thật, logic điều phối và human checkpoint — khác chatbot kênh khách Web / Zalo / Messenger (Dolphin Care)."
   }
 }

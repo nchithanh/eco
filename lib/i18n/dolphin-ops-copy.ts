@@ -1270,78 +1270,78 @@ export type DolphinOpsHomeCopy = {
 
 const homeVi: DolphinOpsHomeCopy = {
   eyebrow: "SaaS · Agent CRM",
-  title: "[[Agent CRM]] cho vận hành nội bộ",
+  title: "[[CRM nền]] + chatbox AI tăng trưởng",
   support:
-    "Anh chị nói việc cần làm. Agent chọn Business Tool và mở đúng giao diện — lịch, khách, báo cáo. Chat là cửa vào, không phải toàn bộ sản phẩm.",
+    "CRM là doanh thu nền (thuê theo ngành dịch vụ). Ops là AI tăng trưởng trên CRM: nói việc — mở đúng màn lịch, khách, báo cáo. Web / Landing theo combo CRM · AI.",
   quote: "AI không thay giao diện. Nó chọn đúng giao diện.",
   vsCare:
-    "Dolphin Care chăm khách trên website. Dolphin Ops giúp đội ngũ chạy việc bên trong.",
+    "Care = chatbot AI kênh khách (tăng trưởng). Ops = vận hành + chatbox AI trên CRM (tăng trưởng trên nền CRM).",
   benefits: [
     {
       title: "Nói việc — mở đúng màn",
       body: "Không đi menu → module → form. Form, Customer 360 hay chart hiện đúng lúc cần.",
     },
     {
-      title: "Admin chỉnh tool bằng chat",
-      body: "Thêm trường, công thức báo cáo, quy tắc duyệt trong tool đã bật — không ticket software từng thay đổi nhỏ.",
+      title: "Tầm nhìn vận hành rõ hơn",
+      body: "Khách, booking, thông báo và báo cáo trong một luồng — bớt phối hợp tay giữa các app.",
     },
     {
-      title: "Việc nhạy thì người duyệt",
-      body: "Thanh toán, hoàn tiền, xóa dữ liệu, gửi hàng loạt có thể dừng để người có quyền xác nhận.",
+      title: "Gắn AI khi cần tăng trưởng",
+      body: "Ops / Care bán kèm CRM; không phải CRM doanh nghiệp khổng lồ.",
     },
   ],
   wedgeLabel: "Ưu tiên",
   wedge: ["Spa", "Salon", "Clinic", "Shop dịch vụ"],
   cta: "Xem Ops chạy việc",
   ctaSecondary: "Nói chuyện với chúng tôi",
-  trust: "Không phải CRM gắn thêm chat.",
+  trust: "CRM nền · AI tăng trưởng · Web hỗ trợ chốt",
 };
 
 const homeEn: DolphinOpsHomeCopy = {
   eyebrow: "SaaS · Agent CRM",
-  title: "[[Agent CRM]] for running the day",
+  title: "[[CRM foundation]] + growth chatbox AI",
   support:
-    "Say the job. The Agent picks the Business Tool and opens the right screen — bookings, guests, reports. Chat is the entry, not the whole product.",
+    "CRM is base revenue (rented by service vertical). Ops is growth AI on CRM: say the job — open the right calendar, customer, or report screen. Website / Landing follows CRM · AI combos.",
   quote: "AI does not replace the interface. It picks the right one.",
   vsCare:
-    "Dolphin Care takes care of customers on the website. Dolphin Ops helps the team run work inside.",
+    "Care = customer-channel chatbot AI (growth). Ops = operations + chatbox AI on CRM (growth on the CRM base).",
   benefits: [
     {
       title: "Say the job — open the right screen",
       body: "No menu → module → form. A form, Customer 360, or a chart appears when the job needs it.",
     },
     {
-      title: "Admins change tools in chat",
-      body: "Add a field, a report formula, or an approval rule inside enabled tools — no software ticket for each small tweak.",
+      title: "Clearer operational visibility",
+      body: "Customers, bookings, notifications and reports in one flow — less manual coordination across apps.",
     },
     {
-      title: "Sensitive work waits for a person",
-      body: "Payments, refunds, deletions and bulk sends can pause for someone with permission.",
+      title: "Add AI when you need growth",
+      body: "Ops / Care sold with CRM — not a giant enterprise CRM.",
     },
   ],
   wedgeLabel: "We start with",
   wedge: ["Spa", "Salon", "Clinic", "Service shop"],
   cta: "See Ops run the job",
   ctaSecondary: "Talk to us",
-  trust: "Not a CRM with chat bolted on.",
+  trust: "CRM base · AI growth · Web helps close",
 };
 
 const homeJa: DolphinOpsHomeCopy = {
   eyebrow: "SaaS · Agent CRM",
-  title: "社内運用の[[Agent CRM]]",
+  title: "[[運用CRM]] + CRM上の chatbox AI",
   support:
-    "用件を伝えると、Agentが業務ツールを選び、予約・顧客・レポートの画面を開きます。チャットは入口であり、製品の全部ではありません。",
+    "Dolphin Opsはチームの実務を回します：顧客、予定、フォロー、レポート。用件を言うと chatbox AIがツールを選び、正しい画面を開く。実務向けで軽量 — 巨大な企業向けCRMではありません。",
   quote: "AIは画面を置き換えない。正しい画面を選ぶ。",
   vsCare:
-    "Dolphin Careはサイト上でお客様をケアする。Dolphin Opsは社内で事業を回す。",
+    "Care = 顧客向け Chatbot AI（Web / Zalo / Messenger）。Ops = 社内運用 + CRM上の chatbox AI。",
   benefits: [
     {
       title: "用件を言えば、正しい画面が開く",
       body: "メニュー→モジュール→フォームと辿らない。フォーム、Customer 360、チャートが必要なときに出る。",
     },
     {
-      title: "管理者がチャットでツールを直す",
-      body: "有効なツールの範囲で欄・計算式・承認ルールを話して直す。小さな変更ごとにソフト担当へ頼まない。",
+      title: "運用の見通しがはっきりする",
+      body: "顧客、予約、通知、レポートを一本の流れに — アプリ間の手つなぎを減らす。",
     },
     {
       title: "機微な操作は人の確認",
@@ -1352,7 +1352,7 @@ const homeJa: DolphinOpsHomeCopy = {
   wedge: ["スパ", "サロン", "クリニック", "サービス店"],
   cta: "Opsの動きを見る",
   ctaSecondary: "相談する",
-  trust: "チャットを後付けしたCRMではありません。",
+  trust: "実務の日々向けCRM — チャットを後付けしただけではありません。",
 };
 
 const homeByLocale: Record<Locale, DolphinOpsHomeCopy> = {

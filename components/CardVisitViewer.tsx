@@ -95,9 +95,9 @@ export function CardVisitViewer() {
                   </div>
                 </div>
                 <p className="cv-tagline">
-                  Spa · salon · edu · clinic · dịch vụ
+                  Spa · Salon · Education · Clinic · Services
                   <span className="cv-tagline__indent">
-                    Cần website / CRM / đặt lịch &amp; chăm khách
+                    Website · CRM · Vận hành · AI
                   </span>
                 </p>
               </div>
@@ -112,25 +112,31 @@ export function CardVisitViewer() {
                   </li>
                   <li>
                     <IconWeb />
-                    <a className="cv-contacts__value" href={SITE_URL}>
+                    <a
+                      className="cv-contacts__value cv-contacts__value--web"
+                      href={SITE_URL}
+                    >
                       {SITE_HOST}
                     </a>
                   </li>
                   <li>
                     <IconPin />
-                    <span className="cv-contacts__value">
+                    <span className="cv-contacts__value cv-contacts__value--muted">
                       Ho Chi Minh City, Vietnam
                     </span>
                   </li>
                 </ul>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={assetPath("/card-visit/qr-company-profile.svg")}
-                  alt="QR Hồ sơ năng lực"
-                  className="cv-qr"
-                  width={64}
-                  height={64}
-                />
+                <div className="cv-qr-block">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={assetPath("/card-visit/qr-company-profile.svg")}
+                    alt="Quét để xem Hồ sơ năng lực"
+                    className="cv-qr"
+                    width={64}
+                    height={64}
+                  />
+                  <p className="cv-qr-label">Quét để xem Hồ sơ năng lực</p>
+                </div>
               </div>
             </div>
           </article>

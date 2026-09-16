@@ -13,8 +13,11 @@ import {
 import { blankCourse } from "../../lib/seed";
 import { COURSES_DATE_RANGE, COURSES_KPI, demoCourseCode, demoStudentPay } from "../../lib/courses-demo";
 import type { CourseStatus, DemoClass, DemoCourse, DemoRoom, DemoStudent, DemoTeacher, Weekday } from "../../lib/types";
+import { shouldRevealDetail, useDetailReveal } from "../../lib/detail-reveal";
+import { AiReveal } from "./AiReveal";
 import { MoreMenu, copyId } from "./MoreMenu";
 import { StatusChip, courseChip } from "./StatusChip";
+import { UserAvatar } from "./UserAvatar";
 import "./chrome.css";
 import "./EduTable.css";
 import "./CoursesBoard.css";
@@ -88,6 +91,7 @@ export function CoursesBoard({
   const [sortKey, setSortKey] = useState<SortKey>("newest");
   const [page, setPage] = useState(0);
   const [detailTab, setDetailTab] = useState<"overview" | "classes" | "history" | "docs" | "notes">("overview");
+  const { busy: detailBusy, start: startDetail } = useDetailReveal();
 
   const levels = useMemo(() => [...new Set(courses.map((c) => c.level))], [courses]);
 
@@ -116,6 +120,11 @@ export function CoursesBoard({
   const pageCount = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
   const pageSafe = Math.min(page, pageCount - 1);
   const paged = filtered.slice(pageSafe * PAGE_SIZE, pageSafe * PAGE_SIZE + PAGE_SIZE);
+
+  function pickCourse(id: string) {
+    if (shouldRevealDetail(id, selectedId)) startDetail();
+    onSelect(id);
+  }
 
   function startCreate() {
     setDraft(blankCourse());
@@ -359,12 +368,13 @@ export function CoursesBoard({
               <fieldset className="ops-courses__set">
                 <legend>Giáo viên</legend>
                 {teachers.map((teacher) => (
-                  <label key={teacher.id}>
+                  <label key={teacher.id} className="ops-courses__teacher">
                     <input
                       type="checkbox"
                       checked={draft.teacherIds.includes(teacher.id)}
                       onChange={() => toggleTeacher(teacher.id)}
                     />
+                    <UserAvatar id={teacher.id} name={teacher.name} size="xs" />
                     {teacher.name}
                   </label>
                 ))}
@@ -501,7 +511,7 @@ export function CoursesBoard({
                       <tr
                         key={course.id}
                         className={current ? "ops-table__row ops-table__row--on" : "ops-table__row"}
-                        onClick={() => onSelect(course.id)}
+                        onClick={() => pickCourse(course.id)}
                       >
                         <th scope="row">
                           <div className="ops-table__course">
@@ -519,9 +529,7 @@ export function CoursesBoard({
                         </td>
                         <td>
                           <span className="ops-table__who">
-                            <span className="ops-mini-av" aria-hidden>
-                              {initials(lead?.name ?? "?")}
-                            </span>
+                            <UserAvatar id={lead?.id} name={lead?.name ?? "GV"} />
                             {teacherNames(teachers, course.teacherIds)}
                           </span>
                         </td>
@@ -550,7 +558,7 @@ export function CoursesBoard({
                         </td>
                         <td onClick={(event) => event.stopPropagation()}>
                           <div className="ops-table__acts">
-                            <button type="button" className="ops-table__detail" onClick={() => onSelect(course.id)}>
+                            <button type="button" className="ops-table__detail" onClick={() => pickCourse(course.id)}>
                               Chi tiết
                             </button>
                             <MoreMenu
@@ -605,7 +613,9 @@ export function CoursesBoard({
         </div>
 
         <aside className="ops-courses__aside">
-          {selected ? (
+          {detailBusy ? (
+            <AiReveal compact label="Đang mở khóa…" />
+          ) : selected ? (
             <section className="ops-detail ops-courses__detail" aria-labelledby="edu-course-detail">
               <div className="ops-detail__head">
                 <div className="ops-detail__head-title">
@@ -702,9 +712,7 @@ export function CoursesBoard({
                             <dt>Giáo viên</dt>
                             <dd>
                               <span className="ops-table__who">
-                                <span className="ops-mini-av" aria-hidden>
-                                  {initials(leadTeacher?.name ?? "GV")}
-                                </span>
+                                <UserAvatar id={leadTeacher?.id} name={leadTeacher?.name ?? "GV"} />
                                 {teacherNames(teachers, selected.teacherIds)}
                               </span>
                             </dd>

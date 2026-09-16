@@ -21,8 +21,8 @@
       "Mục tiêu: xác định nghẽn vận hành và xây giải pháp thực tế — website, AI Agent, CRM, automation, tích hợp, phần mềm theo yêu cầu."
     ],
     "displayBrand": "Dolphin Software",
-    "motto": "Dreams come true when you don't sleep",
-    "mottoNote": "English canonical; always pair with the Dolphin logo in footers and documents. Do not translate.",
+    "motto": "Start from the problem, not the product",
+    "mottoNote": "English philosophy lockup (VI SoT: bắt đầu từ vấn đề, không từ sản phẩm). Pair with the Dolphin logo in footers and documents.",
     "whatWeDo": [
       "Thiết kế website theo yêu cầu",
       "Phát triển phần mềm theo yêu cầu",
@@ -172,38 +172,32 @@
   },
   "website": {
     "pillar": "Build",
+    "role": "Hỗ trợ chốt — tặng / giảm theo combo CRM (± AI), không phải sản phẩm lõi",
     "offers": [
       {
         "id": "landing",
         "name": "Landing page",
+        "price_vnd": 1500000,
         "use": "campaign / service intro / lead",
+        "combo": "CRM Base 12: tặng khi triển khai",
         "typicalTimeline": "thường ~3–5 ngày"
       },
       {
         "id": "business",
-        "name": "Business website",
+        "name": "Website doanh nghiệp",
+        "price_vnd": 4500000,
         "use": "multi-page, CMS cơ bản",
+        "combo": "Base 12: −50%; từ CRM + Care 6: tặng",
         "typicalTimeline": "~7–14 ngày"
-      },
-      {
-        "id": "shop",
-        "name": "Shop / e-commerce",
-        "use": "catalog, cart, payments",
-        "typicalTimeline": "~3–4 tuần"
-      },
-      {
-        "id": "webapp",
-        "name": "Custom web app",
-        "use": "booking, portals, ops (scoped)",
-        "typicalTimeline": "theo scope"
       }
     ],
+    "outsourceNote": "Shop / web app / tích hợp nâng cao — báo riêng theo phạm vi (INTEGRATION_OUTSOURCE).",
     "promise": [
       "Dựa trên nhu cầu / quy trình kinh doanh — không template đại trà",
       "Hỗ trợ bán hàng + chăm sóc, không chỉ brochure",
       "Scope, milestones, handover (source, docs, warranty) — không chỉ URL live"
     ],
-    "pricingNote": "VND amounts: lib/i18n/popular-services-copy.ts / lib/pricing-fx.ts — không hardcode số cũ.",
+    "pricingNote": "ONETIME_WEB + COMBO_PACKAGES: lib/pricing/dolphin-pricing-policy-2026.ts; hiển thị homepage: lib/i18n/popular-services-copy.ts / lib/pricing-fx.ts.",
     "cta": "Zalo / quote / contact"
   },
   "dolphinCare": {

@@ -1,30 +1,36 @@
 "use client";
 
-import { useMemo, useState, type ReactNode } from "react";
+import { useCallback, useMemo, useState, type ReactNode } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { getQuoteCopy } from "@/lib/i18n/quote-copy";
+import {
+  getQuoteCopy,
+  QUOTE_PUBLIC_EXTRA_KEYS,
+  type QuotePublicExtraKey,
+} from "@/lib/i18n/quote-copy";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
-import {
-  DEFAULT_QUOTE_SELECTION,
-  CAP,
-  estimateQuote,
-  toggleInList,
-  type AiFeatureId,
-  type DesignId,
-  type FeatureId,
-  type PagesId,
-  type ProjectType,
-  type QuoteSelection,
-  type ScaleId,
-  type TimelineId,
-} from "@/lib/quote-estimator";
-import {
-  formatQuoteEstimateRange,
-  formatQuoteHintRange,
-} from "@/lib/pricing-fx";
+import { assetPath } from "@/lib/asset";
+import { PRICING_POLICY_PATH } from "@/lib/pricing/dolphin-pricing-policy-2026";
+import { formatPackageMoney } from "@/lib/pricing-fx";
 import { submitLead } from "@/lib/leads-api";
+import {
+  CARE_STANDALONE,
+  COMBOS,
+  EMPTY_EXTRAS,
+  MONTHLY,
+  ONCE,
+  comboGiftLines,
+  comboIncludesCare,
+  computeQuoteTotals,
+  extraPriceHint,
+  formatVnd,
+  getCombo,
+  type CareStandaloneTerm,
+  type ComboId,
+  type ExtraSelection,
+  type QuoteInput,
+} from "@/lib/quotes/ma-dance-pricing";
 
 const fieldClass =
   "mt-1.5 w-full rounded-[10px] border border-black/[0.08] bg-white px-3.5 py-2.5 text-sm text-[var(--kuct-text)] outline-none transition focus:border-[rgba(var(--kuct-accent-rgb),0.35)]";
@@ -34,6 +40,13 @@ type FormValues = {
   contact: string;
   note: string;
   honeypot: string;
+};
+
+const DEFAULT_QUOTE: QuoteInput = {
+  comboId: "crm-care-12",
+  careStandalone: null,
+  intelligence: false,
+  extras: { ...EMPTY_EXTRAS },
 };
 
 function IconClose({ className }: { className?: string }) {
@@ -57,43 +70,12 @@ function SectionLabel({ children }: { children: ReactNode }) {
   );
 }
 
-function FieldLabel({ children }: { children: ReactNode }) {
-  return (
-    <legend className="mb-2 text-[11px] font-semibold tracking-[0.14em] text-[var(--kuct-muted)] uppercase">
-      {children}
-    </legend>
-  );
-}
-
-function ChoiceButton({
-  active,
-  label,
-  hint,
-  onClick,
-}: {
-  active: boolean;
-  label: string;
-  hint?: string;
-  onClick: () => void;
-}) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      className={
-        active
-          ? "flex min-h-[2.75rem] flex-col justify-center rounded-xl border border-[rgba(var(--kuct-accent-rgb),0.28)] bg-white px-3 py-2 text-left text-sm font-semibold text-[var(--kuct-text)] shadow-[0_1px_2px_rgb(26_21_32/0.04)]"
-          : "flex min-h-[2.75rem] flex-col justify-center rounded-xl border border-black/[0.06] bg-[var(--kuct-bg)] px-3 py-2 text-left text-sm font-medium text-[var(--kuct-muted)] transition duration-200 hover:border-[rgba(var(--kuct-accent-rgb),0.28)] hover:bg-white hover:text-[var(--kuct-text)]"
-      }
-    >
-      <span className="block leading-snug">{label}</span>
-      {hint && active ? (
-        <span className="mt-0.5 block text-[0.65rem] font-normal text-[var(--kuct-muted)]">
-          {hint}
-        </span>
-      ) : null}
-    </button>
-  );
+function productsShort(
+  products: readonly ("crm" | "care" | "ops")[],
+): string {
+  return products
+    .map((p) => (p === "care" ? "Care" : p === "ops" ? "Ops" : "CRM"))
+    .join(" + ");
 }
 
 export function QuoteEstimatorModal({
@@ -105,9 +87,9 @@ export function QuoteEstimatorModal({
 }) {
   const { locale } = useLocale();
   const q = getQuoteCopy(locale);
-  const [selection, setSelection] = useState<QuoteSelection>(
-    DEFAULT_QUOTE_SELECTION,
-  );
+  const money = (vnd: number) => formatPackageMoney(locale, vnd);
+
+  const [quote, setQuote] = useState<QuoteInput>(DEFAULT_QUOTE);
   const [sent, setSent] = useState(false);
   const [sendError, setSendError] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -132,36 +114,56 @@ export function QuoteEstimatorModal({
     defaultValues: { name: "", contact: "", note: "", honeypot: "" },
   });
 
-  const range = estimateQuote(selection);
-  const showAi =
-    selection.projectType === "ai" || selection.projectType === "both";
+  const totals = useMemo(() => computeQuoteTotals(quote), [quote]);
+  const showCareStandalone = !comboIncludesCare(totals.combo);
+  const giftLines = comboGiftLines(totals.combo);
+  const policyHref = assetPath(PRICING_POLICY_PATH);
 
-  const estimateText = formatQuoteEstimateRange(locale, range);
+  const setCombo = useCallback((comboId: ComboId) => {
+    setQuote((prev) => ({
+      ...prev,
+      comboId,
+      careStandalone: getCombo(comboId).products.includes("care")
+        ? null
+        : prev.careStandalone,
+    }));
+  }, []);
+
+  const toggleExtra = useCallback((key: QuotePublicExtraKey, checked: boolean) => {
+    setQuote((prev) => {
+      const extras: ExtraSelection = { ...prev.extras, [key]: checked };
+      if (prev.comboId === "crm-base-12" && checked) {
+        if (key === "landing") extras.website = false;
+        if (key === "website") extras.landing = false;
+      }
+      return { ...prev, extras };
+    });
+  }, []);
 
   const choiceSummary = () => {
     const lines = [
-      `${q.projectType}: ${q.projectTypes[selection.projectType].label}`,
-      `${q.scale}: ${q.scales[selection.scale]}`,
-      `${q.pages}: ${q.pagesOptions[selection.pages]}`,
-      `${q.features}: ${
-        selection.features.length
-          ? selection.features.map((id) => q.featureOptions[id]).join(", ")
-          : "—"
-      }`,
+      `Combo: ${totals.combo.name} (${productsShort(totals.combo.products)} · ${totals.combo.months} ${q.monthsLabel})`,
+      `Combo prepaid: ${formatVnd(totals.combo.price)}`,
     ];
-    if (showAi) {
+    if (totals.careLine) {
       lines.push(
-        `${q.aiFeatures}: ${
-          selection.aiFeatures.length
-            ? selection.aiFeatures
-                .map((id) => q.aiFeatureOptions[id])
-                .join(", ")
-            : "—"
-        }`,
+        `Care standalone: ${totals.careLine.title} → ${formatVnd(totals.careLine.due)}`,
       );
     }
-    lines.push(`${q.design}: ${q.designOptions[selection.design]}`);
-    lines.push(`${q.timeline}: ${q.timelineOptions[selection.timeline]}`);
+    for (const line of totals.extraLines) {
+      const gift = line.giftLabel ? ` (${line.giftLabel})` : "";
+      lines.push(`Extra: ${line.title} → ${formatVnd(line.due)}${gift}`);
+    }
+    if (quote.intelligence) {
+      lines.push(
+        `Intelligence: ${formatVnd(MONTHLY.intelligence)}/mo × ${totals.combo.months} = ${formatVnd(totals.intelligenceDue)}`,
+      );
+    }
+    if (totals.volumeDiscount > 0) {
+      lines.push(totals.volumeDiscountLabel);
+    }
+    lines.push(`Prepaid total: ${formatVnd(totals.prepaid)}`);
+    lines.push(`List before discounts: ${formatVnd(totals.list)}`);
     return lines.join("\n");
   };
 
@@ -178,9 +180,10 @@ export function QuoteEstimatorModal({
       note: data.note,
       locale,
       payload: {
-        estimate: estimateText,
+        estimate: formatVnd(totals.prepaid),
         choices: choiceSummary(),
-        selection,
+        selection: quote,
+        schema: "dolphin-quote-public/v1",
       },
       honeypot: data.honeypot,
     });
@@ -240,8 +243,14 @@ export function QuoteEstimatorModal({
             data-lenis-prevent
             data-lenis-prevent-wheel
           >
-            <p className="mb-4 text-xs leading-relaxed text-[var(--kuct-muted)]">
-              {q.disclaimer}
+            <p className="mb-3 text-xs leading-relaxed text-[var(--kuct-muted)]">
+              {q.disclaimer}{" "}
+              <a
+                href={policyHref}
+                className="font-semibold text-[var(--kuct-accent)] underline-offset-2 hover:underline"
+              >
+                {q.policyLinkLabel}
+              </a>
             </p>
 
             <div className="sticky top-0 z-[1] mb-6 rounded-[10px] border border-black/[0.06] bg-[var(--kuct-bg)] px-3.5 py-3.5 shadow-[0_1px_2px_rgb(26_21_32/0.04)] sm:px-4">
@@ -249,151 +258,212 @@ export function QuoteEstimatorModal({
                 {q.estimateLabel}
               </p>
               <p className="mt-1.5 font-display text-2xl font-semibold tracking-tight text-[var(--kuct-text)] sm:text-[1.85rem]">
-                {estimateText}
+                {money(totals.prepaid)}
+              </p>
+              <p className="mt-1 text-[0.7rem] text-[var(--kuct-muted)]">
+                {q.estimateListLabel}: {money(totals.list)}
+                {totals.volumeDiscount > 0
+                  ? ` · ${q.volumeDiscountHint}`
+                  : null}
               </p>
             </div>
 
             <section className="mb-7">
-              <SectionLabel>{q.scopeGroup}</SectionLabel>
-              <div className="space-y-5">
-                <fieldset>
-                  <FieldLabel>{q.projectType}</FieldLabel>
-                  <div className="grid gap-2 sm:grid-cols-3">
-                    {(Object.keys(q.projectTypes) as ProjectType[]).map(
-                      (id) => (
-                        <ChoiceButton
-                          key={id}
-                          active={selection.projectType === id}
-                          label={q.projectTypes[id].label}
-                          hint={formatQuoteHintRange(locale, CAP[id])}
-                          onClick={() =>
-                            setSelection((s) => ({
-                              ...s,
-                              projectType: id,
-                              aiFeatures: id === "web" ? [] : s.aiFeatures,
-                            }))
-                          }
-                        />
-                      ),
-                    )}
-                  </div>
-                </fieldset>
+              <SectionLabel>{q.comboGroup}</SectionLabel>
+              <p className="mb-3 text-xs leading-relaxed text-[var(--kuct-muted)]">
+                {q.comboHint}
+              </p>
+              <div
+                className="grid gap-2"
+                role="radiogroup"
+                aria-label={q.comboGroup}
+              >
+                {COMBOS.map((combo) => {
+                  const active = quote.comboId === combo.id;
+                  return (
+                    <button
+                      key={combo.id}
+                      type="button"
+                      role="radio"
+                      aria-checked={active}
+                      onClick={() => setCombo(combo.id)}
+                      className={
+                        active
+                          ? "rounded-[10px] border border-[rgba(var(--kuct-accent-rgb),0.28)] bg-white px-3 py-2.5 text-left shadow-[0_1px_2px_rgb(26_21_32/0.04)]"
+                          : "rounded-[10px] border border-black/[0.06] bg-[var(--kuct-bg)] px-3 py-2.5 text-left transition hover:border-[rgba(var(--kuct-accent-rgb),0.28)] hover:bg-white"
+                      }
+                    >
+                      <span className="flex items-start justify-between gap-2">
+                        <span className="min-w-0">
+                          <span className="block text-sm font-semibold text-[var(--kuct-text)]">
+                            {combo.name}
+                          </span>
+                          <span className="mt-0.5 block text-[0.7rem] text-[var(--kuct-muted)]">
+                            {productsShort(combo.products)} · {combo.months}{" "}
+                            {q.monthsLabel}
+                          </span>
+                        </span>
+                        <span className="shrink-0 text-sm font-semibold text-[var(--kuct-text)]">
+                          {money(combo.price)}
+                        </span>
+                      </span>
+                      <span className="mt-1.5 block text-[0.65rem] leading-snug text-[var(--kuct-muted)]">
+                        {combo.support}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
 
-                <fieldset>
-                  <FieldLabel>{q.scale}</FieldLabel>
-                  <div className="grid gap-2 sm:grid-cols-3">
-                    {(Object.keys(q.scales) as ScaleId[]).map((id) => (
-                      <ChoiceButton
-                        key={id}
-                        active={selection.scale === id}
-                        label={q.scales[id]}
-                        onClick={() =>
-                          setSelection((s) => ({ ...s, scale: id }))
-                        }
-                      />
+              {giftLines.length > 0 ? (
+                <div className="mt-3 rounded-[10px] border border-black/[0.06] bg-[var(--kuct-bg)] px-3 py-2.5">
+                  <p className="text-[11px] font-semibold text-[var(--kuct-text)]">
+                    {q.giftTitle}
+                  </p>
+                  <ul className="mt-1.5 list-disc space-y-1 pl-4 text-[0.7rem] text-[var(--kuct-muted)]">
+                    {giftLines.map((line) => (
+                      <li key={line}>{line}</li>
                     ))}
-                  </div>
-                </fieldset>
+                  </ul>
+                </div>
+              ) : null}
+            </section>
 
-                <fieldset>
-                  <FieldLabel>{q.pages}</FieldLabel>
-                  <div className="grid grid-cols-3 gap-2">
-                    {(Object.keys(q.pagesOptions) as PagesId[]).map((id) => (
-                      <ChoiceButton
-                        key={id}
-                        active={selection.pages === id}
-                        label={q.pagesOptions[id]}
+            {showCareStandalone ? (
+              <section className="mb-7">
+                <SectionLabel>{q.careGroup}</SectionLabel>
+                <p className="mb-3 text-xs leading-relaxed text-[var(--kuct-muted)]">
+                  {q.careHint}
+                </p>
+                <div className="grid grid-cols-3 gap-2">
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setQuote((prev) => ({ ...prev, careStandalone: null }))
+                    }
+                    className={
+                      quote.careStandalone === null
+                        ? "rounded-[10px] border border-[rgba(var(--kuct-accent-rgb),0.28)] bg-white px-2 py-2 text-center text-xs font-semibold text-[var(--kuct-text)]"
+                        : "rounded-[10px] border border-black/[0.06] bg-[var(--kuct-bg)] px-2 py-2 text-center text-xs font-medium text-[var(--kuct-muted)]"
+                    }
+                  >
+                    {q.careNone}
+                  </button>
+                  {CARE_STANDALONE.map((plan) => {
+                    const term = plan.term as CareStandaloneTerm;
+                    const active = quote.careStandalone === term;
+                    return (
+                      <button
+                        key={plan.term}
+                        type="button"
                         onClick={() =>
-                          setSelection((s) => ({ ...s, pages: id }))
+                          setQuote((prev) => ({
+                            ...prev,
+                            careStandalone: term,
+                          }))
                         }
+                        className={
+                          active
+                            ? "rounded-[10px] border border-[rgba(var(--kuct-accent-rgb),0.28)] bg-white px-2 py-2 text-left text-xs font-semibold text-[var(--kuct-text)]"
+                            : "rounded-[10px] border border-black/[0.06] bg-[var(--kuct-bg)] px-2 py-2 text-left text-xs font-medium text-[var(--kuct-muted)]"
+                        }
+                      >
+                        <span className="block">{q.careTermLabel(plan.months)}</span>
+                        <span className="mt-0.5 block text-[0.65rem] font-normal">
+                          {money(plan.price)}
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </section>
+            ) : null}
+
+            <section className="mb-7">
+              <SectionLabel>{q.extrasGroup}</SectionLabel>
+              <p className="mb-3 text-xs leading-relaxed text-[var(--kuct-muted)]">
+                {q.extrasHint}
+              </p>
+              <div className="space-y-2">
+                {QUOTE_PUBLIC_EXTRA_KEYS.map((key) => {
+                  const label = q.extraLabels[key];
+                  const checked = quote.extras[key];
+                  const hintText =
+                    key === "payment-online"
+                      ? money(ONCE.paymentOnline)
+                      : extraPriceHint(totals.combo, key);
+                  return (
+                    <label
+                      key={key}
+                      className={
+                        checked
+                          ? "flex cursor-pointer items-start gap-3 rounded-[10px] border border-[rgba(var(--kuct-accent-rgb),0.28)] bg-white px-3 py-2.5"
+                          : "flex cursor-pointer items-start gap-3 rounded-[10px] border border-black/[0.06] bg-[var(--kuct-bg)] px-3 py-2.5"
+                      }
+                    >
+                      <input
+                        type="checkbox"
+                        className="mt-1 size-4 accent-[var(--kuct-accent)]"
+                        checked={checked}
+                        onChange={(e) => toggleExtra(key, e.target.checked)}
                       />
-                    ))}
-                  </div>
-                </fieldset>
+                      <span className="min-w-0 flex-1">
+                        <span className="flex items-start justify-between gap-2">
+                          <span className="text-sm font-semibold text-[var(--kuct-text)]">
+                            {label.title}
+                          </span>
+                          <span className="shrink-0 text-xs font-semibold text-[var(--kuct-text)]">
+                            {hintText}
+                          </span>
+                        </span>
+                        <span className="mt-0.5 block text-[0.7rem] text-[var(--kuct-muted)]">
+                          {label.scope}
+                        </span>
+                      </span>
+                    </label>
+                  );
+                })}
               </div>
             </section>
 
             <section className="mb-7">
-              <SectionLabel>{q.optionsGroup}</SectionLabel>
-              <div className="space-y-5">
-                <fieldset>
-                  <FieldLabel>{q.features}</FieldLabel>
-                  <div className="grid gap-2 sm:grid-cols-2">
-                    {(Object.keys(q.featureOptions) as FeatureId[]).map(
-                      (id) => (
-                        <ChoiceButton
-                          key={id}
-                          active={selection.features.includes(id)}
-                          label={q.featureOptions[id]}
-                          onClick={() =>
-                            setSelection((s) => ({
-                              ...s,
-                              features: toggleInList(s.features, id),
-                            }))
-                          }
-                        />
-                      ),
-                    )}
-                  </div>
-                </fieldset>
-
-                {showAi ? (
-                  <fieldset>
-                    <FieldLabel>{q.aiFeatures}</FieldLabel>
-                    <div className="grid gap-2 sm:grid-cols-2">
-                      {(Object.keys(q.aiFeatureOptions) as AiFeatureId[]).map(
-                        (id) => (
-                          <ChoiceButton
-                            key={id}
-                            active={selection.aiFeatures.includes(id)}
-                            label={q.aiFeatureOptions[id]}
-                            onClick={() =>
-                              setSelection((s) => ({
-                                ...s,
-                                aiFeatures: toggleInList(s.aiFeatures, id),
-                              }))
-                            }
-                          />
-                        ),
-                      )}
-                    </div>
-                  </fieldset>
-                ) : null}
-
-                <fieldset>
-                  <FieldLabel>{q.design}</FieldLabel>
-                  <div className="grid gap-2 sm:grid-cols-3">
-                    {(Object.keys(q.designOptions) as DesignId[]).map((id) => (
-                      <ChoiceButton
-                        key={id}
-                        active={selection.design === id}
-                        label={q.designOptions[id]}
-                        onClick={() =>
-                          setSelection((s) => ({ ...s, design: id }))
-                        }
-                      />
-                    ))}
-                  </div>
-                </fieldset>
-
-                <fieldset>
-                  <FieldLabel>{q.timeline}</FieldLabel>
-                  <div className="grid gap-2 sm:grid-cols-2">
-                    {(Object.keys(q.timelineOptions) as TimelineId[]).map(
-                      (id) => (
-                        <ChoiceButton
-                          key={id}
-                          active={selection.timeline === id}
-                          label={q.timelineOptions[id]}
-                          onClick={() =>
-                            setSelection((s) => ({ ...s, timeline: id }))
-                          }
-                        />
-                      ),
-                    )}
-                  </div>
-                </fieldset>
-              </div>
+              <SectionLabel>{q.intelligenceGroup}</SectionLabel>
+              <p className="mb-3 text-xs leading-relaxed text-[var(--kuct-muted)]">
+                {q.intelligenceHint}
+              </p>
+              <label
+                className={
+                  quote.intelligence
+                    ? "flex cursor-pointer items-start gap-3 rounded-[10px] border border-[rgba(var(--kuct-accent-rgb),0.28)] bg-white px-3 py-2.5"
+                    : "flex cursor-pointer items-start gap-3 rounded-[10px] border border-black/[0.06] bg-[var(--kuct-bg)] px-3 py-2.5"
+                }
+              >
+                <input
+                  type="checkbox"
+                  className="mt-1 size-4 accent-[var(--kuct-accent)]"
+                  checked={quote.intelligence}
+                  onChange={(e) =>
+                    setQuote((prev) => ({
+                      ...prev,
+                      intelligence: e.target.checked,
+                    }))
+                  }
+                />
+                <span className="min-w-0 flex-1">
+                  <span className="flex items-start justify-between gap-2">
+                    <span className="text-sm font-semibold text-[var(--kuct-text)]">
+                      {q.intelligenceLabel}
+                    </span>
+                    <span className="shrink-0 text-xs font-semibold text-[var(--kuct-text)]">
+                      {money(MONTHLY.intelligence * totals.combo.months)}
+                    </span>
+                  </span>
+                  <span className="mt-0.5 block text-[0.7rem] text-[var(--kuct-muted)]">
+                    {money(MONTHLY.intelligence)}
+                    {q.perMonth} × {totals.combo.months}
+                  </span>
+                </span>
+              </label>
             </section>
 
             <div className="pb-2">

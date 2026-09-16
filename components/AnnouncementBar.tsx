@@ -3,15 +3,12 @@
 import { BrandText } from "@/components/BrandName";
 import { useAiChat } from "@/components/AiChatProvider";
 import { useQuote } from "@/components/QuoteProvider";
-import { assetPath } from "@/lib/asset";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
 
 const BANNER_FALLBACK = {
   aria: "Announcement",
-  text: "Business website design — 36-month technical warranty + up to 36 blog posts in the first 3 months.",
-  cta: "See offer",
+  text: "Rent CRM (± AI): gift Landing / business website with combos — 2026 pricing policy.",
   ctaQuote: "Get a quote",
-  ctaMore: "learn more",
 } as const;
 
 function IconSparkle({ className }: { className?: string }) {
@@ -32,7 +29,6 @@ export function AnnouncementBar() {
   const { openQuote } = useQuote();
   const { openChat, open: chatOpen } = useAiChat();
   const b = t.banner ?? BANNER_FALLBACK;
-  const offerHref = assetPath("/website-36-thang/");
 
   return (
     <div
@@ -42,16 +38,7 @@ export function AnnouncementBar() {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-1.5 sm:gap-4 sm:px-6 sm:py-2">
         <p className="min-w-0 flex-1 text-left text-[10px] leading-snug font-medium text-current sm:text-[11px] md:text-xs">
-          <a
-            href={offerHref}
-            className="inline transition hover:opacity-90"
-          >
-            <BrandText size="xs">{b.text}</BrandText>
-            {" "}
-            <span className="font-semibold text-[var(--kuct-accent)]">
-              {b.ctaMore}
-            </span>
-          </a>
+          <BrandText size="xs">{b.text}</BrandText>
         </p>
         <div className="flex shrink-0 items-center gap-2 sm:gap-2.5">
           <button
@@ -61,12 +48,6 @@ export function AnnouncementBar() {
           >
             {b.ctaQuote}
           </button>
-          <a
-            href={offerHref}
-            className="kuct-banner-cta-outline inline-flex items-center rounded-lg px-2.5 py-1 text-[9px] font-semibold tracking-[0.06em] uppercase sm:px-3 sm:text-[10px]"
-          >
-            {b.cta}
-          </a>
           <button
             type="button"
             onClick={() => openChat()}

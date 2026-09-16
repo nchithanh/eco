@@ -4,7 +4,7 @@
     "id": "capabilities",
     "locale": "vi",
     "brand": "Dolphin Software",
-    "updated": "2026-08-31",
+    "updated": "2026-09-17",
     "schemaPath": "/schema/homepage/capabilities/",
     "rawPath": "/schema/homepage/capabilities.json",
     "productRoute": "/"
@@ -13,8 +13,8 @@
     "order": 4,
     "id": "solutions",
     "section_label": "Solutions",
-    "headline": "Giải pháp xoay quanh cách doanh nghiệp đang chạy",
-    "subheadline": "Đây không phải bảy dịch vụ rời. Đây là các công cụ Dolphin dùng để gỡ một vấn đề vận hành.",
+    "headline": "Cách Dolphin giúp doanh nghiệp vận hành tốt hơn",
+    "subheadline": "Không phải bảy dịch vụ rời. Đây là các lớp công nghệ Dolphin dùng để nối dữ liệu → hiểu → quyết định → hành động quanh quy trình thật.",
     "layout": "header-hub-cta-carousel",
     "positioning": ["Website", "AI", "CRM", "Automation", "Integrations", "Custom"],
     "hub_cta": {
@@ -24,32 +24,32 @@
     "services": [
       {
         "id": "website",
-        "title": "Website",
-        "description": "Website và web app theo mục tiêu kinh doanh — khách tìm ra, hiểu, và liên hệ được.",
+        "title": "Website & hiện diện số",
+        "description": "Khi pain là được tìm thấy và chuyển đổi — website/landing/web app gắn mục tiêu kinh doanh, không làm trang cho có.",
         "timeline": "Tìm thấy & chuyển đổi",
         "href": "https://dolphin-software.io.vn/services/web/",
         "image": "/capabilities/web.jpg"
       },
       {
         "id": "ai",
-        "title": "Giải pháp AI",
-        "description": "Use case AI thực tế: việc lặp, phân loại, hỗ trợ đội ngũ — khi đã rõ pain.",
+        "title": "AI & workflow thông minh",
+        "description": "AI hữu ích khi gắn dữ liệu và quy trình thật: việc lặp, phân loại, hỗ trợ đội ngũ — audit → pilot → nhân rộng.",
         "timeline": "Đúng chỗ cần",
         "href": "https://dolphin-software.io.vn/ai-transform/",
         "image": "/capabilities/integrations.jpg"
       },
       {
         "id": "agents",
-        "title": "AI Agent",
-        "description": "Dolphin Care — chăm khách trên website, ghi lead, hỗ trợ ngoài giờ trong phạm vi kiến thức.",
-        "timeline": "Trên website",
+        "title": "Dolphin Care — Chatbot AI",
+        "description": "Chatbot AI trên website / Zalo / Messenger: trả lời đúng ngữ cảnh, ghi lead, hỗ trợ ngoài giờ trong phạm vi kiến thức doanh nghiệp.",
+        "timeline": "Web · Zalo · Messenger",
         "href": "https://dolphin-software.io.vn/dolphin-care/",
         "image": "/capabilities/agent-dolphin.jpg"
       },
       {
         "id": "crm",
-        "title": "CRM & khách",
-        "description": "Dolphin Ops — gom khách, lịch, follow-up; không để lead nằm rải tin nhắn.",
+        "title": "Dolphin Ops — CRM vận hành",
+        "description": "CRM thực tế cho ngày làm việc: khách, lịch, follow-up, báo cáo — chatbox AI mở đúng màn hình, không phải CRM doanh nghiệp khổng lồ.",
         "timeline": "Vận hành nội bộ",
         "href": "https://dolphin-software.io.vn/dolphin-ops/",
         "image": "/capabilities/backend.jpg"
@@ -57,23 +57,23 @@
       {
         "id": "automation",
         "title": "Tự động hóa",
-        "description": "Giảm việc tay cho bước lặp: nhắc lịch, báo cáo, nhập liệu — khi quy trình đã rõ.",
+        "description": "Giảm việc tay cho bước đã rõ: nhắc lịch, báo cáo, nhập liệu — để team tập trung việc cần người.",
         "timeline": "Việc lặp",
         "href": "https://dolphin-software.io.vn/ai-transform/",
         "image": "/capabilities/design.jpg"
       },
       {
         "id": "integrations",
-        "title": "Tích hợp",
-        "description": "Nối thanh toán, Zalo, CRM và hệ thống đang chạy để thông tin chảy một mạch.",
+        "title": "Tích hợp hệ thống",
+        "description": "Nối thanh toán, Zalo, CRM và tool đang chạy — thông tin chảy một mạch, bớt copy tay.",
         "timeline": "Hệ thống sẵn",
         "href": "https://dolphin-software.io.vn/services/integrations/",
         "image": "/capabilities/integrations.jpg"
       },
       {
         "id": "custom",
-        "title": "Phần mềm riêng & legacy",
-        "description": "Xây hệ thống nội bộ khi phần mềm có sẵn không khớp — hoặc nâng cấp cái đang chạy, không mặc định làm lại.",
+        "title": "Phần mềm & hiện đại hóa",
+        "description": "Xây theo nghiệp vụ khi phần mềm có sẵn không khớp — hoặc nâng cấp cái đang chạy, không mặc định làm lại toàn bộ.",
         "timeline": "Theo nghiệp vụ",
         "href": "https://dolphin-software.io.vn/services/software/",
         "image": "/capabilities/backend.jpg"

@@ -4,7 +4,7 @@
     "id": "faq",
     "locale": "vi",
     "brand": "Dolphin Software",
-    "updated": "2026-08-03",
+    "updated": "2026-09-17",
     "schemaPath": "/schema/homepage/faq/",
     "rawPath": "/schema/homepage/faq.json",
     "productRoute": "/"
@@ -14,74 +14,74 @@
     "id": "faq",
     "section_label": "FAQ",
     "headline": "Câu hỏi thường gặp",
-    "subheadline": "Timeline · báo giá · bảo hành · bảo mật — trả lời trước khi bắt đầu.",
+    "subheadline": "Dolphin làm gì · tệp khách · hiện đại hóa hay làm mới · AI thực tế · quy trình hợp tác — trả lời trước khi bắt đầu.",
     "aeo_note": "Mỗi câu trả lời được viết để công cụ tìm kiếm và AI có thể trích dẫn độc lập.",
     "items": [
       {
         "id": "faq-what",
         "question": "Dolphin Software làm gì?",
-          "answer": "Dolphin Software là công ty giải pháp AI và công nghệ cho doanh nghiệp. Chúng tôi bắt đầu từ vấn đề vận hành — rồi mới chọn website, AI Agent, CRM, automation, tích hợp hoặc phần mềm theo yêu cầu. Không chắc cần công nghệ gì vẫn bắt đầu được: kể chỗ đang nghẽn.",
+        "answer": "Dolphin Software là đối tác công nghệ cho doanh nghiệp đang lớn. Chúng tôi giúp hiện đại hóa vận hành bằng phần mềm, AI và tự động hóa quanh quy trình thật — bắt đầu từ vấn đề kinh doanh, không từ catalog sản phẩm.",
         "open": true
+      },
+      {
+        "id": "faq-who",
+        "question": "Dolphin làm việc với loại doanh nghiệp nào?",
+        "answer": "Chủ yếu SMB và startup đang lớn — spa, salon, edu, clinic, dịch vụ và mô hình cần hệ thống linh hoạt. Nếu anh chị đang vượt Excel/tin nhắn rời hoặc muốn nâng cấp cách vận hành, đó thường là tệp phù hợp."
+      },
+      {
+        "id": "faq-website-only",
+        "question": "Dolphin chỉ làm website thôi sao?",
+        "answer": "Không. Website là một cách giải khi pain là được tìm thấy và chuyển đổi. Dolphin còn CRM vận hành (Ops), chatbot AI kênh khách (Care), tích hợp, tự động hóa và phần mềm theo nghiệp vụ."
+      },
+      {
+        "id": "faq-modernize",
+        "question": "Làm hệ thống mới hay nâng cấp cái đang chạy?",
+        "answer": "Cả hai. Ưu tiên hiện đại hóa khi hệ thống cũ còn dùng được; chỉ xây mới khi phần mềm sẵn không khớp nghiệp vụ. Không mặc định làm lại toàn bộ."
+      },
+      {
+        "id": "faq-integrate",
+        "question": "Có tích hợp được phần mềm / kênh đang dùng không?",
+        "answer": "Thường được — thanh toán, Zalo, CRM và tool đang chạy. Phạm vi tích hợp ghi rõ trong báo giá sau khi nắm luồng thật."
+      },
+      {
+        "id": "faq-ai",
+        "question": "AI áp dụng vào doanh nghiệp mình thế nào?",
+        "answer": "Khi gắn dữ liệu và quy trình thật: Care (chatbot Web/Zalo/Messenger), Ops (chatbox trên CRM), hoặc workflow/agent (Intelligence). Không bắt đầu bằng 'mua AI' — bắt đầu bằng việc đang tốn giờ."
+      },
+      {
+        "id": "faq-replace",
+        "question": "Có phải thay hết hệ thống hiện tại không?",
+        "answer": "Không bắt buộc. Nhiều việc là nối và nâng cấp từng phần. Thay toàn bộ chỉ khi hai bên thống nhất đó là cách hợp lý."
+      },
+      {
+        "id": "faq-custom",
+        "question": "Có làm giải pháp riêng theo quy trình của tiệm không?",
+        "answer": "Có — phần mềm và workflow theo nghiệp vụ khi gói sẵn không đủ. Phạm vi, milestone và bàn giao được khóa trước khi làm."
       },
       {
         "id": "faq-non-technical",
         "question": "Doanh nghiệp không rành kỹ thuật có làm việc được không?",
-        "answer": "Được. Hầu hết khách hàng của Dolphin Software không biết lập trình. Bạn chỉ cần chia sẻ ý tưởng hoặc brief ngắn — đội ngũ xác định phạm vi bằng ngôn ngữ kinh doanh, bàn giao end-to-end và hướng dẫn vận hành sau khi xong."
+        "answer": "Được. Anh chị kể chỗ đang nghẽn bằng ngôn ngữ kinh doanh; Dolphin đề xuất phạm vi, bàn giao và hướng dẫn vận hành."
       },
       {
         "id": "faq-process",
-        "question": "Quy trình làm việc diễn ra như thế nào?",
-        "answer": "Làm rõ mục tiêu → Khóa phạm vi & dự toán → Sprint có sản phẩm bàn giao → Nghiệm thu → Bàn giao & Hỗ trợ. Bạn luôn biết bước tiếp theo là gì."
+        "question": "Làm việc với Dolphin trông như thế nào?",
+        "answer": "Hiểu → định phạm vi & báo giá → sprint/demo → UAT → bàn giao & đồng hành. Đầu ra rõ ở mỗi bước; đổi phạm vi chỉ khi hai bên đồng ý."
       },
       {
         "id": "faq-quote",
-        "question": "Báo giá hoạt động như thế nào? Có phí ẩn không?",
-        "answer": "Gửi brief ngắn qua Contact, 'Nhận báo giá' hoặc Zalo. Dolphin Software phản hồi với phạm vi dự kiến và bước tiếp theo — không có phí ngoài phạm vi đã thỏa thuận."
-      },
-      {
-        "id": "faq-timeline",
-        "question": "Timeline điển hình là bao lâu?",
-        "answer": "Landing page: ~3–5 ngày. Website doanh nghiệp: ~7–14 ngày. Shop / e-commerce: ~3–4 tuần. App / workflow: theo phạm vi. Ngày cụ thể có trong báo giá sau khi khóa phạm vi."
-      },
-      {
-        "id": "faq-seo-mobile",
-        "question": "Có bao gồm SEO và mobile không?",
-        "answer": "Responsive theo mặc định với heading/meta rõ ràng và SEO on-page nền tảng. SEO nội dung dài hạn hoặc chiến dịch quảng cáo lớn có thể thêm vào phạm vi riêng."
-      },
-      {
-        "id": "faq-remote",
-        "question": "Có làm việc từ xa được không?",
-        "answer": "Được — chat/call, demo định kỳ và tài liệu bàn giao rõ ràng. Khách hàng toàn quốc đều hợp tác được."
+        "question": "Báo giá và phí ẩn?",
+        "answer": "Brief ngắn qua Contact hoặc Zalo. Phản hồi hướng tiếp cận và phạm vi dự kiến — không phí ngoài phạm vi đã thỏa thuận."
       },
       {
         "id": "faq-maintenance",
-        "question": "Bảo trì sau bàn giao khác gì tính năng mới?",
-        "answer": "Sau bàn giao: hướng dẫn vận hành cộng với bảo hành lỗi kỹ thuật (thường 3–6 tháng) trong phạm vi đã nghiệm thu. Tính năng mới là riêng — báo giá trước, không nằm trong bảo hành."
-      },
-      {
-        "id": "faq-security",
-        "question": "Bảo mật và dữ liệu được xử lý như thế nào?",
-        "answer": "HTTPS, kiểm soát truy cập, biến môi trường, không commit secret. Dữ liệu của bạn là của bạn. Audit / SSO / compliance có thể thêm vào phạm vi."
-      },
-      {
-        "id": "faq-scope-creep",
-        "question": "Phạm vi có bị phình to giữa chừng không?",
-        "answer": "Phạm vi được khóa ở bước báo giá. Yêu cầu ngoài phạm vi sẽ được ghi nhận, ước lượng lại và chỉ thực hiện khi bạn đồng ý."
-      },
-      {
-        "id": "faq-mvp",
-        "question": "Có làm MVP theo giai đoạn không?",
-        "answer": "Có. Dolphin Software ưu tiên MVP đủ để chạy, rồi mở rộng theo milestone — xác thực sớm và kiểm soát ngân sách."
-      },
-      {
-        "id": "faq-ai-vs-chatbot",
-        "question": "AI agent khác chatbot marketing thế nào?",
-        "answer": "Chatbot marketing trả lời FAQ theo kịch bản. Agent của Dolphin Software gắn với quy trình nghiệp vụ, công cụ và ngữ cảnh nội bộ — hỗ trợ vận hành, không chỉ chat bán hàng."
+        "question": "Bảo trì sau bàn giao khác tính năng mới thế nào?",
+        "answer": "Sau bàn giao: hướng dẫn + bảo hành lỗi kỹ thuật trong phạm vi đã nghiệm thu (theo thỏa thuận). Tính năng mới báo giá riêng."
       },
       {
         "id": "faq-start",
         "question": "Làm sao để bắt đầu?",
-          "answer": "Kể vấn đề đang nghẽn qua form Contact hoặc Zalo. Không cần biết sẵn 'cần website hay AI' — Dolphin đề xuất phạm vi khớp pain."
+        "answer": "Kể vấn đề đang nghẽn qua form Contact hoặc Zalo. Không cần biết sẵn 'cần website hay AI' — cùng chọn bước tiếp theo khớp pain."
       }
     ]
   }

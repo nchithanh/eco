@@ -1,19 +1,20 @@
 "use client";
 
-import { useEffect, useMemo, useState, type CSSProperties } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { COURSE_STATUS_LABEL, courseStatus, coursesForStudent, teacherName } from "../../lib/edu";
 import {
   STUDENTS_KPI,
-  STUDENTS_SEGMENTS,
-  STUDENTS_TREND,
-  demoParentPhone,
   demoStudentCode,
   demoStudentStats,
 } from "../../lib/students-demo";
 import type { DemoCourse, DemoStudent, DemoTeacher } from "../../lib/types";
 import { DEMO_TEACHERS } from "../../lib/seed";
+import { canSeeFees, displayPhone, type DemoRole } from "../../lib/role";
+import { shouldRevealDetail, useDetailReveal } from "../../lib/detail-reveal";
+import { AiReveal } from "./AiReveal";
 import { MoreMenu, copyId } from "./MoreMenu";
 import { StatusChip, courseChip } from "./StatusChip";
+import { UserAvatar } from "./UserAvatar";
 import "./chrome.css";
 import "./EduTable.css";
 import "./CustomerList.css";
@@ -25,6 +26,7 @@ type CustomerListProps = {
   teachers?: DemoTeacher[];
   onOpen: (name: string) => void;
   onPromo: () => void;
+  role?: DemoRole;
 };
 
 const PAGE_SIZE = 12;
@@ -40,28 +42,6 @@ function initials(name: string): string {
     .toUpperCase();
 }
 
-function TrendChart() {
-  const max = Math.max(...STUDENTS_TREND.map((p) => p.v), 1);
-  const w = 280;
-  const h = 52;
-  const pad = 6;
-  const pts = STUDENTS_TREND.map((p, i) => {
-    const x = pad + (i * (w - pad * 2)) / Math.max(1, STUDENTS_TREND.length - 1);
-    const y = h - pad - (p.v / max) * (h - pad * 2);
-    return `${x},${y}`;
-  }).join(" ");
-  return (
-    <svg className="ops-clist__trend" viewBox={`0 0 ${w} ${h}`} role="img" aria-label="Xu hướng tuyển sinh 6 tháng">
-      <polyline fill="none" stroke="var(--kuct-accent)" strokeWidth="2" points={pts} />
-      {STUDENTS_TREND.map((p, i) => {
-        const x = pad + (i * (w - pad * 2)) / Math.max(1, STUDENTS_TREND.length - 1);
-        const y = h - pad - (p.v / max) * (h - pad * 2);
-        return <circle key={p.m} cx={x} cy={y} r="2.25" fill="var(--kuct-accent)" />;
-      })}
-    </svg>
-  );
-}
-
 export function CustomerList({
   title,
   students,
@@ -69,6 +49,7 @@ export function CustomerList({
   teachers = DEMO_TEACHERS,
   onOpen,
   onPromo,
+  role = "manager",
 }: CustomerListProps) {
   const [search, setSearch] = useState("");
   const [enrollFilter, setEnrollFilter] = useState<"all" | "enrolled" | "none">("all");
@@ -77,6 +58,7 @@ export function CustomerList({
   const [panelDismissed, setPanelDismissed] = useState(false);
   const [page, setPage] = useState(0);
   const [detailTab, setDetailTab] = useState<DetailTab>("overview");
+  const { busy: detailBusy, start: startDetail } = useDetailReveal();
 
   const filtered = useMemo(() => {
     const q = search.trim().toLowerCase();
@@ -110,6 +92,7 @@ export function CustomerList({
     : "—";
 
   function pickStudent(id: string) {
+    if (shouldRevealDetail(id, selectedId, panelDismissed)) startDetail();
     setPanelDismissed(false);
     setSelectedId(id);
     setDetailTab("overview");
@@ -174,27 +157,6 @@ export function CustomerList({
             ))}
           </ul>
 
-          <div className="ops-seg">
-            <article className="ops-seg__card ops-clist__seg">
-              <h2 className="ops-seg__title">Phân khúc học viên</h2>
-              <ul className="ops-clist__seg-grid">
-                {STUDENTS_SEGMENTS.map((seg) => (
-                  <li key={seg.id}>
-                    <span className="ops-clist__seg-mark" style={{ "--seg": seg.color } as CSSProperties} aria-hidden />
-                    <span className="ops-clist__seg-label">{seg.label}</span>
-                    <strong className="ops-clist__seg-count">{seg.count}</strong>
-                    <span className="ops-clist__seg-pct">{seg.pct}</span>
-                  </li>
-                ))}
-              </ul>
-            </article>
-            <article className="ops-seg__card">
-              <h2 className="ops-seg__title">Xu hướng tuyển sinh</h2>
-              <TrendChart />
-              <p className="ops-wid__note">6 tháng gần nhất · demo hardcode</p>
-            </article>
-          </div>
-
           <div className="ops-table-card">
             <div className="ops-table-tools">
               <label className="ops-table-search">
@@ -245,7 +207,7 @@ export function CustomerList({
                     <th scope="col">Khóa học</th>
                     <th scope="col">Giáo viên</th>
                     <th scope="col">Chuyên cần</th>
-                    <th scope="col">Thanh toán</th>
+                    {canSeeFees(role) ? <th scope="col">Thanh toán</th> : null}
                     <th scope="col">Liên hệ</th>
                     <th scope="col">Trạng thái</th>
                     <th scope="col">
@@ -258,7 +220,8 @@ export function CustomerList({
                     const enrolled = coursesForStudent(courses, student.id);
                     const stats = demoStudentStats(student.id);
                     const course = enrolled[0];
-                    const teacher = course ? teacherName(teachers, course.teacherIds[0] ?? "") : "—";
+                    const teacherId = course?.teacherIds[0];
+                    const teacher = teacherId ? teacherName(teachers, teacherId) : "—";
                     const current = student.id === selectedId;
                     return (
                       <tr
@@ -287,9 +250,7 @@ export function CustomerList({
                         <td>
                           {course ? (
                             <span className="ops-table__who">
-                              <span className="ops-mini-av" aria-hidden>
-                                {initials(teacher)}
-                              </span>
+                              <UserAvatar id={teacherId} name={teacher} />
                               {teacher}
                             </span>
                           ) : (
@@ -297,12 +258,18 @@ export function CustomerList({
                           )}
                         </td>
                         <td className="ops-table__fill">{stats.attend}%</td>
+                        {canSeeFees(role) ? (
                         <td>
                           <StatusChip tone={stats.paid ? "paid" : "wait"}>
                             {stats.paid ? "Đã thanh toán" : "Còn nợ"}
                           </StatusChip>
                         </td>
-                        <td>{student.phone || "—"}</td>
+                        ) : null}
+                        <td>
+                          {student.kind === "child"
+                            ? displayPhone(student.guardian?.phone, role)
+                            : displayPhone(student.phone, role)}
+                        </td>
                         <td>
                           <StatusChip tone={enrolled.length ? "track" : "wait"}>
                             {enrolled.length ? "Đang học" : "Chưa ghi danh"}
@@ -367,7 +334,9 @@ export function CustomerList({
         </div>
 
         <aside className="ops-clist__aside">
-          {selected && selectedStats ? (
+          {detailBusy ? (
+            <AiReveal compact label="Đang mở hồ sơ…" />
+          ) : selected && selectedStats ? (
             <section className="ops-detail ops-clist__detail" aria-labelledby="edu-student-detail">
               <div className="ops-detail__head">
                 <div className="ops-detail__head-title">
@@ -404,7 +373,16 @@ export function CustomerList({
                 </li>
                 <li>
                   <span>Giáo viên</span>
-                  <strong>{primaryTeacher}</strong>
+                  <strong>
+                    {primaryCourse ? (
+                      <span className="ops-table__who">
+                        <UserAvatar id={primaryCourse.teacherIds[0]} name={primaryTeacher} size="xs" />
+                        {primaryTeacher}
+                      </span>
+                    ) : (
+                      "—"
+                    )}
+                  </strong>
                 </li>
                 <li>
                   <span>Chuyên cần</span>
@@ -418,7 +396,7 @@ export function CustomerList({
                 </li>
                 <li>
                   <span>Thanh toán</span>
-                  <strong>{selectedStats.paid ? "Đã TT" : "Còn nợ"}</strong>
+                  <strong>{canSeeFees(role) ? (selectedStats.paid ? "Đã TT" : "Còn nợ") : "Ẩn với GV"}</strong>
                 </li>
               </ul>
 
@@ -493,24 +471,28 @@ export function CustomerList({
                         <div>
                           <dt>SĐT</dt>
                           <dd>
-                            {selected.phone ? (
-                              <a href={`tel:${selected.phone.replace(/\s/g, "")}`}>{selected.phone}</a>
-                            ) : (
-                              "—"
-                            )}
+                            {displayPhone(selected.kind === "child" ? selected.guardian?.phone : selected.phone, role)}
                           </dd>
                         </div>
                         <div>
                           <dt>Email</dt>
-                          <dd>demo@{selected.id.replace(/[^a-z0-9]/gi, "")}.vn</dd>
+                          <dd>
+                            {selected.kind === "child"
+                              ? selected.guardian?.email ?? "—"
+                              : selected.email ?? `demo@${selected.id.replace(/[^a-z0-9]/gi, "")}.vn`}
+                          </dd>
                         </div>
                         <div>
                           <dt>Phụ huynh</dt>
-                          <dd>{demoParentPhone(selected.id)}</dd>
+                          <dd>
+                            {selected.guardian
+                              ? `${selected.guardian.relation} ${selected.guardian.name}`
+                              : "Người lớn — tự liên hệ"}
+                          </dd>
                         </div>
                         <div>
-                          <dt>Địa chỉ</dt>
-                          <dd>Quận 1 · TP.HCM (demo)</dd>
+                          <dt>Ngày sinh</dt>
+                          <dd>{selected.dob ?? "—"}</dd>
                         </div>
                       </dl>
 
@@ -549,7 +531,11 @@ export function CustomerList({
                                 <div>
                                   <span className="ops-roster__name">{course.name}</span>
                                   <span className="ops-roster__phone">
-                                    {teacherName(teachers, course.teacherIds[0] ?? "")} ·{" "}
+                                    <span className="ops-table__who">
+                                      <UserAvatar id={course.teacherIds[0]} name={teacherName(teachers, course.teacherIds[0] ?? "")} size="xs" />
+                                      {teacherName(teachers, course.teacherIds[0] ?? "")}
+                                    </span>
+                                    {" · "}
                                     <StatusChip tone={courseChip(status).tone}>{COURSE_STATUS_LABEL[status]}</StatusChip>
                                   </span>
                                 </div>

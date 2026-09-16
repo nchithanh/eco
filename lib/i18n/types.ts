@@ -53,11 +53,8 @@ export type Dictionary = {
   banner: {
     aria: string;
     text: string;
-    cta: string;
     /** Quote CTA on announcement bar */
     ctaQuote: string;
-    /** Inline “xem thêm” after banner text (accent color) */
-    ctaMore: string;
   };
   hero: {
     eyebrow: string;
@@ -114,7 +111,7 @@ export type Dictionary = {
     footerNote: string;
     footerCta: string;
     packages: {
-      id: "landing" | "business" | "shop" | "webapp";
+      id: "landing" | "business";
       title: string;
       badge: string;
       /** Soft column highlight (recommended package) */

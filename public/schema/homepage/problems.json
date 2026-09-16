@@ -4,7 +4,7 @@
     "id": "problems",
     "locale": "vi",
     "brand": "Dolphin Software",
-    "updated": "2026-08-31",
+    "updated": "2026-09-17",
     "schemaPath": "/schema/homepage/problems/",
     "rawPath": "/schema/homepage/problems.json",
     "productRoute": "/"
@@ -14,43 +14,43 @@
     "id": "problems",
     "section_label": "What is slowing you down?",
     "headline": "Điều gì đang làm chậm doanh nghiệp của anh chị?",
-    "subheadline": "Không mở bằng catalog. Mở bằng việc đang nghẽn — rồi mới chọn công cụ.",
+    "subheadline": "Doanh nghiệp lớn lên — vận hành thường vỡ thành việc tay, tool rời và thiếu tầm nhìn. Mở bằng chỗ đang nghẽn, rồi mới chọn công cụ.",
     "items": [
       {
         "title": "Quá nhiều việc làm tay",
-        "body": "Team mất giờ cho việc lặp lại mỗi ngày.",
+        "body": "Team mất giờ cho việc lặp lại mỗi ngày — nhắc lịch, nhập liệu, chuyển tin.",
         "href": "/ai-transform/",
         "solution": "Tự động hóa"
       },
       {
         "title": "Khách bị bỏ sót",
-        "body": "Lead, follow-up và tin nhắn nằm rải, rồi trôi.",
+        "body": "Lead, follow-up và tin nhắn nằm rải Zalo/Excel, rồi trôi. CRM gom khách; Care chăm trên Web / Zalo / Messenger.",
         "href": "/dolphin-ops/",
-        "solution": "CRM / AI chăm khách"
+        "solution": "CRM / Chatbot AI"
       },
       {
         "title": "Website không giúp tiệm lớn lên",
-        "body": "Có trang, nhưng khách vào rồi không gọi, không để lại thông tin.",
+        "body": "Có trang, nhưng khách vào rồi không gọi, không để lại thông tin — digital presence chưa gắn với bán & chăm.",
         "href": "/services/web/",
         "solution": "Website"
       },
       {
         "title": "Công cụ không nói chuyện với nhau",
-        "body": "Khách, bán hàng, vận hành nằm ở nhiều hệ thống.",
+        "body": "Khách, bán hàng, vận hành nằm ở nhiều hệ thống — đội phải copy tay giữa các app.",
         "href": "/services/integrations/",
         "solution": "Tích hợp"
       },
       {
         "title": "Doanh nghiệp phụ thuộc quá nhiều vào người",
-        "body": "Quy trình và dữ liệu khách nằm trong đầu nhân viên.",
+        "body": "Quy trình và dữ liệu khách nằm trong đầu nhân viên — khó bàn giao, khó scale.",
         "href": "/services/software/",
         "solution": "Hệ thống / CRM"
       },
       {
         "title": "Muốn dùng AI, chưa biết bắt đầu đâu",
-        "body": "Biết AI quan trọng, chưa rõ use case nào ra giá trị.",
+        "body": "Biết AI quan trọng, chưa rõ use case nào gắn dữ liệu và quy trình thật để ra giá trị.",
         "href": "/ai-transform/",
-        "solution": "Giải pháp AI"
+        "solution": "AI thực tế"
       }
     ]
   }

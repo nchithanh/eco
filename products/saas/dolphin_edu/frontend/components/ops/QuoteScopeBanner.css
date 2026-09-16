@@ -1,0 +1,9 @@
+/* Shared kicker used by PreviewBoards (AI ops alerts). */
+.ops-hub__sub {
+  margin: 1rem 0 0.5rem;
+  font-size: 0.78rem;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--kuct-muted);
+}

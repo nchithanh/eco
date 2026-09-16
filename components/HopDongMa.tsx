@@ -72,6 +72,18 @@ function formatQuoteDate(iso: string): string {
   return `${d}/${m}/${y}`;
 }
 
+function QuocHieu() {
+  return (
+    <div className="hd-quochieu">
+      <p className="hd-quochieu__state">
+        CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM
+      </p>
+      <p className="hd-quochieu__motto">Độc lập - Tự do - Hạnh phúc</p>
+      <span className="hd-quochieu__rule" aria-hidden />
+    </div>
+  );
+}
+
 export function HopDongMa() {
   const quoteDate = formatQuoteDate(DEFAULT_QUOTE_DATE);
 
@@ -99,6 +111,7 @@ export function HopDongMa() {
       <div className="hd-viewer">
         <article className="hd-doc hd-doc--cover" lang="vi" aria-label="Trang bìa hợp đồng">
           <div className="hd-cover">
+            <QuocHieu />
             <div className="hd-cover__brand">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
@@ -112,7 +125,6 @@ export function HopDongMa() {
             </div>
 
             <div className="hd-cover__hero">
-              <p className="hd-cover__eyebrow">Bản để ký kết · nội bộ</p>
               <h1 className="hd-cover__title">HỢP ĐỒNG DỊCH VỤ PHẦN MỀM</h1>
               <p className="hd-cover__number">Số ………/HĐDV/2026</p>
               <p className="hd-cover__date">
@@ -159,6 +171,7 @@ export function HopDongMa() {
 
         <article className="hd-doc" lang="vi">
           <header className="hd-doc__head">
+            <QuocHieu />
             <p className="hd-doc__eyebrow">HỢP ĐỒNG DỊCH VỤ SỐ ………/HĐDV/2026</p>
             <p className="hd-doc__title">HỢP ĐỒNG DỊCH VỤ PHẦN MỀM</p>
             <p className="hd-doc__meta">

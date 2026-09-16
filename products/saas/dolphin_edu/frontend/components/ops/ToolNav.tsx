@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { BranchSelect } from "./BranchSelect";
+import { MA_DANCE_LOGO, MA_DANCE_LOGO_ALT, PRODUCT_NAME } from "../../lib/brand";
 import { CHROME, type OpsLocale } from "../../lib/locale";
 import { groupIdForStage, type NavGroup } from "../../lib/nav";
 import type { Stage } from "../../lib/types";
@@ -103,12 +104,16 @@ export function ToolNav({
     >
       <div className="ops-nav__pane">
       <div className="ops-nav__brand">
-        <span className="ops-nav__mark" aria-hidden>
-          D
-        </span>
+        <img
+          className="ops-nav__logo"
+          src={MA_DANCE_LOGO}
+          alt={MA_DANCE_LOGO_ALT}
+          width={40}
+          height={40}
+        />
         <span className="ops-nav__brand-text">
-          <span className="ops-nav__org">Dolphin Edu</span>
-          <span className="ops-nav__who">{orgName}</span>
+          <span className="ops-nav__org">{orgName}</span>
+          <span className="ops-nav__who">{PRODUCT_NAME}</span>
         </span>
         <button
           type="button"
@@ -236,6 +241,15 @@ function NavIcon({ id }: { id: Stage }) {
         <rect x="13.5" y="3.5" width="7" height="7" rx="1.2" />
         <rect x="3.5" y="13.5" width="7" height="7" rx="1.2" />
         <rect x="13.5" y="13.5" width="7" height="7" rx="1.2" />
+      </svg>
+    );
+  }
+  if (id === "guide") {
+    return (
+      <svg {...STROKE}>
+        <path d="M6 5.5h9.5A2.5 2.5 0 0118 8v11.5H8.2A2.2 2.2 0 016 17.3V5.5z" />
+        <path d="M6 17.3A2.2 2.2 0 018.2 19.5H18" strokeLinecap="round" />
+        <path d="M9 9h6M9 12.5h5" strokeLinecap="round" />
       </svg>
     );
   }

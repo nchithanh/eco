@@ -4,7 +4,6 @@ import Image from "next/image";
 import { AccentText, BrandText } from "@/components/BrandName";
 import { HeroSitePreview } from "@/components/HeroSitePreview";
 import { useMascotSrc } from "@/components/useMascotSrc";
-import { assetPath } from "@/lib/asset";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
 
 function TagIcon({ index }: { index: number }) {
@@ -125,7 +124,6 @@ function HeroCollage() {
 export function Hero() {
   const { t } = useLocale();
   const banner = t.banner;
-  const offerHref = assetPath("/website-36-thang/");
 
   return (
     <section
@@ -141,18 +139,11 @@ export function Hero() {
         <div className="relative z-10 w-full max-w-5xl touch-pan-y">
           {banner ? (
             <p className="mb-5 flex justify-center sm:mb-6">
-              <a
-                href={offerHref}
-                className="kuct-hero-announce inline-flex max-w-full items-center gap-2 rounded-[10px] px-3.5 py-2 text-left no-underline transition hover:opacity-95 sm:px-4 sm:py-2.5"
-              >
+              <span className="kuct-hero-announce inline-flex max-w-full items-center gap-2 rounded-[10px] px-3.5 py-2 text-left sm:px-4 sm:py-2.5">
                 <span className="min-w-0 text-[0.7rem] leading-snug font-medium text-[var(--kuct-text)] sm:text-[0.78rem]">
                   <BrandText size="xs">{banner.text}</BrandText>
                 </span>
-                <span className="shrink-0 text-[0.7rem] font-semibold text-[var(--kuct-accent)] sm:text-[0.78rem]">
-                  {banner.ctaMore}
-                  <span aria-hidden> →</span>
-                </span>
-              </a>
+              </span>
             </p>
           ) : null}
 
@@ -184,16 +175,16 @@ export function Hero() {
 
           <div className="mt-7 flex flex-wrap items-center justify-center gap-3 sm:mt-8 sm:gap-4">
             <a
-              href="#solutions"
-              className="kuct-btn-outline inline-flex min-w-[9.5rem] items-center justify-center rounded-lg px-6 py-3.5 text-sm"
-            >
-              {t.hero.ctaSecondary}
-            </a>
-            <a
               href="#contact"
-              className="kuct-btn-primary inline-flex min-w-[12rem] items-center justify-center rounded-lg px-6 py-3.5 text-sm font-semibold"
+              className="kuct-btn-primary inline-flex min-w-[12rem] items-center justify-center rounded-[10px] px-6 py-3.5 text-sm font-semibold"
             >
               {t.hero.ctaPrimary}
+            </a>
+            <a
+              href="#solutions"
+              className="kuct-btn-outline inline-flex min-w-[9.5rem] items-center justify-center rounded-[10px] px-6 py-3.5 text-sm"
+            >
+              {t.hero.ctaSecondary}
             </a>
           </div>
         </div>

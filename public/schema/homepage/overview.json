@@ -5,19 +5,20 @@
     "overviewRawPath": "/schema/homepage/overview.json",
     "brand": "Dolphin Software",
     "locale": "vi",
-    "updated": "2026-08-31",
+    "updated": "2026-09-17",
     "seo": {
-      "title": "Dolphin Software – Giải Pháp AI & Công Nghệ Cho Doanh Nghiệp",
-      "description": "Dolphin Software giúp doanh nghiệp xác định nghẽn vận hành và xây giải pháp phù hợp — website, AI Agent, CRM, automation, tích hợp và phần mềm theo yêu cầu. Bắt đầu từ vấn đề, không từ sản phẩm.",
-      "og_title": "Dolphin Software – Giải Pháp AI & Công Nghệ Cho Doanh Nghiệp",
-      "og_description": "Không bắt đầu từ công nghệ. Bắt đầu từ vấn đề. Website, AI, CRM, automation và phần mềm riêng — chỉ những gì doanh nghiệp thực sự cần.",
+      "title": "Dolphin Software – Công Nghệ Vận Hành Cho Doanh Nghiệp Đang Lớn",
+      "description": "Dolphin Software là đối tác công nghệ cho SMB và startup: hiện đại hóa vận hành bằng phần mềm, AI và tự động hóa quanh quy trình thật — website, CRM, chatbot AI, tích hợp. Bắt đầu từ vấn đề, không từ sản phẩm.",
+      "og_title": "Dolphin Software – Công Nghệ Vận Hành Cho Doanh Nghiệp Đang Lớn",
+      "og_description": "Giúp doanh nghiệp đang lớn chạy rõ hơn: phần mềm + AI + tự động hóa gắn workflow thật. Không agency web rẻ — không AI hype.",
       "canonical": "https://dolphin-software.io.vn/",
       "keywords": [
-        "giải pháp AI và công nghệ cho doanh nghiệp",
-        "thiết kế website theo yêu cầu",
-        "CRM cho doanh nghiệp vừa và nhỏ",
+        "công nghệ vận hành cho doanh nghiệp",
+        "phần mềm cho SMB",
+        "hiện đại hóa phần mềm doanh nghiệp",
         "tự động hóa quy trình doanh nghiệp",
-        "phần mềm quản lý theo yêu cầu",
+        "CRM vận hành",
+        "chatbot AI website Zalo Messenger",
         "Dolphin Software",
         "Dolphin Care",
         "Dolphin Ops"
@@ -115,9 +116,9 @@
     "hero": {
       "order": 1,
       "id": "hero",
-      "headline": "Giải quyết vấn đề doanh nghiệp bằng AI & Công nghệ",
-      "subheadline": "Hiểu doanh nghiệp trước, xác định chỗ công nghệ tạo giá trị thật, rồi chỉ xây những gì anh chị thực sự cần.",
-      "body": "Dolphin giúp doanh nghiệp xác định những điểm nghẽn trong vận hành và xây dựng giải pháp phù hợp — từ website, AI Agent, CRM, automation đến phần mềm riêng.",
+      "headline": "Công nghệ vận hành cho doanh nghiệp đang lớn",
+      "subheadline": "Đối tác công nghệ cho SMB và startup — kết nối phần mềm, AI và tự động hóa quanh quy trình thật, thay vì bán thêm độ phức tạp.",
+      "body": "Khi doanh nghiệp lớn lên, vận hành thường bị rời rạc: Excel, tin nhắn, tool không nói chuyện với nhau. Dolphin giúp hiện đại hóa nền tảng số — chỉ những gì giúp anh chị chạy rõ hơn, nhanh hơn và có tầm nhìn.",
       "trust_strip": [
         "We don't start with technology. We start with your problem."
       ],
@@ -128,15 +129,25 @@
           "style": "primary"
         },
         {
-          "label": "Xem giải pháp",
+          "label": "Xem cách Dolphin giúp",
           "href": "#solutions",
           "style": "secondary"
         }
       ],
-      "tags": ["Vấn đề trước", "AI & công nghệ", "Website là một giải pháp"],
+      "tags": [
+        "Đối tác công nghệ",
+        "SMB đang lớn",
+        "Vận hành trước — tool sau"
+      ],
       "metrics": [
-        { "value": "6+", "label": "Case trên site" },
-        { "value": "Pain", "label": "Bắt đầu từ vấn đề" }
+        {
+          "value": "Ops",
+          "label": "Vận hành rõ hơn"
+        },
+        {
+          "value": "AI",
+          "label": "Đúng chỗ cần"
+        }
       ],
       "visual": "EmbedSiteMock browser wireframe + dolphin-eco mascot"
     },
@@ -145,43 +156,43 @@
       "id": "problems",
       "section_label": "What is slowing you down?",
       "headline": "Điều gì đang làm chậm doanh nghiệp của anh chị?",
-      "subheadline": "Không mở bằng catalog. Mở bằng việc đang nghẽn — rồi mới chọn công cụ.",
+      "subheadline": "Doanh nghiệp lớn lên — vận hành thường vỡ thành việc tay, tool rời và thiếu tầm nhìn. Mở bằng chỗ đang nghẽn, rồi mới chọn công cụ.",
       "items": [
         {
           "title": "Quá nhiều việc làm tay",
-          "body": "Team mất giờ cho việc lặp lại mỗi ngày.",
+          "body": "Team mất giờ cho việc lặp lại mỗi ngày — nhắc lịch, nhập liệu, chuyển tin.",
           "href": "/ai-transform/",
           "solution": "Tự động hóa"
         },
         {
           "title": "Khách bị bỏ sót",
-          "body": "Lead, follow-up và tin nhắn nằm rải, rồi trôi.",
+          "body": "Lead, follow-up và tin nhắn nằm rải Zalo/Excel, rồi trôi. CRM gom khách; Care chăm trên Web / Zalo / Messenger.",
           "href": "/dolphin-ops/",
-          "solution": "CRM / AI chăm khách"
+          "solution": "CRM / Chatbot AI"
         },
         {
           "title": "Website không giúp tiệm lớn lên",
-          "body": "Có trang, nhưng khách vào rồi không gọi, không để lại thông tin.",
+          "body": "Có trang, nhưng khách vào rồi không gọi, không để lại thông tin — digital presence chưa gắn với bán & chăm.",
           "href": "/services/web/",
           "solution": "Website"
         },
         {
           "title": "Công cụ không nói chuyện với nhau",
-          "body": "Khách, bán hàng, vận hành nằm ở nhiều hệ thống.",
+          "body": "Khách, bán hàng, vận hành nằm ở nhiều hệ thống — đội phải copy tay giữa các app.",
           "href": "/services/integrations/",
           "solution": "Tích hợp"
         },
         {
           "title": "Doanh nghiệp phụ thuộc quá nhiều vào người",
-          "body": "Quy trình và dữ liệu khách nằm trong đầu nhân viên.",
+          "body": "Quy trình và dữ liệu khách nằm trong đầu nhân viên — khó bàn giao, khó scale.",
           "href": "/services/software/",
           "solution": "Hệ thống / CRM"
         },
         {
           "title": "Muốn dùng AI, chưa biết bắt đầu đâu",
-          "body": "Biết AI quan trọng, chưa rõ use case nào ra giá trị.",
+          "body": "Biết AI quan trọng, chưa rõ use case nào gắn dữ liệu và quy trình thật để ra giá trị.",
           "href": "/ai-transform/",
-          "solution": "Giải pháp AI"
+          "solution": "AI thực tế"
         }
       ]
     },
@@ -228,30 +239,30 @@
       "order": 3,
       "id": "why",
       "section_label": "Why Dolphin",
-      "headline": "Chúng tôi không bán một đống tính năng",
-      "subheadline": "Phần lớn doanh nghiệp không cần hệ thống phức tạp hàng trăm nút. Họ cần cách gỡ đúng chỗ đang làm chậm. Dolphin bắt đầu từ doanh nghiệp — không từ sản phẩm.",
+      "headline": "Đối tác công nghệ — không bán một đống tính năng",
+      "subheadline": "Phần lớn doanh nghiệp đang lớn không cần hệ thống hàng trăm nút. Họ cần cách gỡ chỗ đang làm chậm. Dolphin bắt đầu từ doanh nghiệp — phần mềm, AI và tự động hóa chỉ là cách giải.",
       "promise": "We don't start with technology. We start with your problem.",
       "layout": "icon-line-pillars",
       "pillars": [
         {
           "icon": "experience",
           "title": "Hiểu",
-          "body": "Nghe cách anh chị đang bán, chăm khách, và vận hành — bằng ngôn ngữ kinh doanh."
+          "body": "Nghe cách anh chị đang bán, chăm khách và vận hành — bằng ngôn ngữ kinh doanh."
         },
         {
           "icon": "delivery",
           "title": "Xác định nghẽn",
-          "body": "Chỉ ra chỗ đang mất thời gian, mất lead, hoặc phụ thuộc một người."
+          "body": "Chỉ ra chỗ mất thời gian, mất lead, hoặc phụ thuộc một người."
         },
         {
           "icon": "process",
           "title": "Xây đúng thứ",
-          "body": "Website, AI, CRM, tích hợp hoặc phần mềm riêng — chỉ những gì khớp pain."
+          "body": "Website, chatbot AI, CRM, tích hợp hoặc phần mềm riêng — chỉ những gì khớp pain."
         },
         {
           "icon": "support",
           "title": "Đo và cải thiện",
-          "body": "Bàn giao để anh chị tự chạy; chỉnh khi thực tế phát sinh — không bỏ xó."
+          "body": "Bàn giao để anh chị tự chạy; chỉnh khi thực tế phát sinh — đồng hành dài hạn, không bỏ xó."
         }
       ]
     },
@@ -259,56 +270,63 @@
       "order": 4,
       "id": "solutions",
       "section_label": "Solutions",
-      "headline": "Giải pháp xoay quanh cách doanh nghiệp đang chạy",
-      "subheadline": "Đây không phải bảy dịch vụ rời. Đây là các công cụ Dolphin dùng để gỡ một vấn đề vận hành.",
-      "positioning": ["Website", "AI", "CRM", "Automation", "Integrations", "Custom"],
+      "headline": "Cách Dolphin giúp doanh nghiệp vận hành tốt hơn",
+      "subheadline": "Không phải bảy dịch vụ rời. Đây là các lớp công nghệ Dolphin dùng để nối dữ liệu → hiểu → quyết định → hành động quanh quy trình thật.",
+      "positioning": [
+        "Website",
+        "AI",
+        "CRM",
+        "Automation",
+        "Integrations",
+        "Custom"
+      ],
       "services": [
         {
           "id": "website",
-          "title": "Website",
-          "description": "Website và web app theo mục tiêu kinh doanh — khách tìm ra, hiểu, và liên hệ được.",
+          "title": "Website & hiện diện số",
+          "description": "Khi pain là được tìm thấy và chuyển đổi — website/landing/web app gắn mục tiêu kinh doanh, không làm trang cho có.",
           "timeline": "Tìm thấy & chuyển đổi",
           "href": "https://dolphin-software.io.vn/services/web/"
         },
         {
           "id": "ai",
-          "title": "Giải pháp AI",
-          "description": "Use case AI thực tế: việc lặp, phân loại, hỗ trợ đội ngũ — khi đã rõ pain.",
+          "title": "AI & workflow thông minh",
+          "description": "AI hữu ích khi gắn dữ liệu và quy trình thật: việc lặp, phân loại, hỗ trợ đội ngũ — audit → pilot → nhân rộng.",
           "timeline": "Đúng chỗ cần",
           "href": "https://dolphin-software.io.vn/ai-transform/"
         },
         {
           "id": "agents",
-          "title": "AI Agent",
-          "description": "Dolphin Care — chăm khách trên website, ghi lead, hỗ trợ ngoài giờ trong phạm vi kiến thức.",
-          "timeline": "Trên website",
+          "title": "Dolphin Care — Chatbot AI",
+          "description": "Chatbot AI trên website / Zalo / Messenger: trả lời đúng ngữ cảnh, ghi lead, hỗ trợ ngoài giờ trong phạm vi kiến thức doanh nghiệp.",
+          "timeline": "Web · Zalo · Messenger",
           "href": "https://dolphin-software.io.vn/dolphin-care/"
         },
         {
           "id": "crm",
-          "title": "CRM & khách",
-          "description": "Dolphin Ops — gom khách, lịch, follow-up; không để lead nằm rải tin nhắn.",
+          "title": "Dolphin Ops — CRM vận hành",
+          "description": "CRM thực tế cho ngày làm việc: khách, lịch, follow-up, báo cáo — chatbox AI mở đúng màn hình, không phải CRM doanh nghiệp khổng lồ.",
           "timeline": "Vận hành nội bộ",
           "href": "https://dolphin-software.io.vn/dolphin-ops/"
         },
         {
           "id": "automation",
           "title": "Tự động hóa",
-          "description": "Giảm việc tay cho bước lặp: nhắc lịch, báo cáo, nhập liệu — khi quy trình đã rõ.",
+          "description": "Giảm việc tay cho bước đã rõ: nhắc lịch, báo cáo, nhập liệu — để team tập trung việc cần người.",
           "timeline": "Việc lặp",
           "href": "https://dolphin-software.io.vn/ai-transform/"
         },
         {
           "id": "integrations",
-          "title": "Tích hợp",
-          "description": "Nối thanh toán, Zalo, CRM và hệ thống đang chạy để thông tin chảy một mạch.",
+          "title": "Tích hợp hệ thống",
+          "description": "Nối thanh toán, Zalo, CRM và tool đang chạy — thông tin chảy một mạch, bớt copy tay.",
           "timeline": "Hệ thống sẵn",
           "href": "https://dolphin-software.io.vn/services/integrations/"
         },
         {
           "id": "custom",
-          "title": "Phần mềm riêng & legacy",
-          "description": "Xây hệ thống nội bộ khi phần mềm có sẵn không khớp — hoặc nâng cấp cái đang chạy, không mặc định làm lại.",
+          "title": "Phần mềm & hiện đại hóa",
+          "description": "Xây theo nghiệp vụ khi phần mềm có sẵn không khớp — hoặc nâng cấp cái đang chạy, không mặc định làm lại toàn bộ.",
           "timeline": "Theo nghiệp vụ",
           "href": "https://dolphin-software.io.vn/services/software/"
         }
@@ -348,8 +366,8 @@
       "order": 5,
       "id": "works",
       "section_label": "Dự án đã bàn giao",
-      "headline": "Bài toán thực tế đã gỡ — không chỉ ảnh đẹp",
-      "subheadline": "Mỗi case: vấn đề đang nghẽn → phạm vi làm → kết quả sau bàn giao. Stack kỹ thuật nằm dưới.",
+      "headline": "Bài toán vận hành đã gỡ — không chỉ ảnh đẹp",
+      "subheadline": "Mỗi case: bối cảnh doanh nghiệp → chỗ nghẽn → Dolphin đổi gì → giá trị vận hành. Không bịa số liệu; stack kỹ thuật nằm dưới.",
       "cta_inline": {
         "label": "Nói về bài toán của anh chị",
         "href": "#contact"
@@ -402,8 +420,8 @@
       "order": 6,
       "id": "dolphin-care",
       "section_label": "Dolphin Care",
-      "headline": "AI giảm tải vận hành và nâng cao hiệu quả",
-      "subheadline": "Dolphin Care là giải pháp AI chat tích hợp trực tiếp lên website của bạn — trả lời đúng việc, đúng giọng điệu thương hiệu, giảm câu hỏi lặp đi lặp lại.",
+      "headline": "Chatbot AI trên Web / Zalo / Messenger + insight hằng ngày",
+      "subheadline": "Dolphin Care là chatbot AI chăm khách theo ngữ cảnh doanh nghiệp — trả lời câu hỏi lặp, ghi lead, hỗ trợ ngoài giờ trong phạm vi kiến thức; đồng thời tổng hợp insight cho admin mỗi ngày.",
       "benefits": [
         {
           "title": "Trả lời đúng ngữ cảnh",
@@ -472,10 +490,10 @@
       "order": 7,
       "id": "dolphin-ops",
       "section_label": "SaaS · Agent CRM",
-      "headline": "Agent CRM cho vận hành nội bộ",
-      "subheadline": "Anh chị nói việc cần làm. Agent chọn Business Tool và mở đúng giao diện — lịch, khách, báo cáo. Chat là cửa vào, không phải toàn bộ sản phẩm.",
+      "headline": "CRM vận hành + chatbox AI trên CRM",
+      "subheadline": "Dolphin Ops giúp đội ngũ chạy ngày làm việc: khách, lịch, follow-up, báo cáo. Nói việc cần làm — chatbox AI chọn tool và mở đúng giao diện. Thực tế, gọn — không phải CRM doanh nghiệp khổng lồ.",
       "signature": "AI không thay giao diện. Nó chọn đúng giao diện.",
-      "versusCare": "Dolphin Care chăm khách trên website. Dolphin Ops giúp đội ngũ chạy việc bên trong.",
+      "versusCare": "Care = chatbot AI chăm khách (Web / Zalo / Messenger). Ops = vận hành nội bộ + chatbox AI trên CRM.",
       "benefits": [
         {
           "title": "Nói việc — mở đúng màn",
@@ -490,7 +508,12 @@
           "body": "Thanh toán, hoàn tiền, xóa dữ liệu, gửi hàng loạt có thể dừng để người có quyền xác nhận."
         }
       ],
-      "wedge": ["Spa", "Salon", "Clinic", "Shop dịch vụ"],
+      "wedge": [
+        "Spa",
+        "Salon",
+        "Clinic",
+        "Shop dịch vụ"
+      ],
       "ctas": [
         {
           "label": "Xem Ops chạy việc",
@@ -510,30 +533,30 @@
       "order": 8,
       "id": "technology",
       "section_label": "Ops AI",
-      "headline": "Giải pháp AI cho vận hành",
-      "roadmap": "Lộ trình AI có kiểm soát: audit → pilot → nhân rộng",
-      "subheadline": "Dolphin không bán AI viển vông. Chúng tôi rà soát quy trình thực tế của bạn, chọn 1–2 việc đáng làm nhất, chạy pilot có số đo — rồi mới nhân rộng.",
+      "headline": "AI thực tế cho vận hành",
+      "roadmap": "Dữ liệu → hiểu → quyết định → hành động → tự động hóa (có kiểm soát)",
+      "subheadline": "AI hữu ích khi gắn thông tin và quy trình doanh nghiệp — không phải khẩu hiệu. Dolphin chọn 1–2 việc đáng làm, chạy pilot có kiểm soát, rồi mới nhân rộng.",
       "items": [
         {
           "id": "agents",
           "tag": "Agents",
-          "title": "AI Agents — tự động hóa đúng việc",
-          "body": "Agent tùy chỉnh cho từng workflow và vai trò cụ thể, xử lý phần lặp đi lặp lại đang đốt thời gian của team."
+          "title": "AI Agents — đúng việc đang tốn giờ",
+          "body": "Agent theo workflow và vai trò cụ thể: xử lý phần lặp, để người làm phần cần phán đoán."
         },
         {
           "id": "automation",
           "tag": "Automation",
-          "title": "AI Automation — bớt thao tác thủ công",
-          "body": "Tự động hóa các bước lặp trong vận hành: capture lead, nhắc follow-up, tổng hợp báo cáo."
+          "title": "Tự động hóa — bớt thao tác thủ công",
+          "body": "Nhắc follow-up, capture lead, tổng hợp báo cáo — khi bước đã rõ và dữ liệu đã sẵn."
         },
         {
           "id": "integration",
           "tag": "Integration",
-          "title": "AI Integration — kết nối hệ thống đang chạy",
-          "body": "Gắn AI vào CRM, chat, lịch và các công cụ hiện có — không cần thay toàn bộ hệ thống cũ."
+          "title": "Gắn vào hệ thống đang chạy",
+          "body": "Kết nối CRM, chat, lịch và tool hiện có — hiện đại hóa từng phần, không mặc định thay toàn bộ."
         }
       ],
-      "note": "Dolphin dùng chính AI agent workflow trong nội bộ — từ điều phối công việc, sản xuất nội dung, thiết kế đến phát triển software.",
+      "note": "Dolphin dùng AI workflow nội bộ cho điều phối và sản xuất — cùng tinh thần: gắn action thật, có checkpoint khi cần.",
       "cta": [
         {
           "label": "Xem lộ trình chuyển đổi AI",
@@ -548,37 +571,37 @@
     "ai-edge": {
       "order": 8,
       "id": "ai-edge",
-      "section_label": "Năng lực AI",
-      "headline": "Website làm nền — AI là lớp thông minh bên trên",
-      "subheadline": "Web & app là cốt lõi của Dolphin Software. Khi thực sự có ích, chúng tôi thêm chat, automation và process agent — thực tế, không phải khoa học viễn tưởng.",
+      "section_label": "Dolphin Intelligence",
+      "headline": "Agent / workflow AI — không phải chatbot kênh khách",
+      "subheadline": "Intelligence là add-on điều phối nhiều bước: agent + action + logic + human checkpoint. Chatbot Web / Zalo / Messenger thuộc Dolphin Care — khác lớp sản phẩm.",
       "capabilities": [
         {
-          "context": "On-site",
-          "title": "AI chat & FAQ trên website của bạn",
-          "body": "Trả lời câu hỏi thường gặp và thu lead ngay trên website đang chạy."
+          "context": "Agent",
+          "title": "AI Agent theo vai trò",
+          "body": "Mỗi agent có ngữ cảnh và hướng dẫn riêng — tư duy nhất quán trong chuỗi bước nghiệp vụ."
         },
         {
-          "context": "Automation",
-          "title": "Quy trình thông minh & form tự động",
-          "body": "Tự động hóa đặt lịch, báo giá và phân luồng lead — giảm bước thủ công."
+          "context": "Action · Logic",
+          "title": "Action & logic điều phối",
+          "body": "Gọi API, CMS, email, nhánh điều kiện — agent quyết định, action thực thi đúng lúc."
         },
         {
-          "context": "Integration",
-          "title": "Agent kết nối CRM / Zalo",
-          "body": "Business agent gắn vào quy trình thực, kết nối hệ thống live — kết quả đo được."
+          "context": "Human",
+          "title": "Human checkpoint đúng chỗ",
+          "body": "Người duyệt bước nhạy cảm trước khi tiếp tục — kiểm soát được, không hộp đen."
         }
       ],
       "links": [
         {
-          "label": "Chuyển đổi AI doanh nghiệp",
-          "href": "https://dolphin-software.io.vn/ai-transform/"
+          "label": "Xem Dolphin Intelligence",
+          "href": "https://dolphin-software.io.vn/dolphin-intelligence/"
         },
         {
-          "label": "Lộ trình AI & agent",
+          "label": "Lộ trình chuyển đổi AI",
           "href": "https://dolphin-software.io.vn/ai-transform/"
         }
       ],
-      "aeo_snippet": "Dolphin Software tích hợp AI automation cho doanh nghiệp vừa và nhỏ dưới ba dạng: AI chat trên website, quy trình tự động hóa (đặt lịch, báo giá, phân luồng lead), và business agent kết nối CRM hoặc Zalo — đo được bằng kết quả vận hành thực tế."
+      "aeo_snippet": "Dolphin Intelligence là add-on workflow AI của Dolphin Software: agent theo vai trò, action kết nối hệ thống thật, logic điều phối và human checkpoint — khác chatbot kênh khách Web / Zalo / Messenger (Dolphin Care)."
     },
     "stack": {
       "order": 2,
@@ -615,69 +638,69 @@
     "process": {
       "order": 10,
       "id": "process",
-      "section_label": "Phương pháp",
-      "headline": "Quy trình 5 bước bàn giao rõ ràng",
-      "subheadline": "Từ discovery đến bàn giao — đầu ra rõ ràng ở mỗi bước, không bỏ qua giai đoạn nào.",
+      "section_label": "Process",
+      "headline": "Hợp tác rõ ràng — năm bước đến bàn giao",
+      "subheadline": "Understand → Define → Build → Integrate → Improve. Cộng tác, minh bạch, lặp theo thực tế — không framework tư vấn cứng.",
       "steps": [
         {
           "number": "01",
           "title": "Lắng nghe & Khám phá",
-          "body": "Làm rõ mục tiêu website/app cùng ngân sách và ràng buộc thời gian.",
-          "deliverable": "Tóm tắt vấn đề, mục tiêu và ràng buộc đã được căn chỉnh."
+          "body": "Làm rõ bài toán vận hành, mục tiêu và ràng buộc — chưa chọn tool.",
+          "deliverable": "Tóm tắt vấn đề, mục tiêu và ràng buộc đã căn chỉnh."
         },
         {
           "number": "02",
           "title": "Lên kế hoạch & Báo giá",
-          "body": "Phân tách tính năng, milestone, chi phí và đầu ra bàn giao.",
-          "deliverable": "Đề xuất có phạm vi, timeline và báo giá rõ ràng."
+          "body": "Phân tách phạm vi, milestone, chi phí và đầu ra bàn giao.",
+          "deliverable": "Đề xuất có phạm vi, timeline và báo giá rõ."
         },
         {
           "number": "03",
           "title": "Phát triển theo sprint",
-          "body": "Bàn giao UI, tính năng, responsive, tích hợp — demo để điều chỉnh sớm.",
+          "body": "Xây và demo sớm — chỉnh theo phản hồi trước khi khóa.",
           "deliverable": "Sprint build/demo để review sớm."
         },
         {
           "number": "04",
           "title": "Kiểm thử & UAT",
-          "body": "Kiểm tra chất lượng và nghiệm thu cùng bạn trước khi lên production.",
-          "deliverable": "Checklist nghiệm thu và danh sách lỗi đã xử lý."
+          "body": "Nghiệm thu cùng anh chị trước khi lên production.",
+          "deliverable": "Checklist nghiệm thu và lỗi đã xử lý."
         },
         {
           "number": "05",
-          "title": "Bàn giao & Đối tác",
-          "body": "Deploy, hướng dẫn vận hành, tài liệu — cộng với hỗ trợ kỹ thuật sau khi live.",
-          "deliverable": "Source code, domain/hosting & env, admin (nếu có), hướng dẫn và bảo hành theo thỏa thuận."
+          "title": "Bàn giao & Đồng hành",
+          "body": "Deploy, hướng dẫn, tài liệu — hỗ trợ kỹ thuật sau live theo thỏa thuận.",
+          "deliverable": "Source, môi trường, admin (nếu có), hướng dẫn và bảo hành."
         }
       ],
-      "aeo_snippet": "Quy trình bàn giao của Dolphin Software gồm 5 bước: Lắng nghe & Khám phá → Lên kế hoạch & Báo giá → Phát triển theo sprint → Kiểm thử & UAT → Bàn giao & Hỗ trợ. Mỗi bước có đầu ra cụ thể và khách hàng luôn biết bước tiếp theo là gì."
+      "aeo_snippet": "Quy trình hợp tác của Dolphin Software: Lắng nghe & Khám phá → Lên kế hoạch & Báo giá → Phát triển theo sprint → Kiểm thử & UAT → Bàn giao & Đồng hành. Mỗi bước có đầu ra rõ; cộng tác theo thực tế."
     },
     "fit": {
       "order": 10,
       "id": "fit",
-      "section_label": "Ai phù hợp với Dolphin Software?",
-      "headline": "Dolphin Software phù hợp nhất với ai?",
-      "body": "Dolphin Software phù hợp nhất với doanh nghiệp vừa và nhỏ (SMB) tại Việt Nam đang cần: thiết kế website theo yêu cầu từ đầu, nâng cấp hệ thống cũ đang gây khó khăn vận hành, hoặc tích hợp AI automation vào quy trình thực tế. Nếu bạn không rành kỹ thuật — không sao; đội ngũ làm việc bằng ngôn ngữ kinh doanh và bàn giao đến khi vận hành được.",
+      "section_label": "Fit",
+      "headline": "Dolphin phù hợp với doanh nghiệp đang sẵn sàng nâng cấp vận hành",
+      "body": "SMB và startup đang lớn — spa, salon, edu, clinic, dịch vụ và các mô hình cần hệ thống linh hoạt. Pain thường gặp: Excel/tin nhắn rời, website chưa chuyển đổi, muốn AI thực tế hoặc hiện đại hóa cái đang chạy. Không rành kỹ thuật vẫn làm việc được: nói bằng ngôn ngữ kinh doanh.",
       "fit_matrix": [
         {
-          "profile": "Doanh nghiệp cần website có thể tự vận hành",
-          "recommended": "Business Website hoặc Web App",
-          "note": "Bao gồm CMS, hướng dẫn vận hành và bảo hành kỹ thuật."
+          "profile": "Cần website / hiện diện số tự vận hành được",
+          "recommended": "Business Website hoặc Landing",
+          "note": "CMS, hướng dẫn vận hành và bảo hành kỹ thuật — khi pain là tìm thấy & chuyển đổi."
         },
         {
-          "profile": "Startup cần ra mắt nhanh với ngân sách kiểm soát",
-          "recommended": "Landing Page hoặc MVP theo giai đoạn",
-          "note": "Bàn giao MVP trước, mở rộng theo milestone — kiểm soát ngân sách và xác thực sớm."
+          "profile": "Startup cần ra mắt nhanh, ngân sách kiểm soát",
+          "recommended": "Landing hoặc MVP theo giai đoạn",
+          "note": "Bàn giao đủ để chạy trước, mở rộng theo milestone."
         },
         {
-          "profile": "Doanh nghiệp muốn tự động hóa booking / lead / thanh toán",
-          "recommended": "Web App + Tích hợp thanh toán + Dolphin Care",
-          "note": "Phù hợp khi quy trình hiện tại dựa trên cuộc gọi thủ công hoặc Excel."
+          "profile": "Muốn bớt việc tay quanh đặt lịch / lead / chăm khách",
+          "recommended": "Ops CRM + Care (Web / Zalo / Messenger) ± tích hợp",
+          "note": "Phù hợp khi đang dựa gọi tay, Excel hoặc tin nhắn rời."
         },
         {
-          "profile": "Doanh nghiệp muốn nâng cấp hệ thống cũ hoặc thêm AI vào hạ tầng hiện có",
-          "recommended": "Nâng cấp hệ thống + AI Agent tùy chỉnh",
-          "note": "Dolphin Software phân tích hệ thống hiện tại trước khi báo giá — không đẩy thêm tính năng không cần."
+          "profile": "Muốn nâng cấp hệ thống cũ hoặc gắn AI vào hạ tầng sẵn",
+          "recommended": "Hiện đại hóa + lộ trình AI có kiểm soát",
+          "note": "Phân tích hệ thống hiện tại trước — không đẩy tính năng thừa."
         }
       ]
     },
@@ -685,97 +708,32 @@
       "order": 11,
       "id": "popular-services",
       "section_label": "Website packages",
-      "headline": "Gói website khi vấn đề là tìm thấy và chuyển đổi",
-      "subheadline": "Bốn gói khi pain là Google / landing / shop — không phải toàn bộ catalog Dolphin. Chọn gói rồi yêu cầu báo giá hoặc chat Zalo.",
-      "note_fx": "Giá VND quy đổi xấp xỉ, tỷ giá tham chiếu 2026-07-30. Giá USD hiển thị để tiện so sánh.",
+      "headline": "Website / Landing — hỗ trợ chốt theo combo CRM",
+      "subheadline": "Không phải catalog agency. Landing / Website DN one-time theo chính sách giá 2026 — tặng hoặc giảm sâu khi thuê CRM (± AI).",
+      "note_fx": "Giá VND từ ONETIME_WEB. Quy đổi FX tham chiếu lib/pricing-fx.ts.",
       "packages": [
         {
-          "id": "landing-page",
+          "id": "landing",
           "name": "Landing Page",
-          "tag": "Khởi động nhanh",
-          "price_original_usd": 114,
-          "price_promo_usd": 38,
-          "discount_label": "Tiết kiệm 67%",
-          "promo_note": "Theo phạm vi",
+          "tag": "CRM Base 12",
+          "price_vnd": 1500000,
+          "discount_label": "Tặng với Base 12",
           "timeline": "3–5 ngày",
-          "best_for": "Chiến dịch, giới thiệu dịch vụ, form tư vấn",
-          "ui": "1 layout responsive",
-          "seo": "SEO nền tảng",
-          "admin": "Form liên hệ",
-          "analytics": "GA4 cơ bản + Pixel",
-          "support": "Bảo hành 12 tháng",
-          "highlight": "Bao gồm 1 năm hosting",
-          "cta": {
-            "label": "Báo giá Landing",
-            "href": "#contact"
-          }
+          "highlight": "CRM Base 12: tặng Landing khi triển khai",
+          "cta": { "label": "Nhận báo giá combo", "href": "#contact" }
         },
         {
-          "id": "business-website",
-          "name": "Website Doanh Nghiệp",
+          "id": "business",
+          "name": "Website doanh nghiệp",
           "tag": "Đề xuất",
-          "price_original_usd": 304,
-          "price_promo_usd": 190,
-          "discount_label": "Tiết kiệm 38%",
-          "promo_note": "Theo phạm vi",
+          "price_vnd": 4500000,
+          "discount_label": "Tặng từ Care 6",
           "timeline": "7–14 ngày",
-          "best_for": "Profile công ty, dịch vụ, SEO dài hạn",
-          "ui": "Đa trang + UI hệ thống",
-          "seo": "On-page + cấu trúc nội dung",
-          "admin": "CMS cơ bản",
-          "analytics": "GA4 + sự kiện chính",
-          "support": "Hướng dẫn vận hành",
-          "highlight": "CMS nội dung",
-          "cta": {
-            "label": "Tư vấn kinh doanh",
-            "href": "#contact"
-          }
-        },
-        {
-          "id": "ecommerce",
-          "name": "Website Thương Mại Điện Tử",
-          "tag": "Tăng trưởng",
-          "price_original_usd": 570,
-          "price_promo_usd": 380,
-          "discount_label": "Tiết kiệm 33%",
-          "promo_note": "Theo phạm vi",
-          "timeline": "3–4 tuần",
-          "best_for": "Shop, danh mục online, checkout",
-          "ui": "Danh mục + giỏ hàng",
-          "seo": "SEO sản phẩm",
-          "admin": "Sản phẩm / đơn hàng",
-          "analytics": "Funnel + chuyển đổi",
-          "support": "Thiết lập thanh toán",
-          "highlight": "Giỏ hàng + thanh toán",
-          "cta": {
-            "label": "Xây shop online",
-            "href": "#contact"
-          }
-        },
-        {
-          "id": "web-app",
-          "name": "Web App Tùy Chỉnh",
-          "tag": "Theo yêu cầu",
-          "price_original_usd": null,
-          "price_from_usd": 760,
-          "price_promo_from_usd": 380,
-          "discount_label": "Deal phạm vi đầu tiên",
-          "promo_note": "Theo phạm vi",
-          "timeline": "Theo phạm vi",
-          "best_for": "Dashboard, CRM, quy trình tùy chỉnh",
-          "ui": "UI theo domain",
-          "seo": "Tùy chọn",
-          "admin": "Phân quyền",
-          "analytics": "Chỉ số vận hành",
-          "support": "Phân tích giải pháp",
-          "highlight": "Phân tích giải pháp miễn phí",
-          "cta": {
-            "label": "Thảo luận giải pháp",
-            "href": "#contact"
-          }
+          "highlight": "Base 12: −50%. Từ CRM + Care 6: tặng Website DN",
+          "cta": { "label": "Nhận báo giá combo", "href": "#contact" }
         }
       ],
-      "footer_note": "Cần phạm vi tùy chỉnh, tích hợp hệ thống cũ hoặc SEO ngành đặc thù? Dolphin Software phân tích chi tiết từng hạng mục trước khi báo giá.",
+      "footer_note": "Shop / web app / tích hợp nâng cao báo riêng (outsource).",
       "zalo_cta": {
         "label": "Tư vấn Zalo miễn phí",
         "href": "https://zalo.me/0779937633"
@@ -786,86 +744,86 @@
       "id": "faq",
       "section_label": "FAQ",
       "headline": "Câu hỏi thường gặp",
-      "subheadline": "Timeline · báo giá · bảo hành · bảo mật — trả lời trước khi bắt đầu.",
+      "subheadline": "Dolphin làm gì · tệp khách · hiện đại hóa hay làm mới · AI thực tế · quy trình hợp tác — trả lời trước khi bắt đầu.",
       "aeo_note": "Mỗi câu trả lời được viết để công cụ tìm kiếm và AI có thể trích dẫn độc lập.",
       "items": [
         {
           "id": "faq-what",
           "question": "Dolphin Software làm gì?",
-          "answer": "Dolphin Software là công ty giải pháp AI và công nghệ cho doanh nghiệp. Chúng tôi bắt đầu từ vấn đề vận hành — rồi mới chọn website, AI Agent, CRM, automation, tích hợp hoặc phần mềm theo yêu cầu. Không chắc cần công nghệ gì vẫn bắt đầu được: kể chỗ đang nghẽn.",
+          "answer": "Dolphin Software là đối tác công nghệ cho doanh nghiệp đang lớn. Chúng tôi giúp hiện đại hóa vận hành bằng phần mềm, AI và tự động hóa quanh quy trình thật — bắt đầu từ vấn đề kinh doanh, không từ catalog sản phẩm.",
           "open": true
+        },
+        {
+          "id": "faq-who",
+          "question": "Dolphin làm việc với loại doanh nghiệp nào?",
+          "answer": "Chủ yếu SMB và startup đang lớn — spa, salon, edu, clinic, dịch vụ và mô hình cần hệ thống linh hoạt. Nếu anh chị đang vượt Excel/tin nhắn rời hoặc muốn nâng cấp cách vận hành, đó thường là tệp phù hợp."
+        },
+        {
+          "id": "faq-website-only",
+          "question": "Dolphin chỉ làm website thôi sao?",
+          "answer": "Không. Website là một cách giải khi pain là được tìm thấy và chuyển đổi. Dolphin còn CRM vận hành (Ops), chatbot AI kênh khách (Care), tích hợp, tự động hóa và phần mềm theo nghiệp vụ."
+        },
+        {
+          "id": "faq-modernize",
+          "question": "Làm hệ thống mới hay nâng cấp cái đang chạy?",
+          "answer": "Cả hai. Ưu tiên hiện đại hóa khi hệ thống cũ còn dùng được; chỉ xây mới khi phần mềm sẵn không khớp nghiệp vụ. Không mặc định làm lại toàn bộ."
+        },
+        {
+          "id": "faq-integrate",
+          "question": "Có tích hợp được phần mềm / kênh đang dùng không?",
+          "answer": "Thường được — thanh toán, Zalo, CRM và tool đang chạy. Phạm vi tích hợp ghi rõ trong báo giá sau khi nắm luồng thật."
+        },
+        {
+          "id": "faq-ai",
+          "question": "AI áp dụng vào doanh nghiệp mình thế nào?",
+          "answer": "Khi gắn dữ liệu và quy trình thật: Care (chatbot Web/Zalo/Messenger), Ops (chatbox trên CRM), hoặc workflow/agent (Intelligence). Không bắt đầu bằng 'mua AI' — bắt đầu bằng việc đang tốn giờ."
+        },
+        {
+          "id": "faq-replace",
+          "question": "Có phải thay hết hệ thống hiện tại không?",
+          "answer": "Không bắt buộc. Nhiều việc là nối và nâng cấp từng phần. Thay toàn bộ chỉ khi hai bên thống nhất đó là cách hợp lý."
+        },
+        {
+          "id": "faq-custom",
+          "question": "Có làm giải pháp riêng theo quy trình của tiệm không?",
+          "answer": "Có — phần mềm và workflow theo nghiệp vụ khi gói sẵn không đủ. Phạm vi, milestone và bàn giao được khóa trước khi làm."
         },
         {
           "id": "faq-non-technical",
           "question": "Doanh nghiệp không rành kỹ thuật có làm việc được không?",
-          "answer": "Được. Hầu hết khách hàng của Dolphin Software không biết lập trình. Bạn chỉ cần chia sẻ ý tưởng hoặc brief ngắn — đội ngũ xác định phạm vi bằng ngôn ngữ kinh doanh, bàn giao end-to-end và hướng dẫn vận hành sau khi xong."
+          "answer": "Được. Anh chị kể chỗ đang nghẽn bằng ngôn ngữ kinh doanh; Dolphin đề xuất phạm vi, bàn giao và hướng dẫn vận hành."
         },
         {
           "id": "faq-process",
-          "question": "Quy trình làm việc diễn ra như thế nào?",
-          "answer": "Làm rõ mục tiêu → Khóa phạm vi & dự toán → Sprint có sản phẩm bàn giao → Nghiệm thu → Bàn giao & Hỗ trợ. Bạn luôn biết bước tiếp theo là gì."
+          "question": "Làm việc với Dolphin trông như thế nào?",
+          "answer": "Hiểu → định phạm vi & báo giá → sprint/demo → UAT → bàn giao & đồng hành. Đầu ra rõ ở mỗi bước; đổi phạm vi chỉ khi hai bên đồng ý."
         },
         {
           "id": "faq-quote",
-          "question": "Báo giá hoạt động như thế nào? Có phí ẩn không?",
-          "answer": "Gửi brief ngắn qua Contact, 'Nhận báo giá' hoặc Zalo. Dolphin Software phản hồi với phạm vi dự kiến và bước tiếp theo — không có phí ngoài phạm vi đã thỏa thuận."
-        },
-        {
-          "id": "faq-timeline",
-          "question": "Timeline điển hình là bao lâu?",
-          "answer": "Landing page: ~3–5 ngày. Website doanh nghiệp: ~7–14 ngày. Shop / e-commerce: ~3–4 tuần. App / workflow: theo phạm vi. Ngày cụ thể có trong báo giá sau khi khóa phạm vi."
-        },
-        {
-          "id": "faq-seo-mobile",
-          "question": "Có bao gồm SEO và mobile không?",
-          "answer": "Responsive theo mặc định với heading/meta rõ ràng và SEO on-page nền tảng. SEO nội dung dài hạn hoặc chiến dịch quảng cáo lớn có thể thêm vào phạm vi riêng."
-        },
-        {
-          "id": "faq-remote",
-          "question": "Có làm việc từ xa được không?",
-          "answer": "Được — chat/call, demo định kỳ và tài liệu bàn giao rõ ràng. Khách hàng toàn quốc đều hợp tác được."
+          "question": "Báo giá và phí ẩn?",
+          "answer": "Brief ngắn qua Contact hoặc Zalo. Phản hồi hướng tiếp cận và phạm vi dự kiến — không phí ngoài phạm vi đã thỏa thuận."
         },
         {
           "id": "faq-maintenance",
-          "question": "Bảo trì sau bàn giao khác gì tính năng mới?",
-          "answer": "Sau bàn giao: hướng dẫn vận hành cộng với bảo hành lỗi kỹ thuật (thường 3–6 tháng) trong phạm vi đã nghiệm thu. Tính năng mới là riêng — báo giá trước, không nằm trong bảo hành."
-        },
-        {
-          "id": "faq-security",
-          "question": "Bảo mật và dữ liệu được xử lý như thế nào?",
-          "answer": "HTTPS, kiểm soát truy cập, biến môi trường, không commit secret. Dữ liệu của bạn là của bạn. Audit / SSO / compliance có thể thêm vào phạm vi."
-        },
-        {
-          "id": "faq-scope-creep",
-          "question": "Phạm vi có bị phình to giữa chừng không?",
-          "answer": "Phạm vi được khóa ở bước báo giá. Yêu cầu ngoài phạm vi sẽ được ghi nhận, ước lượng lại và chỉ thực hiện khi bạn đồng ý."
-        },
-        {
-          "id": "faq-mvp",
-          "question": "Có làm MVP theo giai đoạn không?",
-          "answer": "Có. Dolphin Software ưu tiên MVP đủ để chạy, rồi mở rộng theo milestone — xác thực sớm và kiểm soát ngân sách."
-        },
-        {
-          "id": "faq-ai-vs-chatbot",
-          "question": "AI agent khác chatbot marketing thế nào?",
-          "answer": "Chatbot marketing trả lời FAQ theo kịch bản. Agent của Dolphin Software gắn với quy trình nghiệp vụ, công cụ và ngữ cảnh nội bộ — hỗ trợ vận hành, không chỉ chat bán hàng."
+          "question": "Bảo trì sau bàn giao khác tính năng mới thế nào?",
+          "answer": "Sau bàn giao: hướng dẫn + bảo hành lỗi kỹ thuật trong phạm vi đã nghiệm thu (theo thỏa thuận). Tính năng mới báo giá riêng."
         },
         {
           "id": "faq-start",
           "question": "Làm sao để bắt đầu?",
-          "answer": "Kể vấn đề đang nghẽn qua form Contact hoặc Zalo. Không cần biết sẵn 'cần website hay AI' — Dolphin đề xuất phạm vi khớp pain."
+          "answer": "Kể vấn đề đang nghẽn qua form Contact hoặc Zalo. Không cần biết sẵn 'cần website hay AI' — cùng chọn bước tiếp theo khớp pain."
         }
       ]
     },
     "contact": {
       "order": 13,
       "id": "contact",
-      "section_label": "Liên hệ",
-      "headline": "Nói về doanh nghiệp của anh chị",
-      "subheadline": "Không chắc cần công nghệ gì — kể chỗ đang nghẽn. Dolphin phản hồi hướng tiếp cận và phạm vi phù hợp, không ép gói.",
+      "section_label": "Next step",
+      "headline": "Cùng xây cách vận hành tốt hơn",
+      "subheadline": "Kể doanh nghiệp đang ở đâu và chỗ nào đang nghẽn. Dolphin đề xuất công nghệ nào nên cải thiện tiếp — không ép gói.",
       "after_submit": [
-        "Hướng tiếp cận ban đầu cho bài toán của bạn",
-        "Gợi ý phạm vi khớp pain: website · AI · CRM · tích hợp · phần mềm riêng",
+        "Hướng tiếp cận ban đầu cho bài toán vận hành",
+        "Gợi ý phạm vi khớp pain: website · Care · Ops · tích hợp · phần mềm",
         "Mốc thời gian và khoảng chi phí ước tính"
       ],
       "next_hint": "Thường phản hồi trong ngày làm việc.",

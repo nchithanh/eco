@@ -591,7 +591,7 @@ export function MaDanceQuote() {
         <footer>
           <p className="motto">
             <img src={assetPath(BRAND_LOGO_SRC)} alt="" width={28} height={28} />
-            <span className="motto-text">Dreams come true when you don&apos;t sleep</span>
+            <span className="motto-text">Start from the problem, not the product</span>
           </p>
           Dolphin Software · dolphin-software.io.vn · {PREPARED_BY} · {PREPARED_PHONE}
           <br />

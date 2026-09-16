@@ -16,18 +16,6 @@
   color: var(--kuct-muted);
 }
 
-.ops-staff__today {
-  flex-shrink: 0;
-  margin: 0;
-}
-
-.ops-staff__today-title {
-  margin: 0 0 0.5rem;
-  font-size: 0.8125rem;
-  font-weight: 650;
-  color: var(--kuct-text);
-}
-
 .ops-staff .ops-staff__layout {
   flex: 1 1 auto;
   align-items: stretch;
@@ -51,8 +39,7 @@
 
 .ops-staff__main > .ops-crumb,
 .ops-staff__main > .ops-page__head,
-.ops-staff__main > .ops-kpi-row,
-.ops-staff__main > .ops-staff__today {
+.ops-staff__main > .ops-kpi-row {
   flex-shrink: 0;
 }
 
@@ -122,12 +109,6 @@
   flex-direction: column;
   min-height: 0;
   overflow: auto;
-}
-
-.ops-staff__av {
-  width: 2.15rem;
-  height: 2.15rem;
-  font-size: 0.6875rem;
 }
 
 .ops-staff__sort {
@@ -249,5 +230,11 @@
   .ops-staff__aside {
     height: auto;
     min-height: 22rem;
+  }
+}
+
+@media (max-width: 47.99rem) {
+  .ops-staff__quick {
+    grid-template-columns: 1fr;
   }
 }

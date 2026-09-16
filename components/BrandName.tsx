@@ -132,7 +132,7 @@ export function renderMaybeBrand(
  return <BrandText {...opts}>{text}</BrandText>;
 }
 
-/** Motto lockup: Dolphin logo + English motto (do not translate). */
+/** Motto lockup: Dolphin logo + English philosophy motto. */
 export function BrandMotto({ className = "" }: { className?: string }) {
  return (
  <p

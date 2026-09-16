@@ -11,7 +11,7 @@ export const FX_VND_PER_UNIT = {
   JPY: 161,
 } as const;
 
-export type PackagePriceId = "landing" | "business" | "shop" | "webapp";
+export type PackagePriceId = "landing" | "business";
 
 export type PackagePriceVnd = {
   /** Optional list / strike price (promo compare). */
@@ -24,12 +24,10 @@ export type PackagePriceVnd = {
   from?: boolean;
 };
 
-/** Canonical package amounts in VND. */
+/** Canonical package amounts in VND — SoT `ONETIME_WEB` (pricing policy 2026). */
 export const PACKAGE_PRICES_VND: Record<PackagePriceId, PackagePriceVnd> = {
   landing: { was: 3_000_000, now: 1_500_000 },
-  business: { now: 4_000_000, nowMax: 10_000_000 },
-  shop: { now: 7_000_000, nowMax: 15_000_000 },
-  webapp: { was: 20_000_000, now: 10_000_000, from: true },
+  business: { now: 4_500_000 },
 };
 
 type DisplayCurrency = "VND" | "USD" | "JPY";

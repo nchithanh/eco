@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { branchName } from "../../lib/branch";
 import {
   CLASS_STATUS_LABEL,
   COURSE_STATUS_LABEL,
@@ -13,8 +14,11 @@ import {
 import { DEMO_ROOMS } from "../../lib/seed";
 import { TEACHERS_KPI, demoTeacherCode, demoTeacherStats } from "../../lib/teachers-demo";
 import type { DemoClass, DemoCourse, DemoRoom, DemoTeacher } from "../../lib/types";
+import { shouldRevealDetail, useDetailReveal } from "../../lib/detail-reveal";
+import { AiReveal } from "./AiReveal";
 import { MoreMenu, copyId } from "./MoreMenu";
 import { StatusChip, classChip, courseChip } from "./StatusChip";
+import { UserAvatar } from "./UserAvatar";
 import "./chrome.css";
 import "./EduTable.css";
 import "./StaffBoard.css";
@@ -26,20 +30,12 @@ type StaffBoardProps = {
   classes: DemoClass[];
   rooms?: DemoRoom[];
   onPromo: () => void;
+  onCover?: (classId: string, teacherId: string) => void;
 };
 
 type DetailTab = "overview" | "schedule" | "history" | "perf";
 
 const PAGE_SIZE = 12;
-
-function initials(name: string): string {
-  const parts = name.trim().split(/\s+/);
-  return parts
-    .slice(-2)
-    .map((part) => part[0] ?? "")
-    .join("")
-    .toUpperCase();
-}
 
 function roomLabel(rooms: DemoRoom[], id: string): string {
   return rooms.find((r) => r.id === id)?.label ?? id;
@@ -52,6 +48,7 @@ export function StaffBoard({
   classes,
   rooms = DEMO_ROOMS,
   onPromo,
+  onCover,
 }: StaffBoardProps) {
   const today = localIsoDate();
   const [selectedId, setSelectedId] = useState<string | null>(null);
@@ -60,6 +57,7 @@ export function StaffBoard({
   const [statusFilter, setStatusFilter] = useState<"all" | "active" | "leave">("all");
   const [page, setPage] = useState(0);
   const [detailTab, setDetailTab] = useState<DetailTab>("overview");
+  const { busy: detailBusy, start: startDetail } = useDetailReveal();
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -86,14 +84,6 @@ export function StaffBoard({
   const selectedStats = selected ? demoTeacherStats(selected.id) : null;
   const assigned = selected ? courses.filter((c) => c.teacherIds.includes(selected.id)) : [];
 
-  const studioToday = useMemo(
-    () =>
-      [...classes]
-        .filter((row) => row.date === today && !row.cancelled)
-        .sort((a, b) => a.startTime.localeCompare(b.startTime)),
-    [classes, today],
-  );
-
   const selectedToday = useMemo(() => {
     if (!selected) return [];
     return classes
@@ -102,6 +92,7 @@ export function StaffBoard({
   }, [classes, selected, today]);
 
   function pickTeacher(id: string) {
+    if (shouldRevealDetail(id, selectedId, panelDismissed)) startDetail();
     setPanelDismissed(false);
     setSelectedId(id);
     setDetailTab("overview");
@@ -160,38 +151,6 @@ export function StaffBoard({
               </li>
             ))}
           </ul>
-
-          {studioToday.length ? (
-            <div className="ops-staff__today">
-              <h2 className="ops-staff__today-title">
-                Lịch dạy hôm nay — <time dateTime={today}>{formatViDate(today)}</time>
-              </h2>
-              <ul className="ops-timeline" aria-label="Lịch dạy hôm nay">
-                {studioToday.slice(0, 8).map((row) => {
-                  const teacher = teachers.find((t) => t.id === row.teacherId);
-                  const course = courses.find((c) => c.id === row.courseId);
-                  const on = row.teacherId === selectedId;
-                  return (
-                    <li key={row.id}>
-                      <button
-                        type="button"
-                        className={on ? "ops-timeline__item ops-timeline__item--on" : "ops-timeline__item"}
-                        onClick={() => pickTeacher(row.teacherId)}
-                      >
-                        <span className="ops-timeline__time">
-                          {row.startTime}–{row.endTime}
-                        </span>
-                        <span className="ops-timeline__name">
-                          {teacher?.name ?? "GV"} · {course?.name ?? row.courseId}
-                        </span>
-                        <span className="ops-timeline__meta">{roomLabel(rooms, row.roomId)}</span>
-                      </button>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-          ) : null}
 
           <div className="ops-table-card">
             <div className="ops-table-tools">
@@ -256,9 +215,7 @@ export function StaffBoard({
                       >
                         <th scope="row">
                           <div className="ops-table__course">
-                            <span className="ops-mini-av ops-staff__av" aria-hidden>
-                              {initials(item.name)}
-                            </span>
+                            <UserAvatar id={item.id} name={item.name} />
                             <span>
                               <span className="ops-table__name">{item.name}</span>
                               <span className="ops-table__id">{demoTeacherCode(item.id)}</span>
@@ -333,7 +290,9 @@ export function StaffBoard({
         </div>
 
         <aside className="ops-staff__aside">
-          {selected && selectedStats ? (
+          {detailBusy ? (
+            <AiReveal compact label="Đang mở giáo viên…" />
+          ) : selected && selectedStats ? (
             <section className="ops-detail ops-staff__detail" aria-labelledby="edu-teacher-detail">
               <div className="ops-detail__head">
                 <div className="ops-detail__head-title">
@@ -348,13 +307,11 @@ export function StaffBoard({
               </div>
 
               <div className="ops-staff__profile">
-                <span className="ops-thumb ops-thumb--lg" aria-hidden>
-                  {initials(selected.name)}
-                </span>
+                <UserAvatar id={selected.id} name={selected.name} size="lg" decorative={false} />
                 <div>
                   <p className="ops-detail__name">{selected.specialty}</p>
                   <p className="ops-staff__meta-line">
-                    {demoTeacherCode(selected.id)} · ★ {selectedStats.rating.toFixed(1)} · Pulse Studio
+                    {demoTeacherCode(selected.id)} · ★ {selectedStats.rating.toFixed(1)} · MA Dance
                   </p>
                 </div>
               </div>
@@ -438,7 +395,7 @@ export function StaffBoard({
                         </div>
                         <div>
                           <dt>Studio</dt>
-                          <dd>Pulse Studio · Q1</dd>
+                          <dd>MA Dance · {selected.branchIds?.map((id) => branchName(id)).join(" · ") ?? branchName("br-q1")}</dd>
                         </div>
                         <div>
                           <dt>Rating</dt>
@@ -451,12 +408,14 @@ export function StaffBoard({
                         <div>
                           <dt>SĐT</dt>
                           <dd>
-                            <a href={`tel:${selectedStats.phone}`}>{selectedStats.phone}</a>
+                            <a href={`tel:${(selected.phone ?? selectedStats.phone).replace(/\s/g, "")}`}>
+                              {selected.phone ?? selectedStats.phone}
+                            </a>
                           </dd>
                         </div>
                         <div>
                           <dt>Email</dt>
-                          <dd>{selectedStats.email}</dd>
+                          <dd>{selected.email ?? selectedStats.email}</dd>
                         </div>
                       </dl>
 
@@ -500,6 +459,18 @@ export function StaffBoard({
                         <button className="ops-page__cta" type="button" onClick={onPromo}>
                           Gán khóa
                         </button>
+                        {onCover && selectedToday[0] ? (
+                          <button
+                            type="button"
+                            className="ops-page__ghost"
+                            onClick={() => {
+                              const cover = teachers.find((t) => t.id !== selected.id);
+                              if (cover) onCover(selectedToday[0].id, cover.id);
+                            }}
+                          >
+                            Gán dự phòng buổi hôm nay
+                          </button>
+                        ) : null}
                         <button className="ops-page__ghost" type="button" disabled title="Demo">
                           Gửi thông báo
                         </button>

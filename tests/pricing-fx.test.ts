@@ -27,24 +27,15 @@ describe("quote FX formatting", () => {
 });
 
 describe("package display prices", () => {
-  it("formats landing fixed promo price", () => {
+  it("formats landing fixed promo price (ONETIME_WEB)", () => {
     expect(getPackageDisplayPrices("vi", "landing", "Từ").price).toBe(
       "1.500.000đ",
     );
   });
 
-  it("formats business and shop as VND ranges", () => {
+  it("formats business website fixed list price (ONETIME_WEB)", () => {
     expect(getPackageDisplayPrices("vi", "business", "Từ").price).toBe(
-      "4.000.000đ – 10.000.000đ",
-    );
-    expect(getPackageDisplayPrices("vi", "shop", "Từ").price).toBe(
-      "7.000.000đ – 15.000.000đ",
-    );
-  });
-
-  it("keeps webapp from-prefix price", () => {
-    expect(getPackageDisplayPrices("vi", "webapp", "Từ").price).toBe(
-      "Từ 10.000.000đ",
+      "4.500.000đ",
     );
   });
 });

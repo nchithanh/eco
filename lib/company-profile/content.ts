@@ -8,7 +8,7 @@
 export const PROFILE_IMAGES = {
   logo: "/brand/logo-dolphin.webp",
   logoCover: "/brand/logo-dolphin.webp",
-  about: "/company-profile/cp-about-panel.png",
+  about: "/brand/logo-dolphin.webp",
   fillWide: "/company-profile/cp-fill-wide.png",
   spa: "/company-profile/cp-ind-spa.png",
   edu: "/company-profile/cp-ind-edu.png",

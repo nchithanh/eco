@@ -4,7 +4,7 @@
     "id": "why",
     "locale": "vi",
     "brand": "Dolphin Software",
-    "updated": "2026-08-31",
+    "updated": "2026-09-17",
     "schemaPath": "/schema/homepage/why/",
     "rawPath": "/schema/homepage/why.json",
     "productRoute": "/"
@@ -13,30 +13,30 @@
     "order": 3,
     "id": "why",
     "section_label": "Why Dolphin",
-    "headline": "Chúng tôi không bán một đống tính năng",
-    "subheadline": "Phần lớn doanh nghiệp không cần hệ thống phức tạp hàng trăm nút. Họ cần cách gỡ đúng chỗ đang làm chậm. Dolphin bắt đầu từ doanh nghiệp — không từ sản phẩm.",
+    "headline": "Đối tác công nghệ — không bán một đống tính năng",
+    "subheadline": "Phần lớn doanh nghiệp đang lớn không cần hệ thống hàng trăm nút. Họ cần cách gỡ chỗ đang làm chậm. Dolphin bắt đầu từ doanh nghiệp — phần mềm, AI và tự động hóa chỉ là cách giải.",
     "promise": "We don't start with technology. We start with your problem.",
     "layout": "icon-line-pillars",
     "pillars": [
       {
         "icon": "experience",
         "title": "Hiểu",
-        "body": "Nghe cách anh chị đang bán, chăm khách, và vận hành — bằng ngôn ngữ kinh doanh."
+        "body": "Nghe cách anh chị đang bán, chăm khách và vận hành — bằng ngôn ngữ kinh doanh."
       },
       {
         "icon": "delivery",
         "title": "Xác định nghẽn",
-        "body": "Chỉ ra chỗ đang mất thời gian, mất lead, hoặc phụ thuộc một người."
+        "body": "Chỉ ra chỗ mất thời gian, mất lead, hoặc phụ thuộc một người."
       },
       {
         "icon": "process",
         "title": "Xây đúng thứ",
-        "body": "Website, AI, CRM, tích hợp hoặc phần mềm riêng — chỉ những gì khớp pain."
+        "body": "Website, chatbot AI, CRM, tích hợp hoặc phần mềm riêng — chỉ những gì khớp pain."
       },
       {
         "icon": "support",
         "title": "Đo và cải thiện",
-        "body": "Bàn giao để anh chị tự chạy; chỉnh khi thực tế phát sinh — không bỏ xó."
+        "body": "Bàn giao để anh chị tự chạy; chỉnh khi thực tế phát sinh — đồng hành dài hạn, không bỏ xó."
       }
     ]
   }

@@ -99,6 +99,38 @@
   justify-content: space-between;
 }
 
+.hd-quochieu {
+  text-align: center;
+  margin: 0 auto 4px;
+}
+
+.hd-quochieu__state {
+  margin: 0;
+  font-size: 11pt;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--hd-text);
+  line-height: 1.35;
+}
+
+.hd-quochieu__motto {
+  margin: 2px 0 0;
+  font-size: 10.5pt;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--hd-text);
+  line-height: 1.35;
+}
+
+.hd-quochieu__rule {
+  display: block;
+  width: 4.2cm;
+  height: 0;
+  margin: 6px auto 0;
+  border-bottom: 1.5px solid var(--hd-text);
+}
+
 .hd-cover__brand {
   display: flex;
   flex-direction: column;
@@ -230,6 +262,10 @@
   margin-bottom: 18px;
   padding-bottom: 14px;
   border-bottom: 2px solid var(--hd-primary);
+}
+
+.hd-doc__head .hd-quochieu {
+  margin-bottom: 14px;
 }
 
 .hd-doc__eyebrow {

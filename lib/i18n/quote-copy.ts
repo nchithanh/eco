@@ -1,37 +1,37 @@
 import type { Locale } from "@/lib/i18n/types";
-import type {
-  AiFeatureId,
-  DesignId,
-  FeatureId,
-  PagesId,
-  ProjectType,
-  ScaleId,
-  TimelineId,
-} from "@/lib/quote-estimator";
+import type { ExtraKey } from "@/lib/quotes/ma-dance-pricing";
+
+/** Public quote modal extras (general visitor — not MA-specific). */
+export const QUOTE_PUBLIC_EXTRA_KEYS = [
+  "landing",
+  "website",
+  "payment-online",
+] as const satisfies readonly ExtraKey[];
+
+export type QuotePublicExtraKey = (typeof QUOTE_PUBLIC_EXTRA_KEYS)[number];
 
 export type QuoteCopy = {
   title: string;
   disclaimer: string;
   estimateLabel: string;
-  estimateUnit: string;
-  estimateEmpty: string;
+  estimateListLabel: string;
+  volumeDiscountHint: string;
   close: string;
-  scopeGroup: string;
-  optionsGroup: string;
-  projectType: string;
-  projectTypes: Record<ProjectType, { label: string }>;
-  scale: string;
-  scales: Record<ScaleId, string>;
-  pages: string;
-  pagesOptions: Record<PagesId, string>;
-  features: string;
-  featureOptions: Record<FeatureId, string>;
-  aiFeatures: string;
-  aiFeatureOptions: Record<AiFeatureId, string>;
-  design: string;
-  designOptions: Record<DesignId, string>;
-  timeline: string;
-  timelineOptions: Record<TimelineId, string>;
+  comboGroup: string;
+  comboHint: string;
+  monthsLabel: string;
+  giftTitle: string;
+  careGroup: string;
+  careHint: string;
+  careNone: string;
+  careTermLabel: (months: 6 | 12) => string;
+  extrasGroup: string;
+  extrasHint: string;
+  extraLabels: Record<QuotePublicExtraKey, { title: string; scope: string }>;
+  intelligenceGroup: string;
+  intelligenceHint: string;
+  intelligenceLabel: string;
+  perMonth: string;
   contactTitle: string;
   name: string;
   contact: string;
@@ -41,74 +41,53 @@ export type QuoteCopy = {
   sent: string;
   sendError: string;
   errors: { name: string; contact: string };
-  mailSubject: string;
-  mailBodyName: string;
-  mailBodyContact: string;
-  mailBodyEstimate: string;
-  mailBodyChoices: string;
-  mailBodyNote: string;
+  policyLinkLabel: string;
 };
 
 const vi: QuoteCopy = {
-  title: "Báo giá tham khảo",
+  title: "Báo giá CRM · AI · Web",
   disclaimer:
-    "Giá tham khảo — báo giá chính thức sau khi chốt scope, timeline và yêu cầu.",
-  estimateLabel: "Ước tính",
-  estimateUnit: "triệu VNĐ",
-  estimateEmpty: "Chọn hạng mục để xem khoảng giá",
+    "Theo chính sách giá Dolphin 2026 — tham khảo; báo giá chính thức sau khi chốt ngành dịch vụ và phạm vi.",
+  estimateLabel: "Tạm tính thanh toán trước",
+  estimateListLabel: "Niêm yết trước ưu đãi",
+  volumeDiscountHint: "Đã gồm giảm khối lượng nếu đủ điều kiện",
   close: "Đóng",
-  scopeGroup: "Phạm vi",
-  optionsGroup: "Tùy chọn",
-  projectType: "Loại dự án",
-  projectTypes: {
-    web: { label: "Website" },
-    ai: { label: "AI / Agent" },
-    both: { label: "Website + AI" },
+  comboGroup: "Gói combo",
+  comboHint:
+    "Chọn một gói. CRM đơn lẻ chỉ 12 tháng; gói 6 tháng chỉ khi kèm Care hoặc Ops. Không dùng thử miễn phí.",
+  monthsLabel: "tháng",
+  giftTitle: "Quyền lợi web của gói",
+  careGroup: "Dolphin Care thuê lẻ (tuỳ chọn)",
+  careHint:
+    "Chatbot AI trên website / Zalo / Messenger. Chỉ khi combo chưa gồm Care — không tặng Website.",
+  careNone: "Không thêm",
+  careTermLabel: (months) => `${months} tháng`,
+  extrasGroup: "Website / Landing & tích hợp",
+  extrasHint:
+    "Tick hạng mục cần triển khai. Giá tặng / giảm theo gói combo đã chọn (như phiếu báo giá CRM).",
+  extraLabels: {
+    landing: {
+      title: "Landing Page",
+      scope: "Một trang giới thiệu — one-time",
+    },
+    website: {
+      title: "Website doanh nghiệp",
+      scope: "Website giới thiệu DN — one-time",
+    },
+    "payment-online": {
+      title: "Tích hợp thanh toán online",
+      scope: "Cổng thanh toán (phí giao dịch — khách trả NCC)",
+    },
   },
-  scale: "Quy mô",
-  scales: {
-    landing: "Landing / giới thiệu",
-    smb: "SMB nhiều trang",
-    complex: "App / hệ thống",
-  },
-  pages: "Số trang / màn hình",
-  pagesOptions: {
-    p5: "≤ 5",
-    p15: "6 – 15",
-    p15p: "15+",
-  },
-  features: "Tính năng",
-  featureOptions: {
-    cms: "CMS / quản trị",
-    booking: "Booking / đặt lịch",
-    payment: "Thanh toán online",
-    i18n: "Đa ngôn ngữ",
-    admin: "Admin / dashboard",
-    api: "API / Zalo",
-  },
-  aiFeatures: "Hạng mục AI",
-  aiFeatureOptions: {
-    faq: "Chatbot FAQ",
-    agent: "Agent theo quy trình",
-    mcp: "MCP / tool calling",
-    opsDash: "Dashboard vận hành AI",
-  },
-  design: "Thiết kế",
-  designOptions: {
-    template: "Chỉnh từ template",
-    custom: "UI custom",
-    system: "Design system",
-  },
-  timeline: "Timeline",
-  timelineOptions: {
-    normal: "Bình thường",
-    rush: "Gấp (< 4 tuần)",
-  },
+  intelligenceGroup: "Add-on",
+  intelligenceHint: "Chỉ khi đã có gói có CRM — theo kỳ hạn gói đã chọn.",
+  intelligenceLabel: "Dolphin Intelligence",
+  perMonth: "/tháng",
   contactTitle: "Gửi yêu cầu báo giá",
   name: "Họ tên",
   contact: "Email hoặc Zalo",
   note: "Ghi chú",
-  notePlaceholder: "Nhu cầu, deadline, ngân sách…",
+  notePlaceholder: "Ngành dịch vụ, chỗ nghẽn, deadline…",
   submit: "Gửi yêu cầu báo giá",
   sent: "Đã nhận yêu cầu — mình sẽ liên hệ sớm.",
   sendError: "Gửi chưa thành công. Thử lại hoặc Zalo trực tiếp.",
@@ -116,74 +95,53 @@ const vi: QuoteCopy = {
     name: "Vui lòng nhập họ tên",
     contact: "Vui lòng nhập email hoặc Zalo",
   },
-  mailSubject: "[Dolphin Software] Yêu cầu báo giá —",
-  mailBodyName: "Họ tên",
-  mailBodyContact: "Liên hệ",
-  mailBodyEstimate: "Ước tính tham khảo",
-  mailBodyChoices: "Lựa chọn",
-  mailBodyNote: "Ghi chú",
+  policyLinkLabel: "Xem chính sách giá 2026",
 };
 
 const en: QuoteCopy = {
-  title: "Reference quote",
+  title: "CRM · AI · Web quote",
   disclaimer:
-    "Indicative only — formal quote after aligning on scope, timeline, and requirements.",
-  estimateLabel: "Estimate",
-  estimateUnit: "million VND",
-  estimateEmpty: "Pick options to see a price range",
+    "Per Dolphin 2026 pricing — indicative; formal quote after we align on vertical and scope.",
+  estimateLabel: "Prepaid estimate",
+  estimateListLabel: "List before discounts",
+  volumeDiscountHint: "Includes volume discount when applicable",
   close: "Close",
-  scopeGroup: "Scope",
-  optionsGroup: "Options",
-  projectType: "Project type",
-  projectTypes: {
-    web: { label: "Website" },
-    ai: { label: "AI / Agent" },
-    both: { label: "Website + AI" },
+  comboGroup: "Combo packages",
+  comboHint:
+    "Pick one package. CRM alone is 12 months only; 6-month terms require Care or Ops. No free trial.",
+  monthsLabel: "months",
+  giftTitle: "Web rights with this package",
+  careGroup: "Standalone Dolphin Care (optional)",
+  careHint:
+    "AI chatbot on website / Zalo / Messenger. Only when the combo has no Care — no website gift.",
+  careNone: "None",
+  careTermLabel: (months) => `${months} months`,
+  extrasGroup: "Website / Landing & integrations",
+  extrasHint:
+    "Tick what you want to deploy. Gift / discount follows the selected combo (same rules as CRM quotes).",
+  extraLabels: {
+    landing: {
+      title: "Landing Page",
+      scope: "Single intro page — one-time",
+    },
+    website: {
+      title: "Business website",
+      scope: "Company brochure site — one-time",
+    },
+    "payment-online": {
+      title: "Online payment integration",
+      scope: "Payment gateway (transaction fees paid to provider)",
+    },
   },
-  scale: "Scale",
-  scales: {
-    landing: "Landing / brochure",
-    smb: "SMB multi-page",
-    complex: "Complex app / system",
-  },
-  pages: "Pages / screens",
-  pagesOptions: {
-    p5: "≤ 5",
-    p15: "6 – 15",
-    p15p: "15+",
-  },
-  features: "Features",
-  featureOptions: {
-    cms: "CMS / content admin",
-    booking: "Booking / scheduling",
-    payment: "Online payments",
-    i18n: "Multi-language",
-    admin: "Admin / dashboard",
-    api: "API / Zalo",
-  },
-  aiFeatures: "AI options",
-  aiFeatureOptions: {
-    faq: "FAQ chatbot",
-    agent: "Process agent",
-    mcp: "MCP / tool calling",
-    opsDash: "AI ops dashboard",
-  },
-  design: "Design",
-  designOptions: {
-    template: "Template-based",
-    custom: "Custom UI",
-    system: "Design system",
-  },
-  timeline: "Timeline",
-  timelineOptions: {
-    normal: "Standard",
-    rush: "Rush (< 4 weeks)",
-  },
+  intelligenceGroup: "Add-on",
+  intelligenceHint: "Only with a CRM package — billed for the selected term.",
+  intelligenceLabel: "Dolphin Intelligence",
+  perMonth: "/mo",
   contactTitle: "Send a quote request",
   name: "Name",
   contact: "Email or Zalo",
   note: "Notes",
-  notePlaceholder: "Needs, deadline, budget…",
+  notePlaceholder: "Service vertical, bottleneck, deadline…",
   submit: "Send quote request",
   sent: "Request received — we’ll get back to you soon.",
   sendError: "Couldn’t send. Try again or message us on Zalo.",
@@ -191,74 +149,53 @@ const en: QuoteCopy = {
     name: "Please enter your name",
     contact: "Please enter email or Zalo",
   },
-  mailSubject: "[Dolphin Software] Quote request —",
-  mailBodyName: "Name",
-  mailBodyContact: "Contact",
-  mailBodyEstimate: "Reference estimate",
-  mailBodyChoices: "Selections",
-  mailBodyNote: "Notes",
+  policyLinkLabel: "View 2026 pricing policy",
 };
 
 const ja: QuoteCopy = {
-  title: "参考見積もり",
+  title: "CRM · AI · Web 見積",
   disclaimer:
-    "参考値です。正式見積はスコープ・スケジュール・要件確認後にご提示します。",
-  estimateLabel: "目安",
-  estimateUnit: "百万 VND",
-  estimateEmpty: "項目を選ぶと金額帯が表示されます",
+    "Dolphin 2026料金ポリシー準拠の参考値です。業種・範囲確定後に正式見積をご提示します。",
+  estimateLabel: "前払い目安",
+  estimateListLabel: "割引前の定価",
+  volumeDiscountHint: "条件を満たす場合のボリューム割引を含む",
   close: "閉じる",
-  scopeGroup: "スコープ",
-  optionsGroup: "オプション",
-  projectType: "プロジェクト種別",
-  projectTypes: {
-    web: { label: "Website" },
-    ai: { label: "AI / Agent" },
-    both: { label: "Website + AI" },
+  comboGroup: "コンボパッケージ",
+  comboHint:
+    "1つ選んでください。CRM単体は12ヶ月のみ。6ヶ月はCareまたはOps同梱時のみ。無料トライアルなし。",
+  monthsLabel: "ヶ月",
+  giftTitle: "本パッケージのWeb特典",
+  careGroup: "Dolphin Care単体（任意）",
+  careHint:
+    "Web / Zalo / MessengerのAIチャット。コンボにCareがない場合のみ — Webサイト贈呈なし。",
+  careNone: "追加しない",
+  careTermLabel: (months) => `${months}ヶ月`,
+  extrasGroup: "Website / Landing・連携",
+  extrasHint:
+    "導入したい項目にチェック。贈呈 / 割引は選択中のコンボに従います（CRM見積と同じルール）。",
+  extraLabels: {
+    landing: {
+      title: "Landing Page",
+      scope: "1ページ紹介 — 一回払い",
+    },
+    website: {
+      title: "企業サイト",
+      scope: "会社紹介サイト — 一回払い",
+    },
+    "payment-online": {
+      title: "オンライン決済連携",
+      scope: "決済ゲートウェイ（手数料は事業者へ直接）",
+    },
   },
-  scale: "規模",
-  scales: {
-    landing: "LP / 紹介サイト",
-    smb: "SMB 複数ページ",
-    complex: "複雑アプリ / システム",
-  },
-  pages: "ページ / 画面数",
-  pagesOptions: {
-    p5: "≤ 5",
-    p15: "6 – 15",
-    p15p: "15+",
-  },
-  features: "機能",
-  featureOptions: {
-    cms: "CMS / コンテンツ管理",
-    booking: "予約 / スケジュール",
-    payment: "オンライン決済",
-    i18n: "多言語",
-    admin: "管理画面 / ダッシュボード",
-    api: "API / Zalo 連携",
-  },
-  aiFeatures: "AI 項目",
-  aiFeatureOptions: {
-    faq: "FAQ チャットボット",
-    agent: "業務フロー Agent",
-    mcp: "MCP / ツール呼び出し",
-    opsDash: "AI 運用ダッシュボード",
-  },
-  design: "デザイン",
-  designOptions: {
-    template: "テンプレート調整",
-    custom: "カスタム UI",
-    system: "デザインシステム",
-  },
-  timeline: "スケジュール",
-  timelineOptions: {
-    normal: "通常",
-    rush: "急ぎ（4週未満）",
-  },
+  intelligenceGroup: "アドオン",
+  intelligenceHint: "CRM付きパッケージがある場合のみ — 選択期間で課金。",
+  intelligenceLabel: "Dolphin Intelligence",
+  perMonth: "/月",
   contactTitle: "見積依頼を送る",
   name: "お名前",
   contact: "メールまたは Zalo",
   note: "補足",
-  notePlaceholder: "要件・期限・希望予算…",
+  notePlaceholder: "業種・ボトルネック・希望期限…",
   submit: "見積依頼を送信",
   sent: "受け付けました。折り返しご連絡します。",
   sendError: "送信に失敗しました。再試行するか Zalo でご連絡ください。",
@@ -266,15 +203,8 @@ const ja: QuoteCopy = {
     name: "お名前を入力してください",
     contact: "メールまたは Zalo を入力してください",
   },
-  mailSubject: "[Dolphin Software] 見積依頼 —",
-  mailBodyName: "お名前",
-  mailBodyContact: "連絡先",
-  mailBodyEstimate: "参考見積",
-  mailBodyChoices: "選択内容",
-  mailBodyNote: "補足",
+  policyLinkLabel: "2026料金ポリシーを見る",
 };
-
-
 
 export const quoteCopy: Record<Locale, QuoteCopy> = { vi, en, ja };
 

@@ -4,19 +4,20 @@
     "id": "hero",
     "locale": "vi",
     "brand": "Dolphin Software",
-    "updated": "2026-08-31",
+    "updated": "2026-09-17",
     "schemaPath": "/schema/homepage/hero/",
     "rawPath": "/schema/homepage/hero.json",
-    "productRoute": "/"
+    "productRoute": "/",
+    "source": "company-profile §1 Giới thiệu Dolphin Software"
   },
   "content": {
     "order": 1,
     "id": "hero",
-    "headline": "Giải quyết vấn đề doanh nghiệp bằng AI & Công nghệ",
-    "subheadline": "Hiểu doanh nghiệp trước, xác định chỗ công nghệ tạo giá trị thật, rồi chỉ xây những gì anh chị thực sự cần.",
-    "body": "Dolphin giúp doanh nghiệp xác định những điểm nghẽn trong vận hành và xây dựng giải pháp phù hợp — từ website, AI Agent, CRM, automation đến phần mềm riêng.",
+    "headline": "Giải pháp vận hành cho doanh nghiệp dịch vụ B2B",
+    "subheadline": "Tập trung spa, nail, salon, giáo dục, clinic — mở rộng F&B, showroom, vận tải và doanh nghiệp cần hệ thống linh hoạt. CRM là nền tảng; Care · Ops · Intelligence đẩy tăng trưởng; Website kích cầu theo combo.",
+    "body": "Không bán danh sách tính năng. Bắt đầu từ vấn đề kinh doanh — chỉ xây những gì giúp tăng khách và doanh thu. Bàn giao source code đầy đủ, không khóa hệ thống.",
     "trust_strip": [
-      "We don't start with technology. We start with your problem."
+      "Problem-first · CRM nền tảng · AI tăng trưởng · Website combo"
     ],
     "ctas": [
       {
@@ -25,16 +26,16 @@
         "style": "primary"
       },
       {
-        "label": "Xem giải pháp",
+        "label": "Xem combo CRM · AI · Web",
         "href": "#solutions",
         "style": "secondary"
       }
     ],
-    "tags": ["Vấn đề trước", "AI & công nghệ", "Website là một giải pháp"],
+    "tags": ["Problem-first", "CRM nền tảng", "AI tăng trưởng"],
     "metrics": [
-      { "value": "6+", "label": "Case trên site" },
-      { "value": "Pain", "label": "Bắt đầu từ vấn đề" }
+      { "value": "CRM", "label": "Vận hành lõi" },
+      { "value": "AI", "label": "Care · Ops · Intel" }
     ],
-    "visual": "EmbedSiteMock browser wireframe + dolphin-eco mascot"
+    "visual": "HeroSitePreview collage + dolphin-eco mascot"
   }
 }
