@@ -90,14 +90,14 @@ export function CardVisitViewer() {
                       Founder · Software Architect
                     </p>
                     <p className="cv-brand__tag">
-                      CRM · AI · Software Solutions
+                      Công nghệ vận hành cho SMB
                     </p>
                   </div>
                 </div>
                 <p className="cv-tagline">
-                  Công nghệ được điều chỉnh theo
+                  Spa · salon · edu · clinic · dịch vụ
                   <span className="cv-tagline__indent">
-                    cách doanh nghiệp bạn vận hành.
+                    Cần website / CRM / đặt lịch &amp; chăm khách
                   </span>
                 </p>
               </div>

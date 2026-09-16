@@ -53,6 +53,14 @@ export const demoCatalog: DemoCatalogItem[] = [
     tag: "Discovery",
   },
   {
+    slug: "hop-dong-ma",
+    href: "/demos/hop-dong-ma/",
+    title: "Hợp đồng — MA Dance",
+    blurb:
+      "Hợp đồng dịch vụ phần mềm × MA Dance — bìa A4, Điều 1–15, Phụ lục 01–03, thanh toán 50/30/20. Trong vault `/demos/` — In PDF, noindex.",
+    tag: "Contract",
+  },
+  {
     slug: "wedding-saler",
     href: "/demos/wedding-saler/",
     title: "Saler Studio Wedding",

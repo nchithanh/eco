@@ -105,9 +105,9 @@ const TOC_ITEMS = [
   { n: "03", label: "Tệp khách hàng mục tiêu", page: 5 },
   { n: "04", label: "Mô hình dịch vụ & Doanh thu", page: 6 },
   { n: "05", label: "Sản phẩm lõi: CRM", page: 7 },
-  { n: "06", label: "Dolphin Care (AI)", page: 8 },
-  { n: "07", label: "Dolphin Ops (AI)", page: 9 },
-  { n: "08", label: "Intelligence (AI)", page: 10 },
+  { n: "06", label: "Dolphin Care — Chatbot AI (Web / Zalo / Messenger)", page: 8 },
+  { n: "07", label: "Dolphin Ops — Chatbox AI trên CRM", page: 9 },
+  { n: "08", label: "Intelligence — Agent / workflow AI (add-on)", page: 10 },
   { n: "09", label: "Website & Outsourcing", page: 11 },
   { n: "10", label: "Quy trình làm việc 5 bước", page: 12 },
   { n: "11", label: "Chính sách giá & Bảo hành", page: 13 },
@@ -450,13 +450,17 @@ function CrmPage() {
 
 function CarePage() {
   return (
-    <PageShell page={8} title="6. Dolphin Care" titleId="cp-care">
+    <PageShell
+      page={8}
+      title="6. Dolphin Care — Chatbot AI (Web / Zalo / Messenger)"
+      titleId="cp-care"
+    >
       <div className="cp-split cp-split--fill cp-split--ai-product">
         <div className="cp-stack-fill">
           <p className="cp-p">
-            AI chăm sóc khách trên <strong>website / Zalo / Messenger</strong> —
-            hiểu ngữ cảnh, đặt lịch, ghi lead, và tổng hợp phân tích data cuối
-            ngày.
+            <strong>Chatbot AI</strong> chăm sóc khách trên{" "}
+            <strong>website / Zalo / Messenger</strong> — hiểu ngữ cảnh, đặt lịch,
+            ghi lead, và tổng hợp phân tích data cuối ngày.
           </p>
           <ul className="cp-check" style={{ flex: 1 }}>
             <li>Chăm sóc đa kênh: Web · Zalo · Messenger</li>
@@ -486,7 +490,11 @@ function CarePage() {
 
 function OpsPage() {
   return (
-    <PageShell page={9} title="7. Dolphin Ops" titleId="cp-ops">
+    <PageShell
+      page={9}
+      title="7. Dolphin Ops — Chatbox AI trên CRM"
+      titleId="cp-ops"
+    >
       <div className="cp-split cp-split--fill cp-split--ai-product">
         <div className="cp-stack-fill">
           <p className="cp-p">
@@ -523,12 +531,18 @@ function OpsPage() {
 
 function IntelligencePage() {
   return (
-    <PageShell page={10} title="8. Intelligence" titleId="cp-intel">
+    <PageShell
+      page={10}
+      title="8. Intelligence — Agent / workflow AI (add-on)"
+      titleId="cp-intel"
+    >
       <div className="cp-split cp-split--fill cp-split--ai-product">
         <div className="cp-stack-fill">
           <p className="cp-p">
-            AI workflow / agent nâng cao (add-on) — điều phối nhiều bước, gắn
-            action và human checkpoint khi cần.
+            <strong>Agent / workflow AI</strong> (add-on) — điều phối nhiều bước
+            nghiệp vụ, gắn action và human checkpoint.{" "}
+            <strong>Không phải</strong> chatbot kênh khách (Web / Zalo /
+            Messenger — đó là Dolphin Care).
           </p>
           <ul className="cp-check" style={{ flex: 1 }}>
             <li>Workflow theo quy trình nghiệp vụ</li>
@@ -784,10 +798,22 @@ function CasesPage() {
 
   return (
     <PageShell page={14} title="12. Case study thực tế" titleId="cp-cases">
+      <ol className="cp-case-process" aria-label="6 case study">
+        {cases.map((c, i) => (
+          <li key={c.title} className="cp-case-process__step">
+            <span className="cp-case-process__num" aria-hidden>
+              {i + 1}
+            </span>
+            <span className="cp-case-process__label">{c.title}</span>
+          </li>
+        ))}
+      </ol>
       <div className="cp-case-grid cp-case-grid--3 cp-split--fill">
-        {cases.map((c) => (
+        {cases.map((c, i) => (
           <div key={c.title} className="cp-case">
-            <h4>{c.title}</h4>
+            <h4>
+              <span className="cp-case__n">{i + 1}</span> {c.title}
+            </h4>
             <p>
               <strong>Vấn đề:</strong> {c.problem}
             </p>
