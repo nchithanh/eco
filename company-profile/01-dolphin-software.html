@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>01 — Dolphin Software | Hồ sơ năng lực</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="profile-print.css" />
+    <style>
+      :root {
+        --kuct-bg: #ffffff;
+        --inset: 20mm;
+      }
+
+      .cover {
+        display: flex;
+        flex-direction: column;
+        height: var(--sheet-h);
+        padding: var(--inset);
+        padding-bottom: 14mm;
+        background: #fff;
+      }
+
+      .cover-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .brand img {
+        width: 40px;
+        height: 40px;
+        object-fit: contain;
+      }
+
+      .brand-name {
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: -0.03em;
+      }
+
+      .meta {
+        margin: 0;
+        font-size: 8.5px;
+        font-weight: 600;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--kuct-muted);
+      }
+
+      .cover-main {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        padding-top: 22mm;
+        min-height: 0;
+      }
+
+      .cover-copy {
+        max-width: 36ch;
+      }
+
+      .eyebrow {
+        margin: 0;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        color: var(--kuct-accent);
+      }
+
+      h1 {
+        margin: 8mm 0 0;
+        max-width: 11ch;
+        font-size: 38px;
+        font-weight: 600;
+        letter-spacing: -0.045em;
+        line-height: 1.04;
+        text-transform: uppercase;
+      }
+
+      .lede {
+        margin: 8mm 0 0;
+        max-width: 34ch;
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 1.6;
+        color: var(--kuct-muted);
+      }
+
+      .visual {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 10mm;
+        margin-bottom: 4mm;
+        min-height: 0;
+      }
+
+      .visual svg {
+        width: 100%;
+        max-width: 168mm;
+        max-height: 92mm;
+        height: auto;
+      }
+
+      .flow {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        padding-top: 7mm;
+        border-top: 1px solid rgba(26, 22, 37, 0.1);
+      }
+
+      .flow-step {
+        padding-right: 5mm;
+      }
+
+      .flow-step:last-child {
+        padding-right: 0;
+      }
+
+      .flow-index {
+        font-size: 9px;
+        font-weight: 600;
+        letter-spacing: 0.22em;
+        color: var(--kuct-accent);
+      }
+
+      .flow-label {
+        margin-top: 3.5mm;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="stage">
+      <article class="sheet cover" aria-labelledby="cover-title">
+        <header class="cover-top">
+          <div class="brand">
+            <img src="../public/brand/logo-dolphin.png" width="40" height="40" alt="" />
+            <div class="brand-name">Dolphin Software</div>
+          </div>
+          <p class="meta">Company Profile · 2026</p>
+        </header>
+
+        <div class="cover-main">
+          <div class="cover-copy">
+            <p class="eyebrow">Dolphin Software</p>
+            <h1 id="cover-title">
+              Tối ưu để tăng
+              <br />
+              trưởng
+            </h1>
+            <p class="lede">
+              Technology solutions built around your business needs.
+            </p>
+          </div>
+
+          <figure class="visual" aria-hidden="true">
+            <svg viewBox="0 0 840 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <radialGradient id="cpHalo" cx="58%" cy="42%" r="42%">
+                  <stop offset="0%" stop-color="#6b56d6" stop-opacity="0.1" />
+                  <stop offset="55%" stop-color="#6b56d6" stop-opacity="0.03" />
+                  <stop offset="100%" stop-color="#6b56d6" stop-opacity="0" />
+                </radialGradient>
+              </defs>
+              <ellipse cx="490" cy="140" rx="280" ry="150" fill="url(#cpHalo)" />
+              <path d="M72 198 L188 158 L360 176 L540 112 L710 150 L790 124" stroke="#6b56d6" stroke-opacity="0.42" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M540 112 L710 150 L790 124" stroke="#6b56d6" stroke-opacity="0.85" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" />
+              <circle cx="72" cy="198" r="5" fill="#ffffff" stroke="#6b56d6" stroke-width="1.45" />
+              <circle cx="188" cy="158" r="6.5" fill="#ffffff" stroke="#6b56d6" stroke-width="1.55" />
+              <circle cx="360" cy="176" r="7.5" fill="#ffffff" stroke="#6b56d6" stroke-width="1.65" />
+              <circle cx="540" cy="112" r="8.5" fill="#6b56d6" />
+              <circle cx="540" cy="112" r="17" stroke="#6b56d6" stroke-opacity="0.18" stroke-width="1" />
+              <circle cx="710" cy="150" r="9" fill="#6b56d6" />
+              <circle cx="790" cy="124" r="10.5" fill="#6b56d6" />
+              <circle cx="790" cy="124" r="22" stroke="#9b8ce8" stroke-opacity="0.32" stroke-width="1" />
+            </svg>
+          </figure>
+        </div>
+
+        <footer class="flow" aria-label="Business to growth">
+          <div class="flow-step">
+            <div class="flow-index">01</div>
+            <div class="flow-label">Business</div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-index">02</div>
+            <div class="flow-label">Technology</div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-index">03</div>
+            <div class="flow-label">Optimization</div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-index">04</div>
+            <div class="flow-label">Growth</div>
+          </div>
+        </footer>
+      </article>
+    </div>
+    <p class="preview-note">A4 · Mở file trong trình duyệt → In / Save as PDF</p>
+  </body>
+</html>

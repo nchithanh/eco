@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>02 — About Dolphin | Hồ sơ năng lực</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="profile-print.css" />
+    <style>
+      :root {
+        --kuct-bg: #ffffff;
+        --inset: 20mm;
+        --line: rgba(26, 22, 37, 0.1);
+      }
+      .about {
+        display: flex;
+        flex-direction: column;
+        height: var(--sheet-h);
+        padding: var(--inset);
+        padding-bottom: 14mm;
+        background: #fff;
+      }
+      .top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .brand img {
+        width: 40px;
+        height: 40px;
+      }
+      .brand-name {
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: -0.03em;
+      }
+      .meta {
+        margin: 0;
+        font-size: 8.5px;
+        font-weight: 600;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--kuct-muted);
+      }
+      .main {
+        flex: 1;
+        padding-top: 14mm;
+      }
+      .eyebrow {
+        margin: 0;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        color: var(--kuct-accent);
+      }
+      h1 {
+        margin: 6mm 0 0;
+        max-width: 22ch;
+        font-size: 26px;
+        font-weight: 600;
+        letter-spacing: -0.035em;
+        line-height: 1.18;
+      }
+      .lead {
+        margin: 7mm 0 0;
+        max-width: 52ch;
+        font-size: 12.5px;
+        line-height: 1.65;
+        color: var(--kuct-muted);
+      }
+      .pillars {
+        margin-top: 12mm;
+        border-top: 1px solid var(--line);
+      }
+      .pillar {
+        display: grid;
+        grid-template-columns: 22mm 1fr;
+        gap: 6mm;
+        padding: 7mm 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .idx {
+        font-size: 28px;
+        font-weight: 600;
+        letter-spacing: -0.04em;
+        color: var(--kuct-accent);
+      }
+      .pillar h2 {
+        margin: 0;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+      .pillar p {
+        margin: 2.5mm 0 0;
+        font-size: 12px;
+        line-height: 1.6;
+        color: var(--kuct-muted);
+      }
+      .foot {
+        margin-top: auto;
+        padding-top: 8mm;
+        border-top: 1px solid var(--line);
+      }
+      .pos {
+        margin: 0;
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 1.6;
+      }
+      .arc {
+        margin: 5mm 0 0;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--kuct-accent);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="stage">
+      <article class="sheet about" aria-labelledby="about-title">
+        <header class="top">
+          <div class="brand">
+            <img src="../public/brand/logo-dolphin.png" width="40" height="40" alt="" />
+            <div class="brand-name">Dolphin Software</div>
+          </div>
+          <p class="meta">02 · About Dolphin</p>
+        </header>
+        <div class="main">
+          <p class="eyebrow">Dolphin Software</p>
+          <h1 id="about-title">Công nghệ được xây dựng xoay quanh doanh nghiệp.</h1>
+          <p class="lead">
+            Dolphin Software là công ty giải pháp công nghệ giúp doanh nghiệp tối ưu vận hành,
+            tăng khả năng thu hút và chăm sóc khách hàng, từ đó tăng trưởng doanh thu và phát triển bền vững.
+          </p>
+          <div class="pillars">
+            <div class="pillar">
+              <div class="idx">01</div>
+              <div>
+                <h2>Tối ưu vận hành</h2>
+                <p>Giúp doanh nghiệp giảm công việc thủ công, xây dựng quy trình và vận hành hiệu quả hơn.</p>
+              </div>
+            </div>
+            <div class="pillar">
+              <div class="idx">02</div>
+              <div>
+                <h2>Thu hút &amp; chăm sóc khách hàng</h2>
+                <p>Giúp doanh nghiệp tạo trải nghiệm tốt hơn, quản lý khách hàng hiệu quả hơn và không bỏ lỡ cơ hội kinh doanh.</p>
+              </div>
+            </div>
+            <div class="pillar">
+              <div class="idx">03</div>
+              <div>
+                <h2>Tăng trưởng</h2>
+                <p>Ứng dụng công nghệ và AI để tạo ra hiệu quả kinh doanh, tăng khả năng mở rộng và phát triển bền vững.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <footer class="foot">
+          <p class="pos">
+            Dolphin Software giúp doanh nghiệp tối ưu vận hành, thu hút khách hàng và tăng trưởng
+            bằng những giải pháp AI và công nghệ phù hợp với nhu cầu thực tế.
+          </p>
+          <p class="arc">Optimize → Grow → Scale</p>
+        </footer>
+      </article>
+    </div>
+    <p class="preview-note">A4 · Trang 02 · SoT: 02-about-dolphin.md</p>
+  </body>
+</html>
