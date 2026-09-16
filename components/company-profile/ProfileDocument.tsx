@@ -59,7 +59,7 @@ function PageShell({
 
       <footer className="cp-ftr">
         <span>Dolphin Software – Chỉ làm những gì giúp bạn tăng trưởng</span>
-        <span className="cp-ftr__page">{page}</span>
+        <span className="cp-ftr__page">Trang {page}</span>
       </footer>
     </article>
   );
@@ -119,24 +119,15 @@ const TOC_ITEMS = [
 function TocPage() {
   return (
     <PageShell page={2} title="Mục lục" titleId="cp-toc" plain>
-      <div className="cp-split cp-split--fill cp-split--toc">
-        <ol className="cp-toc cp-toc--spread">
-          {TOC_ITEMS.map((item) => (
-            <li key={item.n}>
-              <span className="cp-toc__num">{item.n}</span>
-              <span>{item.label}</span>
-              <span className="cp-toc__page">{item.page}</span>
-            </li>
-          ))}
-        </ol>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={assetPath(IMG.fillWide)}
-          alt=""
-          className="cp-media cp-media--bare cp-media--center"
-          aria-hidden
-        />
-      </div>
+      <ol className="cp-toc cp-toc--spread">
+        {TOC_ITEMS.map((item) => (
+          <li key={item.n}>
+            <span className="cp-toc__num">{item.n}</span>
+            <span>{item.label}</span>
+            <span className="cp-toc__page">{item.page}</span>
+          </li>
+        ))}
+      </ol>
     </PageShell>
   );
 }

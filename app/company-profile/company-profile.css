@@ -191,25 +191,36 @@
 .cp-ftr {
   position: relative;
   flex-shrink: 0;
-  margin: 0 var(--cp-inset) 6mm;
+  margin: 0;
+  width: 100%;
+  box-sizing: border-box;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding-top: 5px;
-  border-top: 1px solid var(--cp-line);
+  justify-content: flex-start;
+  gap: 0;
+  padding: 0 var(--cp-inset);
+  padding-right: calc(var(--cp-inset) + 4.5em);
+  border: none;
+  border-radius: 0;
+  min-height: var(--cp-footer-h);
   font-size: 9.5pt;
-  color: var(--cp-muted);
-  background: transparent;
+  font-weight: 600;
+  color: #fff;
+  background: #4c1d95;
+  text-align: left;
   z-index: 2;
 }
 
 .cp-ftr__page {
+  position: absolute;
+  right: var(--cp-inset);
+  top: 50%;
+  transform: translateY(-50%);
   font-weight: 700;
-  font-size: 11pt;
-  color: var(--cp-primary);
-  min-width: 1.5em;
+  font-size: 9.5pt;
+  color: #fff;
   text-align: right;
+  white-space: nowrap;
 }
 
 /* Typography */
@@ -468,7 +479,7 @@
   flex: 1;
   min-height: 0;
   height: auto;
-  margin: 0;
+  margin: 4px 0 0;
   justify-content: space-between;
 }
 
@@ -721,13 +732,6 @@
   min-height: 0;
   align-items: stretch;
   margin-top: 6px;
-}
-
-.cp-split--fill.cp-split--toc {
-  flex: 1;
-  max-height: none;
-  align-items: stretch;
-  margin-top: 4px;
 }
 
 /* Cover — overridden below for short sheet */
