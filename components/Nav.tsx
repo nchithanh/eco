@@ -59,10 +59,8 @@ export function Nav() {
   const closeMenuRef = useRef<HTMLButtonElement>(null);
   const [hash, setHash] = useState("");
   const lastScrollY = useRef(0);
-  const sectionBase = pathname === "/" ? "" : `${BASE_PATH}/`;
   const homeHref = pathname === "/" ? "#top" : assetPath("/");
   const current = normalizePath(pathname);
-  const isHome = current === "/";
 
   useEffect(() => {
     const syncHash = () => setHash(window.location.hash.replace(/^#/, ""));
@@ -149,15 +147,15 @@ export function Nav() {
     { href: assetPath("/demos/"), label: t.nav.templates },
     { href: assetPath("/news/"), label: t.nav.news },
     { href: assetPath("/about/"), label: t.nav.about },
+    {
+      href: assetPath("/company-profile/"),
+      label: t.nav.companyProfile,
+    },
     { href: assetPath("/careers/"), label: t.nav.careers },
   ];
 
-  const solutionsLink: NavLink = {
-    href: `${sectionBase}#solutions`,
-    label: t.nav.solutions,
-  };
-  const desktopGnbLinks: NavLink[] = [solutionsLink, ...serviceItems, ...agentItems];
-  const allNavLinks = [solutionsLink, ...serviceItems, ...agentItems, ...pageLinks];
+  const desktopGnbLinks: NavLink[] = [...serviceItems, ...agentItems];
+  const allNavLinks = [...serviceItems, ...agentItems, ...pageLinks];
 
   const isPageActive = (href: string) => {
     const [pathPart, hashPart] = href.split("#");
@@ -384,16 +382,6 @@ export function Nav() {
             </div>
 
             <ul className="mx-auto flex min-h-0 w-full max-w-lg flex-1 flex-col overflow-y-auto overscroll-contain px-4 py-3">
-              <li>
-                <a
-                  href={solutionsLink.href}
-                  aria-current={isPageActive(solutionsLink.href) ? "page" : undefined}
-                  className="kuct-mobile-nav__link"
-                  onClick={closeMenu}
-                >
-                  {solutionsLink.label}
-                </a>
-              </li>
               <li className="kuct-mobile-nav__label" aria-hidden="true">
                 {t.nav.services}
               </li>

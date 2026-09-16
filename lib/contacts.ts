@@ -8,12 +8,12 @@ export const CONTACTS = {
   messenger: "https://m.me/61592428631532",
   /** Office / map (Google Maps embed on `#contact`). */
   address: {
-    streetAddress: "2 Hùng Hà",
+    streetAddress: "2 Hồng Hà",
     addressLocality: "Hồ Chí Minh",
     addressRegion: "Tân Sơn Hòa",
     addressCountry: "VN",
     /** Human-readable line for UI */
-    label: "2 Hùng Hà, Tân Sơn Hòa, Hồ Chí Minh, Việt Nam",
+    label: "2 Hồng Hà, Tân Sơn Hòa, Hồ Chí Minh, Việt Nam",
   },
   maps: {
     embedSrc:

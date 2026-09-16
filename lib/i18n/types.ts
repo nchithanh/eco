@@ -35,13 +35,15 @@ export type Dictionary = {
     news: string;
     careers: string;
     about: string;
+    /** Utility → `/company-profile/` */
+    companyProfile: string;
     agents: string;
     agentDolphin: string;
     dolphinOps: string;
     aiTransform: string;
     dolphinIntelligence: string;
     contact: string;
-    /** First GNB item → `/#solutions` */
+    /** Footer / homepage CTAs → `/#solutions` (not GNB) */
     solutions: string;
     /** Utility CTA → `#contact` */
     talk: string;
