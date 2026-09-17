@@ -18,8 +18,7 @@
   min-height: 100dvh;
   background: #e8eaf0;
   color: var(--cv-text);
-  font-family: var(--font-quicksand), var(--font-jp), Quicksand, "Noto Sans JP",
-    system-ui, sans-serif;
+  font-family: var(--font-be-vietnam-pro), "Be Vietnam Pro", system-ui, sans-serif;
   -webkit-print-color-adjust: exact;
   print-color-adjust: exact;
 }
@@ -96,6 +95,7 @@
   height: var(--cv-h);
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
   background: var(--cv-white);
   color: var(--cv-text);
   position: relative;
@@ -245,8 +245,12 @@
 .cv-qr {
   width: 13mm;
   height: 13mm;
-  border-radius: 1px;
+  border-radius: 0;
   background: #fff;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  -ms-interpolation-mode: nearest-neighbor;
+  flex-shrink: 0;
 }
 
 .cv-qr-label {
@@ -258,10 +262,11 @@
   color: var(--cv-muted);
 }
 
-/* Back — brand + slogan only; solid for print */
+/* Back — brand + slogan; white for print */
 .cv-card--back {
-  background: #4c1d95;
-  color: #fff;
+  background: #fff;
+  color: var(--cv-text);
+  border-right: 10px solid var(--cv-primary-dark);
 }
 
 .cv-card--back .cv-card__body {
@@ -276,7 +281,7 @@
   width: 14mm;
   height: 14mm;
   object-fit: contain;
-  filter: brightness(1.05);
+  filter: none;
 }
 
 .cv-back-brand {
@@ -284,7 +289,7 @@
   font-size: 10pt;
   font-weight: 700;
   letter-spacing: 0.03em;
-  color: #fff;
+  color: var(--cv-primary-dark);
 }
 
 .cv-back-quote {
@@ -293,10 +298,10 @@
   font-weight: 600;
   font-style: italic;
   line-height: 1.45;
-  color: #f8f5ff;
+  color: var(--cv-text);
   max-width: 72mm;
   text-align: left;
-  text-shadow: 0 1px 2px rgb(18 15 42 / 0.45);
+  text-shadow: none;
 }
 
 .cv-back-quote__indent {
@@ -333,10 +338,23 @@
     width: var(--cv-w);
     box-shadow: none;
     border-radius: 0;
-    overflow: visible;
+    overflow: hidden;
   }
 
   .cv-card {
     transform: none;
+  }
+
+  .cv-qr-block {
+    position: relative;
+    z-index: 1;
+  }
+
+  .cv-qr {
+    /* Avoid print engines re-blurring the module grid */
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
   }
 }

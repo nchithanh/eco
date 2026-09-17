@@ -1,8 +1,17 @@
 "use client";
 
+import { Suspense, useMemo } from "react";
+import { useSearchParams } from "next/navigation";
 import { PROFILE_PAGES } from "@/components/company-profile/ProfileDocument";
+import { resolveProfileContactPhone } from "@/lib/company-profile/contact-phone";
 
-export function CompanyProfileViewer() {
+function CompanyProfileViewerInner() {
+  const searchParams = useSearchParams();
+  const contactPhone = useMemo(
+    () => resolveProfileContactPhone(searchParams.get("sdt")).display,
+    [searchParams],
+  );
+
   return (
     <div className="cp-root">
       <header className="cp-toolbar cp-no-print">
@@ -26,10 +35,24 @@ export function CompanyProfileViewer() {
       <div className="cp-viewer">
         {PROFILE_PAGES.map((Page, i) => (
           <div key={i} className="cp-stage">
-            <Page />
+            <Page contactPhone={contactPhone} />
           </div>
         ))}
       </div>
     </div>
+  );
+}
+
+export function CompanyProfileViewer() {
+  return (
+    <Suspense
+      fallback={
+        <div className="cp-root">
+          <div className="cp-viewer" aria-busy="true" />
+        </div>
+      }
+    >
+      <CompanyProfileViewerInner />
+    </Suspense>
   );
 }

@@ -149,11 +149,11 @@ export function CardVisitViewer() {
                 <div className="cv-qr-block">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src={assetPath("/card-visit/qr-company-profile.svg")}
+                    src={assetPath("/card-visit/qr-company-profile.png")}
                     alt="Quét để xem Hồ sơ năng lực"
                     className="cv-qr"
-                    width={64}
-                    height={64}
+                    width={130}
+                    height={130}
                   />
                   <p className="cv-qr-label">Quét để xem Hồ sơ năng lực</p>
                 </div>

@@ -469,6 +469,22 @@
     display: none !important;
   }
 
+  /* Belt-and-suspenders: site FAB / cookie never bleed into contract PDF */
+  .kuct-ai-chat,
+  .kuct-ai-chat__backdrop,
+  .kuct-ai-chat__drawer,
+  .kuct-ai-chat__avatar-wrap,
+  .kuct-ai-chat__dismiss,
+  .kuct-cookie-root,
+  .kuct-cookie-banner,
+  .kuct-quote-drawer,
+  .kuct-contact-fab__btn,
+  .kuct-contact-fab__item,
+  .kuct-contact-fab__toggle {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
   .hd-root {
     background: #fff;
   }

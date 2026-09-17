@@ -92,7 +92,7 @@ export function CookieConsent() {
       aria-modal="false"
       aria-labelledby="kuct-cookie-title"
       aria-describedby="kuct-cookie-body"
-      className="pointer-events-none fixed inset-x-0 bottom-0 z-[130] px-6"
+      className="kuct-cookie-root pointer-events-none fixed inset-x-0 bottom-0 z-[130] px-6"
     >
       <div className="kuct-cookie-banner pointer-events-auto relative mx-auto w-full max-w-7xl rounded-t-[10px] px-4 py-5 sm:px-6 sm:py-6">
         <div className="flex w-full flex-col gap-5 lg:flex-row lg:items-center lg:justify-between lg:gap-8">

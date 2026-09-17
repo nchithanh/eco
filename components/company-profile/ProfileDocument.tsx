@@ -1,5 +1,8 @@
 import type { ReactNode } from "react";
 import { PROFILE_IMAGES as IMG } from "@/lib/company-profile/content";
+import {
+  PROFILE_DEFAULT_PHONE_DISPLAY,
+} from "@/lib/company-profile/contact-phone";
 import { assetPath } from "@/lib/asset";
 import {
   ProfileCareMock,
@@ -13,6 +16,10 @@ import {
   formatVnd,
 } from "@/lib/pricing/dolphin-pricing-policy-2026";
 
+export type ProfilePageProps = {
+  /** Hotline / Zalo display from `?sdt=` (already resolved). */
+  contactPhone?: string;
+};
 function PageShell({
   page,
   title,
@@ -845,7 +852,9 @@ function TeamPage() {
   );
 }
 
-function ContactPage() {
+function ContactPage({
+  contactPhone = PROFILE_DEFAULT_PHONE_DISPLAY,
+}: ProfilePageProps = {}) {
   return (
     <PageShell page={16} title="14. Liên hệ" titleId="cp-contact">
       <div className="cp-split cp-split--fill">
@@ -859,7 +868,7 @@ function ContactPage() {
             <p>
               Địa chỉ: 2 Hồng Hà, Tân Sơn Hòa, Hồ Chí Minh, Việt Nam
               <br />
-              Hotline / Zalo: <strong>0779 937 633</strong>
+              Hotline / Zalo: <strong>{contactPhone}</strong>
               <br />
               Website:{" "}
               <a href="https://dolphin-software.io.vn">
@@ -887,7 +896,9 @@ function ContactPage() {
   );
 }
 
-export const PROFILE_PAGES = [
+export const PROFILE_PAGES: Array<
+  (props?: ProfilePageProps) => ReactNode
+> = [
   CoverPage,
   TocPage,
   IntroPage,
@@ -904,4 +915,4 @@ export const PROFILE_PAGES = [
   CasesPage,
   TeamPage,
   ContactPage,
-] as const;
+];
