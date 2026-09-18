@@ -9,7 +9,8 @@ export type LeadSource =
   | "quote"
   | "careers"
   | "contact"
-  | "website-36-thang";
+  | "website-36-thang"
+  | "manual";
 
 export type SubmitLeadInput = {
   source: LeadSource;

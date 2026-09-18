@@ -9,6 +9,7 @@ import {
  type FormEvent,
  type KeyboardEvent,
 } from "react";
+import { usePathname } from "next/navigation";
 import { useAiChat } from "@/components/AiChatProvider";
 import { assetPath } from "@/lib/asset";
 import { fetchChatReply, type ChatApiMessage } from "@/lib/chat-api";
@@ -189,6 +190,7 @@ function nextId(prefix: string) {
 }
 
 export function AiChatWidget() {
+ const pathname = usePathname();
  const { locale, t } = useLocale();
  const c = getAiChatCopy(locale);
  const welcomeMascot = useMascotSrc("contact");
@@ -207,6 +209,9 @@ export function AiChatWidget() {
   const contactsRef = useRef<HTMLDivElement>(null);
   const abortRef = useRef<AbortController | null>(null);
   const lastScrollY = useRef(0);
+
+  const hideOnAdmin =
+    pathname === "/demos/admin" || pathname.startsWith("/demos/admin/");
 
   const panelMounted = open || panelPresent;
   const panelClosing = !open && panelPresent;
@@ -444,6 +449,8 @@ export function AiChatWidget() {
  setDraft("");
  setMessages([{ id: nextId("a"), role: "assistant", text: c.greeting }]);
  };
+
+ if (hideOnAdmin) return null;
 
   return (
  <>

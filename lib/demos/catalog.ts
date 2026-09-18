@@ -13,6 +13,14 @@ export function isExternalDemoHref(href: string): boolean {
 
 export const demoCatalog: DemoCatalogItem[] = [
   {
+    slug: "admin",
+    href: "/demos/admin/",
+    title: "Dolphin Sales",
+    blurb:
+      "Dolphin Sales — Sales Command Center (pipeline, playbook, detail). Vault `/demos/` + workspace token.",
+    tag: "Sales",
+  },
+  {
     slug: "edu",
     href: "https://edu.dolphin-software.io.vn/",
     title: "Dolphin Edu",
