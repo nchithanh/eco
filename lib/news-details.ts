@@ -22,6 +22,7 @@ import { websiteChoKinhDoanhNhoCopy } from "@/lib/news-articles/website-cho-kinh
 import { crmChoStudioWeddingThayViExcelCopy } from "@/lib/news-articles/crm-cho-studio-wedding-thay-vi-excel";
 import { chuyenQuanLyTaskTuZaloSangCrmCopy } from "@/lib/news-articles/chuyen-quan-ly-task-tu-zalo-sang-crm";
 import { chatgptAdsDoanhNghiepCoNenChayCopy } from "@/lib/news-articles/chatgpt-ads-doanh-nghiep-co-nen-chay";
+import { matLeadNgoaiGioHanhChinhCopy } from "@/lib/news-articles/mat-lead-ngoai-gio-hanh-chinh";
 
 export const NEWS_CATEGORIES = [
   "process",
@@ -34,6 +35,7 @@ export const NEWS_CATEGORIES = [
 export type NewsCategory = (typeof NEWS_CATEGORIES)[number];
 
 export const NEWS_SLUGS = [
+  "mat-lead-ngoai-gio-hanh-chinh",
   "chatgpt-ads-doanh-nghiep-co-nen-chay",
   "chuyen-quan-ly-task-tu-zalo-sang-crm",
   "crm-cho-studio-wedding-thay-vi-excel",
@@ -118,6 +120,10 @@ type NewsMeta = {
 };
 
 const metaBySlug: Record<NewsSlug, NewsMeta> = {
+  "mat-lead-ngoai-gio-hanh-chinh": {
+    category: "process",
+    date: "2026-09-18",
+  },
   "chatgpt-ads-doanh-nghiep-co-nen-chay": {
     category: "process",
     date: "2026-09-10",
@@ -225,6 +231,8 @@ const categoryImages: Record<NewsCategory, string> = {
 };
 
 const slugImages: Partial<Record<NewsSlug, string>> = {
+  "mat-lead-ngoai-gio-hanh-chinh":
+    "/news/mat-lead-ngoai-gio-cover.jpg",
   "chatgpt-ads-doanh-nghiep-co-nen-chay":
     "/news/chatgpt-ads-doanh-nghiep-co-nen-chay.jpg",
   "chuyen-quan-ly-task-tu-zalo-sang-crm":
@@ -278,6 +286,7 @@ export function getNewsImage(slug: NewsSlug): string {
 
 const copyByLocale: Record<Locale, Record<NewsSlug, NewsArticleCopy>> = {
   vi: {
+    "mat-lead-ngoai-gio-hanh-chinh": matLeadNgoaiGioHanhChinhCopy.vi,
     "chatgpt-ads-doanh-nghiep-co-nen-chay":
       chatgptAdsDoanhNghiepCoNenChayCopy.vi,
     "chuyen-quan-ly-task-tu-zalo-sang-crm":
@@ -485,6 +494,7 @@ const copyByLocale: Record<Locale, Record<NewsSlug, NewsArticleCopy>> = {
     },
   },
   en: {
+    "mat-lead-ngoai-gio-hanh-chinh": matLeadNgoaiGioHanhChinhCopy.en,
     "chatgpt-ads-doanh-nghiep-co-nen-chay":
       chatgptAdsDoanhNghiepCoNenChayCopy.en,
     "chuyen-quan-ly-task-tu-zalo-sang-crm":
@@ -620,6 +630,7 @@ const copyByLocale: Record<Locale, Record<NewsSlug, NewsArticleCopy>> = {
     },
   },
   ja: {
+    "mat-lead-ngoai-gio-hanh-chinh": matLeadNgoaiGioHanhChinhCopy.ja,
     "chatgpt-ads-doanh-nghiep-co-nen-chay":
       chatgptAdsDoanhNghiepCoNenChayCopy.ja,
     "chuyen-quan-ly-task-tu-zalo-sang-crm":

@@ -235,6 +235,37 @@ describe("Dolphin Software news page", () => {
     ).toBeInTheDocument();
   });
 
+  it("renders after-hours lead loss article with FAQ", async () => {
+    const page = await NewsArticlePage({
+      params: Promise.resolve({
+        slug: "mat-lead-ngoai-gio-hanh-chinh",
+      }),
+    });
+    render(<AppProviders>{page}</AppProviders>);
+    expect(
+      screen.getByRole("heading", {
+        level: 1,
+        name: /Mất lead ngoài giờ hành chính: khi không ai trả lời khách/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", {
+        level: 2,
+        name: /Ba chỗ hay sót lead ngoài giờ/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", {
+        name: /Mất lead ngoài giờ hành chính là gì/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("img", {
+        name: /tin nhắn Zalo chưa đọc lúc 22 giờ/i,
+      }),
+    ).toBeInTheDocument();
+  });
+
   it("renders ChatGPT Ads evaluation article with FAQ", async () => {
     const page = await NewsArticlePage({
       params: Promise.resolve({
