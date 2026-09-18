@@ -23,7 +23,8 @@
   position: relative;
   background: var(--df-bg);
   color: var(--df-text);
-  font-family: var(--font-quicksand), system-ui, sans-serif;
+  font-family: var(--font-quicksand), var(--font-jp), Quicksand, "Noto Sans JP",
+    sans-serif;
   font-size: 0.875rem;
   line-height: 1.45;
 }
@@ -55,10 +56,10 @@
 }
 
 .df-mark {
-  width: 1.5rem;
-  height: 1.5rem;
-  border-radius: 8px;
-  background: linear-gradient(145deg, #9b8ce8, var(--df-accent));
+  display: block;
+  width: 1.75rem;
+  height: 1.75rem;
+  object-fit: contain;
   flex-shrink: 0;
 }
 
@@ -68,7 +69,7 @@
   color: #fff;
   border-radius: var(--df-radius);
   padding: 0.45rem 0.85rem;
-  font: inherit;
+  font-family: inherit;
   font-size: 0.8125rem;
   font-weight: 700;
   cursor: pointer;
@@ -115,7 +116,7 @@
   border: 0;
   background: none;
   color: var(--df-accent);
-  font: inherit;
+  font-family: inherit;
   font-size: 0.75rem;
   font-weight: 700;
   cursor: pointer;
@@ -123,8 +124,10 @@
 }
 
 .df-avatar {
-  display: inline-grid;
-  place-items: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
   width: 1.75rem;
   height: 1.75rem;
   border-radius: 999px;
@@ -132,9 +135,11 @@
   border: 1px solid rgba(24, 24, 27, 0.08);
   color: #3f3f46;
   font-size: 0.58rem;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: 0.02em;
   line-height: 1;
+  overflow: hidden;
+  white-space: nowrap;
   flex-shrink: 0;
   user-select: none;
 }
@@ -149,7 +154,6 @@
   width: 1.5rem;
   height: 1.5rem;
   font-size: 0.55rem;
-  margin-top: 0.1rem;
   align-self: flex-start;
 }
 
@@ -172,7 +176,7 @@
   color: var(--df-text);
   border-radius: var(--df-radius);
   padding: 0.4rem 0.65rem;
-  font: inherit;
+  font-family: inherit;
   font-size: 0.8125rem;
 }
 
@@ -196,7 +200,7 @@
   color: var(--df-muted);
   border-radius: 8px;
   padding: 0.2rem 0.4rem;
-  font: inherit;
+  font-family: inherit;
   font-size: 0.65rem;
   font-weight: 800;
   cursor: pointer;
@@ -282,7 +286,7 @@
   color: var(--df-text);
   border-radius: var(--df-radius);
   padding: 0.65rem 0.75rem;
-  font: inherit;
+  font-family: inherit;
   font-size: 0.9rem;
   text-transform: none;
   letter-spacing: normal;
@@ -295,7 +299,8 @@
   color: #fff;
   border-radius: var(--df-radius);
   padding: 0.65rem 1rem;
-  font: inherit;
+  font-family: inherit;
+  font-size: inherit;
   font-weight: 700;
   cursor: pointer;
 }
@@ -377,7 +382,7 @@
   color: var(--df-muted);
   border-radius: var(--df-radius);
   padding: 0.45rem 0.55rem;
-  font: inherit;
+  font-family: inherit;
   font-size: 0.8rem;
   font-weight: 600;
   cursor: pointer;
@@ -532,7 +537,7 @@
   color: var(--df-text);
   border-radius: var(--df-radius);
   padding: 0.45rem 0.75rem 0.45rem 1.85rem;
-  font: inherit;
+  font-family: inherit;
   font-size: 0.8125rem;
 }
 
@@ -697,7 +702,7 @@
   color: var(--df-muted);
   border-radius: 8px;
   padding: 0.35rem 0.55rem;
-  font: inherit;
+  font-family: inherit;
   font-size: 0.75rem;
   font-weight: 700;
   cursor: pointer;
@@ -808,7 +813,7 @@
   line-height: 1.25;
 }
 
-.df-name-cell span {
+.df-name-cell > div span {
   display: block;
   color: var(--df-muted);
   font-size: 0.72rem;
@@ -927,7 +932,8 @@
   background: var(--df-panel);
   border-radius: var(--df-radius);
   cursor: pointer;
-  font: inherit;
+  font-family: inherit;
+  font-size: inherit;
 }
 
 .df-pager button:disabled {
@@ -1236,7 +1242,7 @@
   color: var(--df-text);
   border-radius: var(--df-radius);
   padding: 0.5rem 0.65rem;
-  font: inherit;
+  font-family: inherit;
   font-size: 0.8125rem;
   text-transform: none;
   letter-spacing: normal;

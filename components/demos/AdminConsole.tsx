@@ -9,6 +9,7 @@ import {
   useState,
   type FormEvent,
 } from "react";
+import { ThemedLogoImg } from "@/components/ThemedLogoImg";
 import { assetPath } from "@/lib/asset";
 import {
   type AdminLead,
@@ -734,7 +735,7 @@ export function AdminConsole() {
         <div className="df-gate">
           <div className="df-gate__top">
             <div className="df-gate__brand">
-              <span className="df-mark" aria-hidden />
+              <ThemedLogoImg className="df-mark" width={28} height={28} alt="" />
               <strong>{t.brand}</strong>
             </div>
             {langSwitch}
@@ -774,7 +775,7 @@ export function AdminConsole() {
     <div className="df">
       <aside className="df-side" aria-label={t.brand}>
         <div className="df-side__brand">
-          <span className="df-mark" aria-hidden />
+          <ThemedLogoImg className="df-mark" width={28} height={28} alt="" />
           <div>
             <strong>{t.brand}</strong>
             <em>{t.workspaceName}</em>
