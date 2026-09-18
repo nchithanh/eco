@@ -3153,43 +3153,32 @@ html[data-mobile-nav-open] .kuct-ai-chat {
   animation: none !important;
 }
 
-/* About team — studio lineup (editorial, not equal cards) */
+/* About team — quote cards (alternating avatar / text) */
 .kuct-team-wash {
-  background:
-    radial-gradient(
-      70% 55% at 50% 18%,
-      rgb(var(--kuct-accent-rgb) / 0.12),
-      transparent 62%
-    ),
-    linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--kuct-accent-rgb) / 0.04) 42%,
-      transparent
-    );
+  background: color-mix(in srgb, var(--kuct-panel-2, #f4f3f8) 88%, #fff);
 }
 
-.kuct-team-arch-grid {
+.kuct-team-grid {
   background-image:
     linear-gradient(
       to right,
-      color-mix(in srgb, var(--kuct-border) 70%, transparent) 1px,
+      color-mix(in srgb, var(--kuct-border) 75%, transparent) 1px,
       transparent 1px
     ),
     linear-gradient(
       to bottom,
-      color-mix(in srgb, var(--kuct-border) 70%, transparent) 1px,
+      color-mix(in srgb, var(--kuct-border) 75%, transparent) 1px,
       transparent 1px
     );
-  background-size: 3rem 3rem;
+  background-size: 1.75rem 1.75rem;
   mask-image: linear-gradient(
     to bottom,
     transparent,
-    #000 8%,
-    #000 92%,
+    #000 6%,
+    #000 94%,
     transparent
   );
-  opacity: 0.28;
+  opacity: 0.45;
 }
 
 .kuct-team-title-rule {
@@ -3199,55 +3188,137 @@ html[data-mobile-nav-open] .kuct-ai-chat {
   background: var(--kuct-accent);
 }
 
-.kuct-team-lineup::before {
-  content: "";
-  position: absolute;
-  left: 8%;
-  right: 8%;
-  top: 4.5rem;
-  height: 1px;
-  background: color-mix(in srgb, var(--kuct-accent) 35%, transparent);
-  pointer-events: none;
-  display: none;
+.kuct-team-banner-frame {
+  border-radius: 1.25rem;
+  border: 1px solid color-mix(in srgb, var(--kuct-accent) 12%, var(--kuct-border));
+  background: #fff;
+  box-shadow: 0 0.65rem 1.75rem rgb(26 21 32 / 0.07);
 }
 
-@media (min-width: 48rem) {
-  .kuct-team-lineup::before {
-    display: block;
+.kuct-team-quote-card {
+  border-radius: 1.35rem;
+  border: 1px solid color-mix(in srgb, var(--kuct-accent) 10%, var(--kuct-border));
+  background:
+    radial-gradient(
+      70% 90% at 8% 50%,
+      rgb(var(--kuct-accent-rgb) / 0.07),
+      transparent 55%
+    ),
+    #fff;
+  box-shadow: 0 0.55rem 1.5rem rgb(26 21 32 / 0.05);
+}
+
+li:nth-child(even) .kuct-team-quote-card {
+  background:
+    radial-gradient(
+      70% 90% at 92% 50%,
+      rgb(var(--kuct-accent-rgb) / 0.07),
+      transparent 55%
+    ),
+    #fff;
+}
+
+.kuct-team-avatar-wrap {
+  width: 8.75rem;
+  height: 8.75rem;
+}
+
+@media (min-width: 640px) {
+  .kuct-team-avatar-wrap {
+    width: 10.5rem;
+    height: 10.5rem;
   }
 }
 
-.kuct-team-frame {
-  border-radius: 0.625rem;
-  border: 1px solid color-mix(in srgb, var(--kuct-text) 10%, transparent);
+@media (min-width: 1024px) {
+  .kuct-team-avatar-wrap {
+    width: 11.5rem;
+    height: 11.5rem;
+  }
+}
+
+.kuct-team-avatar {
+  border: 0.2rem solid color-mix(in srgb, var(--kuct-accent) 55%, #fff);
   box-shadow:
-    0 0.75rem 2rem rgb(26 21 32 / 0.08),
-    inset 0 0 0 1px rgb(255 255 255 / 0.35);
-  transition:
-    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    0 0 0 0.35rem color-mix(in srgb, var(--kuct-accent) 12%, transparent),
+    0 0.4rem 1rem rgb(26 21 32 / 0.08);
+  background: color-mix(in srgb, var(--kuct-accent) 10%, #fff);
 }
 
-@media (hover: hover) and (pointer: fine) {
-  article:hover .kuct-team-frame {
-    transform: translate3d(0, -0.35rem, 0);
-    box-shadow: 0 1.15rem 2.4rem rgb(26 21 32 / 0.12);
+.kuct-team-quote-mark {
+  display: block;
+  width: fit-content;
+  margin-inline: auto;
+  font-family: var(--font-display, inherit);
+  font-size: 1.75rem;
+  line-height: 1;
+  color: color-mix(in srgb, var(--kuct-accent) 70%, transparent);
+}
+
+@media (min-width: 768px) {
+  .kuct-team-quote-mark {
+    margin-inline: 0;
+    font-size: 2rem;
   }
 }
 
-.kuct-team-portrait {
-  opacity: 0;
-  transform: translate3d(0, 1.6rem, 0);
-  transition:
-    opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
-  will-change: opacity, transform;
+.kuct-team-quote-cta {
+  background: var(--kuct-accent);
+  box-shadow: 0 0.3rem 0.75rem rgb(var(--kuct-accent-rgb) / 0.26);
 }
 
-.kuct-team-portrait.is-inview {
-  opacity: 1;
-  transform: translate3d(0, 0, 0);
-  will-change: auto;
+.kuct-team-quote-cta:hover {
+  background: var(--kuct-accent-2);
+}
+
+.kuct-team-quote-cta:active {
+  transform: translateY(1px);
+}
+
+.kuct-team-closing {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.35rem;
+  border: 1px solid color-mix(in srgb, var(--kuct-accent) 12%, var(--kuct-border));
+  padding: 2rem 1.5rem 1.85rem;
+  text-align: center;
+  background: #fff;
+  box-shadow: 0 0.55rem 1.5rem rgb(26 21 32 / 0.05);
+}
+
+@media (min-width: 640px) {
+  .kuct-team-closing {
+    padding: 2.35rem 2.5rem 2.1rem;
+  }
+}
+
+.kuct-team-closing-mark {
+  display: block;
+  font-family: var(--font-display, inherit);
+  font-size: 1.85rem;
+  line-height: 1;
+  color: color-mix(in srgb, var(--kuct-accent) 70%, transparent);
+  margin-bottom: 0.65rem;
+}
+
+.kuct-team-closing-text {
+  margin: 0 auto;
+  max-width: 34rem;
+  font-family: var(--font-display, inherit);
+  font-size: clamp(1.05rem, 2.1vw, 1.35rem);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.5;
+  color: var(--kuct-text);
+}
+
+.kuct-team-closing-rule {
+  display: block;
+  width: 2.5rem;
+  height: 0.15rem;
+  margin: 1.15rem auto 0;
+  border-radius: 999px;
+  background: var(--kuct-accent);
 }
 
 @keyframes kuct-rotate-globe {
@@ -3387,11 +3458,8 @@ html[data-mobile-nav-open] .kuct-ai-chat {
     will-change: auto;
   }
 
-  .kuct-team-portrait,
-  .kuct-team-portrait.is-inview {
-    opacity: 1 !important;
+  .kuct-team-quote-cta:active {
     transform: none !important;
-    transition: none !important;
   }
 
   .kuct-title-enter {

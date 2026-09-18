@@ -195,6 +195,10 @@ export function AboutContent() {
  eyebrow={a.founderEyebrow}
  title={a.founderTitle}
  team={a.team}
+ ctaLabel={a.teamCta}
+ bannerCaption={a.teamBannerCaption}
+ bannerAlt={a.teamBannerAlt}
+ closing={a.teamClosing}
  />
 
  <section

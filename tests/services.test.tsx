@@ -254,9 +254,15 @@ describe("service detail pages", () => {
     expect(
       screen.getAllByText(/Phạm Tấn Hoàng/i).length,
     ).toBeGreaterThanOrEqual(1);
-    expect(screen.getByText(/^Co-founder$/i)).toBeInTheDocument();
+    expect(
+      screen.getAllByText(/Tô Văn Hậu/i).length,
+    ).toBeGreaterThanOrEqual(1);
+    expect(screen.getByText(/^Technical Leader$/i)).toBeInTheDocument();
     expect(
       screen.getByText(/Business Development · Japan Market/i),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(/System Admin — Agent SaaS 24\/7/i),
     ).toBeInTheDocument();
     expect(
       screen.getByRole("link", { name: /01 · Web & App/i }),

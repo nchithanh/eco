@@ -39,9 +39,17 @@ export type AboutCopy = {
   proofTitle: string;
   proofSupport: string;
   proofs: { title: string; body: string }[];
-  /** Section chrome — team grid on /about/ */
+  /** Section chrome — team quote cards on /about/ */
   founderEyebrow: string;
   founderTitle: string;
+  /** Caption under the group banner photo */
+  teamBannerCaption: string;
+  /** Alt for the group banner */
+  teamBannerAlt: string;
+  /** CTA on each team quote card → quote modal */
+  teamCta: string;
+  /** Closing line under the team cards */
+  teamClosing: string;
   /** @deprecated Prefer team[0] — kept for Person JSON-LD */
   founderRole: string;
   founderName: string;
@@ -141,10 +149,16 @@ const vi: AboutCopy = {
   ],
   founderEyebrow: "Team",
   founderTitle: "Đội ngũ Dolphin Software",
+  teamBannerCaption: "Đội ngũ sáng lập Dolphin Software",
+  teamBannerAlt:
+    "Đội ngũ sáng lập Dolphin Software ngồi cạnh nhau — founder khoác tay qua vai hai thành viên bên cạnh",
+  teamCta: "Nói chuyện",
+  teamClosing:
+    "Cùng các thành viên khác, Dolphin sẽ luôn mang đến giá trị thật sự cho doanh nghiệp.",
   founderRole: "Founder / Solution Architect",
   founderName: "Nguyễn Chí Thành",
   founderBody:
-    "Nguyễn Chí Thành có hơn 7 năm kinh nghiệm backend trên các sản phẩm live: Marathon, Myspa, và Splus. Anh đảm nhiệm vai trò team lead, xử lý sự cố production, và thiết kế hệ thống — tư duy production được áp dụng trực tiếp vào mọi dự án tại Dolphin Software.",
+    "Với nhiều năm kinh nghiệm phát triển phần mềm, Thành hiểu rõ nhu cầu và tầm quan trọng của việc thúc đẩy doanh nghiệp phát triển. Anh định hướng Dolphin chỉ cung cấp những giải pháp thật sự phù hợp — và phải giúp doanh nghiệp tăng trưởng doanh thu rõ ràng.",
   founderStack: [
     "Golang",
     "NestJS",
@@ -160,7 +174,7 @@ const vi: AboutCopy = {
       id: "thanh",
       name: "Nguyễn Chí Thành",
       role: "Founder / Solution Architect",
-      body: "Nguyễn Chí Thành có hơn 7 năm kinh nghiệm backend trên các sản phẩm live: Marathon, Myspa, và Splus. Anh đảm nhiệm vai trò team lead, xử lý sự cố production, và thiết kế hệ thống — tư duy production được áp dụng trực tiếp vào mọi dự án tại Dolphin Software.",
+      body: "Với nhiều năm kinh nghiệm phát triển phần mềm, Thành hiểu rõ nhu cầu và tầm quan trọng của việc thúc đẩy doanh nghiệp phát triển. Anh định hướng Dolphin chỉ cung cấp những giải pháp thật sự phù hợp — và phải giúp doanh nghiệp tăng trưởng doanh thu rõ ràng.",
       image: "/about/founder.png",
       tags: [
         "Golang",
@@ -176,10 +190,10 @@ const vi: AboutCopy = {
     {
       id: "hoang",
       name: "Phạm Tấn Hoàng",
-      role: "Co-founder",
-      body: "Phạm Tấn Hoàng là đồng sáng lập Dolphin Software. Anh đảm nhận lead các sản phẩm outsource cho khách hàng và tham gia phát triển Dolphin Intelligence.",
+      role: "Technical Leader",
+      body: "Phạm Tấn Hoàng giám sát và triển khai các tính năng mới của Dolphin. Anh luôn giúp khách hàng bắt kịp xu hướng công nghệ toàn cầu — thúc đẩy vận hành gọn hơn và tăng trưởng doanh thu.",
       image: "/about/team-hoang.png",
-      tags: [],
+      tags: ["Technical Leader", "Product", "Features"],
     },
     {
       id: "nghia",
@@ -188,6 +202,14 @@ const vi: AboutCopy = {
       body: "Hồ Quốc Nghĩa phụ trách phát triển kinh doanh và thị trường Nhật Bản — sales & marketing, kết nối SMB/đối tác JP, đề xuất hướng website/phần mềm phù hợp và báo giá rõ phạm vi đến khi chốt dự án.",
       image: "/about/team-nghia.png",
       tags: ["Japan", "Sales", "Marketing", "BD", "Partnerships"],
+    },
+    {
+      id: "hau",
+      name: "Tô Văn Hậu",
+      role: "System Admin — Agent SaaS 24/7",
+      body: "Tô Văn Hậu theo dõi, giám sát hơn 5 server và gần 10 agent đang chạy — giữ vận hành ổn định nhất cho khách hàng, hạn chế downtime. Với Dolphin, mọi sự cố đều cần được xử lý ngay lập tức.",
+      image: "/about/team-hau.png",
+      tags: ["DevOps", "SaaS", "Linux", "Monitoring", "24/7"],
     },
   ],
   faqEyebrow: "FAQ",
@@ -309,10 +331,16 @@ const en: AboutCopy = {
   ],
   founderEyebrow: "Team",
   founderTitle: "The Dolphin Software team",
+  teamBannerCaption: "The Dolphin Software founding team",
+  teamBannerAlt:
+    "Dolphin Software founding team seated together — founder with an arm over the teammates beside him",
+  teamCta: "Talk to us",
+  teamClosing:
+    "Together with every teammate, Dolphin will keep delivering real value for businesses.",
   founderRole: "Founder / Solution Architect",
   founderName: "Nguyễn Chí Thành",
   founderBody:
-    "Nguyễn Chí Thành has 7+ years of backend experience on live products: Marathon, Myspa, and Splus. He has led teams, handled production incidents, and designed systems — production thinking applied directly to every Dolphin Software project.",
+    "With many years in software development, Thành understands what growing businesses need — and why the right push matters. He steers Dolphin to ship only solutions that truly fit, and that must help companies grow real revenue.",
   founderStack: [
     "Golang",
     "NestJS",
@@ -328,7 +356,7 @@ const en: AboutCopy = {
       id: "thanh",
       name: "Nguyễn Chí Thành",
       role: "Founder / Solution Architect",
-      body: "Nguyễn Chí Thành has 7+ years of backend experience on live products: Marathon, Myspa, and Splus. He has led teams, handled production incidents, and designed systems — production thinking applied directly to every Dolphin Software project.",
+      body: "With many years in software development, Thành understands what growing businesses need — and why the right push matters. He steers Dolphin to ship only solutions that truly fit, and that must help companies grow real revenue.",
       image: "/about/founder.png",
       tags: [
         "Golang",
@@ -344,10 +372,10 @@ const en: AboutCopy = {
     {
       id: "hoang",
       name: "Phạm Tấn Hoàng",
-      role: "Co-founder",
-      body: "Phạm Tấn Hoàng is a co-founder of Dolphin Software. He leads outsourced product work for clients and contributes to Dolphin Intelligence.",
+      role: "Technical Leader",
+      body: "Phạm Tấn Hoàng oversees and ships new Dolphin features. He helps customers stay in step with global technology trends — tighter operations and revenue growth.",
       image: "/about/team-hoang.png",
-      tags: [],
+      tags: ["Technical Leader", "Product", "Features"],
     },
     {
       id: "nghia",
@@ -356,6 +384,14 @@ const en: AboutCopy = {
       body: "Hồ Quốc Nghĩa owns business development for the Japan market — sales & marketing, partnering with Japanese SMBs, proposing the right website/software path, and clear scoped quotes through close.",
       image: "/about/team-nghia.png",
       tags: ["Japan", "Sales", "Marketing", "BD", "Partnerships"],
+    },
+    {
+      id: "hau",
+      name: "Tô Văn Hậu",
+      role: "System Admin — Agent SaaS 24/7",
+      body: "Tô Văn Hậu monitors and watches over more than 5 servers and nearly 10 live agents — keeping operations as steady as possible for customers and preventing downtime. At Dolphin, any incident must be handled immediately.",
+      image: "/about/team-hau.png",
+      tags: ["DevOps", "SaaS", "Linux", "Monitoring", "24/7"],
     },
   ],
   faqEyebrow: "FAQ",
@@ -477,10 +513,16 @@ const ja: AboutCopy = {
   ],
   founderEyebrow: "Team",
   founderTitle: "Dolphin Softwareのチーム",
+  teamBannerCaption: "Dolphin Softwareの創業チーム",
+  teamBannerAlt:
+    "Dolphin Softwareの創業チームが並んで座る様子 — ファウンダーが隣のメンバーの肩に腕を回している",
+  teamCta: "話してみる",
+  teamClosing:
+    "メンバー一人ひとりとともに、Dolphinはこれからも企業に本当の価値を届け続けます。",
   founderRole: "Founder / Solution Architect",
   founderName: "Nguyễn Chí Thành",
   founderBody:
-    "Nguyễn Chí Thànhはライブプロダクト（Marathon、Myspa、Splus）で7年以上のバックエンド経験を持ちます。チームリード、本番インシデント対応、システム設計 — 本番視点をDolphin Softwareの全プロジェクトに直接活かしています。",
+    "ソフトウェア開発で長年の経験を持つThànhは、成長企業のニーズと、事業を前へ進める重要性をよく理解しています。Dolphinを、本当に合う解決策だけを届け、売上の実質成長につながる方向へ導きます。",
   founderStack: [
     "Golang",
     "NestJS",
@@ -496,7 +538,7 @@ const ja: AboutCopy = {
       id: "thanh",
       name: "Nguyễn Chí Thành",
       role: "Founder / Solution Architect",
-      body: "Nguyễn Chí Thànhはライブプロダクト（Marathon、Myspa、Splus）で7年以上のバックエンド経験を持ちます。チームリード、本番インシデント対応、システム設計 — 本番視点をDolphin Softwareの全プロジェクトに直接活かしています。",
+      body: "ソフトウェア開発で長年の経験を持つThànhは、成長企業のニーズと、事業を前へ進める重要性をよく理解しています。Dolphinを、本当に合う解決策だけを届け、売上の実質成長につながる方向へ導きます。",
       image: "/about/founder.png",
       tags: [
         "Golang",
@@ -512,10 +554,10 @@ const ja: AboutCopy = {
     {
       id: "hoang",
       name: "Phạm Tấn Hoàng",
-      role: "共同創業者",
-      body: "Phạm Tấn HoàngはDolphin Softwareの共同創業者です。顧客向けアウトソース製品のリードを担い、Dolphin Intelligenceの開発にも参加しています。",
+      role: "Technical Leader",
+      body: "Phạm Tấn HoàngはDolphinの新機能の監督と実装を担います。顧客が世界の技術トレンドに追いつけるよう支え、運用をより滑らかにし、売上成長を後押しします。",
       image: "/about/team-hoang.png",
-      tags: [],
+      tags: ["Technical Leader", "Product", "Features"],
     },
     {
       id: "nghia",
@@ -524,6 +566,14 @@ const ja: AboutCopy = {
       body: "Hồ Quốc Nghĩaは日本市場の事業開発を担当 — セールス＆マーケティング、日本のSMB／パートナーとの接点、適切なWeb/ソフトウェア提案、明確な見積りで成約まで伴走します。",
       image: "/about/team-nghia.png",
       tags: ["Japan", "Sales", "Marketing", "BD", "Partnerships"],
+    },
+    {
+      id: "hau",
+      name: "Tô Văn Hậu",
+      role: "System Admin — Agent SaaS 24/7",
+      body: "Tô Văn Hậuは5台以上のサーバーと稼働中の約10のエージェントを監視・見守ります。顧客向けに最も安定した運用を保ち、ダウンタイムを防ぎます。Dolphinでは、どんな障害も即座に対応する必要があります。",
+      image: "/about/team-hau.png",
+      tags: ["DevOps", "SaaS", "Linux", "Monitoring", "24/7"],
     },
   ],
   faqEyebrow: "FAQ",
