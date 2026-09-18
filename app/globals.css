@@ -3192,12 +3192,12 @@ html[data-mobile-nav-open] .kuct-ai-chat {
   border-radius: 1.25rem;
   border: 1px solid color-mix(in srgb, var(--kuct-accent) 12%, var(--kuct-border));
   background: #fff;
-  box-shadow: 0 0.65rem 1.75rem rgb(26 21 32 / 0.07);
+  box-shadow: none;
 }
 
 .kuct-team-quote-card {
   border-radius: 1.35rem;
-  border: 1px solid color-mix(in srgb, var(--kuct-accent) 10%, var(--kuct-border));
+  border: none;
   background:
     radial-gradient(
       70% 90% at 8% 50%,
@@ -3205,7 +3205,7 @@ html[data-mobile-nav-open] .kuct-ai-chat {
       transparent 55%
     ),
     #fff;
-  box-shadow: 0 0.55rem 1.5rem rgb(26 21 32 / 0.05);
+  box-shadow: none;
 }
 
 li:nth-child(even) .kuct-team-quote-card {
@@ -3239,32 +3239,29 @@ li:nth-child(even) .kuct-team-quote-card {
 
 .kuct-team-avatar {
   border: 0.2rem solid color-mix(in srgb, var(--kuct-accent) 55%, #fff);
-  box-shadow:
-    0 0 0 0.35rem color-mix(in srgb, var(--kuct-accent) 12%, transparent),
-    0 0.4rem 1rem rgb(26 21 32 / 0.08);
+  box-shadow: 0 0 0 0.35rem color-mix(in srgb, var(--kuct-accent) 12%, transparent);
   background: color-mix(in srgb, var(--kuct-accent) 10%, #fff);
 }
 
 .kuct-team-quote-mark {
-  display: block;
-  width: fit-content;
-  margin-inline: auto;
+  display: inline;
+  margin-right: 0.15rem;
   font-family: var(--font-display, inherit);
-  font-size: 1.75rem;
+  font-size: 1.15em;
   line-height: 1;
   color: color-mix(in srgb, var(--kuct-accent) 70%, transparent);
+  vertical-align: baseline;
 }
 
 @media (min-width: 768px) {
   .kuct-team-quote-mark {
-    margin-inline: 0;
-    font-size: 2rem;
+    font-size: 1.2em;
   }
 }
 
 .kuct-team-quote-cta {
   background: var(--kuct-accent);
-  box-shadow: 0 0.3rem 0.75rem rgb(var(--kuct-accent-rgb) / 0.26);
+  box-shadow: none;
 }
 
 .kuct-team-quote-cta:hover {
@@ -3283,7 +3280,7 @@ li:nth-child(even) .kuct-team-quote-card {
   padding: 2rem 1.5rem 1.85rem;
   text-align: center;
   background: #fff;
-  box-shadow: 0 0.55rem 1.5rem rgb(26 21 32 / 0.05);
+  box-shadow: none;
 }
 
 @media (min-width: 640px) {
@@ -3293,12 +3290,13 @@ li:nth-child(even) .kuct-team-quote-card {
 }
 
 .kuct-team-closing-mark {
-  display: block;
+  display: inline;
+  margin-right: 0.15rem;
   font-family: var(--font-display, inherit);
-  font-size: 1.85rem;
+  font-size: 1.15em;
   line-height: 1;
   color: color-mix(in srgb, var(--kuct-accent) 70%, transparent);
-  margin-bottom: 0.65rem;
+  vertical-align: baseline;
 }
 
 .kuct-team-closing-text {

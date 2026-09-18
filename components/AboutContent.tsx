@@ -116,7 +116,7 @@ export function AboutContent() {
  as="li"
  key={item.title}
  delay={index * 40}
- className="group flex flex-col gap-3 bg-white px-0 py-6 sm:px-5 sm:py-7 lg:px-4 xl:px-5"
+ className="group flex flex-col gap-3 bg-white px-4 py-6 sm:px-5 sm:py-7 lg:px-4 xl:px-5"
  >
  <h3 className="font-display text-base font-semibold leading-snug text-[var(--kuct-text)] sm:text-lg">
  {item.href ? (

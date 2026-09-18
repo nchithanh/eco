@@ -47,10 +47,10 @@ function TeamQuoteCard({
         </div>
 
         <div className="relative flex min-w-0 flex-1 flex-col text-center md:text-left">
-          <span className="kuct-team-quote-mark select-none" aria-hidden>
-            “
-          </span>
-          <p className="mt-1 text-[0.9375rem] leading-[1.75] text-[var(--kuct-text)] sm:text-base lg:text-[1.0625rem] lg:leading-[1.72]">
+          <p className="text-[0.9375rem] leading-[1.75] text-[var(--kuct-text)] sm:text-base lg:text-[1.0625rem] lg:leading-[1.72]">
+            <span className="kuct-team-quote-mark select-none" aria-hidden>
+              “
+            </span>
             {member.body}
           </p>
           <div className="mt-6 flex flex-col items-center gap-4 sm:mt-7 md:flex-row md:items-center md:justify-between md:gap-6">
@@ -147,10 +147,12 @@ export function AboutTeamSection({
 
         <Reveal delay={80} variant="up" className="mt-10 sm:mt-12">
           <aside className="kuct-team-closing" aria-label={closing}>
-            <span className="kuct-team-closing-mark" aria-hidden>
-              “
-            </span>
-            <p className="kuct-team-closing-text">{closing}</p>
+            <p className="kuct-team-closing-text">
+              <span className="kuct-team-closing-mark" aria-hidden>
+                “
+              </span>
+              {closing}
+            </p>
             <span className="kuct-team-closing-rule" aria-hidden />
           </aside>
         </Reveal>
