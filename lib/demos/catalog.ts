@@ -15,10 +15,10 @@ export const demoCatalog: DemoCatalogItem[] = [
   {
     slug: "admin",
     href: "/demos/admin/",
-    title: "Dolphin Sales",
+    title: "Dolphin Admin",
     blurb:
-      "Dolphin Sales — Sales Command Center (pipeline, playbook, detail). Vault `/demos/` + workspace token.",
-    tag: "Sales",
+      "Dolphin Admin — workspace Sale (B2B pipeline), CRM, Analytics. Vault `/demos/` + workspace token.",
+    tag: "Admin",
   },
   {
     slug: "edu",

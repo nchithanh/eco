@@ -1,4 +1,4 @@
-/** Dolphin Sales UI — vi / en (workspace `/demos/admin/`). */
+/** Dolphin Admin UI — vi / en (workspace `/demos/admin/`). */
 
 import {
   type LeadStage,
@@ -24,20 +24,24 @@ export type DolphinSalesCopy = {
     back: string;
     tokenRequired: string;
   };
+  workspaces: {
+    label: string;
+    sale: string;
+    crm: string;
+    analytics: string;
+  };
   side: {
     search: string;
-    workspace: string;
-    crm: string;
-    sales: string;
-    analytics: string;
+    saleGroup: string;
+    crmGroup: string;
+    analyticsGroup: string;
     navPipeline: string;
-    navDeals: string;
-    navContacts: string;
-    navCompanies: string;
     navPlaybook: string;
     navActivities: string;
+    navContacts: string;
+    navCompanies: string;
     navOverview: string;
-    reports: string;
+    navReports: string;
     refresh: string;
     refreshing: string;
     demoVault: string;
@@ -57,6 +61,33 @@ export type DolphinSalesCopy = {
     description: string;
     newDeal: string;
   };
+  forecast: {
+    title: string;
+    hint: string;
+    pipeline: string;
+    weighted: string;
+    winRate: string;
+  };
+  teamKpi: {
+    title: string;
+    owner: string;
+    openDeals: string;
+    won: string;
+    winRate: string;
+    atRisk: string;
+    soonCalls: string;
+    soonMeetings: string;
+  };
+  crmPage: {
+    title: string;
+    description: string;
+    soonTitle: string;
+    soonBody: string;
+  };
+  analyticsPage: {
+    title: string;
+    description: string;
+  };
   kpi: {
     totalLeads: string;
     qualified: string;
@@ -68,8 +99,14 @@ export type DolphinSalesCopy = {
   tabs: {
     all: string;
   };
+  view: {
+    list: string;
+    board: string;
+    label: string;
+  };
   board: {
     idle: string;
+    empty: string;
   };
   table: {
     searchLeads: string;
@@ -107,6 +144,8 @@ export type DolphinSalesCopy = {
     activitySection: string;
     notesSection: string;
     timelineSection: string;
+    profile360: string;
+    profile360Soon: string;
     stage: string;
     amount: string;
     account: string;
@@ -185,24 +224,24 @@ export type DolphinSalesCopy = {
 };
 
 const STAGE_LABELS_VI: Record<LeadStage, string> = {
-  new: "1 · Lead vào",
-  qualified: "2 · Qualify",
-  discover: "3 · Discover",
-  propose: "4 · Propose",
+  new: "1 · Mới tiếp cận",
+  qualified: "2 · Đang khảo sát",
+  discover: "3 · Khảo sát sâu",
+  propose: "4 · Báo giá / Thương lượng",
   won: "5 · Chốt / Won",
-  deliver: "6 · Deliver",
+  deliver: "6 · Deliver (Bàn giao)",
   expand: "7 · Care / Mở rộng",
-  lost: "Lost",
-  nurture: "Nurture",
+  lost: "Lost (Mất)",
+  nurture: "Nurture (Nuôi dưỡng)",
   out_of_scope: "Không fit",
 };
 
 const STAGE_LABELS_EN: Record<LeadStage, string> = {
-  new: "1 · Lead in",
-  qualified: "2 · Qualify",
-  discover: "3 · Discover",
-  propose: "4 · Propose",
-  won: "5 · Close / Won",
+  new: "1 · New outreach",
+  qualified: "2 · Discovery / survey",
+  discover: "3 · Deep discovery",
+  propose: "4 · Quote / negotiation",
+  won: "5 · Won / closed",
   deliver: "6 · Deliver",
   expand: "7 · Care / Expand",
   lost: "Lost",
@@ -211,23 +250,23 @@ const STAGE_LABELS_EN: Record<LeadStage, string> = {
 };
 
 const STAGE_SHORT_VI: Record<LeadStage, string> = {
-  new: "Lead vào",
-  qualified: "Qualify",
-  discover: "Discover",
-  propose: "Propose",
-  won: "Won",
+  new: "Mới tiếp cận",
+  qualified: "Đang khảo sát",
+  discover: "Khảo sát sâu",
+  propose: "Báo giá / TL",
+  won: "Chốt",
   deliver: "Deliver",
   expand: "Expand",
-  lost: "Lost",
+  lost: "Mất",
   nurture: "Nurture",
   out_of_scope: "Không fit",
 };
 
 const STAGE_SHORT_EN: Record<LeadStage, string> = {
-  new: "Lead in",
-  qualified: "Qualify",
-  discover: "Discover",
-  propose: "Propose",
+  new: "New",
+  qualified: "Survey",
+  discover: "Discovery",
+  propose: "Quote",
   won: "Won",
   deliver: "Deliver",
   expand: "Expand",
@@ -237,166 +276,210 @@ const STAGE_SHORT_EN: Record<LeadStage, string> = {
 };
 
 const VI: DolphinSalesCopy = {
-  brand: "Dolphin Sales",
+  brand: "Dolphin Admin",
   workspaceName: "Dolphin Software",
   loading: "Đang tải…",
   soon: "Sắp có",
   gate: {
     title: "Đăng nhập workspace",
-    lead: "CRM pipeline nội bộ — dán workspace token (chỉ lưu session). Sau này sẽ là tài khoản SaaS.",
+    lead: "Dolphin Admin — CRM / Sales nội bộ. Dán workspace token (chỉ lưu session).",
     tokenLabel: "Workspace token",
     tokenPlaceholder: "LEADS_ADMIN_TOKEN…",
     submit: "Tiếp tục",
     back: "← Demo vault",
     tokenRequired: "Nhập workspace token",
   },
+  workspaces: {
+    label: "Workspace",
+    sale: "Sale (Bán hàng)",
+    crm: "CRM",
+    analytics: "Analytics (Phân tích)",
+  },
   side: {
     search: "Tìm kiếm",
-    workspace: "Workspace",
-    crm: "CRM",
-    sales: "Sales",
-    analytics: "Analytics",
-    navPipeline: "Lead Pipeline",
-    navDeals: "Deals",
-    navContacts: "Contacts",
-    navCompanies: "Companies",
-    navPlaybook: "Playbook",
-    navActivities: "Activities",
-    navOverview: "Overview",
-    reports: "Reports",
+    saleGroup: "Sale",
+    crmGroup: "CRM",
+    analyticsGroup: "Analytics",
+    navPipeline: "Sales Pipeline (Đường ống)",
+    navPlaybook: "Playbook (Kịch bản)",
+    navActivities: "Activities (Hoạt động)",
+    navContacts: "Contacts (Liên hệ)",
+    navCompanies: "Companies (Công ty)",
+    navOverview: "Overview (Tổng quan)",
+    navReports: "Reports (Báo cáo)",
     refresh: "Làm mới",
     refreshing: "Đang tải…",
     demoVault: "Demo vault",
     signOut: "Đăng xuất",
     langLabel: "Ngôn ngữ",
-    available: "Available",
+    available: "Available (Sẵn sàng)",
   },
   top: {
-    searchPlaceholder: "Search leads, deals, contacts…",
-    breadcrumbHome: "Dolphin Sales",
-    filters: "Filters",
+    searchPlaceholder: "Search deals, contacts… (Tìm deal, liên hệ…)",
+    breadcrumbHome: "Dolphin Admin",
+    filters: "Filters (Bộ lọc)",
     clearFilters: "Xóa bộ lọc",
     filtersActive: "đang lọc",
   },
   hero: {
-    title: "Lead Pipeline",
+    title: "Sales Pipeline (Đường ống bán hàng)",
     description:
-      "Theo dõi prospect, follow-up và cơ hội trên toàn pipeline bán hàng.",
-    newDeal: "Add Lead",
+      "B2B / giải pháp & hợp đồng — theo dõi thương vụ từ tiếp cận đến chốt. Chu kỳ dài, giá trị lớn, nhiều vòng đàm phán.",
+    newDeal: "Add Deal (Thêm deal)",
+  },
+  forecast: {
+    title: "Sales Forecasting (Dự báo)",
+    hint: "Ước lượng heuristic theo stage — chưa phải forecast SaaS đầy đủ.",
+    pipeline: "Open pipeline (Pipeline mở)",
+    weighted: "Weighted forecast (Có trọng số)",
+    winRate: "Win rate (Tỷ lệ chốt)",
+  },
+  teamKpi: {
+    title: "Team KPI (KPI nhân viên)",
+    owner: "Owner (Phụ trách)",
+    openDeals: "Open deals (Deal mở)",
+    won: "Won (Chốt)",
+    winRate: "Win rate",
+    atRisk: "At risk",
+    soonCalls: "Cuộc gọi — sắp có",
+    soonMeetings: "Cuộc hẹn — sắp có",
+  },
+  crmPage: {
+    title: "CRM",
+    description:
+      "Hồ sơ khách hàng 360° — lịch sử gọi, email, họp, hợp đồng. Workspace riêng ngoài đường ống Sale.",
+    soonTitle: "CRM 360° sắp có",
+    soonBody:
+      "Contacts / Companies và activity log đầy đủ sẽ vào đây. Hiện dùng note + timeline tối thiểu trên từng deal trong Sale.",
+  },
+  analyticsPage: {
+    title: "Analytics (Phân tích)",
+    description:
+      "Sức khỏe pipeline, dự báo heuristic và KPI theo owner từ data deal thật.",
   },
   kpi: {
-    totalLeads: "Total leads",
-    qualified: "Qualified",
-    inProgress: "In progress",
-    converted: "Converted",
-    pipelineValue: "Pipeline value",
-    atRisk: "At risk",
+    totalLeads: "Total deals (Tổng deal)",
+    qualified: "Survey (Khảo sát)",
+    inProgress: "In progress (Đang chạy)",
+    converted: "Won (Đã chốt)",
+    pipelineValue: "Pipeline value (Giá trị)",
+    atRisk: "At risk (Rủi ro)",
   },
   tabs: {
-    all: "All",
+    all: "All (Tất cả)",
+  },
+  view: {
+    list: "Danh sách",
+    board: "Board (Kanban)",
+    label: "Kiểu xem",
   },
   board: {
     idle: "{n}d",
+    empty: "Trống",
   },
   table: {
     searchLeads: "Lọc trong danh sách…",
-    lead: "Lead",
-    company: "Company",
-    stage: "Stage",
-    amount: "Value",
-    owner: "Owner",
-    idle: "Idle",
-    source: "Source",
-    lastActivity: "Last activity",
-    nextAction: "Next",
-    edit: "Edit",
-    open: "Open",
-    emptyAll: "Chưa có lead",
-    emptyFiltered: "Không tìm thấy lead",
-    emptyHint: "Đổi bộ lọc hoặc thêm lead mới.",
+    lead: "Deal",
+    company: "Company (Công ty)",
+    stage: "Stage (Giai đoạn)",
+    amount: "Value (Giá trị)",
+    owner: "Owner (Phụ trách)",
+    idle: "Idle (Im lặng)",
+    source: "Source (Nguồn)",
+    lastActivity: "Last activity (Hoạt động gần nhất)",
+    nextAction: "Next (Tiếp theo)",
+    edit: "Edit (Sửa)",
+    open: "Open (Mở)",
+    emptyAll: "Chưa có deal",
+    emptyFiltered: "Không tìm thấy deal",
+    emptyHint: "Đổi bộ lọc hoặc thêm deal mới.",
     loading: "Đang tải…",
     showing: "{from}–{to} / {total}",
   },
   nextAction: {
-    followUp: "Follow up",
-    qualify: "Qualify",
-    discover: "Discover call",
-    propose: "Send proposal",
-    close: "Close deal",
-    deliver: "Kickoff",
-    nurture: "Nurture",
+    followUp: "Follow up (Gọi lại)",
+    qualify: "Survey (Khảo sát)",
+    discover: "Discover call (Gọi khám phá)",
+    propose: "Send proposal (Gửi báo giá)",
+    close: "Close deal (Chốt deal)",
+    deliver: "Kickoff (Kickoff)",
+    nurture: "Nurture (Nuôi dưỡng)",
     none: "—",
   },
   drawer: {
-    lead: "Lead",
-    contactSection: "Contact",
+    lead: "Deal",
+    contactSection: "Contact (Liên hệ)",
     dealSection: "Deal",
-    activitySection: "Activity",
-    notesSection: "Notes",
-    timelineSection: "Timeline",
-    stage: "Stage",
-    amount: "Value",
-    account: "Company",
-    contact: "Person",
-    phone: "Phone",
-    close: "Expected close",
-    owner: "Owner",
-    idle: "Idle",
-    lastActivity: "Last activity",
-    nextAction: "Suggested next",
-    note: "Notes",
-    delete: "Delete",
-    edit: "Edit lead",
-    deleteConfirm: "Xóa lead “{title}”?",
-    emptyTitle: "Chọn một lead",
-    emptyBody: "Click một dòng trong bảng để xem chi tiết, đổi stage và follow-up.",
-    created: "Lead created",
-    activityTouch: "Last activity recorded",
-    noteOnFile: "Note on file",
+    activitySection: "Activity (Hoạt động)",
+    notesSection: "Notes (Ghi chú)",
+    timelineSection: "Timeline (Dòng thời gian)",
+    profile360: "Customer 360°",
+    profile360Soon:
+      "Lịch sử gọi / email / họp / hợp đồng đầy đủ — sắp có trong workspace CRM.",
+    stage: "Stage (Giai đoạn)",
+    amount: "Value (Giá trị)",
+    account: "Company (Công ty)",
+    contact: "Person (Người liên hệ)",
+    phone: "Phone (SĐT)",
+    close: "Expected close (Ngày chốt dự kiến)",
+    owner: "Owner (Phụ trách)",
+    idle: "Idle (Im lặng)",
+    lastActivity: "Last activity (Hoạt động gần nhất)",
+    nextAction: "Suggested next (Gợi ý tiếp theo)",
+    note: "Notes (Ghi chú)",
+    delete: "Delete (Xóa)",
+    edit: "Edit deal (Sửa deal)",
+    deleteConfirm: "Xóa deal “{title}”?",
+    emptyTitle: "Chọn một deal",
+    emptyBody: "Click một dòng hoặc thẻ board để xem chi tiết và đổi stage.",
+    created: "Deal created (Deal được tạo)",
+    activityTouch: "Last activity recorded (Ghi nhận hoạt động gần nhất)",
+    noteOnFile: "Note on file (Có ghi chú)",
     noTimeline: "Chưa có mốc nào ngoài thời gian tạo.",
   },
   form: {
-    editTitle: "Edit lead",
-    newTitle: "New lead",
-    sectionBasic: "Basic information",
-    sectionSales: "Sales information",
-    sectionContext: "Context",
-    dealTitle: "Lead / deal name",
-    dealTitlePh: "Salon website + Care…",
-    company: "Company",
-    contactName: "Contact name",
-    phone: "Phone / Zalo",
-    amount: "Value",
-    currency: "Currency",
-    stage: "Stage",
-    closeDate: "Expected close",
-    owner: "Owner",
-    source: "Source",
-    atRisk: "Mark at-risk",
-    note: "Notes",
-    cancel: "Cancel",
-    save: "Save",
-    saving: "Saving…",
+    editTitle: "Edit deal (Sửa deal)",
+    newTitle: "New deal (Deal mới)",
+    sectionBasic: "Basic information (Thông tin cơ bản)",
+    sectionSales: "Sales information (Thông tin bán hàng)",
+    sectionContext: "Context (Ngữ cảnh)",
+    dealTitle: "Deal name (Tên deal)",
+    dealTitlePh: "Website DN + Care 12 tháng…",
+    company: "Company (Công ty)",
+    contactName: "Contact name (Tên liên hệ)",
+    phone: "Phone / Zalo (SĐT / Zalo)",
+    amount: "Value (Giá trị)",
+    currency: "Currency (Tiền tệ)",
+    stage: "Stage (Giai đoạn)",
+    closeDate: "Expected close (Ngày chốt dự kiến)",
+    owner: "Owner (Phụ trách)",
+    source: "Source (Nguồn)",
+    atRisk: "Mark at-risk (Đánh dấu rủi ro)",
+    note: "Notes (Ghi chú)",
+    cancel: "Cancel (Hủy)",
+    save: "Save (Lưu)",
+    saving: "Saving… (Đang lưu…)",
     requiredFields: "Tên liên hệ và SĐT bắt buộc",
   },
   filters: {
-    owner: "Owner",
-    ownerAll: "All owners",
-    source: "Source",
-    excludeCareers: "Exclude careers",
-    allSources: "All sources",
-    idle: "Idle",
-    idleAll: "Any idle",
-    idleOk: "0–2 days",
-    idleWarn: "3–6 days",
-    idleBad: "7+ days",
+    owner: "Owner (Phụ trách)",
+    ownerAll: "All owners (Tất cả phụ trách)",
+    source: "Source (Nguồn)",
+    excludeCareers: "Exclude careers (Không gồm careers)",
+    allSources: "All sources (Tất cả nguồn)",
+    idle: "Idle (Im lặng)",
+    idleAll: "Any idle (Mọi mức idle)",
+    idleOk: "0–2 days (0–2 ngày)",
+    idleWarn: "3–6 days (3–6 ngày)",
+    idleBad: "7+ days (7+ ngày)",
   },
   playbook: {
-    title: "Sales playbook",
-    intro: "Pipeline Dolphin — bắt đầu từ vấn đề, không từ sản phẩm.",
-    qualifyTitle: "Qualify questions",
+    title: "Sales playbook (Kịch bản B2B)",
+    intro:
+      "Pipeline giải pháp / hợp đồng — bắt đầu từ vấn đề, không từ sản phẩm. Chu kỳ dài, nhiều vòng khảo sát & đàm phán.",
+    qualifyTitle: "Qualify questions (Câu hỏi đánh giá)",
     sla: "SLA",
-    output: "Output",
+    output: "Output (Đầu ra)",
     principles: [
       "Bắt đầu từ vấn đề, không từ sản phẩm.",
       "Cold SMB: không mở bằng AI Agent — ưu tiên website / báo giá khi khớp.",
@@ -411,30 +494,30 @@ const VI: DolphinSalesCopy = {
     steps: [
       {
         stage: "new",
-        title: "Lead vào",
-        body: "Thu lead từ Zalo, form quote/contact, hoặc nhập tay. Ghi source + note ngắn. Không mở đầu bằng AI Agent.",
+        title: "Mới tiếp cận",
+        body: "Thu cơ hội từ Zalo, form quote/contact, hoặc nhập tay. Ghi source + note ngắn. Không mở đầu bằng AI Agent.",
         sla: "≤ 1 giờ (giờ HC); ngoài giờ ≤ 8h sáng hôm sau",
-        output: "Record trong leads",
+        output: "Deal record",
       },
       {
         stage: "qualified",
-        title: "Qualify",
+        title: "Đang khảo sát",
         body: "Hỏi pain, mục tiêu, timeline, ai quyết định. Phân loại: Build web / Care–Ops / Custom / Không fit.",
         sla: "≤ 24 giờ",
         output: "Stage + hướng tiếp theo",
       },
       {
         stage: "discover",
-        title: "Discover",
+        title: "Khảo sát sâu",
         body: "15–30’ nghe: bán gì, khách tìm thế nào, lead đang trôi đâu, đã có site chưa.",
-        sla: "Trong 2–3 ngày sau qualify",
+        sla: "Trong 2–3 ngày sau khảo sát",
         output: "Brief 5–8 dòng",
       },
       {
         stage: "propose",
-        title: "Propose",
-        body: "Scope rõ (landing / site DN / Care…) + mốc + bàn giao. Báo giá theo phạm vi.",
-        sla: "≤ 2 ngày sau discover",
+        title: "Báo giá / Thương lượng",
+        body: "Scope rõ + mốc + bàn giao. Gửi báo giá, đàm phán điều khoản.",
+        sla: "≤ 2 ngày sau khảo sát sâu",
         output: "Quote / phiếu báo giá",
       },
       {
@@ -446,7 +529,7 @@ const VI: DolphinSalesCopy = {
       },
       {
         stage: "deliver",
-        title: "Deliver",
+        title: "Deliver (Bàn giao)",
         body: "Làm theo milestone, demo định kỳ, bàn giao source + hướng dẫn vận hành.",
         sla: "Theo scope đã ký",
         output: "Go-live + handover",
@@ -465,33 +548,37 @@ const VI: DolphinSalesCopy = {
 };
 
 const EN: DolphinSalesCopy = {
-  brand: "Dolphin Sales",
+  brand: "Dolphin Admin",
   workspaceName: "Dolphin Software",
   loading: "Loading…",
   soon: "Soon",
   gate: {
     title: "Sign in to workspace",
-    lead: "Internal pipeline CRM — paste your workspace token (session only). SaaS accounts come later.",
+    lead: "Dolphin Admin — internal CRM / Sales. Paste your workspace token (session only).",
     tokenLabel: "Workspace token",
     tokenPlaceholder: "LEADS_ADMIN_TOKEN…",
     submit: "Continue",
     back: "← Demo vault",
     tokenRequired: "Enter workspace token",
   },
+  workspaces: {
+    label: "Workspace",
+    sale: "Sale",
+    crm: "CRM",
+    analytics: "Analytics",
+  },
   side: {
     search: "Search",
-    workspace: "Workspace",
-    crm: "CRM",
-    sales: "Sales",
-    analytics: "Analytics",
-    navPipeline: "Lead Pipeline",
-    navDeals: "Deals",
-    navContacts: "Contacts",
-    navCompanies: "Companies",
+    saleGroup: "Sale",
+    crmGroup: "CRM",
+    analyticsGroup: "Analytics",
+    navPipeline: "Sales Pipeline",
     navPlaybook: "Playbook",
     navActivities: "Activities",
+    navContacts: "Contacts",
+    navCompanies: "Companies",
     navOverview: "Overview",
-    reports: "Reports",
+    navReports: "Reports",
     refresh: "Refresh",
     refreshing: "Refreshing…",
     demoVault: "Demo vault",
@@ -500,35 +587,71 @@ const EN: DolphinSalesCopy = {
     available: "Available",
   },
   top: {
-    searchPlaceholder: "Search leads, deals, contacts…",
-    breadcrumbHome: "Dolphin Sales",
+    searchPlaceholder: "Search deals, contacts…",
+    breadcrumbHome: "Dolphin Admin",
     filters: "Filters",
     clearFilters: "Clear filters",
     filtersActive: "active",
   },
   hero: {
-    title: "Lead Pipeline",
+    title: "Sales Pipeline",
     description:
-      "Track prospects, follow-ups, and opportunities across your sales pipeline.",
-    newDeal: "Add Lead",
+      "B2B / solutions & contracts — track opportunities from outreach to close. Long cycle, high value, multi-touch negotiation.",
+    newDeal: "Add Deal",
+  },
+  forecast: {
+    title: "Sales Forecasting",
+    hint: "Stage-weighted heuristic — not a full SaaS forecast engine yet.",
+    pipeline: "Open pipeline",
+    weighted: "Weighted forecast",
+    winRate: "Win rate",
+  },
+  teamKpi: {
+    title: "Team KPI",
+    owner: "Owner",
+    openDeals: "Open deals",
+    won: "Won",
+    winRate: "Win rate",
+    atRisk: "At risk",
+    soonCalls: "Calls — coming soon",
+    soonMeetings: "Meetings — coming soon",
+  },
+  crmPage: {
+    title: "CRM",
+    description:
+      "Customer 360° — calls, email, meetings, signed contracts. Separate from the Sale pipeline workspace.",
+    soonTitle: "CRM 360° coming soon",
+    soonBody:
+      "Contacts / Companies and full activity log land here. For now use deal notes + minimal timeline in Sale.",
+  },
+  analyticsPage: {
+    title: "Analytics",
+    description:
+      "Pipeline health, heuristic forecast, and owner KPIs from live deal data.",
   },
   kpi: {
-    totalLeads: "Total leads",
-    qualified: "Qualified",
+    totalLeads: "Total deals",
+    qualified: "Survey",
     inProgress: "In progress",
-    converted: "Converted",
+    converted: "Won",
     pipelineValue: "Pipeline value",
     atRisk: "At risk",
   },
   tabs: {
     all: "All",
   },
+  view: {
+    list: "List",
+    board: "Board",
+    label: "View",
+  },
   board: {
     idle: "{n}d",
+    empty: "Empty",
   },
   table: {
     searchLeads: "Filter this list…",
-    lead: "Lead",
+    lead: "Deal",
     company: "Company",
     stage: "Stage",
     amount: "Value",
@@ -539,15 +662,15 @@ const EN: DolphinSalesCopy = {
     nextAction: "Next",
     edit: "Edit",
     open: "Open",
-    emptyAll: "No leads yet",
-    emptyFiltered: "No leads found",
-    emptyHint: "Try changing your filters or add a new lead.",
+    emptyAll: "No deals yet",
+    emptyFiltered: "No deals found",
+    emptyHint: "Try changing your filters or add a new deal.",
     loading: "Loading…",
     showing: "{from}–{to} of {total}",
   },
   nextAction: {
     followUp: "Follow up",
-    qualify: "Qualify",
+    qualify: "Survey",
     discover: "Discover call",
     propose: "Send proposal",
     close: "Close deal",
@@ -556,12 +679,15 @@ const EN: DolphinSalesCopy = {
     none: "—",
   },
   drawer: {
-    lead: "Lead",
+    lead: "Deal",
     contactSection: "Contact",
     dealSection: "Deal",
     activitySection: "Activity",
     notesSection: "Notes",
     timelineSection: "Timeline",
+    profile360: "Customer 360°",
+    profile360Soon:
+      "Full call / email / meeting / contract history — coming in the CRM workspace.",
     stage: "Stage",
     amount: "Value",
     account: "Company",
@@ -574,23 +700,23 @@ const EN: DolphinSalesCopy = {
     nextAction: "Suggested next",
     note: "Notes",
     delete: "Delete",
-    edit: "Edit lead",
-    deleteConfirm: "Delete lead “{title}”?",
-    emptyTitle: "Select a lead",
-    emptyBody: "Click a row to inspect details, change stage, and follow up.",
-    created: "Lead created",
+    edit: "Edit deal",
+    deleteConfirm: "Delete deal “{title}”?",
+    emptyTitle: "Select a deal",
+    emptyBody: "Click a row or board card to inspect details and change stage.",
+    created: "Deal created",
     activityTouch: "Last activity recorded",
     noteOnFile: "Note on file",
     noTimeline: "No milestones beyond creation time.",
   },
   form: {
-    editTitle: "Edit lead",
-    newTitle: "New lead",
+    editTitle: "Edit deal",
+    newTitle: "New deal",
     sectionBasic: "Basic information",
     sectionSales: "Sales information",
     sectionContext: "Context",
-    dealTitle: "Lead / deal name",
-    dealTitlePh: "Salon website + Care…",
+    dealTitle: "Deal name",
+    dealTitlePh: "Business site + Care 12 mo…",
     company: "Company",
     contactName: "Contact name",
     phone: "Phone / Zalo",
@@ -621,7 +747,8 @@ const EN: DolphinSalesCopy = {
   },
   playbook: {
     title: "Sales playbook",
-    intro: "Dolphin pipeline — start from the problem, not the product.",
+    intro:
+      "Solutions / contract pipeline — start from the problem, not the product. Long cycle, multi-touch survey & negotiation.",
     qualifyTitle: "Qualify questions",
     sla: "SLA",
     output: "Output",
@@ -639,35 +766,35 @@ const EN: DolphinSalesCopy = {
     steps: [
       {
         stage: "new",
-        title: "Lead in",
+        title: "New outreach",
         body: "Capture from Zalo, quote/contact forms, or manual entry. Log source + short note. Don’t open with AI Agent.",
         sla: "≤ 1h (business hours); after hours ≤ 8am next day",
-        output: "Lead record",
+        output: "Deal record",
       },
       {
         stage: "qualified",
-        title: "Qualify",
+        title: "Survey",
         body: "Ask pain, goal, timeline, decision-maker. Route: Build web / Care–Ops / Custom / Out of scope.",
         sla: "≤ 24 hours",
         output: "Stage + next step",
       },
       {
         stage: "discover",
-        title: "Discover",
+        title: "Deep discovery",
         body: "15–30’ listen: what they sell, how customers find them, where leads leak, existing site.",
-        sla: "Within 2–3 days after qualify",
+        sla: "Within 2–3 days after survey",
         output: "5–8 line brief",
       },
       {
         stage: "propose",
-        title: "Propose",
-        body: "Clear scope (landing / business site / Care…) + milestones + handover. Quote by scope.",
-        sla: "≤ 2 days after discover",
+        title: "Quote / negotiation",
+        body: "Clear scope + milestones + handover. Send quote, negotiate terms.",
+        sla: "≤ 2 days after deep discovery",
         output: "Quote",
       },
       {
         stage: "won",
-        title: "Close / Won",
+        title: "Won / closed",
         body: "Close package, deposit, kickoff. Record warranty terms.",
         sla: "Per customer schedule",
         output: "Contract / Zalo confirm + payment",

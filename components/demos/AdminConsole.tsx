@@ -43,7 +43,9 @@ import {
 } from "@/lib/demos/sales-process";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
 
-type NavId = "pipeline" | "playbook";
+type WorkspaceId = "sale" | "crm" | "analytics";
+type SaleNavId = "pipeline" | "playbook";
+type PipelineView = "list" | "board";
 type SourceFilter = "all" | "exclude-careers" | AdminLeadSource;
 type StageTab = "all" | LeadStage;
 type OwnerFilter = "all" | string;
@@ -96,7 +98,22 @@ const STAGE_TABS: LeadStage[] = [
   "discover",
   "propose",
   "won",
+  "lost",
 ];
+
+/** Heuristic win probability by stage — UI forecast only. */
+const STAGE_WEIGHT: Partial<Record<LeadStage, number>> = {
+  new: 0.1,
+  qualified: 0.25,
+  discover: 0.4,
+  propose: 0.65,
+  won: 1,
+  deliver: 1,
+  expand: 0.8,
+  lost: 0,
+  nurture: 0.15,
+  out_of_scope: 0,
+};
 
 const PAGE_SIZE = 10;
 
@@ -369,7 +386,8 @@ export function AdminConsole() {
   const [localeReady, setLocaleReady] = useState(false);
   const t = useMemo(() => getDolphinSalesCopy(salesLocale), [salesLocale]);
 
-  const [nav, setNav] = useState<NavId>("pipeline");
+  const [workspace, setWorkspace] = useState<WorkspaceId>("sale");
+  const [nav, setNav] = useState<SaleNavId>("pipeline");
   const [token, setToken] = useState("");
   const [tokenReady, setTokenReady] = useState(false);
   const [tokenInput, setTokenInput] = useState("");
@@ -384,6 +402,7 @@ export function AdminConsole() {
   const [idleFilter, setIdleFilter] = useState<IdleFilter>("all");
   const [filtersOpen, setFiltersOpen] = useState(false);
   const [stageTab, setStageTab] = useState<StageTab>("all");
+  const [pipelineView, setPipelineView] = useState<PipelineView>("list");
   const [page, setPage] = useState(0);
   const [editorOpen, setEditorOpen] = useState(false);
   const [editing, setEditing] = useState<AdminLead | null>(null);
@@ -521,10 +540,59 @@ export function AdminConsole() {
     const openAmount = scoped
       .filter((l) => OPEN_STAGES.includes(l.stage))
       .reduce((s, l) => s + (l.amount || 0), 0);
+    const weighted = scoped
+      .filter((l) => OPEN_STAGES.includes(l.stage) || l.stage === "won")
+      .reduce(
+        (s, l) => s + (l.amount || 0) * (STAGE_WEIGHT[l.stage] ?? 0),
+        0,
+      );
+    const decided = scoped.filter(
+      (l) =>
+        l.stage === "won" ||
+        l.stage === "deliver" ||
+        l.stage === "expand" ||
+        l.stage === "lost" ||
+        l.stage === "out_of_scope",
+    ).length;
+    const winRate = decided === 0 ? 0 : Math.round((converted / decided) * 100);
     const atRisk = scoped.filter(
       (l) => l.atRisk || idleDays(l.lastActivityAt) > 6,
     ).length;
-    return { total, qualified, inProgress, converted, openAmount, atRisk };
+    return {
+      total,
+      qualified,
+      inProgress,
+      converted,
+      openAmount,
+      weighted,
+      winRate,
+      atRisk,
+    };
+  }, [scoped]);
+
+  const teamRows = useMemo(() => {
+    return LEAD_OWNERS.map((owner) => {
+      const rows = scoped.filter((l) => normalizeLeadOwner(l.owner) === owner);
+      const open = rows.filter((l) => OPEN_STAGES.includes(l.stage)).length;
+      const won = rows.filter(
+        (l) =>
+          l.stage === "won" || l.stage === "deliver" || l.stage === "expand",
+      ).length;
+      const decided = rows.filter(
+        (l) =>
+          l.stage === "won" ||
+          l.stage === "deliver" ||
+          l.stage === "expand" ||
+          l.stage === "lost" ||
+          l.stage === "out_of_scope",
+      ).length;
+      const winRate =
+        decided === 0 ? 0 : Math.round((won / decided) * 100);
+      const atRisk = rows.filter(
+        (l) => l.atRisk || idleDays(l.lastActivityAt) > 6,
+      ).length;
+      return { owner, open, won, winRate, atRisk, total: rows.length };
+    });
   }, [scoped]);
 
   const stageCounts = useMemo(() => {
@@ -539,6 +607,18 @@ export function AdminConsole() {
     if (stageTab === "all") return scoped;
     return scoped.filter((l) => l.stage === stageTab);
   }, [scoped, stageTab]);
+
+  const boardColumns = useMemo(() => {
+    const stages: LeadStage[] = [...STAGE_TABS];
+    for (const lead of filtered) {
+      if (!stages.includes(lead.stage)) stages.push(lead.stage);
+    }
+    const visible = stageTab === "all" ? stages : stages.filter((s) => s === stageTab);
+    return visible.map((stage) => ({
+      stage,
+      leads: filtered.filter((lead) => lead.stage === stage),
+    }));
+  }, [filtered, stageTab]);
 
   useEffect(() => {
     setPage(0);
@@ -771,6 +851,20 @@ export function AdminConsole() {
         ? t.table.emptyFiltered
         : t.table.emptyAll;
 
+  function switchWorkspace(next: WorkspaceId) {
+    setWorkspace(next);
+    if (next === "sale") setNav("pipeline");
+  }
+
+  const crumbLabel =
+    workspace === "crm"
+      ? t.workspaces.crm
+      : workspace === "analytics"
+        ? t.workspaces.analytics
+        : nav === "playbook"
+          ? t.side.navPlaybook
+          : t.hero.title;
+
   return (
     <div className="df">
       <aside className="df-side" aria-label={t.brand}>
@@ -782,72 +876,104 @@ export function AdminConsole() {
           </div>
         </div>
 
-        <p className="df-side__label">{t.side.workspace}</p>
-        <nav className="df-side__nav">
+        <p className="df-side__label">{t.workspaces.label}</p>
+        <nav className="df-side__nav df-side__workspaces" aria-label={t.workspaces.label}>
           <button
             type="button"
-            className={nav === "pipeline" ? "is-active" : undefined}
-            onClick={() => setNav("pipeline")}
+            className={workspace === "sale" ? "is-active" : undefined}
+            onClick={() => switchWorkspace("sale")}
           >
             <NavIcon name="pipeline" />
-            {t.side.navPipeline}
+            {t.workspaces.sale}
           </button>
-        </nav>
-
-        <p className="df-side__label">{t.side.crm}</p>
-        <nav className="df-side__nav">
           <button
             type="button"
-            className={nav === "pipeline" ? "is-active" : undefined}
-            onClick={() => setNav("pipeline")}
+            className={workspace === "crm" ? "is-active" : undefined}
+            onClick={() => switchWorkspace("crm")}
           >
-            <NavIcon name="deals" />
-            {t.side.navDeals}
-          </button>
-          <button type="button" disabled title={t.soon}>
             <NavIcon name="contacts" />
-            {t.side.navContacts}
-            <span className="df-side__soon">{t.soon}</span>
+            {t.workspaces.crm}
           </button>
-          <button type="button" disabled title={t.soon}>
-            <NavIcon name="companies" />
-            {t.side.navCompanies}
-            <span className="df-side__soon">{t.soon}</span>
-          </button>
-        </nav>
-
-        <p className="df-side__label">{t.side.sales}</p>
-        <nav className="df-side__nav">
           <button
             type="button"
-            className={nav === "playbook" ? "is-active" : undefined}
-            onClick={() => setNav("playbook")}
-          >
-            <NavIcon name="playbook" />
-            {t.side.navPlaybook}
-          </button>
-          <button type="button" disabled title={t.soon}>
-            <NavIcon name="activities" />
-            {t.side.navActivities}
-            <span className="df-side__soon">{t.soon}</span>
-          </button>
-        </nav>
-
-        <p className="df-side__label">{t.side.analytics}</p>
-        <nav className="df-side__nav">
-          <button
-            type="button"
-            onClick={() => void refresh(token)}
+            className={workspace === "analytics" ? "is-active" : undefined}
+            onClick={() => switchWorkspace("analytics")}
           >
             <NavIcon name="overview" />
-            {loading ? t.side.refreshing : t.side.refresh}
-          </button>
-          <button type="button" disabled title={t.soon}>
-            <NavIcon name="reports" />
-            {t.side.reports}
-            <span className="df-side__soon">{t.soon}</span>
+            {t.workspaces.analytics}
           </button>
         </nav>
+
+        {workspace === "sale" ? (
+          <>
+            <p className="df-side__label">{t.side.saleGroup}</p>
+            <nav className="df-side__nav">
+              <button
+                type="button"
+                className={nav === "pipeline" ? "is-active" : undefined}
+                onClick={() => setNav("pipeline")}
+              >
+                <NavIcon name="deals" />
+                {t.side.navPipeline}
+              </button>
+              <button
+                type="button"
+                className={nav === "playbook" ? "is-active" : undefined}
+                onClick={() => setNav("playbook")}
+              >
+                <NavIcon name="playbook" />
+                {t.side.navPlaybook}
+              </button>
+              <button type="button" disabled title={t.soon}>
+                <NavIcon name="activities" />
+                {t.side.navActivities}
+                <span className="df-side__soon">{t.soon}</span>
+              </button>
+            </nav>
+          </>
+        ) : null}
+
+        {workspace === "crm" ? (
+          <>
+            <p className="df-side__label">{t.side.crmGroup}</p>
+            <nav className="df-side__nav">
+              <button type="button" disabled title={t.soon}>
+                <NavIcon name="contacts" />
+                {t.side.navContacts}
+                <span className="df-side__soon">{t.soon}</span>
+              </button>
+              <button type="button" disabled title={t.soon}>
+                <NavIcon name="companies" />
+                {t.side.navCompanies}
+                <span className="df-side__soon">{t.soon}</span>
+              </button>
+            </nav>
+          </>
+        ) : null}
+
+        {workspace === "analytics" ? (
+          <>
+            <p className="df-side__label">{t.side.analyticsGroup}</p>
+            <nav className="df-side__nav">
+              <button type="button" className="is-active">
+                <NavIcon name="overview" />
+                {t.side.navOverview}
+              </button>
+              <button type="button" disabled title={t.soon}>
+                <NavIcon name="reports" />
+                {t.side.navReports}
+                <span className="df-side__soon">{t.soon}</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => void refresh(token)}
+              >
+                <NavIcon name="overview" />
+                {loading ? t.side.refreshing : t.side.refresh}
+              </button>
+            </nav>
+          </>
+        ) : null}
 
         <div className="df-side__foot">
           {langSwitch}
@@ -873,9 +999,7 @@ export function AdminConsole() {
           <nav className="df-crumb" aria-label="Breadcrumb">
             <span>{t.top.breadcrumbHome}</span>
             <span aria-hidden>/</span>
-            <strong>
-              {nav === "playbook" ? t.side.navPlaybook : t.hero.title}
-            </strong>
+            <strong>{crumbLabel}</strong>
           </nav>
           <label className="df-topbar__search">
             <span className="df__sr">{t.side.search}</span>
@@ -895,7 +1019,7 @@ export function AdminConsole() {
               </span>
             ) : (
               <span className="df-chip">
-                {metrics.total} leads
+                {metrics.total} deals
               </span>
             )}
           </div>
@@ -904,7 +1028,129 @@ export function AdminConsole() {
         <div className="df-canvas">
           {error ? <p className="df__error">{error}</p> : null}
 
-          {nav === "pipeline" ? (
+          {workspace === "crm" ? (
+            <div className="df-panel">
+              <div className="df-panel__head">
+                <div>
+                  <h1>{t.crmPage.title}</h1>
+                  <p>{t.crmPage.description}</p>
+                </div>
+              </div>
+              <div className="df-soon-card">
+                <h2>{t.crmPage.soonTitle}</h2>
+                <p>{t.crmPage.soonBody}</p>
+                <button
+                  type="button"
+                  className="df-btn"
+                  onClick={() => switchWorkspace("sale")}
+                >
+                  {t.workspaces.sale}
+                </button>
+              </div>
+            </div>
+          ) : null}
+
+          {workspace === "analytics" ? (
+            <div className="df-panel">
+              <div className="df-panel__head">
+                <div>
+                  <h1>{t.analyticsPage.title}</h1>
+                  <p>{t.analyticsPage.description}</p>
+                </div>
+                <button
+                  type="button"
+                  className="df-btn is-ghost"
+                  onClick={() => void refresh(token)}
+                >
+                  {loading ? t.side.refreshing : t.side.refresh}
+                </button>
+              </div>
+
+              <section className="df-kpis" aria-label="KPIs">
+                <article className="df-kpi">
+                  <p>{t.kpi.totalLeads}</p>
+                  <strong>{metrics.total}</strong>
+                </article>
+                <article className="df-kpi">
+                  <p>{t.kpi.converted}</p>
+                  <strong>{metrics.converted}</strong>
+                </article>
+                <article className="df-kpi">
+                  <p>{t.forecast.winRate}</p>
+                  <strong>{metrics.winRate}%</strong>
+                </article>
+                <article className={`df-kpi${metrics.atRisk ? " is-warn" : ""}`}>
+                  <p>{t.kpi.atRisk}</p>
+                  <strong>{metrics.atRisk}</strong>
+                </article>
+              </section>
+
+              <section className="df-forecast" aria-labelledby="df-forecast-h">
+                <div className="df-forecast__head">
+                  <h2 id="df-forecast-h">{t.forecast.title}</h2>
+                  <p>{t.forecast.hint}</p>
+                </div>
+                <div className="df-forecast__grid">
+                  <article>
+                    <p>{t.forecast.pipeline}</p>
+                    <strong>
+                      {formatMoney(metrics.openAmount, "VND", salesLocale)}
+                    </strong>
+                  </article>
+                  <article>
+                    <p>{t.forecast.weighted}</p>
+                    <strong>
+                      {formatMoney(metrics.weighted, "VND", salesLocale)}
+                    </strong>
+                  </article>
+                  <article>
+                    <p>{t.forecast.winRate}</p>
+                    <strong>{metrics.winRate}%</strong>
+                  </article>
+                </div>
+              </section>
+
+              <section className="df-team" aria-labelledby="df-team-h">
+                <h2 id="df-team-h">{t.teamKpi.title}</h2>
+                <p className="df__muted">
+                  {t.teamKpi.soonCalls} · {t.teamKpi.soonMeetings}
+                </p>
+                <div className="df-table-wrap">
+                  <table className="df-table">
+                    <thead>
+                      <tr>
+                        <th>{t.teamKpi.owner}</th>
+                        <th className="is-num">{t.teamKpi.openDeals}</th>
+                        <th className="is-num">{t.teamKpi.won}</th>
+                        <th className="is-num">{t.teamKpi.winRate}</th>
+                        <th className="is-num">{t.teamKpi.atRisk}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {teamRows.map((row) => (
+                        <tr key={row.owner}>
+                          <td>
+                            <span className="df-owner">
+                              <span className="df-avatar df-avatar--sm">
+                                {ownerInitials(row.owner)}
+                              </span>
+                              {row.owner}
+                            </span>
+                          </td>
+                          <td className="is-num">{row.open}</td>
+                          <td className="is-num">{row.won}</td>
+                          <td className="is-num">{row.winRate}%</td>
+                          <td className="is-num">{row.atRisk}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </section>
+            </div>
+          ) : null}
+
+          {workspace === "sale" && nav === "pipeline" ? (
             <div className="df-panel">
               <div className="df-panel__head">
                 <div>
@@ -955,6 +1201,31 @@ export function AdminConsole() {
                   <p>{t.kpi.atRisk}</p>
                   <strong>{metrics.atRisk}</strong>
                 </article>
+              </section>
+
+              <section className="df-forecast df-forecast--compact" aria-labelledby="df-sale-forecast-h">
+                <div className="df-forecast__head">
+                  <h2 id="df-sale-forecast-h">{t.forecast.title}</h2>
+                  <p>{t.forecast.hint}</p>
+                </div>
+                <div className="df-forecast__grid">
+                  <article>
+                    <p>{t.forecast.pipeline}</p>
+                    <strong>
+                      {formatMoney(metrics.openAmount, "VND", salesLocale)}
+                    </strong>
+                  </article>
+                  <article>
+                    <p>{t.forecast.weighted}</p>
+                    <strong>
+                      {formatMoney(metrics.weighted, "VND", salesLocale)}
+                    </strong>
+                  </article>
+                  <article>
+                    <p>{t.forecast.winRate}</p>
+                    <strong>{metrics.winRate}%</strong>
+                  </article>
+                </div>
               </section>
 
               {filtersOpen ? (
@@ -1019,6 +1290,26 @@ export function AdminConsole() {
 
               <section className="df-table-card">
                 <div className="df-table-tools">
+                  <div className="df-view" role="tablist" aria-label={t.view.label}>
+                    <button
+                      type="button"
+                      role="tab"
+                      className={pipelineView === "list" ? "is-active" : undefined}
+                      aria-selected={pipelineView === "list"}
+                      onClick={() => setPipelineView("list")}
+                    >
+                      {t.view.list}
+                    </button>
+                    <button
+                      type="button"
+                      role="tab"
+                      className={pipelineView === "board" ? "is-active" : undefined}
+                      aria-selected={pipelineView === "board"}
+                      onClick={() => setPipelineView("board")}
+                    >
+                      {t.view.board}
+                    </button>
+                  </div>
                   <div className="df-stages" role="tablist" aria-label="Stages">
                     <button
                       type="button"
@@ -1053,6 +1344,70 @@ export function AdminConsole() {
                   />
                 </div>
 
+                {pipelineView === "board" ? (
+                  <div className="df-board" role="region" aria-label={t.view.board}>
+                    {boardColumns.map((column) => (
+                      <section key={column.stage} className="df-board__col">
+                        <header className="df-board__head">
+                          <span className={`df-status ${stageTone(column.stage)}`}>
+                            {salesStageShort(salesLocale, column.stage)}
+                          </span>
+                          <em>{column.leads.length}</em>
+                        </header>
+                        <div className="df-board__list">
+                          {column.leads.length === 0 ? (
+                            <p className="df-board__empty">{t.board.empty}</p>
+                          ) : (
+                            column.leads.map((lead) => {
+                              const idle = idleDays(lead.lastActivityAt);
+                              return (
+                                <button
+                                  key={lead.id}
+                                  type="button"
+                                  className={
+                                    selectedId === lead.id
+                                      ? "df-board-card is-selected"
+                                      : "df-board-card"
+                                  }
+                                  onClick={() => selectDeal(lead.id)}
+                                >
+                                  <strong>{lead.title || lead.name}</strong>
+                                  <span>{lead.company || lead.name}</span>
+                                  <span className="df-board-card__meta">
+                                    <em>
+                                      {formatMoney(
+                                        lead.amount,
+                                        lead.currency,
+                                        salesLocale,
+                                      )}
+                                    </em>
+                                    <span
+                                      className={`df-idle is-${idleTone(idle)}`}
+                                    >
+                                      {fillTemplate(t.board.idle, { n: idle })}
+                                    </span>
+                                  </span>
+                                  <span className="df-board-card__foot">
+                                    <span className="df-owner">
+                                      <span className="df-avatar df-avatar--sm">
+                                        {ownerInitials(lead.owner)}
+                                      </span>
+                                      {lead.owner}
+                                    </span>
+                                    <span className="df-next">
+                                      {suggestedNext(lead, t)}
+                                    </span>
+                                  </span>
+                                </button>
+                              );
+                            })
+                          )}
+                        </div>
+                      </section>
+                    ))}
+                  </div>
+                ) : (
+                <>
                 <div className="df-table-wrap">
                   <table className="df-table">
                     <thead>
@@ -1205,11 +1560,13 @@ export function AdminConsole() {
                     </button>
                   </div>
                 </div>
+                </>
+                )}
               </section>
             </div>
           ) : null}
 
-          {nav === "playbook" ? (
+          {workspace === "sale" && nav === "playbook" ? (
             <div className="df-panel df-playbook">
               <h1>{t.playbook.title}</h1>
               <p className="df-playbook__intro">{t.playbook.intro}</p>
@@ -1254,7 +1611,7 @@ export function AdminConsole() {
         </div>
       </div>
 
-      {editorOpen ? (
+      {workspace !== "sale" ? null : editorOpen ? (
         <aside className="df-detail" aria-labelledby="df-detail-h">
           <header>
             <div>
@@ -1566,6 +1923,11 @@ export function AdminConsole() {
               <p className="df-detail__note">
                 {selected.note?.trim() || "—"}
               </p>
+            </section>
+
+            <section className="df-detail__block">
+              <h3>{t.drawer.profile360}</h3>
+              <p className="df__muted">{t.drawer.profile360Soon}</p>
             </section>
 
             <section className="df-detail__block">
