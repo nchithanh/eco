@@ -5,7 +5,7 @@ Cập nhật **2026-09-14** — bảng giá combo chính thức Dolphin Software
 
 **Nguồn nghiệp vụ (as-is):** form CRM discovery (Uyên · Quản lý) + `/demos/ma-dance-discovery/`.  
 **Phiếu tương tác:** `/demo/bao-gia-crm-nhay/` · JSON `schema: dolphin-quote-ma-dance/v2` · config `lib/quotes/ma-dance-pricing.ts`.  
-**Hợp đồng chốt (bản cá nhân):** `/demos/hop-dong-ma/` (vault demos) — Điều 1–15 + Phụ lục 01 (A1–A14 từ `CRM_SCOPE`) · 02 UAT · 03 BH 2026; thanh toán **50/30/20**; trích SoT báo giá + `dolphin-warranty-policy-2026`. In PDF.
+**Hợp đồng chốt (bản cá nhân):** `/demos/admin/contract/hop-dong-ma/` (vault Admin · Contracts) — Điều 1–15 + Phụ lục 01 (A1–A14 từ `CRM_SCOPE`) · 02 UAT · 03 BH 2026 · **05 DPA** · **06 mốc bàn giao** · **07 đầu vào Bên B**; thanh toán **50/30/20**; trích SoT báo giá + `dolphin-warranty-policy-2026`. In PDF. `/demos/hop-dong-ma/` redirect.
 
 Chưa gồm VAT. Phí domain, Zalo OA, ZNS, SMTP, cổng, Google — khách trả NCC.
 

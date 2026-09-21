@@ -29,12 +29,14 @@ export type DolphinSalesCopy = {
     sale: string;
     crm: string;
     analytics: string;
+    contracts: string;
   };
   side: {
     search: string;
     saleGroup: string;
     crmGroup: string;
     analyticsGroup: string;
+    contractsGroup: string;
     navPipeline: string;
     navPlaybook: string;
     navActivities: string;
@@ -42,6 +44,7 @@ export type DolphinSalesCopy = {
     navCompanies: string;
     navOverview: string;
     navReports: string;
+    navContracts: string;
     refresh: string;
     refreshing: string;
     demoVault: string;
@@ -67,6 +70,8 @@ export type DolphinSalesCopy = {
     pipeline: string;
     weighted: string;
     winRate: string;
+    closedSample: string;
+    noClosed: string;
   };
   teamKpi: {
     title: string;
@@ -88,6 +93,21 @@ export type DolphinSalesCopy = {
     title: string;
     description: string;
   };
+  contractsPage: {
+    title: string;
+    description: string;
+    colTitle: string;
+    colClient: string;
+    colStatus: string;
+    colDate: string;
+    colActions: string;
+    view: string;
+    printPdf: string;
+    empty: string;
+    statusDraft: string;
+    statusReady: string;
+    statusSigned: string;
+  };
   kpi: {
     totalLeads: string;
     qualified: string;
@@ -107,6 +127,8 @@ export type DolphinSalesCopy = {
   board: {
     idle: string;
     empty: string;
+    dropHere: string;
+    columnSum: string;
   };
   table: {
     searchLeads: string;
@@ -114,6 +136,8 @@ export type DolphinSalesCopy = {
     company: string;
     stage: string;
     amount: string;
+    probability: string;
+    closeDate: string;
     owner: string;
     idle: string;
     source: string;
@@ -121,6 +145,9 @@ export type DolphinSalesCopy = {
     nextAction: string;
     edit: string;
     open: string;
+    setValue: string;
+    setClose: string;
+    setProb: string;
     emptyAll: string;
     emptyFiltered: string;
     emptyHint: string;
@@ -166,6 +193,11 @@ export type DolphinSalesCopy = {
     activityTouch: string;
     noteOnFile: string;
     noTimeline: string;
+    probability: string;
+    setField: string;
+    tasksSoon: string;
+    filesSoon: string;
+    stageChanged: string;
   };
   form: {
     editTitle: string;
@@ -182,6 +214,7 @@ export type DolphinSalesCopy = {
     currency: string;
     stage: string;
     closeDate: string;
+    probability: string;
     owner: string;
     source: string;
     atRisk: string;
@@ -224,6 +257,7 @@ export type DolphinSalesCopy = {
 };
 
 const STAGE_LABELS_VI: Record<LeadStage, string> = {
+  hotline: "0 · Hotline (chưa xác nhận chủ)",
   new: "1 · New (Mới tiếp cận)",
   qualified: "2 · Survey (Đang khảo sát)",
   discover: "3 · Discovery (Khảo sát sâu)",
@@ -237,6 +271,7 @@ const STAGE_LABELS_VI: Record<LeadStage, string> = {
 };
 
 const STAGE_LABELS_EN: Record<LeadStage, string> = {
+  hotline: "0 · Hotline (not owner yet)",
   new: "1 · New outreach",
   qualified: "2 · Discovery / survey",
   discover: "3 · Deep discovery",
@@ -250,6 +285,7 @@ const STAGE_LABELS_EN: Record<LeadStage, string> = {
 };
 
 const STAGE_SHORT_VI: Record<LeadStage, string> = {
+  hotline: "Hotline",
   new: "New (Mới tiếp cận)",
   qualified: "Survey (Khảo sát)",
   discover: "Discovery (Khảo sát sâu)",
@@ -263,6 +299,7 @@ const STAGE_SHORT_VI: Record<LeadStage, string> = {
 };
 
 const STAGE_SHORT_EN: Record<LeadStage, string> = {
+  hotline: "Hotline",
   new: "New",
   qualified: "Survey",
   discover: "Discovery",
@@ -294,12 +331,14 @@ const VI: DolphinSalesCopy = {
     sale: "Bán hàng",
     crm: "CRM",
     analytics: "Phân tích",
+    contracts: "Hợp đồng",
   },
   side: {
     search: "Tìm kiếm",
     saleGroup: "Bán hàng",
     crmGroup: "CRM",
     analyticsGroup: "Phân tích",
+    contractsGroup: "Hợp đồng",
     navPipeline: "Sales Pipeline",
     navPlaybook: "Playbook",
     navActivities: "Activities",
@@ -307,6 +346,7 @@ const VI: DolphinSalesCopy = {
     navCompanies: "Companies",
     navOverview: "Overview",
     navReports: "Reports",
+    navContracts: "Danh sách",
     refresh: "Làm mới",
     refreshing: "Đang tải…",
     demoVault: "Demo vault",
@@ -329,10 +369,12 @@ const VI: DolphinSalesCopy = {
   },
   forecast: {
     title: "Sales Forecasting",
-    hint: "Ước lượng theo giai đoạn — chưa phải forecast SaaS đầy đủ.",
+    hint: "Weighted = Value × Prob % (deal mở). Win rate chỉ trên deal đã đóng.",
     pipeline: "Open pipeline",
     weighted: "Weighted forecast",
     winRate: "Win rate",
+    closedSample: "{n} closed",
+    noClosed: "Chưa có deal đóng",
   },
   teamKpi: {
     title: "Team KPI",
@@ -357,6 +399,22 @@ const VI: DolphinSalesCopy = {
     description:
       "Sức khỏe pipeline, dự báo ước lượng và KPI theo người phụ trách từ data deal thật.",
   },
+  contractsPage: {
+    title: "Hợp đồng",
+    description:
+      "Quản lý hợp đồng dịch vụ — xem bản đầy đủ và in PDF A4. Bản MA Dance nằm trong vault Admin.",
+    colTitle: "Hợp đồng",
+    colClient: "Khách hàng",
+    colStatus: "Trạng thái",
+    colDate: "Ngày",
+    colActions: "Thao tác",
+    view: "Xem",
+    printPdf: "In PDF",
+    empty: "Chưa có hợp đồng.",
+    statusDraft: "Nháp",
+    statusReady: "Sẵn sàng ký",
+    statusSigned: "Đã ký",
+  },
   kpi: {
     totalLeads: "Total deals",
     qualified: "Survey",
@@ -375,7 +433,9 @@ const VI: DolphinSalesCopy = {
   },
   board: {
     idle: "{n}d",
-    empty: "Empty",
+    empty: "Kéo deal vào đây",
+    dropHere: "Thả để đổi stage",
+    columnSum: "{value}",
   },
   table: {
     searchLeads: "Lọc trong danh sách…",
@@ -383,6 +443,8 @@ const VI: DolphinSalesCopy = {
     company: "Company",
     stage: "Stage",
     amount: "Value",
+    probability: "Prob",
+    closeDate: "Close",
     owner: "Owner",
     idle: "Idle",
     source: "Source",
@@ -390,6 +452,9 @@ const VI: DolphinSalesCopy = {
     nextAction: "Next",
     edit: "Edit",
     open: "Open",
+    setValue: "Set value",
+    setClose: "Set date",
+    setProb: "Set %",
     emptyAll: "Chưa có deal",
     emptyFiltered: "Không tìm thấy deal",
     emptyHint: "Đổi bộ lọc hoặc thêm deal mới.",
@@ -436,6 +501,11 @@ const VI: DolphinSalesCopy = {
     activityTouch: "Last activity recorded",
     noteOnFile: "Note on file",
     noTimeline: "Chưa có mốc nào ngoài thời gian tạo.",
+    probability: "Probability",
+    setField: "Nhập…",
+    tasksSoon: "Tasks / checklist — sắp có",
+    filesSoon: "Attachments — sắp có",
+    stageChanged: "Stage → {stage}",
   },
   form: {
     editTitle: "Edit deal",
@@ -452,6 +522,7 @@ const VI: DolphinSalesCopy = {
     currency: "Currency",
     stage: "Stage",
     closeDate: "Expected close",
+    probability: "Probability %",
     owner: "Owner",
     source: "Source",
     atRisk: "Mark at-risk",
@@ -566,12 +637,14 @@ const EN: DolphinSalesCopy = {
     sale: "Sale",
     crm: "CRM",
     analytics: "Analytics",
+    contracts: "Contracts",
   },
   side: {
     search: "Search",
     saleGroup: "Sale",
     crmGroup: "CRM",
     analyticsGroup: "Analytics",
+    contractsGroup: "Contracts",
     navPipeline: "Sales Pipeline",
     navPlaybook: "Playbook",
     navActivities: "Activities",
@@ -579,6 +652,7 @@ const EN: DolphinSalesCopy = {
     navCompanies: "Companies",
     navOverview: "Overview",
     navReports: "Reports",
+    navContracts: "All contracts",
     refresh: "Refresh",
     refreshing: "Refreshing…",
     demoVault: "Demo vault",
@@ -601,10 +675,12 @@ const EN: DolphinSalesCopy = {
   },
   forecast: {
     title: "Sales Forecasting",
-    hint: "Stage-weighted heuristic — not a full SaaS forecast engine yet.",
+    hint: "Weighted = Value × Prob % (open deals). Win rate from closed deals only.",
     pipeline: "Open pipeline",
     weighted: "Weighted forecast",
     winRate: "Win rate",
+    closedSample: "{n} closed",
+    noClosed: "No closed deals yet",
   },
   teamKpi: {
     title: "Team KPI",
@@ -629,6 +705,22 @@ const EN: DolphinSalesCopy = {
     description:
       "Pipeline health, heuristic forecast, and owner KPIs from live deal data.",
   },
+  contractsPage: {
+    title: "Contracts",
+    description:
+      "Manage service agreements — open full text and print A4 PDF. MA Dance lives in the Admin vault.",
+    colTitle: "Contract",
+    colClient: "Client",
+    colStatus: "Status",
+    colDate: "Date",
+    colActions: "Actions",
+    view: "View",
+    printPdf: "Print PDF",
+    empty: "No contracts yet.",
+    statusDraft: "Draft",
+    statusReady: "Ready to sign",
+    statusSigned: "Signed",
+  },
   kpi: {
     totalLeads: "Total deals",
     qualified: "Survey",
@@ -647,7 +739,9 @@ const EN: DolphinSalesCopy = {
   },
   board: {
     idle: "{n}d",
-    empty: "Empty",
+    empty: "Drop deals here",
+    dropHere: "Drop to change stage",
+    columnSum: "{value}",
   },
   table: {
     searchLeads: "Filter this list…",
@@ -655,6 +749,8 @@ const EN: DolphinSalesCopy = {
     company: "Company",
     stage: "Stage",
     amount: "Value",
+    probability: "Prob",
+    closeDate: "Close",
     owner: "Owner",
     idle: "Idle",
     source: "Source",
@@ -662,6 +758,9 @@ const EN: DolphinSalesCopy = {
     nextAction: "Next",
     edit: "Edit",
     open: "Open",
+    setValue: "Set value",
+    setClose: "Set date",
+    setProb: "Set %",
     emptyAll: "No deals yet",
     emptyFiltered: "No deals found",
     emptyHint: "Try changing your filters or add a new deal.",
@@ -708,6 +807,11 @@ const EN: DolphinSalesCopy = {
     activityTouch: "Last activity recorded",
     noteOnFile: "Note on file",
     noTimeline: "No milestones beyond creation time.",
+    probability: "Probability",
+    setField: "Set…",
+    tasksSoon: "Tasks / checklist — coming soon",
+    filesSoon: "Attachments — coming soon",
+    stageChanged: "Stage → {stage}",
   },
   form: {
     editTitle: "Edit deal",
@@ -724,6 +828,7 @@ const EN: DolphinSalesCopy = {
     currency: "Currency",
     stage: "Stage",
     closeDate: "Expected close",
+    probability: "Probability %",
     owner: "Owner",
     source: "Source",
     atRisk: "Mark at-risk",

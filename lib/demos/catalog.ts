@@ -17,7 +17,7 @@ export const demoCatalog: DemoCatalogItem[] = [
     href: "/demos/admin/",
     title: "Dolphin Admin",
     blurb:
-      "Dolphin Admin — workspace Sale (B2B pipeline), CRM, Analytics. Vault `/demos/` + workspace token.",
+      "Dolphin Admin — Sale pipeline, Contracts (xem/in PDF), CRM & Analytics. Vault `/demos/` + workspace token.",
     tag: "Admin",
   },
   {
@@ -62,10 +62,10 @@ export const demoCatalog: DemoCatalogItem[] = [
   },
   {
     slug: "hop-dong-ma",
-    href: "/demos/hop-dong-ma/",
+    href: "/demos/admin/contract/hop-dong-ma/",
     title: "Hợp đồng — MA Dance",
     blurb:
-      "Hợp đồng dịch vụ phần mềm × MA Dance — bìa A4, Điều 1–15, Phụ lục 01–03, thanh toán 50/30/20. Trong vault `/demos/` — In PDF, noindex.",
+      "Hợp đồng dịch vụ phần mềm × MA Dance — bìa A4, Điều 1–15, Phụ lục 01–03, thanh toán 50/30/20. Trong Admin Contracts (`/demos/admin/`) — In PDF, noindex. `/demos/hop-dong-ma/` redirect.",
     tag: "Contract",
   },
   {

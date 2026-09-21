@@ -68,6 +68,20 @@
   font-size: 0.875rem;
   font-weight: 600;
   cursor: pointer;
+  text-decoration: none;
+}
+
+.hd-toolbar__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.hd-btn--ghost {
+  background: #fff;
+  color: var(--hd-primary-dark);
+  border: 1px solid var(--hd-line);
 }
 
 .hd-viewer {

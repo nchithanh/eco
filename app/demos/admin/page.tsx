@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   ...buildPageMetadata({
     title: "Dolphin Admin | Dolphin Software",
     description:
-      "Dolphin Admin — workspace Sale / CRM / Analytics. Sales pipeline B2B. Không index.",
+      "Dolphin Admin — Sale pipeline, Contracts (xem/in PDF), CRM / Analytics. Không index.",
     path,
     noIndex: true,
   }),

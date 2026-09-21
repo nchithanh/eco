@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import { assetPath } from "@/lib/asset";
 import { BRAND_LOGO_SRC } from "@/lib/brand-logo";
 import { CONTACTS } from "@/lib/contacts";
@@ -87,6 +88,14 @@ function QuocHieu() {
 export function HopDongMa() {
   const quoteDate = formatQuoteDate(DEFAULT_QUOTE_DATE);
 
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("print") !== "1") return;
+    const timer = window.setTimeout(() => window.print(), 400);
+    return () => window.clearTimeout(timer);
+  }, []);
+
   return (
     <div className="hd-root">
       <header className="hd-toolbar hd-no-print">
@@ -99,13 +108,18 @@ export function HopDongMa() {
             PDF A4 (không URL trên bản ký)
           </p>
         </div>
-        <button
-          type="button"
-          className="hd-btn"
-          onClick={() => window.print()}
-        >
-          In PDF
-        </button>
+        <div className="hd-toolbar__actions">
+          <a className="hd-btn hd-btn--ghost" href={assetPath("/demos/admin/")}>
+            ← Admin
+          </a>
+          <button
+            type="button"
+            className="hd-btn"
+            onClick={() => window.print()}
+          >
+            In PDF
+          </button>
+        </div>
       </header>
 
       <div className="hd-viewer">
@@ -159,6 +173,9 @@ export function HopDongMa() {
                 <li>Phụ lục 01 — Báo giá &amp; Phạm vi công việc (SOW)</li>
                 <li>Phụ lục 02 — Checklist nghiệm thu (UAT)</li>
                 <li>Phụ lục 03 — Chính sách Bảo hành &amp; Hỗ trợ 2026</li>
+                <li>Phụ lục 05 — Bảo vệ dữ liệu cá nhân (DPA)</li>
+                <li>Phụ lục 06 — Kế hoạch triển khai &amp; Mốc bàn giao</li>
+                <li>Phụ lục 07 — Checklist đầu vào từ Bên B</li>
               </ol>
             </div>
 
@@ -177,8 +194,8 @@ export function HopDongMa() {
             <p className="hd-doc__meta">
               Ngày: …… tháng …… năm 2026
               <br />
-              Phụ lục: 01 Báo giá &amp; SOW · 02 Checklist UAT · 03 Chính sách
-              BH &amp; HT 2026
+              Phụ lục: 01 SOW · 02 UAT · 03 BH &amp; HT · 05 DPA · 06 Mốc bàn
+              giao · 07 Đầu vào Bên B
             </p>
           </header>
 
@@ -259,9 +276,12 @@ export function HopDongMa() {
             Hai bên thống nhất ký kết Hợp đồng dịch vụ phần mềm với các điều
             khoản sau. Báo giá ngày {quoteDate} được đính kèm tại{" "}
             <strong>Phụ lục 01 — Báo giá và Phạm vi công việc (SOW)</strong>;
-            Chính sách Bảo hành &amp; Hỗ trợ 2026 được đính kèm tại{" "}
-            <strong>Phụ lục 03</strong>. Các phụ lục này là tài liệu tham chiếu
-            không tách rời Hợp đồng.
+            Chính sách Bảo hành &amp; Hỗ trợ 2026 tại{" "}
+            <strong>Phụ lục 03</strong>; bảo vệ dữ liệu cá nhân tại{" "}
+            <strong>Phụ lục 05</strong>; kế hoạch triển khai &amp; mốc bàn giao
+            tại <strong>Phụ lục 06</strong>; checklist đầu vào từ Bên B tại{" "}
+            <strong>Phụ lục 07</strong>. Các phụ lục này là bộ phận không tách
+            rời của Hợp đồng.
           </p>
 
           {/* —— Điều 1 —— */}
@@ -382,8 +402,9 @@ export function HopDongMa() {
               <strong>
                 xác nhận đã nhận đủ thanh toán đợt tương ứng và nhận đủ thông
                 tin / tài liệu / đầu vào cần thiết từ Bên B
-              </strong>
-              .
+              </strong>{" "}
+              theo <strong>Phụ lục 07</strong> và mốc tại{" "}
+              <strong>Phụ lục 06</strong>.
             </p>
             <p>
               <strong>2.5.</strong> Giá trị hợp đồng là số tiền Bên B phải thanh
@@ -400,8 +421,11 @@ export function HopDongMa() {
             </h2>
             <p>
               <strong>3.1.</strong> Thời gian triển khai dự kiến và các mốc bàn
-              giao được xác định tại <strong>Phụ lục 01</strong> và/hoặc văn bản
-              thống nhất sau khi Bên B thanh toán Đợt 1 và cung cấp đủ đầu vào.
+              giao được xác định tại <strong>Phụ lục 06 — Kế hoạch triển khai
+              &amp; Mốc bàn giao</strong>, phù hợp phạm vi{" "}
+              <strong>Phụ lục 01</strong>. Hai bên có thể điều chỉnh mốc bằng
+              văn bản thống nhất sau khi Bên B thanh toán Đợt 1 và cung cấp đủ
+              đầu vào theo <strong>Phụ lục 07</strong>.
             </p>
             <p>
               <strong>3.2.</strong> Bên A thông báo tiến độ định kỳ cho Bên B.
@@ -633,7 +657,9 @@ export function HopDongMa() {
             <p>
               <strong>9.3.</strong> Bên B chịu trách nhiệm về việc thu thập, lưu
               trữ và xử lý dữ liệu cá nhân của học viên / phụ huynh / khách hàng
-              theo quy định pháp luật áp dụng với Bên B.
+              theo quy định pháp luật áp dụng với Bên B. Chi tiết vai trò Bên
+              kiểm soát / Bên xử lý và nghĩa vụ liên quan tại{" "}
+              <strong>Phụ lục 05 — Bảo vệ dữ liệu cá nhân (DPA)</strong>.
             </p>
           </section>
 
@@ -754,10 +780,12 @@ export function HopDongMa() {
               nhau, mỗi bên giữ 01 bản.
             </p>
             <p>
-              <strong>15.4.</strong> Các phụ lục:{" "}
+              <strong>15.4.</strong> Các phụ lục kèm theo Hợp đồng này:{" "}
               <strong>01</strong> Báo giá &amp; SOW (gồm A1–A14);{" "}
               <strong>02</strong> Checklist UAT; <strong>03</strong> Chính sách
-              BH &amp; HT 2026.
+              BH &amp; HT 2026; <strong>05</strong> Bảo vệ dữ liệu cá nhân
+              (DPA); <strong>06</strong> Kế hoạch triển khai &amp; Mốc bàn giao;{" "}
+              <strong>07</strong> Checklist đầu vào từ Bên B.
             </p>
           </section>
 
@@ -985,6 +1013,282 @@ export function HopDongMa() {
               Bản phụ lục này là bản in kèm Hợp đồng — nội dung đầy đủ và có giá
               trị pháp lý khi hai bên ký. Không cần tài liệu web bên ngoài để
               áp dụng Điều 5.
+            </p>
+          </section>
+
+          {/* —— Phụ lục 05 —— */}
+          <section className="hd-annex" aria-labelledby="hd-pl05">
+            <h2 id="hd-pl05" className="hd-h2">
+              Phụ lục 05 — Bảo vệ dữ liệu cá nhân (Data Processing Agreement)
+            </h2>
+            <p>
+              Phụ lục này là bộ phận không tách rời của Hợp đồng, dùng cho Điều
+              9 (Dữ liệu và bảo mật thông tin).
+            </p>
+
+            <h3 className="hd-h3">1. Định nghĩa</h3>
+            <p>
+              “Dữ liệu cá nhân” bao gồm thông tin học viên, phụ huynh, giáo viên
+              do Bên B thu thập và nhập vào hệ thống CRM (họ tên, ngày sinh, SĐT,
+              email, thông tin thanh toán…).
+            </p>
+
+            <h3 className="hd-h3">2. Vai trò các bên</h3>
+            <ul>
+              <li>
+                Bên B là Bên kiểm soát dữ liệu (Data Controller).
+              </li>
+              <li>
+                Bên A là Bên xử lý dữ liệu (Data Processor) chỉ trong phạm vi
+                thực hiện Hợp đồng.
+              </li>
+            </ul>
+
+            <h3 className="hd-h3">3. Mục đích xử lý</h3>
+            <p>
+              Chỉ phục vụ triển khai, vận hành, bảo trì CRM và các hạng mục đã
+              chốt tại <strong>Phụ lục 01</strong>. Không được sử dụng cho mục
+              đích khác.
+            </p>
+
+            <h3 className="hd-h3">4. Nghĩa vụ của Bên A</h3>
+            <ul>
+              <li>
+                Chỉ xử lý dữ liệu theo hướng dẫn bằng văn bản của Bên B.
+              </li>
+              <li>
+                Áp dụng biện pháp kỹ thuật và tổ chức phù hợp để bảo mật.
+              </li>
+              <li>
+                Không chuyển giao dữ liệu cho bên thứ ba trừ khi có sự đồng ý
+                trước bằng văn bản của Bên B hoặc theo yêu cầu của cơ quan nhà
+                nước có thẩm quyền.
+              </li>
+              <li>
+                Thông báo ngay cho Bên B khi phát hiện sự cố bảo mật.
+              </li>
+              <li>
+                Xóa hoặc trả lại dữ liệu khi kết thúc Hợp đồng (trừ trường hợp
+                pháp luật yêu cầu lưu trữ).
+              </li>
+            </ul>
+
+            <h3 className="hd-h3">5. Nghĩa vụ của Bên B</h3>
+            <ul>
+              <li>
+                Chịu trách nhiệm về tính hợp pháp của việc thu thập và xử lý dữ
+                liệu cá nhân theo quy định pháp luật hiện hành.
+              </li>
+              <li>
+                Cung cấp thông tin cần thiết để Bên A thực hiện nghĩa vụ.
+              </li>
+            </ul>
+
+            <h3 className="hd-h3">6. Thời hạn</h3>
+            <p>
+              Phụ lục này có hiệu lực trong suốt thời gian Hợp đồng và kéo dài
+              thêm 12 tháng sau khi kết thúc (đối với nghĩa vụ bảo mật và xóa
+              dữ liệu).
+            </p>
+          </section>
+
+          {/* —— Phụ lục 06 —— */}
+          <section className="hd-annex" aria-labelledby="hd-pl06">
+            <h2 id="hd-pl06" className="hd-h2">
+              Phụ lục 06 — Kế hoạch triển khai &amp; Mốc bàn giao
+            </h2>
+            <p>
+              Phụ lục này là bộ phận không tách rời của Hợp đồng, dùng cho Điều
+              2 và Điều 3. Các mốc dưới đây gắn với phạm vi đã chốt tại{" "}
+              <strong>Phụ lục 01</strong> và điều kiện đầu vào tại{" "}
+              <strong>Phụ lục 07</strong>.
+            </p>
+            <div className="hd-table-wrap">
+              <table className="hd-table hd-table--dense">
+                <thead>
+                  <tr>
+                    <th scope="col">Mốc</th>
+                    <th scope="col">Thời gian</th>
+                    <th scope="col">Nội dung</th>
+                    <th scope="col">Điều kiện thanh toán / Ghi chú</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Ngày ký Hợp đồng</td>
+                    <td>Thanh toán Đợt 1 (50%)</td>
+                    <td>Bên B thanh toán → Bên A bắt đầu</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>30/09/2026</td>
+                    <td>Demo Website marketing</td>
+                    <td>—</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>15/10/2026</td>
+                    <td>Bắt đầu triển khai CRM</td>
+                    <td>Thanh toán Đợt 2 (30%)</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>20/10/2026</td>
+                    <td>Final Website doanh nghiệp</td>
+                    <td>—</td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td>01/11/2026</td>
+                    <td>Demo CRM</td>
+                    <td>—</td>
+                  </tr>
+                  <tr>
+                    <td>6</td>
+                    <td>24/11/2026</td>
+                    <td>
+                      UAT (nghiệm thu theo Checklist{" "}
+                      <strong>Phụ lục 02</strong>)
+                    </td>
+                    <td>—</td>
+                  </tr>
+                  <tr>
+                    <td>7</td>
+                    <td>30/11/2026</td>
+                    <td>Bàn giao cuối &amp; nghiệm thu toàn bộ</td>
+                    <td>Thanh toán Đợt 3 (20%)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="hd-note">
+              <strong>Ghi chú:</strong>
+            </p>
+            <ul>
+              <li>
+                Thời gian bắt đầu tính từ khi Bên A xác nhận đã nhận đủ thanh
+                toán đợt tương ứng và nhận đủ đầu vào từ Bên B (theo{" "}
+                <strong>Phụ lục 07</strong>).
+              </li>
+              <li>
+                Chậm trễ do Bên B không cung cấp đầu vào đúng hạn không tính vào
+                thời gian cam kết của Bên A.
+              </li>
+              <li>
+                Hai bên có thể điều chỉnh mốc bằng văn bản thống nhất.
+              </li>
+            </ul>
+          </section>
+
+          {/* —— Phụ lục 07 —— */}
+          <section className="hd-annex" aria-labelledby="hd-pl07">
+            <h2 id="hd-pl07" className="hd-h2">
+              Phụ lục 07 — Checklist đầu vào từ Bên B
+            </h2>
+            <p>
+              Phụ lục này là bộ phận không tách rời của Hợp đồng. Bên B cung cấp
+              các đầu vào dưới đây (hoặc xác nhận “Không áp dụng”) để Bên A thực
+              hiện phạm vi <strong>Phụ lục 01</strong> theo tiến độ{" "}
+              <strong>Phụ lục 06</strong>. Mục đánh dấu [……] điền trước khi ký
+              hoặc khi bàn giao từng đợt.
+            </p>
+
+            <h3 className="hd-h3">A. Thương hiệu &amp; Website</h3>
+            <ul>
+              <li>
+                Logo, bộ nhận diện (màu, font), ảnh / video dùng trên Website:
+                [……]
+              </li>
+              <li>
+                Nội dung trang (About, khóa học, bảng giá công khai, FAQ…):
+                [……]
+              </li>
+              <li>
+                Tên miền (domain) dự kiến / hiện có và quyền quản trị DNS:
+                [……]
+              </li>
+              <li>
+                Tài khoản hosting / cloud (nếu Bên B tự cung cấp): [……]
+              </li>
+            </ul>
+
+            <h3 className="hd-h3">B. Tài khoản &amp; tích hợp bên thứ ba</h3>
+            <ul>
+              <li>Zalo OA / ZNS (nếu dùng A13 / thông báo): [……]</li>
+              <li>SMTP / email gửi hệ thống: [……]</li>
+              <li>Google Workspace / Calendar (A11): [……]</li>
+              <li>
+                Cổng thanh toán online (merchant ID, sandbox/production): [……]
+              </li>
+              <li>
+                Tài khoản admin tạm cho môi trường demo / UAT (nếu có sẵn):
+                [……]
+              </li>
+            </ul>
+
+            <h3 className="hd-h3">C. Dữ liệu &amp; nghiệp vụ CRM</h3>
+            <ul>
+              <li>
+                Danh mục khóa / buổi / lịch mẫu (hoặc file Excel/CSV): [……]
+              </li>
+              <li>
+                Danh sách gói buổi / bảng giá học phí áp dụng: [……]
+              </li>
+              <li>
+                Dữ liệu mẫu học viên / phụ huynh / giáo viên (ẩn thông tin nhạy
+                cảm nếu cần) để cấu hình &amp; UAT: [……]
+              </li>
+              <li>
+                Ma trận phân quyền vai trò (admin, lễ tân, GV, kế toán…): [……]
+              </li>
+              <li>
+                Quy trình bảo lưu, trừ buổi, công nợ hiện hành (mô tả ngắn):
+                [……]
+              </li>
+              <li>
+                Danh sách phòng / studio cần đặt lịch (nếu dùng đặt phòng tập):
+                [……]
+              </li>
+            </ul>
+
+            <h3 className="hd-h3">D. Xác nhận bàn giao đầu vào</h3>
+            <div className="hd-table-wrap">
+              <table className="hd-table hd-table--dense">
+                <thead>
+                  <tr>
+                    <th scope="col">Nhóm</th>
+                    <th scope="col">Ngày Bên B giao</th>
+                    <th scope="col">Ngày Bên A xác nhận đủ</th>
+                    <th scope="col">Ghi chú</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>A — Thương hiệu &amp; Website</td>
+                    <td>[……]</td>
+                    <td>[……]</td>
+                    <td>[……]</td>
+                  </tr>
+                  <tr>
+                    <td>B — Tích hợp bên thứ ba</td>
+                    <td>[……]</td>
+                    <td>[……]</td>
+                    <td>[……]</td>
+                  </tr>
+                  <tr>
+                    <td>C — Dữ liệu &amp; nghiệp vụ CRM</td>
+                    <td>[……]</td>
+                    <td>[……]</td>
+                    <td>[……]</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="hd-note">
+              Thiếu đầu vào thuộc nhóm liên quan làm chậm mốc tương ứng tại{" "}
+              <strong>Phụ lục 06</strong> theo Điều 3.3 — không tính vào thời
+              gian cam kết của Bên A.
             </p>
           </section>
 

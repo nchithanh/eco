@@ -7,6 +7,7 @@ import {
   useMemo,
   useRef,
   useState,
+  type DragEvent,
   type FormEvent,
 } from "react";
 import { ThemedLogoImg } from "@/components/ThemedLogoImg";
@@ -28,6 +29,10 @@ import {
   updateAdminLead,
 } from "@/lib/demos/admin-leads-api";
 import {
+  ADMIN_CONTRACTS,
+  contractTitle,
+} from "@/lib/demos/admin-contracts";
+import {
   type DolphinSalesCopy,
   type SalesLocale,
   SALES_LOCALE_KEY,
@@ -43,7 +48,7 @@ import {
 } from "@/lib/demos/sales-process";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
 
-type WorkspaceId = "sale" | "crm" | "analytics";
+type WorkspaceId = "sale" | "crm" | "analytics" | "contracts";
 type SaleNavId = "pipeline" | "playbook";
 type PipelineView = "list" | "board";
 type SourceFilter = "all" | "exclude-careers" | AdminLeadSource;
@@ -63,6 +68,7 @@ type LeadFormState = {
   amount: string;
   currency: string;
   closeDate: string;
+  probability: string;
   owner: string;
   atRisk: boolean;
 };
@@ -79,11 +85,13 @@ const EMPTY_FORM: LeadFormState = {
   amount: "0",
   currency: "VND",
   closeDate: "",
+  probability: "10",
   owner: DEFAULT_LEAD_OWNER,
   atRisk: false,
 };
 
 const OPEN_STAGES: LeadStage[] = [
+  "hotline",
   "new",
   "qualified",
   "discover",
@@ -93,6 +101,7 @@ const OPEN_STAGES: LeadStage[] = [
 const IN_PROGRESS_STAGES: LeadStage[] = ["discover", "propose"];
 
 const STAGE_TABS: LeadStage[] = [
+  "hotline",
   "new",
   "qualified",
   "discover",
@@ -103,6 +112,7 @@ const STAGE_TABS: LeadStage[] = [
 
 /** Heuristic win probability by stage — UI forecast only. */
 const STAGE_WEIGHT: Partial<Record<LeadStage, number>> = {
+  hotline: 0.05,
   new: 0.1,
   qualified: 0.25,
   discover: 0.4,
@@ -122,19 +132,51 @@ function formatMoney(
   currency = "VND",
   salesLocale: SalesLocale = "vi",
 ): string {
-  if (!Number.isFinite(amount) || amount <= 0) return "—";
+  const safe = Number.isFinite(amount) && amount > 0 ? amount : 0;
   const tag = salesLocale === "en" ? "en-US" : "vi-VN";
   if (currency === "VND") {
-    if (amount >= 1_000_000) {
-      const m = amount / 1_000_000;
+    if (safe >= 1_000_000) {
+      const m = safe / 1_000_000;
       return `${m % 1 === 0 ? m.toFixed(0) : m.toFixed(1)}M₫`;
     }
-    return `${Math.round(amount).toLocaleString(tag)}₫`;
+    return `${Math.round(safe).toLocaleString(tag)}₫`;
   }
-  if (amount >= 1000) {
-    return `$${(amount / 1000).toFixed(amount >= 10000 ? 0 : 1)}K`;
+  if (safe >= 1000) {
+    return `$${(safe / 1000).toFixed(safe >= 10000 ? 0 : 1)}K`;
   }
-  return `${currency} ${amount}`;
+  if (safe === 0) return currency === "VND" ? "0₫" : `${currency} 0`;
+  return `${currency} ${safe}`;
+}
+
+function readPayload(lead: AdminLead): Record<string, unknown> {
+  if (
+    lead.payload &&
+    typeof lead.payload === "object" &&
+    !Array.isArray(lead.payload)
+  ) {
+    return { ...(lead.payload as Record<string, unknown>) };
+  }
+  return {};
+}
+
+function stageDefaultProb(stage: LeadStage): number {
+  return Math.round((STAGE_WEIGHT[stage] ?? 0) * 100);
+}
+
+function clampProb(value: number): number {
+  if (!Number.isFinite(value)) return 0;
+  return Math.max(0, Math.min(100, Math.round(value)));
+}
+
+/** Override in payload.probability, else stage default. */
+function getProbability(lead: AdminLead): number {
+  const raw = readPayload(lead).probability;
+  if (typeof raw === "number") return clampProb(raw);
+  if (typeof raw === "string" && raw.trim() !== "") {
+    const n = Number(raw);
+    if (Number.isFinite(n)) return clampProb(n);
+  }
+  return stageDefaultProb(lead.stage);
 }
 
 function formatClose(iso: string, salesLocale: SalesLocale): string {
@@ -202,6 +244,8 @@ function leadSecondary(lead: AdminLead): string {
 
 function stageTone(stage: LeadStage): string {
   switch (stage) {
+    case "hotline":
+      return "is-hotline";
     case "new":
       return "is-new";
     case "qualified":
@@ -254,6 +298,7 @@ function suggestedNext(
 }
 
 function toWriteInput(form: LeadFormState): LeadWriteInput {
+  const probability = clampProb(Number(form.probability));
   return {
     source: form.source,
     name: form.name.trim(),
@@ -268,6 +313,7 @@ function toWriteInput(form: LeadFormState): LeadWriteInput {
     closeDate: form.closeDate.trim(),
     owner: form.owner.trim() || DEFAULT_LEAD_OWNER,
     atRisk: form.atRisk,
+    payload: { probability },
   };
 }
 
@@ -283,7 +329,8 @@ function leadToWrite(
   lead: AdminLead,
   patch?: Partial<LeadWriteInput>,
 ): LeadWriteInput {
-  return {
+  const basePayload = readPayload(lead);
+  const base: LeadWriteInput = {
     source: leadSourceForWrite(lead),
     name: lead.name,
     contact: lead.contact,
@@ -297,7 +344,16 @@ function leadToWrite(
     closeDate: lead.closeDate,
     owner: lead.owner,
     atRisk: lead.atRisk,
-    ...patch,
+    payload: basePayload,
+  };
+  if (!patch) return base;
+  const { payload: patchPayload, ...rest } = patch;
+  return {
+    ...base,
+    ...rest,
+    payload: patchPayload
+      ? { ...basePayload, ...patchPayload }
+      : basePayload,
   };
 }
 
@@ -308,6 +364,159 @@ function fillTemplate(
   return Object.entries(vars).reduce(
     (acc, [key, value]) => acc.replaceAll(`{${key}}`, String(value)),
     template,
+  );
+}
+
+function WinRateDisplay({
+  rate,
+  decided,
+  t,
+}: {
+  rate: number | null;
+  decided: number;
+  t: DolphinSalesCopy;
+}) {
+  return (
+    <>
+      <strong>{rate == null ? "—" : `${rate}%`}</strong>
+      <em className="df-kpi__sub">
+        {decided === 0
+          ? t.forecast.noClosed
+          : fillTemplate(t.forecast.closedSample, { n: decided })}
+      </em>
+    </>
+  );
+}
+
+type InlineKind = "amount" | "close" | "prob";
+
+function InlineQuickField({
+  kind,
+  lead,
+  salesLocale,
+  t,
+  disabled,
+  onSaveAmount,
+  onSaveClose,
+  onSaveProb,
+}: {
+  kind: InlineKind;
+  lead: AdminLead;
+  salesLocale: SalesLocale;
+  t: DolphinSalesCopy;
+  disabled?: boolean;
+  onSaveAmount: (lead: AdminLead, amount: number) => void | Promise<void>;
+  onSaveClose: (lead: AdminLead, closeDate: string) => void | Promise<void>;
+  onSaveProb: (lead: AdminLead, probability: number) => void | Promise<void>;
+}) {
+  const [open, setOpen] = useState(false);
+  const initial =
+    kind === "amount"
+      ? lead.amount > 0
+        ? String(lead.amount)
+        : ""
+      : kind === "close"
+        ? lead.closeDate.slice(0, 10)
+        : String(getProbability(lead));
+  const [value, setValue] = useState(initial);
+
+  useEffect(() => {
+    if (!open) {
+      setValue(
+        kind === "amount"
+          ? lead.amount > 0
+            ? String(lead.amount)
+            : ""
+          : kind === "close"
+            ? lead.closeDate.slice(0, 10)
+            : String(getProbability(lead)),
+      );
+    }
+  }, [lead, kind, open]);
+
+  async function commit() {
+    setOpen(false);
+    if (kind === "amount") {
+      const next = Math.max(0, Number(value) || 0);
+      if (next === lead.amount) return;
+      await onSaveAmount(lead, next);
+      return;
+    }
+    if (kind === "close") {
+      const next = value.trim();
+      if (next === lead.closeDate.slice(0, 10)) return;
+      await onSaveClose(lead, next);
+      return;
+    }
+    const next = clampProb(Number(value));
+    if (next === getProbability(lead)) return;
+    await onSaveProb(lead, next);
+  }
+
+  if (open) {
+    return (
+      <input
+        className="df-inline-input"
+        type={kind === "close" ? "date" : "number"}
+        min={kind === "prob" ? 0 : undefined}
+        max={kind === "prob" ? 100 : undefined}
+        step={kind === "amount" ? 1000 : kind === "prob" ? 5 : undefined}
+        value={value}
+        autoFocus
+        disabled={disabled}
+        onClick={(e) => e.stopPropagation()}
+        onChange={(e) => setValue(e.target.value)}
+        onBlur={() => void commit()}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            e.preventDefault();
+            void commit();
+          }
+          if (e.key === "Escape") {
+            e.preventDefault();
+            setOpen(false);
+          }
+        }}
+        aria-label={
+          kind === "amount"
+            ? t.table.amount
+            : kind === "close"
+              ? t.table.closeDate
+              : t.table.probability
+        }
+      />
+    );
+  }
+
+  const empty =
+    kind === "amount"
+      ? !(lead.amount > 0)
+      : kind === "close"
+        ? !lead.closeDate
+        : false;
+  const label =
+    kind === "amount"
+      ? empty
+        ? t.table.setValue
+        : formatMoney(lead.amount, lead.currency, salesLocale)
+      : kind === "close"
+        ? empty
+          ? t.table.setClose
+          : formatClose(lead.closeDate, salesLocale)
+        : `${getProbability(lead)}%`;
+
+  return (
+    <button
+      type="button"
+      className={`df-inline-btn${empty ? " is-empty" : ""}`}
+      disabled={disabled}
+      onClick={(e) => {
+        e.stopPropagation();
+        setOpen(true);
+      }}
+    >
+      {label}
+    </button>
   );
 }
 
@@ -375,6 +584,13 @@ function NavIcon({ name }: { name: string }) {
           <path d="M3 12.5V7M7 12.5V4.5M11 12.5V9" strokeLinecap="round" />
         </svg>
       );
+    case "contracts":
+      return (
+        <svg {...common}>
+          <path d="M4 2.5h6.5L13 5v8.5H4z" strokeLinejoin="round" />
+          <path d="M10.5 2.5V5H13M6 8h4M6 10.5h3" strokeLinecap="round" />
+        </svg>
+      );
     default:
       return null;
   }
@@ -400,9 +616,9 @@ export function AdminConsole() {
     useState<SourceFilter>("exclude-careers");
   const [ownerFilter, setOwnerFilter] = useState<OwnerFilter>("all");
   const [idleFilter, setIdleFilter] = useState<IdleFilter>("all");
-  const [filtersOpen, setFiltersOpen] = useState(false);
+  const [filtersOpen, setFiltersOpen] = useState(true);
   const [stageTab, setStageTab] = useState<StageTab>("all");
-  const [pipelineView, setPipelineView] = useState<PipelineView>("list");
+  const [pipelineView, setPipelineView] = useState<PipelineView>("board");
   const [page, setPage] = useState(0);
   const [editorOpen, setEditorOpen] = useState(false);
   const [editing, setEditing] = useState<AdminLead | null>(null);
@@ -410,6 +626,8 @@ export function AdminConsole() {
   const [form, setForm] = useState<LeadFormState>(EMPTY_FORM);
   const [saving, setSaving] = useState(false);
   const [stageSavingId, setStageSavingId] = useState<string | null>(null);
+  const [dragLeadId, setDragLeadId] = useState<string | null>(null);
+  const [dragOverStage, setDragOverStage] = useState<LeadStage | null>(null);
   const detailBodyRef = useRef<HTMLDivElement | null>(null);
 
   /** Keep wheel scroll on the detail body (Cursor preview / nested layout). */
@@ -537,24 +755,18 @@ export function AdminConsole() {
       (l) =>
         l.stage === "won" || l.stage === "deliver" || l.stage === "expand",
     ).length;
-    const openAmount = scoped
-      .filter((l) => OPEN_STAGES.includes(l.stage))
-      .reduce((s, l) => s + (l.amount || 0), 0);
-    const weighted = scoped
-      .filter((l) => OPEN_STAGES.includes(l.stage) || l.stage === "won")
-      .reduce(
-        (s, l) => s + (l.amount || 0) * (STAGE_WEIGHT[l.stage] ?? 0),
-        0,
-      );
-    const decided = scoped.filter(
-      (l) =>
-        l.stage === "won" ||
-        l.stage === "deliver" ||
-        l.stage === "expand" ||
-        l.stage === "lost" ||
-        l.stage === "out_of_scope",
+    const openDeals = scoped.filter((l) => OPEN_STAGES.includes(l.stage));
+    const openAmount = openDeals.reduce((s, l) => s + (l.amount || 0), 0);
+    const weighted = openDeals.reduce(
+      (s, l) => s + (l.amount || 0) * (getProbability(l) / 100),
+      0,
+    );
+    const lost = scoped.filter(
+      (l) => l.stage === "lost" || l.stage === "out_of_scope",
     ).length;
-    const winRate = decided === 0 ? 0 : Math.round((converted / decided) * 100);
+    const decided = converted + lost;
+    const winRate =
+      decided === 0 ? null : Math.round((converted / decided) * 100);
     const atRisk = scoped.filter(
       (l) => l.atRisk || idleDays(l.lastActivityAt) > 6,
     ).length;
@@ -566,6 +778,7 @@ export function AdminConsole() {
       openAmount,
       weighted,
       winRate,
+      decided,
       atRisk,
     };
   }, [scoped]);
@@ -578,20 +791,16 @@ export function AdminConsole() {
         (l) =>
           l.stage === "won" || l.stage === "deliver" || l.stage === "expand",
       ).length;
-      const decided = rows.filter(
-        (l) =>
-          l.stage === "won" ||
-          l.stage === "deliver" ||
-          l.stage === "expand" ||
-          l.stage === "lost" ||
-          l.stage === "out_of_scope",
+      const lost = rows.filter(
+        (l) => l.stage === "lost" || l.stage === "out_of_scope",
       ).length;
+      const decided = won + lost;
       const winRate =
-        decided === 0 ? 0 : Math.round((won / decided) * 100);
+        decided === 0 ? null : Math.round((won / decided) * 100);
       const atRisk = rows.filter(
         (l) => l.atRisk || idleDays(l.lastActivityAt) > 6,
       ).length;
-      return { owner, open, won, winRate, atRisk, total: rows.length };
+      return { owner, open, won, winRate, decided, atRisk, total: rows.length };
     });
   }, [scoped]);
 
@@ -671,7 +880,10 @@ export function AdminConsole() {
 
   function openCreate() {
     setEditing(null);
-    setForm(EMPTY_FORM);
+    setForm({
+      ...EMPTY_FORM,
+      probability: String(stageDefaultProb("new")),
+    });
     setEditorOpen(true);
   }
 
@@ -689,6 +901,7 @@ export function AdminConsole() {
       amount: String(lead.amount || 0),
       currency: lead.currency || "VND",
       closeDate: lead.closeDate || "",
+      probability: String(getProbability(lead)),
       owner: normalizeLeadOwner(lead.owner),
       atRisk: lead.atRisk,
     });
@@ -706,7 +919,17 @@ export function AdminConsole() {
     setSaving(true);
     setError("");
     const result = editing
-      ? await updateAdminLead(token, editing.id, input)
+      ? await updateAdminLead(
+          token,
+          editing.id,
+          leadToWrite(editing, {
+            ...input,
+            payload: {
+              ...readPayload(editing),
+              ...(input.payload || {}),
+            },
+          }),
+        )
       : await createAdminLead(token, {
           ...input,
           source: input.source || "manual",
@@ -720,51 +943,79 @@ export function AdminConsole() {
     await refresh(token);
   }
 
-  async function changeStage(lead: AdminLead, stage: LeadStage) {
-    if (!token || lead.stage === stage) return;
+  async function applyLeadPatch(
+    lead: AdminLead,
+    patch: Partial<LeadWriteInput>,
+  ) {
+    if (!token) return;
     setStageSavingId(lead.id);
     setError("");
-    const result = await updateAdminLead(
-      token,
-      lead.id,
-      leadToWrite(lead, { stage }),
-    );
+    const result = await updateAdminLead(token, lead.id, leadToWrite(lead, patch));
     setStageSavingId(null);
     if (!result.ok) {
       setError(result.error);
       return;
     }
     setLeads((cur) =>
-      cur.map((row) =>
-        row.id === lead.id
-          ? { ...row, stage, lastActivityAt: new Date().toISOString() }
-          : row,
-      ),
+      cur.map((row) => (row.id === lead.id ? result.lead : row)),
     );
+  }
+
+  async function changeStage(lead: AdminLead, stage: LeadStage) {
+    if (!token || lead.stage === stage) return;
+    await applyLeadPatch(lead, { stage });
   }
 
   async function changeOwner(lead: AdminLead, owner: string) {
     const next = normalizeLeadOwner(owner);
     if (!token || lead.owner === next) return;
-    setStageSavingId(lead.id);
-    setError("");
-    const result = await updateAdminLead(
-      token,
-      lead.id,
-      leadToWrite(lead, { owner: next }),
-    );
-    setStageSavingId(null);
-    if (!result.ok) {
-      setError(result.error);
-      return;
-    }
-    setLeads((cur) =>
-      cur.map((row) =>
-        row.id === lead.id
-          ? { ...row, owner: next, lastActivityAt: new Date().toISOString() }
-          : row,
-      ),
-    );
+    await applyLeadPatch(lead, { owner: next });
+  }
+
+  async function changeAmount(lead: AdminLead, amount: number) {
+    if (!token || lead.amount === amount) return;
+    await applyLeadPatch(lead, { amount: Math.max(0, amount) });
+  }
+
+  async function changeCloseDate(lead: AdminLead, closeDate: string) {
+    if (!token || lead.closeDate === closeDate) return;
+    await applyLeadPatch(lead, { closeDate });
+  }
+
+  async function changeProbability(lead: AdminLead, probability: number) {
+    const next = clampProb(probability);
+    if (!token || getProbability(lead) === next) return;
+    await applyLeadPatch(lead, {
+      payload: { ...readPayload(lead), probability: next },
+    });
+  }
+
+  function onBoardDragStart(event: DragEvent, leadId: string) {
+    setDragLeadId(leadId);
+    event.dataTransfer.setData("text/plain", leadId);
+    event.dataTransfer.effectAllowed = "move";
+  }
+
+  function onBoardDragEnd() {
+    setDragLeadId(null);
+    setDragOverStage(null);
+  }
+
+  function onBoardDragOver(event: DragEvent, stage: LeadStage) {
+    event.preventDefault();
+    event.dataTransfer.dropEffect = "move";
+    if (dragOverStage !== stage) setDragOverStage(stage);
+  }
+
+  async function onBoardDrop(event: DragEvent, stage: LeadStage) {
+    event.preventDefault();
+    const id =
+      event.dataTransfer.getData("text/plain") || dragLeadId || "";
+    setDragLeadId(null);
+    setDragOverStage(null);
+    const lead = leads.find((l) => l.id === id);
+    if (!lead) return;
+    await changeStage(lead, stage);
   }
 
   async function removeLead(lead: AdminLead) {
@@ -861,9 +1112,11 @@ export function AdminConsole() {
       ? t.workspaces.crm
       : workspace === "analytics"
         ? t.workspaces.analytics
-        : nav === "playbook"
-          ? t.side.navPlaybook
-          : t.hero.title;
+        : workspace === "contracts"
+          ? t.workspaces.contracts
+          : nav === "playbook"
+            ? t.side.navPlaybook
+            : t.hero.title;
 
   return (
     <div className="df">
@@ -901,6 +1154,14 @@ export function AdminConsole() {
           >
             <NavIcon name="overview" />
             {t.workspaces.analytics}
+          </button>
+          <button
+            type="button"
+            className={workspace === "contracts" ? "is-active" : undefined}
+            onClick={() => switchWorkspace("contracts")}
+          >
+            <NavIcon name="contracts" />
+            {t.workspaces.contracts}
           </button>
         </nav>
 
@@ -970,6 +1231,18 @@ export function AdminConsole() {
               >
                 <NavIcon name="overview" />
                 {loading ? t.side.refreshing : t.side.refresh}
+              </button>
+            </nav>
+          </>
+        ) : null}
+
+        {workspace === "contracts" ? (
+          <>
+            <p className="df-side__label">{t.side.contractsGroup}</p>
+            <nav className="df-side__nav">
+              <button type="button" className="is-active">
+                <NavIcon name="contracts" />
+                {t.side.navContracts}
               </button>
             </nav>
           </>
@@ -1077,7 +1350,11 @@ export function AdminConsole() {
                 </article>
                 <article className="df-kpi">
                   <p>{t.forecast.winRate}</p>
-                  <strong>{metrics.winRate}%</strong>
+                  <WinRateDisplay
+                    rate={metrics.winRate}
+                    decided={metrics.decided}
+                    t={t}
+                  />
                 </article>
                 <article className={`df-kpi${metrics.atRisk ? " is-warn" : ""}`}>
                   <p>{t.kpi.atRisk}</p>
@@ -1105,7 +1382,11 @@ export function AdminConsole() {
                   </article>
                   <article>
                     <p>{t.forecast.winRate}</p>
-                    <strong>{metrics.winRate}%</strong>
+                    <WinRateDisplay
+                      rate={metrics.winRate}
+                      decided={metrics.decided}
+                      t={t}
+                    />
                   </article>
                 </div>
               </section>
@@ -1139,7 +1420,16 @@ export function AdminConsole() {
                           </td>
                           <td className="is-num">{row.open}</td>
                           <td className="is-num">{row.won}</td>
-                          <td className="is-num">{row.winRate}%</td>
+                          <td className="is-num">
+                            {row.winRate == null ? "—" : `${row.winRate}%`}
+                            {row.decided > 0 ? (
+                              <em className="df-kpi__sub df-kpi__sub--inline">
+                                {fillTemplate(t.forecast.closedSample, {
+                                  n: row.decided,
+                                })}
+                              </em>
+                            ) : null}
+                          </td>
                           <td className="is-num">{row.atRisk}</td>
                         </tr>
                       ))}
@@ -1147,6 +1437,86 @@ export function AdminConsole() {
                   </table>
                 </div>
               </section>
+            </div>
+          ) : null}
+
+          {workspace === "contracts" ? (
+            <div className="df-panel">
+              <div className="df-panel__head">
+                <div>
+                  <h1>{t.contractsPage.title}</h1>
+                  <p>{t.contractsPage.description}</p>
+                </div>
+              </div>
+              <div className="df-table-card">
+                <div className="df-table-wrap">
+                  <table className="df-table">
+                    <thead>
+                      <tr>
+                        <th>{t.contractsPage.colTitle}</th>
+                        <th>{t.contractsPage.colClient}</th>
+                        <th>{t.contractsPage.colStatus}</th>
+                        <th>{t.contractsPage.colDate}</th>
+                        <th>{t.contractsPage.colActions}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {ADMIN_CONTRACTS.length === 0 ? (
+                        <tr>
+                          <td colSpan={5} className="df-table__empty">
+                            {t.contractsPage.empty}
+                          </td>
+                        </tr>
+                      ) : (
+                        ADMIN_CONTRACTS.map((c) => {
+                          const statusLabel =
+                            c.status === "draft"
+                              ? t.contractsPage.statusDraft
+                              : c.status === "signed"
+                                ? t.contractsPage.statusSigned
+                                : t.contractsPage.statusReady;
+                          return (
+                            <tr key={c.id}>
+                              <td>
+                                <strong>{contractTitle(c, salesLocale)}</strong>
+                              </td>
+                              <td>{c.client}</td>
+                              <td>
+                                <span
+                                  className={`df-chip${c.status === "ready" ? " is-ok" : ""}`}
+                                >
+                                  {statusLabel}
+                                </span>
+                              </td>
+                              <td className="df__muted">
+                                {c.signedAt ?? "—"}
+                              </td>
+                              <td>
+                                <div className="df-row-actions is-visible">
+                                  <a
+                                    className="df-btn is-ghost is-sm"
+                                    href={assetPath(c.href)}
+                                  >
+                                    {t.contractsPage.view}
+                                  </a>
+                                  <a
+                                    className="df-btn is-sm"
+                                    href={assetPath(`${c.href}?print=1`)}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                  >
+                                    {t.contractsPage.printPdf}
+                                  </a>
+                                </div>
+                              </td>
+                            </tr>
+                          );
+                        })
+                      )}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
             </div>
           ) : null}
 
@@ -1223,7 +1593,11 @@ export function AdminConsole() {
                   </article>
                   <article>
                     <p>{t.forecast.winRate}</p>
-                    <strong>{metrics.winRate}%</strong>
+                    <WinRateDisplay
+                      rate={metrics.winRate}
+                      decided={metrics.decided}
+                      t={t}
+                    />
                   </article>
                 </div>
               </section>
@@ -1288,6 +1662,35 @@ export function AdminConsole() {
                 </div>
               ) : null}
 
+              {filtersActive ? (
+                <div className="df-filter-chips" aria-label={t.top.filtersActive}>
+                  {ownerFilter !== "all" ? (
+                    <span className="df-chip">{t.filters.owner}: {ownerFilter}</span>
+                  ) : null}
+                  {sourceFilter !== "exclude-careers" ? (
+                    <span className="df-chip">
+                      {t.filters.source}:{" "}
+                      {sourceFilter === "all"
+                        ? t.filters.allSources
+                        : sourceFilter}
+                    </span>
+                  ) : null}
+                  {idleFilter !== "all" ? (
+                    <span className="df-chip">
+                      {t.filters.idle}: {idleFilter}
+                    </span>
+                  ) : null}
+                  {query.trim() || tableQuery.trim() ? (
+                    <span className="df-chip">
+                      ⌕ {query.trim() || tableQuery.trim()}
+                    </span>
+                  ) : null}
+                  <button type="button" className="df-link" onClick={clearFilters}>
+                    {t.top.clearFilters}
+                  </button>
+                </div>
+              ) : null}
+
               <section className="df-table-card">
                 <div className="df-table-tools">
                   <div className="df-view" role="tablist" aria-label={t.view.label}>
@@ -1346,41 +1749,80 @@ export function AdminConsole() {
 
                 {pipelineView === "board" ? (
                   <div className="df-board" role="region" aria-label={t.view.board}>
-                    {boardColumns.map((column) => (
-                      <section key={column.stage} className="df-board__col">
+                    {boardColumns.map((column) => {
+                      const colSum = column.leads.reduce(
+                        (s, l) => s + (l.amount || 0),
+                        0,
+                      );
+                      return (
+                      <section
+                        key={column.stage}
+                        className={`df-board__col${
+                          dragOverStage === column.stage ? " is-drop" : ""
+                        }`}
+                        onDragOver={(e) => onBoardDragOver(e, column.stage)}
+                        onDragLeave={() => {
+                          if (dragOverStage === column.stage) {
+                            setDragOverStage(null);
+                          }
+                        }}
+                        onDrop={(e) => void onBoardDrop(e, column.stage)}
+                      >
                         <header className="df-board__head">
                           <span className={`df-status ${stageTone(column.stage)}`}>
                             {salesStageShort(salesLocale, column.stage)}
                           </span>
-                          <em>{column.leads.length}</em>
+                          <div className="df-board__head-meta">
+                            <em>{column.leads.length}</em>
+                            <span>
+                              {fillTemplate(t.board.columnSum, {
+                                value: formatMoney(colSum, "VND", salesLocale),
+                              })}
+                            </span>
+                          </div>
                         </header>
                         <div className="df-board__list">
                           {column.leads.length === 0 ? (
-                            <p className="df-board__empty">{t.board.empty}</p>
+                            <p className="df-board__empty">
+                              {dragOverStage === column.stage
+                                ? t.board.dropHere
+                                : t.board.empty}
+                            </p>
                           ) : (
                             column.leads.map((lead) => {
                               const idle = idleDays(lead.lastActivityAt);
+                              const prob = getProbability(lead);
                               return (
-                                <button
+                                <article
                                   key={lead.id}
-                                  type="button"
+                                  draggable
                                   className={
                                     selectedId === lead.id
                                       ? "df-board-card is-selected"
-                                      : "df-board-card"
+                                      : dragLeadId === lead.id
+                                        ? "df-board-card is-dragging"
+                                        : "df-board-card"
                                   }
+                                  onDragStart={(e) =>
+                                    onBoardDragStart(e, lead.id)
+                                  }
+                                  onDragEnd={onBoardDragEnd}
                                   onClick={() => selectDeal(lead.id)}
                                 >
                                   <strong>{lead.title || lead.name}</strong>
                                   <span>{lead.company || lead.name}</span>
                                   <span className="df-board-card__meta">
-                                    <em>
-                                      {formatMoney(
-                                        lead.amount,
-                                        lead.currency,
-                                        salesLocale,
-                                      )}
-                                    </em>
+                                    <InlineQuickField
+                                      kind="amount"
+                                      lead={lead}
+                                      salesLocale={salesLocale}
+                                      t={t}
+                                      disabled={stageSavingId === lead.id}
+                                      onSaveAmount={changeAmount}
+                                      onSaveClose={changeCloseDate}
+                                      onSaveProb={changeProbability}
+                                    />
+                                    <em className="df-board-card__prob">{prob}%</em>
                                     <span
                                       className={`df-idle is-${idleTone(idle)}`}
                                     >
@@ -1398,13 +1840,14 @@ export function AdminConsole() {
                                       {suggestedNext(lead, t)}
                                     </span>
                                   </span>
-                                </button>
+                                </article>
                               );
                             })
                           )}
                         </div>
                       </section>
-                    ))}
+                      );
+                    })}
                   </div>
                 ) : (
                 <>
@@ -1416,6 +1859,8 @@ export function AdminConsole() {
                         <th>{t.table.company}</th>
                         <th>{t.table.stage}</th>
                         <th className="is-num">{t.table.amount}</th>
+                        <th className="is-num">{t.table.probability}</th>
+                        <th>{t.table.closeDate}</th>
                         <th>{t.table.source}</th>
                         <th>{t.table.owner}</th>
                         <th>{t.table.lastActivity}</th>
@@ -1427,7 +1872,7 @@ export function AdminConsole() {
                     <tbody>
                       {pageRows.length === 0 ? (
                         <tr>
-                          <td colSpan={10} className="df-table__empty">
+                          <td colSpan={12} className="df-table__empty">
                             <strong>{emptyMessage}</strong>
                             {!loading ? (
                               <p>{t.table.emptyHint}</p>
@@ -1477,11 +1922,40 @@ export function AdminConsole() {
                                 </span>
                               </td>
                               <td className="is-num">
-                                {formatMoney(
-                                  lead.amount,
-                                  lead.currency,
-                                  salesLocale,
-                                )}
+                                <InlineQuickField
+                                  kind="amount"
+                                  lead={lead}
+                                  salesLocale={salesLocale}
+                                  t={t}
+                                  disabled={stageSavingId === lead.id}
+                                  onSaveAmount={changeAmount}
+                                  onSaveClose={changeCloseDate}
+                                  onSaveProb={changeProbability}
+                                />
+                              </td>
+                              <td className="is-num">
+                                <InlineQuickField
+                                  kind="prob"
+                                  lead={lead}
+                                  salesLocale={salesLocale}
+                                  t={t}
+                                  disabled={stageSavingId === lead.id}
+                                  onSaveAmount={changeAmount}
+                                  onSaveClose={changeCloseDate}
+                                  onSaveProb={changeProbability}
+                                />
+                              </td>
+                              <td>
+                                <InlineQuickField
+                                  kind="close"
+                                  lead={lead}
+                                  salesLocale={salesLocale}
+                                  t={t}
+                                  disabled={stageSavingId === lead.id}
+                                  onSaveAmount={changeAmount}
+                                  onSaveClose={changeCloseDate}
+                                  onSaveProb={changeProbability}
+                                />
                               </td>
                               <td className="df-cell-muted">{lead.source}</td>
                               <td>
@@ -1699,12 +2173,14 @@ export function AdminConsole() {
                   {t.form.stage}
                   <select
                     value={form.stage}
-                    onChange={(e) =>
+                    onChange={(e) => {
+                      const stage = e.target.value as LeadStage;
                       setForm((c) => ({
                         ...c,
-                        stage: e.target.value as LeadStage,
-                      }))
-                    }
+                        stage,
+                        probability: String(stageDefaultProb(stage)),
+                      }));
+                    }}
                   >
                     {LEAD_STAGES.map((s) => (
                       <option key={s} value={s}>
@@ -1726,6 +2202,19 @@ export function AdminConsole() {
               </div>
               <div className="df-detail__form-row">
                 <label>
+                  {t.form.probability}
+                  <input
+                    type="number"
+                    min={0}
+                    max={100}
+                    step={5}
+                    value={form.probability}
+                    onChange={(e) =>
+                      setForm((c) => ({ ...c, probability: e.target.value }))
+                    }
+                  />
+                </label>
+                <label>
                   {t.form.owner}
                   <select
                     value={normalizeLeadOwner(form.owner)}
@@ -1740,6 +2229,8 @@ export function AdminConsole() {
                     ))}
                   </select>
                 </label>
+              </div>
+              <div className="df-detail__form-row">
                 <label>
                   {t.form.source}
                   <select
@@ -1758,6 +2249,7 @@ export function AdminConsole() {
                     ))}
                   </select>
                 </label>
+                <span />
               </div>
               <label className="df-detail__check">
                 <input
@@ -1851,16 +2343,47 @@ export function AdminConsole() {
                 <div>
                   <dt>{t.drawer.amount}</dt>
                   <dd>
-                    {formatMoney(
-                      selected.amount,
-                      selected.currency,
-                      salesLocale,
-                    )}
+                    <InlineQuickField
+                      kind="amount"
+                      lead={selected}
+                      salesLocale={salesLocale}
+                      t={t}
+                      disabled={stageSavingId === selected.id}
+                      onSaveAmount={changeAmount}
+                      onSaveClose={changeCloseDate}
+                      onSaveProb={changeProbability}
+                    />
+                  </dd>
+                </div>
+                <div>
+                  <dt>{t.drawer.probability}</dt>
+                  <dd>
+                    <InlineQuickField
+                      kind="prob"
+                      lead={selected}
+                      salesLocale={salesLocale}
+                      t={t}
+                      disabled={stageSavingId === selected.id}
+                      onSaveAmount={changeAmount}
+                      onSaveClose={changeCloseDate}
+                      onSaveProb={changeProbability}
+                    />
                   </dd>
                 </div>
                 <div>
                   <dt>{t.drawer.close}</dt>
-                  <dd>{formatClose(selected.closeDate, salesLocale)}</dd>
+                  <dd>
+                    <InlineQuickField
+                      kind="close"
+                      lead={selected}
+                      salesLocale={salesLocale}
+                      t={t}
+                      disabled={stageSavingId === selected.id}
+                      onSaveAmount={changeAmount}
+                      onSaveClose={changeCloseDate}
+                      onSaveProb={changeProbability}
+                    />
+                  </dd>
                 </div>
                 <div>
                   <dt>{t.drawer.owner}</dt>
@@ -1916,13 +2439,25 @@ export function AdminConsole() {
                   </dd>
                 </div>
               </dl>
+              <p className="df__muted df-detail__soon">{t.drawer.tasksSoon}</p>
             </section>
 
             <section className="df-detail__block">
               <h3>{t.drawer.notesSection}</h3>
               <p className="df-detail__note">
-                {selected.note?.trim() || "—"}
+                {selected.note?.trim() ? (
+                  selected.note.trim()
+                ) : (
+                  <button
+                    type="button"
+                    className="df-inline-btn is-empty"
+                    onClick={() => openEdit(selected)}
+                  >
+                    {t.drawer.setField}
+                  </button>
+                )}
               </p>
+              <p className="df__muted df-detail__soon">{t.drawer.filesSoon}</p>
             </section>
 
             <section className="df-detail__block">
@@ -1939,6 +2474,22 @@ export function AdminConsole() {
                     <strong>{t.drawer.created}</strong>
                     <em>
                       {relativeActivity(selected.createdAt, salesLocale)}
+                    </em>
+                  </div>
+                </li>
+                <li>
+                  <span className="df-timeline__dot" aria-hidden />
+                  <div>
+                    <strong>
+                      {fillTemplate(t.drawer.stageChanged, {
+                        stage: salesStageShort(salesLocale, selected.stage),
+                      })}
+                    </strong>
+                    <em>
+                      {relativeActivity(
+                        selected.lastActivityAt || selected.createdAt,
+                        salesLocale,
+                      )}
                     </em>
                   </div>
                 </li>
@@ -1965,6 +2516,16 @@ export function AdminConsole() {
                       <em className="df-timeline__note">
                         {selected.note.trim()}
                       </em>
+                    </div>
+                  </li>
+                ) : null}
+                {!selected.note?.trim() &&
+                (!selected.lastActivityAt ||
+                  selected.lastActivityAt === selected.createdAt) ? (
+                  <li className="df-timeline__muted">
+                    <span className="df-timeline__dot" aria-hidden />
+                    <div>
+                      <em>{t.drawer.noTimeline}</em>
                     </div>
                   </li>
                 ) : null}

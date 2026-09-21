@@ -1,5 +1,10 @@
 # Changelog — Dolphin Edu frontend
 
+## 2026-09-21
+
+- SoT báo giá: đường dẫn hợp đồng MA → `/demos/admin/contract/hop-dong-ma/` (Admin Contracts); `/demos/hop-dong-ma/` redirect.
+- Hợp đồng MA: Phụ lục **05** DPA · **06** mốc bàn giao · **07** checklist đầu vào Bên B.
+
 ## 2026-09-14
 
 - Báo giá MA Dance: giảm **10%** khi tổng thanh toán trước **trên 15.000.000đ**.

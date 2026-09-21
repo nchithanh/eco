@@ -1,6 +1,7 @@
 /** Sales pipeline stages — Dolphin Software (admin + D1 `leads.stage`). */
 
 export const LEAD_STAGES = [
+  "hotline",
   "new",
   "qualified",
   "discover",
@@ -16,6 +17,7 @@ export const LEAD_STAGES = [
 export type LeadStage = (typeof LEAD_STAGES)[number];
 
 export const LEAD_STAGE_LABELS: Record<LeadStage, string> = {
+  hotline: "0 · Hotline",
   new: "1 · Lead in",
   qualified: "2 · Qualify",
   discover: "3 · Discover",
