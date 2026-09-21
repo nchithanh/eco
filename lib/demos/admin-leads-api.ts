@@ -21,15 +21,23 @@ export const LEAD_SOURCES = [
 
 export type AdminLeadSource = (typeof LEAD_SOURCES)[number];
 
-export const LEAD_OWNERS = ["thanhnc", "nghiahq", "hoangpt"] as const;
+export const LEAD_OWNERS = ["thanhnc", "nghianh", "hoangpt"] as const;
 
 export type LeadOwner = (typeof LEAD_OWNERS)[number];
 
 export const DEFAULT_LEAD_OWNER: LeadOwner = "thanhnc";
 
+/** Legacy deal owner id → canonical user id */
+const OWNER_ALIASES: Record<string, LeadOwner> = {
+  nghiahq: "nghianh",
+};
+
 export function normalizeLeadOwner(value: unknown): LeadOwner {
-  if (typeof value === "string" && (LEAD_OWNERS as readonly string[]).includes(value)) {
-    return value as LeadOwner;
+  if (typeof value !== "string") return DEFAULT_LEAD_OWNER;
+  const raw = value.trim();
+  const aliased = OWNER_ALIASES[raw] ?? raw;
+  if ((LEAD_OWNERS as readonly string[]).includes(aliased)) {
+    return aliased as LeadOwner;
   }
   return DEFAULT_LEAD_OWNER;
 }

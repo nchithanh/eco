@@ -235,6 +235,21 @@ export type DolphinSalesCopy = {
     idleOk: string;
     idleWarn: string;
     idleBad: string;
+    stage: string;
+    stageAll: string;
+    contactKind: string;
+    contactKindAll: string;
+    contactKindHotline: string;
+    contactKindOwner: string;
+    contactKindUnknown: string;
+    atRisk: string;
+    atRiskAll: string;
+    atRiskYes: string;
+    atRiskNo: string;
+    amountMin: string;
+    amountMax: string;
+    closeFrom: string;
+    closeTo: string;
   };
   playbook: {
     title: string;
@@ -534,15 +549,30 @@ const VI: DolphinSalesCopy = {
   },
   filters: {
     owner: "Owner",
-    ownerAll: "All owners",
-    source: "Source",
-    excludeCareers: "Exclude careers",
-    allSources: "All sources",
+    ownerAll: "Tất cả owner",
+    source: "Nguồn",
+    excludeCareers: "Ẩn careers",
+    allSources: "Tất cả nguồn",
     idle: "Idle",
-    idleAll: "Any idle",
-    idleOk: "0–2 days",
-    idleWarn: "3–6 days",
-    idleBad: "7+ days",
+    idleAll: "Mọi idle",
+    idleOk: "0–2 ngày",
+    idleWarn: "3–6 ngày",
+    idleBad: "7+ ngày",
+    stage: "Stage",
+    stageAll: "Tất cả stage",
+    contactKind: "Loại liên hệ",
+    contactKindAll: "Tất cả",
+    contactKindHotline: "Hotline",
+    contactKindOwner: "Chủ / quyết định",
+    contactKindUnknown: "Chưa rõ",
+    atRisk: "At risk",
+    atRiskAll: "Tất cả",
+    atRiskYes: "Có risk",
+    atRiskNo: "Không risk",
+    amountMin: "Value từ",
+    amountMax: "Value đến",
+    closeFrom: "Close từ",
+    closeTo: "Close đến",
   },
   playbook: {
     title: "Sales playbook",
@@ -849,6 +879,21 @@ const EN: DolphinSalesCopy = {
     idleOk: "0–2 days",
     idleWarn: "3–6 days",
     idleBad: "7+ days",
+    stage: "Stage",
+    stageAll: "All stages",
+    contactKind: "Contact kind",
+    contactKindAll: "All",
+    contactKindHotline: "Hotline",
+    contactKindOwner: "Owner / decision-maker",
+    contactKindUnknown: "Unknown",
+    atRisk: "At risk",
+    atRiskAll: "All",
+    atRiskYes: "At risk",
+    atRiskNo: "Not at risk",
+    amountMin: "Value from",
+    amountMax: "Value to",
+    closeFrom: "Close from",
+    closeTo: "Close to",
   },
   playbook: {
     title: "Sales playbook",

@@ -819,10 +819,10 @@
 
 /* —— Filters —— */
 .df-filters {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.65rem;
-  align-items: flex-end;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(10.5rem, 1fr));
+  gap: 0.65rem 0.75rem;
+  align-items: end;
   padding: 0.7rem 0.75rem;
   border: 1px solid var(--df-border);
   border-radius: var(--df-radius);
@@ -837,14 +837,28 @@
   color: var(--df-muted);
   letter-spacing: 0.04em;
   text-transform: uppercase;
+  min-width: 0;
 }
 
-.df-filters .df-select {
+.df-filters .df-select,
+.df-filters .df-input {
   text-transform: none;
   letter-spacing: normal;
   font-weight: 500;
-  min-width: 8.5rem;
+  width: 100%;
+  min-width: 0;
   background: var(--df-panel);
+}
+
+.df-filters__wide {
+  grid-column: 1 / -1;
+}
+
+.df-filters .df-link {
+  justify-self: start;
+  align-self: center;
+  text-transform: none;
+  letter-spacing: normal;
 }
 
 /* —— Table —— */

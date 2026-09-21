@@ -55,6 +55,8 @@ type SourceFilter = "all" | "exclude-careers" | AdminLeadSource;
 type StageTab = "all" | LeadStage;
 type OwnerFilter = "all" | string;
 type IdleFilter = "all" | "ok" | "warn" | "bad";
+type ContactKindFilter = "all" | "hotline" | "owner" | "unknown";
+type AtRiskFilter = "all" | "yes" | "no";
 
 type LeadFormState = {
   source: AdminLeadSource;
@@ -231,6 +233,16 @@ function leadInitials(lead: AdminLead): string {
   if (words.length === 0) return source.slice(0, 2).toUpperCase();
   if (words.length === 1) return words[0].slice(0, 2).toUpperCase();
   return (words[0][0] + words[1][0]).toUpperCase();
+}
+
+function leadContactKind(lead: AdminLead): ContactKindFilter {
+  const payload = readPayload(lead);
+  const raw = String(payload.contactKind || "").toLowerCase();
+  if (raw === "hotline" || raw === "owner" || raw === "unknown") return raw;
+  if (lead.stage === "hotline" || (lead.title || "").includes("[Hotline]")) {
+    return "hotline";
+  }
+  return "unknown";
 }
 
 function leadSecondary(lead: AdminLead): string {
@@ -616,6 +628,13 @@ export function AdminConsole() {
     useState<SourceFilter>("exclude-careers");
   const [ownerFilter, setOwnerFilter] = useState<OwnerFilter>("all");
   const [idleFilter, setIdleFilter] = useState<IdleFilter>("all");
+  const [contactKindFilter, setContactKindFilter] =
+    useState<ContactKindFilter>("all");
+  const [atRiskFilter, setAtRiskFilter] = useState<AtRiskFilter>("all");
+  const [amountMin, setAmountMin] = useState("");
+  const [amountMax, setAmountMax] = useState("");
+  const [closeFrom, setCloseFrom] = useState("");
+  const [closeTo, setCloseTo] = useState("");
   const [filtersOpen, setFiltersOpen] = useState(true);
   const [stageTab, setStageTab] = useState<StageTab>("all");
   const [pipelineView, setPipelineView] = useState<PipelineView>("board");
@@ -676,7 +695,7 @@ export function AdminConsole() {
   const refresh = useCallback(async (auth: string) => {
     setLoading(true);
     setError("");
-    const result = await listAdminLeads(auth, { limit: 100 });
+    const result = await listAdminLeads(auth, { limit: 500 });
     setLoading(false);
     if (!result.ok) {
       setError(result.error);
@@ -711,6 +730,28 @@ export function AdminConsole() {
     if (idleFilter !== "all") {
       rows = rows.filter((l) => idleTone(idleDays(l.lastActivityAt)) === idleFilter);
     }
+    if (contactKindFilter !== "all") {
+      rows = rows.filter((l) => leadContactKind(l) === contactKindFilter);
+    }
+    if (atRiskFilter === "yes") {
+      rows = rows.filter((l) => l.atRisk);
+    } else if (atRiskFilter === "no") {
+      rows = rows.filter((l) => !l.atRisk);
+    }
+    const min = amountMin.trim() === "" ? null : Number(amountMin);
+    const max = amountMax.trim() === "" ? null : Number(amountMax);
+    if (min != null && Number.isFinite(min)) {
+      rows = rows.filter((l) => l.amount >= min);
+    }
+    if (max != null && Number.isFinite(max)) {
+      rows = rows.filter((l) => l.amount <= max);
+    }
+    if (closeFrom) {
+      rows = rows.filter((l) => l.closeDate && l.closeDate >= closeFrom);
+    }
+    if (closeTo) {
+      rows = rows.filter((l) => l.closeDate && l.closeDate <= closeTo);
+    }
     const q = (query || tableQuery).trim().toLowerCase();
     if (!q) return rows;
     return rows.filter((l) =>
@@ -724,6 +765,7 @@ export function AdminConsole() {
         l.stage,
         salesStageLabel(salesLocale, l.stage),
         l.owner,
+        leadContactKind(l),
       ]
         .join(" ")
         .toLowerCase()
@@ -734,6 +776,12 @@ export function AdminConsole() {
     sourceFilter,
     ownerFilter,
     idleFilter,
+    contactKindFilter,
+    atRiskFilter,
+    amountMin,
+    amountMax,
+    closeFrom,
+    closeTo,
     query,
     tableQuery,
     salesLocale,
@@ -743,6 +791,12 @@ export function AdminConsole() {
     sourceFilter !== "exclude-careers" ||
     ownerFilter !== "all" ||
     idleFilter !== "all" ||
+    contactKindFilter !== "all" ||
+    atRiskFilter !== "all" ||
+    Boolean(amountMin.trim()) ||
+    Boolean(amountMax.trim()) ||
+    Boolean(closeFrom) ||
+    Boolean(closeTo) ||
     Boolean(query.trim() || tableQuery.trim());
 
   const metrics = useMemo(() => {
@@ -831,7 +885,20 @@ export function AdminConsole() {
 
   useEffect(() => {
     setPage(0);
-  }, [stageTab, query, tableQuery, sourceFilter, ownerFilter, idleFilter]);
+  }, [
+    stageTab,
+    query,
+    tableQuery,
+    sourceFilter,
+    ownerFilter,
+    idleFilter,
+    contactKindFilter,
+    atRiskFilter,
+    amountMin,
+    amountMax,
+    closeFrom,
+    closeTo,
+  ]);
 
   const pageCount = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
   const pageRows = useMemo(() => {
@@ -848,6 +915,12 @@ export function AdminConsole() {
     setSourceFilter("exclude-careers");
     setOwnerFilter("all");
     setIdleFilter("all");
+    setContactKindFilter("all");
+    setAtRiskFilter("all");
+    setAmountMin("");
+    setAmountMax("");
+    setCloseFrom("");
+    setCloseTo("");
     setQuery("");
     setTableQuery("");
     setStageTab("all");
@@ -1605,6 +1678,23 @@ export function AdminConsole() {
               {filtersOpen ? (
                 <div className="df-filters">
                   <label>
+                    <span>{t.filters.stage}</span>
+                    <select
+                      className="df-select"
+                      value={stageTab}
+                      onChange={(e) =>
+                        setStageTab(e.target.value as StageTab)
+                      }
+                    >
+                      <option value="all">{t.filters.stageAll}</option>
+                      {STAGE_TABS.map((stage) => (
+                        <option key={stage} value={stage}>
+                          {salesStageShort(salesLocale, stage)}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+                  <label>
                     <span>{t.filters.owner}</span>
                     <select
                       className="df-select"
@@ -1636,6 +1726,43 @@ export function AdminConsole() {
                     </select>
                   </label>
                   <label>
+                    <span>{t.filters.contactKind}</span>
+                    <select
+                      className="df-select"
+                      value={contactKindFilter}
+                      onChange={(e) =>
+                        setContactKindFilter(
+                          e.target.value as ContactKindFilter,
+                        )
+                      }
+                    >
+                      <option value="all">{t.filters.contactKindAll}</option>
+                      <option value="hotline">
+                        {t.filters.contactKindHotline}
+                      </option>
+                      <option value="owner">
+                        {t.filters.contactKindOwner}
+                      </option>
+                      <option value="unknown">
+                        {t.filters.contactKindUnknown}
+                      </option>
+                    </select>
+                  </label>
+                  <label>
+                    <span>{t.filters.atRisk}</span>
+                    <select
+                      className="df-select"
+                      value={atRiskFilter}
+                      onChange={(e) =>
+                        setAtRiskFilter(e.target.value as AtRiskFilter)
+                      }
+                    >
+                      <option value="all">{t.filters.atRiskAll}</option>
+                      <option value="yes">{t.filters.atRiskYes}</option>
+                      <option value="no">{t.filters.atRiskNo}</option>
+                    </select>
+                  </label>
+                  <label>
                     <span>{t.filters.idle}</span>
                     <select
                       className="df-select"
@@ -1649,6 +1776,48 @@ export function AdminConsole() {
                       <option value="warn">{t.filters.idleWarn}</option>
                       <option value="bad">{t.filters.idleBad}</option>
                     </select>
+                  </label>
+                  <label>
+                    <span>{t.filters.amountMin}</span>
+                    <input
+                      className="df-input"
+                      type="number"
+                      min={0}
+                      inputMode="numeric"
+                      value={amountMin}
+                      onChange={(e) => setAmountMin(e.target.value)}
+                      placeholder="0"
+                    />
+                  </label>
+                  <label>
+                    <span>{t.filters.amountMax}</span>
+                    <input
+                      className="df-input"
+                      type="number"
+                      min={0}
+                      inputMode="numeric"
+                      value={amountMax}
+                      onChange={(e) => setAmountMax(e.target.value)}
+                      placeholder="∞"
+                    />
+                  </label>
+                  <label>
+                    <span>{t.filters.closeFrom}</span>
+                    <input
+                      className="df-input"
+                      type="date"
+                      value={closeFrom}
+                      onChange={(e) => setCloseFrom(e.target.value)}
+                    />
+                  </label>
+                  <label>
+                    <span>{t.filters.closeTo}</span>
+                    <input
+                      className="df-input"
+                      type="date"
+                      value={closeTo}
+                      onChange={(e) => setCloseTo(e.target.value)}
+                    />
                   </label>
                   {filtersActive ? (
                     <button
@@ -1664,6 +1833,11 @@ export function AdminConsole() {
 
               {filtersActive ? (
                 <div className="df-filter-chips" aria-label={t.top.filtersActive}>
+                  {stageTab !== "all" ? (
+                    <span className="df-chip">
+                      {t.filters.stage}: {salesStageShort(salesLocale, stageTab)}
+                    </span>
+                  ) : null}
                   {ownerFilter !== "all" ? (
                     <span className="df-chip">{t.filters.owner}: {ownerFilter}</span>
                   ) : null}
@@ -1675,9 +1849,29 @@ export function AdminConsole() {
                         : sourceFilter}
                     </span>
                   ) : null}
+                  {contactKindFilter !== "all" ? (
+                    <span className="df-chip">
+                      {t.filters.contactKind}: {contactKindFilter}
+                    </span>
+                  ) : null}
+                  {atRiskFilter !== "all" ? (
+                    <span className="df-chip">
+                      {t.filters.atRisk}: {atRiskFilter}
+                    </span>
+                  ) : null}
                   {idleFilter !== "all" ? (
                     <span className="df-chip">
                       {t.filters.idle}: {idleFilter}
+                    </span>
+                  ) : null}
+                  {amountMin.trim() || amountMax.trim() ? (
+                    <span className="df-chip">
+                      Value: {amountMin || "0"}–{amountMax || "∞"}
+                    </span>
+                  ) : null}
+                  {closeFrom || closeTo ? (
+                    <span className="df-chip">
+                      Close: {closeFrom || "…"} → {closeTo || "…"}
                     </span>
                   ) : null}
                   {query.trim() || tableQuery.trim() ? (
