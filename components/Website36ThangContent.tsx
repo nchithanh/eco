@@ -1,16 +1,13 @@
 "use client";
 
 import type { FormEvent } from "react";
-import { useId, useRef, useState } from "react";
+import { useId, useState } from "react";
 import { AccentText } from "@/components/BrandName";
 import { Footer } from "@/components/Footer";
 import { LazyImage } from "@/components/LazyImage";
 import { Nav } from "@/components/Nav";
 import { Reveal } from "@/components/Reveal";
-import {
-  TurnstileField,
-  type TurnstileFieldHandle,
-} from "@/components/TurnstileField";
+import { useTurnstileGate } from "@/components/TurnstileGate";
 import { useQuote } from "@/components/QuoteProvider";
 import { assetPath } from "@/lib/asset";
 import { submitLead } from "@/lib/leads-api";
@@ -64,7 +61,7 @@ export function Website36ThangContent() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
     "idle",
   );
-  const turnstileRef = useRef<TurnstileFieldHandle>(null);
+  const { requestToken, gate: turnstileGate } = useTurnstileGate();
 
   async function onSubmit(e: FormEvent) {
     e.preventDefault();
@@ -93,6 +90,11 @@ export function Website36ThangContent() {
     setStatus("sending");
     const needLabel =
       c.form.needOptions.find((o) => o.value === need)?.label ?? need;
+    const turnstileToken = await requestToken();
+    if (!turnstileToken) {
+      setStatus("idle");
+      return;
+    }
     const result = await submitLead({
       source: "website-36-thang",
       name: name.trim(),
@@ -100,7 +102,7 @@ export function Website36ThangContent() {
       note: message.trim() || undefined,
       locale: "vi",
       honeypot,
-      turnstileToken: turnstileRef.current?.getToken() || undefined,
+      turnstileToken,
       payload: {
         campaign: "website-36-thang",
         company: company.trim(),
@@ -111,11 +113,12 @@ export function Website36ThangContent() {
         message: message.trim() || null,
       },
     });
-    turnstileRef.current?.reset();
     setStatus(result.ok ? "sent" : "error");
   }
 
   return (
+    <>
+    {turnstileGate}
     <div className="w36 w36-has-sticky">
       {/* 1 Hero */}
       <section className="w36-hero scroll-mt-20">
@@ -665,7 +668,6 @@ export function Website36ThangContent() {
                     {c.form.sendError}
                   </p>
                 ) : null}
-                <TurnstileField ref={turnstileRef} />
                 <button
                   type="submit"
                   disabled={status === "sending"}
@@ -692,6 +694,7 @@ export function Website36ThangContent() {
         </button>
       </div>
     </div>
+    </>
   );
 }
 
@@ -702,5 +705,6 @@ export function Website36ThangPage() {
       <Website36ThangContent />
       <Footer />
     </main>
+    </>
   );
 }

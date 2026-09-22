@@ -53,10 +53,14 @@ export function AnnouncementBar() {
             onClick={() => openChat()}
             aria-expanded={chatOpen}
             aria-haspopup="dialog"
-            className="kuct-banner-cta-outline inline-flex items-center gap-1 rounded-lg px-2.5 py-1 text-[9px] font-semibold tracking-[0.06em] uppercase sm:px-3 sm:text-[10px]"
+            title={t.nav.askAiTooltip}
+            className="kuct-banner-cta-ask inline-flex items-center gap-1.5 rounded-[10px] px-2.5 py-1 text-[9px] font-semibold tracking-[0.06em] uppercase sm:px-3 sm:text-[10px]"
           >
-            <IconSparkle className="size-3" />
-            {t.nav.askAi}
+            <IconSparkle className="size-3 shrink-0" />
+            <span>{t.nav.askAi}</span>
+            <span className="kuct-banner-cta-ask__badge" aria-hidden>
+              {t.nav.askAiBadge}
+            </span>
           </button>
         </div>
       </div>

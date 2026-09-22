@@ -49,6 +49,8 @@ export type Dictionary = {
     talk: string;
     /** Opens site AI chat drawer */
     askAi: string;
+    askAiBadge: string;
+    askAiTooltip: string;
   };
   banner: {
     aria: string;
@@ -534,6 +536,21 @@ export type Dictionary = {
     messenger: string;
     phone: string;
     email: string;
+  };
+  /** Floating Dolphin Care chat FAB (distinct from contactFab). */
+  chatFab: {
+    open: string;
+    label: string;
+    badge: string;
+    tooltip: string;
+    proactive: string;
+    proactiveClose: string;
+    proactiveAria: string;
+  };
+  turnstileGate: {
+    title: string;
+    hint: string;
+    cancel: string;
   };
   cookie: {
     title: string;

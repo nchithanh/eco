@@ -42,6 +42,8 @@ const vi: Dictionary = {
     solutions: "Giải pháp",
     talk: "Nói với Dolphin",
     askAi: "Ask AI",
+    askAiBadge: "24/7",
+    askAiTooltip: "Chat với Dolphin Care — tư vấn ngay",
   },
   banner: {
     aria: "Thông báo",
@@ -567,6 +569,20 @@ const vi: Dictionary = {
     phone: "Gọi điện",
     email: "Gửi email",
   },
+  chatFab: {
+    open: "Hỏi AI — Dolphin Care",
+    label: "Hỏi AI",
+    badge: "AI",
+    tooltip: "Chat với Dolphin Care — tư vấn ngay",
+    proactive: "Bạn cần tư vấn combo CRM + AI? Mình hỗ trợ 24/7.",
+    proactiveClose: "Đóng gợi ý",
+    proactiveAria: "Gợi ý từ Dolphin Care",
+  },
+  turnstileGate: {
+    title: "Xác minh bạn là người",
+    hint: "Hoàn tất bước bảo vệ ngắn để tiếp tục gửi.",
+    cancel: "Hủy",
+  },
   cookie: {
     title: "Cookie & quyền riêng tư",
     body: "Chúng tôi dùng cookie và lưu trữ trình duyệt cần thiết để ghi nhớ ngôn ngữ, theme giao diện và lựa chọn cookie của bạn — giúp trang tải đúng và tránh hỏi lại mỗi lần vào. Cookie tùy chọn (nếu có) chỉ phục vụ cải thiện trải nghiệm, không bán dữ liệu cho bên thứ ba. Bạn có thể chấp nhận hoặc từ chối phần không bắt buộc; từ chối vẫn dùng được site với các chức năng cốt lõi.",
@@ -624,6 +640,8 @@ const en: Dictionary = {
     solutions: "Solutions",
     talk: "Talk to Dolphin",
     askAi: "Ask AI",
+    askAiBadge: "24/7",
+    askAiTooltip: "Chat with Dolphin Care — get advice now",
   },
   banner: {
     aria: "Announcement",
@@ -1163,6 +1181,20 @@ const en: Dictionary = {
     phone: "Call",
     email: "Send email",
   },
+  chatFab: {
+    open: "Ask AI — Dolphin Care",
+    label: "Ask AI",
+    badge: "AI",
+    tooltip: "Chat with Dolphin Care — get advice now",
+    proactive: "Need help with a CRM + AI combo? I’m here 24/7.",
+    proactiveClose: "Dismiss tip",
+    proactiveAria: "Tip from Dolphin Care",
+  },
+  turnstileGate: {
+    title: "Making sure you’re human",
+    hint: "Complete this short check to continue.",
+    cancel: "Cancel",
+  },
   cookie: {
     title: "Cookies & privacy",
     body: "We use essential cookies and browser storage to remember your language, color theme, and cookie choice — so the site loads correctly and we don’t ask again on every visit. Optional cookies (if any) only help improve the experience; we don’t sell your data to third parties. You can accept or decline non-essential cookies; declining still lets you use core site features.",
@@ -1221,6 +1253,8 @@ const ja: Dictionary = {
     solutions: "ソリューション",
     talk: "Dolphinに相談",
     askAi: "Ask AI",
+    askAiBadge: "24/7",
+    askAiTooltip: "Dolphin Careにチャット — すぐ相談",
   },
   banner: {
     aria: "お知らせ",
@@ -1759,6 +1793,20 @@ const ja: Dictionary = {
     messenger: "Messengerでチャット",
     phone: "電話する",
     email: "メールを送る",
+  },
+  chatFab: {
+    open: "AIに聞く — Dolphin Care",
+    label: "AIに聞く",
+    badge: "AI",
+    tooltip: "Dolphin Careにチャット — すぐ相談",
+    proactive: "CRM＋AIコンボのご相談ですか？24時間サポートします。",
+    proactiveClose: "閉じる",
+    proactiveAria: "Dolphin Careからのヒント",
+  },
+  turnstileGate: {
+    title: "人間であることを確認しています",
+    hint: "続行するには短い確認を完了してください。",
+    cancel: "キャンセル",
   },
   cookie: {
     title: "Cookieとプライバシー",

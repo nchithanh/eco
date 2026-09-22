@@ -1,9 +1,17 @@
 import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import Home from "@/app/page";
 import { Nav } from "@/components/Nav";
 import { AppProviders } from "@/components/AppProviders";
+
+vi.mock("@/components/TurnstileGate", () => ({
+  useTurnstileGate: () => ({
+    requestToken: async () => "test-turnstile-token",
+    gate: null,
+  }),
+  TurnstileGate: () => null,
+}));
 
 function renderHome() {
   return render(
@@ -384,7 +392,7 @@ describe("Dolphin Software homepage", () => {
     expect(askAi).toBeTruthy();
     await user.click(askAi!);
     expect(
-      screen.getByRole("dialog", { name: /Dolphin Assist/i }),
+      screen.getByRole("dialog", { name: /Dolphin Assist|Dolphin Care/i }),
     ).toBeInTheDocument();
 
     await user.click(
@@ -394,6 +402,19 @@ describe("Dolphin Software homepage", () => {
       "href",
       "https://zalo.me/0779937633",
     );
+  });
+
+  it("opens the same chat drawer from the floating Care FAB", async () => {
+    const user = userEvent.setup();
+    renderHome();
+
+    const careFab = screen.getByRole("button", {
+      name: /Hỏi AI|Ask AI —|AIに聞く/i,
+    });
+    await user.click(careFab);
+    expect(
+      screen.getByRole("dialog", { name: /Dolphin Assist|Dolphin Care/i }),
+    ).toBeInTheDocument();
   });
 
   it("hides theme switcher temporarily", () => {

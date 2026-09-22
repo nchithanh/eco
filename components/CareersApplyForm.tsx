@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
@@ -10,10 +10,7 @@ import {
 } from "@/lib/careers-schema";
 import { BrandText } from "@/components/BrandName";
 import { Reveal } from "@/components/Reveal";
-import {
- TurnstileField,
- type TurnstileFieldHandle,
-} from "@/components/TurnstileField";
+import { useTurnstileGate } from "@/components/TurnstileGate";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
 import { isJobAcceptingApplications, JOB_HIRING, sortJobsByDisplayOrder } from "@/lib/careers-jobs";
 import { submitLead } from "@/lib/leads-api";
@@ -39,7 +36,7 @@ export function CareersApplyForm({ initialRole }: Props) {
  const [sent, setSent] = useState(false);
  const [sendError, setSendError] = useState(false);
  const [submitting, setSubmitting] = useState(false);
- const turnstileRef = useRef<TurnstileFieldHandle>(null);
+ const { requestToken, gate: turnstileGate } = useTurnstileGate();
  const [now, setNow] = useState<Date | null>(null);
  const schema = useMemo(() => createCareersSchema(a.errors), [a.errors]);
 
@@ -87,6 +84,11 @@ export function CareersApplyForm({ initialRole }: Props) {
  setSubmitting(true);
  setSendError(false);
  setSent(false);
+ const turnstileToken = await requestToken();
+ if (!turnstileToken) {
+ setSubmitting(false);
+ return;
+ }
  const result = await submitLead({
  source: "careers",
  name: data.name,
@@ -99,9 +101,8 @@ export function CareersApplyForm({ initialRole }: Props) {
  roleTitle,
  },
  honeypot: data.honeypot ?? "",
- turnstileToken: turnstileRef.current?.getToken() || undefined,
+ turnstileToken,
  });
- turnstileRef.current?.reset();
  setSubmitting(false);
  if (result.ok) {
  setSent(true);
@@ -111,6 +112,8 @@ export function CareersApplyForm({ initialRole }: Props) {
  };
 
  return (
+ <>
+ {turnstileGate}
  <section id="apply" className="scroll-mt-20 py-24">
  <div className="mx-auto max-w-7xl px-6">
  <Reveal variant="title">
@@ -237,7 +240,6 @@ export function CareersApplyForm({ initialRole }: Props) {
  </p>
  )}
  </div>
- <TurnstileField ref={turnstileRef} />
  <button
  type="submit"
  disabled={submitting}
@@ -255,5 +257,6 @@ export function CareersApplyForm({ initialRole }: Props) {
  </Reveal>
  </div>
  </section>
+ </>
  );
 }

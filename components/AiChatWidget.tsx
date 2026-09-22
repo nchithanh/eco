@@ -1,6 +1,7 @@
 "use client";
 
 import {
+ useCallback,
  useEffect,
  useId,
  useRef,
@@ -9,7 +10,6 @@ import {
  type FormEvent,
  type KeyboardEvent,
 } from "react";
-import Script from "next/script";
 import { usePathname } from "next/navigation";
 import { useAiChat } from "@/components/AiChatProvider";
 import { assetPath } from "@/lib/asset";
@@ -24,15 +24,13 @@ import { useLocale } from "@/lib/i18n/LocaleProvider";
 import { CONTACTS } from "@/lib/contacts";
 import { acquirePageScroll, releasePageScroll } from "@/lib/scroll-lock";
 import { useMascotSrc } from "@/components/useMascotSrc";
-import {
- getTurnstileSiteKey,
- getTurnstileToken,
- resetTurnstile,
- TURNSTILE_SCRIPT_SRC,
-} from "@/lib/turnstile";
+import { useTurnstileGate } from "@/components/TurnstileGate";
 
 const REPLY_TYPEWRITER_BASE_MS = 16;
 const AI_CHAT_PANEL_MS = 280;
+const CHAT_PROACTIVE_MS = 14_000;
+const CHAT_PROACTIVE_KEY = "kuct-care-proactive-v1";
+const CHAT_FAB_NUDGE_MS = 1_800;
 
 function prefersReducedMotion(): boolean {
   return (
@@ -201,13 +199,18 @@ export function AiChatWidget() {
  const { locale, t } = useLocale();
  const c = getAiChatCopy(locale);
  const welcomeMascot = useMascotSrc("contact");
+ const chatMascot = useMascotSrc("chat");
  const fab = t.contactFab;
+ const chatFab = t.chatFab;
+ const { requestToken, gate: turnstileGate } = useTurnstileGate();
  const panelId = useId();
  const listRef = useRef<HTMLDivElement>(null);
  const inputRef = useRef<HTMLInputElement>(null);
- const { open, closeChat } = useAiChat();
+ const { open, closeChat, openChat } = useAiChat();
 
   const [contactsOpen, setContactsOpen] = useState(false);
+  const [proactiveOpen, setProactiveOpen] = useState(false);
+  const [fabNudge, setFabNudge] = useState(true);
   const [draft, setDraft] = useState("");
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [sending, setSending] = useState(false);
@@ -215,9 +218,6 @@ export function AiChatWidget() {
   const [fabHidden, setFabHidden] = useState(false);
   const contactsRef = useRef<HTMLDivElement>(null);
   const abortRef = useRef<AbortController | null>(null);
-  const turnstileHostRef = useRef<HTMLDivElement | null>(null);
-  const turnstileWidgetIdRef = useRef<string | null>(null);
-  const [turnstileScriptReady, setTurnstileScriptReady] = useState(false);
   const lastScrollY = useRef(0);
 
   const hideOnAdmin =
@@ -226,49 +226,51 @@ export function AiChatWidget() {
   const panelMounted = open || panelPresent;
   const panelClosing = !open && panelPresent;
 
+  const markProactiveSeen = useCallback(() => {
+    setProactiveOpen(false);
+    try {
+      sessionStorage.setItem(CHAT_PROACTIVE_KEY, "1");
+    } catch {
+      /* private mode */
+    }
+  }, []);
+
+  const openCareChat = useCallback(() => {
+    markProactiveSeen();
+    setContactsOpen(false);
+    openChat();
+  }, [markProactiveSeen, openChat]);
+
+  useEffect(() => {
+    if (open) markProactiveSeen();
+  }, [open, markProactiveSeen]);
+
+  useEffect(() => {
+    if (hideOnAdmin) return;
+    try {
+      if (sessionStorage.getItem(CHAT_PROACTIVE_KEY)) return;
+    } catch {
+      /* continue */
+    }
+    const timer = window.setTimeout(() => {
+      setProactiveOpen(true);
+    }, CHAT_PROACTIVE_MS);
+    return () => window.clearTimeout(timer);
+  }, [hideOnAdmin]);
+
+  useEffect(() => {
+    if (hideOnAdmin || prefersReducedMotion()) {
+      setFabNudge(false);
+      return;
+    }
+    const timer = window.setTimeout(() => setFabNudge(false), CHAT_FAB_NUDGE_MS);
+    return () => window.clearTimeout(timer);
+  }, [hideOnAdmin]);
+
  useEffect(() => {
  setMessages([{ id: nextId("a"), role: "assistant", text: c.greeting }]);
  }, [c.greeting]);
 
- /* Explicit Turnstile render when chat panel is open and script is ready. */
- useEffect(() => {
-  if (typeof window !== "undefined" && window.turnstile) {
-   setTurnstileScriptReady(true);
-  }
- }, []);
-
- useEffect(() => {
-  if (!panelMounted || !turnstileScriptReady) return;
-  const host = turnstileHostRef.current;
-  const api = typeof window !== "undefined" ? window.turnstile : undefined;
-  if (!host || !api) return;
-
-  if (turnstileWidgetIdRef.current) {
-   try {
-    api.remove(turnstileWidgetIdRef.current);
-   } catch {
-    /* ignore */
-   }
-   turnstileWidgetIdRef.current = null;
-  }
-  host.replaceChildren();
-  turnstileWidgetIdRef.current = api.render(host, {
-   sitekey: getTurnstileSiteKey(),
-   theme: "light",
-   size: "flexible",
-  });
-
-  return () => {
-   if (turnstileWidgetIdRef.current && window.turnstile) {
-    try {
-     window.turnstile.remove(turnstileWidgetIdRef.current);
-    } catch {
-     /* ignore */
-    }
-    turnstileWidgetIdRef.current = null;
-   }
-  };
- }, [panelMounted, turnstileScriptReady]);
 
  /* Opposite of header: scroll down → hide FAB down; scroll up → show */
  useEffect(() => {
@@ -362,6 +364,9 @@ export function AiChatWidget() {
  const trimmed = text.trim();
  if (!trimmed || sending) return;
 
+ const turnstileToken = await requestToken();
+ if (!turnstileToken) return;
+
  const userMsg: ChatMessage = {
  id: nextId("u"),
  role: "user",
@@ -383,9 +388,8 @@ export function AiChatWidget() {
  let reply = await fetchChatReply(
   history,
   ac.signal,
-  getTurnstileToken(turnstileWidgetIdRef.current) || undefined,
+  turnstileToken,
  );
- resetTurnstile(turnstileWidgetIdRef.current);
  if (!reply) {
  const recentTranscript = [...messages, userMsg]
  .slice(-8)
@@ -509,13 +513,9 @@ export function AiChatWidget() {
 
   return (
  <>
+ {turnstileGate}
  {panelMounted ? (
  <>
- <Script
-  src={`${TURNSTILE_SCRIPT_SRC}?render=explicit`}
-  strategy="afterInteractive"
-  onLoad={() => setTurnstileScriptReady(true)}
- />
  <button
  type="button"
  className={`kuct-ai-chat__backdrop pointer-events-auto fixed inset-0 z-[190] bg-[rgb(26_21_32/0.28)] backdrop-blur-[2px] lg:pointer-events-none lg:bg-transparent lg:backdrop-blur-none${panelClosing ? " kuct-ai-chat__backdrop--out" : ""}`}
@@ -724,21 +724,71 @@ export function AiChatWidget() {
  <IconSend className="size-4" />
  </button>
  </div>
- <div
-  ref={turnstileHostRef}
-  className="cf-turnstile min-h-[65px] w-full overflow-hidden rounded-[10px]"
-  aria-label="Cloudflare Turnstile"
- />
  </form>
  </section>
  </>
  ) : null}
 
  <div
- className={`kuct-ai-chat pointer-events-none fixed right-4 bottom-4 z-[120] flex items-end gap-3 pb-[env(safe-area-inset-bottom)] sm:right-6 sm:bottom-5${fabHidden && !contactsOpen ? " is-fab-hidden" : ""}`}
+ className={`kuct-ai-chat pointer-events-none fixed right-4 bottom-4 z-[120] flex items-end gap-3 pb-[env(safe-area-inset-bottom)] sm:right-6 sm:bottom-5${fabHidden && !contactsOpen && !proactiveOpen ? " is-fab-hidden" : ""}`}
  >
- <div className={`flex flex-col items-center gap-3 ${panelMounted ? "max-sm:hidden" : ""}`}>
- <div ref={contactsRef} className="pointer-events-auto flex flex-col items-center gap-3">
+ <div
+ className={`pointer-events-auto flex flex-col items-end gap-3 ${panelMounted ? "max-sm:hidden" : ""}`}
+ >
+ {proactiveOpen && !open ? (
+ <div
+ className="kuct-chat-fab__proactive"
+ role="status"
+ aria-label={chatFab.proactiveAria}
+ >
+ <p className="kuct-chat-fab__proactive-text">{chatFab.proactive}</p>
+ <div className="kuct-chat-fab__proactive-actions">
+ <button
+ type="button"
+ className="kuct-chat-fab__proactive-cta"
+ onClick={openCareChat}
+ >
+ {chatFab.label}
+ </button>
+ <button
+ type="button"
+ className="kuct-chat-fab__proactive-dismiss"
+ aria-label={chatFab.proactiveClose}
+ onClick={markProactiveSeen}
+ >
+ ×
+ </button>
+ </div>
+ </div>
+ ) : null}
+
+ <div
+ className={`kuct-chat-fab-wrap${fabNudge ? " is-nudge" : ""}${proactiveOpen && !open ? " is-attention" : ""}`}
+ >
+ <button
+ type="button"
+ className="kuct-chat-fab"
+ aria-expanded={open}
+ aria-haspopup="dialog"
+ aria-label={chatFab.open}
+ title={chatFab.tooltip}
+ onClick={openCareChat}
+ >
+ <span className="kuct-chat-fab__badge" aria-hidden>
+ {chatFab.badge}
+ </span>
+ <img
+ src={chatMascot}
+ alt=""
+ width={56}
+ height={56}
+ decoding="async"
+ className="kuct-chat-fab__mascot"
+ />
+ </button>
+ </div>
+
+ <div ref={contactsRef} className="flex flex-col items-center gap-3">
  {contactsOpen ? (
  <ul className="flex flex-col items-center gap-3">
  {contactItems.map((item, index) => (
