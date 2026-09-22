@@ -47,7 +47,7 @@ const vi: Dictionary = {
   },
   banner: {
     aria: "Thông báo",
-    text: "Thuê CRM (± AI): tặng Landing / Website DN theo combo — chính sách giá 2026.",
+    text: "Tặng Website / Landing page khi dùng bất kỳ dịch vụ nào của Dolphin",
     ctaQuote: "Nhận báo giá",
   },
   hero: {
@@ -645,7 +645,7 @@ const en: Dictionary = {
   },
   banner: {
     aria: "Announcement",
-    text: "Rent CRM (± AI): gift Landing / business website with combos — 2026 pricing policy.",
+    text: "Free Website / Landing page with any Dolphin service",
     ctaQuote: "Get a quote",
   },
   hero: {
@@ -1258,7 +1258,7 @@ const ja: Dictionary = {
   },
   banner: {
     aria: "お知らせ",
-    text: "CRM（±AI）契約で Landing / 企業サイトをコンボ特典 — 2026年料金ポリシー。",
+    text: "Dolphinのどのサービスでも Website / ランディングページをプレゼント",
     ctaQuote: "見積もりを依頼",
   },
   hero: {

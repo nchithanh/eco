@@ -8,6 +8,7 @@ import { AppProviders } from "@/components/AppProviders";
 vi.mock("@/components/TurnstileGate", () => ({
   useTurnstileGate: () => ({
     requestToken: async () => "test-turnstile-token",
+    focusPassed: true,
     gate: null,
   }),
   TurnstileGate: () => null,

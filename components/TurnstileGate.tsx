@@ -15,16 +15,29 @@ import {
 } from "@/lib/turnstile";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
 
+export type TurnstileGateVariant = "viewport" | "chat";
+
 type GateProps = {
   open: boolean;
+  /** Quiet refresh: run widget without visible chrome (after already verified this tab focus). */
+  quiet?: boolean;
+  variant?: TurnstileGateVariant;
   onVerified: (token: string) => void;
   onCancel: () => void;
 };
 
 /**
- * Full-viewport dim layer + centered Turnstile (CF challenge style).
+ * Turnstile with dim layer.
+ * - viewport: full-page overlay (lead forms)
+ * - chat: overlay scoped to the chat drawer; widget sits on the chat panel
  */
-export function TurnstileGate({ open, onVerified, onCancel }: GateProps) {
+export function TurnstileGate({
+  open,
+  quiet = false,
+  variant = "viewport",
+  onVerified,
+  onCancel,
+}: GateProps) {
   const { t } = useLocale();
   const copy = t.turnstileGate;
   const hostRef = useRef<HTMLDivElement | null>(null);
@@ -40,13 +53,13 @@ export function TurnstileGate({ open, onVerified, onCancel }: GateProps) {
   }, []);
 
   useEffect(() => {
-    if (!open) return;
+    if (!open || quiet) return;
     const onKey = (event: KeyboardEvent) => {
       if (event.key === "Escape") onCancel();
     };
     document.addEventListener("keydown", onKey);
     return () => document.removeEventListener("keydown", onKey);
-  }, [open, onCancel]);
+  }, [open, quiet, onCancel]);
 
   useEffect(() => {
     if (!open || !scriptReady) return;
@@ -66,7 +79,7 @@ export function TurnstileGate({ open, onVerified, onCancel }: GateProps) {
     widgetIdRef.current = api.render(host, {
       sitekey: getTurnstileSiteKey(),
       theme: "light",
-      size: "normal",
+      size: variant === "chat" ? "flexible" : "normal",
       callback: (token: string) => {
         const trimmed = (token || "").trim();
         if (!trimmed) return;
@@ -91,7 +104,7 @@ export function TurnstileGate({ open, onVerified, onCancel }: GateProps) {
         widgetIdRef.current = null;
       }
     };
-  }, [open, scriptReady]);
+  }, [open, scriptReady, variant, quiet]);
 
   return (
     <>
@@ -102,56 +115,105 @@ export function TurnstileGate({ open, onVerified, onCancel }: GateProps) {
       />
       {open ? (
         <div
-          className="kuct-turnstile-gate"
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="kuct-turnstile-gate-title"
+          className={`kuct-turnstile-gate kuct-turnstile-gate--${variant}${quiet ? " is-quiet" : ""}`}
+          role={quiet ? undefined : "dialog"}
+          aria-modal={quiet ? undefined : true}
+          aria-labelledby={quiet ? undefined : "kuct-turnstile-gate-title"}
+          aria-hidden={quiet || undefined}
         >
-          <button
-            type="button"
-            className="kuct-turnstile-gate__backdrop"
-            aria-label={copy.cancel}
-            onClick={onCancel}
-          />
-          <div className="kuct-turnstile-gate__panel">
-            <h2
-              id="kuct-turnstile-gate-title"
-              className="kuct-turnstile-gate__title"
-            >
-              {copy.title}
-            </h2>
-            <p className="kuct-turnstile-gate__hint">{copy.hint}</p>
-            <div
-              ref={hostRef}
-              className="kuct-turnstile-gate__widget"
-              aria-label="Cloudflare Turnstile"
-            />
-            <button
-              type="button"
-              className="kuct-turnstile-gate__cancel"
-              onClick={onCancel}
-            >
-              {copy.cancel}
-            </button>
-          </div>
+          {quiet ? (
+            <div className="kuct-turnstile-gate__quiet-host" aria-hidden>
+              <div ref={hostRef} className="kuct-turnstile-gate__widget" />
+            </div>
+          ) : (
+            <>
+              <button
+                type="button"
+                className="kuct-turnstile-gate__backdrop"
+                aria-label={copy.cancel}
+                onClick={onCancel}
+              />
+              <div className="kuct-turnstile-gate__panel">
+                {variant === "viewport" ? (
+                  <>
+                    <h2
+                      id="kuct-turnstile-gate-title"
+                      className="kuct-turnstile-gate__title"
+                    >
+                      {copy.title}
+                    </h2>
+                    <p className="kuct-turnstile-gate__hint">{copy.hint}</p>
+                  </>
+                ) : (
+                  <p
+                    id="kuct-turnstile-gate-title"
+                    className="kuct-turnstile-gate__hint"
+                  >
+                    {copy.hint}
+                  </p>
+                )}
+                <div
+                  ref={hostRef}
+                  className="kuct-turnstile-gate__widget"
+                  aria-label="Cloudflare Turnstile"
+                />
+                <button
+                  type="button"
+                  className="kuct-turnstile-gate__cancel"
+                  onClick={onCancel}
+                >
+                  {copy.cancel}
+                </button>
+              </div>
+            </>
+          )}
         </div>
       ) : null}
     </>
   );
 }
 
+type GateOptions = {
+  variant?: TurnstileGateVariant;
+  /**
+   * After a successful challenge, refresh tokens quietly until the browser tab
+   * is hidden; next send after return shows the interactive overlay again.
+   */
+  untilTabHide?: boolean;
+};
+
 type GateApi = {
-  /** Opens the overlay; resolves with token or null if cancelled. */
   requestToken: () => Promise<string | null>;
+  /** True after a successful challenge in this browser-tab focus (until tab hide). */
+  focusPassed: boolean;
   gate: ReactNode;
 };
 
-export function useTurnstileGate(): GateApi {
+export function useTurnstileGate(options: GateOptions = {}): GateApi {
+  const variant = options.variant ?? "viewport";
+  const untilTabHide = options.untilTabHide ?? false;
+
   const [open, setOpen] = useState(false);
+  const [quiet, setQuiet] = useState(false);
+  const [focusPassed, setFocusPassed] = useState(false);
   const resolverRef = useRef<((token: string | null) => void) | null>(null);
+  const focusPassedRef = useRef(false);
+
+  useEffect(() => {
+    if (!untilTabHide) return;
+    const onVis = () => {
+      if (document.visibilityState === "hidden") {
+        focusPassedRef.current = false;
+        setFocusPassed(false);
+      }
+    };
+    document.addEventListener("visibilitychange", onVis);
+    return () => document.removeEventListener("visibilitychange", onVis);
+  }, [untilTabHide]);
 
   const settle = useCallback((token: string | null) => {
     setOpen(false);
+    setQuiet(false);
     const resolve = resolverRef.current;
     resolverRef.current = null;
     resolve?.(token);
@@ -160,21 +222,42 @@ export function useTurnstileGate(): GateApi {
   const requestToken = useCallback(() => {
     return new Promise<string | null>((resolve) => {
       resolverRef.current = resolve;
+      const canQuiet = untilTabHide && focusPassedRef.current;
+      setQuiet(canQuiet);
       setOpen(true);
+      if (!canQuiet) return;
+      /* If silent refresh stalls, show the interactive overlay on the chat. */
+      window.setTimeout(() => {
+        if (resolverRef.current !== resolve) return;
+        setQuiet(false);
+      }, 6_000);
     });
-  }, []);
+  }, [untilTabHide]);
 
   const onVerified = useCallback(
-    (token: string) => settle(token),
-    [settle],
+    (token: string) => {
+      if (untilTabHide) {
+        focusPassedRef.current = true;
+        setFocusPassed(true);
+      }
+      settle(token);
+    },
+    [settle, untilTabHide],
   );
 
   const onCancel = useCallback(() => settle(null), [settle]);
 
   return {
     requestToken,
+    focusPassed,
     gate: (
-      <TurnstileGate open={open} onVerified={onVerified} onCancel={onCancel} />
+      <TurnstileGate
+        open={open}
+        quiet={quiet}
+        variant={variant}
+        onVerified={onVerified}
+        onCancel={onCancel}
+      />
     ),
   };
 }

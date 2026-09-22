@@ -7,7 +7,7 @@ import { useLocale } from "@/lib/i18n/LocaleProvider";
 
 const BANNER_FALLBACK = {
   aria: "Announcement",
-  text: "Rent CRM (± AI): gift Landing / business website with combos — 2026 pricing policy.",
+  text: "Free Website / Landing page with any Dolphin service",
   ctaQuote: "Get a quote",
 } as const;
 
@@ -16,6 +16,19 @@ function IconSparkle({ className }: { className?: string }) {
     <svg viewBox="0 0 24 24" className={className} fill="none" aria-hidden>
       <path
         d="M12 3.5l1.1 4.2c.15.55.58.98 1.13 1.13L18.5 10l-4.27 1.17c-.55.15-.98.58-1.13 1.13L12 16.5l-1.1-4.2a1.6 1.6 0 00-1.13-1.13L5.5 10l4.27-1.17c.55-.15.98-.58 1.13-1.13L12 3.5z"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function IconQuote({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="none" aria-hidden>
+      <path
+        d="M8 7h5v5.2c0 2.2-1.3 3.6-3.4 4.3L8.8 15c1.1-.4 1.7-1.2 1.7-2.3H8V7zm7.5 0H20.5v5.2c0 2.2-1.3 3.6-3.4 4.3L16.3 15c1.1-.4 1.7-1.2 1.7-2.3h-2.5V7z"
         stroke="currentColor"
         strokeWidth="1.5"
         strokeLinejoin="round"
@@ -40,13 +53,14 @@ export function AnnouncementBar() {
         <p className="min-w-0 flex-1 text-left text-[10px] leading-snug font-medium text-current sm:text-[11px] md:text-xs">
           <BrandText size="xs">{b.text}</BrandText>
         </p>
-        <div className="flex shrink-0 items-center gap-2 sm:gap-2.5">
+        <div className="flex shrink-0 items-center gap-1 sm:gap-2">
           <button
             type="button"
             onClick={openQuote}
-            className="kuct-banner-cta inline-flex items-center rounded-lg px-2.5 py-1 text-[9px] font-semibold tracking-[0.06em] uppercase sm:px-3 sm:text-[10px]"
+            className="kuct-banner-link inline-flex items-center gap-1.5 rounded-[10px] px-2 py-1 text-[11px] font-medium text-[var(--kuct-text)] transition hover:bg-black/[0.04] sm:text-xs"
           >
-            {b.ctaQuote}
+            <IconQuote className="size-3.5 shrink-0 text-[var(--kuct-muted)]" />
+            <span>{b.ctaQuote}</span>
           </button>
           <button
             type="button"
@@ -54,13 +68,10 @@ export function AnnouncementBar() {
             aria-expanded={chatOpen}
             aria-haspopup="dialog"
             title={t.nav.askAiTooltip}
-            className="kuct-banner-cta-ask inline-flex items-center gap-1.5 rounded-[10px] px-2.5 py-1 text-[9px] font-semibold tracking-[0.06em] uppercase sm:px-3 sm:text-[10px]"
+            className="kuct-banner-link inline-flex items-center gap-1.5 rounded-[10px] px-2 py-1 text-[11px] font-medium text-[var(--kuct-text)] transition hover:bg-black/[0.04] sm:text-xs"
           >
-            <IconSparkle className="size-3 shrink-0" />
+            <IconSparkle className="size-3.5 shrink-0 text-[var(--kuct-muted)]" />
             <span>{t.nav.askAi}</span>
-            <span className="kuct-banner-cta-ask__badge" aria-hidden>
-              {t.nav.askAiBadge}
-            </span>
           </button>
         </div>
       </div>

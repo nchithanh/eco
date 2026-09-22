@@ -202,7 +202,10 @@ export function AiChatWidget() {
  const chatMascot = useMascotSrc("chat");
  const fab = t.contactFab;
  const chatFab = t.chatFab;
- const { requestToken, gate: turnstileGate } = useTurnstileGate();
+ const { requestToken, focusPassed, gate: turnstileGate } = useTurnstileGate({
+  variant: "chat",
+  untilTabHide: true,
+ });
  const panelId = useId();
  const listRef = useRef<HTMLDivElement>(null);
  const inputRef = useRef<HTMLInputElement>(null);
@@ -219,12 +222,15 @@ export function AiChatWidget() {
   const contactsRef = useRef<HTMLDivElement>(null);
   const abortRef = useRef<AbortController | null>(null);
   const lastScrollY = useRef(0);
+  const entryTokenRef = useRef<string | null>(null);
+  const entryVerifyRef = useRef(false);
 
   const hideOnAdmin =
     pathname === "/demos/admin" || pathname.startsWith("/demos/admin/");
 
   const panelMounted = open || panelPresent;
   const panelClosing = !open && panelPresent;
+  const chatReady = focusPassed;
 
   const markProactiveSeen = useCallback(() => {
     setProactiveOpen(false);
@@ -244,6 +250,29 @@ export function AiChatWidget() {
   useEffect(() => {
     if (open) markProactiveSeen();
   }, [open, markProactiveSeen]);
+
+  /* Open chat → Turnstile first; cancel closes drawer. Re-check after tab return. */
+  useEffect(() => {
+    if (!open || focusPassed || entryVerifyRef.current) return;
+    entryVerifyRef.current = true;
+    void (async () => {
+      const token = await requestToken();
+      entryVerifyRef.current = false;
+      if (!token) {
+        entryTokenRef.current = null;
+        closeChat();
+        return;
+      }
+      entryTokenRef.current = token;
+    })();
+  }, [open, focusPassed, requestToken, closeChat]);
+
+  useEffect(() => {
+    if (!open) {
+      entryTokenRef.current = null;
+      entryVerifyRef.current = false;
+    }
+  }, [open]);
 
   useEffect(() => {
     if (hideOnAdmin) return;
@@ -362,9 +391,13 @@ export function AiChatWidget() {
 
  const pushUserAndReply = async (text: string) => {
  const trimmed = text.trim();
- if (!trimmed || sending) return;
+ if (!trimmed || sending || !chatReady) return;
 
- const turnstileToken = await requestToken();
+ let turnstileToken = entryTokenRef.current;
+ entryTokenRef.current = null;
+ if (!turnstileToken) {
+  turnstileToken = await requestToken();
+ }
  if (!turnstileToken) return;
 
  const userMsg: ChatMessage = {
@@ -513,7 +546,6 @@ export function AiChatWidget() {
 
   return (
  <>
- {turnstileGate}
  {panelMounted ? (
  <>
  <button
@@ -532,6 +564,7 @@ export function AiChatWidget() {
  data-lenis-prevent
  data-lenis-prevent-wheel
  >
+ {turnstileGate}
  <header className="flex shrink-0 items-center gap-2 border-b border-black/[0.06] bg-white px-3 py-2.5 pt-[max(0.75rem,env(safe-area-inset-top))] sm:px-4">
  <button
  type="button"
@@ -605,7 +638,7 @@ export function AiChatWidget() {
  >
  <button
  type="button"
- disabled={sending}
+ disabled={sending || !chatReady}
  className="kuct-ai-chat__suggest flex w-full items-start gap-3 rounded-xl border border-black/[0.06] bg-[var(--kuct-bg)] px-3.5 py-3 text-left transition hover:border-[rgba(var(--kuct-accent-rgb),0.28)] hover:bg-white disabled:opacity-50"
  onClick={() => void pushUserAndReply(card.prompt)}
  >
@@ -697,7 +730,7 @@ export function AiChatWidget() {
  <div className="flex items-end gap-2 rounded-[10px] border border-black/[0.08] bg-[var(--kuct-bg)] p-1.5 focus-within:border-[rgba(var(--kuct-accent-rgb),0.35)]">
  <button
  type="button"
- disabled={sending || !draft.trim()}
+ disabled={sending || !chatReady || !draft.trim()}
  className="inline-flex h-9 shrink-0 items-center gap-1.5 rounded-[10px] border border-black/[0.08] bg-white px-3 text-xs font-semibold text-[var(--kuct-text)] transition hover:border-[rgba(var(--kuct-accent-rgb),0.3)] hover:text-[var(--kuct-accent)] disabled:opacity-40"
  aria-label={c.ask}
  onClick={() => void pushUserAndReply(draft)}
@@ -712,12 +745,12 @@ export function AiChatWidget() {
  onKeyDown={onKeyDown}
  placeholder={c.placeholder}
  aria-label={c.placeholder}
- disabled={sending}
+ disabled={sending || !chatReady}
  className="min-w-0 flex-1 bg-transparent px-2 py-2 text-base text-[var(--kuct-text)] outline-none placeholder:text-[var(--kuct-muted)]/60 disabled:opacity-60 sm:text-sm"
  />
  <button
  type="submit"
- disabled={sending || !draft.trim()}
+ disabled={sending || !chatReady || !draft.trim()}
  className="kuct-btn-primary grid size-9 shrink-0 place-items-center rounded-full disabled:opacity-40"
  aria-label={c.send}
  >
