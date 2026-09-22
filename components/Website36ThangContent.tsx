@@ -1,12 +1,16 @@
 "use client";
 
 import type { FormEvent } from "react";
-import { useId, useState } from "react";
+import { useId, useRef, useState } from "react";
 import { AccentText } from "@/components/BrandName";
 import { Footer } from "@/components/Footer";
 import { LazyImage } from "@/components/LazyImage";
 import { Nav } from "@/components/Nav";
 import { Reveal } from "@/components/Reveal";
+import {
+  TurnstileField,
+  type TurnstileFieldHandle,
+} from "@/components/TurnstileField";
 import { useQuote } from "@/components/QuoteProvider";
 import { assetPath } from "@/lib/asset";
 import { submitLead } from "@/lib/leads-api";
@@ -60,6 +64,7 @@ export function Website36ThangContent() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
     "idle",
   );
+  const turnstileRef = useRef<TurnstileFieldHandle>(null);
 
   async function onSubmit(e: FormEvent) {
     e.preventDefault();
@@ -95,6 +100,7 @@ export function Website36ThangContent() {
       note: message.trim() || undefined,
       locale: "vi",
       honeypot,
+      turnstileToken: turnstileRef.current?.getToken() || undefined,
       payload: {
         campaign: "website-36-thang",
         company: company.trim(),
@@ -105,6 +111,7 @@ export function Website36ThangContent() {
         message: message.trim() || null,
       },
     });
+    turnstileRef.current?.reset();
     setStatus(result.ok ? "sent" : "error");
   }
 
@@ -658,6 +665,7 @@ export function Website36ThangContent() {
                     {c.form.sendError}
                   </p>
                 ) : null}
+                <TurnstileField ref={turnstileRef} />
                 <button
                   type="submit"
                   disabled={status === "sending"}

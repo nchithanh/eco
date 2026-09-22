@@ -21,6 +21,8 @@ export type SubmitLeadInput = {
   payload?: Record<string, unknown>;
   /** Must stay empty — spam honeypot */
   honeypot?: string;
+  /** CF Turnstile token from the form widget (required when Worker secret is set) */
+  turnstileToken?: string;
 };
 
 export function getLeadsApiUrl(): string {
@@ -47,6 +49,9 @@ export async function submitLead(
         locale: input.locale ?? "",
         payload: input.payload ?? undefined,
         honeypot: input.honeypot ?? "",
+        ...(input.turnstileToken
+          ? { turnstileToken: input.turnstileToken }
+          : {}),
       }),
       signal,
     });

@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useMemo, useState, type ReactNode } from "react";
+import { useCallback, useMemo, useRef, useState, type ReactNode } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -14,6 +14,10 @@ import { assetPath } from "@/lib/asset";
 import { PRICING_POLICY_PATH } from "@/lib/pricing/dolphin-pricing-policy-2026";
 import { formatPackageMoney } from "@/lib/pricing-fx";
 import { submitLead } from "@/lib/leads-api";
+import {
+  TurnstileField,
+  type TurnstileFieldHandle,
+} from "@/components/TurnstileField";
 import {
   CARE_STANDALONE,
   COMBOS,
@@ -93,6 +97,7 @@ export function QuoteEstimatorModal({
   const [sent, setSent] = useState(false);
   const [sendError, setSendError] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const turnstileRef = useRef<TurnstileFieldHandle>(null);
 
   const schema = useMemo(
     () =>
@@ -186,7 +191,9 @@ export function QuoteEstimatorModal({
         schema: "dolphin-quote-public/v1",
       },
       honeypot: data.honeypot,
+      turnstileToken: turnstileRef.current?.getToken() || undefined,
     });
+    turnstileRef.current?.reset();
 
     setSubmitting(false);
     if (result.ok) {
@@ -539,6 +546,7 @@ export function QuoteEstimatorModal({
           </div>
 
           <div className="shrink-0 border-t border-black/[0.06] bg-white px-4 py-3.5 pb-[max(0.85rem,env(safe-area-inset-bottom))] sm:px-5">
+            <TurnstileField ref={turnstileRef} active={open} className="cf-turnstile mb-3 min-h-[65px] w-full overflow-hidden rounded-[10px]" />
             <button
               type="submit"
               disabled={submitting}

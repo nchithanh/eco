@@ -1,5 +1,5 @@
 /**
- * Cloudflare Turnstile — marketing chat bot protection.
+ * Cloudflare Turnstile — marketing chat + lead forms bot protection.
  * Site key is public; secret verification belongs on the Worker.
  */
 export const DEFAULT_TURNSTILE_SITE_KEY = "0x4AAAAAAE_hebZJmu2c62Pp";

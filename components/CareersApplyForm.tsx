@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
@@ -10,6 +10,10 @@ import {
 } from "@/lib/careers-schema";
 import { BrandText } from "@/components/BrandName";
 import { Reveal } from "@/components/Reveal";
+import {
+ TurnstileField,
+ type TurnstileFieldHandle,
+} from "@/components/TurnstileField";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
 import { isJobAcceptingApplications, JOB_HIRING, sortJobsByDisplayOrder } from "@/lib/careers-jobs";
 import { submitLead } from "@/lib/leads-api";
@@ -35,6 +39,7 @@ export function CareersApplyForm({ initialRole }: Props) {
  const [sent, setSent] = useState(false);
  const [sendError, setSendError] = useState(false);
  const [submitting, setSubmitting] = useState(false);
+ const turnstileRef = useRef<TurnstileFieldHandle>(null);
  const [now, setNow] = useState<Date | null>(null);
  const schema = useMemo(() => createCareersSchema(a.errors), [a.errors]);
 
@@ -94,7 +99,9 @@ export function CareersApplyForm({ initialRole }: Props) {
  roleTitle,
  },
  honeypot: data.honeypot ?? "",
+ turnstileToken: turnstileRef.current?.getToken() || undefined,
  });
+ turnstileRef.current?.reset();
  setSubmitting(false);
  if (result.ok) {
  setSent(true);
@@ -230,6 +237,7 @@ export function CareersApplyForm({ initialRole }: Props) {
  </p>
  )}
  </div>
+ <TurnstileField ref={turnstileRef} />
  <button
  type="submit"
  disabled={submitting}
