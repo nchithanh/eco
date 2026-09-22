@@ -18,6 +18,7 @@ export function getChatApiUrl(): string {
 export async function fetchChatReply(
   messages: ChatApiMessage[],
   signal?: AbortSignal,
+  turnstileToken?: string,
 ): Promise<string | null> {
   const url = getChatApiUrl();
   if (!url) return null;
@@ -26,7 +27,10 @@ export async function fetchChatReply(
     const res = await fetch(url, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ messages }),
+      body: JSON.stringify({
+        messages,
+        ...(turnstileToken ? { turnstileToken } : {}),
+      }),
       signal,
     });
     if (!res.ok) return null;

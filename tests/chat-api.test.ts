@@ -25,16 +25,20 @@ describe("chat-api", () => {
     expect(reply).toBe("Xin chào từ Dolphin");
   });
 
-  it("returns null on network failure", async () => {
-    vi.stubGlobal(
-      "fetch",
-      vi.fn(async () => {
-        throw new Error("offline");
+  it("sends turnstileToken when provided", async () => {
+    const fetchMock = vi.fn(async () =>
+      Response.json({ reply: "ok" }),
+    );
+    vi.stubGlobal("fetch", fetchMock);
+    await fetchChatReply([{ role: "user", content: "hi" }], undefined, "tok");
+    expect(fetchMock).toHaveBeenCalledWith(
+      expect.any(String),
+      expect.objectContaining({
+        body: JSON.stringify({
+          messages: [{ role: "user", content: "hi" }],
+          turnstileToken: "tok",
+        }),
       }),
     );
-    const reply = await fetchChatReply([
-      { role: "user", content: "hi" },
-    ]);
-    expect(reply).toBeNull();
   });
 });

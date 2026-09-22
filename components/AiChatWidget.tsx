@@ -9,6 +9,7 @@ import {
  type FormEvent,
  type KeyboardEvent,
 } from "react";
+import Script from "next/script";
 import { usePathname } from "next/navigation";
 import { useAiChat } from "@/components/AiChatProvider";
 import { assetPath } from "@/lib/asset";
@@ -23,6 +24,12 @@ import { useLocale } from "@/lib/i18n/LocaleProvider";
 import { CONTACTS } from "@/lib/contacts";
 import { acquirePageScroll, releasePageScroll } from "@/lib/scroll-lock";
 import { useMascotSrc } from "@/components/useMascotSrc";
+import {
+ getTurnstileSiteKey,
+ getTurnstileToken,
+ resetTurnstile,
+ TURNSTILE_SCRIPT_SRC,
+} from "@/lib/turnstile";
 
 const REPLY_TYPEWRITER_BASE_MS = 16;
 const AI_CHAT_PANEL_MS = 280;
@@ -208,6 +215,9 @@ export function AiChatWidget() {
   const [fabHidden, setFabHidden] = useState(false);
   const contactsRef = useRef<HTMLDivElement>(null);
   const abortRef = useRef<AbortController | null>(null);
+  const turnstileHostRef = useRef<HTMLDivElement | null>(null);
+  const turnstileWidgetIdRef = useRef<string | null>(null);
+  const [turnstileScriptReady, setTurnstileScriptReady] = useState(false);
   const lastScrollY = useRef(0);
 
   const hideOnAdmin =
@@ -219,6 +229,46 @@ export function AiChatWidget() {
  useEffect(() => {
  setMessages([{ id: nextId("a"), role: "assistant", text: c.greeting }]);
  }, [c.greeting]);
+
+ /* Explicit Turnstile render when chat panel is open and script is ready. */
+ useEffect(() => {
+  if (typeof window !== "undefined" && window.turnstile) {
+   setTurnstileScriptReady(true);
+  }
+ }, []);
+
+ useEffect(() => {
+  if (!panelMounted || !turnstileScriptReady) return;
+  const host = turnstileHostRef.current;
+  const api = typeof window !== "undefined" ? window.turnstile : undefined;
+  if (!host || !api) return;
+
+  if (turnstileWidgetIdRef.current) {
+   try {
+    api.remove(turnstileWidgetIdRef.current);
+   } catch {
+    /* ignore */
+   }
+   turnstileWidgetIdRef.current = null;
+  }
+  host.replaceChildren();
+  turnstileWidgetIdRef.current = api.render(host, {
+   sitekey: getTurnstileSiteKey(),
+   theme: "light",
+   size: "flexible",
+  });
+
+  return () => {
+   if (turnstileWidgetIdRef.current && window.turnstile) {
+    try {
+     window.turnstile.remove(turnstileWidgetIdRef.current);
+    } catch {
+     /* ignore */
+    }
+    turnstileWidgetIdRef.current = null;
+   }
+  };
+ }, [panelMounted, turnstileScriptReady]);
 
  /* Opposite of header: scroll down → hide FAB down; scroll up → show */
  useEffect(() => {
@@ -330,7 +380,12 @@ export function AiChatWidget() {
  .slice(-12)
  .map((m) => ({ role: m.role, content: m.text }));
 
- let reply = await fetchChatReply(history, ac.signal);
+ let reply = await fetchChatReply(
+  history,
+  ac.signal,
+  getTurnstileToken(turnstileWidgetIdRef.current) || undefined,
+ );
+ resetTurnstile(turnstileWidgetIdRef.current);
  if (!reply) {
  const recentTranscript = [...messages, userMsg]
  .slice(-8)
@@ -456,6 +511,11 @@ export function AiChatWidget() {
  <>
  {panelMounted ? (
  <>
+ <Script
+  src={`${TURNSTILE_SCRIPT_SRC}?render=explicit`}
+  strategy="afterInteractive"
+  onLoad={() => setTurnstileScriptReady(true)}
+ />
  <button
  type="button"
  className={`kuct-ai-chat__backdrop pointer-events-auto fixed inset-0 z-[190] bg-[rgb(26_21_32/0.28)] backdrop-blur-[2px] lg:pointer-events-none lg:bg-transparent lg:backdrop-blur-none${panelClosing ? " kuct-ai-chat__backdrop--out" : ""}`}
@@ -664,6 +724,11 @@ export function AiChatWidget() {
  <IconSend className="size-4" />
  </button>
  </div>
+ <div
+  ref={turnstileHostRef}
+  className="cf-turnstile min-h-[65px] w-full overflow-hidden rounded-[10px]"
+  aria-label="Cloudflare Turnstile"
+ />
  </form>
  </section>
  </>
