@@ -3783,7 +3783,7 @@ main {
 }
 
 
-/* Turnstile gate — viewport (forms) or chat-drawer scoped */
+/* Turnstile gate — viewport overlay (forms) or inline chat block */
 .kuct-turnstile-gate {
   z-index: 400;
   display: grid;
@@ -3797,11 +3797,13 @@ main {
 }
 
 .kuct-turnstile-gate--chat {
-  position: absolute;
-  inset: 0;
-  z-index: 30;
-  place-items: end center;
-  padding: 0.75rem 0.75rem max(0.75rem, env(safe-area-inset-bottom));
+  position: relative;
+  inset: auto;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  padding: 0;
+  place-items: initial;
 }
 
 .kuct-turnstile-gate.is-quiet {
@@ -3828,10 +3830,6 @@ main {
   -webkit-backdrop-filter: blur(2px);
 }
 
-.kuct-turnstile-gate--chat .kuct-turnstile-gate__backdrop {
-  background: rgb(26 21 32 / 0.4);
-}
-
 .kuct-turnstile-gate__panel {
   position: relative;
   z-index: 1;
@@ -3844,10 +3842,12 @@ main {
   text-align: center;
 }
 
-.kuct-turnstile-gate--chat .kuct-turnstile-gate__panel {
+.kuct-turnstile-gate__inline {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
   width: 100%;
-  max-width: none;
-  box-shadow: 0 -8px 32px rgb(26 21 32 / 0.12);
+  padding: 0.15rem 0 0.35rem;
 }
 
 .kuct-turnstile-gate__title {
@@ -3866,7 +3866,8 @@ main {
 }
 
 .kuct-turnstile-gate--chat .kuct-turnstile-gate__hint {
-  margin: 0 0 0.75rem;
+  margin: 0;
+  font-size: 0.72rem;
   text-align: left;
 }
 
@@ -3876,6 +3877,13 @@ main {
   min-height: 65px;
   margin: 0 auto;
   width: 100%;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.kuct-turnstile-gate--chat .kuct-turnstile-gate__widget {
+  place-items: stretch;
+  margin: 0;
 }
 
 .kuct-turnstile-gate__quiet-host {
@@ -3896,6 +3904,7 @@ main {
   cursor: pointer;
   padding: 0.35rem 0.6rem;
   border-radius: 10px;
+  align-self: flex-start;
 }
 
 .kuct-turnstile-gate__cancel:hover {
@@ -3904,5 +3913,7 @@ main {
 }
 
 .kuct-turnstile-gate--chat .kuct-turnstile-gate__cancel {
-  margin-top: 0.65rem;
+  margin-top: 0;
+  padding: 0.2rem 0.35rem;
+  font-size: 0.7rem;
 }

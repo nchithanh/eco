@@ -27,9 +27,9 @@ type GateProps = {
 };
 
 /**
- * Turnstile with dim layer.
- * - viewport: full-page overlay (lead forms)
- * - chat: overlay scoped to the chat drawer; widget sits on the chat panel
+ * Turnstile challenge UI.
+ * - viewport: full-page dim overlay (lead forms)
+ * - chat: compact inline block (no dim layer) above the composer
  */
 export function TurnstileGate({
   open,
@@ -45,6 +45,7 @@ export function TurnstileGate({
   const [scriptReady, setScriptReady] = useState(false);
   const onVerifiedRef = useRef(onVerified);
   onVerifiedRef.current = onVerified;
+  const isChat = variant === "chat";
 
   useEffect(() => {
     if (typeof window !== "undefined" && window.turnstile) {
@@ -53,13 +54,13 @@ export function TurnstileGate({
   }, []);
 
   useEffect(() => {
-    if (!open || quiet) return;
+    if (!open || quiet || isChat) return;
     const onKey = (event: KeyboardEvent) => {
       if (event.key === "Escape") onCancel();
     };
     document.addEventListener("keydown", onKey);
     return () => document.removeEventListener("keydown", onKey);
-  }, [open, quiet, onCancel]);
+  }, [open, quiet, isChat, onCancel]);
 
   useEffect(() => {
     if (!open || !scriptReady) return;
@@ -79,7 +80,7 @@ export function TurnstileGate({
     widgetIdRef.current = api.render(host, {
       sitekey: getTurnstileSiteKey(),
       theme: "light",
-      size: variant === "chat" ? "flexible" : "normal",
+      size: isChat ? "flexible" : "normal",
       callback: (token: string) => {
         const trimmed = (token || "").trim();
         if (!trimmed) return;
@@ -104,7 +105,7 @@ export function TurnstileGate({
         widgetIdRef.current = null;
       }
     };
-  }, [open, scriptReady, variant, quiet]);
+  }, [open, scriptReady, isChat, quiet]);
 
   return (
     <>
@@ -116,14 +117,35 @@ export function TurnstileGate({
       {open ? (
         <div
           className={`kuct-turnstile-gate kuct-turnstile-gate--${variant}${quiet ? " is-quiet" : ""}`}
-          role={quiet ? undefined : "dialog"}
-          aria-modal={quiet ? undefined : true}
+          role={quiet ? undefined : isChat ? "region" : "dialog"}
+          aria-modal={quiet || isChat ? undefined : true}
           aria-labelledby={quiet ? undefined : "kuct-turnstile-gate-title"}
           aria-hidden={quiet || undefined}
         >
           {quiet ? (
             <div className="kuct-turnstile-gate__quiet-host" aria-hidden>
               <div ref={hostRef} className="kuct-turnstile-gate__widget" />
+            </div>
+          ) : isChat ? (
+            <div className="kuct-turnstile-gate__inline">
+              <p
+                id="kuct-turnstile-gate-title"
+                className="kuct-turnstile-gate__hint"
+              >
+                {copy.hint}
+              </p>
+              <div
+                ref={hostRef}
+                className="kuct-turnstile-gate__widget"
+                aria-label="Cloudflare Turnstile"
+              />
+              <button
+                type="button"
+                className="kuct-turnstile-gate__cancel"
+                onClick={onCancel}
+              >
+                {copy.cancel}
+              </button>
             </div>
           ) : (
             <>
@@ -134,24 +156,13 @@ export function TurnstileGate({
                 onClick={onCancel}
               />
               <div className="kuct-turnstile-gate__panel">
-                {variant === "viewport" ? (
-                  <>
-                    <h2
-                      id="kuct-turnstile-gate-title"
-                      className="kuct-turnstile-gate__title"
-                    >
-                      {copy.title}
-                    </h2>
-                    <p className="kuct-turnstile-gate__hint">{copy.hint}</p>
-                  </>
-                ) : (
-                  <p
-                    id="kuct-turnstile-gate-title"
-                    className="kuct-turnstile-gate__hint"
-                  >
-                    {copy.hint}
-                  </p>
-                )}
+                <h2
+                  id="kuct-turnstile-gate-title"
+                  className="kuct-turnstile-gate__title"
+                >
+                  {copy.title}
+                </h2>
+                <p className="kuct-turnstile-gate__hint">{copy.hint}</p>
                 <div
                   ref={hostRef}
                   className="kuct-turnstile-gate__widget"

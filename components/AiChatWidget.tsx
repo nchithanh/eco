@@ -7,14 +7,17 @@ import {
  useRef,
  useState,
  type CSSProperties,
+ type Dispatch,
  type FormEvent,
  type KeyboardEvent,
+ type SetStateAction,
 } from "react";
 import { usePathname } from "next/navigation";
 import { useAiChat } from "@/components/AiChatProvider";
 import { assetPath } from "@/lib/asset";
 import { fetchChatReply, type ChatApiMessage } from "@/lib/chat-api";
 import { renderChatRichText } from "@/lib/chat-rich-text";
+import { splitChatReply } from "@/lib/split-chat-reply";
 import {
  getAiChatCopy,
  matchAiChatReply,
@@ -27,6 +30,7 @@ import { useMascotSrc } from "@/components/useMascotSrc";
 import { useTurnstileGate } from "@/components/TurnstileGate";
 
 const REPLY_TYPEWRITER_BASE_MS = 16;
+const REPLY_CHUNK_GAP_MS = 420;
 const AI_CHAT_PANEL_MS = 280;
 const CHAT_PROACTIVE_MS = 14_000;
 const CHAT_PROACTIVE_KEY = "kuct-care-proactive-v1";
@@ -47,10 +51,68 @@ function replyTypewriterDelayMs(charCount: number): number {
 }
 
 type ChatMessage = {
- id: string;
- role: "assistant" | "user";
- text: string;
+  id: string;
+  role: "assistant" | "user";
+  text: string;
 };
+
+function sleep(ms: number, signal: AbortSignal): Promise<void> {
+  return new Promise((resolve) => {
+    if (signal.aborted) {
+      resolve();
+      return;
+    }
+    const id = window.setTimeout(() => {
+      signal.removeEventListener("abort", onAbort);
+      resolve();
+    }, ms);
+    const onAbort = () => {
+      window.clearTimeout(id);
+      resolve();
+    };
+    signal.addEventListener("abort", onAbort, { once: true });
+  });
+}
+
+async function typewriteAssistant(
+  id: string,
+  full: string,
+  signal: AbortSignal,
+  setMessages: Dispatch<SetStateAction<ChatMessage[]>>,
+): Promise<void> {
+  const chars = Array.from(full);
+  if (chars.length === 0) return;
+
+  setMessages((prev) => [...prev, { id, role: "assistant", text: "" }]);
+
+  const delayMs = replyTypewriterDelayMs(chars.length);
+  let i = 0;
+  await new Promise<void>((resolve) => {
+    const tick = () => {
+      if (signal.aborted) {
+        resolve();
+        return;
+      }
+      i += 1;
+      const next = chars.slice(0, i).join("");
+      setMessages((prev) =>
+        prev.map((m) => (m.id === id ? { ...m, text: next } : m)),
+      );
+      if (i < chars.length) {
+        window.setTimeout(tick, delayMs);
+      } else {
+        resolve();
+      }
+    };
+    window.setTimeout(tick, delayMs);
+  });
+
+  if (!signal.aborted) {
+    setMessages((prev) =>
+      prev.map((m) => (m.id === id ? { ...m, text: full } : m)),
+    );
+  }
+}
 
 function IconChat({ className }: { className?: string }) {
  return (
@@ -436,55 +498,38 @@ export function AiChatWidget() {
  return;
  }
 
- const assistantId = nextId("a");
- const full = reply;
- const chars = Array.from(full);
+ const chunks = splitChatReply(reply);
+ if (chunks.length === 0) {
+ setSending(false);
+ return;
+ }
 
- if (prefersReducedMotion() || chars.length === 0) {
+ if (prefersReducedMotion()) {
  setMessages((prev) => [
  ...prev,
- { id: assistantId, role: "assistant", text: full },
+ ...chunks.map((text) => ({
+ id: nextId("a"),
+ role: "assistant" as const,
+ text,
+ })),
  ]);
  setSending(false);
  return;
  }
 
- setMessages((prev) => [
- ...prev,
- { id: assistantId, role: "assistant", text: "" },
- ]);
-
- const delayMs = replyTypewriterDelayMs(chars.length);
- let i = 0;
- await new Promise<void>((resolve) => {
- const tick = () => {
- if (ac.signal.aborted) {
- resolve();
- return;
- }
- i += 1;
- const next = chars.slice(0, i).join("");
- setMessages((prev) =>
- prev.map((m) =>
- m.id === assistantId ? { ...m, text: next } : m,
- ),
+ for (let index = 0; index < chunks.length; index += 1) {
+ if (ac.signal.aborted) break;
+ await typewriteAssistant(
+ nextId("a"),
+ chunks[index]!,
+ ac.signal,
+ setMessages,
  );
- if (i < chars.length) {
- window.setTimeout(tick, delayMs);
- } else {
- resolve();
+ if (index < chunks.length - 1 && !ac.signal.aborted) {
+ await sleep(REPLY_CHUNK_GAP_MS, ac.signal);
  }
- };
- window.setTimeout(tick, delayMs);
- });
+ }
 
- if (!ac.signal.aborted) {
- setMessages((prev) =>
- prev.map((m) =>
- m.id === assistantId ? { ...m, text: full } : m,
- ),
- );
- }
  setSending(false);
  };
 
@@ -564,7 +609,6 @@ export function AiChatWidget() {
  data-lenis-prevent
  data-lenis-prevent-wheel
  >
- {turnstileGate}
  <header className="flex shrink-0 items-center gap-2 border-b border-black/[0.06] bg-white px-3 py-2.5 pt-[max(0.75rem,env(safe-area-inset-top))] sm:px-4">
  <button
  type="button"
@@ -727,6 +771,7 @@ export function AiChatWidget() {
  className="flex shrink-0 flex-col gap-2 border-t border-black/[0.05] bg-white px-3 pt-2 pb-[max(0.75rem,env(safe-area-inset-bottom))]"
  onSubmit={onSubmit}
  >
+ {turnstileGate}
  <div className="flex items-end gap-2 rounded-[10px] border border-black/[0.08] bg-[var(--kuct-bg)] p-1.5 focus-within:border-[rgba(var(--kuct-accent-rgb),0.35)]">
  <button
  type="button"
