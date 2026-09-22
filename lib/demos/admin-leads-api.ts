@@ -153,7 +153,7 @@ export async function listAdminLeads(
 ): Promise<{ ok: true; leads: AdminLead[] } | { ok: false; error: string }> {
   const base = getLeadsApiUrl();
   const params = new URLSearchParams();
-  params.set("limit", String(opts?.limit ?? 100));
+  params.set("limit", String(opts?.limit ?? 1000));
   if (opts?.source) params.set("source", opts.source);
   if (opts?.stage) params.set("stage", opts.stage);
 

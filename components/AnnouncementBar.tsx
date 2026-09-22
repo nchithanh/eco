@@ -57,9 +57,9 @@ export function AnnouncementBar() {
           <button
             type="button"
             onClick={openQuote}
-            className="kuct-banner-link inline-flex items-center gap-1.5 rounded-[10px] px-2 py-1 text-[11px] font-medium text-[var(--kuct-text)] transition hover:bg-black/[0.04] sm:text-xs"
+            className="kuct-banner-link inline-flex items-center gap-1.5 rounded-[10px] px-2 py-1 text-[0.875rem] font-semibold leading-none tracking-[-0.02em] text-[var(--kuct-text)] transition-colors hover:text-[var(--kuct-accent)]"
           >
-            <IconQuote className="size-3.5 shrink-0 text-[var(--kuct-muted)]" />
+            <IconQuote className="size-3.5 shrink-0" />
             <span>{b.ctaQuote}</span>
           </button>
           <button
@@ -68,9 +68,9 @@ export function AnnouncementBar() {
             aria-expanded={chatOpen}
             aria-haspopup="dialog"
             title={t.nav.askAiTooltip}
-            className="kuct-banner-link inline-flex items-center gap-1.5 rounded-[10px] px-2 py-1 text-[11px] font-medium text-[var(--kuct-text)] transition hover:bg-black/[0.04] sm:text-xs"
+            className="kuct-banner-link inline-flex items-center gap-1.5 rounded-[10px] px-2 py-1 text-[0.875rem] font-semibold leading-none tracking-[-0.02em] text-[var(--kuct-text)] transition-colors hover:text-[var(--kuct-accent)]"
           >
-            <IconSparkle className="size-3.5 shrink-0 text-[var(--kuct-muted)]" />
+            <IconSparkle className="size-3.5 shrink-0" />
             <span>{t.nav.askAi}</span>
           </button>
         </div>

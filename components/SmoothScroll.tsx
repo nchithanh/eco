@@ -33,6 +33,12 @@ export function SmoothScroll() {
         smoothWheel: true,
         anchors: true,
         stopInertiaOnNavigate: true,
+        prevent: (node) =>
+          Boolean(
+            node.closest(
+              "[data-lenis-prevent], [data-lenis-prevent-wheel]",
+            ),
+          ),
       });
     };
 

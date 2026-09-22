@@ -695,7 +695,7 @@ export function AdminConsole() {
   const refresh = useCallback(async (auth: string) => {
     setLoading(true);
     setError("");
-    const result = await listAdminLeads(auth, { limit: 500 });
+    const result = await listAdminLeads(auth, { limit: 1000 });
     setLoading(false);
     if (!result.ok) {
       setError(result.error);
@@ -1127,7 +1127,7 @@ export function AdminConsole() {
 
   if (!tokenReady || !localeReady) {
     return (
-      <div className="df">
+      <div className="df" data-lenis-prevent data-lenis-prevent-wheel>
         <p className="df__muted">{t.loading}</p>
       </div>
     );
@@ -1135,7 +1135,7 @@ export function AdminConsole() {
 
   if (!token) {
     return (
-      <div className="df df--gate">
+      <div className="df df--gate" data-lenis-prevent data-lenis-prevent-wheel>
         <div className="df-gate">
           <div className="df-gate__top">
             <div className="df-gate__brand">
@@ -1192,7 +1192,7 @@ export function AdminConsole() {
             : t.hero.title;
 
   return (
-    <div className="df">
+    <div className="df" data-lenis-prevent data-lenis-prevent-wheel>
       <aside className="df-side" aria-label={t.brand}>
         <div className="df-side__brand">
           <ThemedLogoImg className="df-mark" width={28} height={28} alt="" />
@@ -1975,7 +1975,11 @@ export function AdminConsole() {
                             </span>
                           </div>
                         </header>
-                        <div className="df-board__list">
+                        <div
+                          className="df-board__list"
+                          data-lenis-prevent
+                          data-lenis-prevent-wheel
+                        >
                           {column.leads.length === 0 ? (
                             <p className="df-board__empty">
                               {dragOverStage === column.stage
