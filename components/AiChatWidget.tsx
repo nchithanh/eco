@@ -455,13 +455,6 @@ export function AiChatWidget() {
  const trimmed = text.trim();
  if (!trimmed || sending || !chatReady) return;
 
- let turnstileToken = entryTokenRef.current;
- entryTokenRef.current = null;
- if (!turnstileToken) {
-  turnstileToken = await requestToken();
- }
- if (!turnstileToken) return;
-
  const userMsg: ChatMessage = {
  id: nextId("u"),
  role: "user",
@@ -474,6 +467,19 @@ export function AiChatWidget() {
  abortRef.current?.abort();
  const ac = new AbortController();
  abortRef.current = ac;
+
+ let turnstileToken = entryTokenRef.current;
+ entryTokenRef.current = null;
+ if (!turnstileToken) {
+  turnstileToken = await requestToken();
+ }
+ if (!turnstileToken || ac.signal.aborted) {
+  setSending(false);
+  if (!turnstileToken && !ac.signal.aborted) {
+   setMessages((prev) => prev.filter((m) => m.id !== userMsg.id));
+  }
+  return;
+ }
 
  const history: ChatApiMessage[] = [...messages, userMsg]
  .filter((m) => m.role === "user" || m.role === "assistant")
@@ -749,11 +755,14 @@ export function AiChatWidget() {
  <div
  className="kuct-ai-chat__bubble kuct-ai-chat__bubble--assistant kuct-ai-chat__typing mr-4 self-start rounded-xl rounded-bl-md border border-black/[0.05] bg-white px-3.5 py-2.5 text-sm text-[var(--kuct-muted)]"
  aria-live="polite"
- aria-label="…"
+ aria-label={c.typingLabel}
  >
+ <span className="kuct-ai-chat__typing-label">{c.typingLabel}</span>
+ <span className="kuct-ai-chat__typing-dots" aria-hidden>
  <span className="kuct-ai-chat__typing-dot" />
  <span className="kuct-ai-chat__typing-dot" />
  <span className="kuct-ai-chat__typing-dot" />
+ </span>
  </div>
  ) : null}
  <p className="mt-auto pt-2 text-[0.7rem] leading-snug text-[var(--kuct-muted)]">

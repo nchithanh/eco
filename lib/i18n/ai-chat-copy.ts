@@ -60,6 +60,8 @@ export type AiChatCopy = {
   /** Follow-up example when topic unclear */
   exampleGeneric: string;
   escalateHint: string;
+  /** Shown while waiting for Turnstile / API reply */
+  typingLabel: string;
 };
 
 const vi: AiChatCopy = {
@@ -195,6 +197,7 @@ const vi: AiChatCopy = {
   exampleGeneric:
     "Ví dụ em có thể kể: (1) **Dolphin Care** — chatbot site 24/7 + insight; (2) **Dolphin Ops** — nói việc, mở đúng màn vận hành; (3) **website** SMB. Anh/chị muốn ví dụ theo hướng nào?",
   escalateHint: "Cần người thật? Bấm nút liên hệ góc dưới (Zalo / Messenger / gọi / email).",
+  typingLabel: "Dolphin Care đang soạn…",
 };
 
 const en: AiChatCopy = {
@@ -329,6 +332,7 @@ const en: AiChatCopy = {
   exampleGeneric:
     "I can give an example for: (1) **Dolphin Care** — 24/7 site answers + insight; (2) **Dolphin Ops** — say the job, open the right ops screen; (3) **website**. Which direction?",
   escalateHint: "Need a human? Use the contact button (Zalo / Messenger / call / email).",
+  typingLabel: "Dolphin Care is typing",
 };
 
 const ja: AiChatCopy = {
@@ -464,6 +468,7 @@ const ja: AiChatCopy = {
   exampleGeneric:
     "例として：(1) **Dolphin Care** — サイトで24/7回答＋insight、(2) **Dolphin Ops** — 用件を言えば運用画面が開く、(3) **Web**。どれが近いですか？",
   escalateHint: "担当者と直接お話しされたい場合は、右下の連絡ボタン（Zalo / Messenger / 電話 / メール）をご利用ください。",
+  typingLabel: "Dolphin Careが入力中…",
 };
 
 export const aiChatCopy: Record<Locale, AiChatCopy> = {
