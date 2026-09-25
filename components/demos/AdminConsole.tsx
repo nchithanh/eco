@@ -13,20 +13,31 @@ import {
 import { ThemedLogoImg } from "@/components/ThemedLogoImg";
 import { assetPath } from "@/lib/asset";
 import {
+  type AdminComment,
   type AdminLead,
   type AdminLeadSource,
+  type AdminUser,
   type LeadWriteInput,
+  type UserRole,
   DEFAULT_LEAD_OWNER,
   LEAD_OWNERS,
   LEAD_SOURCES,
+  USER_ROLES,
   clearStoredAdminToken,
   createAdminLead,
+  createAdminUser,
+  createLeadComment,
   deleteAdminLead,
+  deleteAdminUser,
+  deleteLeadComment,
   getStoredAdminToken,
   listAdminLeads,
+  listAdminUsers,
+  listLeadComments,
   normalizeLeadOwner,
   setStoredAdminToken,
   updateAdminLead,
+  updateAdminUser,
 } from "@/lib/demos/admin-leads-api";
 import {
   ADMIN_CONTRACTS,
@@ -38,9 +49,15 @@ import {
   SALES_LOCALE_KEY,
   getDolphinSalesCopy,
   isSalesLocale,
+  careerStageLabel,
+  careerStageShort,
   salesStageLabel,
   salesStageShort,
 } from "@/lib/demos/dolphin-sales-copy";
+import {
+  computeSalesComp,
+  isRevenueStage,
+} from "@/lib/demos/sales-comp";
 import {
   type LeadStage,
   LEAD_STAGES,
@@ -49,9 +66,14 @@ import {
 import { useLocale } from "@/lib/i18n/LocaleProvider";
 
 type WorkspaceId = "sale" | "crm" | "analytics" | "contracts";
-type SaleNavId = "pipeline" | "playbook";
+type SaleNavId = "pipeline" | "careers" | "people" | "playbook";
 type PipelineView = "list" | "board";
-type SourceFilter = "all" | "exclude-careers" | AdminLeadSource;
+type PipelineSource = Exclude<AdminLeadSource, "careers">;
+type SourceFilter = "all" | PipelineSource;
+
+const PIPELINE_SOURCES = LEAD_SOURCES.filter(
+  (source): source is PipelineSource => source !== "careers",
+);
 type StageTab = "all" | LeadStage;
 type OwnerFilter = "all" | string;
 type IdleFilter = "all" | "ok" | "warn" | "bad";
@@ -92,6 +114,45 @@ const EMPTY_FORM: LeadFormState = {
   atRisk: false,
 };
 
+type PersonFormState = {
+  id: string;
+  displayName: string;
+  role: UserRole;
+  title: string;
+  phone: string;
+  email: string;
+  active: boolean;
+  salary: string;
+  kpiTarget: string;
+};
+
+const SIDE_COLLAPSED_KEY = "dolphin-sales-side-collapsed";
+
+const EMPTY_PERSON: PersonFormState = {
+  id: "",
+  displayName: "",
+  role: "sales",
+  title: "",
+  phone: "",
+  email: "",
+  active: true,
+  salary: "0",
+  kpiTarget: "0",
+};
+
+function ownerChoices(people: AdminUser[], extra?: string): string[] {
+  const ids = people.filter((person) => person.active).map((person) => person.id);
+  const base = ids.length ? ids : [...LEAD_OWNERS];
+  const extraId = extra ? normalizeLeadOwner(extra) : "";
+  if (extraId && !base.includes(extraId)) return [...base, extraId];
+  return base;
+}
+
+function ownerLabel(people: AdminUser[], id: string): string {
+  const person = people.find((row) => row.id === id);
+  return person ? `${person.displayName} (${person.id})` : id;
+}
+
 const OPEN_STAGES: LeadStage[] = [
   "hotline",
   "new",
@@ -111,6 +172,27 @@ const STAGE_TABS: LeadStage[] = [
   "won",
   "lost",
 ];
+
+const CAREER_STAGE_TABS: LeadStage[] = [
+  "new",
+  "qualified",
+  "discover",
+  "propose",
+  "won",
+  "lost",
+];
+
+const CAREER_REVIEW_STAGES: LeadStage[] = [
+  "qualified",
+  "discover",
+  "propose",
+];
+
+function careerStageOptions(extra?: LeadStage): LeadStage[] {
+  const stages: LeadStage[] = [...CAREER_STAGE_TABS];
+  if (extra && !stages.includes(extra)) stages.push(extra);
+  return stages;
+}
 
 /** Heuristic win probability by stage — UI forecast only. */
 const STAGE_WEIGHT: Partial<Record<LeadStage, number>> = {
@@ -275,6 +357,57 @@ function stageTone(stage: LeadStage): string {
       return "is-lost";
     default:
       return "is-muted";
+  }
+}
+
+function tabStageShort(
+  salesLocale: SalesLocale,
+  stage: LeadStage,
+  careers: boolean,
+): string {
+  return careers
+    ? careerStageShort(salesLocale, stage)
+    : salesStageShort(salesLocale, stage);
+}
+
+function tabStageLabel(
+  salesLocale: SalesLocale,
+  stage: string,
+  careers: boolean,
+): string {
+  return careers
+    ? careerStageLabel(salesLocale, stage)
+    : salesStageLabel(salesLocale, stage);
+}
+
+function suggestedCareerNext(
+  lead: AdminLead,
+  t: DolphinSalesCopy,
+): string {
+  const idle = idleDays(lead.lastActivityAt);
+  if (lead.stage === "lost" || lead.stage === "out_of_scope") {
+    return t.nextAction.none;
+  }
+  if (idle >= 7 && (lead.stage === "new" || CAREER_REVIEW_STAGES.includes(lead.stage))) {
+    return t.nextAction.followUp;
+  }
+  switch (lead.stage) {
+    case "new":
+      return t.careersUi.nextScreen;
+    case "qualified":
+      return t.careersUi.nextInterview;
+    case "discover":
+      return t.careersUi.nextOffer;
+    case "propose":
+      return t.careersUi.nextHire;
+    case "won":
+    case "deliver":
+      return t.careersUi.nextOnboard;
+    case "nurture":
+    case "expand":
+      return t.nextAction.nurture;
+    default:
+      return t.nextAction.followUp;
   }
 }
 
@@ -616,6 +749,12 @@ export function AdminConsole() {
 
   const [workspace, setWorkspace] = useState<WorkspaceId>("sale");
   const [nav, setNav] = useState<SaleNavId>("pipeline");
+  const [sideCollapsed, setSideCollapsed] = useState(false);
+  const [laptopExpanded, setLaptopExpanded] = useState(false);
+  const [sideOpen, setSideOpen] = useState(false);
+  const [isLaptop, setIsLaptop] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [personFormOpen, setPersonFormOpen] = useState(false);
   const [token, setToken] = useState("");
   const [tokenReady, setTokenReady] = useState(false);
   const [tokenInput, setTokenInput] = useState("");
@@ -624,8 +763,7 @@ export function AdminConsole() {
   const [error, setError] = useState("");
   const [query, setQuery] = useState("");
   const [tableQuery, setTableQuery] = useState("");
-  const [sourceFilter, setSourceFilter] =
-    useState<SourceFilter>("exclude-careers");
+  const [sourceFilter, setSourceFilter] = useState<SourceFilter>("all");
   const [ownerFilter, setOwnerFilter] = useState<OwnerFilter>("all");
   const [idleFilter, setIdleFilter] = useState<IdleFilter>("all");
   const [contactKindFilter, setContactKindFilter] =
@@ -647,6 +785,17 @@ export function AdminConsole() {
   const [stageSavingId, setStageSavingId] = useState<string | null>(null);
   const [dragLeadId, setDragLeadId] = useState<string | null>(null);
   const [dragOverStage, setDragOverStage] = useState<LeadStage | null>(null);
+  const [comments, setComments] = useState<AdminComment[]>([]);
+  const [commentsLoading, setCommentsLoading] = useState(false);
+  const [commentDraft, setCommentDraft] = useState("");
+  const [commentAuthor, setCommentAuthor] =
+    useState<string>(DEFAULT_LEAD_OWNER);
+  const [commentSaving, setCommentSaving] = useState(false);
+  const [people, setPeople] = useState<AdminUser[]>([]);
+  const [personForm, setPersonForm] = useState<PersonFormState>(EMPTY_PERSON);
+  const [editingPerson, setEditingPerson] = useState<AdminUser | null>(null);
+  const [selectedPersonId, setSelectedPersonId] = useState<string | null>(null);
+  const [personSaving, setPersonSaving] = useState(false);
   const detailBodyRef = useRef<HTMLDivElement | null>(null);
 
   /** Keep wheel scroll on the detail body (Cursor preview / nested layout). */
@@ -673,7 +822,73 @@ export function AdminConsole() {
     setLocaleReady(true);
     setToken(getStoredAdminToken());
     setTokenReady(true);
+    setSideCollapsed(sessionStorage.getItem(SIDE_COLLAPSED_KEY) === "1");
   }, [siteLocale]);
+
+  useEffect(() => {
+    const laptop = window.matchMedia(
+      "(max-width: 72rem) and (min-width: 64.01rem)",
+    );
+    const mobile = window.matchMedia("(max-width: 64rem)");
+    const sync = () => {
+      setIsLaptop(laptop.matches);
+      setIsMobile(mobile.matches);
+      if (!mobile.matches) setSideOpen(false);
+    };
+    sync();
+    laptop.addEventListener("change", sync);
+    mobile.addEventListener("change", sync);
+    return () => {
+      laptop.removeEventListener("change", sync);
+      mobile.removeEventListener("change", sync);
+    };
+  }, []);
+
+  function toggleSideCollapsed() {
+    if (isLaptop) {
+      setLaptopExpanded((cur) => !cur);
+      return;
+    }
+    setSideCollapsed((cur) => {
+      const next = !cur;
+      sessionStorage.setItem(SIDE_COLLAPSED_KEY, next ? "1" : "0");
+      return next;
+    });
+  }
+
+  function closeSideMenu() {
+    setSideOpen(false);
+  }
+
+  function closeSheet() {
+    setSelectedId(null);
+    setEditorOpen(false);
+    setPersonFormOpen(false);
+  }
+
+  useEffect(() => {
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key !== "Escape") return;
+      setSideOpen(false);
+      if (isMobile) {
+        setSelectedId(null);
+        setEditorOpen(false);
+        setPersonFormOpen(false);
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [isMobile]);
+
+  useEffect(() => {
+    const lock = isMobile && (sideOpen || personFormOpen || editorOpen || Boolean(selectedId));
+    if (!lock) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [isMobile, sideOpen, personFormOpen, editorOpen, selectedId]);
 
   function changeSalesLocale(next: SalesLocale) {
     setSalesLocale(next);
@@ -682,9 +897,8 @@ export function AdminConsole() {
 
   const sourceFilterOptions = useMemo(
     () => [
-      { value: "exclude-careers" as const, label: t.filters.excludeCareers },
       { value: "all" as const, label: t.filters.allSources },
-      ...LEAD_SOURCES.map((source) => ({
+      ...PIPELINE_SOURCES.map((source) => ({
         value: source as SourceFilter,
         label: source,
       })),
@@ -710,6 +924,14 @@ export function AdminConsole() {
       if (cur && result.leads.some((l) => l.id === cur)) return cur;
       return result.leads[0]?.id ?? null;
     });
+    const usersResult = await listAdminUsers(auth);
+    if (usersResult.ok) {
+      setPeople(usersResult.users);
+      setSelectedPersonId((cur) => {
+        if (cur && usersResult.users.some((row) => row.id === cur)) return cur;
+        return usersResult.users[0]?.id ?? null;
+      });
+    }
   }, []);
 
   useEffect(() => {
@@ -717,12 +939,231 @@ export function AdminConsole() {
     void refresh(token);
   }, [tokenReady, token, refresh]);
 
+  const loadComments = useCallback(
+    async (auth: string, leadId: string) => {
+      setCommentsLoading(true);
+      const result = await listLeadComments(auth, leadId);
+      setCommentsLoading(false);
+      if (!result.ok) {
+        setComments([]);
+        if (result.error === "unauthorized") {
+          clearStoredAdminToken();
+          setToken("");
+        }
+        return;
+      }
+      setComments(result.comments);
+    },
+    [],
+  );
+
+  useEffect(() => {
+    if (!token || !selectedId) {
+      setComments([]);
+      setCommentDraft("");
+      return;
+    }
+    setCommentDraft("");
+    void loadComments(token, selectedId);
+  }, [token, selectedId, loadComments]);
+
+  useEffect(() => {
+    if (!selectedId) return;
+    const lead = leads.find((l) => l.id === selectedId);
+    if (lead) {
+      setCommentAuthor(normalizeLeadOwner(lead.owner));
+    }
+  }, [selectedId, leads]);
+
+  async function submitComment() {
+    if (!token || !selectedId) return;
+    const body = commentDraft.trim();
+    if (!body || commentSaving) return;
+    setCommentSaving(true);
+    setError("");
+    const lead = leads.find((l) => l.id === selectedId);
+    const result = await createLeadComment(token, selectedId, {
+      body,
+      author: normalizeLeadOwner(commentAuthor),
+      stageAt: lead?.stage ?? "",
+    });
+    setCommentSaving(false);
+    if (!result.ok) {
+      setError(result.error);
+      return;
+    }
+    setCommentDraft("");
+    setComments((cur) => [result.comment, ...cur]);
+    const touchAt = result.comment.createdAt;
+    setLeads((cur) =>
+      cur.map((l) =>
+        l.id === selectedId ? { ...l, lastActivityAt: touchAt } : l,
+      ),
+    );
+  }
+
+  async function removeComment(comment: AdminComment) {
+    if (!token) return;
+    if (!window.confirm(t.drawer.commentDeleteConfirm)) return;
+    setError("");
+    const result = await deleteLeadComment(token, comment.id);
+    if (!result.ok) {
+      setError(result.error);
+      return;
+    }
+    setComments((cur) => cur.filter((c) => c.id !== comment.id));
+    void refresh(token);
+  }
+
+  const ownerOptions = useMemo(
+    () => ownerChoices(people),
+    [people],
+  );
+
+  const peopleRows = useMemo(() => {
+    const revenueByOwner = new Map<string, { revenue: number; wonCount: number }>();
+    for (const lead of leads) {
+      if (!isRevenueStage(lead.stage)) continue;
+      const owner = normalizeLeadOwner(lead.owner);
+      const prev = revenueByOwner.get(owner) || { revenue: 0, wonCount: 0 };
+      prev.revenue += lead.amount || 0;
+      prev.wonCount += 1;
+      revenueByOwner.set(owner, prev);
+    }
+    return people.map((person) => {
+      const fromLeads = revenueByOwner.get(person.id) || {
+        revenue: 0,
+        wonCount: 0,
+      };
+      const revenue =
+        person.stats.revenue > 0 ? person.stats.revenue : fromLeads.revenue;
+      const wonCount =
+        person.stats.wonCount > 0 ? person.stats.wonCount : fromLeads.wonCount;
+      return {
+        ...person,
+        stats: computeSalesComp(
+          revenue,
+          wonCount,
+          person.salary,
+          person.kpiTarget,
+        ),
+      };
+    });
+  }, [people, leads]);
+
+  const peopleTeam = useMemo(() => {
+    return peopleRows.reduce(
+      (acc, row) => {
+        acc.revenue += row.stats.revenue;
+        acc.commission += row.stats.commission;
+        acc.bonus += row.stats.bonus;
+        acc.payout += row.stats.payout;
+        return acc;
+      },
+      { revenue: 0, commission: 0, bonus: 0, payout: 0 },
+    );
+  }, [peopleRows]);
+
+  function openCreatePerson() {
+    setEditingPerson(null);
+    setPersonForm(EMPTY_PERSON);
+    setSelectedPersonId(null);
+    setEditorOpen(false);
+    setPersonFormOpen(true);
+  }
+
+  function openEditPerson(person: AdminUser) {
+    setEditingPerson(person);
+    setSelectedPersonId(person.id);
+    setPersonFormOpen(true);
+    setPersonForm({
+      id: person.id,
+      displayName: person.displayName,
+      role: person.role,
+      title: person.title,
+      phone: person.phone,
+      email: person.email,
+      active: person.active,
+      salary: String(person.salary || 0),
+      kpiTarget: String(person.kpiTarget || 0),
+    });
+    setEditorOpen(false);
+  }
+
+  async function savePerson(event: FormEvent) {
+    event.preventDefault();
+    if (!token) return;
+    const id = personForm.id.trim().toLowerCase();
+    const displayName = personForm.displayName.trim();
+    if (!id || !displayName) {
+      setError(t.peopleUi.required);
+      return;
+    }
+    setPersonSaving(true);
+    setError("");
+    const payload = {
+      ...personForm,
+      id,
+      salary: Number(personForm.salary) || 0,
+      kpiTarget: Number(personForm.kpiTarget) || 0,
+    };
+    const result = editingPerson
+      ? await updateAdminUser(token, editingPerson.id, payload)
+      : await createAdminUser(token, payload);
+    setPersonSaving(false);
+    if (!result.ok) {
+      setError(result.error === "id_taken" ? t.peopleUi.idTaken : result.error);
+      return;
+    }
+    setPeople((cur) => {
+      const next = editingPerson
+        ? cur.map((row) => (row.id === result.user.id ? result.user : row))
+        : [result.user, ...cur];
+      return next.sort((a, b) => Number(b.active) - Number(a.active));
+    });
+    setEditingPerson(result.user);
+    setSelectedPersonId(result.user.id);
+    setPersonForm({
+      id: result.user.id,
+      displayName: result.user.displayName,
+      role: result.user.role,
+      title: result.user.title,
+      phone: result.user.phone,
+      email: result.user.email,
+      active: result.user.active,
+      salary: String(result.user.salary || 0),
+      kpiTarget: String(result.user.kpiTarget || 0),
+    });
+  }
+
+  async function removePerson(person: AdminUser) {
+    if (!token) return;
+    if (!window.confirm(fillTemplate(t.peopleUi.deleteConfirm, { id: person.id }))) {
+      return;
+    }
+    setError("");
+    const result = await deleteAdminUser(token, person.id);
+    if (!result.ok) {
+      setError(result.error);
+      return;
+    }
+    setPeople((cur) => cur.filter((row) => row.id !== person.id));
+    if (selectedPersonId === person.id) {
+      setSelectedPersonId(null);
+      setEditingPerson(null);
+      setPersonForm(EMPTY_PERSON);
+    }
+  }
+
   const scoped = useMemo(() => {
     let rows = leads;
-    if (sourceFilter === "exclude-careers") {
+    if (nav === "careers") {
+      rows = rows.filter((l) => l.source === "careers");
+    } else {
       rows = rows.filter((l) => l.source !== "careers");
-    } else if (sourceFilter !== "all") {
-      rows = rows.filter((l) => l.source === sourceFilter);
+      if (sourceFilter !== "all") {
+        rows = rows.filter((l) => l.source === sourceFilter);
+      }
     }
     if (ownerFilter !== "all") {
       rows = rows.filter((l) => normalizeLeadOwner(l.owner) === ownerFilter);
@@ -730,27 +1171,29 @@ export function AdminConsole() {
     if (idleFilter !== "all") {
       rows = rows.filter((l) => idleTone(idleDays(l.lastActivityAt)) === idleFilter);
     }
-    if (contactKindFilter !== "all") {
-      rows = rows.filter((l) => leadContactKind(l) === contactKindFilter);
-    }
-    if (atRiskFilter === "yes") {
-      rows = rows.filter((l) => l.atRisk);
-    } else if (atRiskFilter === "no") {
-      rows = rows.filter((l) => !l.atRisk);
-    }
-    const min = amountMin.trim() === "" ? null : Number(amountMin);
-    const max = amountMax.trim() === "" ? null : Number(amountMax);
-    if (min != null && Number.isFinite(min)) {
-      rows = rows.filter((l) => l.amount >= min);
-    }
-    if (max != null && Number.isFinite(max)) {
-      rows = rows.filter((l) => l.amount <= max);
-    }
-    if (closeFrom) {
-      rows = rows.filter((l) => l.closeDate && l.closeDate >= closeFrom);
-    }
-    if (closeTo) {
-      rows = rows.filter((l) => l.closeDate && l.closeDate <= closeTo);
+    if (nav !== "careers") {
+      if (contactKindFilter !== "all") {
+        rows = rows.filter((l) => leadContactKind(l) === contactKindFilter);
+      }
+      if (atRiskFilter === "yes") {
+        rows = rows.filter((l) => l.atRisk);
+      } else if (atRiskFilter === "no") {
+        rows = rows.filter((l) => !l.atRisk);
+      }
+      const min = amountMin.trim() === "" ? null : Number(amountMin);
+      const max = amountMax.trim() === "" ? null : Number(amountMax);
+      if (min != null && Number.isFinite(min)) {
+        rows = rows.filter((l) => l.amount >= min);
+      }
+      if (max != null && Number.isFinite(max)) {
+        rows = rows.filter((l) => l.amount <= max);
+      }
+      if (closeFrom) {
+        rows = rows.filter((l) => l.closeDate && l.closeDate >= closeFrom);
+      }
+      if (closeTo) {
+        rows = rows.filter((l) => l.closeDate && l.closeDate <= closeTo);
+      }
     }
     const q = (query || tableQuery).trim().toLowerCase();
     if (!q) return rows;
@@ -773,6 +1216,7 @@ export function AdminConsole() {
     );
   }, [
     leads,
+    nav,
     sourceFilter,
     ownerFilter,
     idleFilter,
@@ -788,15 +1232,16 @@ export function AdminConsole() {
   ]);
 
   const filtersActive =
-    sourceFilter !== "exclude-careers" ||
+    (nav !== "careers" && sourceFilter !== "all") ||
     ownerFilter !== "all" ||
     idleFilter !== "all" ||
-    contactKindFilter !== "all" ||
-    atRiskFilter !== "all" ||
-    Boolean(amountMin.trim()) ||
-    Boolean(amountMax.trim()) ||
-    Boolean(closeFrom) ||
-    Boolean(closeTo) ||
+    (nav !== "careers" &&
+      (contactKindFilter !== "all" ||
+        atRiskFilter !== "all" ||
+        Boolean(amountMin.trim()) ||
+        Boolean(amountMax.trim()) ||
+        Boolean(closeFrom) ||
+        Boolean(closeTo))) ||
     Boolean(query.trim() || tableQuery.trim());
 
   const metrics = useMemo(() => {
@@ -824,6 +1269,15 @@ export function AdminConsole() {
     const atRisk = scoped.filter(
       (l) => l.atRisk || idleDays(l.lastActivityAt) > 6,
     ).length;
+    const applied = scoped.filter((l) => l.stage === "new").length;
+    const review = scoped.filter((l) =>
+      CAREER_REVIEW_STAGES.includes(l.stage),
+    ).length;
+    const hired = scoped.filter((l) => l.stage === "won").length;
+    const rejected = scoped.filter(
+      (l) => l.stage === "lost" || l.stage === "out_of_scope",
+    ).length;
+    const idle = scoped.filter((l) => idleDays(l.lastActivityAt) > 6).length;
     return {
       total,
       qualified,
@@ -834,11 +1288,16 @@ export function AdminConsole() {
       winRate,
       decided,
       atRisk,
+      applied,
+      review,
+      hired,
+      rejected,
+      idle,
     };
   }, [scoped]);
 
   const teamRows = useMemo(() => {
-    return LEAD_OWNERS.map((owner) => {
+    return ownerOptions.map((owner) => {
       const rows = scoped.filter((l) => normalizeLeadOwner(l.owner) === owner);
       const open = rows.filter((l) => OPEN_STAGES.includes(l.stage)).length;
       const won = rows.filter(
@@ -856,15 +1315,17 @@ export function AdminConsole() {
       ).length;
       return { owner, open, won, winRate, decided, atRisk, total: rows.length };
     });
-  }, [scoped]);
+  }, [scoped, ownerOptions]);
+
+  const visibleStageTabs = nav === "careers" ? CAREER_STAGE_TABS : STAGE_TABS;
 
   const stageCounts = useMemo(() => {
     const counts: Record<string, number> = { all: scoped.length };
-    for (const stage of STAGE_TABS) {
+    for (const stage of visibleStageTabs) {
       counts[stage] = scoped.filter((l) => l.stage === stage).length;
     }
     return counts;
-  }, [scoped]);
+  }, [scoped, visibleStageTabs]);
 
   const filtered = useMemo(() => {
     if (stageTab === "all") return scoped;
@@ -872,7 +1333,7 @@ export function AdminConsole() {
   }, [scoped, stageTab]);
 
   const boardColumns = useMemo(() => {
-    const stages: LeadStage[] = [...STAGE_TABS];
+    const stages: LeadStage[] = [...visibleStageTabs];
     for (const lead of filtered) {
       if (!stages.includes(lead.stage)) stages.push(lead.stage);
     }
@@ -881,7 +1342,7 @@ export function AdminConsole() {
       stage,
       leads: filtered.filter((lead) => lead.stage === stage),
     }));
-  }, [filtered, stageTab]);
+  }, [filtered, stageTab, visibleStageTabs]);
 
   useEffect(() => {
     setPage(0);
@@ -911,8 +1372,20 @@ export function AdminConsole() {
     [leads, selectedId],
   );
 
+  useEffect(() => {
+    if (nav !== "pipeline" && nav !== "careers") return;
+    const matchesTab = (lead: AdminLead) =>
+      nav === "careers" ? lead.source === "careers" : lead.source !== "careers";
+    setSelectedId((cur) => {
+      if (cur && leads.some((lead) => lead.id === cur && matchesTab(lead))) {
+        return cur;
+      }
+      return leads.find(matchesTab)?.id ?? null;
+    });
+  }, [nav, leads]);
+
   function clearFilters() {
-    setSourceFilter("exclude-careers");
+    setSourceFilter("all");
     setOwnerFilter("all");
     setIdleFilter("all");
     setContactKindFilter("all");
@@ -955,6 +1428,7 @@ export function AdminConsole() {
     setEditing(null);
     setForm({
       ...EMPTY_FORM,
+      source: nav === "careers" ? "careers" : "manual",
       probability: String(stageDefaultProb("new")),
     });
     setEditorOpen(true);
@@ -1172,13 +1646,41 @@ export function AdminConsole() {
     loading
       ? t.table.loading
       : filtersActive || stageTab !== "all"
-        ? t.table.emptyFiltered
-        : t.table.emptyAll;
+        ? nav === "careers"
+          ? t.careersUi.emptyFiltered
+          : t.table.emptyFiltered
+        : nav === "careers"
+          ? t.careersUi.emptyAll
+          : t.table.emptyAll;
 
   function switchWorkspace(next: WorkspaceId) {
     setWorkspace(next);
     if (next === "sale") setNav("pipeline");
+    closeSideMenu();
   }
+
+  function setSaleNav(next: SaleNavId) {
+    setNav(next);
+    closeSideMenu();
+    if (next === "pipeline" || next === "careers") {
+      setSourceFilter("all");
+    }
+    if (next === "careers") {
+      setPipelineView("list");
+      setContactKindFilter("all");
+      setAtRiskFilter("all");
+      setAmountMin("");
+      setAmountMax("");
+      setCloseFrom("");
+      setCloseTo("");
+      setStageTab((cur) =>
+        cur === "all" || CAREER_STAGE_TABS.includes(cur) ? cur : "all",
+      );
+    }
+  }
+
+  const saleBoardOpen = workspace === "sale" && (nav === "pipeline" || nav === "careers");
+  const isCareersTab = nav === "careers";
 
   const crumbLabel =
     workspace === "crm"
@@ -1189,10 +1691,54 @@ export function AdminConsole() {
           ? t.workspaces.contracts
           : nav === "playbook"
             ? t.side.navPlaybook
-            : t.hero.title;
+            : nav === "careers"
+              ? t.side.navCareers
+              : nav === "people"
+                ? t.side.navPeople
+                : t.hero.title;
+
+  const railCollapsed = isMobile
+    ? false
+    : isLaptop
+      ? !laptopExpanded
+      : sideCollapsed;
+  const sheetOpen =
+    workspace === "sale" &&
+    (nav === "people"
+      ? personFormOpen
+      : (nav === "pipeline" || nav === "careers") &&
+        (editorOpen || Boolean(selected)));
+  const dfClass = [
+    "df",
+    railCollapsed ? "df--side-collapsed" : "",
+    laptopExpanded ? "df--side-expanded" : "",
+    sideOpen ? "df--side-open" : "",
+    isMobile && sheetOpen ? "df--sheet-open" : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
 
   return (
-    <div className="df" data-lenis-prevent data-lenis-prevent-wheel>
+    <div
+      className={dfClass}
+      data-lenis-prevent
+      data-lenis-prevent-wheel
+    >
+      <button
+        type="button"
+        className="df-side-backdrop"
+        hidden={!sideOpen}
+        aria-label={t.side.menuClose}
+        onClick={closeSideMenu}
+      />
+      {isMobile && sheetOpen ? (
+        <button
+          type="button"
+          className="df-sheet-backdrop"
+          aria-label={t.side.closePanel}
+          onClick={closeSheet}
+        />
+      ) : null}
       <aside className="df-side" aria-label={t.brand}>
         <div className="df-side__brand">
           <ThemedLogoImg className="df-mark" width={28} height={28} alt="" />
@@ -1200,6 +1746,30 @@ export function AdminConsole() {
             <strong>{t.brand}</strong>
             <em>{t.workspaceName}</em>
           </div>
+          <button
+            type="button"
+            className="df-side__collapse"
+            aria-expanded={!railCollapsed}
+            aria-label={railCollapsed ? t.side.expand : t.side.collapse}
+            title={railCollapsed ? t.side.expand : t.side.collapse}
+            onClick={toggleSideCollapsed}
+          >
+            <svg
+              width={16}
+              height={16}
+              viewBox="0 0 16 16"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={1.5}
+              aria-hidden
+            >
+              {railCollapsed ? (
+                <path d="M6 3.5 11 8 6 12.5" strokeLinecap="round" strokeLinejoin="round" />
+              ) : (
+                <path d="M10 3.5 5 8l5 4.5" strokeLinecap="round" strokeLinejoin="round" />
+              )}
+            </svg>
+          </button>
         </div>
 
         <p className="df-side__label">{t.workspaces.label}</p>
@@ -1207,6 +1777,7 @@ export function AdminConsole() {
           <button
             type="button"
             className={workspace === "sale" ? "is-active" : undefined}
+            title={t.workspaces.sale}
             onClick={() => switchWorkspace("sale")}
           >
             <NavIcon name="pipeline" />
@@ -1215,6 +1786,7 @@ export function AdminConsole() {
           <button
             type="button"
             className={workspace === "crm" ? "is-active" : undefined}
+            title={t.workspaces.crm}
             onClick={() => switchWorkspace("crm")}
           >
             <NavIcon name="contacts" />
@@ -1223,6 +1795,7 @@ export function AdminConsole() {
           <button
             type="button"
             className={workspace === "analytics" ? "is-active" : undefined}
+            title={t.workspaces.analytics}
             onClick={() => switchWorkspace("analytics")}
           >
             <NavIcon name="overview" />
@@ -1231,6 +1804,7 @@ export function AdminConsole() {
           <button
             type="button"
             className={workspace === "contracts" ? "is-active" : undefined}
+            title={t.workspaces.contracts}
             onClick={() => switchWorkspace("contracts")}
           >
             <NavIcon name="contracts" />
@@ -1245,20 +1819,40 @@ export function AdminConsole() {
               <button
                 type="button"
                 className={nav === "pipeline" ? "is-active" : undefined}
-                onClick={() => setNav("pipeline")}
+                title={t.side.navPipeline}
+                onClick={() => setSaleNav("pipeline")}
               >
                 <NavIcon name="deals" />
                 {t.side.navPipeline}
               </button>
               <button
                 type="button"
+                className={nav === "careers" ? "is-active" : undefined}
+                title={t.side.navCareers}
+                onClick={() => setSaleNav("careers")}
+              >
+                <NavIcon name="contacts" />
+                {t.side.navCareers}
+              </button>
+              <button
+                type="button"
+                className={nav === "people" ? "is-active" : undefined}
+                title={t.side.navPeople}
+                onClick={() => setSaleNav("people")}
+              >
+                <NavIcon name="contacts" />
+                {t.side.navPeople}
+              </button>
+              <button
+                type="button"
                 className={nav === "playbook" ? "is-active" : undefined}
-                onClick={() => setNav("playbook")}
+                title={t.side.navPlaybook}
+                onClick={() => setSaleNav("playbook")}
               >
                 <NavIcon name="playbook" />
                 {t.side.navPlaybook}
               </button>
-              <button type="button" disabled title={t.soon}>
+              <button type="button" disabled title={t.side.navActivities}>
                 <NavIcon name="activities" />
                 {t.side.navActivities}
                 <span className="df-side__soon">{t.soon}</span>
@@ -1271,12 +1865,12 @@ export function AdminConsole() {
           <>
             <p className="df-side__label">{t.side.crmGroup}</p>
             <nav className="df-side__nav">
-              <button type="button" disabled title={t.soon}>
+              <button type="button" disabled title={t.side.navContacts}>
                 <NavIcon name="contacts" />
                 {t.side.navContacts}
                 <span className="df-side__soon">{t.soon}</span>
               </button>
-              <button type="button" disabled title={t.soon}>
+              <button type="button" disabled title={t.side.navCompanies}>
                 <NavIcon name="companies" />
                 {t.side.navCompanies}
                 <span className="df-side__soon">{t.soon}</span>
@@ -1289,17 +1883,18 @@ export function AdminConsole() {
           <>
             <p className="df-side__label">{t.side.analyticsGroup}</p>
             <nav className="df-side__nav">
-              <button type="button" className="is-active">
+              <button type="button" className="is-active" title={t.side.navOverview}>
                 <NavIcon name="overview" />
                 {t.side.navOverview}
               </button>
-              <button type="button" disabled title={t.soon}>
+              <button type="button" disabled title={t.side.navReports}>
                 <NavIcon name="reports" />
                 {t.side.navReports}
                 <span className="df-side__soon">{t.soon}</span>
               </button>
               <button
                 type="button"
+                title={loading ? t.side.refreshing : t.side.refresh}
                 onClick={() => void refresh(token)}
               >
                 <NavIcon name="overview" />
@@ -1313,7 +1908,11 @@ export function AdminConsole() {
           <>
             <p className="df-side__label">{t.side.contractsGroup}</p>
             <nav className="df-side__nav">
-              <button type="button" className="is-active">
+              <button
+                type="button"
+                className="is-active"
+                title={t.side.navContracts}
+              >
                 <NavIcon name="contracts" />
                 {t.side.navContracts}
               </button>
@@ -1323,8 +1922,26 @@ export function AdminConsole() {
 
         <div className="df-side__foot">
           {langSwitch}
-          <Link href={assetPath("/demos/")}>{t.side.demoVault}</Link>
-          <button type="button" className="df-side__ghost" onClick={lockToken}>
+          <Link href={assetPath("/demos/")} title={t.side.demoVault}>
+            {t.side.demoVault}
+          </Link>
+          <button
+            type="button"
+            className="df-side__ghost"
+            title={t.side.signOut}
+            onClick={lockToken}
+          >
+            <svg
+              width={16}
+              height={16}
+              viewBox="0 0 16 16"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={1.5}
+              aria-hidden
+            >
+              <path d="M6 3.5H3.5v9H6M7 8h6M10.5 5.5 13 8l-2.5 2.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
             {t.side.signOut}
           </button>
           <div className="df-side__user">
@@ -1342,6 +1959,29 @@ export function AdminConsole() {
 
       <div className="df-shell">
         <header className="df-topbar">
+          <button
+            type="button"
+            className="df-topbar__menu"
+            aria-expanded={sideOpen}
+            aria-label={sideOpen ? t.side.menuClose : t.side.menuOpen}
+            onClick={() => setSideOpen((cur) => !cur)}
+          >
+            <svg
+              width={18}
+              height={18}
+              viewBox="0 0 16 16"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={1.6}
+              aria-hidden
+            >
+              {sideOpen ? (
+                <path d="M4 4l8 8M12 4 4 12" strokeLinecap="round" />
+              ) : (
+                <path d="M3 4.5h10M3 8h10M3 11.5h10" strokeLinecap="round" />
+              )}
+            </svg>
+          </button>
           <nav className="df-crumb" aria-label="Breadcrumb">
             <span>{t.top.breadcrumbHome}</span>
             <span aria-hidden>/</span>
@@ -1359,7 +1999,11 @@ export function AdminConsole() {
             />
           </label>
           <div className="df-topbar__meta">
-            {metrics.atRisk > 0 ? (
+            {workspace === "sale" && isCareersTab ? (
+              <span className={`df-chip${metrics.idle ? " is-warn" : ""}`}>
+                {metrics.total} {t.careersUi.applicantsWord}
+              </span>
+            ) : metrics.atRisk > 0 ? (
               <span className="df-chip is-warn">
                 {metrics.atRisk} {t.kpi.atRisk}
               </span>
@@ -1593,12 +2237,16 @@ export function AdminConsole() {
             </div>
           ) : null}
 
-          {workspace === "sale" && nav === "pipeline" ? (
+          {saleBoardOpen ? (
             <div className="df-panel">
               <div className="df-panel__head">
                 <div>
-                  <h1>{t.hero.title}</h1>
-                  <p>{t.hero.description}</p>
+                  <h1>{isCareersTab ? t.hero.careersTitle : t.hero.title}</h1>
+                  <p>
+                    {isCareersTab
+                      ? t.hero.careersDescription
+                      : t.hero.description}
+                  </p>
                 </div>
                 <div className="df-panel__actions">
                   <button
@@ -1612,40 +2260,72 @@ export function AdminConsole() {
                     ) : null}
                   </button>
                   <button type="button" className="df-btn" onClick={openCreate}>
-                    {t.hero.newDeal}
+                    {isCareersTab ? t.hero.newCareer : t.hero.newDeal}
                   </button>
                 </div>
               </div>
 
               <section className="df-kpis" aria-label="KPIs">
-                <article className="df-kpi">
-                  <p>{t.kpi.totalLeads}</p>
-                  <strong>{metrics.total}</strong>
-                </article>
-                <article className="df-kpi">
-                  <p>{t.kpi.qualified}</p>
-                  <strong>{metrics.qualified}</strong>
-                </article>
-                <article className="df-kpi">
-                  <p>{t.kpi.inProgress}</p>
-                  <strong>{metrics.inProgress}</strong>
-                </article>
-                <article className="df-kpi">
-                  <p>{t.kpi.converted}</p>
-                  <strong>{metrics.converted}</strong>
-                </article>
-                <article className="df-kpi">
-                  <p>{t.kpi.pipelineValue}</p>
-                  <strong>
-                    {formatMoney(metrics.openAmount, "VND", salesLocale)}
-                  </strong>
-                </article>
-                <article className={`df-kpi${metrics.atRisk ? " is-warn" : ""}`}>
-                  <p>{t.kpi.atRisk}</p>
-                  <strong>{metrics.atRisk}</strong>
-                </article>
+                {isCareersTab ? (
+                  <>
+                    <article className="df-kpi">
+                      <p>{t.careersUi.kpiApplicants}</p>
+                      <strong>{metrics.total}</strong>
+                    </article>
+                    <article className="df-kpi">
+                      <p>{t.careersUi.kpiNew}</p>
+                      <strong>{metrics.applied}</strong>
+                    </article>
+                    <article className="df-kpi">
+                      <p>{t.careersUi.kpiReview}</p>
+                      <strong>{metrics.review}</strong>
+                    </article>
+                    <article className="df-kpi">
+                      <p>{t.careersUi.kpiHired}</p>
+                      <strong>{metrics.hired}</strong>
+                    </article>
+                    <article className="df-kpi">
+                      <p>{t.careersUi.kpiRejected}</p>
+                      <strong>{metrics.rejected}</strong>
+                    </article>
+                    <article className={`df-kpi${metrics.idle ? " is-warn" : ""}`}>
+                      <p>{t.careersUi.kpiIdle}</p>
+                      <strong>{metrics.idle}</strong>
+                    </article>
+                  </>
+                ) : (
+                  <>
+                    <article className="df-kpi">
+                      <p>{t.kpi.totalLeads}</p>
+                      <strong>{metrics.total}</strong>
+                    </article>
+                    <article className="df-kpi">
+                      <p>{t.kpi.qualified}</p>
+                      <strong>{metrics.qualified}</strong>
+                    </article>
+                    <article className="df-kpi">
+                      <p>{t.kpi.inProgress}</p>
+                      <strong>{metrics.inProgress}</strong>
+                    </article>
+                    <article className="df-kpi">
+                      <p>{t.kpi.converted}</p>
+                      <strong>{metrics.converted}</strong>
+                    </article>
+                    <article className="df-kpi">
+                      <p>{t.kpi.pipelineValue}</p>
+                      <strong>
+                        {formatMoney(metrics.openAmount, "VND", salesLocale)}
+                      </strong>
+                    </article>
+                    <article className={`df-kpi${metrics.atRisk ? " is-warn" : ""}`}>
+                      <p>{t.kpi.atRisk}</p>
+                      <strong>{metrics.atRisk}</strong>
+                    </article>
+                  </>
+                )}
               </section>
 
+              {isCareersTab ? null : (
               <section className="df-forecast df-forecast--compact" aria-labelledby="df-sale-forecast-h">
                 <div className="df-forecast__head">
                   <h2 id="df-sale-forecast-h">{t.forecast.title}</h2>
@@ -1674,6 +2354,7 @@ export function AdminConsole() {
                   </article>
                 </div>
               </section>
+              )}
 
               {filtersOpen ? (
                 <div className="df-filters">
@@ -1687,9 +2368,9 @@ export function AdminConsole() {
                       }
                     >
                       <option value="all">{t.filters.stageAll}</option>
-                      {STAGE_TABS.map((stage) => (
+                      {visibleStageTabs.map((stage) => (
                         <option key={stage} value={stage}>
-                          {salesStageShort(salesLocale, stage)}
+                          {tabStageShort(salesLocale, stage, isCareersTab)}
                         </option>
                       ))}
                     </select>
@@ -1702,66 +2383,72 @@ export function AdminConsole() {
                       onChange={(e) => setOwnerFilter(e.target.value)}
                     >
                       <option value="all">{t.filters.ownerAll}</option>
-                      {LEAD_OWNERS.map((owner) => (
+                      {ownerChoices(people).map((owner) => (
                         <option key={owner} value={owner}>
-                          {owner}
+                          {ownerLabel(people, owner)}
                         </option>
                       ))}
                     </select>
                   </label>
-                  <label>
-                    <span>{t.filters.source}</span>
-                    <select
-                      className="df-select"
-                      value={sourceFilter}
-                      onChange={(e) =>
-                        setSourceFilter(e.target.value as SourceFilter)
-                      }
-                    >
-                      {sourceFilterOptions.map((opt) => (
-                        <option key={opt.value} value={opt.value}>
-                          {opt.label}
+                  {isCareersTab ? null : (
+                    <label>
+                      <span>{t.filters.source}</span>
+                      <select
+                        className="df-select"
+                        value={sourceFilter}
+                        onChange={(e) =>
+                          setSourceFilter(e.target.value as SourceFilter)
+                        }
+                      >
+                        {sourceFilterOptions.map((opt) => (
+                          <option key={opt.value} value={opt.value}>
+                            {opt.label}
+                          </option>
+                        ))}
+                      </select>
+                    </label>
+                  )}
+                  {isCareersTab ? null : (
+                    <label>
+                      <span>{t.filters.contactKind}</span>
+                      <select
+                        className="df-select"
+                        value={contactKindFilter}
+                        onChange={(e) =>
+                          setContactKindFilter(
+                            e.target.value as ContactKindFilter,
+                          )
+                        }
+                      >
+                        <option value="all">{t.filters.contactKindAll}</option>
+                        <option value="hotline">
+                          {t.filters.contactKindHotline}
                         </option>
-                      ))}
-                    </select>
-                  </label>
-                  <label>
-                    <span>{t.filters.contactKind}</span>
-                    <select
-                      className="df-select"
-                      value={contactKindFilter}
-                      onChange={(e) =>
-                        setContactKindFilter(
-                          e.target.value as ContactKindFilter,
-                        )
-                      }
-                    >
-                      <option value="all">{t.filters.contactKindAll}</option>
-                      <option value="hotline">
-                        {t.filters.contactKindHotline}
-                      </option>
-                      <option value="owner">
-                        {t.filters.contactKindOwner}
-                      </option>
-                      <option value="unknown">
-                        {t.filters.contactKindUnknown}
-                      </option>
-                    </select>
-                  </label>
-                  <label>
-                    <span>{t.filters.atRisk}</span>
-                    <select
-                      className="df-select"
-                      value={atRiskFilter}
-                      onChange={(e) =>
-                        setAtRiskFilter(e.target.value as AtRiskFilter)
-                      }
-                    >
-                      <option value="all">{t.filters.atRiskAll}</option>
-                      <option value="yes">{t.filters.atRiskYes}</option>
-                      <option value="no">{t.filters.atRiskNo}</option>
-                    </select>
-                  </label>
+                        <option value="owner">
+                          {t.filters.contactKindOwner}
+                        </option>
+                        <option value="unknown">
+                          {t.filters.contactKindUnknown}
+                        </option>
+                      </select>
+                    </label>
+                  )}
+                  {isCareersTab ? null : (
+                    <label>
+                      <span>{t.filters.atRisk}</span>
+                      <select
+                        className="df-select"
+                        value={atRiskFilter}
+                        onChange={(e) =>
+                          setAtRiskFilter(e.target.value as AtRiskFilter)
+                        }
+                      >
+                        <option value="all">{t.filters.atRiskAll}</option>
+                        <option value="yes">{t.filters.atRiskYes}</option>
+                        <option value="no">{t.filters.atRiskNo}</option>
+                      </select>
+                    </label>
+                  )}
                   <label>
                     <span>{t.filters.idle}</span>
                     <select
@@ -1777,48 +2464,52 @@ export function AdminConsole() {
                       <option value="bad">{t.filters.idleBad}</option>
                     </select>
                   </label>
-                  <label>
-                    <span>{t.filters.amountMin}</span>
-                    <input
-                      className="df-input"
-                      type="number"
-                      min={0}
-                      inputMode="numeric"
-                      value={amountMin}
-                      onChange={(e) => setAmountMin(e.target.value)}
-                      placeholder="0"
-                    />
-                  </label>
-                  <label>
-                    <span>{t.filters.amountMax}</span>
-                    <input
-                      className="df-input"
-                      type="number"
-                      min={0}
-                      inputMode="numeric"
-                      value={amountMax}
-                      onChange={(e) => setAmountMax(e.target.value)}
-                      placeholder="∞"
-                    />
-                  </label>
-                  <label>
-                    <span>{t.filters.closeFrom}</span>
-                    <input
-                      className="df-input"
-                      type="date"
-                      value={closeFrom}
-                      onChange={(e) => setCloseFrom(e.target.value)}
-                    />
-                  </label>
-                  <label>
-                    <span>{t.filters.closeTo}</span>
-                    <input
-                      className="df-input"
-                      type="date"
-                      value={closeTo}
-                      onChange={(e) => setCloseTo(e.target.value)}
-                    />
-                  </label>
+                  {isCareersTab ? null : (
+                    <>
+                      <label>
+                        <span>{t.filters.amountMin}</span>
+                        <input
+                          className="df-input"
+                          type="number"
+                          min={0}
+                          inputMode="numeric"
+                          value={amountMin}
+                          onChange={(e) => setAmountMin(e.target.value)}
+                          placeholder="0"
+                        />
+                      </label>
+                      <label>
+                        <span>{t.filters.amountMax}</span>
+                        <input
+                          className="df-input"
+                          type="number"
+                          min={0}
+                          inputMode="numeric"
+                          value={amountMax}
+                          onChange={(e) => setAmountMax(e.target.value)}
+                          placeholder="∞"
+                        />
+                      </label>
+                      <label>
+                        <span>{t.filters.closeFrom}</span>
+                        <input
+                          className="df-input"
+                          type="date"
+                          value={closeFrom}
+                          onChange={(e) => setCloseFrom(e.target.value)}
+                        />
+                      </label>
+                      <label>
+                        <span>{t.filters.closeTo}</span>
+                        <input
+                          className="df-input"
+                          type="date"
+                          value={closeTo}
+                          onChange={(e) => setCloseTo(e.target.value)}
+                        />
+                      </label>
+                    </>
+                  )}
                   {filtersActive ? (
                     <button
                       type="button"
@@ -1835,26 +2526,24 @@ export function AdminConsole() {
                 <div className="df-filter-chips" aria-label={t.top.filtersActive}>
                   {stageTab !== "all" ? (
                     <span className="df-chip">
-                      {t.filters.stage}: {salesStageShort(salesLocale, stageTab)}
+                      {t.filters.stage}:{" "}
+                      {tabStageShort(salesLocale, stageTab, isCareersTab)}
                     </span>
                   ) : null}
                   {ownerFilter !== "all" ? (
                     <span className="df-chip">{t.filters.owner}: {ownerFilter}</span>
                   ) : null}
-                  {sourceFilter !== "exclude-careers" ? (
+                  {!isCareersTab && sourceFilter !== "all" ? (
                     <span className="df-chip">
-                      {t.filters.source}:{" "}
-                      {sourceFilter === "all"
-                        ? t.filters.allSources
-                        : sourceFilter}
+                      {t.filters.source}: {sourceFilter}
                     </span>
                   ) : null}
-                  {contactKindFilter !== "all" ? (
+                  {!isCareersTab && contactKindFilter !== "all" ? (
                     <span className="df-chip">
                       {t.filters.contactKind}: {contactKindFilter}
                     </span>
                   ) : null}
-                  {atRiskFilter !== "all" ? (
+                  {!isCareersTab && atRiskFilter !== "all" ? (
                     <span className="df-chip">
                       {t.filters.atRisk}: {atRiskFilter}
                     </span>
@@ -1864,12 +2553,12 @@ export function AdminConsole() {
                       {t.filters.idle}: {idleFilter}
                     </span>
                   ) : null}
-                  {amountMin.trim() || amountMax.trim() ? (
+                  {!isCareersTab && (amountMin.trim() || amountMax.trim()) ? (
                     <span className="df-chip">
                       Value: {amountMin || "0"}–{amountMax || "∞"}
                     </span>
                   ) : null}
-                  {closeFrom || closeTo ? (
+                  {!isCareersTab && (closeFrom || closeTo) ? (
                     <span className="df-chip">
                       Close: {closeFrom || "…"} → {closeTo || "…"}
                     </span>
@@ -1918,7 +2607,7 @@ export function AdminConsole() {
                       {t.tabs.all}
                       <em>{stageCounts.all}</em>
                     </button>
-                    {STAGE_TABS.map((stage) => (
+                    {visibleStageTabs.map((stage) => (
                       <button
                         key={stage}
                         type="button"
@@ -1927,7 +2616,7 @@ export function AdminConsole() {
                         aria-selected={stageTab === stage}
                         onClick={() => setStageTab(stage)}
                       >
-                        {salesStageShort(salesLocale, stage)}
+                        {tabStageShort(salesLocale, stage, isCareersTab)}
                         <em>{stageCounts[stage] ?? 0}</em>
                       </button>
                     ))}
@@ -1936,8 +2625,12 @@ export function AdminConsole() {
                     className="df-input"
                     value={tableQuery}
                     onChange={(e) => setTableQuery(e.target.value)}
-                    placeholder={t.table.searchLeads}
-                    aria-label={t.table.searchLeads}
+                    placeholder={
+                      isCareersTab ? t.careersUi.searchPh : t.table.searchLeads
+                    }
+                    aria-label={
+                      isCareersTab ? t.careersUi.searchPh : t.table.searchLeads
+                    }
                   />
                 </div>
 
@@ -1964,15 +2657,17 @@ export function AdminConsole() {
                       >
                         <header className="df-board__head">
                           <span className={`df-status ${stageTone(column.stage)}`}>
-                            {salesStageShort(salesLocale, column.stage)}
+                            {tabStageShort(salesLocale, column.stage, isCareersTab)}
                           </span>
                           <div className="df-board__head-meta">
                             <em>{column.leads.length}</em>
-                            <span>
-                              {fillTemplate(t.board.columnSum, {
-                                value: formatMoney(colSum, "VND", salesLocale),
-                              })}
-                            </span>
+                            {isCareersTab ? null : (
+                              <span>
+                                {fillTemplate(t.board.columnSum, {
+                                  value: formatMoney(colSum, "VND", salesLocale),
+                                })}
+                              </span>
+                            )}
                           </div>
                         </header>
                         <div
@@ -1984,7 +2679,9 @@ export function AdminConsole() {
                             <p className="df-board__empty">
                               {dragOverStage === column.stage
                                 ? t.board.dropHere
-                                : t.board.empty}
+                                : isCareersTab
+                                  ? t.careersUi.boardEmpty
+                                  : t.board.empty}
                             </p>
                           ) : (
                             column.leads.map((lead) => {
@@ -2008,19 +2705,29 @@ export function AdminConsole() {
                                   onClick={() => selectDeal(lead.id)}
                                 >
                                   <strong>{lead.title || lead.name}</strong>
-                                  <span>{lead.company || lead.name}</span>
+                                  <span>
+                                    {isCareersTab
+                                      ? lead.company || lead.contact || lead.name
+                                      : lead.company || lead.name}
+                                  </span>
                                   <span className="df-board-card__meta">
-                                    <InlineQuickField
-                                      kind="amount"
-                                      lead={lead}
-                                      salesLocale={salesLocale}
-                                      t={t}
-                                      disabled={stageSavingId === lead.id}
-                                      onSaveAmount={changeAmount}
-                                      onSaveClose={changeCloseDate}
-                                      onSaveProb={changeProbability}
-                                    />
-                                    <em className="df-board-card__prob">{prob}%</em>
+                                    {isCareersTab ? (
+                                      <em>{lead.contact}</em>
+                                    ) : (
+                                      <>
+                                        <InlineQuickField
+                                          kind="amount"
+                                          lead={lead}
+                                          salesLocale={salesLocale}
+                                          t={t}
+                                          disabled={stageSavingId === lead.id}
+                                          onSaveAmount={changeAmount}
+                                          onSaveClose={changeCloseDate}
+                                          onSaveProb={changeProbability}
+                                        />
+                                        <em className="df-board-card__prob">{prob}%</em>
+                                      </>
+                                    )}
                                     <span
                                       className={`df-idle is-${idleTone(idle)}`}
                                     >
@@ -2035,7 +2742,9 @@ export function AdminConsole() {
                                       {lead.owner}
                                     </span>
                                     <span className="df-next">
-                                      {suggestedNext(lead, t)}
+                                      {isCareersTab
+                                        ? suggestedCareerNext(lead, t)
+                                        : suggestedNext(lead, t)}
                                     </span>
                                   </span>
                                 </article>
@@ -2053,12 +2762,24 @@ export function AdminConsole() {
                   <table className="df-table">
                     <thead>
                       <tr>
-                        <th>{t.table.lead}</th>
-                        <th>{t.table.company}</th>
+                        <th>
+                          {isCareersTab
+                            ? t.careersUi.tableApplicant
+                            : t.table.lead}
+                        </th>
+                        <th>
+                          {isCareersTab
+                            ? t.careersUi.tableRole
+                            : t.table.company}
+                        </th>
                         <th>{t.table.stage}</th>
-                        <th className="is-num">{t.table.amount}</th>
-                        <th className="is-num">{t.table.probability}</th>
-                        <th>{t.table.closeDate}</th>
+                        {isCareersTab ? null : (
+                          <>
+                            <th className="is-num">{t.table.amount}</th>
+                            <th className="is-num">{t.table.probability}</th>
+                            <th>{t.table.closeDate}</th>
+                          </>
+                        )}
                         <th>{t.table.source}</th>
                         <th>{t.table.owner}</th>
                         <th>{t.table.lastActivity}</th>
@@ -2070,10 +2791,17 @@ export function AdminConsole() {
                     <tbody>
                       {pageRows.length === 0 ? (
                         <tr>
-                          <td colSpan={12} className="df-table__empty">
+                          <td
+                            colSpan={isCareersTab ? 9 : 12}
+                            className="df-table__empty"
+                          >
                             <strong>{emptyMessage}</strong>
                             {!loading ? (
-                              <p>{t.table.emptyHint}</p>
+                              <p>
+                                {isCareersTab
+                                  ? t.careersUi.emptyHint
+                                  : t.table.emptyHint}
+                              </p>
                             ) : null}
                             {!loading ? (
                               <button
@@ -2081,7 +2809,7 @@ export function AdminConsole() {
                                 className="df-btn"
                                 onClick={openCreate}
                               >
-                                {t.hero.newDeal}
+                                {isCareersTab ? t.hero.newCareer : t.hero.newDeal}
                               </button>
                             ) : null}
                           </td>
@@ -2116,45 +2844,53 @@ export function AdminConsole() {
                                 <span
                                   className={`df-status ${stageTone(lead.stage)}`}
                                 >
-                                  {salesStageShort(salesLocale, lead.stage)}
+                                  {tabStageShort(
+                                    salesLocale,
+                                    lead.stage,
+                                    isCareersTab,
+                                  )}
                                 </span>
                               </td>
-                              <td className="is-num">
-                                <InlineQuickField
-                                  kind="amount"
-                                  lead={lead}
-                                  salesLocale={salesLocale}
-                                  t={t}
-                                  disabled={stageSavingId === lead.id}
-                                  onSaveAmount={changeAmount}
-                                  onSaveClose={changeCloseDate}
-                                  onSaveProb={changeProbability}
-                                />
-                              </td>
-                              <td className="is-num">
-                                <InlineQuickField
-                                  kind="prob"
-                                  lead={lead}
-                                  salesLocale={salesLocale}
-                                  t={t}
-                                  disabled={stageSavingId === lead.id}
-                                  onSaveAmount={changeAmount}
-                                  onSaveClose={changeCloseDate}
-                                  onSaveProb={changeProbability}
-                                />
-                              </td>
-                              <td>
-                                <InlineQuickField
-                                  kind="close"
-                                  lead={lead}
-                                  salesLocale={salesLocale}
-                                  t={t}
-                                  disabled={stageSavingId === lead.id}
-                                  onSaveAmount={changeAmount}
-                                  onSaveClose={changeCloseDate}
-                                  onSaveProb={changeProbability}
-                                />
-                              </td>
+                              {isCareersTab ? null : (
+                                <>
+                                  <td className="is-num">
+                                    <InlineQuickField
+                                      kind="amount"
+                                      lead={lead}
+                                      salesLocale={salesLocale}
+                                      t={t}
+                                      disabled={stageSavingId === lead.id}
+                                      onSaveAmount={changeAmount}
+                                      onSaveClose={changeCloseDate}
+                                      onSaveProb={changeProbability}
+                                    />
+                                  </td>
+                                  <td className="is-num">
+                                    <InlineQuickField
+                                      kind="prob"
+                                      lead={lead}
+                                      salesLocale={salesLocale}
+                                      t={t}
+                                      disabled={stageSavingId === lead.id}
+                                      onSaveAmount={changeAmount}
+                                      onSaveClose={changeCloseDate}
+                                      onSaveProb={changeProbability}
+                                    />
+                                  </td>
+                                  <td>
+                                    <InlineQuickField
+                                      kind="close"
+                                      lead={lead}
+                                      salesLocale={salesLocale}
+                                      t={t}
+                                      disabled={stageSavingId === lead.id}
+                                      onSaveAmount={changeAmount}
+                                      onSaveClose={changeCloseDate}
+                                      onSaveProb={changeProbability}
+                                    />
+                                  </td>
+                                </>
+                              )}
                               <td className="df-cell-muted">{lead.source}</td>
                               <td>
                                 <span className="df-owner">
@@ -2179,7 +2915,9 @@ export function AdminConsole() {
                               </td>
                               <td>
                                 <span className="df-next">
-                                  {suggestedNext(lead, t)}
+                                  {isCareersTab
+                                    ? suggestedCareerNext(lead, t)
+                                    : suggestedNext(lead, t)}
                                 </span>
                               </td>
                               <td className="df-row-actions">
@@ -2238,6 +2976,166 @@ export function AdminConsole() {
             </div>
           ) : null}
 
+          {workspace === "sale" && nav === "people" ? (
+            <div className="df-panel">
+              <div className="df-panel__head">
+                <div>
+                  <h1>{t.peopleUi.title}</h1>
+                  <p>{t.peopleUi.description}</p>
+                  <p className="df__muted">{t.peopleUi.policy}</p>
+                </div>
+                <div className="df-panel__actions">
+                  <button
+                    type="button"
+                    className="df-btn"
+                    onClick={openCreatePerson}
+                  >
+                    {t.peopleUi.newPerson}
+                  </button>
+                </div>
+              </div>
+              <section className="df-kpis" aria-label="HR KPIs">
+                <article className="df-kpi">
+                  <p>{t.peopleUi.kpiTeamRev}</p>
+                  <strong>
+                    {formatMoney(peopleTeam.revenue, "VND", salesLocale)}
+                  </strong>
+                </article>
+                <article className="df-kpi">
+                  <p>{t.peopleUi.kpiTeamComm}</p>
+                  <strong>
+                    {formatMoney(peopleTeam.commission, "VND", salesLocale)}
+                  </strong>
+                </article>
+                <article className="df-kpi">
+                  <p>{t.peopleUi.kpiTeamBonus}</p>
+                  <strong>
+                    {formatMoney(peopleTeam.bonus, "VND", salesLocale)}
+                  </strong>
+                </article>
+                <article className="df-kpi">
+                  <p>{t.peopleUi.kpiTeamPay}</p>
+                  <strong>
+                    {formatMoney(peopleTeam.payout, "VND", salesLocale)}
+                  </strong>
+                </article>
+              </section>
+              <section className="df-table-card">
+                <div className="df-table-wrap">
+                  <table className="df-table">
+                    <thead>
+                      <tr>
+                        <th>{t.peopleUi.colName}</th>
+                        <th>{t.peopleUi.colRole}</th>
+                        <th className="is-num">{t.peopleUi.colSalary}</th>
+                        <th className="is-num">{t.peopleUi.colRevenue}</th>
+                        <th className="is-num">{t.peopleUi.colCommission}</th>
+                        <th className="is-num">{t.peopleUi.colBonus}</th>
+                        <th>{t.peopleUi.colKpi}</th>
+                        <th className="is-num">{t.peopleUi.colPayout}</th>
+                        <th>{t.peopleUi.colStatus}</th>
+                        <th />
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {peopleRows.length === 0 ? (
+                        <tr>
+                          <td colSpan={10} className="df-table__empty">
+                            <strong>{t.peopleUi.empty}</strong>
+                            <button
+                              type="button"
+                              className="df-btn"
+                              onClick={openCreatePerson}
+                            >
+                              {t.peopleUi.newPerson}
+                            </button>
+                          </td>
+                        </tr>
+                      ) : (
+                        peopleRows.map((person) => (
+                          <tr
+                            key={person.id}
+                            className={
+                              selectedPersonId === person.id
+                                ? "is-selected"
+                                : undefined
+                            }
+                            onClick={() => openEditPerson(person)}
+                          >
+                            <td>
+                              <strong>{person.displayName}</strong>
+                              <div className="df-cell-muted">{person.id}</div>
+                            </td>
+                            <td>{person.role}</td>
+                            <td className="is-num">
+                              {formatMoney(person.salary, "VND", salesLocale)}
+                            </td>
+                            <td className="is-num">
+                              {formatMoney(
+                                person.stats.revenue,
+                                "VND",
+                                salesLocale,
+                              )}
+                            </td>
+                            <td className="is-num">
+                              {formatMoney(
+                                person.stats.commission,
+                                "VND",
+                                salesLocale,
+                              )}
+                            </td>
+                            <td className="is-num">
+                              {formatMoney(
+                                person.stats.bonus,
+                                "VND",
+                                salesLocale,
+                              )}
+                            </td>
+                            <td>
+                              {person.stats.kpiPct == null
+                                ? t.peopleUi.noKpi
+                                : `${person.stats.kpiPct}%`}
+                            </td>
+                            <td className="is-num">
+                              {formatMoney(
+                                person.stats.payout,
+                                "VND",
+                                salesLocale,
+                              )}
+                            </td>
+                            <td>
+                              <span
+                                className={`df-status ${
+                                  person.active ? "is-won" : "is-lost"
+                                }`}
+                              >
+                                {person.active
+                                  ? t.peopleUi.active
+                                  : t.peopleUi.inactive}
+                              </span>
+                            </td>
+                            <td>
+                              <button
+                                type="button"
+                                className="df-inline-btn is-danger"
+                                onClick={(event) => {
+                                  event.stopPropagation();
+                                  void removePerson(person);
+                                }}
+                              >
+                                {t.drawer.delete}
+                              </button>
+                            </td>
+                          </tr>
+                        ))
+                      )}
+                    </tbody>
+                  </table>
+                </div>
+              </section>
+            </div>
+          ) : null}
+
           {workspace === "sale" && nav === "playbook" ? (
             <div className="df-panel df-playbook">
               <h1>{t.playbook.title}</h1>
@@ -2283,15 +3181,254 @@ export function AdminConsole() {
         </div>
       </div>
 
-      {workspace !== "sale" ? null : editorOpen ? (
-        <aside className="df-detail" aria-labelledby="df-detail-h">
+      {workspace !== "sale" ? null : nav === "people" ? (
+        <aside
+          className={`df-detail${personFormOpen ? " df-detail--sheet" : ""}`}
+          aria-labelledby="df-person-h"
+        >
           <header>
             <div>
-              <p className="df-side__label">{t.drawer.lead}</p>
-              <h2 id="df-detail-h">
-                {editing ? t.form.editTitle : t.form.newTitle}
+              <p className="df-side__label">{t.peopleUi.title}</p>
+              <h2 id="df-person-h">
+                {editingPerson ? t.peopleUi.formEdit : t.peopleUi.formNew}
               </h2>
             </div>
+            <button
+              type="button"
+              className="df-detail__close"
+              aria-label={t.side.closePanel}
+              onClick={() => setPersonFormOpen(false)}
+            >
+              ×
+            </button>
+          </header>
+          <div className="df-detail__body" ref={detailBodyRef} tabIndex={0}>
+            <form className="df-detail__form" onSubmit={savePerson}>
+              <label>
+                {t.peopleUi.colId}
+                <input
+                  value={personForm.id}
+                  disabled={Boolean(editingPerson)}
+                  placeholder={t.peopleUi.idPh}
+                  onChange={(e) =>
+                    setPersonForm((c) => ({ ...c, id: e.target.value }))
+                  }
+                />
+              </label>
+              <label>
+                {t.peopleUi.colName}
+                <input
+                  required
+                  value={personForm.displayName}
+                  placeholder={t.peopleUi.namePh}
+                  onChange={(e) =>
+                    setPersonForm((c) => ({
+                      ...c,
+                      displayName: e.target.value,
+                    }))
+                  }
+                />
+              </label>
+              <label>
+                {t.peopleUi.colRole}
+                <select
+                  value={personForm.role}
+                  onChange={(e) =>
+                    setPersonForm((c) => ({
+                      ...c,
+                      role: e.target.value as UserRole,
+                    }))
+                  }
+                >
+                  {USER_ROLES.map((role) => (
+                    <option key={role} value={role}>
+                      {role}
+                    </option>
+                  ))}
+                </select>
+              </label>
+              <label>
+                {t.peopleUi.colTitle}
+                <input
+                  value={personForm.title}
+                  onChange={(e) =>
+                    setPersonForm((c) => ({ ...c, title: e.target.value }))
+                  }
+                />
+              </label>
+              <label>
+                {t.peopleUi.colPhone}
+                <input
+                  value={personForm.phone}
+                  onChange={(e) =>
+                    setPersonForm((c) => ({ ...c, phone: e.target.value }))
+                  }
+                />
+              </label>
+              <label>
+                {t.peopleUi.colEmail}
+                <input
+                  type="email"
+                  value={personForm.email}
+                  onChange={(e) =>
+                    setPersonForm((c) => ({ ...c, email: e.target.value }))
+                  }
+                />
+              </label>
+              <p className="df-form__section">{t.peopleUi.sectionPay}</p>
+              <label>
+                {t.peopleUi.colSalary}
+                <input
+                  type="number"
+                  min={0}
+                  step={100000}
+                  value={personForm.salary}
+                  onChange={(e) =>
+                    setPersonForm((c) => ({ ...c, salary: e.target.value }))
+                  }
+                />
+              </label>
+              <label>
+                {t.peopleUi.colKpi}
+                <input
+                  type="number"
+                  min={0}
+                  step={1000000}
+                  value={personForm.kpiTarget}
+                  onChange={(e) =>
+                    setPersonForm((c) => ({
+                      ...c,
+                      kpiTarget: e.target.value,
+                    }))
+                  }
+                />
+              </label>
+              <label className="df-detail__check">
+                <input
+                  type="checkbox"
+                  checked={personForm.active}
+                  onChange={(e) =>
+                    setPersonForm((c) => ({
+                      ...c,
+                      active: e.target.checked,
+                    }))
+                  }
+                />
+                {t.peopleUi.active}
+              </label>
+              <div className="df-detail__form-actions">
+                <button
+                  type="button"
+                  className="df-btn is-ghost"
+                  onClick={openCreatePerson}
+                >
+                  {t.peopleUi.newPerson}
+                </button>
+                <button type="submit" className="df-btn" disabled={personSaving}>
+                  {personSaving ? t.form.saving : t.form.save}
+                </button>
+              </div>
+            </form>
+            {(() => {
+              const live = peopleRows.find(
+                (row) => row.id === (editingPerson?.id || personForm.id),
+              );
+              if (!live) return null;
+              return (
+                <section className="df-detail__block">
+                  <h3>{t.peopleUi.sectionLive}</h3>
+                  <p className="df__muted">{t.peopleUi.policy}</p>
+                  <dl>
+                    <div>
+                      <dt>{t.peopleUi.colWon}</dt>
+                      <dd>{live.stats.wonCount}</dd>
+                    </div>
+                    <div>
+                      <dt>{t.peopleUi.colRevenue}</dt>
+                      <dd>
+                        {formatMoney(live.stats.revenue, "VND", salesLocale)}
+                      </dd>
+                    </div>
+                    <div>
+                      <dt>{t.peopleUi.colCommission}</dt>
+                      <dd>
+                        {formatMoney(
+                          live.stats.commission,
+                          "VND",
+                          salesLocale,
+                        )}
+                      </dd>
+                    </div>
+                    <div>
+                      <dt>{t.peopleUi.colBonus}</dt>
+                      <dd>
+                        {formatMoney(live.stats.bonus, "VND", salesLocale)}
+                      </dd>
+                    </div>
+                    <div>
+                      <dt>{t.peopleUi.colKpi}</dt>
+                      <dd>
+                        {live.stats.kpiPct == null
+                          ? t.peopleUi.noKpi
+                          : `${live.stats.kpiPct}%`}
+                      </dd>
+                    </div>
+                    <div>
+                      <dt>{t.peopleUi.colPayout}</dt>
+                      <dd>
+                        {formatMoney(live.stats.payout, "VND", salesLocale)}
+                      </dd>
+                    </div>
+                  </dl>
+                  <ol className="df-timeline">
+                    {live.stats.milestones.map((m) => (
+                      <li key={m.amount}>
+                        <span className="df-timeline__dot" aria-hidden />
+                        <div>
+                          <strong>
+                            {formatMoney(m.amount, "VND", salesLocale)}
+                          </strong>
+                          <em>
+                            {m.hit
+                              ? t.peopleUi.milestoneHit
+                              : t.peopleUi.milestoneOpen}{" "}
+                            · +
+                            {formatMoney(1_000_000, "VND", salesLocale)}
+                          </em>
+                        </div>
+                      </li>
+                    ))}
+                  </ol>
+                </section>
+              );
+            })()}
+          </div>
+        </aside>
+      ) : editorOpen ? (
+        <aside className="df-detail df-detail--sheet" aria-labelledby="df-detail-h">
+          <header>
+            <div>
+              <p className="df-side__label">
+                {isCareersTab ? t.careersUi.drawerApplicant : t.drawer.lead}
+              </p>
+              <h2 id="df-detail-h">
+                {editing
+                  ? isCareersTab
+                    ? t.careersUi.formEdit
+                    : t.form.editTitle
+                  : isCareersTab
+                    ? t.careersUi.formNew
+                    : t.form.newTitle}
+              </h2>
+            </div>
+            <button
+              type="button"
+              className="df-detail__close"
+              aria-label={t.side.closePanel}
+              onClick={() => setEditorOpen(false)}
+            >
+              ×
+            </button>
           </header>
           <div
             className="df-detail__body"
@@ -2301,22 +3438,25 @@ export function AdminConsole() {
             <form className="df-detail__form" onSubmit={saveLead}>
               <p className="df-form__section">{t.form.sectionBasic}</p>
               <label>
-                {t.form.dealTitle}
+                {isCareersTab ? t.careersUi.formApplicant : t.form.dealTitle}
                 <input
                   value={form.title}
                   onChange={(e) =>
                     setForm((c) => ({ ...c, title: e.target.value }))
                   }
-                  placeholder={t.form.dealTitlePh}
+                  placeholder={
+                    isCareersTab ? t.careersUi.formApplicant : t.form.dealTitlePh
+                  }
                 />
               </label>
               <label>
-                {t.form.company}
+                {isCareersTab ? t.careersUi.formRole : t.form.company}
                 <input
                   value={form.company}
                   onChange={(e) =>
                     setForm((c) => ({ ...c, company: e.target.value }))
                   }
+                  placeholder={isCareersTab ? t.careersUi.formRolePh : undefined}
                 />
               </label>
               <div className="df-detail__form-row">
@@ -2342,30 +3482,36 @@ export function AdminConsole() {
                 </label>
               </div>
 
-              <p className="df-form__section">{t.form.sectionSales}</p>
-              <div className="df-detail__form-row">
-                <label>
-                  {t.form.amount}
-                  <input
-                    type="number"
-                    min={0}
-                    step={1000}
-                    value={form.amount}
-                    onChange={(e) =>
-                      setForm((c) => ({ ...c, amount: e.target.value }))
-                    }
-                  />
-                </label>
-                <label>
-                  {t.form.currency}
-                  <input
-                    value={form.currency}
-                    onChange={(e) =>
-                      setForm((c) => ({ ...c, currency: e.target.value }))
-                    }
-                  />
-                </label>
-              </div>
+              <p className="df-form__section">
+                {isCareersTab
+                  ? t.careersUi.formSectionHiring
+                  : t.form.sectionSales}
+              </p>
+              {isCareersTab ? null : (
+                <div className="df-detail__form-row">
+                  <label>
+                    {t.form.amount}
+                    <input
+                      type="number"
+                      min={0}
+                      step={1000}
+                      value={form.amount}
+                      onChange={(e) =>
+                        setForm((c) => ({ ...c, amount: e.target.value }))
+                      }
+                    />
+                  </label>
+                  <label>
+                    {t.form.currency}
+                    <input
+                      value={form.currency}
+                      onChange={(e) =>
+                        setForm((c) => ({ ...c, currency: e.target.value }))
+                      }
+                    />
+                  </label>
+                </div>
+              )}
               <div className="df-detail__form-row">
                 <label>
                   {t.form.stage}
@@ -2380,85 +3526,112 @@ export function AdminConsole() {
                       }));
                     }}
                   >
-                    {LEAD_STAGES.map((s) => (
+                    {(isCareersTab
+                      ? careerStageOptions(form.stage)
+                      : LEAD_STAGES
+                    ).map((s) => (
                       <option key={s} value={s}>
-                        {salesStageLabel(salesLocale, s)}
+                        {tabStageLabel(salesLocale, s, isCareersTab)}
                       </option>
                     ))}
                   </select>
                 </label>
-                <label>
-                  {t.form.closeDate}
+                {isCareersTab ? (
+                  <label>
+                    {t.form.owner}
+                    <select
+                      value={normalizeLeadOwner(form.owner)}
+                      onChange={(e) =>
+                        setForm((c) => ({ ...c, owner: e.target.value }))
+                      }
+                    >
+                      {ownerChoices(people).map((owner) => (
+                        <option key={owner} value={owner}>
+                          {ownerLabel(people, owner)}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+                ) : (
+                  <label>
+                    {t.form.closeDate}
+                    <input
+                      type="date"
+                      value={form.closeDate.slice(0, 10)}
+                      onChange={(e) =>
+                        setForm((c) => ({ ...c, closeDate: e.target.value }))
+                      }
+                    />
+                  </label>
+                )}
+              </div>
+              {isCareersTab ? null : (
+                <div className="df-detail__form-row">
+                  <label>
+                    {t.form.probability}
+                    <input
+                      type="number"
+                      min={0}
+                      max={100}
+                      step={5}
+                      value={form.probability}
+                      onChange={(e) =>
+                        setForm((c) => ({ ...c, probability: e.target.value }))
+                      }
+                    />
+                  </label>
+                  <label>
+                    {t.form.owner}
+                    <select
+                      value={normalizeLeadOwner(form.owner)}
+                      onChange={(e) =>
+                        setForm((c) => ({ ...c, owner: e.target.value }))
+                      }
+                    >
+                      {ownerChoices(people).map((owner) => (
+                        <option key={owner} value={owner}>
+                          {ownerLabel(people, owner)}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+                </div>
+              )}
+              {isCareersTab ? null : (
+                <div className="df-detail__form-row">
+                  <label>
+                    {t.form.source}
+                    <select
+                      value={form.source}
+                      onChange={(e) =>
+                        setForm((c) => ({
+                          ...c,
+                          source: e.target.value as AdminLeadSource,
+                        }))
+                      }
+                    >
+                      {PIPELINE_SOURCES.map((s) => (
+                        <option key={s} value={s}>
+                          {s}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+                  <span />
+                </div>
+              )}
+              {isCareersTab ? null : (
+                <label className="df-detail__check">
                   <input
-                    type="date"
-                    value={form.closeDate.slice(0, 10)}
+                    type="checkbox"
+                    checked={form.atRisk}
                     onChange={(e) =>
-                      setForm((c) => ({ ...c, closeDate: e.target.value }))
+                      setForm((c) => ({ ...c, atRisk: e.target.checked }))
                     }
                   />
+                  {t.form.atRisk}
                 </label>
-              </div>
-              <div className="df-detail__form-row">
-                <label>
-                  {t.form.probability}
-                  <input
-                    type="number"
-                    min={0}
-                    max={100}
-                    step={5}
-                    value={form.probability}
-                    onChange={(e) =>
-                      setForm((c) => ({ ...c, probability: e.target.value }))
-                    }
-                  />
-                </label>
-                <label>
-                  {t.form.owner}
-                  <select
-                    value={normalizeLeadOwner(form.owner)}
-                    onChange={(e) =>
-                      setForm((c) => ({ ...c, owner: e.target.value }))
-                    }
-                  >
-                    {LEAD_OWNERS.map((owner) => (
-                      <option key={owner} value={owner}>
-                        {owner}
-                      </option>
-                    ))}
-                  </select>
-                </label>
-              </div>
-              <div className="df-detail__form-row">
-                <label>
-                  {t.form.source}
-                  <select
-                    value={form.source}
-                    onChange={(e) =>
-                      setForm((c) => ({
-                        ...c,
-                        source: e.target.value as AdminLeadSource,
-                      }))
-                    }
-                  >
-                    {LEAD_SOURCES.map((s) => (
-                      <option key={s} value={s}>
-                        {s}
-                      </option>
-                    ))}
-                  </select>
-                </label>
-                <span />
-              </div>
-              <label className="df-detail__check">
-                <input
-                  type="checkbox"
-                  checked={form.atRisk}
-                  onChange={(e) =>
-                    setForm((c) => ({ ...c, atRisk: e.target.checked }))
-                  }
-                />
-                {t.form.atRisk}
-              </label>
+              )}
 
               <p className="df-form__section">{t.form.sectionContext}</p>
               <label>
@@ -2487,30 +3660,47 @@ export function AdminConsole() {
           </div>
         </aside>
       ) : selected ? (
-        <aside className="df-detail" aria-labelledby="df-detail-h">
+        <aside className="df-detail df-detail--sheet" aria-labelledby="df-detail-h">
           <header className="df-detail__head">
             <div>
-              <p className="df-side__label">{t.drawer.lead}</p>
+              <p className="df-side__label">
+                {isCareersTab ? t.careersUi.drawerApplicant : t.drawer.lead}
+              </p>
               <h2 id="df-detail-h">{selected.title || selected.name}</h2>
               <p className="df-detail__sub">
-                {selected.company || selected.name}
+                {isCareersTab
+                  ? selected.company || selected.contact || selected.name
+                  : selected.company || selected.name}
               </p>
             </div>
-            <select
-              className="df-select"
-              value={selected.stage}
-              disabled={stageSavingId === selected.id}
-              aria-label={t.drawer.stage}
-              onChange={(e) =>
-                void changeStage(selected, e.target.value as LeadStage)
-              }
-            >
-              {LEAD_STAGES.map((s) => (
-                <option key={s} value={s}>
-                  {salesStageLabel(salesLocale, s)}
-                </option>
-              ))}
-            </select>
+            <div className="df-detail__head-tools">
+              <select
+                className="df-select"
+                value={selected.stage}
+                disabled={stageSavingId === selected.id}
+                aria-label={t.drawer.stage}
+                onChange={(e) =>
+                  void changeStage(selected, e.target.value as LeadStage)
+                }
+              >
+                {(isCareersTab
+                  ? careerStageOptions(selected.stage)
+                  : LEAD_STAGES
+                ).map((s) => (
+                  <option key={s} value={s}>
+                    {tabStageLabel(salesLocale, s, isCareersTab)}
+                  </option>
+                ))}
+              </select>
+              <button
+                type="button"
+                className="df-detail__close"
+                aria-label={t.side.closePanel}
+                onClick={() => setSelectedId(null)}
+              >
+                ×
+              </button>
+            </div>
           </header>
           <div
             className="df-detail__body"
@@ -2536,53 +3726,59 @@ export function AdminConsole() {
             </section>
 
             <section className="df-detail__block">
-              <h3>{t.drawer.dealSection}</h3>
+              <h3>
+                {isCareersTab ? t.careersUi.drawerHiring : t.drawer.dealSection}
+              </h3>
               <dl>
-                <div>
-                  <dt>{t.drawer.amount}</dt>
-                  <dd>
-                    <InlineQuickField
-                      kind="amount"
-                      lead={selected}
-                      salesLocale={salesLocale}
-                      t={t}
-                      disabled={stageSavingId === selected.id}
-                      onSaveAmount={changeAmount}
-                      onSaveClose={changeCloseDate}
-                      onSaveProb={changeProbability}
-                    />
-                  </dd>
-                </div>
-                <div>
-                  <dt>{t.drawer.probability}</dt>
-                  <dd>
-                    <InlineQuickField
-                      kind="prob"
-                      lead={selected}
-                      salesLocale={salesLocale}
-                      t={t}
-                      disabled={stageSavingId === selected.id}
-                      onSaveAmount={changeAmount}
-                      onSaveClose={changeCloseDate}
-                      onSaveProb={changeProbability}
-                    />
-                  </dd>
-                </div>
-                <div>
-                  <dt>{t.drawer.close}</dt>
-                  <dd>
-                    <InlineQuickField
-                      kind="close"
-                      lead={selected}
-                      salesLocale={salesLocale}
-                      t={t}
-                      disabled={stageSavingId === selected.id}
-                      onSaveAmount={changeAmount}
-                      onSaveClose={changeCloseDate}
-                      onSaveProb={changeProbability}
-                    />
-                  </dd>
-                </div>
+                {isCareersTab ? null : (
+                  <>
+                    <div>
+                      <dt>{t.drawer.amount}</dt>
+                      <dd>
+                        <InlineQuickField
+                          kind="amount"
+                          lead={selected}
+                          salesLocale={salesLocale}
+                          t={t}
+                          disabled={stageSavingId === selected.id}
+                          onSaveAmount={changeAmount}
+                          onSaveClose={changeCloseDate}
+                          onSaveProb={changeProbability}
+                        />
+                      </dd>
+                    </div>
+                    <div>
+                      <dt>{t.drawer.probability}</dt>
+                      <dd>
+                        <InlineQuickField
+                          kind="prob"
+                          lead={selected}
+                          salesLocale={salesLocale}
+                          t={t}
+                          disabled={stageSavingId === selected.id}
+                          onSaveAmount={changeAmount}
+                          onSaveClose={changeCloseDate}
+                          onSaveProb={changeProbability}
+                        />
+                      </dd>
+                    </div>
+                    <div>
+                      <dt>{t.drawer.close}</dt>
+                      <dd>
+                        <InlineQuickField
+                          kind="close"
+                          lead={selected}
+                          salesLocale={salesLocale}
+                          t={t}
+                          disabled={stageSavingId === selected.id}
+                          onSaveAmount={changeAmount}
+                          onSaveClose={changeCloseDate}
+                          onSaveProb={changeProbability}
+                        />
+                      </dd>
+                    </div>
+                  </>
+                )}
                 <div>
                   <dt>{t.drawer.owner}</dt>
                   <dd>
@@ -2594,16 +3790,18 @@ export function AdminConsole() {
                         void changeOwner(selected, e.target.value)
                       }
                     >
-                      {LEAD_OWNERS.map((owner) => (
+                      {ownerChoices(people).map((owner) => (
                         <option key={owner} value={owner}>
-                          {owner}
+                          {ownerLabel(people, owner)}
                         </option>
                       ))}
                     </select>
                   </dd>
                 </div>
                 <div>
-                  <dt>{t.drawer.account}</dt>
+                  <dt>
+                    {isCareersTab ? t.careersUi.drawerRole : t.drawer.account}
+                  </dt>
                   <dd>{selected.company || "—"}</dd>
                 </div>
               </dl>
@@ -2633,35 +3831,107 @@ export function AdminConsole() {
                 <div>
                   <dt>{t.drawer.nextAction}</dt>
                   <dd>
-                    <span className="df-next">{suggestedNext(selected, t)}</span>
+                    <span className="df-next">
+                      {isCareersTab
+                        ? suggestedCareerNext(selected, t)
+                        : suggestedNext(selected, t)}
+                    </span>
                   </dd>
                 </div>
               </dl>
-              <p className="df__muted df-detail__soon">{t.drawer.tasksSoon}</p>
+              {isCareersTab ? null : (
+                <p className="df__muted df-detail__soon">{t.drawer.tasksSoon}</p>
+              )}
             </section>
 
             <section className="df-detail__block">
               <h3>{t.drawer.notesSection}</h3>
-              <p className="df-detail__note">
-                {selected.note?.trim() ? (
-                  selected.note.trim()
+              {selected.note?.trim() ? (
+                <p className="df-detail__note df-detail__note--legacy">
+                  <strong>{t.drawer.legacyNote}</strong>
+                  <span>{selected.note.trim()}</span>
+                </p>
+              ) : null}
+              <div className="df-comments">
+                {commentsLoading ? (
+                  <p className="df__muted">{t.drawer.commentSaving}</p>
+                ) : comments.length === 0 ? (
+                  <p className="df__muted">{t.drawer.commentsEmpty}</p>
                 ) : (
+                  <ul className="df-comments__list">
+                    {comments.map((c) => (
+                      <li key={c.id} className="df-comments__item">
+                        <div className="df-comments__meta">
+                          <strong>{c.author}</strong>
+                          <em>
+                            {relativeActivity(c.createdAt, salesLocale)}
+                            {c.stageAt
+                              ? ` · ${tabStageShort(salesLocale, normalizeLeadStage(c.stageAt), isCareersTab)}`
+                              : ""}
+                          </em>
+                          <button
+                            type="button"
+                            className="df-inline-btn is-danger"
+                            onClick={() => void removeComment(c)}
+                          >
+                            {t.drawer.commentDelete}
+                          </button>
+                        </div>
+                        <p className="df-comments__body">{c.body}</p>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+                <div className="df-comments__composer">
+                  <label className="df-comments__author">
+                    <span>{t.drawer.commentAuthor}</span>
+                    <select
+                      className="df-select"
+                      value={normalizeLeadOwner(commentAuthor)}
+                      disabled={commentSaving}
+                      onChange={(e) => setCommentAuthor(e.target.value)}
+                    >
+                      {ownerChoices(people).map((owner) => (
+                        <option key={owner} value={owner}>
+                          {ownerLabel(people, owner)}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+                  <textarea
+                    className="df-input df-comments__input"
+                    rows={3}
+                    value={commentDraft}
+                    disabled={commentSaving}
+                    placeholder={t.drawer.commentPh}
+                    onChange={(e) => setCommentDraft(e.target.value)}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) {
+                        e.preventDefault();
+                        void submitComment();
+                      }
+                    }}
+                  />
                   <button
                     type="button"
-                    className="df-inline-btn is-empty"
-                    onClick={() => openEdit(selected)}
+                    className="df-btn"
+                    disabled={commentSaving || !commentDraft.trim()}
+                    onClick={() => void submitComment()}
                   >
-                    {t.drawer.setField}
+                    {commentSaving
+                      ? t.drawer.commentSaving
+                      : t.drawer.commentAdd}
                   </button>
-                )}
-              </p>
-              <p className="df__muted df-detail__soon">{t.drawer.filesSoon}</p>
+                </div>
+              </div>
             </section>
 
-            <section className="df-detail__block">
-              <h3>{t.drawer.profile360}</h3>
-              <p className="df__muted">{t.drawer.profile360Soon}</p>
-            </section>
+            {isCareersTab ? null : (
+              <section className="df-detail__block">
+                <h3>{t.drawer.profile360}</h3>
+                <p className="df__muted">{t.drawer.profile360Soon}</p>
+              </section>
+            )}
 
             <section className="df-detail__block">
               <h3>{t.drawer.timelineSection}</h3>
@@ -2680,7 +3950,11 @@ export function AdminConsole() {
                   <div>
                     <strong>
                       {fillTemplate(t.drawer.stageChanged, {
-                        stage: salesStageShort(salesLocale, selected.stage),
+                        stage: tabStageShort(
+                          salesLocale,
+                          selected.stage,
+                          isCareersTab,
+                        ),
                       })}
                     </strong>
                     <em>
@@ -2691,22 +3965,22 @@ export function AdminConsole() {
                     </em>
                   </div>
                 </li>
-                {selected.lastActivityAt &&
-                selected.lastActivityAt !== selected.createdAt ? (
-                  <li>
+                {comments.map((c) => (
+                  <li key={`tl-${c.id}`}>
                     <span className="df-timeline__dot" aria-hidden />
                     <div>
-                      <strong>{t.drawer.activityTouch}</strong>
-                      <em>
-                        {relativeActivity(
-                          selected.lastActivityAt,
-                          salesLocale,
-                        )}
-                      </em>
+                      <strong>
+                        {c.author}
+                        {c.stageAt
+                          ? ` · ${tabStageShort(salesLocale, normalizeLeadStage(c.stageAt), isCareersTab)}`
+                          : ""}
+                      </strong>
+                      <em className="df-timeline__note">{c.body}</em>
+                      <em>{relativeActivity(c.createdAt, salesLocale)}</em>
                     </div>
                   </li>
-                ) : null}
-                {selected.note?.trim() ? (
+                ))}
+                {selected.note?.trim() && comments.length === 0 ? (
                   <li>
                     <span className="df-timeline__dot" aria-hidden />
                     <div>
@@ -2718,6 +3992,7 @@ export function AdminConsole() {
                   </li>
                 ) : null}
                 {!selected.note?.trim() &&
+                comments.length === 0 &&
                 (!selected.lastActivityAt ||
                   selected.lastActivityAt === selected.createdAt) ? (
                   <li className="df-timeline__muted">
@@ -2749,11 +4024,13 @@ export function AdminConsole() {
         </aside>
       ) : (
         <aside className="df-detail df-detail--empty" aria-live="polite">
-          <p className="df-side__label">{t.drawer.lead}</p>
+          <p className="df-side__label">
+            {isCareersTab ? t.careersUi.drawerApplicant : t.drawer.lead}
+          </p>
           <h2>{t.drawer.emptyTitle}</h2>
           <p className="df__muted">{t.drawer.emptyBody}</p>
           <button type="button" className="df-btn" onClick={openCreate}>
-            {t.hero.newDeal}
+            {isCareersTab ? t.hero.newCareer : t.hero.newDeal}
           </button>
         </aside>
       )}

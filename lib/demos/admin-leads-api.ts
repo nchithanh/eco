@@ -8,6 +8,10 @@ import {
   type LeadStage,
   normalizeLeadStage,
 } from "@/lib/demos/sales-process";
+import {
+  type SalesComp,
+  computeSalesComp,
+} from "@/lib/demos/sales-comp";
 
 export const LEADS_ADMIN_TOKEN_KEY = "dolphin-leads-admin-token";
 
@@ -23,23 +27,29 @@ export type AdminLeadSource = (typeof LEAD_SOURCES)[number];
 
 export const LEAD_OWNERS = ["thanhnc", "nghianh", "hoangpt"] as const;
 
-export type LeadOwner = (typeof LEAD_OWNERS)[number];
+export type LeadOwner = string;
 
-export const DEFAULT_LEAD_OWNER: LeadOwner = "thanhnc";
+export const DEFAULT_LEAD_OWNER = "thanhnc";
+
+export const USER_ROLES = ["sales", "admin", "ops"] as const;
+export type UserRole = (typeof USER_ROLES)[number];
 
 /** Legacy deal owner id → canonical user id */
-const OWNER_ALIASES: Record<string, LeadOwner> = {
+const OWNER_ALIASES: Record<string, string> = {
   nghiahq: "nghianh",
 };
 
-export function normalizeLeadOwner(value: unknown): LeadOwner {
-  if (typeof value !== "string") return DEFAULT_LEAD_OWNER;
+export function normalizeLeadOwner(value: unknown): string {
+  if (typeof value !== "string" || !value.trim()) return DEFAULT_LEAD_OWNER;
   const raw = value.trim();
-  const aliased = OWNER_ALIASES[raw] ?? raw;
-  if ((LEAD_OWNERS as readonly string[]).includes(aliased)) {
-    return aliased as LeadOwner;
+  return OWNER_ALIASES[raw] ?? raw;
+}
+
+export function normalizeUserRole(value: unknown): UserRole {
+  if (typeof value === "string" && (USER_ROLES as readonly string[]).includes(value)) {
+    return value as UserRole;
   }
-  return DEFAULT_LEAD_OWNER;
+  return "sales";
 }
 
 export type AdminLead = {
@@ -230,6 +240,256 @@ export async function deleteAdminLead(
       method: "DELETE",
       headers: authHeaders(token),
     });
+    const data = await parseJson(res);
+    if (!res.ok || !data.ok) {
+      return { ok: false, error: String(data.error || `http_${res.status}`) };
+    }
+    return { ok: true };
+  } catch {
+    return { ok: false, error: "network" };
+  }
+}
+
+export type AdminComment = {
+  id: string;
+  leadId: string;
+  body: string;
+  author: string;
+  stageAt: string;
+  createdAt: string;
+};
+
+function mapComment(raw: unknown): AdminComment {
+  const row = (raw || {}) as Record<string, unknown>;
+  return {
+    id: String(row.id || ""),
+    leadId: String(row.leadId || ""),
+    body: String(row.body || ""),
+    author: normalizeLeadOwner(row.author),
+    stageAt: String(row.stageAt || ""),
+    createdAt: String(row.createdAt || ""),
+  };
+}
+
+export async function listLeadComments(
+  token: string,
+  leadId: string,
+): Promise<
+  { ok: true; comments: AdminComment[] } | { ok: false; error: string }
+> {
+  const base = getLeadsApiUrl();
+  try {
+    const res = await fetch(
+      `${base}/api/leads/${encodeURIComponent(leadId)}/comments`,
+      { headers: authHeaders(token) },
+    );
+    const data = await parseJson(res);
+    if (!res.ok || !data.ok) {
+      return { ok: false, error: String(data.error || `http_${res.status}`) };
+    }
+    const comments = ((data.comments as unknown[]) || []).map(mapComment);
+    return { ok: true, comments };
+  } catch {
+    return { ok: false, error: "network" };
+  }
+}
+
+export async function createLeadComment(
+  token: string,
+  leadId: string,
+  input: { body: string; author?: string; stageAt?: string },
+): Promise<
+  { ok: true; comment: AdminComment } | { ok: false; error: string }
+> {
+  const base = getLeadsApiUrl();
+  try {
+    const res = await fetch(
+      `${base}/api/leads/${encodeURIComponent(leadId)}/comments`,
+      {
+        method: "POST",
+        headers: authHeaders(token),
+        body: JSON.stringify({
+          body: input.body,
+          author: input.author ?? DEFAULT_LEAD_OWNER,
+          stageAt: input.stageAt ?? "",
+        }),
+      },
+    );
+    const data = await parseJson(res);
+    if (!res.ok || !data.ok) {
+      return { ok: false, error: String(data.error || `http_${res.status}`) };
+    }
+    return { ok: true, comment: mapComment(data.comment) };
+  } catch {
+    return { ok: false, error: "network" };
+  }
+}
+
+export type AdminUser = {
+  id: string;
+  displayName: string;
+  role: UserRole;
+  active: boolean;
+  createdAt: string;
+  title: string;
+  phone: string;
+  email: string;
+  salary: number;
+  kpiTarget: number;
+  stats: SalesComp;
+};
+
+export type UserWriteInput = {
+  id?: string;
+  displayName: string;
+  role?: UserRole;
+  active?: boolean;
+  title?: string;
+  phone?: string;
+  email?: string;
+  salary?: number;
+  kpiTarget?: number;
+};
+
+function mapUser(raw: unknown): AdminUser {
+  const row = (raw || {}) as Record<string, unknown>;
+  const salary = Number(row.salary) || 0;
+  const kpiTarget = Number(row.kpiTarget) || 0;
+  const rawStats = (row.stats || {}) as Record<string, unknown>;
+  const revenue = Number(rawStats.revenue) || 0;
+  const wonCount = Number(rawStats.wonCount) || 0;
+  return {
+    id: String(row.id || ""),
+    displayName: String(row.displayName || ""),
+    role: normalizeUserRole(row.role),
+    active: Boolean(row.active),
+    createdAt: String(row.createdAt || ""),
+    title: String(row.title || ""),
+    phone: String(row.phone || ""),
+    email: String(row.email || ""),
+    salary,
+    kpiTarget,
+    stats: computeSalesComp(revenue, wonCount, salary, kpiTarget),
+  };
+}
+
+export async function listAdminUsers(
+  token: string,
+  opts?: { activeOnly?: boolean },
+): Promise<{ ok: true; users: AdminUser[] } | { ok: false; error: string }> {
+  const base = getLeadsApiUrl();
+  const params = new URLSearchParams();
+  if (opts?.activeOnly) params.set("active", "1");
+  const qs = params.toString();
+  try {
+    const res = await fetch(`${base}/api/users${qs ? `?${qs}` : ""}`, {
+      headers: authHeaders(token),
+    });
+    const data = await parseJson(res);
+    if (!res.ok || !data.ok) {
+      return { ok: false, error: String(data.error || `http_${res.status}`) };
+    }
+    return { ok: true, users: ((data.users as unknown[]) || []).map(mapUser) };
+  } catch {
+    return { ok: false, error: "network" };
+  }
+}
+
+export async function createAdminUser(
+  token: string,
+  input: UserWriteInput & { id: string },
+): Promise<{ ok: true; user: AdminUser } | { ok: false; error: string }> {
+  const base = getLeadsApiUrl();
+  try {
+    const res = await fetch(`${base}/api/users`, {
+      method: "POST",
+      headers: authHeaders(token),
+      body: JSON.stringify({
+        id: input.id,
+        displayName: input.displayName,
+        role: input.role ?? "sales",
+        active: input.active ?? true,
+        title: input.title ?? "",
+        phone: input.phone ?? "",
+        email: input.email ?? "",
+        salary: input.salary ?? 0,
+        kpiTarget: input.kpiTarget ?? 0,
+      }),
+    });
+    const data = await parseJson(res);
+    if (!res.ok || !data.ok) {
+      return { ok: false, error: String(data.error || `http_${res.status}`) };
+    }
+    return { ok: true, user: mapUser(data.user) };
+  } catch {
+    return { ok: false, error: "network" };
+  }
+}
+
+export async function updateAdminUser(
+  token: string,
+  id: string,
+  input: UserWriteInput,
+): Promise<{ ok: true; user: AdminUser } | { ok: false; error: string }> {
+  const base = getLeadsApiUrl();
+  try {
+    const res = await fetch(`${base}/api/users/${encodeURIComponent(id)}`, {
+      method: "PATCH",
+      headers: authHeaders(token),
+      body: JSON.stringify({
+        displayName: input.displayName,
+        role: input.role ?? "sales",
+        active: input.active ?? true,
+        title: input.title ?? "",
+        phone: input.phone ?? "",
+        email: input.email ?? "",
+        salary: input.salary ?? 0,
+        kpiTarget: input.kpiTarget ?? 0,
+      }),
+    });
+    const data = await parseJson(res);
+    if (!res.ok || !data.ok) {
+      return { ok: false, error: String(data.error || `http_${res.status}`) };
+    }
+    return { ok: true, user: mapUser(data.user) };
+  } catch {
+    return { ok: false, error: "network" };
+  }
+}
+
+export async function deleteAdminUser(
+  token: string,
+  id: string,
+): Promise<{ ok: true } | { ok: false; error: string }> {
+  const base = getLeadsApiUrl();
+  try {
+    const res = await fetch(`${base}/api/users/${encodeURIComponent(id)}`, {
+      method: "DELETE",
+      headers: authHeaders(token),
+    });
+    const data = await parseJson(res);
+    if (!res.ok || !data.ok) {
+      return { ok: false, error: String(data.error || `http_${res.status}`) };
+    }
+    return { ok: true };
+  } catch {
+    return { ok: false, error: "network" };
+  }
+}
+
+export async function deleteLeadComment(
+  token: string,
+  commentId: string,
+): Promise<{ ok: true } | { ok: false; error: string }> {
+  const base = getLeadsApiUrl();
+  try {
+    const res = await fetch(
+      `${base}/api/comments/${encodeURIComponent(commentId)}`,
+      {
+        method: "DELETE",
+        headers: authHeaders(token),
+      },
+    );
     const data = await parseJson(res);
     if (!res.ok || !data.ok) {
       return { ok: false, error: String(data.error || `http_${res.status}`) };

@@ -38,6 +38,8 @@ export type DolphinSalesCopy = {
     analyticsGroup: string;
     contractsGroup: string;
     navPipeline: string;
+    navCareers: string;
+    navPeople: string;
     navPlaybook: string;
     navActivities: string;
     navContacts: string;
@@ -51,6 +53,11 @@ export type DolphinSalesCopy = {
     signOut: string;
     langLabel: string;
     available: string;
+    collapse: string;
+    expand: string;
+    menuOpen: string;
+    menuClose: string;
+    closePanel: string;
   };
   top: {
     searchPlaceholder: string;
@@ -63,6 +70,9 @@ export type DolphinSalesCopy = {
     title: string;
     description: string;
     newDeal: string;
+    careersTitle: string;
+    careersDescription: string;
+    newCareer: string;
   };
   forecast: {
     title: string;
@@ -170,6 +180,14 @@ export type DolphinSalesCopy = {
     dealSection: string;
     activitySection: string;
     notesSection: string;
+    commentsEmpty: string;
+    commentPh: string;
+    commentAdd: string;
+    commentAuthor: string;
+    commentDelete: string;
+    commentDeleteConfirm: string;
+    commentSaving: string;
+    legacyNote: string;
     timelineSection: string;
     profile360: string;
     profile360Soon: string;
@@ -224,11 +242,79 @@ export type DolphinSalesCopy = {
     saving: string;
     requiredFields: string;
   };
+  careersUi: {
+    kpiApplicants: string;
+    kpiNew: string;
+    kpiReview: string;
+    kpiHired: string;
+    kpiRejected: string;
+    kpiIdle: string;
+    applicantsWord: string;
+    tableApplicant: string;
+    tableRole: string;
+    searchPh: string;
+    emptyAll: string;
+    emptyFiltered: string;
+    emptyHint: string;
+    boardEmpty: string;
+    formNew: string;
+    formEdit: string;
+    formRole: string;
+    formRolePh: string;
+    formApplicant: string;
+    formSectionHiring: string;
+    drawerApplicant: string;
+    drawerHiring: string;
+    drawerRole: string;
+    nextScreen: string;
+    nextInterview: string;
+    nextOffer: string;
+    nextHire: string;
+    nextOnboard: string;
+  };
+  peopleUi: {
+    title: string;
+    description: string;
+    newPerson: string;
+    colId: string;
+    colName: string;
+    colRole: string;
+    colTitle: string;
+    colPhone: string;
+    colEmail: string;
+    colStatus: string;
+    active: string;
+    inactive: string;
+    empty: string;
+    formNew: string;
+    formEdit: string;
+    idPh: string;
+    namePh: string;
+    deleteConfirm: string;
+    idTaken: string;
+    required: string;
+    policy: string;
+    colSalary: string;
+    colRevenue: string;
+    colCommission: string;
+    colBonus: string;
+    colKpi: string;
+    colPayout: string;
+    colWon: string;
+    kpiTeamRev: string;
+    kpiTeamComm: string;
+    kpiTeamBonus: string;
+    kpiTeamPay: string;
+    sectionPay: string;
+    sectionLive: string;
+    milestoneHit: string;
+    milestoneOpen: string;
+    noKpi: string;
+  };
   filters: {
     owner: string;
     ownerAll: string;
     source: string;
-    excludeCareers: string;
     allSources: string;
     idle: string;
     idleAll: string;
@@ -313,6 +399,62 @@ const STAGE_SHORT_VI: Record<LeadStage, string> = {
   out_of_scope: "Out of scope (Không fit)",
 };
 
+const CAREER_STAGE_LABELS_VI: Record<LeadStage, string> = {
+  hotline: "Chưa phân loại",
+  new: "1 · Mới nộp",
+  qualified: "2 · Sàng lọc",
+  discover: "3 · Phỏng vấn",
+  propose: "4 · Offer",
+  won: "5 · Nhận việc",
+  deliver: "Onboard",
+  expand: "Giữ hồ sơ",
+  lost: "Từ chối",
+  nurture: "Talent pool",
+  out_of_scope: "Không phù hợp",
+};
+
+const CAREER_STAGE_LABELS_EN: Record<LeadStage, string> = {
+  hotline: "Unsorted",
+  new: "1 · Applied",
+  qualified: "2 · Screening",
+  discover: "3 · Interview",
+  propose: "4 · Offer",
+  won: "5 · Hired",
+  deliver: "Onboard",
+  expand: "Keep on file",
+  lost: "Rejected",
+  nurture: "Talent pool",
+  out_of_scope: "Not a fit",
+};
+
+const CAREER_STAGE_SHORT_VI: Record<LeadStage, string> = {
+  hotline: "Chưa phân loại",
+  new: "Mới nộp",
+  qualified: "Sàng lọc",
+  discover: "Phỏng vấn",
+  propose: "Offer",
+  won: "Nhận việc",
+  deliver: "Onboard",
+  expand: "Giữ hồ sơ",
+  lost: "Từ chối",
+  nurture: "Talent pool",
+  out_of_scope: "Không phù hợp",
+};
+
+const CAREER_STAGE_SHORT_EN: Record<LeadStage, string> = {
+  hotline: "Unsorted",
+  new: "Applied",
+  qualified: "Screening",
+  discover: "Interview",
+  propose: "Offer",
+  won: "Hired",
+  deliver: "Onboard",
+  expand: "Keep",
+  lost: "Rejected",
+  nurture: "Pool",
+  out_of_scope: "Not a fit",
+};
+
 const STAGE_SHORT_EN: Record<LeadStage, string> = {
   hotline: "Hotline",
   new: "New",
@@ -355,6 +497,8 @@ const VI: DolphinSalesCopy = {
     analyticsGroup: "Phân tích",
     contractsGroup: "Hợp đồng",
     navPipeline: "Sales Pipeline",
+    navCareers: "Careers",
+    navPeople: "Nhân sự",
     navPlaybook: "Playbook",
     navActivities: "Activities",
     navContacts: "Contacts",
@@ -368,6 +512,11 @@ const VI: DolphinSalesCopy = {
     signOut: "Đăng xuất",
     langLabel: "Ngôn ngữ",
     available: "Sẵn sàng",
+    collapse: "Thu hẹp menu",
+    expand: "Mở rộng menu",
+    menuOpen: "Mở menu",
+    menuClose: "Đóng menu",
+    closePanel: "Đóng",
   },
   top: {
     searchPlaceholder: "Tìm deal, liên hệ…",
@@ -381,6 +530,10 @@ const VI: DolphinSalesCopy = {
     description:
       "B2B / giải pháp & hợp đồng — theo dõi thương vụ từ tiếp cận đến chốt. Chu kỳ dài, giá trị lớn, nhiều vòng đàm phán.",
     newDeal: "Add Deal",
+    careersTitle: "Careers",
+    careersDescription:
+      "Ứng viên từ form tuyển dụng — tách khỏi pipeline bán hàng.",
+    newCareer: "Thêm ứng viên",
   },
   forecast: {
     title: "Sales Forecasting",
@@ -492,6 +645,14 @@ const VI: DolphinSalesCopy = {
     dealSection: "Deal",
     activitySection: "Activity",
     notesSection: "Notes",
+    commentsEmpty: "Chưa có comment — ghi mốc gọi / Zalo / quyết định ở đây.",
+    commentPh: "Ghi mốc… (vd. đã gọi, chờ báo giá, follow 3 ngày)",
+    commentAdd: "Thêm comment",
+    commentAuthor: "Author",
+    commentDelete: "Xóa",
+    commentDeleteConfirm: "Xóa comment này?",
+    commentSaving: "Đang lưu…",
+    legacyNote: "Note cũ (form)",
     timelineSection: "Timeline",
     profile360: "Customer 360°",
     profile360Soon:
@@ -547,11 +708,79 @@ const VI: DolphinSalesCopy = {
     saving: "Saving…",
     requiredFields: "Tên liên hệ và SĐT bắt buộc",
   },
+  careersUi: {
+    kpiApplicants: "Ứng viên",
+    kpiNew: "Mới nộp",
+    kpiReview: "Đang xem",
+    kpiHired: "Nhận việc",
+    kpiRejected: "Từ chối",
+    kpiIdle: "Idle",
+    applicantsWord: "ứng viên",
+    tableApplicant: "Ứng viên",
+    tableRole: "Vị trí",
+    searchPh: "Lọc tên, SĐT, vị trí…",
+    emptyAll: "Chưa có ứng viên",
+    emptyFiltered: "Không tìm thấy ứng viên",
+    emptyHint: "Đổi bộ lọc hoặc thêm ứng viên.",
+    boardEmpty: "Kéo ứng viên vào đây",
+    formNew: "Thêm ứng viên",
+    formEdit: "Sửa ứng viên",
+    formRole: "Vị trí",
+    formRolePh: "Dev / Content / Sales…",
+    formApplicant: "Ứng viên",
+    formSectionHiring: "Tuyển dụng",
+    drawerApplicant: "Ứng viên",
+    drawerHiring: "Hồ sơ",
+    drawerRole: "Vị trí",
+    nextScreen: "Sàng lọc",
+    nextInterview: "Mời phỏng vấn",
+    nextOffer: "Gửi offer",
+    nextHire: "Chốt nhận việc",
+    nextOnboard: "Onboard",
+  },
+  peopleUi: {
+    title: "Nhân sự",
+    description: "Danh sách người trong team — owner deal / comment lấy từ đây.",
+    newPerson: "Thêm người",
+    colId: "ID",
+    colName: "Tên",
+    colRole: "Role",
+    colTitle: "Chức danh",
+    colPhone: "SĐT",
+    colEmail: "Email",
+    colStatus: "Trạng thái",
+    active: "Active",
+    inactive: "Ngưng",
+    empty: "Chưa có nhân sự.",
+    formNew: "Thêm nhân sự",
+    formEdit: "Sửa nhân sự",
+    idPh: "thanhnc",
+    namePh: "Nguyễn Văn A",
+    deleteConfirm: "Xóa “{id}” khỏi nhân sự?",
+    idTaken: "ID đã tồn tại.",
+    required: "Cần ID và tên.",
+    policy: "Hoa hồng 20% · mỗi 10tr DT thưởng 1tr (tối đa 60tr / 6tr).",
+    colSalary: "Lương",
+    colRevenue: "Doanh thu",
+    colCommission: "Hoa hồng",
+    colBonus: "Thưởng",
+    colKpi: "KPI",
+    colPayout: "Tổng chi",
+    colWon: "Deal chốt",
+    kpiTeamRev: "Doanh thu team",
+    kpiTeamComm: "Hoa hồng",
+    kpiTeamBonus: "Thưởng mốc",
+    kpiTeamPay: "Lương + HH + thưởng",
+    sectionPay: "Lương / KPI",
+    sectionLive: "Doanh thu live",
+    milestoneHit: "Đạt",
+    milestoneOpen: "Chưa",
+    noKpi: "Chưa set KPI",
+  },
   filters: {
     owner: "Owner",
     ownerAll: "Tất cả owner",
     source: "Nguồn",
-    excludeCareers: "Ẩn careers",
     allSources: "Tất cả nguồn",
     idle: "Idle",
     idleAll: "Mọi idle",
@@ -676,6 +905,8 @@ const EN: DolphinSalesCopy = {
     analyticsGroup: "Analytics",
     contractsGroup: "Contracts",
     navPipeline: "Sales Pipeline",
+    navCareers: "Careers",
+    navPeople: "People",
     navPlaybook: "Playbook",
     navActivities: "Activities",
     navContacts: "Contacts",
@@ -689,6 +920,11 @@ const EN: DolphinSalesCopy = {
     signOut: "Sign out",
     langLabel: "Language",
     available: "Available",
+    collapse: "Collapse menu",
+    expand: "Expand menu",
+    menuOpen: "Open menu",
+    menuClose: "Close menu",
+    closePanel: "Close",
   },
   top: {
     searchPlaceholder: "Search deals, contacts…",
@@ -702,6 +938,10 @@ const EN: DolphinSalesCopy = {
     description:
       "B2B / solutions & contracts — track opportunities from outreach to close. Long cycle, high value, multi-touch negotiation.",
     newDeal: "Add Deal",
+    careersTitle: "Careers",
+    careersDescription:
+      "Applicants from the careers form — separate from the sales pipeline.",
+    newCareer: "Add applicant",
   },
   forecast: {
     title: "Sales Forecasting",
@@ -813,6 +1053,14 @@ const EN: DolphinSalesCopy = {
     dealSection: "Deal",
     activitySection: "Activity",
     notesSection: "Notes",
+    commentsEmpty: "No comments yet — log call / Zalo / decisions here.",
+    commentPh: "Add a milestone… (e.g. called, waiting on quote, follow in 3 days)",
+    commentAdd: "Add comment",
+    commentAuthor: "Author",
+    commentDelete: "Delete",
+    commentDeleteConfirm: "Delete this comment?",
+    commentSaving: "Saving…",
+    legacyNote: "Legacy note (form)",
     timelineSection: "Timeline",
     profile360: "Customer 360°",
     profile360Soon:
@@ -868,11 +1116,79 @@ const EN: DolphinSalesCopy = {
     saving: "Saving…",
     requiredFields: "Contact name and phone are required",
   },
+  careersUi: {
+    kpiApplicants: "Applicants",
+    kpiNew: "Applied",
+    kpiReview: "In review",
+    kpiHired: "Hired",
+    kpiRejected: "Rejected",
+    kpiIdle: "Idle",
+    applicantsWord: "applicants",
+    tableApplicant: "Applicant",
+    tableRole: "Role",
+    searchPh: "Filter name, phone, role…",
+    emptyAll: "No applicants yet",
+    emptyFiltered: "No matching applicants",
+    emptyHint: "Change filters or add an applicant.",
+    boardEmpty: "Drop applicant here",
+    formNew: "New applicant",
+    formEdit: "Edit applicant",
+    formRole: "Role",
+    formRolePh: "Dev / Content / Sales…",
+    formApplicant: "Applicant",
+    formSectionHiring: "Hiring",
+    drawerApplicant: "Applicant",
+    drawerHiring: "Application",
+    drawerRole: "Role",
+    nextScreen: "Screen",
+    nextInterview: "Invite to interview",
+    nextOffer: "Send offer",
+    nextHire: "Confirm hire",
+    nextOnboard: "Onboard",
+  },
+  peopleUi: {
+    title: "People",
+    description: "Team directory — deal owners and comment authors come from here.",
+    newPerson: "Add person",
+    colId: "ID",
+    colName: "Name",
+    colRole: "Role",
+    colTitle: "Title",
+    colPhone: "Phone",
+    colEmail: "Email",
+    colStatus: "Status",
+    active: "Active",
+    inactive: "Inactive",
+    empty: "No people yet.",
+    formNew: "New person",
+    formEdit: "Edit person",
+    idPh: "thanhnc",
+    namePh: "Jane Doe",
+    deleteConfirm: "Remove “{id}” from people?",
+    idTaken: "ID already exists.",
+    required: "ID and name are required.",
+    policy: "20% commission · 1M bonus per 10M revenue (cap 60M / 6M).",
+    colSalary: "Salary",
+    colRevenue: "Revenue",
+    colCommission: "Commission",
+    colBonus: "Bonus",
+    colKpi: "KPI",
+    colPayout: "Payout",
+    colWon: "Won deals",
+    kpiTeamRev: "Team revenue",
+    kpiTeamComm: "Commission",
+    kpiTeamBonus: "Milestone bonus",
+    kpiTeamPay: "Salary + comm + bonus",
+    sectionPay: "Salary / KPI",
+    sectionLive: "Live revenue",
+    milestoneHit: "Hit",
+    milestoneOpen: "Open",
+    noKpi: "No KPI set",
+  },
   filters: {
     owner: "Owner",
     ownerAll: "All owners",
     source: "Source",
-    excludeCareers: "Exclude careers",
     allSources: "All sources",
     idle: "Idle",
     idleAll: "Any idle",
@@ -991,6 +1307,23 @@ export function salesStageShort(
   stage: LeadStage,
 ): string {
   return getDolphinSalesCopy(locale).stageShort[stage];
+}
+
+export function careerStageLabel(
+  locale: SalesLocale,
+  stage: string,
+): string {
+  const map = locale === "en" ? CAREER_STAGE_LABELS_EN : CAREER_STAGE_LABELS_VI;
+  if (isLeadStage(stage)) return map[stage];
+  return stage || map.new;
+}
+
+export function careerStageShort(
+  locale: SalesLocale,
+  stage: LeadStage,
+): string {
+  const map = locale === "en" ? CAREER_STAGE_SHORT_EN : CAREER_STAGE_SHORT_VI;
+  return map[stage];
 }
 
 export { LEAD_STAGES };
