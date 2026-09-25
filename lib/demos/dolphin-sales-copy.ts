@@ -103,6 +103,62 @@ export type DolphinSalesCopy = {
     title: string;
     description: string;
   };
+  dashboard: {
+    title: string;
+    description: string;
+    periodMonth: string;
+    periodYear: string;
+    periodAll: string;
+    revenue: string;
+    cost: string;
+    profit: string;
+    margin: string;
+    salary: string;
+    commission: string;
+    bonus: string;
+    infra: string;
+    mixTitle: string;
+    trendTitle: string;
+    trendHint: string;
+    expensesTitle: string;
+    expensesHint: string;
+    addExpense: string;
+    editExpense: string;
+    saveExpense: string;
+    kindOpex: string;
+    kindSalary: string;
+    formPerson: string;
+    formMonth: string;
+    carryHint: string;
+    carried: string;
+    thisMonth: string;
+    salaryTitle: string;
+    salaryHint: string;
+    colPerson: string;
+    colSource: string;
+    colTitle: string;
+    colCategory: string;
+    colAmount: string;
+    colDate: string;
+    colRecurring: string;
+    empty: string;
+    emptySalary: string;
+    delete: string;
+    edit: string;
+    deleteConfirm: string;
+    deleteSalaryConfirm: string;
+    formTitle: string;
+    formAmount: string;
+    formDate: string;
+    formNote: string;
+    formRecurring: string;
+    catInfra: string;
+    catTools: string;
+    catAds: string;
+    catRent: string;
+    catOther: string;
+    wonDeals: string;
+  };
   contractsPage: {
     title: string;
     description: string;
@@ -336,6 +392,29 @@ export type DolphinSalesCopy = {
     amountMax: string;
     closeFrom: string;
     closeTo: string;
+    quickAtRisk: string;
+    quickIdle: string;
+    quickHighValue: string;
+    drawerTitle: string;
+    done: string;
+  };
+  ux: {
+    toastSaved: string;
+    toastExpense: string;
+    toastSalary: string;
+    toastComment: string;
+    tabOverview: string;
+    tabActivity: string;
+    tabNotes: string;
+    vsPrev: string;
+    vsYoy: string;
+    expectedClose: string;
+    chartAll: string;
+    chartRev: string;
+    chartCost: string;
+    chartProfit: string;
+    addDate: string;
+    note: string;
   };
   playbook: {
     title: string;
@@ -503,7 +582,7 @@ const VI: DolphinSalesCopy = {
     navActivities: "Activities",
     navContacts: "Contacts",
     navCompanies: "Companies",
-    navOverview: "Overview",
+    navOverview: "Tổng quan",
     navReports: "Reports",
     navContracts: "Danh sách",
     refresh: "Làm mới",
@@ -537,8 +616,8 @@ const VI: DolphinSalesCopy = {
   },
   forecast: {
     title: "Sales Forecasting",
-    hint: "Weighted = Value × Prob % (deal mở). Win rate chỉ trên deal đã đóng.",
-    pipeline: "Open pipeline",
+    hint: "Tổng value = deal mở + Won/Deliver/Expand. Weighted = Value × Prob % (deal mở). Win rate chỉ trên deal đã đóng.",
+    pipeline: "Tổng value (kể cả Won)",
     weighted: "Weighted forecast",
     winRate: "Win rate",
     closedSample: "{n} closed",
@@ -563,9 +642,69 @@ const VI: DolphinSalesCopy = {
       "Liên hệ / Công ty và nhật ký hoạt động đầy đủ sẽ vào đây. Hiện dùng ghi chú + timeline tối thiểu trên từng deal trong Bán hàng.",
   },
   analyticsPage: {
-    title: "Phân tích",
+    title: "Tổng quan",
     description:
-      "Sức khỏe pipeline, dự báo ước lượng và KPI theo người phụ trách từ data deal thật.",
+      "Trang Founder — doanh thu, chi phí nhân sự, hạ tầng và lợi nhuận theo kỳ.",
+  },
+  dashboard: {
+    title: "Tổng quan Founder",
+    description:
+      "Doanh thu từ deal Won/Deliver/Expand. Lương theo tháng (copy tháng trước nếu thiếu). Hoa hồng/thưởng theo chính sách sale. Hạ tầng từ bảng chi phí.",
+    periodMonth: "Tháng này",
+    periodYear: "Năm nay",
+    periodAll: "Tất cả",
+    revenue: "Doanh thu",
+    cost: "Chi phí",
+    profit: "Lợi nhuận",
+    margin: "Biên lợi nhuận",
+    salary: "Lương",
+    commission: "Hoa hồng",
+    bonus: "Thưởng KPI",
+    infra: "Hạ tầng & opex",
+    mixTitle: "Cơ cấu chi phí",
+    trendTitle: "Doanh thu · chi phí · lãi theo tháng",
+    trendHint:
+      "Hoa hồng 20% tuyến tính. Thưởng KPI bậc 1tr/10tr tính trên tổng kỳ (cột tháng là ước lượng từng tháng).",
+    expensesTitle: "Chi phí",
+    expensesHint:
+      "Lương theo tháng (thiếu thì copy tháng trước). Opex: Cloudflare, Cursor, domain, ads, thuê…",
+    addExpense: "Thêm chi phí",
+    editExpense: "Sửa chi phí",
+    saveExpense: "Lưu",
+    kindOpex: "Chi phí",
+    kindSalary: "Lương",
+    formPerson: "Người",
+    formMonth: "Tháng",
+    carryHint: "Tự điền từ {ym}: {amount}",
+    carried: "Copy {ym}",
+    thisMonth: "Tháng này",
+    salaryTitle: "Lương tháng",
+    salaryHint:
+      "Mỗi người một số theo tháng. Tháng trống lấy tháng gần nhất; lần đầu lấy lương trên hồ sơ.",
+    colPerson: "Người",
+    colSource: "Nguồn",
+    colTitle: "Khoản",
+    colCategory: "Nhóm",
+    colAmount: "Số tiền",
+    colDate: "Ngày",
+    colRecurring: "Hàng tháng",
+    empty: "Chưa có chi phí hạ tầng.",
+    emptySalary: "Chưa có lương tháng. Thêm để P&L đúng.",
+    delete: "Xóa",
+    edit: "Sửa",
+    deleteConfirm: "Xóa khoản “{title}”?",
+    deleteSalaryConfirm: "Xóa lương {name} tháng {ym}?",
+    formTitle: "Tên khoản",
+    formAmount: "Số tiền",
+    formDate: "Ngày",
+    formNote: "Ghi chú",
+    formRecurring: "Lặp hàng tháng",
+    catInfra: "Hạ tầng",
+    catTools: "Công cụ",
+    catAds: "Ads",
+    catRent: "Thuê",
+    catOther: "Khác",
+    wonDeals: "{n} deal chốt",
   },
   contractsPage: {
     title: "Hợp đồng",
@@ -588,7 +727,7 @@ const VI: DolphinSalesCopy = {
     qualified: "Survey",
     inProgress: "In progress",
     converted: "Won",
-    pipelineValue: "Pipeline value",
+    pipelineValue: "Tổng value (kể cả Won)",
     atRisk: "At risk",
   },
   tabs: {
@@ -621,7 +760,7 @@ const VI: DolphinSalesCopy = {
     edit: "Edit",
     open: "Open",
     setValue: "Set value",
-    setClose: "Set date",
+    setClose: "Chọn ngày",
     setProb: "Set %",
     emptyAll: "Chưa có deal",
     emptyFiltered: "Không tìm thấy deal",
@@ -802,6 +941,29 @@ const VI: DolphinSalesCopy = {
     amountMax: "Value đến",
     closeFrom: "Close từ",
     closeTo: "Close đến",
+    quickAtRisk: "At risk",
+    quickIdle: "Idle > 3 ngày",
+    quickHighValue: "High value",
+    drawerTitle: "Bộ lọc nâng cao",
+    done: "Xong",
+  },
+  ux: {
+    toastSaved: "Đã lưu.",
+    toastExpense: "Đã lưu chi phí.",
+    toastSalary: "Đã lưu lương tháng.",
+    toastComment: "Đã thêm ghi chú.",
+    tabOverview: "Tổng quan",
+    tabActivity: "Hoạt động",
+    tabNotes: "Ghi chú",
+    vsPrev: "vs tháng trước",
+    vsYoy: "vs cùng kỳ năm trước",
+    expectedClose: "Dự kiến chốt tháng này",
+    chartAll: "Tất cả",
+    chartRev: "Doanh thu",
+    chartCost: "Chi phí",
+    chartProfit: "Lợi nhuận",
+    addDate: "Chọn ngày",
+    note: "Ghi chú",
   },
   playbook: {
     title: "Sales playbook",
@@ -945,8 +1107,8 @@ const EN: DolphinSalesCopy = {
   },
   forecast: {
     title: "Sales Forecasting",
-    hint: "Weighted = Value × Prob % (open deals). Win rate from closed deals only.",
-    pipeline: "Open pipeline",
+    hint: "Total value = open deals + Won/Deliver/Expand. Weighted = Value × Prob % (open deals). Win rate from closed deals only.",
+    pipeline: "Total value (incl. Won)",
     weighted: "Weighted forecast",
     winRate: "Win rate",
     closedSample: "{n} closed",
@@ -971,9 +1133,69 @@ const EN: DolphinSalesCopy = {
       "Contacts / Companies and full activity log land here. For now use deal notes + minimal timeline in Sale.",
   },
   analyticsPage: {
-    title: "Analytics",
+    title: "Overview",
     description:
-      "Pipeline health, heuristic forecast, and owner KPIs from live deal data.",
+      "Founder view — revenue, people cost, infrastructure, and profit by period.",
+  },
+  dashboard: {
+    title: "Founder overview",
+    description:
+      "Revenue from Won/Deliver/Expand. Monthly salary (carries last month if missing). Commission/bonus from the sale policy. Infra from the cost table.",
+    periodMonth: "This month",
+    periodYear: "This year",
+    periodAll: "All time",
+    revenue: "Revenue",
+    cost: "Costs",
+    profit: "Profit",
+    margin: "Margin",
+    salary: "Salary",
+    commission: "Commission",
+    bonus: "KPI bonus",
+    infra: "Infra & opex",
+    mixTitle: "Cost mix",
+    trendTitle: "Revenue · cost · profit by month",
+    trendHint:
+      "Commission is 20% linear. KPI bonus (1M per 10M) is computed on the period total; monthly bars are a per-month estimate.",
+    expensesTitle: "Costs",
+    expensesHint:
+      "Monthly salary (missing month copies the last one). Opex: Cloudflare, Cursor, domain, ads, rent…",
+    addExpense: "Add cost",
+    editExpense: "Edit cost",
+    saveExpense: "Save",
+    kindOpex: "Opex",
+    kindSalary: "Salary",
+    formPerson: "Person",
+    formMonth: "Month",
+    carryHint: "Filled from {ym}: {amount}",
+    carried: "Copied {ym}",
+    thisMonth: "This month",
+    salaryTitle: "Monthly salary",
+    salaryHint:
+      "One amount per person per month. Empty months carry the last row; first month uses the profile salary.",
+    colPerson: "Person",
+    colSource: "Source",
+    colTitle: "Item",
+    colCategory: "Category",
+    colAmount: "Amount",
+    colDate: "Date",
+    colRecurring: "Monthly",
+    empty: "No infra costs yet.",
+    emptySalary: "No monthly salaries yet. Add one so P&L is real.",
+    delete: "Delete",
+    edit: "Edit",
+    deleteConfirm: "Delete “{title}”?",
+    deleteSalaryConfirm: "Delete {name} salary for {ym}?",
+    formTitle: "Name",
+    formAmount: "Amount",
+    formDate: "Date",
+    formNote: "Note",
+    formRecurring: "Repeats monthly",
+    catInfra: "Infra",
+    catTools: "Tools",
+    catAds: "Ads",
+    catRent: "Rent",
+    catOther: "Other",
+    wonDeals: "{n} closed deals",
   },
   contractsPage: {
     title: "Contracts",
@@ -996,7 +1218,7 @@ const EN: DolphinSalesCopy = {
     qualified: "Survey",
     inProgress: "In progress",
     converted: "Won",
-    pipelineValue: "Pipeline value",
+    pipelineValue: "Total value (incl. Won)",
     atRisk: "At risk",
   },
   tabs: {
@@ -1029,7 +1251,7 @@ const EN: DolphinSalesCopy = {
     edit: "Edit",
     open: "Open",
     setValue: "Set value",
-    setClose: "Set date",
+    setClose: "Add date",
     setProb: "Set %",
     emptyAll: "No deals yet",
     emptyFiltered: "No deals found",
@@ -1210,6 +1432,29 @@ const EN: DolphinSalesCopy = {
     amountMax: "Value to",
     closeFrom: "Close from",
     closeTo: "Close to",
+    quickAtRisk: "At risk",
+    quickIdle: "Idle > 3 days",
+    quickHighValue: "High value",
+    drawerTitle: "Advanced filters",
+    done: "Done",
+  },
+  ux: {
+    toastSaved: "Saved.",
+    toastExpense: "Cost saved.",
+    toastSalary: "Monthly salary saved.",
+    toastComment: "Note added.",
+    tabOverview: "Overview",
+    tabActivity: "Activity",
+    tabNotes: "Notes",
+    vsPrev: "vs last month",
+    vsYoy: "vs same period last year",
+    expectedClose: "Expected close this month",
+    chartAll: "All",
+    chartRev: "Revenue",
+    chartCost: "Cost",
+    chartProfit: "Profit",
+    addDate: "Add date",
+    note: "Note",
   },
   playbook: {
     title: "Sales playbook",

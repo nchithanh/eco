@@ -477,6 +477,246 @@ export async function deleteAdminUser(
   }
 }
 
+export type AdminExpense = {
+  id: string;
+  incurredAt: string;
+  category: string;
+  title: string;
+  amount: number;
+  currency: string;
+  recurring: boolean;
+  note: string;
+  createdAt: string;
+  createdBy: string;
+};
+
+export type ExpenseWriteInput = {
+  title: string;
+  amount: number;
+  incurredAt?: string;
+  category?: string;
+  currency?: string;
+  recurring?: boolean;
+  note?: string;
+  createdBy?: string;
+};
+
+function mapExpense(raw: unknown): AdminExpense {
+  const row = (raw || {}) as Record<string, unknown>;
+  return {
+    id: String(row.id || ""),
+    incurredAt: String(row.incurredAt || ""),
+    category: String(row.category || "infra"),
+    title: String(row.title || ""),
+    amount: Number(row.amount) || 0,
+    currency: String(row.currency || "VND"),
+    recurring: Boolean(row.recurring),
+    note: String(row.note || ""),
+    createdAt: String(row.createdAt || ""),
+    createdBy: String(row.createdBy || ""),
+  };
+}
+
+export async function listAdminExpenses(
+  token: string,
+): Promise<
+  { ok: true; expenses: AdminExpense[] } | { ok: false; error: string }
+> {
+  const base = getLeadsApiUrl();
+  try {
+    const res = await fetch(`${base}/api/expenses`, {
+      headers: authHeaders(token),
+    });
+    const data = await parseJson(res);
+    if (!res.ok || !data.ok) {
+      return { ok: false, error: String(data.error || `http_${res.status}`) };
+    }
+    return {
+      ok: true,
+      expenses: ((data.expenses as unknown[]) || []).map(mapExpense),
+    };
+  } catch {
+    return { ok: false, error: "network" };
+  }
+}
+
+export async function updateAdminExpense(
+  token: string,
+  id: string,
+  input: ExpenseWriteInput,
+): Promise<{ ok: true; expense: AdminExpense } | { ok: false; error: string }> {
+  const base = getLeadsApiUrl();
+  try {
+    const res = await fetch(`${base}/api/expenses/${encodeURIComponent(id)}`, {
+      method: "PATCH",
+      headers: authHeaders(token),
+      body: JSON.stringify({
+        title: input.title,
+        amount: input.amount,
+        incurredAt: input.incurredAt ?? "",
+        category: input.category ?? "infra",
+        currency: input.currency ?? "VND",
+        recurring: input.recurring ?? false,
+        note: input.note ?? "",
+      }),
+    });
+    const data = await parseJson(res);
+    if (!res.ok || !data.ok) {
+      return { ok: false, error: String(data.error || `http_${res.status}`) };
+    }
+    return { ok: true, expense: mapExpense(data.expense) };
+  } catch {
+    return { ok: false, error: "network" };
+  }
+}
+
+export type AdminSalaryMonth = {
+  userId: string;
+  ym: string;
+  amount: number;
+  updatedAt: string;
+};
+
+export type SalaryMonthWriteInput = {
+  userId: string;
+  ym: string;
+  amount: number;
+};
+
+function mapSalaryMonth(raw: unknown): AdminSalaryMonth {
+  const row = (raw || {}) as Record<string, unknown>;
+  return {
+    userId: String(row.userId || row.user_id || ""),
+    ym: String(row.ym || ""),
+    amount: Number(row.amount) || 0,
+    updatedAt: String(row.updatedAt || row.updated_at || ""),
+  };
+}
+
+export async function listAdminSalaryMonths(
+  token: string,
+): Promise<
+  { ok: true; salaryMonths: AdminSalaryMonth[] } | { ok: false; error: string }
+> {
+  const base = getLeadsApiUrl();
+  try {
+    const res = await fetch(`${base}/api/salary-months`, {
+      headers: authHeaders(token),
+    });
+    const data = await parseJson(res);
+    if (!res.ok || !data.ok) {
+      return { ok: false, error: String(data.error || `http_${res.status}`) };
+    }
+    return {
+      ok: true,
+      salaryMonths: ((data.salaryMonths as unknown[]) || []).map(mapSalaryMonth),
+    };
+  } catch {
+    return { ok: false, error: "network" };
+  }
+}
+
+export async function upsertAdminSalaryMonth(
+  token: string,
+  input: SalaryMonthWriteInput,
+): Promise<
+  { ok: true; salaryMonth: AdminSalaryMonth } | { ok: false; error: string }
+> {
+  const base = getLeadsApiUrl();
+  try {
+    const res = await fetch(`${base}/api/salary-months`, {
+      method: "PUT",
+      headers: authHeaders(token),
+      body: JSON.stringify({
+        userId: input.userId,
+        ym: input.ym,
+        amount: input.amount,
+      }),
+    });
+    const data = await parseJson(res);
+    if (!res.ok || !data.ok) {
+      return { ok: false, error: String(data.error || `http_${res.status}`) };
+    }
+    return { ok: true, salaryMonth: mapSalaryMonth(data.salaryMonth) };
+  } catch {
+    return { ok: false, error: "network" };
+  }
+}
+
+export async function deleteAdminSalaryMonth(
+  token: string,
+  userId: string,
+  ym: string,
+): Promise<{ ok: true } | { ok: false; error: string }> {
+  const base = getLeadsApiUrl();
+  try {
+    const res = await fetch(
+      `${base}/api/salary-months/${encodeURIComponent(userId)}/${encodeURIComponent(ym)}`,
+      {
+        method: "DELETE",
+        headers: authHeaders(token),
+      },
+    );
+    const data = await parseJson(res);
+    if (!res.ok || !data.ok) {
+      return { ok: false, error: String(data.error || `http_${res.status}`) };
+    }
+    return { ok: true };
+  } catch {
+    return { ok: false, error: "network" };
+  }
+}
+
+export async function createAdminExpense(
+  token: string,
+  input: ExpenseWriteInput,
+): Promise<{ ok: true; expense: AdminExpense } | { ok: false; error: string }> {
+  const base = getLeadsApiUrl();
+  try {
+    const res = await fetch(`${base}/api/expenses`, {
+      method: "POST",
+      headers: authHeaders(token),
+      body: JSON.stringify({
+        title: input.title,
+        amount: input.amount,
+        incurredAt: input.incurredAt ?? "",
+        category: input.category ?? "infra",
+        currency: input.currency ?? "VND",
+        recurring: input.recurring ?? false,
+        note: input.note ?? "",
+        createdBy: input.createdBy ?? DEFAULT_LEAD_OWNER,
+      }),
+    });
+    const data = await parseJson(res);
+    if (!res.ok || !data.ok) {
+      return { ok: false, error: String(data.error || `http_${res.status}`) };
+    }
+    return { ok: true, expense: mapExpense(data.expense) };
+  } catch {
+    return { ok: false, error: "network" };
+  }
+}
+
+export async function deleteAdminExpense(
+  token: string,
+  id: string,
+): Promise<{ ok: true } | { ok: false; error: string }> {
+  const base = getLeadsApiUrl();
+  try {
+    const res = await fetch(`${base}/api/expenses/${encodeURIComponent(id)}`, {
+      method: "DELETE",
+      headers: authHeaders(token),
+    });
+    const data = await parseJson(res);
+    if (!res.ok || !data.ok) {
+      return { ok: false, error: String(data.error || `http_${res.status}`) };
+    }
+    return { ok: true };
+  } catch {
+    return { ok: false, error: "network" };
+  }
+}
+
 export async function deleteLeadComment(
   token: string,
   commentId: string,

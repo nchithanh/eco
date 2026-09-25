@@ -14,7 +14,9 @@ import { ThemedLogoImg } from "@/components/ThemedLogoImg";
 import { assetPath } from "@/lib/asset";
 import {
   type AdminComment,
+  type AdminExpense,
   type AdminLead,
+  type AdminSalaryMonth,
   type AdminLeadSource,
   type AdminUser,
   type LeadWriteInput,
@@ -25,19 +27,26 @@ import {
   USER_ROLES,
   clearStoredAdminToken,
   createAdminLead,
+  createAdminExpense,
   createAdminUser,
   createLeadComment,
   deleteAdminLead,
+  deleteAdminExpense,
+  deleteAdminSalaryMonth,
   deleteAdminUser,
   deleteLeadComment,
   getStoredAdminToken,
+  listAdminExpenses,
   listAdminLeads,
+  listAdminSalaryMonths,
   listAdminUsers,
   listLeadComments,
   normalizeLeadOwner,
   setStoredAdminToken,
+  updateAdminExpense,
   updateAdminLead,
   updateAdminUser,
+  upsertAdminSalaryMonth,
 } from "@/lib/demos/admin-leads-api";
 import {
   ADMIN_CONTRACTS,
@@ -64,6 +73,23 @@ import {
   normalizeLeadStage,
 } from "@/lib/demos/sales-process";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
+import { EmptyArt, EmptyState } from "@/components/demos/EmptyArt";
+import { MoneyInput } from "@/components/demos/MoneyInput";
+import { formatVnd, formatVndInput, parseVndInput } from "@/lib/demos/money-format";
+import {
+  EMPTY_EXPENSE_FORM,
+  FounderDashboard,
+  type ExpenseFormState,
+} from "@/components/demos/FounderDashboard";
+import {
+  type DashPeriod,
+  lastNMonthKeys,
+  leadRevenueDate,
+  monthKey,
+  type SalaryViewRow,
+} from "@/lib/demos/founder-dashboard";
+
+const HIGH_VALUE = 10_000_000;
 
 type WorkspaceId = "sale" | "crm" | "analytics" | "contracts";
 type SaleNavId = "pipeline" | "careers" | "people" | "playbook";
@@ -216,20 +242,52 @@ function formatMoney(
   currency = "VND",
   salesLocale: SalesLocale = "vi",
 ): string {
-  const safe = Number.isFinite(amount) && amount > 0 ? amount : 0;
+  const n = Number.isFinite(amount) ? amount : 0;
+  if (currency === "VND") return formatVnd(n);
   const tag = salesLocale === "en" ? "en-US" : "vi-VN";
-  if (currency === "VND") {
-    if (safe >= 1_000_000) {
-      const m = safe / 1_000_000;
-      return `${m % 1 === 0 ? m.toFixed(0) : m.toFixed(1)}M₫`;
-    }
-    return `${Math.round(safe).toLocaleString(tag)}₫`;
+  if (Math.abs(n) >= 1000) {
+    return `$${(n / 1000).toFixed(Math.abs(n) >= 10000 ? 0 : 1)}K`;
   }
-  if (safe >= 1000) {
-    return `$${(safe / 1000).toFixed(safe >= 10000 ? 0 : 1)}K`;
-  }
-  if (safe === 0) return currency === "VND" ? "0₫" : `${currency} 0`;
-  return `${currency} ${safe}`;
+  if (n === 0) return `${currency} 0`;
+  return `${currency} ${Math.round(n).toLocaleString(tag)}`;
+}
+
+function formatMoneyFull(
+  amount: number,
+  currency = "VND",
+  salesLocale: SalesLocale = "vi",
+): string {
+  return formatMoney(amount, currency, salesLocale);
+}
+
+function Sparkline({ values }: { values: number[] }) {
+  const max = Math.max(1, ...values);
+  const pts = values
+    .map((value, i) => {
+      const x = (i / Math.max(values.length - 1, 1)) * 48;
+      const y = 16 - (value / max) * 14;
+      return `${x},${y}`;
+    })
+    .join(" ");
+  return (
+    <svg className="df-spark" viewBox="0 0 48 16" aria-hidden>
+      <polyline
+        points={pts}
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={1.5}
+        strokeLinejoin="round"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+function rowTone(lead: AdminLead): string {
+  const idle = idleDays(lead.lastActivityAt);
+  if (lead.atRisk || idle > 6) return "is-risk";
+  if ((lead.amount || 0) >= HIGH_VALUE) return "is-high";
+  return "";
 }
 
 function readPayload(lead: AdminLead): Record<string, unknown> {
@@ -453,7 +511,7 @@ function toWriteInput(form: LeadFormState): LeadWriteInput {
     stage: form.stage,
     title: form.title.trim() || form.name.trim(),
     company: form.company.trim(),
-    amount: Number(form.amount) || 0,
+    amount: parseVndInput(form.amount),
     currency: form.currency.trim() || "VND",
     closeDate: form.closeDate.trim(),
     owner: form.owner.trim() || DEFAULT_LEAD_OWNER,
@@ -558,7 +616,7 @@ function InlineQuickField({
   const initial =
     kind === "amount"
       ? lead.amount > 0
-        ? String(lead.amount)
+        ? formatVndInput(String(Math.round(lead.amount)))
         : ""
       : kind === "close"
         ? lead.closeDate.slice(0, 10)
@@ -570,7 +628,7 @@ function InlineQuickField({
       setValue(
         kind === "amount"
           ? lead.amount > 0
-            ? String(lead.amount)
+            ? formatVndInput(String(Math.round(lead.amount)))
             : ""
           : kind === "close"
             ? lead.closeDate.slice(0, 10)
@@ -582,7 +640,7 @@ function InlineQuickField({
   async function commit() {
     setOpen(false);
     if (kind === "amount") {
-      const next = Math.max(0, Number(value) || 0);
+      const next = Math.max(0, parseVndInput(value));
       if (next === lead.amount) return;
       await onSaveAmount(lead, next);
       return;
@@ -599,13 +657,38 @@ function InlineQuickField({
   }
 
   if (open) {
+    if (kind === "amount") {
+      return (
+        <span onClick={(e) => e.stopPropagation()}>
+          <MoneyInput
+            className="is-inline"
+            autoFocus
+            disabled={disabled}
+            value={value}
+            onChange={setValue}
+            onBlur={() => void commit()}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                e.preventDefault();
+                void commit();
+              }
+              if (e.key === "Escape") {
+                e.preventDefault();
+                setOpen(false);
+              }
+            }}
+            aria-label={t.table.amount}
+          />
+        </span>
+      );
+    }
     return (
       <input
         className="df-inline-input"
         type={kind === "close" ? "date" : "number"}
         min={kind === "prob" ? 0 : undefined}
         max={kind === "prob" ? 100 : undefined}
-        step={kind === "amount" ? 1000 : kind === "prob" ? 5 : undefined}
+        step={kind === "prob" ? 5 : undefined}
         value={value}
         autoFocus
         disabled={disabled}
@@ -623,11 +706,7 @@ function InlineQuickField({
           }
         }}
         aria-label={
-          kind === "amount"
-            ? t.table.amount
-            : kind === "close"
-              ? t.table.closeDate
-              : t.table.probability
+          kind === "close" ? t.table.closeDate : t.table.probability
         }
       />
     );
@@ -773,7 +852,12 @@ export function AdminConsole() {
   const [amountMax, setAmountMax] = useState("");
   const [closeFrom, setCloseFrom] = useState("");
   const [closeTo, setCloseTo] = useState("");
-  const [filtersOpen, setFiltersOpen] = useState(true);
+  const [filtersOpen, setFiltersOpen] = useState(false);
+  const [quickIdle3, setQuickIdle3] = useState(false);
+  const [toast, setToast] = useState("");
+  const [detailTab, setDetailTab] = useState<
+    "overview" | "activity" | "notes"
+  >("overview");
   const [stageTab, setStageTab] = useState<StageTab>("all");
   const [pipelineView, setPipelineView] = useState<PipelineView>("board");
   const [page, setPage] = useState(0);
@@ -796,6 +880,13 @@ export function AdminConsole() {
   const [editingPerson, setEditingPerson] = useState<AdminUser | null>(null);
   const [selectedPersonId, setSelectedPersonId] = useState<string | null>(null);
   const [personSaving, setPersonSaving] = useState(false);
+  const [expenses, setExpenses] = useState<AdminExpense[]>([]);
+  const [salaryMonths, setSalaryMonths] = useState<AdminSalaryMonth[]>([]);
+  const [dashPeriod, setDashPeriod] = useState<DashPeriod>("month");
+  const [expenseForm, setExpenseForm] = useState<ExpenseFormState>(() =>
+    EMPTY_EXPENSE_FORM(),
+  );
+  const [expenseSaving, setExpenseSaving] = useState(false);
   const detailBodyRef = useRef<HTMLDivElement | null>(null);
 
   /** Keep wheel scroll on the detail body (Cursor preview / nested layout). */
@@ -932,6 +1023,14 @@ export function AdminConsole() {
         return usersResult.users[0]?.id ?? null;
       });
     }
+    const expensesResult = await listAdminExpenses(auth);
+    if (expensesResult.ok) {
+      setExpenses(expensesResult.expenses);
+    }
+    const salaryResult = await listAdminSalaryMonths(auth);
+    if (salaryResult.ok) {
+      setSalaryMonths(salaryResult.salaryMonths);
+    }
   }, []);
 
   useEffect(() => {
@@ -994,6 +1093,7 @@ export function AdminConsole() {
     }
     setCommentDraft("");
     setComments((cur) => [result.comment, ...cur]);
+    flash(t.ux.toastComment);
     const touchAt = result.comment.createdAt;
     setLeads((cur) =>
       cur.map((l) =>
@@ -1064,6 +1164,113 @@ export function AdminConsole() {
     );
   }, [peopleRows]);
 
+  async function saveExpense(event: FormEvent) {
+    event.preventDefault();
+    if (!token) return;
+    const amount = parseVndInput(expenseForm.amount);
+    if (!Number.isFinite(amount) || amount <= 0) return;
+    setExpenseSaving(true);
+    if (expenseForm.kind === "salary") {
+      if (!expenseForm.userId || !expenseForm.ym) {
+        setExpenseSaving(false);
+        return;
+      }
+      const result = await upsertAdminSalaryMonth(token, {
+        userId: expenseForm.userId,
+        ym: expenseForm.ym,
+        amount,
+      });
+      setExpenseSaving(false);
+      if (!result.ok) {
+        setError(result.error);
+        return;
+      }
+      setSalaryMonths((cur) => {
+        const next = cur.filter(
+          (row) =>
+            !(
+              row.userId === result.salaryMonth.userId &&
+              row.ym === result.salaryMonth.ym
+            ),
+        );
+        return [result.salaryMonth, ...next];
+      });
+      setExpenseForm(EMPTY_EXPENSE_FORM(people));
+      flash(t.ux.toastSalary);
+      return;
+    }
+    if (!expenseForm.title.trim()) {
+      setExpenseSaving(false);
+      return;
+    }
+    const payload = {
+      title: expenseForm.title.trim(),
+      amount,
+      incurredAt: expenseForm.incurredAt,
+      category: expenseForm.category,
+      recurring: expenseForm.recurring,
+      note: expenseForm.note.trim(),
+      createdBy: DEFAULT_LEAD_OWNER,
+    };
+    const result = expenseForm.editExpenseId
+      ? await updateAdminExpense(token, expenseForm.editExpenseId, payload)
+      : await createAdminExpense(token, payload);
+    setExpenseSaving(false);
+    if (!result.ok) {
+      setError(result.error);
+      return;
+    }
+    setExpenses((cur) => {
+      if (expenseForm.editExpenseId) {
+        return cur.map((row) =>
+          row.id === result.expense.id ? result.expense : row,
+        );
+      }
+      return [result.expense, ...cur];
+    });
+    setExpenseForm(EMPTY_EXPENSE_FORM(people));
+    flash(t.ux.toastExpense);
+  }
+
+  async function removeSalaryRow(row: SalaryViewRow) {
+    if (!token) return;
+    if (
+      !window.confirm(
+        fillTemplate(t.dashboard.deleteSalaryConfirm, {
+          name: row.name,
+          ym: row.ym,
+        }),
+      )
+    ) {
+      return;
+    }
+    const result = await deleteAdminSalaryMonth(token, row.userId, row.ym);
+    if (!result.ok) {
+      setError(result.error);
+      return;
+    }
+    setSalaryMonths((cur) =>
+      cur.filter((item) => !(item.userId === row.userId && item.ym === row.ym)),
+    );
+  }
+
+  async function removeExpense(row: AdminExpense) {
+    if (!token) return;
+    if (
+      !window.confirm(
+        fillTemplate(t.dashboard.deleteConfirm, { title: row.title }),
+      )
+    ) {
+      return;
+    }
+    const result = await deleteAdminExpense(token, row.id);
+    if (!result.ok) {
+      setError(result.error);
+      return;
+    }
+    setExpenses((cur) => cur.filter((item) => item.id !== row.id));
+  }
+
   function openCreatePerson() {
     setEditingPerson(null);
     setPersonForm(EMPTY_PERSON);
@@ -1084,8 +1291,8 @@ export function AdminConsole() {
       phone: person.phone,
       email: person.email,
       active: person.active,
-      salary: String(person.salary || 0),
-      kpiTarget: String(person.kpiTarget || 0),
+      salary: formatVndInput(String(Math.round(person.salary || 0))),
+      kpiTarget: formatVndInput(String(Math.round(person.kpiTarget || 0))),
     });
     setEditorOpen(false);
   }
@@ -1104,8 +1311,8 @@ export function AdminConsole() {
     const payload = {
       ...personForm,
       id,
-      salary: Number(personForm.salary) || 0,
-      kpiTarget: Number(personForm.kpiTarget) || 0,
+      salary: parseVndInput(personForm.salary),
+      kpiTarget: parseVndInput(personForm.kpiTarget),
     };
     const result = editingPerson
       ? await updateAdminUser(token, editingPerson.id, payload)
@@ -1131,9 +1338,26 @@ export function AdminConsole() {
       phone: result.user.phone,
       email: result.user.email,
       active: result.user.active,
-      salary: String(result.user.salary || 0),
-      kpiTarget: String(result.user.kpiTarget || 0),
+      salary: formatVndInput(String(Math.round(result.user.salary || 0))),
+      kpiTarget: formatVndInput(String(Math.round(result.user.kpiTarget || 0))),
     });
+    const monthResult = await upsertAdminSalaryMonth(token, {
+      userId: result.user.id,
+      ym: monthKey(new Date()),
+      amount: result.user.salary || 0,
+    });
+    if (monthResult.ok) {
+      setSalaryMonths((cur) => {
+        const next = cur.filter(
+          (row) =>
+            !(
+              row.userId === monthResult.salaryMonth.userId &&
+              row.ym === monthResult.salaryMonth.ym
+            ),
+        );
+        return [monthResult.salaryMonth, ...next];
+      });
+    }
   }
 
   async function removePerson(person: AdminUser) {
@@ -1148,6 +1372,7 @@ export function AdminConsole() {
       return;
     }
     setPeople((cur) => cur.filter((row) => row.id !== person.id));
+    setSalaryMonths((cur) => cur.filter((row) => row.userId !== person.id));
     if (selectedPersonId === person.id) {
       setSelectedPersonId(null);
       setEditingPerson(null);
@@ -1171,6 +1396,9 @@ export function AdminConsole() {
     if (idleFilter !== "all") {
       rows = rows.filter((l) => idleTone(idleDays(l.lastActivityAt)) === idleFilter);
     }
+    if (quickIdle3) {
+      rows = rows.filter((l) => idleDays(l.lastActivityAt) > 3);
+    }
     if (nav !== "careers") {
       if (contactKindFilter !== "all") {
         rows = rows.filter((l) => leadContactKind(l) === contactKindFilter);
@@ -1180,8 +1408,8 @@ export function AdminConsole() {
       } else if (atRiskFilter === "no") {
         rows = rows.filter((l) => !l.atRisk);
       }
-      const min = amountMin.trim() === "" ? null : Number(amountMin);
-      const max = amountMax.trim() === "" ? null : Number(amountMax);
+      const min = amountMin.trim() === "" ? null : parseVndInput(amountMin);
+      const max = amountMax.trim() === "" ? null : parseVndInput(amountMax);
       if (min != null && Number.isFinite(min)) {
         rows = rows.filter((l) => l.amount >= min);
       }
@@ -1220,6 +1448,7 @@ export function AdminConsole() {
     sourceFilter,
     ownerFilter,
     idleFilter,
+    quickIdle3,
     contactKindFilter,
     atRiskFilter,
     amountMin,
@@ -1242,7 +1471,8 @@ export function AdminConsole() {
         Boolean(amountMax.trim()) ||
         Boolean(closeFrom) ||
         Boolean(closeTo))) ||
-    Boolean(query.trim() || tableQuery.trim());
+    Boolean(query.trim() || tableQuery.trim()) ||
+    quickIdle3;
 
   const metrics = useMemo(() => {
     const total = scoped.length;
@@ -1256,6 +1486,13 @@ export function AdminConsole() {
     ).length;
     const openDeals = scoped.filter((l) => OPEN_STAGES.includes(l.stage));
     const openAmount = openDeals.reduce((s, l) => s + (l.amount || 0), 0);
+    const wonAmount = scoped
+      .filter(
+        (l) =>
+          l.stage === "won" || l.stage === "deliver" || l.stage === "expand",
+      )
+      .reduce((s, l) => s + (l.amount || 0), 0);
+    const totalValue = openAmount + wonAmount;
     const weighted = openDeals.reduce(
       (s, l) => s + (l.amount || 0) * (getProbability(l) / 100),
       0,
@@ -1278,12 +1515,33 @@ export function AdminConsole() {
       (l) => l.stage === "lost" || l.stage === "out_of_scope",
     ).length;
     const idle = scoped.filter((l) => idleDays(l.lastActivityAt) > 6).length;
+    const thisMonth = monthKey(new Date());
+    const expectedClose = openDeals
+      .filter((l) => (l.closeDate || "").startsWith(thisMonth))
+      .reduce((s, l) => s + (l.amount || 0), 0);
+    const sparks = lastNMonthKeys(6).map((ym) =>
+      scoped
+        .filter((l) => {
+          if (
+            l.stage !== "won" &&
+            l.stage !== "deliver" &&
+            l.stage !== "expand"
+          ) {
+            return false;
+          }
+          const date = leadRevenueDate(l);
+          return date ? monthKey(date) === ym : false;
+        })
+        .reduce((s, l) => s + (l.amount || 0), 0),
+    );
     return {
       total,
       qualified,
       inProgress,
       converted,
       openAmount,
+      wonAmount,
+      totalValue,
       weighted,
       winRate,
       decided,
@@ -1293,6 +1551,8 @@ export function AdminConsole() {
       hired,
       rejected,
       idle,
+      expectedClose,
+      sparks,
     };
   }, [scoped]);
 
@@ -1397,6 +1657,12 @@ export function AdminConsole() {
     setQuery("");
     setTableQuery("");
     setStageTab("all");
+    setQuickIdle3(false);
+  }
+
+  function flash(message: string) {
+    setToast(message);
+    window.setTimeout(() => setToast(""), 2800);
   }
 
   function unlockToken(event: FormEvent) {
@@ -1422,6 +1688,7 @@ export function AdminConsole() {
   function selectDeal(id: string) {
     setSelectedId(id);
     setEditorOpen(false);
+    setDetailTab("overview");
   }
 
   function openCreate() {
@@ -1445,7 +1712,7 @@ export function AdminConsole() {
       stage: normalizeLeadStage(lead.stage),
       title: lead.title || lead.name,
       company: lead.company,
-      amount: String(lead.amount || 0),
+      amount: formatVndInput(String(Math.round(lead.amount || 0))),
       currency: lead.currency || "VND",
       closeDate: lead.closeDate || "",
       probability: String(getProbability(lead)),
@@ -1487,6 +1754,7 @@ export function AdminConsole() {
       return;
     }
     setEditorOpen(false);
+    flash(t.ux.toastSaved);
     await refresh(token);
   }
 
@@ -2017,6 +2285,13 @@ export function AdminConsole() {
 
         <div className="df-canvas">
           {error ? <p className="df__error">{error}</p> : null}
+          {loading && leads.length === 0 ? (
+            <div className="df-skel" aria-hidden>
+              <span />
+              <span />
+              <span />
+            </div>
+          ) : null}
 
           {workspace === "crm" ? (
             <div className="df-panel">
@@ -2044,8 +2319,8 @@ export function AdminConsole() {
             <div className="df-panel">
               <div className="df-panel__head">
                 <div>
-                  <h1>{t.analyticsPage.title}</h1>
-                  <p>{t.analyticsPage.description}</p>
+                  <h1>{t.dashboard.title}</h1>
+                  <p>{t.dashboard.description}</p>
                 </div>
                 <button
                   type="button"
@@ -2055,105 +2330,22 @@ export function AdminConsole() {
                   {loading ? t.side.refreshing : t.side.refresh}
                 </button>
               </div>
-
-              <section className="df-kpis" aria-label="KPIs">
-                <article className="df-kpi">
-                  <p>{t.kpi.totalLeads}</p>
-                  <strong>{metrics.total}</strong>
-                </article>
-                <article className="df-kpi">
-                  <p>{t.kpi.converted}</p>
-                  <strong>{metrics.converted}</strong>
-                </article>
-                <article className="df-kpi">
-                  <p>{t.forecast.winRate}</p>
-                  <WinRateDisplay
-                    rate={metrics.winRate}
-                    decided={metrics.decided}
-                    t={t}
-                  />
-                </article>
-                <article className={`df-kpi${metrics.atRisk ? " is-warn" : ""}`}>
-                  <p>{t.kpi.atRisk}</p>
-                  <strong>{metrics.atRisk}</strong>
-                </article>
-              </section>
-
-              <section className="df-forecast" aria-labelledby="df-forecast-h">
-                <div className="df-forecast__head">
-                  <h2 id="df-forecast-h">{t.forecast.title}</h2>
-                  <p>{t.forecast.hint}</p>
-                </div>
-                <div className="df-forecast__grid">
-                  <article>
-                    <p>{t.forecast.pipeline}</p>
-                    <strong>
-                      {formatMoney(metrics.openAmount, "VND", salesLocale)}
-                    </strong>
-                  </article>
-                  <article>
-                    <p>{t.forecast.weighted}</p>
-                    <strong>
-                      {formatMoney(metrics.weighted, "VND", salesLocale)}
-                    </strong>
-                  </article>
-                  <article>
-                    <p>{t.forecast.winRate}</p>
-                    <WinRateDisplay
-                      rate={metrics.winRate}
-                      decided={metrics.decided}
-                      t={t}
-                    />
-                  </article>
-                </div>
-              </section>
-
-              <section className="df-team" aria-labelledby="df-team-h">
-                <h2 id="df-team-h">{t.teamKpi.title}</h2>
-                <p className="df__muted">
-                  {t.teamKpi.soonCalls} · {t.teamKpi.soonMeetings}
-                </p>
-                <div className="df-table-wrap">
-                  <table className="df-table">
-                    <thead>
-                      <tr>
-                        <th>{t.teamKpi.owner}</th>
-                        <th className="is-num">{t.teamKpi.openDeals}</th>
-                        <th className="is-num">{t.teamKpi.won}</th>
-                        <th className="is-num">{t.teamKpi.winRate}</th>
-                        <th className="is-num">{t.teamKpi.atRisk}</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {teamRows.map((row) => (
-                        <tr key={row.owner}>
-                          <td>
-                            <span className="df-owner">
-                              <span className="df-avatar df-avatar--sm">
-                                {ownerInitials(row.owner)}
-                              </span>
-                              {row.owner}
-                            </span>
-                          </td>
-                          <td className="is-num">{row.open}</td>
-                          <td className="is-num">{row.won}</td>
-                          <td className="is-num">
-                            {row.winRate == null ? "—" : `${row.winRate}%`}
-                            {row.decided > 0 ? (
-                              <em className="df-kpi__sub df-kpi__sub--inline">
-                                {fillTemplate(t.forecast.closedSample, {
-                                  n: row.decided,
-                                })}
-                              </em>
-                            ) : null}
-                          </td>
-                          <td className="is-num">{row.atRisk}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              </section>
+              <FounderDashboard
+                t={t}
+                salesLocale={salesLocale}
+                leads={leads}
+                people={people}
+                expenses={expenses}
+                salaryMonths={salaryMonths}
+                period={dashPeriod}
+                onPeriod={setDashPeriod}
+                form={expenseForm}
+                onForm={setExpenseForm}
+                saving={expenseSaving}
+                onSubmit={(event) => void saveExpense(event)}
+                onDelete={(row) => void removeExpense(row)}
+                onDeleteSalary={(row) => void removeSalaryRow(row)}
+              />
             </div>
           ) : null}
 
@@ -2298,6 +2490,7 @@ export function AdminConsole() {
                     <article className="df-kpi">
                       <p>{t.kpi.totalLeads}</p>
                       <strong>{metrics.total}</strong>
+                      <Sparkline values={metrics.sparks} />
                     </article>
                     <article className="df-kpi">
                       <p>{t.kpi.qualified}</p>
@@ -2310,12 +2503,14 @@ export function AdminConsole() {
                     <article className="df-kpi">
                       <p>{t.kpi.converted}</p>
                       <strong>{metrics.converted}</strong>
+                      <Sparkline values={metrics.sparks} />
                     </article>
                     <article className="df-kpi">
                       <p>{t.kpi.pipelineValue}</p>
-                      <strong>
-                        {formatMoney(metrics.openAmount, "VND", salesLocale)}
+                      <strong title={formatMoneyFull(metrics.totalValue, "VND", salesLocale)}>
+                        {formatMoney(metrics.totalValue, "VND", salesLocale)}
                       </strong>
+                      <Sparkline values={metrics.sparks} />
                     </article>
                     <article className={`df-kpi${metrics.atRisk ? " is-warn" : ""}`}>
                       <p>{t.kpi.atRisk}</p>
@@ -2335,7 +2530,7 @@ export function AdminConsole() {
                   <article>
                     <p>{t.forecast.pipeline}</p>
                     <strong>
-                      {formatMoney(metrics.openAmount, "VND", salesLocale)}
+                      {formatMoney(metrics.totalValue, "VND", salesLocale)}
                     </strong>
                   </article>
                   <article>
@@ -2352,12 +2547,72 @@ export function AdminConsole() {
                       t={t}
                     />
                   </article>
+                  <article>
+                    <p>{t.ux.expectedClose}</p>
+                    <strong title={formatMoneyFull(metrics.expectedClose, "VND", salesLocale)}>
+                      {formatMoney(metrics.expectedClose, "VND", salesLocale)}
+                    </strong>
+                  </article>
                 </div>
               </section>
               )}
 
+              <div className="df-quick">
+                <button
+                  type="button"
+                  className={`df-btn is-ghost is-sm${atRiskFilter === "yes" ? " is-on" : ""}`}
+                  onClick={() =>
+                    setAtRiskFilter((cur) => (cur === "yes" ? "all" : "yes"))
+                  }
+                >
+                  {t.filters.quickAtRisk}
+                </button>
+                <button
+                  type="button"
+                  className={`df-btn is-ghost is-sm${quickIdle3 ? " is-on" : ""}`}
+                  onClick={() => setQuickIdle3((cur) => !cur)}
+                >
+                  {t.filters.quickIdle}
+                </button>
+                <button
+                  type="button"
+                  className={`df-btn is-ghost is-sm${parseVndInput(amountMin) === HIGH_VALUE ? " is-on" : ""}`}
+                  onClick={() =>
+                    setAmountMin((cur) =>
+                      parseVndInput(cur) === HIGH_VALUE
+                        ? ""
+                        : formatVndInput(String(HIGH_VALUE)),
+                    )
+                  }
+                >
+                  {t.filters.quickHighValue}
+                </button>
+              </div>
+
               {filtersOpen ? (
-                <div className="df-filters">
+                <>
+                  <button
+                    type="button"
+                    className="df-sheet-backdrop df-sheet-backdrop--desk"
+                    aria-label={t.side.closePanel}
+                    onClick={() => setFiltersOpen(false)}
+                  />
+                  <aside
+                    className="df-filter-drawer"
+                    aria-labelledby="df-filter-h"
+                  >
+                    <header>
+                      <h2 id="df-filter-h">{t.filters.drawerTitle}</h2>
+                      <button
+                        type="button"
+                        className="df-detail__close df-detail__close--show"
+                        aria-label={t.side.closePanel}
+                        onClick={() => setFiltersOpen(false)}
+                      >
+                        ×
+                      </button>
+                    </header>
+                <div className="df-filters df-filters--drawer">
                   <label>
                     <span>{t.filters.stage}</span>
                     <select
@@ -2468,26 +2723,18 @@ export function AdminConsole() {
                     <>
                       <label>
                         <span>{t.filters.amountMin}</span>
-                        <input
-                          className="df-input"
-                          type="number"
-                          min={0}
-                          inputMode="numeric"
+                        <MoneyInput
                           value={amountMin}
-                          onChange={(e) => setAmountMin(e.target.value)}
-                          placeholder="0"
+                          onChange={setAmountMin}
+                          aria-label={t.filters.amountMin}
                         />
                       </label>
                       <label>
                         <span>{t.filters.amountMax}</span>
-                        <input
-                          className="df-input"
-                          type="number"
-                          min={0}
-                          inputMode="numeric"
+                        <MoneyInput
                           value={amountMax}
-                          onChange={(e) => setAmountMax(e.target.value)}
-                          placeholder="∞"
+                          onChange={setAmountMax}
+                          aria-label={t.filters.amountMax}
                         />
                       </label>
                       <label>
@@ -2519,7 +2766,16 @@ export function AdminConsole() {
                       {t.top.clearFilters}
                     </button>
                   ) : null}
+                  <button
+                    type="button"
+                    className="df-btn"
+                    onClick={() => setFiltersOpen(false)}
+                  >
+                    {t.filters.done}
+                  </button>
                 </div>
+                  </aside>
+                </>
               ) : null}
 
               {filtersActive ? (
@@ -2553,9 +2809,13 @@ export function AdminConsole() {
                       {t.filters.idle}: {idleFilter}
                     </span>
                   ) : null}
+                  {quickIdle3 ? (
+                    <span className="df-chip">{t.filters.quickIdle}</span>
+                  ) : null}
                   {!isCareersTab && (amountMin.trim() || amountMax.trim()) ? (
                     <span className="df-chip">
-                      Value: {amountMin || "0"}–{amountMax || "∞"}
+                      Value: {amountMin ? formatVnd(parseVndInput(amountMin)) : "0"}–
+                      {amountMax ? formatVnd(parseVndInput(amountMax)) : "∞"}
                     </span>
                   ) : null}
                   {!isCareersTab && (closeFrom || closeTo) ? (
@@ -2574,8 +2834,10 @@ export function AdminConsole() {
                 </div>
               ) : null}
 
-              <section className="df-table-card">
-                <div className="df-table-tools">
+              <section
+                className={`df-table-card${pipelineView === "board" ? " df-table-card--board" : ""}`}
+              >
+                <div className="df-table-tools df-table-tools--sticky">
                   <div className="df-view" role="tablist" aria-label={t.view.label}>
                     <button
                       type="button"
@@ -2647,6 +2909,7 @@ export function AdminConsole() {
                         className={`df-board__col${
                           dragOverStage === column.stage ? " is-drop" : ""
                         }`}
+                        aria-labelledby={`df-board-col-${column.stage}`}
                         onDragOver={(e) => onBoardDragOver(e, column.stage)}
                         onDragLeave={() => {
                           if (dragOverStage === column.stage) {
@@ -2655,10 +2918,13 @@ export function AdminConsole() {
                         }}
                         onDrop={(e) => void onBoardDrop(e, column.stage)}
                       >
-                        <header className="df-board__head">
-                          <span className={`df-status ${stageTone(column.stage)}`}>
+                        <div className="df-board__head">
+                          <h3
+                            id={`df-board-col-${column.stage}`}
+                            className={`df-status ${stageTone(column.stage)}`}
+                          >
                             {tabStageShort(salesLocale, column.stage, isCareersTab)}
-                          </span>
+                          </h3>
                           <div className="df-board__head-meta">
                             <em>{column.leads.length}</em>
                             {isCareersTab ? null : (
@@ -2669,20 +2935,23 @@ export function AdminConsole() {
                               </span>
                             )}
                           </div>
-                        </header>
+                        </div>
                         <div
                           className="df-board__list"
                           data-lenis-prevent
                           data-lenis-prevent-wheel
                         >
                           {column.leads.length === 0 ? (
-                            <p className="df-board__empty">
-                              {dragOverStage === column.stage
-                                ? t.board.dropHere
-                                : isCareersTab
-                                  ? t.careersUi.boardEmpty
-                                  : t.board.empty}
-                            </p>
+                            <div className="df-board__empty">
+                              <EmptyArt kind="inbox" className="df-empty-art is-sm" />
+                              <p>
+                                {dragOverStage === column.stage
+                                  ? t.board.dropHere
+                                  : isCareersTab
+                                    ? t.careersUi.boardEmpty
+                                    : t.board.empty}
+                              </p>
+                            </div>
                           ) : (
                             column.leads.map((lead) => {
                               const idle = idleDays(lead.lastActivityAt);
@@ -2795,23 +3064,34 @@ export function AdminConsole() {
                             colSpan={isCareersTab ? 9 : 12}
                             className="df-table__empty"
                           >
-                            <strong>{emptyMessage}</strong>
-                            {!loading ? (
-                              <p>
-                                {isCareersTab
-                                  ? t.careersUi.emptyHint
-                                  : t.table.emptyHint}
-                              </p>
-                            ) : null}
-                            {!loading ? (
-                              <button
-                                type="button"
-                                className="df-btn"
-                                onClick={openCreate}
-                              >
-                                {isCareersTab ? t.hero.newCareer : t.hero.newDeal}
-                              </button>
-                            ) : null}
+                            <EmptyState
+                              kind={
+                                filtersActive || stageTab !== "all"
+                                  ? "search"
+                                  : "inbox"
+                              }
+                              title={emptyMessage}
+                              body={
+                                loading
+                                  ? undefined
+                                  : isCareersTab
+                                    ? t.careersUi.emptyHint
+                                    : t.table.emptyHint
+                              }
+                              action={
+                                loading ? null : (
+                                  <button
+                                    type="button"
+                                    className="df-btn"
+                                    onClick={openCreate}
+                                  >
+                                    {isCareersTab
+                                      ? t.hero.newCareer
+                                      : t.hero.newDeal}
+                                  </button>
+                                )
+                              }
+                            />
                           </td>
                         </tr>
                       ) : (
@@ -2821,9 +3101,12 @@ export function AdminConsole() {
                           return (
                             <tr
                               key={lead.id}
-                              className={
-                                selectedId === lead.id ? "is-selected" : undefined
-                              }
+                              className={[
+                                selectedId === lead.id ? "is-selected" : "",
+                                rowTone(lead),
+                              ]
+                                .filter(Boolean)
+                                .join(" ")}
                               onClick={() => selectDeal(lead.id)}
                             >
                               <td>
@@ -2854,28 +3137,54 @@ export function AdminConsole() {
                               {isCareersTab ? null : (
                                 <>
                                   <td className="is-num">
-                                    <InlineQuickField
-                                      kind="amount"
-                                      lead={lead}
-                                      salesLocale={salesLocale}
-                                      t={t}
-                                      disabled={stageSavingId === lead.id}
-                                      onSaveAmount={changeAmount}
-                                      onSaveClose={changeCloseDate}
-                                      onSaveProb={changeProbability}
-                                    />
+                                    <div className="df-metric-cell">
+                                      <span
+                                        title={formatMoneyFull(
+                                          lead.amount,
+                                          lead.currency,
+                                          salesLocale,
+                                        )}
+                                      >
+                                        <InlineQuickField
+                                          kind="amount"
+                                          lead={lead}
+                                          salesLocale={salesLocale}
+                                          t={t}
+                                          disabled={stageSavingId === lead.id}
+                                          onSaveAmount={changeAmount}
+                                          onSaveClose={changeCloseDate}
+                                          onSaveProb={changeProbability}
+                                        />
+                                      </span>
+                                      <span className="df-mini-bar" aria-hidden>
+                                        <i
+                                          style={{
+                                            width: `${Math.min(100, ((lead.amount || 0) / HIGH_VALUE) * 100)}%`,
+                                          }}
+                                        />
+                                      </span>
+                                    </div>
                                   </td>
                                   <td className="is-num">
-                                    <InlineQuickField
-                                      kind="prob"
-                                      lead={lead}
-                                      salesLocale={salesLocale}
-                                      t={t}
-                                      disabled={stageSavingId === lead.id}
-                                      onSaveAmount={changeAmount}
-                                      onSaveClose={changeCloseDate}
-                                      onSaveProb={changeProbability}
-                                    />
+                                    <div className="df-metric-cell">
+                                      <InlineQuickField
+                                        kind="prob"
+                                        lead={lead}
+                                        salesLocale={salesLocale}
+                                        t={t}
+                                        disabled={stageSavingId === lead.id}
+                                        onSaveAmount={changeAmount}
+                                        onSaveClose={changeCloseDate}
+                                        onSaveProb={changeProbability}
+                                      />
+                                      <span className="df-mini-bar" aria-hidden>
+                                        <i
+                                          style={{
+                                            width: `${getProbability(lead)}%`,
+                                          }}
+                                        />
+                                      </span>
+                                    </div>
                                   </td>
                                   <td>
                                     <InlineQuickField
@@ -2914,13 +3223,31 @@ export function AdminConsole() {
                                 </span>
                               </td>
                               <td>
-                                <span className="df-next">
+                                <button
+                                  type="button"
+                                  className="df-next-btn"
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    selectDeal(lead.id);
+                                  }}
+                                >
                                   {isCareersTab
                                     ? suggestedCareerNext(lead, t)
                                     : suggestedNext(lead, t)}
-                                </span>
+                                </button>
                               </td>
                               <td className="df-row-actions">
+                                <button
+                                  type="button"
+                                  className="df-link"
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    selectDeal(lead.id);
+                                    setDetailTab("notes");
+                                  }}
+                                >
+                                  {t.ux.note}
+                                </button>
                                 <button
                                   type="button"
                                   className="df-link"
@@ -3041,14 +3368,19 @@ export function AdminConsole() {
                       {peopleRows.length === 0 ? (
                         <tr>
                           <td colSpan={10} className="df-table__empty">
-                            <strong>{t.peopleUi.empty}</strong>
-                            <button
-                              type="button"
-                              className="df-btn"
-                              onClick={openCreatePerson}
-                            >
-                              {t.peopleUi.newPerson}
-                            </button>
+                            <EmptyState
+                              kind="inbox"
+                              title={t.peopleUi.empty}
+                              action={
+                                <button
+                                  type="button"
+                                  className="df-btn"
+                                  onClick={openCreatePerson}
+                                >
+                                  {t.peopleUi.newPerson}
+                                </button>
+                              }
+                            />
                           </td>
                         </tr>
                       ) : (
@@ -3278,28 +3610,19 @@ export function AdminConsole() {
               <p className="df-form__section">{t.peopleUi.sectionPay}</p>
               <label>
                 {t.peopleUi.colSalary}
-                <input
-                  type="number"
-                  min={0}
-                  step={100000}
+                <MoneyInput
                   value={personForm.salary}
-                  onChange={(e) =>
-                    setPersonForm((c) => ({ ...c, salary: e.target.value }))
+                  onChange={(salary) =>
+                    setPersonForm((c) => ({ ...c, salary }))
                   }
                 />
               </label>
               <label>
                 {t.peopleUi.colKpi}
-                <input
-                  type="number"
-                  min={0}
-                  step={1000000}
+                <MoneyInput
                   value={personForm.kpiTarget}
-                  onChange={(e) =>
-                    setPersonForm((c) => ({
-                      ...c,
-                      kpiTarget: e.target.value,
-                    }))
+                  onChange={(kpiTarget) =>
+                    setPersonForm((c) => ({ ...c, kpiTarget }))
                   }
                 />
               </label>
@@ -3491,13 +3814,10 @@ export function AdminConsole() {
                 <div className="df-detail__form-row">
                   <label>
                     {t.form.amount}
-                    <input
-                      type="number"
-                      min={0}
-                      step={1000}
+                    <MoneyInput
                       value={form.amount}
-                      onChange={(e) =>
-                        setForm((c) => ({ ...c, amount: e.target.value }))
+                      onChange={(amount) =>
+                        setForm((c) => ({ ...c, amount }))
                       }
                     />
                   </label>
@@ -3702,11 +4022,33 @@ export function AdminConsole() {
               </button>
             </div>
           </header>
+          <div className="df-detail__tabs" role="tablist" aria-label={t.drawer.lead}>
+            {(
+              [
+                ["overview", t.ux.tabOverview],
+                ["activity", t.ux.tabActivity],
+                ["notes", t.ux.tabNotes],
+              ] as const
+            ).map(([id, label]) => (
+              <button
+                key={id}
+                type="button"
+                role="tab"
+                className={detailTab === id ? "is-active" : undefined}
+                aria-selected={detailTab === id}
+                onClick={() => setDetailTab(id)}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
           <div
             className="df-detail__body"
             ref={detailBodyRef}
             tabIndex={0}
           >
+            {detailTab === "overview" ? (
+            <>
             <section className="df-detail__block">
               <h3>{t.drawer.contactSection}</h3>
               <dl>
@@ -3806,7 +4148,10 @@ export function AdminConsole() {
                 </div>
               </dl>
             </section>
+            </>
+            ) : null}
 
+            {detailTab === "activity" ? (
             <section className="df-detail__block">
               <h3>{t.drawer.activitySection}</h3>
               <dl>
@@ -3843,7 +4188,9 @@ export function AdminConsole() {
                 <p className="df__muted df-detail__soon">{t.drawer.tasksSoon}</p>
               )}
             </section>
+            ) : null}
 
+            {detailTab === "notes" ? (
             <section className="df-detail__block">
               <h3>{t.drawer.notesSection}</h3>
               {selected.note?.trim() ? (
@@ -3925,14 +4272,16 @@ export function AdminConsole() {
                 </div>
               </div>
             </section>
+            ) : null}
 
-            {isCareersTab ? null : (
+            {detailTab === "activity" && !isCareersTab ? (
               <section className="df-detail__block">
                 <h3>{t.drawer.profile360}</h3>
                 <p className="df__muted">{t.drawer.profile360Soon}</p>
               </section>
-            )}
+            ) : null}
 
+            {detailTab === "activity" ? (
             <section className="df-detail__block">
               <h3>{t.drawer.timelineSection}</h3>
               <ol className="df-timeline">
@@ -4004,6 +4353,7 @@ export function AdminConsole() {
                 ) : null}
               </ol>
             </section>
+            ) : null}
           </div>
           <footer className="df-detail__foot">
             <button
@@ -4027,13 +4377,23 @@ export function AdminConsole() {
           <p className="df-side__label">
             {isCareersTab ? t.careersUi.drawerApplicant : t.drawer.lead}
           </p>
-          <h2>{t.drawer.emptyTitle}</h2>
-          <p className="df__muted">{t.drawer.emptyBody}</p>
-          <button type="button" className="df-btn" onClick={openCreate}>
-            {isCareersTab ? t.hero.newCareer : t.hero.newDeal}
-          </button>
+          <EmptyState
+            kind="panel"
+            title={t.drawer.emptyTitle}
+            body={t.drawer.emptyBody}
+            action={
+              <button type="button" className="df-btn" onClick={openCreate}>
+                {isCareersTab ? t.hero.newCareer : t.hero.newDeal}
+              </button>
+            }
+          />
         </aside>
       )}
+      {toast ? (
+        <p className="df-toast" role="status">
+          {toast}
+        </p>
+      ) : null}
     </div>
   );
 }
