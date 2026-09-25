@@ -63,7 +63,7 @@ export type LandingCopy = {
 };
 
 const ZALO = "https://zalo.me/0779937633";
-const EMAIL = "mailto:nchithanh9999@gmail.com";
+const EMAIL = "mailto:support@dolphin-software.io.vn";
 
 const vi: LandingCopy = {
   metaTitle: "Thiết Kế Landing Page Chuyên Nghiệp | Dolphin Software",

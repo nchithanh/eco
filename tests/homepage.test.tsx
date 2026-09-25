@@ -322,7 +322,7 @@ describe("Dolphin Software homepage", () => {
     ).toHaveAttribute("href", "https://zalo.me/0779937633");
     expect(
       contact.getByRole("link", { name: /メールを送る/i }),
-    ).toHaveAttribute("href", "mailto:nchithanh9999@gmail.com");
+    ).toHaveAttribute("href", "mailto:support@dolphin-software.io.vn");
   });
 
   it("renders news section with latest post", () => {
