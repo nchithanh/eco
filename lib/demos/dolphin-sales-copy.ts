@@ -31,6 +31,34 @@ export type DolphinSalesCopy = {
     analytics: string;
     contracts: string;
   };
+  menu: {
+    dashboardGroup: string;
+    managementGroup: string;
+    dashboard: string;
+    deals: string;
+    appointments: string;
+    jobs: string;
+    tasks: string;
+    activity: string;
+    proposals: string;
+    invoices: string;
+    contacts: string;
+    metrics: string;
+    emails: string;
+    company: string;
+    users: string;
+    dimTitle: string;
+    dimBody: string;
+    projectedDeals: string;
+    projectedRevenue: string;
+    export: string;
+    notifications: string;
+    sort: string;
+    sortActivity: string;
+    sortAmount: string;
+    sortTitle: string;
+    searchDeals: string;
+  };
   side: {
     search: string;
     saleGroup: string;
@@ -195,6 +223,7 @@ export type DolphinSalesCopy = {
     empty: string;
     dropHere: string;
     columnSum: string;
+    columnDeals: string;
   };
   table: {
     searchLeads: string;
@@ -252,6 +281,7 @@ export type DolphinSalesCopy = {
     account: string;
     contact: string;
     phone: string;
+    zalo: string;
     close: string;
     owner: string;
     idle: string;
@@ -569,6 +599,35 @@ const VI: DolphinSalesCopy = {
     analytics: "Phân tích",
     contracts: "Hợp đồng",
   },
+  menu: {
+    dashboardGroup: "Dashboard",
+    managementGroup: "Management",
+    dashboard: "Dashboard",
+    deals: "Deals",
+    appointments: "Appointments",
+    jobs: "Jobs",
+    tasks: "Tasks",
+    activity: "Activity",
+    proposals: "Proposals",
+    invoices: "Invoices",
+    contacts: "Contacts",
+    metrics: "Metrics",
+    emails: "Emails",
+    company: "Company",
+    users: "Users",
+    dimTitle: "Chưa đủ dữ liệu",
+    dimBody:
+      "Mục này hiện trên menu để khớp workspace. Sẽ mở khi có lịch hẹn, task, hóa đơn hoặc email.",
+    projectedDeals: "Projected Deals",
+    projectedRevenue: "Projected Revenue",
+    export: "Export",
+    notifications: "Thông báo",
+    sort: "Sort",
+    sortActivity: "Last activity",
+    sortAmount: "Value",
+    sortTitle: "Name",
+    searchDeals: "Search deals…",
+  },
   side: {
     search: "Tìm kiếm",
     saleGroup: "Bán hàng",
@@ -605,7 +664,7 @@ const VI: DolphinSalesCopy = {
     filtersActive: "đang lọc",
   },
   hero: {
-    title: "Sales Pipeline",
+    title: "Deals Pipeline",
     description:
       "B2B / giải pháp & hợp đồng — theo dõi thương vụ từ tiếp cận đến chốt. Chu kỳ dài, giá trị lớn, nhiều vòng đàm phán.",
     newDeal: "Add Deal",
@@ -735,7 +794,7 @@ const VI: DolphinSalesCopy = {
   },
   view: {
     list: "List",
-    board: "Board",
+    board: "Pipeline",
     label: "View",
   },
   board: {
@@ -743,6 +802,7 @@ const VI: DolphinSalesCopy = {
     empty: "Kéo deal vào đây",
     dropHere: "Thả để đổi stage",
     columnSum: "{value}",
+    columnDeals: "{n} deal",
   },
   table: {
     searchLeads: "Lọc trong danh sách…",
@@ -801,6 +861,7 @@ const VI: DolphinSalesCopy = {
     account: "Company",
     contact: "Person",
     phone: "Phone",
+    zalo: "Zalo",
     close: "Expected close",
     owner: "Owner",
     idle: "Idle",
@@ -1060,6 +1121,35 @@ const EN: DolphinSalesCopy = {
     analytics: "Analytics",
     contracts: "Contracts",
   },
+  menu: {
+    dashboardGroup: "Dashboard",
+    managementGroup: "Management",
+    dashboard: "Dashboard",
+    deals: "Deals",
+    appointments: "Appointments",
+    jobs: "Jobs",
+    tasks: "Tasks",
+    activity: "Activity",
+    proposals: "Proposals",
+    invoices: "Invoices",
+    contacts: "Contacts",
+    metrics: "Metrics",
+    emails: "Emails",
+    company: "Company",
+    users: "Users",
+    dimTitle: "Not enough data yet",
+    dimBody:
+      "This item stays on the menu to match the workspace. It opens when appointments, tasks, invoices, or email exist.",
+    projectedDeals: "Projected Deals",
+    projectedRevenue: "Projected Revenue",
+    export: "Export",
+    notifications: "Notifications",
+    sort: "Sort",
+    sortActivity: "Last activity",
+    sortAmount: "Value",
+    sortTitle: "Name",
+    searchDeals: "Search deals…",
+  },
   side: {
     search: "Search",
     saleGroup: "Sale",
@@ -1096,7 +1186,7 @@ const EN: DolphinSalesCopy = {
     filtersActive: "active",
   },
   hero: {
-    title: "Sales Pipeline",
+    title: "Deals Pipeline",
     description:
       "B2B / solutions & contracts — track opportunities from outreach to close. Long cycle, high value, multi-touch negotiation.",
     newDeal: "Add Deal",
@@ -1226,7 +1316,7 @@ const EN: DolphinSalesCopy = {
   },
   view: {
     list: "List",
-    board: "Board",
+    board: "Pipeline",
     label: "View",
   },
   board: {
@@ -1234,6 +1324,7 @@ const EN: DolphinSalesCopy = {
     empty: "Drop deals here",
     dropHere: "Drop to change stage",
     columnSum: "{value}",
+    columnDeals: "{n} deals",
   },
   table: {
     searchLeads: "Filter this list…",
@@ -1292,6 +1383,7 @@ const EN: DolphinSalesCopy = {
     account: "Company",
     contact: "Person",
     phone: "Phone",
+    zalo: "Zalo",
     close: "Expected close",
     owner: "Owner",
     idle: "Idle",

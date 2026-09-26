@@ -70,6 +70,7 @@ export type AdminLead = {
   owner: string;
   lastActivityAt: string;
   atRisk: boolean;
+  commentCount?: number;
 };
 
 export type LeadWriteInput = {
@@ -134,6 +135,8 @@ function mapLead(raw: unknown): AdminLead {
     owner: normalizeLeadOwner(row.owner),
     lastActivityAt: String(row.lastActivityAt || row.createdAt || ""),
     atRisk: Boolean(row.atRisk),
+    commentCount:
+      row.commentCount == null ? undefined : Number(row.commentCount) || 0,
   };
 }
 

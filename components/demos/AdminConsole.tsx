@@ -93,6 +93,60 @@ const HIGH_VALUE = 10_000_000;
 
 type WorkspaceId = "sale" | "crm" | "analytics" | "contracts";
 type SaleNavId = "pipeline" | "careers" | "people" | "playbook";
+type AppPage =
+  | "dashboard"
+  | "deals"
+  | "appointments"
+  | "jobs"
+  | "tasks"
+  | "activity"
+  | "proposals"
+  | "invoices"
+  | "contacts"
+  | "metrics"
+  | "emails"
+  | "company"
+  | "users";
+type DealSort = "activity" | "amount" | "title";
+
+const DIM_PAGES = new Set<AppPage>([
+  "appointments",
+  "tasks",
+  "invoices",
+  "emails",
+]);
+
+function pageWorkspace(page: AppPage): WorkspaceId {
+  if (page === "dashboard" || page === "metrics") return "analytics";
+  if (page === "proposals") return "contracts";
+  return "sale";
+}
+
+function pageNav(page: AppPage): SaleNavId {
+  if (page === "jobs") return "careers";
+  if (page === "users") return "people";
+  return "pipeline";
+}
+
+function zaloHrefFromPhone(raw: string): string | null {
+  let digits = raw.replace(/\D/g, "");
+  if (!digits) return null;
+  if (digits.startsWith("84") && digits.length >= 10) {
+    digits = `0${digits.slice(2)}`;
+  }
+  if (digits.length < 9) return null;
+  return `https://zalo.me/${digits}`;
+}
+
+function activityShort(iso: string): string {
+  const t = new Date(iso).getTime();
+  if (Number.isNaN(t)) return "—";
+  const mins = Math.max(1, Math.floor((Date.now() - t) / 60_000));
+  if (mins < 60) return `${mins}m`;
+  const hours = Math.floor(mins / 60);
+  if (hours < 48) return `${hours}h`;
+  return `${Math.floor(hours / 24)}d`;
+}
 type PipelineView = "list" | "board";
 type PipelineSource = Exclude<AdminLeadSource, "careers">;
 type SourceFilter = "all" | PipelineSource;
@@ -360,6 +414,64 @@ function ownerInitials(owner: string): string {
   if (parts.length === 0) return "DS";
   if (parts.length === 1) return parts[0].slice(0, 2).toUpperCase();
   return (parts[0][0] + parts[1][0]).toUpperCase();
+}
+
+function avatarTone(seed: string): string {
+  const tones = ["is-a", "is-b", "is-c", "is-d", "is-e"];
+  let hash = 0;
+  for (let i = 0; i < seed.length; i += 1) {
+    hash = (hash + seed.charCodeAt(i)) % tones.length;
+  }
+  return tones[hash];
+}
+
+function leadCommentCount(lead: AdminLead): number {
+  if (typeof lead.commentCount === "number" && Number.isFinite(lead.commentCount)) {
+    return Math.max(0, Math.round(lead.commentCount));
+  }
+  return lead.note?.trim() ? 1 : 0;
+}
+
+function BoardCardIcons({
+  comments,
+  files,
+  tasks,
+  ago,
+  owner,
+}: {
+  comments: number;
+  files: number;
+  tasks: number;
+  ago: string;
+  owner: string;
+}) {
+  return (
+    <span className="df-board-card__icons" aria-hidden>
+      <span className="df-board-card__icon">
+        <svg width={14} height={14} viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth={1.5}>
+          <rect x="2.5" y="3.5" width="11" height="10" rx="1.5" />
+          <path d="M2.5 6.5h11M5.5 2.5v2M10.5 2.5v2" strokeLinecap="round" />
+        </svg>
+        <em>{tasks}</em>
+      </span>
+      <span className="df-board-card__icon">
+        <svg width={14} height={14} viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth={1.5}>
+          <path d="M3 4.5h10v6.5H7.5L5 13v-2H3z" strokeLinejoin="round" />
+        </svg>
+        <em>{comments}</em>
+      </span>
+      <span className="df-board-card__icon">
+        <svg width={14} height={14} viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth={1.5}>
+          <path d="M6 8.5 9.2 5.3a1.6 1.6 0 1 1 2.3 2.3L6.8 12.3a2.3 2.3 0 0 1-3.3-3.3L8 4.5" strokeLinecap="round" />
+        </svg>
+        <em>{files}</em>
+      </span>
+      <span className="df-board-card__idle">{ago}</span>
+      <span className={`df-avatar df-avatar--xs ${avatarTone(owner)}`}>
+        {ownerInitials(owner)}
+      </span>
+    </span>
+  );
 }
 
 /** Initials for lead mark — prefer company / deal title over contact name. */
@@ -720,9 +832,7 @@ function InlineQuickField({
         : false;
   const label =
     kind === "amount"
-      ? empty
-        ? t.table.setValue
-        : formatMoney(lead.amount, lead.currency, salesLocale)
+      ? formatMoney(lead.amount, lead.currency, salesLocale)
       : kind === "close"
         ? empty
           ? t.table.setClose
@@ -815,6 +925,69 @@ function NavIcon({ name }: { name: string }) {
           <path d="M10.5 2.5V5H13M6 8h4M6 10.5h3" strokeLinecap="round" />
         </svg>
       );
+    case "home":
+      return (
+        <svg {...common}>
+          <path d="M2.5 7.5 8 3l5.5 4.5V13H10V9H6v4H2.5z" strokeLinejoin="round" />
+        </svg>
+      );
+    case "handshake":
+      return (
+        <svg {...common}>
+          <path d="M3 8.5 6.2 5.3a1.4 1.4 0 0 1 2 0L9.5 6.6l1.8-1.8a1.4 1.4 0 0 1 2 0L14.5 6" strokeLinecap="round" />
+          <path d="M2.5 9.2 6 12.5h2.2L10 10.8l1.6 1.6H14" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      );
+    case "calendar":
+      return (
+        <svg {...common}>
+          <rect x="2.5" y="3.5" width="11" height="10" rx="1.5" />
+          <path d="M2.5 6.5h11M5.5 2.5v2M10.5 2.5v2" strokeLinecap="round" />
+        </svg>
+      );
+    case "briefcase":
+      return (
+        <svg {...common}>
+          <rect x="2" y="5.5" width="12" height="8" rx="1.5" />
+          <path d="M6 5.5V4.2A1.2 1.2 0 0 1 7.2 3h1.6A1.2 1.2 0 0 1 10 4.2V5.5M2 9h12" strokeLinecap="round" />
+        </svg>
+      );
+    case "tasks":
+      return (
+        <svg {...common}>
+          <rect x="3" y="3" width="10" height="10" rx="1.5" />
+          <path d="M5.5 8 7 9.5 10.5 6" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      );
+    case "wifi":
+      return (
+        <svg {...common}>
+          <path d="M2.8 7.2a7.2 7.2 0 0 1 10.4 0M4.6 9a4.6 4.6 0 0 1 6.8 0" strokeLinecap="round" />
+          <circle cx="8" cy="12" r="1" fill="currentColor" stroke="none" />
+        </svg>
+      );
+    case "invoice":
+      return (
+        <svg {...common}>
+          <path d="M4 2.5h8v11l-1.2-.8-1.3.8-1.3-.8-1.2.8-1.3-.8-1.2.8z" strokeLinejoin="round" />
+          <path d="M6 6h4M6 8.5h3" strokeLinecap="round" />
+        </svg>
+      );
+    case "mail":
+      return (
+        <svg {...common}>
+          <rect x="2" y="4" width="12" height="8.5" rx="1.4" />
+          <path d="M3 5.2 8 9l5-3.8" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      );
+    case "users":
+      return (
+        <svg {...common}>
+          <circle cx="6" cy="5.5" r="2" />
+          <circle cx="11" cy="6.2" r="1.6" />
+          <path d="M2.4 13c.5-2.1 1.9-3.2 3.6-3.2S9.1 10.9 9.6 13M10 10c1.3 0 2.4.6 3 1.8" strokeLinecap="round" />
+        </svg>
+      );
     default:
       return null;
   }
@@ -826,8 +999,10 @@ export function AdminConsole() {
   const [localeReady, setLocaleReady] = useState(false);
   const t = useMemo(() => getDolphinSalesCopy(salesLocale), [salesLocale]);
 
-  const [workspace, setWorkspace] = useState<WorkspaceId>("sale");
-  const [nav, setNav] = useState<SaleNavId>("pipeline");
+  const [appPage, setAppPage] = useState<AppPage>("deals");
+  const workspace = pageWorkspace(appPage);
+  const nav = pageNav(appPage);
+  const [dealSort, setDealSort] = useState<DealSort>("activity");
   const [sideCollapsed, setSideCollapsed] = useState(false);
   const [laptopExpanded, setLaptopExpanded] = useState(false);
   const [sideOpen, setSideOpen] = useState(false);
@@ -1598,11 +1773,25 @@ export function AdminConsole() {
       if (!stages.includes(lead.stage)) stages.push(lead.stage);
     }
     const visible = stageTab === "all" ? stages : stages.filter((s) => s === stageTab);
+    const sortLeads = (rows: AdminLead[]) => {
+      const copy = [...rows];
+      copy.sort((a, b) => {
+        if (dealSort === "amount") return (b.amount || 0) - (a.amount || 0);
+        if (dealSort === "title") {
+          return (a.title || a.name).localeCompare(b.title || b.name);
+        }
+        return (
+          new Date(b.lastActivityAt).getTime() -
+          new Date(a.lastActivityAt).getTime()
+        );
+      });
+      return copy;
+    };
     return visible.map((stage) => ({
       stage,
-      leads: filtered.filter((lead) => lead.stage === stage),
+      leads: sortLeads(filtered.filter((lead) => lead.stage === stage)),
     }));
-  }, [filtered, stageTab, visibleStageTabs]);
+  }, [filtered, stageTab, visibleStageTabs, dealSort]);
 
   useEffect(() => {
     setPage(0);
@@ -1640,7 +1829,7 @@ export function AdminConsole() {
       if (cur && leads.some((lead) => lead.id === cur && matchesTab(lead))) {
         return cur;
       }
-      return leads.find(matchesTab)?.id ?? null;
+      return null;
     });
   }, [nav, leads]);
 
@@ -1921,19 +2110,20 @@ export function AdminConsole() {
           ? t.careersUi.emptyAll
           : t.table.emptyAll;
 
-  function switchWorkspace(next: WorkspaceId) {
-    setWorkspace(next);
-    if (next === "sale") setNav("pipeline");
+  function goTo(next: AppPage) {
+    setAppPage(next);
     closeSideMenu();
-  }
-
-  function setSaleNav(next: SaleNavId) {
-    setNav(next);
-    closeSideMenu();
-    if (next === "pipeline" || next === "careers") {
+    if (next !== "deals" && next !== "jobs") {
+      setSelectedId(null);
+      setEditorOpen(false);
+    }
+    if (next !== "users") {
+      setPersonFormOpen(false);
+    }
+    if (next === "deals" || next === "jobs") {
       setSourceFilter("all");
     }
-    if (next === "careers") {
+    if (next === "jobs") {
       setPipelineView("list");
       setContactKindFilter("all");
       setAtRiskFilter("all");
@@ -1947,23 +2137,28 @@ export function AdminConsole() {
     }
   }
 
-  const saleBoardOpen = workspace === "sale" && (nav === "pipeline" || nav === "careers");
-  const isCareersTab = nav === "careers";
-
-  const crumbLabel =
-    workspace === "crm"
-      ? t.workspaces.crm
-      : workspace === "analytics"
-        ? t.workspaces.analytics
-        : workspace === "contracts"
-          ? t.workspaces.contracts
-          : nav === "playbook"
-            ? t.side.navPlaybook
-            : nav === "careers"
-              ? t.side.navCareers
-              : nav === "people"
-                ? t.side.navPeople
-                : t.hero.title;
+  const saleBoardOpen = appPage === "deals" || appPage === "jobs";
+  const isCareersTab = appPage === "jobs";
+  const pageTitle =
+    appPage === "dashboard"
+      ? t.dashboard.title
+      : appPage === "jobs"
+        ? t.hero.careersTitle
+        : appPage === "users"
+          ? t.peopleUi.title
+          : appPage === "proposals"
+            ? t.contractsPage.title
+            : appPage === "metrics"
+              ? t.menu.metrics
+              : appPage === "activity"
+                ? t.menu.activity
+                : appPage === "contacts"
+                  ? t.menu.contacts
+                  : appPage === "company"
+                    ? t.menu.company
+                    : DIM_PAGES.has(appPage)
+                      ? t.menu[appPage]
+                      : t.hero.title;
 
   const railCollapsed = isMobile
     ? false
@@ -1971,11 +2166,10 @@ export function AdminConsole() {
       ? !laptopExpanded
       : sideCollapsed;
   const sheetOpen =
-    workspace === "sale" &&
-    (nav === "people"
+    appPage === "users"
       ? personFormOpen
-      : (nav === "pipeline" || nav === "careers") &&
-        (editorOpen || Boolean(selected)));
+      : (appPage === "deals" || appPage === "jobs") &&
+        (editorOpen || Boolean(selected));
   const dfClass = [
     "df",
     railCollapsed ? "df--side-collapsed" : "",
@@ -1999,7 +2193,7 @@ export function AdminConsole() {
         aria-label={t.side.menuClose}
         onClick={closeSideMenu}
       />
-      {isMobile && sheetOpen ? (
+      {sheetOpen ? (
         <button
           type="button"
           className="df-sheet-backdrop"
@@ -2009,7 +2203,7 @@ export function AdminConsole() {
       ) : null}
       <aside className="df-side" aria-label={t.brand}>
         <div className="df-side__brand">
-          <ThemedLogoImg className="df-mark" width={28} height={28} alt="" />
+          <ThemedLogoImg className="df-mark" width={36} height={36} alt={t.brand} />
           <div>
             <strong>{t.brand}</strong>
             <em>{t.workspaceName}</em>
@@ -2040,187 +2234,93 @@ export function AdminConsole() {
           </button>
         </div>
 
-        <p className="df-side__label">{t.workspaces.label}</p>
-        <nav className="df-side__nav df-side__workspaces" aria-label={t.workspaces.label}>
-          <button
-            type="button"
-            className={workspace === "sale" ? "is-active" : undefined}
-            title={t.workspaces.sale}
-            onClick={() => switchWorkspace("sale")}
-          >
-            <NavIcon name="pipeline" />
-            {t.workspaces.sale}
-          </button>
-          <button
-            type="button"
-            className={workspace === "crm" ? "is-active" : undefined}
-            title={t.workspaces.crm}
-            onClick={() => switchWorkspace("crm")}
-          >
-            <NavIcon name="contacts" />
-            {t.workspaces.crm}
-          </button>
-          <button
-            type="button"
-            className={workspace === "analytics" ? "is-active" : undefined}
-            title={t.workspaces.analytics}
-            onClick={() => switchWorkspace("analytics")}
-          >
-            <NavIcon name="overview" />
-            {t.workspaces.analytics}
-          </button>
-          <button
-            type="button"
-            className={workspace === "contracts" ? "is-active" : undefined}
-            title={t.workspaces.contracts}
-            onClick={() => switchWorkspace("contracts")}
-          >
-            <NavIcon name="contracts" />
-            {t.workspaces.contracts}
-          </button>
+        <p className="df-side__label">{t.menu.dashboardGroup}</p>
+        <nav className="df-side__nav" aria-label={t.menu.dashboardGroup}>
+          {(
+            [
+              ["dashboard", "home", t.menu.dashboard],
+              ["deals", "handshake", t.menu.deals],
+              ["appointments", "calendar", t.menu.appointments],
+              ["jobs", "briefcase", t.menu.jobs],
+              ["tasks", "tasks", t.menu.tasks],
+            ] as const
+          ).map(([id, icon, label]) => (
+            <button
+              key={id}
+              type="button"
+              className={[
+                appPage === id ? "is-active" : "",
+                DIM_PAGES.has(id) ? "is-dim" : "",
+              ]
+                .filter(Boolean)
+                .join(" ") || undefined}
+              title={label}
+              onClick={() => goTo(id)}
+            >
+              <NavIcon name={icon} />
+              {label}
+            </button>
+          ))}
         </nav>
 
-        {workspace === "sale" ? (
-          <>
-            <p className="df-side__label">{t.side.saleGroup}</p>
-            <nav className="df-side__nav">
-              <button
-                type="button"
-                className={nav === "pipeline" ? "is-active" : undefined}
-                title={t.side.navPipeline}
-                onClick={() => setSaleNav("pipeline")}
-              >
-                <NavIcon name="deals" />
-                {t.side.navPipeline}
-              </button>
-              <button
-                type="button"
-                className={nav === "careers" ? "is-active" : undefined}
-                title={t.side.navCareers}
-                onClick={() => setSaleNav("careers")}
-              >
-                <NavIcon name="contacts" />
-                {t.side.navCareers}
-              </button>
-              <button
-                type="button"
-                className={nav === "people" ? "is-active" : undefined}
-                title={t.side.navPeople}
-                onClick={() => setSaleNav("people")}
-              >
-                <NavIcon name="contacts" />
-                {t.side.navPeople}
-              </button>
-              <button
-                type="button"
-                className={nav === "playbook" ? "is-active" : undefined}
-                title={t.side.navPlaybook}
-                onClick={() => setSaleNav("playbook")}
-              >
-                <NavIcon name="playbook" />
-                {t.side.navPlaybook}
-              </button>
-              <button type="button" disabled title={t.side.navActivities}>
-                <NavIcon name="activities" />
-                {t.side.navActivities}
-                <span className="df-side__soon">{t.soon}</span>
-              </button>
-            </nav>
-          </>
-        ) : null}
-
-        {workspace === "crm" ? (
-          <>
-            <p className="df-side__label">{t.side.crmGroup}</p>
-            <nav className="df-side__nav">
-              <button type="button" disabled title={t.side.navContacts}>
-                <NavIcon name="contacts" />
-                {t.side.navContacts}
-                <span className="df-side__soon">{t.soon}</span>
-              </button>
-              <button type="button" disabled title={t.side.navCompanies}>
-                <NavIcon name="companies" />
-                {t.side.navCompanies}
-                <span className="df-side__soon">{t.soon}</span>
-              </button>
-            </nav>
-          </>
-        ) : null}
-
-        {workspace === "analytics" ? (
-          <>
-            <p className="df-side__label">{t.side.analyticsGroup}</p>
-            <nav className="df-side__nav">
-              <button type="button" className="is-active" title={t.side.navOverview}>
-                <NavIcon name="overview" />
-                {t.side.navOverview}
-              </button>
-              <button type="button" disabled title={t.side.navReports}>
-                <NavIcon name="reports" />
-                {t.side.navReports}
-                <span className="df-side__soon">{t.soon}</span>
-              </button>
-              <button
-                type="button"
-                title={loading ? t.side.refreshing : t.side.refresh}
-                onClick={() => void refresh(token)}
-              >
-                <NavIcon name="overview" />
-                {loading ? t.side.refreshing : t.side.refresh}
-              </button>
-            </nav>
-          </>
-        ) : null}
-
-        {workspace === "contracts" ? (
-          <>
-            <p className="df-side__label">{t.side.contractsGroup}</p>
-            <nav className="df-side__nav">
-              <button
-                type="button"
-                className="is-active"
-                title={t.side.navContracts}
-              >
-                <NavIcon name="contracts" />
-                {t.side.navContracts}
-              </button>
-            </nav>
-          </>
-        ) : null}
+        <p className="df-side__label">{t.menu.managementGroup}</p>
+        <nav className="df-side__nav" aria-label={t.menu.managementGroup}>
+          {(
+            [
+              ["activity", "wifi", t.menu.activity],
+              ["proposals", "contracts", t.menu.proposals],
+              ["invoices", "invoice", t.menu.invoices],
+              ["contacts", "contacts", t.menu.contacts],
+              ["metrics", "overview", t.menu.metrics],
+              ["emails", "mail", t.menu.emails],
+              ["company", "companies", t.menu.company],
+              ["users", "users", t.menu.users],
+            ] as const
+          ).map(([id, icon, label]) => (
+            <button
+              key={id}
+              type="button"
+              className={[
+                appPage === id ? "is-active" : "",
+                DIM_PAGES.has(id) ? "is-dim" : "",
+              ]
+                .filter(Boolean)
+                .join(" ") || undefined}
+              title={label}
+              onClick={() => goTo(id)}
+            >
+              <NavIcon name={icon} />
+              {label}
+            </button>
+          ))}
+        </nav>
 
         <div className="df-side__foot">
-          {langSwitch}
-          <Link href={assetPath("/demos/")} title={t.side.demoVault}>
-            {t.side.demoVault}
-          </Link>
-          <button
-            type="button"
-            className="df-side__ghost"
-            title={t.side.signOut}
-            onClick={lockToken}
-          >
-            <svg
-              width={16}
-              height={16}
-              viewBox="0 0 16 16"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth={1.5}
-              aria-hidden
-            >
-              <path d="M6 3.5H3.5v9H6M7 8h6M10.5 5.5 13 8l-2.5 2.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-            {t.side.signOut}
-          </button>
           <div className="df-side__user">
-            <span className="df-avatar">{ownerInitials(DEFAULT_LEAD_OWNER)}</span>
+            <span className={`df-avatar ${avatarTone(DEFAULT_LEAD_OWNER)}`}>
+              {ownerInitials(DEFAULT_LEAD_OWNER)}
+            </span>
             <div>
               <strong>{DEFAULT_LEAD_OWNER}</strong>
-              <em>
-                <i className="df-dot" aria-hidden />
-                {t.side.available}
-              </em>
+              <em>{t.workspaceName}</em>
             </div>
+            <details className="df-side__account">
+              <summary aria-label={t.side.signOut}>▾</summary>
+              <div className="df-side__account-pop">
+                {langSwitch}
+                <Link href={assetPath("/demos/")} title={t.side.demoVault}>
+                  {t.side.demoVault}
+                </Link>
+                <button
+                  type="button"
+                  className="df-side__ghost"
+                  title={t.side.signOut}
+                  onClick={lockToken}
+                >
+                  {t.side.signOut}
+                </button>
+              </div>
+            </details>
           </div>
         </div>
       </aside>
@@ -2250,36 +2350,33 @@ export function AdminConsole() {
               )}
             </svg>
           </button>
-          <nav className="df-crumb" aria-label="Breadcrumb">
-            <span>{t.top.breadcrumbHome}</span>
-            <span aria-hidden>/</span>
-            <strong>{crumbLabel}</strong>
-          </nav>
-          <label className="df-topbar__search">
-            <span className="df__sr">{t.side.search}</span>
-            <span className="df-topbar__search-icon" aria-hidden>
-              ⌕
-            </span>
-            <input
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              placeholder={t.top.searchPlaceholder}
-            />
-          </label>
-          <div className="df-topbar__meta">
-            {workspace === "sale" && isCareersTab ? (
-              <span className={`df-chip${metrics.idle ? " is-warn" : ""}`}>
-                {metrics.total} {t.careersUi.applicantsWord}
-              </span>
-            ) : metrics.atRisk > 0 ? (
-              <span className="df-chip is-warn">
-                {metrics.atRisk} {t.kpi.atRisk}
-              </span>
-            ) : (
-              <span className="df-chip">
-                {metrics.total} deals
-              </span>
-            )}
+          <h1 className="df-topbar__title">{pageTitle}</h1>
+          <div className="df-topbar__actions">
+            <button
+              type="button"
+              className="df-icon-btn is-dim"
+              disabled
+              title={t.menu.notifications}
+              aria-label={t.menu.notifications}
+            >
+              <svg width={16} height={16} viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth={1.5} aria-hidden>
+                <path d="M8 2.8A3.4 3.4 0 0 1 11.4 6.2c0 2.2.6 3.2 1.1 3.8H3.5c.5-.6 1.1-1.6 1.1-3.8A3.4 3.4 0 0 1 8 2.8Z" />
+                <path d="M6.4 12.4a1.7 1.7 0 0 0 3.2 0" strokeLinecap="round" />
+              </svg>
+            </button>
+            <button type="button" className="df-btn is-ghost is-dim df-btn--pill" disabled>
+              {t.menu.export}
+            </button>
+            {saleBoardOpen ? (
+              <button type="button" className="df-btn df-btn--add" onClick={openCreate}>
+                <span aria-hidden>+</span>
+                {isCareersTab ? t.hero.newCareer : t.hero.newDeal}
+              </button>
+            ) : appPage === "users" ? (
+              <button type="button" className="df-btn" onClick={openCreatePerson}>
+                {t.peopleUi.newPerson}
+              </button>
+            ) : null}
           </div>
         </header>
 
@@ -2293,34 +2390,148 @@ export function AdminConsole() {
             </div>
           ) : null}
 
-          {workspace === "crm" ? (
+          {DIM_PAGES.has(appPage) ? (
             <div className="df-panel">
-              <div className="df-panel__head">
-                <div>
-                  <h1>{t.crmPage.title}</h1>
-                  <p>{t.crmPage.description}</p>
-                </div>
-              </div>
               <div className="df-soon-card">
-                <h2>{t.crmPage.soonTitle}</h2>
-                <p>{t.crmPage.soonBody}</p>
-                <button
-                  type="button"
-                  className="df-btn"
-                  onClick={() => switchWorkspace("sale")}
-                >
-                  {t.workspaces.sale}
-                </button>
+                <h2>{t.menu.dimTitle}</h2>
+                <p>{t.menu.dimBody}</p>
               </div>
             </div>
           ) : null}
 
-          {workspace === "analytics" ? (
+          {appPage === "activity" ? (
+            <div className="df-panel">
+              <div className="df-table-card">
+                <div className="df-table-wrap">
+                  <table className="df-table">
+                    <thead>
+                      <tr>
+                        <th>{t.table.lead}</th>
+                        <th>{t.table.company}</th>
+                        <th>{t.table.owner}</th>
+                        <th>{t.table.lastActivity}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {[...leads]
+                        .filter((l) => l.source !== "careers")
+                        .sort(
+                          (a, b) =>
+                            new Date(b.lastActivityAt).getTime() -
+                            new Date(a.lastActivityAt).getTime(),
+                        )
+                        .slice(0, 40)
+                        .map((lead) => (
+                          <tr
+                            key={lead.id}
+                            onClick={() => {
+                              goTo("deals");
+                              selectDeal(lead.id);
+                            }}
+                          >
+                            <td>
+                              <strong>{lead.title || lead.name}</strong>
+                            </td>
+                            <td className="df-cell-muted">{lead.company || "—"}</td>
+                            <td>{lead.owner}</td>
+                            <td className="df-cell-muted">
+                              {relativeActivity(lead.lastActivityAt, salesLocale)}
+                            </td>
+                          </tr>
+                        ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          ) : null}
+
+          {appPage === "contacts" ? (
+            <div className="df-panel">
+              <div className="df-table-card">
+                <div className="df-table-wrap">
+                  <table className="df-table">
+                    <thead>
+                      <tr>
+                        <th>{t.table.lead}</th>
+                        <th>{t.drawer.contact}</th>
+                        <th>{t.table.company}</th>
+                        <th>{t.table.owner}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {leads
+                        .filter((l) => l.source !== "careers")
+                        .map((lead) => (
+                          <tr
+                            key={lead.id}
+                            onClick={() => {
+                              goTo("deals");
+                              selectDeal(lead.id);
+                            }}
+                          >
+                            <td>
+                              <strong>{lead.name || lead.title}</strong>
+                            </td>
+                            <td>{lead.contact || "—"}</td>
+                            <td className="df-cell-muted">{lead.company || "—"}</td>
+                            <td>{lead.owner}</td>
+                          </tr>
+                        ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          ) : null}
+
+          {appPage === "company" ? (
+            <div className="df-panel">
+              <div className="df-table-card">
+                <div className="df-table-wrap">
+                  <table className="df-table">
+                    <thead>
+                      <tr>
+                        <th>{t.menu.company}</th>
+                        <th>{t.kpi.totalLeads}</th>
+                        <th>{t.kpi.pipelineValue}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {Array.from(
+                        leads
+                          .filter((l) => l.source !== "careers" && l.company.trim())
+                          .reduce((map, lead) => {
+                            const key = lead.company.trim();
+                            const cur = map.get(key) || { n: 0, amount: 0 };
+                            cur.n += 1;
+                            cur.amount += lead.amount || 0;
+                            map.set(key, cur);
+                            return map;
+                          }, new Map<string, { n: number; amount: number }>()),
+                      ).map(([name, row]) => (
+                        <tr key={name}>
+                          <td>
+                            <strong>{name}</strong>
+                          </td>
+                          <td>{row.n}</td>
+                          <td className="is-num">
+                            {formatMoney(row.amount, "VND", salesLocale)}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          ) : null}
+
+          {appPage === "dashboard" || appPage === "metrics" ? (
             <div className="df-panel">
               <div className="df-panel__head">
                 <div>
-                  <h1>{t.dashboard.title}</h1>
-                  <p>{t.dashboard.description}</p>
+                  <p className="df-panel__lede">{t.dashboard.description}</p>
                 </div>
                 <button
                   type="button"
@@ -2349,12 +2560,11 @@ export function AdminConsole() {
             </div>
           ) : null}
 
-          {workspace === "contracts" ? (
+          {appPage === "proposals" ? (
             <div className="df-panel">
               <div className="df-panel__head">
                 <div>
-                  <h1>{t.contractsPage.title}</h1>
-                  <p>{t.contractsPage.description}</p>
+                  <p className="df-panel__lede">{t.contractsPage.description}</p>
                 </div>
               </div>
               <div className="df-table-card">
@@ -2430,33 +2640,82 @@ export function AdminConsole() {
           ) : null}
 
           {saleBoardOpen ? (
-            <div className="df-panel">
-              <div className="df-panel__head">
-                <div>
-                  <h1>{isCareersTab ? t.hero.careersTitle : t.hero.title}</h1>
-                  <p>
-                    {isCareersTab
-                      ? t.hero.careersDescription
-                      : t.hero.description}
-                  </p>
-                </div>
-                <div className="df-panel__actions">
+            <div className={`df-panel${pipelineView === "board" ? " df-panel--board" : ""}`}>
+              <div className="df-jd-toolbar">
+                <div className="df-view" role="tablist" aria-label={t.view.label}>
                   <button
                     type="button"
-                    className={`df-btn is-ghost${filtersOpen || filtersActive ? " is-on" : ""}`}
+                    role="tab"
+                    className={pipelineView === "board" ? "is-active" : undefined}
+                    aria-selected={pipelineView === "board"}
+                    onClick={() => setPipelineView("board")}
+                  >
+                    <NavIcon name="pipeline" />
+                    {t.view.board}
+                  </button>
+                  <button
+                    type="button"
+                    role="tab"
+                    className={pipelineView === "list" ? "is-active" : undefined}
+                    aria-selected={pipelineView === "list"}
+                    onClick={() => setPipelineView("list")}
+                  >
+                    <NavIcon name="deals" />
+                    {t.view.list}
+                  </button>
+                </div>
+                {isCareersTab ? (
+                  <p className="df-jd-toolbar__stats">
+                    <span>
+                      {metrics.total} {t.careersUi.applicantsWord}
+                    </span>
+                  </p>
+                ) : (
+                  <p className="df-jd-toolbar__stats">
+                    <span>
+                      {t.menu.projectedDeals}: {metrics.total}
+                    </span>
+                    <span className="df-jd-sep" aria-hidden>
+                      ·
+                    </span>
+                    <span>
+                      {t.menu.projectedRevenue}:{" "}
+                      {formatMoney(metrics.totalValue, "VND", salesLocale)}
+                    </span>
+                  </p>
+                )}
+                <div className="df-jd-toolbar__right">
+                  <label className="df-jd-search">
+                    <span className="df__sr">{t.menu.searchDeals}</span>
+                    <span aria-hidden>⌕</span>
+                    <input
+                      value={tableQuery}
+                      onChange={(e) => setTableQuery(e.target.value)}
+                      placeholder={t.menu.searchDeals}
+                    />
+                  </label>
+                  <button
+                    type="button"
+                    className={`df-text-btn${filtersOpen || filtersActive ? " is-on" : ""}`}
                     onClick={() => setFiltersOpen((v) => !v)}
                   >
                     {t.top.filters}
-                    {filtersActive ? (
-                      <em className="df-btn__dot" aria-label={t.top.filtersActive} />
-                    ) : null}
                   </button>
-                  <button type="button" className="df-btn" onClick={openCreate}>
-                    {isCareersTab ? t.hero.newCareer : t.hero.newDeal}
-                  </button>
+                  <label className="df-text-btn df-jd-sort">
+                    <span className="df__sr">{t.menu.sort}</span>
+                    <select
+                      value={dealSort}
+                      onChange={(e) => setDealSort(e.target.value as DealSort)}
+                    >
+                      <option value="activity">{t.menu.sortActivity}</option>
+                      <option value="amount">{t.menu.sortAmount}</option>
+                      <option value="title">{t.menu.sortTitle}</option>
+                    </select>
+                  </label>
                 </div>
               </div>
 
+              {pipelineView === "list" ? (
               <section className="df-kpis" aria-label="KPIs">
                 {isCareersTab ? (
                   <>
@@ -2519,8 +2778,9 @@ export function AdminConsole() {
                   </>
                 )}
               </section>
+              ) : null}
 
-              {isCareersTab ? null : (
+              {isCareersTab || pipelineView === "board" ? null : (
               <section className="df-forecast df-forecast--compact" aria-labelledby="df-sale-forecast-h">
                 <div className="df-forecast__head">
                   <h2 id="df-sale-forecast-h">{t.forecast.title}</h2>
@@ -2557,6 +2817,7 @@ export function AdminConsole() {
               </section>
               )}
 
+              {pipelineView === "list" ? (
               <div className="df-quick">
                 <button
                   type="button"
@@ -2588,6 +2849,7 @@ export function AdminConsole() {
                   {t.filters.quickHighValue}
                 </button>
               </div>
+              ) : null}
 
               {filtersOpen ? (
                 <>
@@ -2778,7 +3040,7 @@ export function AdminConsole() {
                 </>
               ) : null}
 
-              {filtersActive ? (
+              {filtersActive && pipelineView === "list" ? (
                 <div className="df-filter-chips" aria-label={t.top.filtersActive}>
                   {stageTab !== "all" ? (
                     <span className="df-chip">
@@ -2837,6 +3099,7 @@ export function AdminConsole() {
               <section
                 className={`df-table-card${pipelineView === "board" ? " df-table-card--board" : ""}`}
               >
+                {pipelineView === "list" ? (
                 <div className="df-table-tools df-table-tools--sticky">
                   <div className="df-view" role="tablist" aria-label={t.view.label}>
                     <button
@@ -2895,6 +3158,7 @@ export function AdminConsole() {
                     }
                   />
                 </div>
+                ) : null}
 
                 {pipelineView === "board" ? (
                   <div className="df-board" role="region" aria-label={t.view.board}>
@@ -2908,6 +3172,10 @@ export function AdminConsole() {
                         key={column.stage}
                         className={`df-board__col${
                           dragOverStage === column.stage ? " is-drop" : ""
+                        }${
+                          column.stage === "won" || column.stage === "deliver"
+                            ? " is-tint"
+                            : ""
                         }`}
                         aria-labelledby={`df-board-col-${column.stage}`}
                         onDragOver={(e) => onBoardDragOver(e, column.stage)}
@@ -2919,21 +3187,30 @@ export function AdminConsole() {
                         onDrop={(e) => void onBoardDrop(e, column.stage)}
                       >
                         <div className="df-board__head">
-                          <h3
-                            id={`df-board-col-${column.stage}`}
-                            className={`df-status ${stageTone(column.stage)}`}
-                          >
-                            {tabStageShort(salesLocale, column.stage, isCareersTab)}
-                          </h3>
+                          <div className="df-board__head-top">
+                            <h3 id={`df-board-col-${column.stage}`}>
+                              {tabStageShort("en", column.stage, isCareersTab)}
+                            </h3>
+                            <span className="df-board__more" aria-hidden>
+                              ⋯
+                            </span>
+                          </div>
                           <div className="df-board__head-meta">
-                            <em>{column.leads.length}</em>
                             {isCareersTab ? null : (
-                              <span>
-                                {fillTemplate(t.board.columnSum, {
-                                  value: formatMoney(colSum, "VND", salesLocale),
-                                })}
-                              </span>
+                              <>
+                                <em>
+                                  {fillTemplate(t.board.columnSum, {
+                                    value: formatMoney(colSum, "VND", salesLocale),
+                                  })}
+                                </em>
+                                <span aria-hidden>·</span>
+                              </>
                             )}
+                            <span>
+                              {fillTemplate(t.board.columnDeals, {
+                                n: column.leads.length,
+                              })}
+                            </span>
                           </div>
                         </div>
                         <div
@@ -2943,14 +3220,9 @@ export function AdminConsole() {
                         >
                           {column.leads.length === 0 ? (
                             <div className="df-board__empty">
-                              <EmptyArt kind="inbox" className="df-empty-art is-sm" />
-                              <p>
-                                {dragOverStage === column.stage
-                                  ? t.board.dropHere
-                                  : isCareersTab
-                                    ? t.careersUi.boardEmpty
-                                    : t.board.empty}
-                              </p>
+                              {dragOverStage === column.stage ? (
+                                <p>{t.board.dropHere}</p>
+                              ) : null}
                             </div>
                           ) : (
                             column.leads.map((lead) => {
@@ -2973,48 +3245,53 @@ export function AdminConsole() {
                                   onDragEnd={onBoardDragEnd}
                                   onClick={() => selectDeal(lead.id)}
                                 >
-                                  <strong>{lead.title || lead.name}</strong>
-                                  <span>
+                                  <span className="df-board-card__top">
+                                    <strong>{lead.title || lead.name}</strong>
+                                    <span className="df-board__more" aria-hidden>
+                                      ⋯
+                                    </span>
+                                  </span>
+                                  <span className="df-board-card__company">
                                     {isCareersTab
                                       ? lead.company || lead.contact || lead.name
                                       : lead.company || lead.name}
                                   </span>
-                                  <span className="df-board-card__meta">
-                                    {isCareersTab ? (
-                                      <em>{lead.contact}</em>
-                                    ) : (
-                                      <>
-                                        <InlineQuickField
-                                          kind="amount"
-                                          lead={lead}
-                                          salesLocale={salesLocale}
-                                          t={t}
-                                          disabled={stageSavingId === lead.id}
-                                          onSaveAmount={changeAmount}
-                                          onSaveClose={changeCloseDate}
-                                          onSaveProb={changeProbability}
-                                        />
-                                        <em className="df-board-card__prob">{prob}%</em>
-                                      </>
-                                    )}
-                                    <span
-                                      className={`df-idle is-${idleTone(idle)}`}
-                                    >
-                                      {fillTemplate(t.board.idle, { n: idle })}
-                                    </span>
-                                  </span>
-                                  <span className="df-board-card__foot">
+                                  <span className="df-board-card__row">
                                     <span className="df-owner">
-                                      <span className="df-avatar df-avatar--sm">
+                                      <span
+                                        className={`df-avatar df-avatar--sm ${avatarTone(lead.owner)}`}
+                                      >
                                         {ownerInitials(lead.owner)}
                                       </span>
                                       {lead.owner}
                                     </span>
-                                    <span className="df-next">
-                                      {isCareersTab
-                                        ? suggestedCareerNext(lead, t)
-                                        : suggestedNext(lead, t)}
-                                    </span>
+                                    {isCareersTab ? (
+                                      <em>{lead.contact}</em>
+                                    ) : (
+                                      <InlineQuickField
+                                        kind="amount"
+                                        lead={lead}
+                                        salesLocale={salesLocale}
+                                        t={t}
+                                        disabled={stageSavingId === lead.id}
+                                        onSaveAmount={changeAmount}
+                                        onSaveClose={changeCloseDate}
+                                        onSaveProb={changeProbability}
+                                      />
+                                    )}
+                                  </span>
+                                  <BoardCardIcons
+                                    comments={leadCommentCount(lead)}
+                                    files={0}
+                                    tasks={lead.closeDate ? 1 : 0}
+                                    ago={activityShort(lead.lastActivityAt)}
+                                    owner={lead.owner}
+                                  />
+                                  <span className="df__sr">
+                                    {prob}% · {fillTemplate(t.board.idle, { n: idle })} ·{" "}
+                                    {isCareersTab
+                                      ? suggestedCareerNext(lead, t)
+                                      : suggestedNext(lead, t)}
                                   </span>
                                 </article>
                               );
@@ -3111,7 +3388,10 @@ export function AdminConsole() {
                             >
                               <td>
                                 <div className="df-name-cell">
-                                  <span className="df-avatar" aria-hidden>
+                                  <span
+                                    className={`df-avatar ${avatarTone(lead.id)}`}
+                                    aria-hidden
+                                  >
                                     {leadInitials(lead)}
                                   </span>
                                   <div>
@@ -3203,7 +3483,9 @@ export function AdminConsole() {
                               <td className="df-cell-muted">{lead.source}</td>
                               <td>
                                 <span className="df-owner">
-                                  <span className="df-avatar df-avatar--sm">
+                                  <span
+                                    className={`df-avatar df-avatar--sm ${avatarTone(lead.owner)}`}
+                                  >
                                     {ownerInitials(lead.owner)}
                                   </span>
                                   {lead.owner}
@@ -3303,12 +3585,11 @@ export function AdminConsole() {
             </div>
           ) : null}
 
-          {workspace === "sale" && nav === "people" ? (
+          {appPage === "users" ? (
             <div className="df-panel">
               <div className="df-panel__head">
                 <div>
-                  <h1>{t.peopleUi.title}</h1>
-                  <p>{t.peopleUi.description}</p>
+                  <p className="df-panel__lede">{t.peopleUi.description}</p>
                   <p className="df__muted">{t.peopleUi.policy}</p>
                 </div>
                 <div className="df-panel__actions">
@@ -3468,7 +3749,7 @@ export function AdminConsole() {
             </div>
           ) : null}
 
-          {workspace === "sale" && nav === "playbook" ? (
+          {false && workspace === "sale" && nav === "playbook" ? (
             <div className="df-panel df-playbook">
               <h1>{t.playbook.title}</h1>
               <p className="df-playbook__intro">{t.playbook.intro}</p>
@@ -3513,9 +3794,9 @@ export function AdminConsole() {
         </div>
       </div>
 
-      {workspace !== "sale" ? null : nav === "people" ? (
+      {appPage === "users" && personFormOpen ? (
         <aside
-          className={`df-detail${personFormOpen ? " df-detail--sheet" : ""}`}
+          className="df-detail df-detail--sheet"
           aria-labelledby="df-person-h"
         >
           <header>
@@ -4058,10 +4339,27 @@ export function AdminConsole() {
                 </div>
                 <div>
                   <dt>{t.drawer.phone}</dt>
-                  <dd>
-                    <a href={`tel:${selected.contact.replace(/\s/g, "")}`}>
-                      {selected.contact}
-                    </a>
+                  <dd className="df-phone-row">
+                    {selected.contact.trim() ? (
+                      <a href={`tel:${selected.contact.replace(/\s/g, "")}`}>
+                        {selected.contact}
+                      </a>
+                    ) : (
+                      "—"
+                    )}
+                    {(() => {
+                      const zaloHref = zaloHrefFromPhone(selected.contact);
+                      return zaloHref ? (
+                        <a
+                          className="df-zalo-link"
+                          href={zaloHref}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          {t.drawer.zalo}
+                        </a>
+                      ) : null;
+                    })()}
                   </dd>
                 </div>
               </dl>
@@ -4373,21 +4671,7 @@ export function AdminConsole() {
           </footer>
         </aside>
       ) : (
-        <aside className="df-detail df-detail--empty" aria-live="polite">
-          <p className="df-side__label">
-            {isCareersTab ? t.careersUi.drawerApplicant : t.drawer.lead}
-          </p>
-          <EmptyState
-            kind="panel"
-            title={t.drawer.emptyTitle}
-            body={t.drawer.emptyBody}
-            action={
-              <button type="button" className="df-btn" onClick={openCreate}>
-                {isCareersTab ? t.hero.newCareer : t.hero.newDeal}
-              </button>
-            }
-          />
-        </aside>
+        null
       )}
       {toast ? (
         <p className="df-toast" role="status">
