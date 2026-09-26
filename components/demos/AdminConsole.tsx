@@ -3105,8 +3105,8 @@ export function AdminConsole() {
                     <button
                       type="button"
                       role="tab"
-                      className={pipelineView === "list" ? "is-active" : undefined}
-                      aria-selected={pipelineView === "list"}
+                      className="is-active"
+                      aria-selected
                       onClick={() => setPipelineView("list")}
                     >
                       {t.view.list}
@@ -3114,8 +3114,7 @@ export function AdminConsole() {
                     <button
                       type="button"
                       role="tab"
-                      className={pipelineView === "board" ? "is-active" : undefined}
-                      aria-selected={pipelineView === "board"}
+                      aria-selected={false}
                       onClick={() => setPipelineView("board")}
                     >
                       {t.view.board}
