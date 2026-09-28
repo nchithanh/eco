@@ -1,23 +1,24 @@
-/* Dolphin Admin — Jobdrive chrome (warm canvas, violet accent) */
+/* Dolphin Admin — Tailwind tokens (dark shell, violet accent). Layout stays here; colors come from @theme --color-df-* */
 
 .df {
-  --df-bg: #ffffff;
-  --df-panel: #ffffff;
-  --df-sidebar: #ffffff;
-  --df-elev: #f5f5f4;
-  --df-mint: #eee9fb;
-  --df-border: rgba(24, 24, 27, 0.07);
-  --df-border-strong: rgba(24, 24, 27, 0.12);
-  --df-text: #1c1917;
-  --df-muted: #78716c;
-  --df-accent: #6b56d6;
+  --df-bg: var(--color-df-bg);
+  --df-panel: var(--color-df-card);
+  --df-sidebar: var(--color-df-card);
+  --df-elev: var(--color-df-elev);
+  --df-mint: rgba(107, 86, 214, 0.15);
+  --df-border: var(--color-df-border);
+  --df-border-strong: var(--color-df-border-strong);
+  --df-text: var(--color-df-text);
+  --df-muted: var(--color-df-muted);
+  --df-accent: var(--color-df-accent);
   --df-accent-rgb: 107, 86, 214;
-  --df-accent-hover: #5a47c4;
-  --df-accent-ink: #4c3d9e;
-  --df-ink: #1c1917;
-  --df-ok: #16a34a;
-  --df-warn: #d97706;
-  --df-bad: #dc2626;
+  --df-accent-hover: var(--color-df-accent-hover);
+  --df-accent-ink: var(--color-df-ink);
+  --df-ink: var(--color-df-ink);
+  --df-ok: var(--color-df-ok);
+  --df-warn: var(--color-df-warn);
+  --df-bad: var(--color-df-bad);
+  color-scheme: dark;
   --df-side: 15rem;
   --df-detail: 0px;
   --df-radius: 10px;
@@ -33,7 +34,7 @@
   font-size: 0.875rem;
   line-height: 1.45;
   scrollbar-width: thin;
-  scrollbar-color: color-mix(in srgb, var(--df-accent) 35%, #6b56d6) transparent;
+  scrollbar-color: #3f3f46 transparent;
 }
 
 .df *,
@@ -44,7 +45,7 @@
 .df-detail,
 .df-detail__body {
   scrollbar-width: thin;
-  scrollbar-color: color-mix(in srgb, var(--df-accent) 35%, #6b56d6) transparent;
+  scrollbar-color: #3f3f46 transparent;
 }
 
 .df::-webkit-scrollbar,
@@ -60,7 +61,7 @@
 
 .df::-webkit-scrollbar-thumb,
 .df *::-webkit-scrollbar-thumb {
-  background: color-mix(in srgb, var(--df-accent) 35%, #6b56d6);
+  background: #3f3f46;
   border-radius: 10px;
 }
 
@@ -122,7 +123,7 @@
 .df-btn {
   border: 1px solid transparent;
   background: var(--df-accent);
-  color: #fff;
+  color: var(--df-ink);
   border-radius: var(--df-radius);
   padding: 0.45rem 0.85rem;
   font-family: inherit;
@@ -163,7 +164,7 @@
 }
 
 .df-btn.is-danger:hover {
-  background: #fef2f2;
+  background: rgba(239, 68, 68, 0.12);
 }
 
 .df-btn__dot {
@@ -279,19 +280,12 @@
 
 .df-lang button {
   border: 0;
-  background: transparent;
-  color: var(--df-muted);
   border-radius: 8px;
   padding: 0.2rem 0.4rem;
   font-family: inherit;
   font-size: 0.65rem;
   font-weight: 700;
   cursor: pointer;
-}
-
-.df-lang button.is-active {
-  background: rgba(var(--df-accent-rgb), 0.12);
-  color: var(--df-accent);
 }
 
 .df-chip {
@@ -384,7 +378,7 @@
 .df-gate button[type="submit"] {
   border: 0;
   background: var(--df-accent);
-  color: #fff;
+  color: var(--df-ink);
   border-radius: var(--df-radius);
   padding: 0.65rem 1rem;
   font-family: inherit;
@@ -733,8 +727,6 @@
   gap: 0.5rem;
   text-align: left;
   border: 0;
-  background: transparent;
-  color: var(--df-muted);
   border-radius: var(--df-radius);
   padding: 0.45rem 0.55rem;
   font-family: inherit;
@@ -750,8 +742,6 @@
 }
 
 .df-side__nav button.is-active {
-  background: var(--df-mint);
-  color: var(--df-accent-ink);
   box-shadow: none;
 }
 
@@ -767,12 +757,11 @@
 
 .df-side__nav button.is-active svg {
   opacity: 1;
-  color: var(--df-accent);
+  color: var(--df-ink);
 }
 
 .df-side__nav button:hover:not(.is-active):not(:disabled) {
   background: var(--df-elev);
-  color: var(--df-text);
 }
 
 .df-side__nav button:disabled {
@@ -941,8 +930,8 @@
   min-width: 0;
   max-width: 100%;
   padding: 0.5rem;
-  border-bottom: solid 1px #80808038;
-  border-top: solid 1px #80808038;
+  border-bottom: solid 1px var(--df-border);
+  border-top: solid 1px var(--df-border);
 }
 
 .df-jd-toolbar .df-view {
@@ -1360,7 +1349,7 @@
 .df-board__col {
   isolation: isolate;
   box-sizing: border-box;
-  background: #ebebeb4d;
+  background: var(--df-elev);
   border: 0;
   border-radius: 10px;
   flex-direction: column;
@@ -1376,7 +1365,7 @@
 }
 
 .df-board__col.is-tint {
-  background: #00800014;
+  background: rgba(34, 197, 94, 0.12);
 }
 
 .df-board__col.is-drop {
@@ -1713,7 +1702,7 @@
   text-transform: uppercase;
   color: var(--df-muted);
   font-weight: 700;
-  background: #fafafa;
+  background: var(--df-elev);
   white-space: nowrap;
 }
 
@@ -1846,7 +1835,7 @@
 
 .df-status.is-qualified {
   background: var(--df-mint);
-  color: var(--df-accent-ink);
+  color: var(--df-text);
 }
 
 .df-status.is-discover {
@@ -2669,7 +2658,7 @@
   padding: 0 0.55rem;
   border: 1px solid var(--df-border);
   border-radius: 10px;
-  background: #fff;
+  background: var(--df-elev);
   box-sizing: border-box;
 }
 
@@ -2723,7 +2712,7 @@
 }
 
 .df-table tbody tr.is-risk {
-  background: #fef2f2;
+  background: rgba(239, 68, 68, 0.12);
 }
 
 .df-table tbody tr.is-high {
@@ -2863,8 +2852,8 @@
   z-index: 60;
   margin: 0;
   padding: 0.55rem 0.9rem;
-  background: var(--df-ink);
-  color: #fff;
+  background: var(--df-card);
+  color: var(--df-text);
   border-radius: 10px;
   font-size: 0.8rem;
   font-weight: 700;
@@ -2880,7 +2869,7 @@
   display: block;
   height: 3.2rem;
   border-radius: 10px;
-  background: linear-gradient(90deg, #eee, #f6f6f7, #eee);
+  background: linear-gradient(90deg, #1c1c1f, #2a2a2e, #1c1c1f);
   background-size: 200% 100%;
 }
 
@@ -3080,6 +3069,12 @@
 
   .df-topbar__menu {
     display: inline-flex;
+  }
+
+  .df input:not([type="checkbox"]):not([type="radio"]),
+  .df select,
+  .df textarea {
+    font-size: 1rem;
   }
 
   .df-shell {

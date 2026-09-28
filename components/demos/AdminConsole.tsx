@@ -2041,14 +2041,22 @@ export function AdminConsole() {
     <div className="df-lang" role="group" aria-label={t.side.langLabel}>
       <button
         type="button"
-        className={salesLocale === "vi" ? "is-active" : undefined}
+        className={
+          salesLocale === "vi"
+            ? "is-active rounded-[10px] bg-df-accent px-2 py-1 text-[0.65rem] font-bold text-df-ink"
+            : "rounded-[10px] px-2 py-1 text-[0.65rem] font-bold text-df-muted"
+        }
         onClick={() => changeSalesLocale("vi")}
       >
         VI
       </button>
       <button
         type="button"
-        className={salesLocale === "en" ? "is-active" : undefined}
+        className={
+          salesLocale === "en"
+            ? "is-active rounded-[10px] bg-df-accent px-2 py-1 text-[0.65rem] font-bold text-df-ink"
+            : "rounded-[10px] px-2 py-1 text-[0.65rem] font-bold text-df-muted"
+        }
         onClick={() => changeSalesLocale("en")}
       >
         EN
@@ -2058,7 +2066,7 @@ export function AdminConsole() {
 
   if (!tokenReady || !localeReady) {
     return (
-      <div className="df" data-lenis-prevent data-lenis-prevent-wheel>
+      <div className="df bg-df-bg text-df-text" data-lenis-prevent data-lenis-prevent-wheel>
         <p className="df__muted">{t.loading}</p>
       </div>
     );
@@ -2066,8 +2074,8 @@ export function AdminConsole() {
 
   if (!token) {
     return (
-      <div className="df df--gate" data-lenis-prevent data-lenis-prevent-wheel>
-        <div className="df-gate">
+      <div className="df df--gate bg-df-bg text-df-text" data-lenis-prevent data-lenis-prevent-wheel>
+        <div className="df-gate border-df-border bg-df-card">
           <div className="df-gate__top">
             <div className="df-gate__brand">
               <ThemedLogoImg className="df-mark" width={28} height={28} alt="" />
@@ -2182,7 +2190,7 @@ export function AdminConsole() {
 
   return (
     <div
-      className={dfClass}
+      className={`${dfClass} bg-df-bg text-df-text`}
       data-lenis-prevent
       data-lenis-prevent-wheel
     >
@@ -2249,11 +2257,12 @@ export function AdminConsole() {
               key={id}
               type="button"
               className={[
-                appPage === id ? "is-active" : "",
+                "rounded-[10px] text-df-muted hover:bg-df-elev hover:text-df-text",
+                appPage === id ? "is-active bg-df-accent text-df-ink hover:text-df-ink" : "",
                 DIM_PAGES.has(id) ? "is-dim" : "",
               ]
                 .filter(Boolean)
-                .join(" ") || undefined}
+                .join(" ")}
               title={label}
               onClick={() => goTo(id)}
             >
@@ -2281,7 +2290,8 @@ export function AdminConsole() {
               key={id}
               type="button"
               className={[
-                appPage === id ? "is-active" : "",
+                "rounded-[10px] text-df-muted hover:bg-df-elev hover:text-df-text",
+                appPage === id ? "is-active bg-df-accent text-df-ink hover:text-df-ink" : "",
                 DIM_PAGES.has(id) ? "is-dim" : "",
               ]
                 .filter(Boolean)
