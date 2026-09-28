@@ -47,7 +47,7 @@ const vi: NewsArticleCopy = {
     },
     {
       type: "p",
-      text: "Với SME Việt Nam còn một lớp nữa: thị trường nào được mở mua ads thì phải kiểm tra tại thời điểm chạy. Đừng giả định ChatGPT có ads là mình chạy được ngay ở Việt Nam.",
+      text: "Từ 24/9/2026, OpenAI mở ChatGPT Ads tại Việt Nam. Người dùng gói Free và Go có thể thấy thẻ tài trợ; gói trả phí và tài khoản công ty thì không. Cách đón khách sau cú click: [ChatGPT Ads đã có ở Việt Nam](/news/chatgpt-ads-viet-nam/).",
     },
     {
       type: "p",
@@ -283,7 +283,7 @@ const vi: NewsArticleCopy = {
     },
     {
       q: "Doanh nghiệp cần chuẩn bị gì trước khi quảng cáo trên nền tảng AI?",
-      a: "Website rõ lời mời, nội dung sự thật, thông tin dịch vụ có cấu trúc, SEO và GEO cơ bản, analytics ra lead, và ngân sách thử có hạn. Kiểm thị trường và điều khoản ads — đừng giả định Việt Nam đã mở giống Mỹ.",
+      a: "Website rõ lời mời, nội dung sự thật, thông tin dịch vụ có cấu trúc, SEO và GEO cơ bản, analytics ra lead, và ngân sách thử có hạn. Việt Nam đã mở kênh từ 24/9/2026. Điều khoản ngành và cách đo vẫn phải xem trên Ads Manager lúc chạy.",
     },
   ],
 };
@@ -331,7 +331,7 @@ const en: NewsArticleCopy = {
     },
     {
       type: "p",
-      text: "For Vietnamese SMEs there is another layer: which countries can buy ads must be checked at the time you buy. Do not assume that because ChatGPT has ads, you can run them in Vietnam tomorrow.",
+      text: "As of 24 September 2026, OpenAI opened ChatGPT Ads in Vietnam. Free and Go users can see a sponsored card; paid personal plans and company accounts do not. How to catch the click: [ChatGPT Ads is live in Vietnam](/news/chatgpt-ads-viet-nam/).",
     },
     {
       type: "p",
@@ -567,7 +567,7 @@ const en: NewsArticleCopy = {
     },
     {
       q: "What should we prepare before advertising on an AI platform?",
-      a: "A clear landing, factual copy, organised service information, basic SEO and GEO, analytics that produce leads, and a capped test budget. Check the live market and terms — do not assume Vietnam is open like the U.S.",
+      a: "A clear landing, factual copy, organised service information, basic SEO and GEO, analytics that produce leads, and a capped test budget. Vietnam opened on 24 September 2026. Category rules and measurement still have to be checked in Ads Manager when you launch.",
     },
   ],
 };
@@ -615,7 +615,7 @@ const ja: NewsArticleCopy = {
     },
     {
       type: "p",
-      text: "ベトナムのSMEにはもう一段ある。広告を買える国は、買う時点で確認する。ChatGPTに広告があるから、明日ベトナムで出せる、と思い込まない。",
+      text: "2026年9月24日から、OpenAIはベトナムでChatGPT Adsを開いた。FreeとGoはスポンサーカードを見ることがある。有料の個人プランと会社アカウントは見ない。クリックの受け方: [ベトナムでChatGPT Adsが始まった](/news/chatgpt-ads-viet-nam/)。",
     },
     {
       type: "p",
@@ -851,7 +851,7 @@ const ja: NewsArticleCopy = {
     },
     {
       q: "AI上の広告の前に何を準備するか",
-      a: "明確な着地、事実の文章、整理されたサービス情報、SEOとGEOの基本、リードが出る計測、上限付きの試験予算。市場と規約を確認する。ベトナムが米国と同じように開いている、と仮定しない。",
+      a: "明確な着地、事実の文章、整理されたサービス情報、SEOとGEOの基本、リードが出る計測、上限付きの試験予算。ベトナムは2026年9月24日に開いた。業種の規約と計測は、出す時点のAds Managerで確認する。",
     },
   ],
 };

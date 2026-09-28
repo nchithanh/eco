@@ -235,6 +235,37 @@ describe("Dolphin Software news page", () => {
     ).toBeInTheDocument();
   });
 
+  it("renders ChatGPT Ads Vietnam article with FAQ", async () => {
+    const page = await NewsArticlePage({
+      params: Promise.resolve({
+        slug: "chatgpt-ads-viet-nam",
+      }),
+    });
+    render(<AppProviders>{page}</AppProviders>);
+    expect(
+      screen.getByRole("heading", {
+        level: 1,
+        name: /ChatGPT Ads đã có ở Việt Nam/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", {
+        level: 2,
+        name: /Khách đang hỏi, chưa chắc đang mua/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", {
+        name: /ChatGPT Ads đã có ở Việt Nam chưa/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("img", {
+        name: /thẻ Sponsored tách dưới câu trả lời/i,
+      }),
+    ).toBeInTheDocument();
+  });
+
   it("renders after-hours lead loss article with FAQ", async () => {
     const page = await NewsArticlePage({
       params: Promise.resolve({
