@@ -75,6 +75,7 @@ import {
 import { useLocale } from "@/lib/i18n/LocaleProvider";
 import { EmptyArt, EmptyState } from "@/components/demos/EmptyArt";
 import { MoneyInput } from "@/components/demos/MoneyInput";
+import { SalesEventsPanel } from "@/components/demos/SalesEventsPanel";
 import { formatVnd, formatVndInput, parseVndInput } from "@/lib/demos/money-format";
 import {
   EMPTY_EXPENSE_FORM,
@@ -106,7 +107,8 @@ type AppPage =
   | "metrics"
   | "emails"
   | "company"
-  | "users";
+  | "users"
+  | "events";
 type DealSort = "activity" | "amount" | "title";
 
 const DIM_PAGES = new Set<AppPage>([
@@ -943,6 +945,14 @@ function NavIcon({ name }: { name: string }) {
         <svg {...common}>
           <rect x="2.5" y="3.5" width="11" height="10" rx="1.5" />
           <path d="M2.5 6.5h11M5.5 2.5v2M10.5 2.5v2" strokeLinecap="round" />
+        </svg>
+      );
+    case "events":
+      return (
+        <svg {...common}>
+          <rect x="2.5" y="3.5" width="11" height="10" rx="1.5" />
+          <path d="M2.5 6.5h11M5.5 2.5v2M10.5 2.5v2" strokeLinecap="round" />
+          <circle cx="8" cy="10" r="1" fill="currentColor" stroke="none" />
         </svg>
       );
     case "briefcase":
@@ -2162,9 +2172,11 @@ export function AdminConsole() {
                 ? t.menu.activity
                 : appPage === "contacts"
                   ? t.menu.contacts
-                  : appPage === "company"
-                    ? t.menu.company
-                    : DIM_PAGES.has(appPage)
+            : appPage === "company"
+              ? t.menu.company
+              : appPage === "events"
+                ? t.eventsPage.title
+                : DIM_PAGES.has(appPage)
                       ? t.menu[appPage]
                       : t.hero.title;
 
@@ -2248,6 +2260,7 @@ export function AdminConsole() {
             [
               ["dashboard", "home", t.menu.dashboard],
               ["deals", "handshake", t.menu.deals],
+              ["events", "events", t.menu.events],
               ["appointments", "calendar", t.menu.appointments],
               ["jobs", "briefcase", t.menu.jobs],
               ["tasks", "tasks", t.menu.tasks],
@@ -2398,6 +2411,10 @@ export function AdminConsole() {
               <span />
               <span />
             </div>
+          ) : null}
+
+          {appPage === "events" ? (
+            <SalesEventsPanel copy={t} locale={salesLocale} />
           ) : null}
 
           {DIM_PAGES.has(appPage) ? (
@@ -3340,14 +3357,13 @@ export function AdminConsole() {
                         <th>{t.table.lastActivity}</th>
                         <th>{t.table.idle}</th>
                         <th>{t.table.nextAction}</th>
-                        <th />
                       </tr>
                     </thead>
                     <tbody>
                       {pageRows.length === 0 ? (
                         <tr>
                           <td
-                            colSpan={isCareersTab ? 9 : 12}
+                            colSpan={isCareersTab ? 8 : 11}
                             className="df-table__empty"
                           >
                             <EmptyState
@@ -3525,29 +3541,6 @@ export function AdminConsole() {
                                   {isCareersTab
                                     ? suggestedCareerNext(lead, t)
                                     : suggestedNext(lead, t)}
-                                </button>
-                              </td>
-                              <td className="df-row-actions">
-                                <button
-                                  type="button"
-                                  className="df-link"
-                                  onClick={(e) => {
-                                    e.stopPropagation();
-                                    selectDeal(lead.id);
-                                    setDetailTab("notes");
-                                  }}
-                                >
-                                  {t.ux.note}
-                                </button>
-                                <button
-                                  type="button"
-                                  className="df-link"
-                                  onClick={(e) => {
-                                    e.stopPropagation();
-                                    openEdit(lead);
-                                  }}
-                                >
-                                  {t.table.edit}
                                 </button>
                               </td>
                             </tr>

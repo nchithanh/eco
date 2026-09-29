@@ -47,6 +47,7 @@ export type DolphinSalesCopy = {
     emails: string;
     company: string;
     users: string;
+    events: string;
     dimTitle: string;
     dimBody: string;
     projectedDeals: string;
@@ -58,6 +59,17 @@ export type DolphinSalesCopy = {
     sortAmount: string;
     sortTitle: string;
     searchDeals: string;
+  };
+  eventsPage: {
+    title: string;
+    live: string;
+    upcoming: string;
+    past: string;
+    emptyLive: string;
+    emptyUpcoming: string;
+    place: string;
+    overview: string;
+    target: string;
   };
   side: {
     search: string;
@@ -615,6 +627,7 @@ const VI: DolphinSalesCopy = {
     emails: "Emails",
     company: "Company",
     users: "Users",
+    events: "Events",
     dimTitle: "Chưa đủ dữ liệu",
     dimBody:
       "Mục này hiện trên menu để khớp workspace. Sẽ mở khi có lịch hẹn, task, hóa đơn hoặc email.",
@@ -627,6 +640,17 @@ const VI: DolphinSalesCopy = {
     sortAmount: "Value",
     sortTitle: "Name",
     searchDeals: "Search deals…",
+  },
+  eventsPage: {
+    title: "Events",
+    live: "Đang diễn ra",
+    upcoming: "Sắp diễn ra",
+    past: "Đã qua",
+    emptyLive: "Không có sự kiện nào đang diễn ra.",
+    emptyUpcoming: "Chưa có sự kiện sắp tới.",
+    place: "Địa điểm",
+    overview: "Mô tả",
+    target: "Mục tiêu",
   },
   side: {
     search: "Tìm kiếm",
@@ -1137,6 +1161,7 @@ const EN: DolphinSalesCopy = {
     emails: "Emails",
     company: "Company",
     users: "Users",
+    events: "Events",
     dimTitle: "Not enough data yet",
     dimBody:
       "This item stays on the menu to match the workspace. It opens when appointments, tasks, invoices, or email exist.",
@@ -1149,6 +1174,17 @@ const EN: DolphinSalesCopy = {
     sortAmount: "Value",
     sortTitle: "Name",
     searchDeals: "Search deals…",
+  },
+  eventsPage: {
+    title: "Events",
+    live: "Happening now",
+    upcoming: "Coming up",
+    past: "Past",
+    emptyLive: "No event is happening today.",
+    emptyUpcoming: "No upcoming events yet.",
+    place: "Place",
+    overview: "Overview",
+    target: "Target",
   },
   side: {
     search: "Search",
