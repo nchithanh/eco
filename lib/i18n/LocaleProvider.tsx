@@ -59,7 +59,7 @@ function readStoredLocale(): Locale | null {
 
 /**
  * Resolve locale on the client: boot-script `data-locale` → localStorage →
- * navigator languages → DEFAULT_LOCALE.
+ * DEFAULT_LOCALE (vi). Navigator language does not override the indexed page.
  */
 export function resolveClientLocale(): Locale {
   if (typeof document !== "undefined") {
@@ -70,16 +70,7 @@ export function resolveClientLocale(): Locale {
   const stored = readStoredLocale();
   if (stored) return stored;
 
-  // Vitest: keep DEFAULT_LOCALE when no preference is stored
-  if (process.env.NODE_ENV === "test") return DEFAULT_LOCALE;
-
-  return detectBrowserLocale(
-    typeof navigator !== "undefined"
-      ? navigator.languages?.length
-        ? navigator.languages
-        : [navigator.language]
-      : undefined,
-  );
+  return DEFAULT_LOCALE;
 }
 
 function applyLocaleToDocument(locale: Locale) {
@@ -90,8 +81,8 @@ function applyLocaleToDocument(locale: Locale) {
 }
 
 export function LocaleProvider({ children }: { children: ReactNode }) {
-  // Always DEFAULT_LOCALE on first render so SSR HTML matches client hydration.
-  // Real locale (boot script / localStorage / navigator) applies in useEffect.
+  // First render is vi so SSR HTML matches hydration.
+  // A stored en/ja choice is applied in useEffect after the boot script.
   const [locale, setLocaleState] = useState<Locale>(DEFAULT_LOCALE);
 
   useEffect(() => {

@@ -57,8 +57,8 @@ export function buildPageMetadata({
       description,
       url,
       siteName: "Dolphin Software",
-      locale: "ja_JP",
-      alternateLocale: ["vi_VN", "en_US"],
+      locale: "vi_VN",
+      alternateLocale: ["en_US", "ja_JP"],
       images: [
         {
           url: imageUrl,
@@ -125,7 +125,7 @@ export function websiteJsonLd() {
       name: "Dolphin Software",
       url: SITE_URL,
     },
-    inLanguage: ["ja", "vi", "en"],
+    inLanguage: ["vi", "en", "ja"],
   };
 }
 

@@ -10,7 +10,7 @@ export const LOCALES: {
   { code: "ja", label: "JA", name: "日本語" },
 ];
 
-export const DEFAULT_LOCALE: Locale = "en";
+export const DEFAULT_LOCALE: Locale = "vi";
 
 export type Dictionary = {
   meta: {

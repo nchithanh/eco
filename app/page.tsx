@@ -22,6 +22,7 @@ export const metadata: Metadata = {
  title: seo.og_title ?? seo.title,
  description: seo.og_description ?? seo.description,
  url: "/",
+ locale: "vi_VN",
  },
 };
 

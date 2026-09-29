@@ -88,8 +88,8 @@ export const metadata: Metadata = {
  manifest: "/site.webmanifest",
  openGraph: {
  type: "website",
- locale: "ja_JP",
- alternateLocale: ["vi_VN", "en_US"],
+ locale: "vi_VN",
+ alternateLocale: ["en_US", "ja_JP"],
  url: "/",
  siteName: "Dolphin Software",
  title: "Dolphin Software",
@@ -117,7 +117,7 @@ export default function RootLayout({
  children,
 }: Readonly<{ children: React.ReactNode }>) {
  return (
- <html lang="en" suppressHydrationWarning>
+ <html lang="vi" suppressHydrationWarning>
  <body
  className={`${quicksand.variable} ${notoSansJp.variable} ${instrumentSerif.variable} antialiased`}
  >
