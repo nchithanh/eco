@@ -76,6 +76,7 @@ import { useLocale } from "@/lib/i18n/LocaleProvider";
 import { EmptyArt, EmptyState } from "@/components/demos/EmptyArt";
 import { MoneyInput } from "@/components/demos/MoneyInput";
 import { SalesEventsPanel } from "@/components/demos/SalesEventsPanel";
+import { CustomerFilesPanel } from "@/components/demos/CustomerFilesPanel";
 import { formatVnd, formatVndInput, parseVndInput } from "@/lib/demos/money-format";
 import {
   EMPTY_EXPENSE_FORM,
@@ -108,7 +109,8 @@ type AppPage =
   | "emails"
   | "company"
   | "users"
-  | "events";
+  | "events"
+  | "files";
 type DealSort = "activity" | "amount" | "title";
 
 const DIM_PAGES = new Set<AppPage>([
@@ -892,6 +894,12 @@ function NavIcon({ name }: { name: string }) {
         <svg {...common}>
           <path d="M3 13V5.5L8 3l5 2.5V13" strokeLinejoin="round" />
           <path d="M6 13v-3h4v3" />
+        </svg>
+      );
+    case "files":
+      return (
+        <svg {...common}>
+          <path d="M2.5 4.5h4l1.2 1.5H13.5V13H2.5z" strokeLinejoin="round" />
         </svg>
       );
     case "playbook":
@@ -2176,7 +2184,9 @@ export function AdminConsole() {
               ? t.menu.company
               : appPage === "events"
                 ? t.eventsPage.title
-                : DIM_PAGES.has(appPage)
+                : appPage === "files"
+                  ? t.filesPage.title
+                  : DIM_PAGES.has(appPage)
                       ? t.menu[appPage]
                       : t.hero.title;
 
@@ -2296,6 +2306,7 @@ export function AdminConsole() {
               ["metrics", "overview", t.menu.metrics],
               ["emails", "mail", t.menu.emails],
               ["company", "companies", t.menu.company],
+              ["files", "files", t.menu.files],
               ["users", "users", t.menu.users],
             ] as const
           ).map(([id, icon, label]) => (
@@ -2415,6 +2426,10 @@ export function AdminConsole() {
 
           {appPage === "events" ? (
             <SalesEventsPanel copy={t} locale={salesLocale} />
+          ) : null}
+
+          {appPage === "files" ? (
+            <CustomerFilesPanel copy={t} locale={salesLocale} />
           ) : null}
 
           {DIM_PAGES.has(appPage) ? (

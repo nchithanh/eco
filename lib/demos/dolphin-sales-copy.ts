@@ -48,6 +48,7 @@ export type DolphinSalesCopy = {
     company: string;
     users: string;
     events: string;
+    files: string;
     dimTitle: string;
     dimBody: string;
     projectedDeals: string;
@@ -70,6 +71,29 @@ export type DolphinSalesCopy = {
     place: string;
     overview: string;
     target: string;
+  };
+  filesPage: {
+    title: string;
+    search: string;
+    emptySearch: string;
+    emptyDocs: string;
+    back: string;
+    overview: string;
+    contact: string;
+    deal: string;
+    projects: string;
+    projectsActive: string;
+    resources: string;
+    activeProjects: string;
+    active: string;
+    addDoc: string;
+    edit: string;
+    more: string;
+    readOnly: string;
+    updated: string;
+    groupDocuments: string;
+    groupDiscovery: string;
+    groupChannels: string;
   };
   side: {
     search: string;
@@ -628,6 +652,7 @@ const VI: DolphinSalesCopy = {
     company: "Company",
     users: "Users",
     events: "Events",
+    files: "Hồ sơ",
     dimTitle: "Chưa đủ dữ liệu",
     dimBody:
       "Mục này hiện trên menu để khớp workspace. Sẽ mở khi có lịch hẹn, task, hóa đơn hoặc email.",
@@ -651,6 +676,29 @@ const VI: DolphinSalesCopy = {
     place: "Địa điểm",
     overview: "Mô tả",
     target: "Mục tiêu",
+  },
+  filesPage: {
+    title: "Hồ sơ",
+    search: "Tìm khách",
+    emptySearch: "Không có khách khớp.",
+    emptyDocs: "Chưa có tài liệu cho khách này.",
+    back: "Hồ sơ khách hàng",
+    overview: "Tổng quan",
+    contact: "Liên hệ",
+    deal: "Deal",
+    projects: "Dự án",
+    projectsActive: "{n} đang hoạt động",
+    resources: "Tài liệu & tài nguyên",
+    activeProjects: "Dự án đang triển khai",
+    active: "Đang chạy",
+    addDoc: "Thêm tài liệu",
+    edit: "Chỉnh sửa",
+    more: "Thêm thao tác",
+    readOnly: "Bản demo chỉ để tra cứu.",
+    updated: "Cập nhật",
+    groupDocuments: "Tài liệu",
+    groupDiscovery: "Discovery",
+    groupChannels: "Kênh",
   },
   side: {
     search: "Tìm kiếm",
@@ -1162,6 +1210,7 @@ const EN: DolphinSalesCopy = {
     company: "Company",
     users: "Users",
     events: "Events",
+    files: "Files",
     dimTitle: "Not enough data yet",
     dimBody:
       "This item stays on the menu to match the workspace. It opens when appointments, tasks, invoices, or email exist.",
@@ -1185,6 +1234,29 @@ const EN: DolphinSalesCopy = {
     place: "Place",
     overview: "Overview",
     target: "Target",
+  },
+  filesPage: {
+    title: "Files",
+    search: "Find a customer",
+    emptySearch: "No matching customer.",
+    emptyDocs: "No documents for this customer yet.",
+    back: "Customer files",
+    overview: "Overview",
+    contact: "Contact",
+    deal: "Deal",
+    projects: "Projects",
+    projectsActive: "{n} active",
+    resources: "Documents & resources",
+    activeProjects: "Active projects",
+    active: "Active",
+    addDoc: "Add document",
+    edit: "Edit",
+    more: "More actions",
+    readOnly: "This demo is for lookup only.",
+    updated: "Updated",
+    groupDocuments: "Documents",
+    groupDiscovery: "Discovery",
+    groupChannels: "Channels",
   },
   side: {
     search: "Search",

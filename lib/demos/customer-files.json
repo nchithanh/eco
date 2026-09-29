@@ -1,0 +1,105 @@
+[
+  {
+    "id": "ma-dance",
+    "nameVi": "MA Dance Studio",
+    "nameEn": "MA Dance Studio",
+    "initials": "MA",
+    "summaryVi": "Studio nhảy đa chi nhánh",
+    "summaryEn": "Multi-branch dance studio",
+    "statusVi": "Đang hợp tác",
+    "statusEn": "Active",
+    "contactName": "Nguyễn Trung Hiếu",
+    "contactRoleVi": "Người ký",
+    "contactRoleEn": "Signatory",
+    "websiteLabel": "nchithanh.github.io/MA_DANCE",
+    "website": "https://nchithanh.github.io/MA_DANCE/",
+    "dealVi": "CRM",
+    "dealEn": "CRM",
+    "docs": [
+      {
+        "id": "contract",
+        "kind": "document",
+        "labelVi": "Hợp đồng",
+        "labelEn": "Contract",
+        "titleVi": "Hợp đồng dịch vụ phần mềm",
+        "titleEn": "Software services agreement",
+        "descriptionVi": "Phạm vi CRM, phụ lục và thanh toán 50/30/20.",
+        "descriptionEn": "CRM scope, annexes, and a 50/30/20 payment split.",
+        "href": "/demos/admin/contract/hop-dong-ma/"
+      },
+      {
+        "id": "quote",
+        "kind": "document",
+        "labelVi": "Báo giá",
+        "labelEn": "Quote",
+        "titleVi": "Báo giá CRM",
+        "titleEn": "CRM quote",
+        "descriptionVi": "Phiếu báo giá các gói combo và hạng mục ngoài.",
+        "descriptionEn": "Quote sheet for combo packages and extra items.",
+        "href": "/demo/bao-gia-crm-nhay/",
+        "updated": "2026-09-14"
+      },
+      {
+        "id": "discovery",
+        "kind": "discovery",
+        "labelVi": "Discovery",
+        "labelEn": "Discovery",
+        "titleVi": "CRM discovery",
+        "titleEn": "CRM discovery",
+        "descriptionVi": "Nghiệp vụ studio từ form thu thập.",
+        "descriptionEn": "Studio operations collected from the discovery form.",
+        "href": "/demos/ma-dance-discovery/",
+        "updated": "2026-08-31"
+      },
+      {
+        "id": "website",
+        "kind": "website",
+        "labelVi": "Website",
+        "labelEn": "Website",
+        "titleVi": "Website MA Dance",
+        "titleEn": "MA Dance website",
+        "descriptionVi": "Trang marketing đang xuất bản.",
+        "descriptionEn": "Published marketing site.",
+        "href": "https://nchithanh.github.io/MA_DANCE/"
+      },
+      {
+        "id": "website-admin",
+        "kind": "website",
+        "labelVi": "Admin website",
+        "labelEn": "Website admin",
+        "titleVi": "Admin catalog website",
+        "titleEn": "Website catalog admin",
+        "descriptionVi": "Sửa khóa, gói, phòng và trang chủ.",
+        "descriptionEn": "Edit classes, packages, rooms, and the homepage.",
+        "href": "https://nchithanh.github.io/MA_DANCE/admin/"
+      },
+      {
+        "id": "crm",
+        "kind": "crm",
+        "labelVi": "CRM",
+        "labelEn": "CRM",
+        "titleVi": "Dolphin Edu",
+        "titleEn": "Dolphin Edu",
+        "descriptionVi": "Vận hành lớp, học viên và học phí.",
+        "descriptionEn": "Classes, students, and tuition operations.",
+        "href": "https://edu.dolphin-software.io.vn/"
+      }
+    ],
+    "projects": [
+      {
+        "id": "edu",
+        "name": "Dolphin Edu",
+        "typeVi": "CRM",
+        "typeEn": "CRM",
+        "href": "https://edu.dolphin-software.io.vn/"
+      },
+      {
+        "id": "site",
+        "name": "MA Dance",
+        "typeVi": "Website",
+        "typeEn": "Website",
+        "href": "https://nchithanh.github.io/MA_DANCE/"
+      }
+    ]
+  }
+]
