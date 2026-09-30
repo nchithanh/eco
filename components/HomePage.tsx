@@ -2,6 +2,7 @@
 
 import { Nav } from "@/components/Nav";
 import { Hero } from "@/components/Hero";
+import { TrustMetrics } from "@/components/TrustMetrics";
 import { FitSection } from "@/components/FitSection";
 import { HomeProblems } from "@/components/HomeProblems";
 import { WhyKuct } from "@/components/WhyKuct";
@@ -21,7 +22,7 @@ import { Footer } from "@/components/Footer";
 
 /**
  * Homepage story (CRM SaaS first):
- * Hero → Solutions (CRM → Care → Ops → Web) → Care → Ops → Combo packages →
+ * Hero → Trust metrics → Solutions (CRM → Care → Ops → Web) → Care → Ops → Combo →
  * Fit → Problems → Why → Works → Process → Stack → News → FAQ → CTA
  */
 export function HomePage() {
@@ -29,6 +30,7 @@ export function HomePage() {
     <main>
       <Nav />
       <Hero />
+      <TrustMetrics />
       <Capabilities />
       <AgentDolphinHome />
       <DolphinOpsHome />

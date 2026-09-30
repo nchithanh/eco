@@ -5,7 +5,7 @@
     "rawPath": "/schema/homepage/index.json",
     "brand": "Dolphin Software",
     "locale": "vi",
-    "updated": "2026-09-30",
+    "updated": "2026-10-01",
     "seo": {
       "title": "Thuê CRM & AI cho spa, salon, clinic | Dolphin",
       "description": "Dolphin cho thuê CRM (khách, lịch, follow-up) và AI cho spa, salon, clinic. Combo CRM + Care từ 6 tháng tặng website doanh nghiệp. Báo giá rõ, không phí ẩn.",
@@ -30,6 +30,12 @@
       "anchor": "#top",
       "schemaPath": "/schema/homepage/hero/",
       "rawPath": "/schema/homepage/hero.json"
+    },
+    {
+      "id": "trust-metrics",
+      "anchor": "#trust",
+      "schemaPath": "/schema/homepage/trust-metrics/",
+      "rawPath": "/schema/homepage/trust-metrics.json"
     },
     {
       "id": "capabilities",

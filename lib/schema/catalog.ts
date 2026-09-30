@@ -13,6 +13,7 @@ import aiTransform from "../../public/schema/agents/ai-transform.json";
 import dolphinIntelligence from "../../public/schema/agents/dolphin-intelligence.json";
 import homepageIndex from "../../public/schema/homepage/index.json";
 import homepageHero from "../../public/schema/homepage/hero.json";
+import homepageTrustMetrics from "../../public/schema/homepage/trust-metrics.json";
 import homepageProblems from "../../public/schema/homepage/problems.json";
 import homepageWhy from "../../public/schema/homepage/why.json";
 import homepageCapabilities from "../../public/schema/homepage/capabilities.json";
@@ -52,6 +53,7 @@ export type SchemaAgentSlug = (typeof SCHEMA_AGENT_SLUGS)[number];
 /** Order matches homepage/index.json (CRM-first story). */
 export const SCHEMA_HOMEPAGE_SLUGS = [
   "hero",
+  "trust-metrics",
   "capabilities",
   "dolphin-care",
   "dolphin-ops",
@@ -107,6 +109,7 @@ export const schemaAgentsBySlug: Record<SchemaAgentSlug, object> = {
 
 export const schemaHomepageBySlug: Record<SchemaHomepageSlug, object> = {
   hero: homepageHero,
+  "trust-metrics": homepageTrustMetrics,
   capabilities: homepageCapabilities,
   "dolphin-care": homepageDolphinCare,
   "dolphin-ops": homepageDolphinOps,

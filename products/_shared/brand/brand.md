@@ -9,6 +9,7 @@ Synced from the marketing site. Do not invent a second brand.
 | Logo | `public/brand/logo-dolphin.webp` (orangered archive: `logo-dolphin-orangered.webp`) |
 | Accent | `#000000` (`--kuct-accent`) — ElevenLabs-adjacent monochrome chrome |
 | Radius | Cards/panels 10px; CTA buttons pill (`--kuct-radius-btn: 9999px`) |
+| Canvas | Section frame (`.kuct-page-rails`) — vertical rails + horizontal rules cross through |
 | Never | “Dolphin Kich” / “Dolphin Kick” in new copy |
 
 Product names (Ops, Care, …) stay as product names, not a replacement for the company display name.

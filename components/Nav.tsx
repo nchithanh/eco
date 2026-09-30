@@ -152,6 +152,10 @@ export function Nav() {
       href: assetPath("/company-profile/"),
       label: t.nav.companyProfile,
     },
+    {
+      href: assetPath("/chinh-sach-gia-dolphin-2026/"),
+      label: t.nav.pricing,
+    },
     { href: assetPath("/careers/"), label: t.nav.careers },
   ];
 

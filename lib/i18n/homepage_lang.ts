@@ -21,6 +21,7 @@ export function applyHomepageLang(
   return {
     ...dict,
     hero: overlay.hero ?? dict.hero,
+    trustMetrics: overlay.trustMetrics ?? dict.trustMetrics,
     problems: overlay.problems ?? dict.problems,
     capabilities: overlay.capabilities ?? dict.capabilities,
     siteOutcomes: overlay.siteOutcomes ?? dict.siteOutcomes,

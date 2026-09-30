@@ -1,461 +1,1081 @@
 "use client";
 
 import Link from "next/link";
-import { AccentText } from "@/components/BrandName";
-import { Reveal } from "@/components/Reveal";
+import {
+  useEffect,
+  useId,
+  useRef,
+  useState,
+  type PointerEvent as ReactPointerEvent,
+  type ReactNode,
+} from "react";
 import { assetPath } from "@/lib/asset";
 import { CONTACTS } from "@/lib/contacts";
 import {
   CARE_STANDALONE,
+  CARE_STANDALONE_AUDIENCE,
   COMBO_PACKAGES,
   IMPORTANT_RULES,
   INTEGRATION_OUTSOURCE,
   ONETIME_WEB,
   PRICING_CTA,
-  PRICING_POLICY_META,
-  PRICING_PRINCIPLES,
   SAAS_MONTHLY,
   DOLPHIN_CARE_GLOSS,
-  DOLPHIN_CARE_WITH_GLOSS,
   formatVnd,
   type ComboPackage,
 } from "@/lib/pricing/dolphin-pricing-policy-2026";
+import {
+  PRICING_INDUSTRIES,
+  featuresForCombo,
+  type IndustryId,
+} from "@/lib/pricing/dolphin-pricing-industries-2026";
 import { WARRANTY_POLICY_PATH } from "@/lib/pricing/dolphin-warranty-policy-2026";
 
-function PrincipleIcon({ kind }: { kind: (typeof PRICING_PRINCIPLES)[number]["icon"] }) {
-  const common = {
-    viewBox: "0 0 24 24",
-    fill: "none",
-    stroke: "currentColor",
-    strokeWidth: 1.75,
-    strokeLinecap: "round" as const,
-    strokeLinejoin: "round" as const,
-    "aria-hidden": true as const,
-  };
+type ViewId = "packages" | "care" | "list" | "outsource";
 
-  switch (kind) {
-    case "base":
-      return (
-        <svg {...common}>
-          <path d="M4 20h16" />
-          <path d="M6 20V10l6-4 6 4v10" />
-          <path d="M10 20v-5h4v5" />
-        </svg>
-      );
-    case "growth":
-      return (
-        <svg {...common}>
-          <path d="M4 19h16" />
-          <path d="M7 15l4-5 3 3 5-7" />
-          <path d="M15 6h4v4" />
-        </svg>
-      );
-    case "web":
-      return (
-        <svg {...common}>
-          <rect x="3" y="5" width="18" height="14" rx="2" />
-          <path d="M3 9h18" />
-          <path d="M8 13h4" />
-        </svg>
-      );
-    case "pay":
-      return (
-        <svg {...common}>
-          <rect x="3" y="6" width="18" height="12" rx="2" />
-          <path d="M3 10h18" />
-          <path d="M7 14h4" />
-        </svg>
-      );
-    case "trial":
-      return (
-        <svg {...common}>
-          <circle cx="12" cy="12" r="8" />
-          <path d="M8 12h8" />
-        </svg>
-      );
-    case "third":
-      return (
-        <svg {...common}>
-          <circle cx="8" cy="8" r="2.5" />
-          <circle cx="16" cy="8" r="2.5" />
-          <circle cx="12" cy="16" r="2.5" />
-          <path d="M10 9.2 11.2 14" />
-          <path d="M14 9.2 12.8 14" />
-        </svg>
-      );
-    default:
-      return null;
-  }
+const VIEWS: { id: ViewId; label: string }[] = [
+  { id: "packages", label: "Gói combo" },
+  { id: "care", label: "Care lẻ" },
+  { id: "list", label: "Niêm yết" },
+  { id: "outsource", label: "Outsource" },
+];
+
+const FAQ_ITEMS: { q: string; a: string }[] = [
+  { q: "CRM đứng một mình bán thế nào?", a: IMPORTANT_RULES[0] },
+  { q: "Khi nào được mua gói 6 tháng?", a: IMPORTANT_RULES[1] },
+  { q: "Gói nào được tặng Website doanh nghiệp?", a: IMPORTANT_RULES[2] },
+  { q: "CRM Base 12 hỗ trợ web ra sao?", a: IMPORTANT_RULES[3] },
+  { q: "Dolphin Intelligence bán thế nào?", a: IMPORTANT_RULES[4] },
+  { q: "Thuê lẻ Dolphin Care dành cho ai?", a: IMPORTANT_RULES[5] },
+  { q: "Có dùng thử miễn phí không?", a: IMPORTANT_RULES[6] },
+  { q: "Thanh toán gói như thế nào?", a: IMPORTANT_RULES[7] },
+];
+
+const DRAG_THRESHOLD_PX = 28;
+const AXIS_LOCK_PX = 6;
+/** Max feature lines on narrow screens before “Xem thêm”. */
+const FEATURE_PREVIEW = 6;
+
+function FeatureIcon() {
+  return (
+    <svg className="elp__fi" viewBox="0 0 16 16" fill="none" aria-hidden>
+      <path
+        d="M3.2 8.2 6.3 11.1 12.8 4.4"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
 }
 
-function ListBlock({
-  title,
-  note,
-  headers,
-  rows,
+function TabDot({ active }: { active: boolean }) {
+  return (
+    <span className={`elp__tab-dot${active ? " is-on" : ""}`} aria-hidden />
+  );
+}
+
+type DragAxis = null | "x" | "y";
+
+/** Free horizontal strip — drag only when content overflows (clicks always work). */
+function DragStrip({
+  className,
+  trackClassName,
+  children,
+  label,
+  resetKey,
+  activeSelector,
 }: {
-  title: string;
-  note: string;
-  headers: [string, string];
-  rows: { label: string; value: string }[];
+  className?: string;
+  trackClassName?: string;
+  children: ReactNode;
+  label: string;
+  resetKey?: string;
+  /** CSS selector for the active control — centers it when overflow. */
+  activeSelector?: string;
+}) {
+  const viewportRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
+  const [offset, setOffset] = useState(0);
+  const [dragPx, setDragPx] = useState(0);
+  const [dragging, setDragging] = useState(false);
+  const [canDrag, setCanDrag] = useState(false);
+  const dragRef = useRef<{
+    pointerId: number | null;
+    startX: number;
+    startY: number;
+    origin: number;
+    axis: DragAxis;
+    suppressClick: boolean;
+  }>({
+    pointerId: null,
+    startX: 0,
+    startY: 0,
+    origin: 0,
+    axis: null,
+    suppressClick: false,
+  });
+
+  const clamp = (value: number) => {
+    const vp = viewportRef.current?.clientWidth ?? 0;
+    const tw = trackRef.current?.scrollWidth ?? 0;
+    const min = Math.min(0, vp - tw - 1);
+    return Math.max(min, Math.min(0, value));
+  };
+
+  useEffect(() => {
+    setOffset(0);
+    setDragPx(0);
+  }, [resetKey]);
+
+  useEffect(() => {
+    const vpEl = viewportRef.current;
+    const trEl = trackRef.current;
+    if (!vpEl || !trEl) return;
+
+    const measure = () => {
+      setCanDrag(trEl.scrollWidth > vpEl.clientWidth + 2);
+      setOffset((o) => clamp(o));
+    };
+    measure();
+    const ro = new ResizeObserver(measure);
+    ro.observe(vpEl);
+    ro.observe(trEl);
+    return () => ro.disconnect();
+  }, [resetKey, children]);
+
+  useEffect(() => {
+    if (!activeSelector || !canDrag) return;
+    const vpEl = viewportRef.current;
+    const trEl = trackRef.current;
+    const active = trEl?.querySelector<HTMLElement>(activeSelector);
+    if (!vpEl || !trEl || !active) return;
+
+    const vpRect = vpEl.getBoundingClientRect();
+    const aRect = active.getBoundingClientRect();
+    const delta =
+      aRect.left + aRect.width / 2 - (vpRect.left + vpRect.width / 2);
+    if (Math.abs(delta) < 8) return;
+    setOffset((o) => clamp(o - delta));
+  }, [activeSelector, canDrag]);
+
+  const onPointerDown = (event: ReactPointerEvent<HTMLDivElement>) => {
+    if (!canDrag || event.button !== 0) return;
+    /* Do not capture yet — early capture steals clicks from industry tabs. */
+    dragRef.current = {
+      pointerId: event.pointerId,
+      startX: event.clientX,
+      startY: event.clientY,
+      origin: offset,
+      axis: null,
+      suppressClick: false,
+    };
+  };
+
+  const onPointerMove = (event: ReactPointerEvent<HTMLDivElement>) => {
+    const drag = dragRef.current;
+    if (drag.pointerId !== event.pointerId) return;
+    const dx = event.clientX - drag.startX;
+    const dy = event.clientY - drag.startY;
+
+    if (!drag.axis) {
+      if (Math.abs(dx) < AXIS_LOCK_PX && Math.abs(dy) < AXIS_LOCK_PX) return;
+      drag.axis = Math.abs(dx) >= Math.abs(dy) ? "x" : "y";
+      if (drag.axis === "y") return;
+      try {
+        event.currentTarget.setPointerCapture(event.pointerId);
+      } catch {
+        /* ignore */
+      }
+      setDragging(true);
+    }
+    if (drag.axis !== "x") return;
+
+    setDragPx(dx);
+    event.preventDefault();
+  };
+
+  const endDrag = (event: ReactPointerEvent<HTMLDivElement>) => {
+    const drag = dragRef.current;
+    if (drag.pointerId !== event.pointerId) return;
+    if (event.currentTarget.hasPointerCapture(event.pointerId)) {
+      event.currentTarget.releasePointerCapture(event.pointerId);
+    }
+    if (drag.axis === "x") {
+      const next = clamp(drag.origin + dragPx);
+      if (Math.abs(dragPx) >= DRAG_THRESHOLD_PX) drag.suppressClick = true;
+      setOffset(next);
+    }
+    dragRef.current = {
+      pointerId: null,
+      startX: 0,
+      startY: 0,
+      origin: 0,
+      axis: null,
+      suppressClick: drag.suppressClick,
+    };
+    setDragPx(0);
+    setDragging(false);
+  };
+
+  const onClickCapture = (event: React.MouseEvent) => {
+    if (!dragRef.current.suppressClick) return;
+    const target = event.target as HTMLElement | null;
+    if (target?.closest("button, a, [role='tab']")) {
+      dragRef.current.suppressClick = false;
+      return;
+    }
+    event.preventDefault();
+    event.stopPropagation();
+    dragRef.current.suppressClick = false;
+  };
+
+  const x = clamp(offset + (dragging ? dragPx : 0));
+
+  return (
+    <div
+      ref={viewportRef}
+      className={`elp__dragstrip${canDrag ? " elp__dragstrip--overflow" : ""}${className ? ` ${className}` : ""}`}
+      role="region"
+      aria-label={label}
+      onPointerDown={onPointerDown}
+      onPointerMove={onPointerMove}
+      onPointerUp={endDrag}
+      onPointerCancel={endDrag}
+      onClickCapture={onClickCapture}
+    >
+      <div
+        ref={trackRef}
+        className={`elp__dragstrip-track${dragging ? " is-dragging" : ""}${trackClassName ? ` ${trackClassName}` : ""}`}
+        style={{ transform: `translate3d(${x}px, 0, 0)` }}
+      >
+        {children}
+      </div>
+    </div>
+  );
+}
+
+/** Peek carousel — fixed card width + translateX by measured step. */
+function PlanSlider({
+  label,
+  resetKey,
+  slides,
+}: {
+  label: string;
+  resetKey: string;
+  slides: ReactNode[];
+}) {
+  const count = slides.length;
+  const sliderRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
+  const [index, setIndex] = useState(0);
+  const [step, setStep] = useState(0);
+  const [dragOffset, setDragOffset] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
+  const dragRef = useRef<{
+    pointerId: number | null;
+    startX: number;
+    startY: number;
+    deltaX: number;
+    axis: DragAxis;
+    suppressClick: boolean;
+  }>({
+    pointerId: null,
+    startX: 0,
+    startY: 0,
+    deltaX: 0,
+    axis: null,
+    suppressClick: false,
+  });
+
+  useEffect(() => {
+    setIndex(0);
+    setDragOffset(0);
+    setIsDragging(false);
+  }, [resetKey]);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 1025px)");
+    const onChange = () => setIsDesktop(mq.matches);
+    onChange();
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
+
+  useEffect(() => {
+    if (isDesktop) return;
+    const slider = sliderRef.current;
+    const track = trackRef.current;
+    if (!slider || !track) return;
+
+    const measure = () => {
+      const slide = track.querySelector<HTMLElement>(".elp__slide");
+      if (!slide) return;
+      const gap = Number.parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap) || 16;
+      setStep(slide.getBoundingClientRect().width + gap);
+    };
+
+    measure();
+    const ro = new ResizeObserver(measure);
+    ro.observe(slider);
+    ro.observe(track);
+    return () => ro.disconnect();
+  }, [count, resetKey, isDesktop]);
+
+  const goPrev = () => setIndex((i) => Math.max(0, i - 1));
+  const goNext = () => setIndex((i) => Math.min(count - 1, i + 1));
+  const goTo = (i: number) => setIndex(Math.max(0, Math.min(count - 1, i)));
+
+  const onPointerDown = (event: ReactPointerEvent<HTMLDivElement>) => {
+    if (isDesktop || count <= 1 || event.button !== 0) return;
+    const target = event.target as HTMLElement | null;
+    if (target?.closest("a, button")) return;
+    dragRef.current = {
+      pointerId: event.pointerId,
+      startX: event.clientX,
+      startY: event.clientY,
+      deltaX: 0,
+      axis: null,
+      suppressClick: false,
+    };
+  };
+
+  const onPointerMove = (event: ReactPointerEvent<HTMLDivElement>) => {
+    const drag = dragRef.current;
+    if (drag.pointerId !== event.pointerId) return;
+    const dx = event.clientX - drag.startX;
+    const dy = event.clientY - drag.startY;
+
+    if (!drag.axis) {
+      if (Math.abs(dx) < AXIS_LOCK_PX && Math.abs(dy) < AXIS_LOCK_PX) return;
+      drag.axis = Math.abs(dx) >= Math.abs(dy) ? "x" : "y";
+      if (drag.axis === "y") return;
+      try {
+        event.currentTarget.setPointerCapture(event.pointerId);
+      } catch {
+        /* ignore */
+      }
+      setIsDragging(true);
+    }
+    if (drag.axis !== "x") return;
+
+    drag.deltaX = dx;
+    setDragOffset(dx);
+    event.preventDefault();
+  };
+
+  const endDrag = (event: ReactPointerEvent<HTMLDivElement>) => {
+    const drag = dragRef.current;
+    if (drag.pointerId !== event.pointerId) return;
+    if (event.currentTarget.hasPointerCapture(event.pointerId)) {
+      event.currentTarget.releasePointerCapture(event.pointerId);
+    }
+
+    if (drag.axis === "x" && Math.abs(drag.deltaX) >= DRAG_THRESHOLD_PX) {
+      drag.suppressClick = true;
+      if (drag.deltaX < 0) goNext();
+      else goPrev();
+    }
+
+    dragRef.current = {
+      pointerId: null,
+      startX: 0,
+      startY: 0,
+      deltaX: 0,
+      axis: null,
+      suppressClick: drag.suppressClick,
+    };
+    setDragOffset(0);
+    setIsDragging(false);
+  };
+
+  const onClickCapture = (event: React.MouseEvent) => {
+    if (!dragRef.current.suppressClick) return;
+    const target = event.target as HTMLElement | null;
+    if (target?.closest("a, button")) {
+      dragRef.current.suppressClick = false;
+      return;
+    }
+    event.preventDefault();
+    event.stopPropagation();
+    dragRef.current.suppressClick = false;
+  };
+
+  if (count === 0) return null;
+
+  const baseX = !isDesktop && step > 0 ? -index * step : 0;
+
+  return (
+    <div
+      className={`elp__slider-wrap${isDesktop ? " elp__slider-wrap--grid" : ""}`}
+    >
+      {!isDesktop ? (
+        <div className="elp__slider-toolbar no-print">
+          <span className="elp__slider-count">
+            {index + 1}/{count}
+          </span>
+          <div className="elp__track-nav">
+            <button
+              type="button"
+              className="elp__track-btn"
+              aria-label={`Slide trước — ${label}`}
+              disabled={index <= 0}
+              onClick={goPrev}
+            >
+              ‹
+            </button>
+            <button
+              type="button"
+              className="elp__track-btn"
+              aria-label={`Slide sau — ${label}`}
+              disabled={index >= count - 1}
+              onClick={goNext}
+            >
+              ›
+            </button>
+          </div>
+        </div>
+      ) : null}
+
+      <div
+        ref={sliderRef}
+        className={`elp__slider${isDragging ? " is-dragging" : ""}${isDesktop ? " elp__slider--grid" : ""}`}
+        role="region"
+        aria-roledescription={isDesktop ? undefined : "carousel"}
+        aria-label={label}
+        onPointerDown={onPointerDown}
+        onPointerMove={onPointerMove}
+        onPointerUp={endDrag}
+        onPointerCancel={endDrag}
+        onClickCapture={onClickCapture}
+      >
+        <div
+          ref={trackRef}
+          className={`elp__slider-track${isDragging ? " is-dragging" : ""}`}
+          data-count={count}
+          style={
+            isDesktop
+              ? undefined
+              : { transform: `translate3d(${baseX + dragOffset}px, 0, 0)` }
+          }
+        >
+          {slides.map((slide, i) => (
+            <div
+              key={i}
+              className="elp__slide"
+              aria-hidden={isDesktop ? undefined : i !== index}
+            >
+              {slide}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {!isDesktop && count > 1 ? (
+        <div className="elp__dots" role="tablist" aria-label={`${label} — trang`}>
+          {slides.map((_, i) => (
+            <button
+              key={i}
+              type="button"
+              role="tab"
+              aria-selected={i === index}
+              aria-label={`Gói ${i + 1}`}
+              className={`elp__dot${i === index ? " is-active" : ""}`}
+              onClick={() => goTo(i)}
+            />
+          ))}
+        </div>
+      ) : null}
+    </div>
+  );
+}
+
+function CardFeatures({
+  featureGroups,
+  features,
+}: {
+  featureGroups?: { label: string; items: readonly string[] }[];
+  features?: string[];
+}) {
+  const [expanded, setExpanded] = useState(false);
+  const [isNarrow, setIsNarrow] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 1024px)");
+    const onChange = () => {
+      setIsNarrow(mq.matches);
+      if (!mq.matches) setExpanded(false);
+    };
+    onChange();
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
+
+  const flat = featureGroups?.length
+    ? featureGroups.flatMap((g) => [...g.items])
+    : (features ?? []);
+
+  if (!flat.length) return null;
+
+  /* Desktop / expanded: show labeled groups when available */
+  if ((!isNarrow || expanded) && featureGroups?.length) {
+    return (
+      <div className="elp__groups">
+        {featureGroups.map((g) => (
+          <div key={g.label} className="elp__group">
+            <p className="elp__group-label">{g.label}</p>
+            <ul className="elp__features">
+              {g.items.map((f) => (
+                <li key={f}>
+                  <FeatureIcon />
+                  <span>{f}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+        {isNarrow && expanded ? (
+          <button
+            type="button"
+            className="elp__more"
+            onClick={() => setExpanded(false)}
+          >
+            Thu gọn
+          </button>
+        ) : null}
+      </div>
+    );
+  }
+
+  const visible = isNarrow && !expanded ? flat.slice(0, FEATURE_PREVIEW) : flat;
+  const hidden = isNarrow && !expanded ? Math.max(0, flat.length - FEATURE_PREVIEW) : 0;
+
+  return (
+    <div className="elp__groups">
+      <ul className="elp__features elp__features--tight">
+        {visible.map((f) => (
+          <li key={f}>
+            <FeatureIcon />
+            <span>{f}</span>
+          </li>
+        ))}
+      </ul>
+      {hidden > 0 ? (
+        <button
+          type="button"
+          className="elp__more"
+          onClick={() => setExpanded(true)}
+        >
+          +{hidden} mục nữa
+        </button>
+      ) : null}
+    </div>
+  );
+}
+
+function ElPlanCard({
+  name,
+  price,
+  priceNote,
+  strike,
+  cta,
+  intro,
+  industryTag,
+  features,
+  featureGroups,
+  metric,
+  popular,
+  badge,
+  tone = "grey",
+}: {
+  name: string;
+  price: string;
+  priceNote: string;
+  strike?: string;
+  cta: string;
+  intro?: string;
+  industryTag?: string;
+  features?: string[];
+  featureGroups?: { label: string; items: readonly string[] }[];
+  metric: string;
+  popular?: boolean;
+  badge?: string;
+  tone?: "grey" | "warm" | "ink" | "gradient";
 }) {
   return (
-    <article className="pp26__list-card">
-      <div className="pp26__list-card-head">
-        <h3>{title}</h3>
-        <p>{note}</p>
+    <article
+      className={`elp__card${popular ? " elp__card--popular" : ""}`}
+      aria-label={name}
+    >
+      <div className={`elp__panel elp__panel--${tone}`}>
+        {badge ? <span className="elp__badge">{badge}</span> : null}
+        {industryTag ? (
+          <span className="elp__industry-tag">{industryTag}</span>
+        ) : null}
+        <h3 className="elp__plan-name">{name}</h3>
+        <div className="elp__price-block">
+          {strike ? <p className="elp__strike">{strike}</p> : null}
+          <p className="elp__price">
+            <span className="elp__price-num">{price}</span>
+            <span className="elp__price-note">{priceNote}</span>
+          </p>
+        </div>
       </div>
-      <div className="overflow-x-auto">
-        <table className="pp26__table">
-          <thead>
-            <tr>
-              <th scope="col">{headers[0]}</th>
-              <th scope="col">{headers[1]}</th>
-            </tr>
-          </thead>
-          <tbody>
-            {rows.map((row) => (
-              <tr key={row.label}>
-                <td>{row.label}</td>
-                <td className="pp26__num">{row.value}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+      <a
+        href={CONTACTS.zalo}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="elp__cta"
+        draggable={false}
+      >
+        {cta}
+      </a>
+      {intro ? <p className="elp__intro">{intro}</p> : null}
+      <CardFeatures featureGroups={featureGroups} features={features} />
+      <p className="elp__metric">{metric}</p>
     </article>
   );
 }
 
-function ComboCard({ pkg }: { pkg: ComboPackage }) {
+function comboTone(pkg: ComboPackage): "grey" | "warm" | "ink" | "gradient" {
+  if (pkg.no === 3) return "gradient";
+  if (pkg.no === 6) return "ink";
+  if (pkg.no === 5) return "warm";
+  return "grey";
+}
+
+function shortComponents(value: string): string {
+  return value.replace(/\s*\([^)]*chatbot AI[^)]*\)/gi, "").trim();
+}
+
+function ComboCard({
+  pkg,
+  industryId,
+  industryLabel,
+}: {
+  pkg: ComboPackage;
+  industryId: IndustryId;
+  industryLabel: string;
+}) {
+  const components = shortComponents(pkg.components);
+  const groups = featuresForCombo(industryId, pkg.no).map((g) => ({
+    label:
+      g.tier === "crm"
+        ? `CRM · ${industryLabel}`
+        : g.tier === "care"
+          ? "Thêm Dolphin Care"
+          : "Thêm Dolphin Ops",
+    items: g.items,
+  }));
+
   return (
-    <article
-      className={`pp26__combo${pkg.highlight ? " pp26__combo--hot" : ""}`}
-      aria-label={pkg.name}
-    >
-      {pkg.badge ? <span className="pp26__combo-badge">{pkg.badge}</span> : null}
-      <p className="pp26__combo-no">Gói {pkg.no}</p>
-      <h3 className="pp26__combo-name">{pkg.name}</h3>
-      <p className="pp26__combo-meta">
-        {pkg.components} · {pkg.term}
-      </p>
-      <p className="pp26__combo-price">
-        <span className="pp26__combo-price-label">Thanh toán trước</span>
-        {formatVnd(pkg.prepaid)}
-      </p>
-      <p className="pp26__combo-gift">
-        <strong>Hỗ trợ web:</strong> {pkg.webSupport}
-      </p>
-    </article>
+    <ElPlanCard
+      name={pkg.name}
+      price={formatVnd(pkg.prepaid)}
+      priceNote="thanh toán trước"
+      cta="Nhận báo giá"
+      industryTag={industryLabel}
+      intro={`Gồm ${components} · ${pkg.term} · ${pkg.webSupport}`}
+      featureGroups={groups}
+      metric={`${industryLabel} · ${pkg.term}`}
+      popular={pkg.highlight}
+      badge={pkg.badge}
+      tone={comboTone(pkg)}
+    />
   );
 }
 
 export function PricingPolicy2026Content() {
+  const [industryId, setIndustryId] = useState<IndustryId>("spa");
+  const [view, setView] = useState<ViewId>("packages");
+  const tabsId = useId();
+
+  const industry =
+    PRICING_INDUSTRIES.find((i) => i.id === industryId) ?? PRICING_INDUSTRIES[0];
+
+  const starterCombos = COMBO_PACKAGES.filter((p) => p.no <= 4);
+  const growthCombos = COMBO_PACKAGES.filter((p) => p.no >= 5);
+
   return (
-    <div className="pp26 pp26--pad-sticky">
-      <section
-        className="relative isolate overflow-hidden py-16 sm:py-20"
-        aria-labelledby="pricing-policy-heading"
-      >
-        <div className="pointer-events-none absolute inset-0 kuct-hero-wash" aria-hidden />
-        <div className="relative mx-auto max-w-7xl px-6">
-          <Reveal variant="title" className="max-w-4xl">
-            <p className="kuct-type-eyebrow">{PRICING_POLICY_META.eyebrow}</p>
-            <h1
-              id="pricing-policy-heading"
-              className="mt-4 font-display text-4xl font-bold tracking-tight text-[var(--kuct-text)] sm:text-5xl lg:text-[3.25rem]"
-            >
-              <AccentText>{PRICING_POLICY_META.title}</AccentText>
-            </h1>
-            <p className="mt-5 max-w-[60ch] text-base leading-[1.7] text-[var(--kuct-muted)] sm:text-lg">
-              {PRICING_POLICY_META.subtitle}
-            </p>
-            <div className="pp26__doc-meta">
-              <span className="pp26__pill">Chính thức · 2026</span>
-              <p className="pp26__updated">{PRICING_POLICY_META.updated}</p>
-            </div>
-            <p className="pp26__badge-line">{PRICING_POLICY_META.badge}</p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <a
-                href={CONTACTS.zalo}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="kuct-btn-primary inline-flex items-center rounded-[10px] px-5 py-3.5 text-sm font-semibold"
-              >
-                {PRICING_CTA.zaloLabel}
-              </a>
-              <a
-                href="#pricing-combos"
-                className="kuct-btn-ghost inline-flex items-center rounded-[10px] px-5 py-3.5 text-sm font-semibold"
-              >
-                Xem 6 gói combo
-              </a>
-            </div>
-          </Reveal>
-        </div>
-      </section>
+    <div className="elp">
+      <section className="elp__hero" aria-labelledby="pricing-policy-heading">
+        <h1 id="pricing-policy-heading" className="elp__h1">
+          Giá linh hoạt theo nhu cầu
+        </h1>
+        <p className="elp__hero-sub">
+          Chọn ngành — xem gói và chức năng CRM · Care · Ops tương ứng.
+        </p>
 
-      <section
-        id="pricing-principles"
-        aria-labelledby="pricing-principles-heading"
-        className="scroll-mt-20 border-t border-[var(--kuct-border)] py-16 sm:py-20"
-      >
-        <div className="mx-auto max-w-7xl px-6">
-          <Reveal variant="title" className="max-w-3xl">
-            <p className="pp26__section-label">01 · Framework</p>
-            <h2
-              id="pricing-principles-heading"
-              className="font-display text-2xl font-semibold tracking-tight sm:text-3xl"
-            >
-              Nguyên tắc định giá
-            </h2>
-          </Reveal>
-          <ul className="pp26__principle-grid mt-10">
-            {PRICING_PRINCIPLES.map((item, index) => (
-              <Reveal key={item.title} delay={index * 35} as="li" className="h-full">
-                <div className="pp26__principle">
-                  <div className="pp26__principle-top">
-                    <span className="pp26__icon">
-                      <PrincipleIcon kind={item.icon} />
-                    </span>
-                    <div>
-                      <p className="pp26__principle-group">{item.group}</p>
-                      <h3 className="pp26__principle-title">{item.title}</h3>
-                    </div>
-                  </div>
-                  <p className="pp26__principle-body">{item.body}</p>
-                </div>
-              </Reveal>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      <section
-        id="pricing-list"
-        aria-labelledby="pricing-list-heading"
-        className="scroll-mt-20 kuct-section-wash py-16 sm:py-20"
-      >
-        <div className="mx-auto max-w-7xl px-6">
-          <Reveal variant="title" className="max-w-3xl">
-            <p className="pp26__section-label">02 · List price</p>
-            <h2
-              id="pricing-list-heading"
-              className="font-display text-2xl font-semibold tracking-tight sm:text-3xl"
-            >
-              Giá niêm yết gốc
-            </h2>
-          </Reveal>
-          <div className="pp26__list-grid mt-10">
-            <Reveal>
-              <ListBlock
-                title="Sản phẩm SaaS"
-                note="Theo tháng · nhân với kỳ hạn gói"
-                headers={["Sản phẩm", "Giá / tháng"]}
-                rows={SAAS_MONTHLY.map((row) => ({
-                  label: row.product,
-                  value: formatVnd(row.price),
-                }))}
+        <div className="elp__controls elp__controls--bar">
+          <DragStrip
+            label="Ngành"
+            className="elp__dragstrip--tabs"
+            trackClassName="elp__tabs elp__tabs--industry"
+            resetKey={`industries-${PRICING_INDUSTRIES.length}`}
+            activeSelector={`[data-industry-tab="${industryId}"]`}
+          >
+            <div role="tablist" aria-label="Ngành" id={tabsId} className="elp__tabs-inner">
+              {PRICING_INDUSTRIES.map((item) => {
+                const active = industryId === item.id;
+                return (
+                  <button
+                    key={item.id}
+                    type="button"
+                    role="tab"
+                    id={`${tabsId}-${item.id}`}
+                    data-industry-tab={item.id}
+                    aria-selected={active}
+                    className={`elp__tab${active ? " is-active" : ""}`}
+                    onClick={() => {
+                      setIndustryId(item.id);
+                      setView("packages");
+                    }}
+                  >
+                    <TabDot active={active} />
+                    <span className="elp__tab-label">{item.label}</span>
+                  </button>
+                );
+              })}
+            </div>
+          </DragStrip>
+          <div className="elp__billing" aria-label="Hình thức thanh toán">
+            <span className="elp__billing-label">Thanh toán trước</span>
+            <svg className="elp__billing-chevron" viewBox="0 0 12 12" aria-hidden>
+              <path
+                d="M3 4.5 6 7.5 9 4.5"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.4"
+                strokeLinecap="round"
               />
-            </Reveal>
-            <Reveal delay={40}>
-              <ListBlock
-                title="Website & Landing"
-                note="One-time · áp dụng khi triển khai"
-                headers={["Hạng mục", "Giá"]}
-                rows={ONETIME_WEB.map((row) => ({
-                  label: row.item,
-                  value: formatVnd(row.price),
-                }))}
-              />
-            </Reveal>
-            <Reveal delay={80}>
-              <ListBlock
-                title="Tích hợp & Outsource"
-                note="One-time · khoảng giá hoặc giá chốt"
-                headers={["Hạng mục", "Giá"]}
-                rows={INTEGRATION_OUTSOURCE.map((row) => ({
-                  label: row.item,
-                  value: row.price,
-                }))}
-              />
-            </Reveal>
+            </svg>
           </div>
         </div>
-      </section>
 
-      <section
-        id="pricing-combos"
-        aria-labelledby="pricing-combos-heading"
-        className="scroll-mt-20 py-16 sm:py-20"
-      >
-        <div className="mx-auto max-w-7xl px-6">
-          <Reveal variant="title" className="max-w-3xl">
-            <p className="pp26__section-label">03 · Combo packages</p>
-            <h2
-              id="pricing-combos-heading"
-              className="font-display text-2xl font-semibold tracking-tight sm:text-3xl"
-            >
-              6 gói Combo chính thức
-            </h2>
-            <p className="mt-4 text-base leading-[1.7] text-[var(--kuct-muted)]">
-              Giá thanh toán trước theo kỳ hạn. Hỗ trợ Website/Landing áp dụng khi khách triển
-              khai hạng mục tương ứng.{" "}
-              <strong>Dolphin Care</strong> = {DOLPHIN_CARE_GLOSS}. Highlight: CRM + Care 12 và
-              Full Growth 12.
-            </p>
-          </Reveal>
-          <div className="pp26__combo-grid mt-10">
-            {COMBO_PACKAGES.map((pkg, index) => (
-              <Reveal key={pkg.no} delay={index * 30} className="h-full">
-                <ComboCard pkg={pkg} />
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
+        <p className="elp__industry-lead" key={industry.id}>
+          {industry.lead}
+        </p>
 
-      <section
-        id="pricing-care-standalone"
-        aria-labelledby="pricing-care-standalone-heading"
-        className="scroll-mt-20 kuct-section-wash py-16 sm:py-20"
-      >
-        <div className="mx-auto max-w-7xl px-6">
-          <Reveal variant="title" className="max-w-3xl">
-            <p className="pp26__section-label">04 · Add Care</p>
-            <h2
-              id="pricing-care-standalone-heading"
-              className="font-display text-2xl font-semibold tracking-tight sm:text-3xl"
-            >
-              Gói thuê lẻ Dolphin Care
-            </h2>
-            <p className="mt-2 text-sm font-medium text-[var(--kuct-accent-2)]">
-              {DOLPHIN_CARE_WITH_GLOSS}
-            </p>
-            <p className="mt-4 text-base leading-[1.7] text-[var(--kuct-muted)]">
-              Dành cho khách đã có CRM — không tặng Website.
-            </p>
-          </Reveal>
-          <div className="pp26__care-grid mt-10">
-            {CARE_STANDALONE.map((row, index) => (
-              <Reveal key={row.term} delay={index * 40}>
-                <article
-                  className={`pp26__care${row.recommended ? " pp26__care--best" : ""}`}
-                >
-                  <p className="pp26__care-term">{row.term}</p>
-                  <p className="pp26__care-price">{formatVnd(row.price)}</p>
-                  <p className="pp26__care-list">Giá gốc {formatVnd(row.list)}</p>
-                  <div className="pp26__care-stats">
-                    <span>
-                      Giảm <strong>{row.discount}</strong>
-                    </span>
-                    <span>
-                      TB / tháng <strong>{formatVnd(row.avgMonthly)}</strong>
-                    </span>
-                    {row.recommended ? (
-                      <span>
-                        <strong>Tiết kiệm hơn / tháng</strong>
-                      </span>
-                    ) : null}
-                  </div>
-                </article>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section
-        id="pricing-rules"
-        aria-labelledby="pricing-rules-heading"
-        className="scroll-mt-20 py-16 sm:py-20"
-      >
-        <div className="mx-auto max-w-7xl px-6">
-          <Reveal variant="title" className="max-w-3xl">
-            <p className="pp26__section-label">05 · Rules</p>
-            <h2
-              id="pricing-rules-heading"
-              className="font-display text-2xl font-semibold tracking-tight sm:text-3xl"
-            >
-              Quy tắc quan trọng
-            </h2>
-          </Reveal>
-          <ol className="pp26__rules mt-10">
-            {IMPORTANT_RULES.map((rule, index) => (
-              <Reveal key={rule} delay={index * 25} as="li">
-                <div className="pp26__rule">
-                  <span className="pp26__rule-n" aria-hidden>
-                    {index + 1}
-                  </span>
-                  <p>{rule}</p>
-                </div>
-              </Reveal>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      <section
-        id="pricing-contact"
-        aria-labelledby="pricing-contact-heading"
-        className="scroll-mt-20 border-t border-[var(--kuct-border)] py-16 sm:py-20"
-      >
-        <div className="mx-auto max-w-7xl px-6">
-          <Reveal>
-            <div className="pp26__cta">
-              <p className="pp26__section-label">Bắt đầu</p>
-              <h2
-                id="pricing-contact-heading"
-                className="font-display text-2xl font-semibold tracking-tight sm:text-3xl"
-              >
-                {PRICING_CTA.title}
-              </h2>
-              <p className="mx-auto mt-4 max-w-[52ch] text-base leading-[1.7] text-[var(--kuct-muted)]">
-                {PRICING_CTA.body}
-              </p>
-              <div className="pp26__cta-actions">
-                <a
-                  href={CONTACTS.zalo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="kuct-btn-primary inline-flex items-center rounded-[10px] px-5 py-3.5 text-sm font-semibold"
-                >
-                  {PRICING_CTA.zaloLabel}
-                </a>
-                <Link
-                  href={assetPath("/#contact")}
-                  className="kuct-btn-ghost inline-flex items-center rounded-[10px] px-5 py-3.5 text-sm font-semibold"
-                >
-                  {PRICING_CTA.contactLabel}
-                </Link>
-                <Link
-                  href={assetPath(WARRANTY_POLICY_PATH)}
-                  className="kuct-btn-ghost inline-flex items-center rounded-[10px] px-5 py-3.5 text-sm font-semibold"
-                >
-                  Chính sách bảo hành
-                </Link>
-              </div>
-              <p className="mt-4 text-sm text-[var(--kuct-muted)]">
-                Hotline / Zalo:{" "}
-                <a href={`tel:${CONTACTS.phone}`} className="font-semibold text-[var(--kuct-accent)]">
-                  {CONTACTS.phone}
-                </a>
-              </p>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      <div className="pp26__sticky no-print">
-        <a
-          href={CONTACTS.zalo}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="kuct-btn-primary inline-flex items-center rounded-[10px] px-5 py-3.5 text-sm font-semibold"
+        <DragStrip
+          label="Loại bảng giá"
+          className="elp__dragstrip--views"
+          trackClassName="elp__views"
+          resetKey="views"
+          activeSelector={`.elp__view.is-active`}
         >
-          {PRICING_CTA.stickyLabel}
-        </a>
+          <div role="tablist" aria-label="Loại bảng giá" className="elp__views-inner">
+            {VIEWS.map((v) => (
+              <button
+                key={v.id}
+                type="button"
+                role="tab"
+                aria-selected={view === v.id}
+                className={`elp__view${view === v.id ? " is-active" : ""}`}
+                onClick={() => setView(v.id)}
+              >
+                {v.label}
+              </button>
+            ))}
+          </div>
+        </DragStrip>
+      </section>
+
+      <div className="elp__main">
+        {view === "packages" ? (
+          <div className="elp__panel-block" key={industryId}>
+            <h2 className="elp__group-label">
+              Gói combo cho {industry.label}
+            </h2>
+            <PlanSlider
+              label={`Gói combo ${industry.label}`}
+              resetKey={`${industryId}-starter`}
+              slides={starterCombos.map((pkg) => (
+                <ComboCard
+                  key={`${industryId}-${pkg.no}`}
+                  pkg={pkg}
+                  industryId={industry.id}
+                  industryLabel={industry.label}
+                />
+              ))}
+            />
+
+            <h2 className="elp__group-label">
+              Cho tăng trưởng đầy đủ · {industry.label}
+            </h2>
+            <PlanSlider
+              label={`Tăng trưởng ${industry.label}`}
+              resetKey={`${industryId}-growth`}
+              slides={[
+                ...growthCombos.map((pkg) => (
+                  <ComboCard
+                    key={`${industryId}-${pkg.no}`}
+                    pkg={pkg}
+                    industryId={industry.id}
+                    industryLabel={industry.label}
+                  />
+                )),
+                <ElPlanCard
+                  key={`${industryId}-custom`}
+                  name="Tùy chỉnh"
+                  price="Liên hệ"
+                  priceNote="theo phạm vi"
+                  cta="Chat Zalo"
+                  industryTag={industry.label}
+                  intro={`Ngoài bảng · ${industry.label} · Intelligence · tích hợp`}
+                  features={[
+                    `Phạm vi CRM · Care · Ops cho ${industry.label}`,
+                    "Dolphin Intelligence khi đã có CRM",
+                    "Tích hợp / outsource báo giá riêng",
+                    "Không dùng thử — thanh toán trước",
+                  ]}
+                  metric={`${industry.label} · Enterprise`}
+                  tone="warm"
+                />,
+              ]}
+            />
+            <p className="elp__fineprint">
+              Dolphin Care = {DOLPHIN_CARE_GLOSS}. Chức năng theo ngành mang tính mô
+              tả vận hành (Ops tools / Edu modules) — báo giá chốt phạm vi qua Zalo.
+              Phí bên thứ ba (Zalo OA, ZNS, SMTP…) khách trả trực tiếp NCC. Vuốt ngang
+              để xem gói tiếp theo.
+            </p>
+          </div>
+        ) : null}
+
+        {view === "care" ? (
+          <div className="elp__panel-block" key={`care-${industryId}`}>
+            <p className="elp__tab-lead">
+              {CARE_STANDALONE_AUDIENCE} Phù hợp khi đã có CRM {industry.label}.
+            </p>
+            <PlanSlider
+              label={`Care lẻ · ${industry.label}`}
+              resetKey={`${industryId}-care`}
+              slides={CARE_STANDALONE.map((row) => (
+                <ElPlanCard
+                  key={`${industryId}-${row.term}`}
+                  name={`Care ${row.term}`}
+                  price={formatVnd(row.price)}
+                  priceNote="thanh toán trước"
+                  strike={`Giá gốc ${formatVnd(row.list)}`}
+                  cta="Nhận báo giá"
+                  industryTag={industry.label}
+                  intro={`Giảm ${row.discount} · TB ${formatVnd(row.avgMonthly)}/tháng · ${industry.label}`}
+                  featureGroups={[
+                    {
+                      label: `Care cho ${industry.label}`,
+                      items:
+                        featuresForCombo(industry.id, 3).find((g) => g.tier === "care")
+                          ?.items ?? [],
+                    },
+                    {
+                      label: "Điều kiện",
+                      items: [
+                        `Kỳ hạn ${row.term}`,
+                        `Giảm ${row.discount} so với giá gốc`,
+                        "Không tặng Website",
+                        `Chỉ khi đã có CRM ${industry.label}`,
+                      ],
+                    },
+                  ]}
+                  metric={
+                    row.recommended
+                      ? `${industry.label} · khuyên dùng`
+                      : `${industry.label} · ${row.term}`
+                  }
+                  popular={row.recommended}
+                  badge={row.recommended ? "Khuyên dùng" : undefined}
+                  tone={row.recommended ? "gradient" : "grey"}
+                />
+              ))}
+            />
+          </div>
+        ) : null}
+
+        {view === "list" ? (
+          <div className="elp__panel-block">
+            <p className="elp__tab-lead">
+              Giá niêm yết gốc — combo = kỳ hạn × giá tháng (hoặc one-time web).
+            </p>
+            <h2 className="elp__group-label">SaaS / tháng</h2>
+            <PlanSlider
+              label="Niêm yết SaaS"
+              resetKey="list-saas"
+              slides={SAAS_MONTHLY.map((row, i) => (
+                <ElPlanCard
+                  key={row.product}
+                  name={row.product.replace(/ \(.*\)$/, "")}
+                  price={formatVnd(row.price)}
+                  priceNote="mỗi tháng"
+                  cta="Nhận báo giá"
+                  intro={row.product.includes("Care") ? DOLPHIN_CARE_GLOSS : undefined}
+                  features={[
+                    "Nhân với kỳ hạn gói khi đóng combo",
+                    "Thanh toán trước theo kỳ",
+                    "Không dùng thử miễn phí",
+                  ]}
+                  metric="List price"
+                  tone={i === 1 ? "warm" : "grey"}
+                />
+              ))}
+            />
+            <h2 className="elp__group-label">Website one-time</h2>
+            <PlanSlider
+              label="Website one-time"
+              resetKey="list-web"
+              slides={ONETIME_WEB.map((row) => (
+                <ElPlanCard
+                  key={row.item}
+                  name={row.item}
+                  price={formatVnd(row.price)}
+                  priceNote="one-time"
+                  cta="Nhận báo giá"
+                  features={[
+                    "Áp dụng khi triển khai hạng mục",
+                    "Có thể tặng / giảm theo combo",
+                  ]}
+                  metric="One-time"
+                  tone="grey"
+                />
+              ))}
+            />
+          </div>
+        ) : null}
+
+        {view === "outsource" ? (
+          <div className="elp__panel-block">
+            <p className="elp__tab-lead">
+              One-time · khoảng giá hoặc giá chốt sau khảo sát phạm vi.
+            </p>
+            <PlanSlider
+              label="Tích hợp & Outsource"
+              resetKey="outsource"
+              slides={INTEGRATION_OUTSOURCE.map((row, i) => (
+                <ElPlanCard
+                  key={row.item}
+                  name={row.item}
+                  price={row.price}
+                  priceNote="ước tính"
+                  cta="Nhận báo giá"
+                  features={[
+                    "Báo giá chi tiết sau khảo sát",
+                    "Phạm vi chốt trước khi làm",
+                  ]}
+                  metric="Tích hợp / Outsource"
+                  tone={i >= 3 ? "warm" : "grey"}
+                />
+              ))}
+            />
+          </div>
+        ) : null}
       </div>
+
+      <section className="elp__compare" aria-labelledby="elp-compare-heading">
+        <h2 id="elp-compare-heading" className="elp__h2">
+          So sánh gói combo
+        </h2>
+        <div className="elp__compare-wrap">
+          <table className="elp__compare-table">
+            <thead>
+              <tr>
+                <th scope="col"> </th>
+                {COMBO_PACKAGES.map((pkg) => (
+                  <th key={pkg.no} scope="col">
+                    <span className="elp__compare-plan">{pkg.name}</span>
+                    {pkg.badge ? (
+                      <span className="elp__compare-pill">{pkg.badge}</span>
+                    ) : null}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Thành phần</th>
+                {COMBO_PACKAGES.map((pkg) => (
+                  <td key={pkg.no}>{shortComponents(pkg.components)}</td>
+                ))}
+              </tr>
+              <tr>
+                <th scope="row">Kỳ hạn</th>
+                {COMBO_PACKAGES.map((pkg) => (
+                  <td key={pkg.no}>{pkg.term}</td>
+                ))}
+              </tr>
+              <tr>
+                <th scope="row">Thanh toán trước</th>
+                {COMBO_PACKAGES.map((pkg) => (
+                  <td key={pkg.no} className="elp__num">
+                    {formatVnd(pkg.prepaid)}
+                  </td>
+                ))}
+              </tr>
+              <tr>
+                <th scope="row">Hỗ trợ web</th>
+                {COMBO_PACKAGES.map((pkg) => (
+                  <td key={pkg.no}>{pkg.webSupport}</td>
+                ))}
+              </tr>
+              <tr>
+                <th scope="row"> </th>
+                {COMBO_PACKAGES.map((pkg) => (
+                  <td key={pkg.no}>
+                    <a
+                      href={CONTACTS.zalo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="elp__compare-cta"
+                    >
+                      Chọn
+                    </a>
+                  </td>
+                ))}
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section className="elp__faq" aria-labelledby="elp-faq-heading">
+        <h2 id="elp-faq-heading" className="elp__h2">
+          FAQs
+        </h2>
+        <div className="elp__faq-list">
+          {FAQ_ITEMS.map((item, index) => (
+            <details key={item.q} className="elp__faq-item" open={index === 0}>
+              <summary>
+                <h3 className="elp__faq-q">{item.q}</h3>
+                <span className="elp__faq-icon" aria-hidden />
+              </summary>
+              <p className="elp__faq-a">{item.a}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+
+      <section className="elp__bottom" aria-labelledby="elp-bottom-heading">
+        <h2 id="elp-bottom-heading" className="elp__h2 elp__h2--center">
+          {PRICING_CTA.title}
+        </h2>
+        <p className="elp__bottom-lead">{PRICING_CTA.body}</p>
+        <div className="elp__bottom-actions">
+          <a
+            href={CONTACTS.zalo}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="elp__cta elp__cta--inline"
+          >
+            {PRICING_CTA.zaloLabel}
+          </a>
+          <Link href={assetPath("/#contact")} className="elp__ghost">
+            {PRICING_CTA.contactLabel}
+          </Link>
+          <Link href={assetPath(WARRANTY_POLICY_PATH)} className="elp__ghost">
+            Chính sách bảo hành
+          </Link>
+        </div>
+      </section>
     </div>
   );
 }

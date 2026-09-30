@@ -43,6 +43,8 @@ export type Dictionary = {
     about: string;
     /** Utility → `/company-profile/` */
     companyProfile: string;
+    /** Utility → `/chinh-sach-gia-dolphin-2026/` */
+    pricing: string;
     agents: string;
     /** GNB → `/dolphin-ops/` */
     crm: string;
@@ -90,6 +92,11 @@ export type Dictionary = {
     eyebrow: string;
     title: string;
     support: string;
+    items: { value: string; label: string }[];
+  };
+  /** Compact stats strip under Hero */
+  trustMetrics: {
+    aria: string;
     items: { value: string; label: string }[];
   };
   popularServices: {

@@ -97,6 +97,9 @@ html[data-theme="violet"] {
   --kuct-destructive: #dc2626;
   --kuct-radius-btn: 9999px;
   --kuct-space-section-y: clamp(3.5rem, 8vw, 6rem);
+  /* Section frame — continuous rails + horizontal rules (cross, no dots) */
+  --kuct-rail-inset: max(1.5rem, calc(50% - 40rem));
+  --kuct-section-rule: var(--kuct-border);
 }
 
 /* Archive — orangered (not default) */
@@ -321,17 +324,10 @@ body::before {
   }
 }
 
-/* Soft square grid — behind content (AppProviders wraps children in relative z-10) */
+/* Legacy caro / tile grid removed — section joints use .kuct-page-rails */
 body::after {
-  content: "";
-  pointer-events: none;
-  position: fixed;
-  inset: 0;
-  z-index: -2;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.16) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.16) 1px, transparent 1px);
-  background-size: 32px 32px;
+  content: none;
+  display: none;
 }
 
 html[data-theme="violet"] body {
@@ -342,12 +338,37 @@ html[data-theme="violet"] body::before {
   display: none;
 }
 
-/* Light canvas: dark soft grid (default ::after is white lines for dark themes) */
 html[data-theme="violet"] body::after {
-  display: block;
-  background-image:
-    linear-gradient(rgba(26, 21, 32, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(26, 21, 32, 0.06) 1px, transparent 1px);
+  display: none;
+}
+
+/* Section frame: continuous vertical rails + horizontal rules (cross through) */
+.kuct-page-rails {
+  position: relative;
+}
+
+.kuct-page-rails::before,
+.kuct-page-rails::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--kuct-section-rule);
+  pointer-events: none;
+  z-index: 4;
+}
+
+.kuct-page-rails::before {
+  left: var(--kuct-rail-inset);
+}
+
+.kuct-page-rails::after {
+  right: var(--kuct-rail-inset);
+}
+
+.kuct-page-rails main > * + * {
+  border-top: 1px solid var(--kuct-section-rule);
 }
 
 html[data-theme="violet"] .kuct-glow-orb,
@@ -372,10 +393,7 @@ html[data-theme="orangered"] body::before {
 }
 
 html[data-theme="orangered"] body::after {
-  display: block;
-  background-image:
-    linear-gradient(rgba(28, 20, 16, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(28, 20, 16, 0.06) 1px, transparent 1px);
+  display: none;
 }
 
 html[data-theme="orangered"] .kuct-glow-orb,
@@ -655,13 +673,10 @@ html[data-theme="orangered"] .kuct-feature-card {
   animation: none !important;
 }
 
-/* Soft section rhythm — warm stone wash, minimal hairline grid */
+/* Soft section rhythm — warm stone wash (no tile grid) */
 .kuct-section-soft {
   background-color: var(--kuct-surface-warm, var(--kuct-panel));
-  background-image:
-    linear-gradient(rgb(0 0 0 / 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgb(0 0 0 / 0.03) 1px, transparent 1px);
-  background-size: 32px 32px;
+  background-image: none;
 }
 
 /* Prefer this token when adding new section vertical rhythm */
@@ -710,17 +725,14 @@ h2.font-display,
   }
 }
 
-/* Product demo panel — grid canvas behind Care chat / Ops UI */
+/* Product demo panel — soft wash behind Care chat / Ops UI */
 .kuct-product-panel {
   position: relative;
   overflow: hidden;
   border-radius: 10px;
   border: none;
   background-color: color-mix(in srgb, var(--kuct-accent) 5%, #fff);
-  background-image:
-    linear-gradient(rgb(26 22 37 / 0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgb(26 22 37 / 0.045) 1px, transparent 1px);
-  background-size: 22px 22px;
+  background-image: none;
   padding: 0.85rem;
   box-shadow: 0 16px 40px rgb(26 22 37 / 0.06);
 }
@@ -800,24 +812,8 @@ h2.font-display,
 }
 
 .kuct-problem-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background-image:
-    linear-gradient(
-      color-mix(in srgb, var(--kuct-accent) 12%, transparent) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      color-mix(in srgb, var(--kuct-accent) 12%, transparent) 1px,
-      transparent 1px
-    );
-  background-size: 20px 20px;
-  mask-image: linear-gradient(135deg, #000 0%, #000 38%, transparent 68%);
-  -webkit-mask-image: linear-gradient(135deg, #000 0%, #000 38%, transparent 68%);
-  opacity: 0.9;
+  content: none;
+  display: none;
 }
 
 @media (hover: hover) and (pointer: fine) {

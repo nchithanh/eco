@@ -6,6 +6,7 @@ import type { Dictionary } from "./types";
 
 export type HomepageLang = {
   hero?: Dictionary["hero"];
+  trustMetrics?: Dictionary["trustMetrics"];
   problems?: NonNullable<Dictionary["problems"]>;
   capabilities?: Dictionary["capabilities"];
   siteOutcomes?: Dictionary["siteOutcomes"];
@@ -56,6 +57,17 @@ export const homepageLangVi: HomepageLang = {
       automation: "Ops CRM",
       ai: "Care · Ops · Intel",
     },
+  },
+  trustMetrics: {
+    aria: "Thông số tin cậy Dolphin Software",
+    items: [
+      { value: "+200", label: "Người dùng" },
+      { value: "10+", label: "Đối tác" },
+      { value: "25%", label: "Tối ưu doanh thu" },
+      { value: "2", label: "Quốc gia" },
+      { value: "5+", label: "Kinh nghiệm kỹ thuật" },
+      { value: "24/7", label: "Thời gian" },
+    ],
   },
   problems: {
     eyebrow: "What is slowing you down?",

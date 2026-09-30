@@ -7,6 +7,7 @@ import { SCHEMA_HOMEPAGE_SLUGS } from "@/lib/schema/catalog";
 
 const labels: Record<(typeof SCHEMA_HOMEPAGE_SLUGS)[number], string> = {
   hero: "Hero",
+  "trust-metrics": "Trust metrics (#trust)",
   capabilities: "Solutions (#solutions)",
   "dolphin-care": "Dolphin Care",
   "dolphin-ops": "Dolphin Ops",

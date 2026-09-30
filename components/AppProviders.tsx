@@ -23,7 +23,7 @@ export function AppProviders({ children }: { children: ReactNode }) {
             <AiChatProvider>
               {SHOW_WHALE_BACKDROP ? <WhaleBackdrop /> : null}
               <AgentLoader />
-              <div className="relative z-10">{children}</div>
+              <div className="relative z-10 kuct-page-rails">{children}</div>
               <AiChatWidget />
               <CookieConsent />
             </AiChatProvider>

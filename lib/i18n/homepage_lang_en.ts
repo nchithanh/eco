@@ -26,6 +26,17 @@ export const homepageLangEn: HomepageLang = {
       ai: "Care · Ops · Intel",
     },
   },
+  trustMetrics: {
+    aria: "Dolphin Software trust metrics",
+    items: [
+      { value: "+200", label: "Users" },
+      { value: "10+", label: "Partners" },
+      { value: "25%", label: "Revenue optimized" },
+      { value: "2", label: "Countries" },
+      { value: "5+", label: "Engineering experience" },
+      { value: "24/7", label: "Availability" },
+    ],
+  },
   problems: {
     eyebrow: "What is slowing you down?",
     title: "What is [[slowing down]] your business?",
