@@ -1,4 +1,4 @@
-import type { Locale } from "./types";
+import type {ArchivedLocale, Locale, LocaleMap} from "./types";
 
 export type FaqItem = { q: string; a: string };
 
@@ -193,8 +193,8 @@ const ja: FaqCopy = {
 
 
 
-const byLocale: Record<Locale, FaqCopy> = { vi, en, ja };
+const byLocale: LocaleMap<FaqCopy> = { vi, en, ja };
 
-export function getFaqCopy(locale: Locale): FaqCopy {
-  return byLocale[locale];
+export function getFaqCopy(locale: Locale | ArchivedLocale): FaqCopy {
+  return byLocale[locale] ?? byLocale.vi;
 }

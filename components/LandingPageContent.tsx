@@ -74,7 +74,7 @@ export function LandingPageContent() {
             href="/#popular-services"
             className="inline-flex text-sm font-medium text-[var(--kuct-muted)] transition hover:text-[var(--kuct-accent)]"
           >
-            ← {locale === "ja" ? "ホームへ" : locale === "en" ? "Home" : "Về trang chủ"}
+            ← {locale === "en" ? "Home" : "Về trang chủ"}
           </Link>
           <div className="mt-8 grid items-center gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-14">
             <Reveal variant="title" className="min-w-0">

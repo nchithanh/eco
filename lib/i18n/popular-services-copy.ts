@@ -1,4 +1,4 @@
-import type { Dictionary, Locale } from "./types";
+import type {Dictionary, Locale, LocaleMap} from "./types";
 
 type PopularServices = Dictionary["popularServices"];
 
@@ -200,7 +200,7 @@ const ja: PopularServices = {
   ],
 };
 
-export const popularServicesByLocale: Record<Locale, PopularServices> = {
+export const popularServicesByLocale: LocaleMap<PopularServices> = {
   vi,
   en,
   ja,

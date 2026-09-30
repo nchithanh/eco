@@ -1,4 +1,4 @@
-import type { Locale } from "./types";
+import type {Locale, LocaleMap} from "./types";
 
 export const SERVICE_SLUGS = [
   "web",
@@ -43,7 +43,7 @@ export type ServiceDetailUi = {
   notFound: string;
 };
 
-const ui: Record<Locale, ServiceDetailUi> = {
+const ui: LocaleMap<ServiceDetailUi> = {
   vi: {
     back: "← Về trang chủ",
     highlightsTitle: "Bạn nhận được gì",
@@ -599,7 +599,7 @@ const ja: Record<ServiceSlug, ServiceDetail> = {
 };
 
 
-const detailsByLocale: Record<Locale, Record<ServiceSlug, ServiceDetail>> = {
+const detailsByLocale: LocaleMap<Record<ServiceSlug, ServiceDetail>> = {
   vi,
   en,
   ja,

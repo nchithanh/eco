@@ -1,4 +1,4 @@
-import type { Locale } from "@/lib/i18n/types";
+import type {Locale, LocaleMap} from "@/lib/i18n/types";
 
 export const WORK_SLUGS = [
   "billiard",
@@ -39,7 +39,7 @@ export type WorkDetailUi = {
   viewerLabel: string;
 };
 
-const ui: Record<Locale, WorkDetailUi> = {
+const ui: LocaleMap<WorkDetailUi> = {
   vi: {
     back: "← Về dự án SMB",
     problemTitle: "Bài toán",
@@ -90,7 +90,7 @@ const images: Record<WorkSlug, string> = {
 
 type WorkCopy = Omit<WorkDetail, "image">;
 
-const copyByLocale: Record<Locale, Record<WorkSlug, WorkCopy>> = {
+const copyByLocale: LocaleMap<Record<WorkSlug, WorkCopy>> = {
   vi: {
     billiard: {
       title: "Quản lý cửa hàng bida",

@@ -3,7 +3,7 @@ import {
   SALES_EVENTS,
   type SalesEvent,
 } from "@/lib/demos/sales-events";
-import type { DolphinSalesCopy, SalesLocale } from "@/lib/demos/dolphin-sales-copy";
+import type {DolphinSalesCopy, SalesLocale} from "@/lib/demos/dolphin-sales-copy";
 
 function formatRange(event: SalesEvent, locale: SalesLocale): string {
   const tag = locale === "vi" ? "vi-VN" : "en-US";

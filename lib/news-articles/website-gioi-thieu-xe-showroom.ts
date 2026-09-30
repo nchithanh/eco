@@ -1,4 +1,4 @@
-import type { Locale } from "@/lib/i18n/types";
+import type {Locale, LocaleMap} from "@/lib/i18n/types";
 import type { NewsArticleCopy } from "@/lib/news-details";
 
 const vi: NewsArticleCopy = {
@@ -857,7 +857,7 @@ const ja: NewsArticleCopy = {
   ],
 };
 
-export const websiteGioiThieuXeShowroomCopy: Record<Locale, NewsArticleCopy> = {
+export const websiteGioiThieuXeShowroomCopy: LocaleMap<NewsArticleCopy> = {
   vi,
   en,
   ja,

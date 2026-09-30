@@ -1,4 +1,4 @@
-import type { Locale } from "@/lib/i18n/types";
+import type {Locale} from "@/lib/i18n/types";
 
 type FlagIconProps = {
  locale: Locale;
@@ -36,13 +36,6 @@ export function FlagIcon({ locale, className = "size-4" }: FlagIconProps) {
  <rect y="11.08" width="24" height="1.23" fill="#fff" />
  <rect y="13.54" width="24" height="1.23" fill="#fff" />
  <rect width="9.6" height="8.62" fill="#3C3B6E" />
- </svg>
- );
- case "ja":
- return (
- <svg {...common}>
- <rect width="24" height="16" fill="#fff" />
- <circle cx="12" cy="8" r="4.2" fill="#BC002D" />
  </svg>
  );
  default:

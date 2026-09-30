@@ -1,4 +1,4 @@
-import type { Locale } from "@/lib/i18n/types";
+import type {Locale, LocaleMap} from "@/lib/i18n/types";
 
 export type LandingFaqItem = { q: string; a: string };
 
@@ -657,7 +657,7 @@ const ja: LandingCopy = {
   ],
 };
 
-export const landingCopy: Record<Locale, LandingCopy> = { vi, en, ja };
+export const landingCopy: LocaleMap<LandingCopy> = { vi, en, ja };
 
 export function getLandingCopy(locale: Locale): LandingCopy {
   return landingCopy[locale];

@@ -1,4 +1,4 @@
-import type { Locale } from "@/lib/i18n/types";
+import type {Locale} from "@/lib/i18n/types";
 
 /**
  * Reference FX as of 2026-07-30 (bank / market mid used for marketing display).
@@ -8,7 +8,6 @@ export const FX_AS_OF = "2026-07-30";
 
 export const FX_VND_PER_UNIT = {
   USD: 26_300,
-  JPY: 161,
 } as const;
 
 export type PackagePriceId = "landing" | "business";
@@ -20,7 +19,7 @@ export type PackagePriceVnd = {
   now: number;
   /** Inclusive range maximum (VND). */
   nowMax?: number;
-  /** Prefix with "Từ" / "From" / "〜" using `now` only (no range). */
+  /** Prefix with "Từ" / "From" using `now` only (no range). */
   from?: boolean;
 };
 
@@ -30,36 +29,26 @@ export const PACKAGE_PRICES_VND: Record<PackagePriceId, PackagePriceVnd> = {
   business: { now: 4_500_000 },
 };
 
-type DisplayCurrency = "VND" | "USD" | "JPY";
+type DisplayCurrency = "VND" | "USD";
 
 const LOCALE_CURRENCY: Record<Locale, DisplayCurrency> = {
   vi: "VND",
   en: "USD",
-  ja: "JPY",
 };
 
 function convertFromVnd(amountVnd: number, currency: DisplayCurrency): number {
   if (currency === "VND") return amountVnd;
   const rate = FX_VND_PER_UNIT[currency];
-  const raw = amountVnd / rate;
-  if (currency === "JPY") return Math.round(raw / 100) * 100;
-  return Math.round(raw);
+  return Math.round(amountVnd / rate);
 }
 
-function formatAmount(amount: number, currency: DisplayCurrency, locale: Locale): string {
+function formatAmount(amount: number, currency: DisplayCurrency): string {
   if (currency === "VND") {
     return `${amount.toLocaleString("vi-VN")}đ`;
   }
-  if (currency === "USD") {
-    return new Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency: "USD",
-      maximumFractionDigits: 0,
-    }).format(amount);
-  }
-  return new Intl.NumberFormat("ja-JP", {
+  return new Intl.NumberFormat("en-US", {
     style: "currency",
-    currency: "JPY",
+    currency: "USD",
     maximumFractionDigits: 0,
   }).format(amount);
 }
@@ -71,10 +60,8 @@ export function formatPackageMoney(
 ): string {
   const currency = LOCALE_CURRENCY[locale];
   const converted = convertFromVnd(amountVnd, currency);
-  const formatted = formatAmount(converted, currency, locale);
+  const formatted = formatAmount(converted, currency);
   if (!opts?.from) return formatted;
-
-  if (locale === "ja") return `${formatted}〜`;
 
   const prefix = opts.fromPrefix?.trim();
   return prefix ? `${prefix} ${formatted}` : formatted;
@@ -86,8 +73,8 @@ function formatPackageRange(
   maxVnd: number,
 ): string {
   const currency = LOCALE_CURRENCY[locale];
-  const min = formatAmount(convertFromVnd(minVnd, currency), currency, locale);
-  const max = formatAmount(convertFromVnd(maxVnd, currency), currency, locale);
+  const min = formatAmount(convertFromVnd(minVnd, currency), currency);
+  const max = formatAmount(convertFromVnd(maxVnd, currency), currency);
   return `${min} – ${max}`;
 }
 
@@ -121,8 +108,7 @@ function formatMillionVndPart(value: number, locale: Locale): string {
     Math.abs(value - Math.round(value)) < 0.05
       ? Math.round(value)
       : Math.round(value * 10) / 10;
-  const intl =
-    locale === "vi" ? "vi-VN" : locale === "ja" ? "ja-JP" : "en-US";
+  const intl = locale === "vi" ? "vi-VN" : "en-US";
   return new Intl.NumberFormat(intl, { maximumFractionDigits: 1 }).format(rounded);
 }
 
@@ -139,12 +125,10 @@ export function formatQuoteEstimateRange(
   const min = formatAmount(
     convertFromVnd(range.min * 1_000_000, currency),
     currency,
-    locale,
   );
   const max = formatAmount(
     convertFromVnd(range.max * 1_000_000, currency),
     currency,
-    locale,
   );
   return `${min} – ${max}`;
 }

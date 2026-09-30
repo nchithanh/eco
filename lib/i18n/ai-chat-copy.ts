@@ -1,4 +1,4 @@
-import type { Locale } from "@/lib/i18n/types";
+import type {Locale, LocaleMap} from "@/lib/i18n/types";
 
 export type AiChatRule = {
   keywords: string[];
@@ -471,7 +471,7 @@ const ja: AiChatCopy = {
   typingLabel: "Dolphin Careが入力中…",
 };
 
-export const aiChatCopy: Record<Locale, AiChatCopy> = {
+export const aiChatCopy: LocaleMap<AiChatCopy> = {
   vi,
   en,
   ja,

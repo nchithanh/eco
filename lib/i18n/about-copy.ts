@@ -1,4 +1,4 @@
-import type { Locale } from "@/lib/i18n/types";
+import type {Locale, LocaleMap} from "@/lib/i18n/types";
 
 export type AboutFaqItem = { q: string; a: string };
 
@@ -610,7 +610,7 @@ const ja: AboutCopy = {
     "詰まっている箇所を教えてください — 販売、リード漏れ、手作業、効かないサイト。Dolphinが痛みに合う範囲を提案します。パッケージの押し付けはありません。",
 };
 
-export const aboutCopy: Record<Locale, AboutCopy> = { vi, en, ja };
+export const aboutCopy: LocaleMap<AboutCopy> = { vi, en, ja };
 
 export function getAboutCopy(locale: Locale): AboutCopy {
   return aboutCopy[locale];

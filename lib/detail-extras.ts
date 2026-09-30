@@ -1,5 +1,5 @@
 import { themeAsset } from "@/lib/asset";
-import type { Locale } from "@/lib/i18n/types";
+import type {Locale, LocaleMap} from "@/lib/i18n/types";
 import type { ServiceSlug } from "@/lib/i18n/service-details";
 import type { TechSlug } from "@/lib/tech-stack";
 import type { ThemeId } from "@/lib/theme";
@@ -30,7 +30,7 @@ export type WorkExtras = {
   stack: string[];
 };
 
-type L<T> = Record<Locale, Record<string, T>>;
+type L<T> = LocaleMap<Record<string, T>>;
 
 const serviceExtras: L<ServiceExtras> = {
   vi: {
@@ -863,7 +863,7 @@ export type DetailExtrasUi = {
   stackTitle: string;
 };
 
-const extrasUi: Record<Locale, DetailExtrasUi> = {
+const extrasUi: LocaleMap<DetailExtrasUi> = {
   vi: {
     audienceTitle: "Phù hợp với",
     useCasesTitle: "Use cases điển hình",

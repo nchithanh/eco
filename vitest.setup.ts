@@ -7,9 +7,9 @@ vi.mock("next/navigation", () => ({
 }));
 
 beforeEach(() => {
-  window.localStorage.setItem("kuct-locale", "ja");
+  window.localStorage.setItem("kuct-locale", "vi");
   document.documentElement.removeAttribute("data-locale");
-  document.documentElement.lang = "ja";
+  document.documentElement.lang = "vi";
 
   if (typeof window.matchMedia !== "function") {
     Object.defineProperty(window, "matchMedia", {

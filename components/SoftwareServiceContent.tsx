@@ -16,7 +16,7 @@ import {
   getServiceDetailUi,
 } from "@/lib/i18n/service-details";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
-import type { Locale } from "@/lib/i18n/types";
+import type {Locale, LocaleMap} from "@/lib/i18n/types";
 
 const IMG = {
   hero: "/services/software/hero.jpg",
@@ -27,22 +27,23 @@ const IMG = {
   audience: "/services/software/audience.jpg",
 } as const;
 
-const USE_CASES_TITLE: Record<Locale, string> = {
+const USE_CASES_TITLE: LocaleMap<string> = {
   vi: "Ứng dụng thực tế",
   en: "Practical use cases",
   ja: "実践的なユースケース",
 };
 
-const AUDIENCE_TITLE: Record<Locale, string> = {
+const AUDIENCE_TITLE: LocaleMap<string> = {
   vi: "Phù hợp với ai?",
   en: "Who is this for?",
   ja: "どなた向けか？",
 };
 
-const CLOSE_COPY: Record<
-  Locale,
-  { eyebrow: string; title: string; support: string }
-> = {
+const CLOSE_COPY: LocaleMap<{
+  eyebrow: string;
+  title: string;
+  support: string;
+}> = {
   vi: {
     eyebrow: "Get started",
     title: "Từ bài toán đến bàn giao",
@@ -63,7 +64,7 @@ const CLOSE_COPY: Record<
   },
 };
 
-const FAQ_EYEBROW: Record<Locale, string> = {
+const FAQ_EYEBROW: LocaleMap<string> = {
   vi: "FAQ",
   en: "FAQ",
   ja: "FAQ",

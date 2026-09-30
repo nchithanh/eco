@@ -1,4 +1,4 @@
-import type { Locale } from "@/lib/i18n/types";
+import type {Locale, LocaleMap} from "@/lib/i18n/types";
 import { chuyenDoiAiDoanhNghiepLoTrinh5BuocCopy } from "@/lib/news-articles/chuyen-doi-ai-doanh-nghiep-lo-trinh-5-buoc";
 import { dolphinCareBaoCaoInsightHangNgayCopy } from "@/lib/news-articles/dolphin-care-bao-cao-insight-hang-ngay";
 import { dolphinCareChatbotAiTangChuyenDoiCopy } from "@/lib/news-articles/dolphin-care-chatbot-ai-tang-chuyen-doi";
@@ -291,7 +291,7 @@ export function getNewsImage(slug: NewsSlug): string {
   return slugImages[slug] ?? categoryImages[metaBySlug[slug].category];
 }
 
-const copyByLocale: Record<Locale, Record<NewsSlug, NewsArticleCopy>> = {
+const copyByLocale: LocaleMap<Record<NewsSlug, NewsArticleCopy>> = {
   vi: {
     "chatgpt-ads-viet-nam": chatgptAdsVietNamCopy.vi,
     "mat-lead-ngoai-gio-hanh-chinh": matLeadNgoaiGioHanhChinhCopy.vi,
@@ -639,47 +639,47 @@ const copyByLocale: Record<Locale, Record<NewsSlug, NewsArticleCopy>> = {
     },
   },
   ja: {
-    "chatgpt-ads-viet-nam": chatgptAdsVietNamCopy.ja,
-    "mat-lead-ngoai-gio-hanh-chinh": matLeadNgoaiGioHanhChinhCopy.ja,
+    "chatgpt-ads-viet-nam": chatgptAdsVietNamCopy.ja!,
+    "mat-lead-ngoai-gio-hanh-chinh": matLeadNgoaiGioHanhChinhCopy.ja!,
     "chatgpt-ads-doanh-nghiep-co-nen-chay":
-      chatgptAdsDoanhNghiepCoNenChayCopy.ja,
+      chatgptAdsDoanhNghiepCoNenChayCopy.ja!,
     "chuyen-quan-ly-task-tu-zalo-sang-crm":
-      chuyenQuanLyTaskTuZaloSangCrmCopy.ja,
+      chuyenQuanLyTaskTuZaloSangCrmCopy.ja!,
     "crm-cho-studio-wedding-thay-vi-excel":
-      crmChoStudioWeddingThayViExcelCopy.ja,
-    "website-cho-kinh-doanh-nho": websiteChoKinhDoanhNhoCopy.ja,
+      crmChoStudioWeddingThayViExcelCopy.ja!,
+    "website-cho-kinh-doanh-nho": websiteChoKinhDoanhNhoCopy.ja!,
     "ban-dang-dieu-hanh-doanh-nghiep-hay-di-hoi-tung-nhan-vien":
-      banDangDieuHanhDoanhNghiepHayDiHoiTungNhanVienCopy.ja,
+      banDangDieuHanhDoanhNghiepHayDiHoiTungNhanVienCopy.ja!,
     "trung-tam-nho-it-nguoi-cang-nen-co-crm":
-      trungTamNhoItNguoiCangNenCoCrmCopy.ja,
-    "mai-gv-nghi-nhan-zalo-sua-excel": maiGvNghiNhanZaloSuaExcelCopy.ja,
-    "dolphin-ops-thuc-the-song-24-7": dolphinOpsThucTheSong247Copy.ja,
+      trungTamNhoItNguoiCangNenCoCrmCopy.ja!,
+    "mai-gv-nghi-nhan-zalo-sua-excel": maiGvNghiNhanZaloSuaExcelCopy.ja!,
+    "dolphin-ops-thuc-the-song-24-7": dolphinOpsThucTheSong247Copy.ja!,
     "saas-la-gi-giai-thich-cho-chu-doanh-nghiep":
-      saasLaGiGiaiThichChoChuDoanhNghiepCopy.ja,
+      saasLaGiGiaiThichChoChuDoanhNghiepCopy.ja!,
     "website-co-traffic-khong-ra-khach-hang":
-      websiteCoTrafficKhongRaKhachHangCopy.ja,
+      websiteCoTrafficKhongRaKhachHangCopy.ja!,
     "website-doanh-nghiep-can-co-nhung-gi-checklist-2026":
-      websiteDoanhNghiepCanCoNhungGiChecklist2026Copy.ja,
+      websiteDoanhNghiepCanCoNhungGiChecklist2026Copy.ja!,
     "website-hay-facebook-doanh-nghiep-nho":
-      websiteHayFacebookDoanhNghiepNhoCopy.ja,
+      websiteHayFacebookDoanhNghiepNhoCopy.ja!,
     "website-shop-do-xe-instagram-chua-du":
-      websiteShopDoXeInstagramChuaDuCopy.ja,
+      websiteShopDoXeInstagramChuaDuCopy.ja!,
     "thiet-ke-website-gia-bao-nhieu-bang-gia-2026":
-      thietKeWebsiteGiaBaoNhieuBangGia2026Copy.ja,
-    "5-agent-xuyen-dem-viec-chua-xong": fiveAgentXuyenDemViecChuaXongCopy.ja,
+      thietKeWebsiteGiaBaoNhieuBangGia2026Copy.ja!,
+    "5-agent-xuyen-dem-viec-chua-xong": fiveAgentXuyenDemViecChuaXongCopy.ja!,
     "rui-ro-copy-prompt-chatgpt-doanh-nghiep":
-      ruiRoCopyPromptChatgptDoanhNghiepCopy.ja,
-    "landing-page-giao-vien-tieng-anh": landingPageGiaoVienTiengAnhCopy.ja,
-    "landing-page-sales-o-to-ca-nhan": landingPageSalesOToCaNhanCopy.ja,
+      ruiRoCopyPromptChatgptDoanhNghiepCopy.ja!,
+    "landing-page-giao-vien-tieng-anh": landingPageGiaoVienTiengAnhCopy.ja!,
+    "landing-page-sales-o-to-ca-nhan": landingPageSalesOToCaNhanCopy.ja!,
     "chuyen-doi-ai-doanh-nghiep-lo-trinh-5-buoc":
-      chuyenDoiAiDoanhNghiepLoTrinh5BuocCopy.ja,
+      chuyenDoiAiDoanhNghiepLoTrinh5BuocCopy.ja!,
     "dolphin-care-chatbot-ai-tang-chuyen-doi":
-      dolphinCareChatbotAiTangChuyenDoiCopy.ja,
+      dolphinCareChatbotAiTangChuyenDoiCopy.ja!,
     "dolphin-care-bao-cao-insight-hang-ngay":
-      dolphinCareBaoCaoInsightHangNgayCopy.ja,
-    "website-gioi-thieu-xe-showroom": websiteGioiThieuXeShowroomCopy.ja,
+      dolphinCareBaoCaoInsightHangNgayCopy.ja!,
+    "website-gioi-thieu-xe-showroom": websiteGioiThieuXeShowroomCopy.ja!,
     "studio-cuoi-website-xem-vay-online":
-      studioCuoiWebsiteXemVayOnlineCopy.ja,
+      studioCuoiWebsiteXemVayOnlineCopy.ja!,
     "5-dau-hieu-website-lam-mat-khach": {
       title: "企業サイトが見込み客を失う5つのサイン",
       metaTitle: "Webサイトが客を逃す5つの兆候",
@@ -823,8 +823,7 @@ export function getRelatedNews(
 
 export function formatNewsDate(locale: Locale, isoDate: string): string {
   const date = new Date(`${isoDate}T12:00:00`);
-  const tag =
-    locale === "vi" ? "vi-VN" : locale === "ja" ? "ja-JP" : "en-US";
+  const tag = locale === "vi" ? "vi-VN" : "en-US";
   return new Intl.DateTimeFormat(tag, {
     year: "numeric",
     month: "short",
@@ -832,7 +831,7 @@ export function formatNewsDate(locale: Locale, isoDate: string): string {
   }).format(date);
 }
 
-const detailUi: Record<Locale, NewsDetailUi> = {
+const detailUi: LocaleMap<NewsDetailUi> = {
   vi: {
     relatedTitle: "Bài liên quan",
     cta: "Muốn trao đổi về dự án?",

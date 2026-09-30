@@ -14,7 +14,7 @@ describe("detectBrowserLocale", () => {
   it("maps primary tags and prefers earlier navigator entries", () => {
     expect(detectBrowserLocale(["vi-VN", "en-US"])).toBe("vi");
     expect(detectBrowserLocale(["en-GB"])).toBe("en");
-    expect(detectBrowserLocale(["ja"])).toBe("ja");
+    expect(detectBrowserLocale(["ja"])).toBe(DEFAULT_LOCALE);
     expect(detectBrowserLocale(["de-DE"])).toBe(DEFAULT_LOCALE);
     expect(detectBrowserLocale(["zh-CN", "en"])).toBe("en");
     expect(detectBrowserLocale(["fr-FR", "en-US"])).toBe("en");

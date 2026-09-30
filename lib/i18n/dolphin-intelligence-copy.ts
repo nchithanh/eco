@@ -1,4 +1,4 @@
-import type { Locale } from "@/lib/i18n/types";
+import type {Locale, LocaleMap} from "@/lib/i18n/types";
 
 export type WorkflowNodeKind = "agent" | "action" | "logic" | "human";
 
@@ -1272,7 +1272,7 @@ const ja: DolphinIntelligenceCopy = {
   closeTrust: "Dolphin Software · Build · Modernize · Automate · Care",
 };
 
-const byLocale: Record<Locale, DolphinIntelligenceCopy> = {
+const byLocale: LocaleMap<DolphinIntelligenceCopy> = {
   vi,
   en,
   ja,

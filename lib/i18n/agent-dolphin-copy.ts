@@ -1,4 +1,4 @@
-import type { Locale } from "@/lib/i18n/types";
+import type {Locale, LocaleMap} from "@/lib/i18n/types";
 
 export type AgentDolphinCopy = {
   metaTitle: string;
@@ -695,7 +695,7 @@ const ja: AgentDolphinCopy = {
   ],
 };
 
-export const agentDolphinByLocale: Record<Locale, AgentDolphinCopy> = {
+export const agentDolphinByLocale: LocaleMap<AgentDolphinCopy> = {
   vi,
   en,
   ja,
@@ -982,7 +982,7 @@ const homeJa: AgentDolphinHomeCopy = {
   inputPlaceholder: "メッセージを入力…",
 };
 
-export const agentDolphinHomeByLocale: Record<Locale, AgentDolphinHomeCopy> = {
+export const agentDolphinHomeByLocale: LocaleMap<AgentDolphinHomeCopy> = {
   vi: homeVi,
   en: homeEn,
   ja: homeJa,

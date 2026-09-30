@@ -1,5 +1,5 @@
 import { applyHomepageLang } from "./homepage_lang";
-import type { Dictionary, Locale } from "./types";
+import type {Dictionary, Locale, LocaleMap} from "./types";
 import { careersByLocale, careersNavLabel } from "./careers-copy";
 import { getFaqCopy } from "./faq-copy";
 import { newsByLocale, newsNavLabel } from "./news-copy";
@@ -1239,9 +1239,9 @@ const ja: Dictionary = {
     serviceDesign: "UI/UX",
     process: "プロセス",
     stack: "技術",
-    templates: templatesNavLabel.ja,
-    news: newsNavLabel.ja,
-    careers: careersNavLabel.ja,
+    templates: templatesNavLabel.ja!,
+    news: newsNavLabel.ja!,
+    careers: careersNavLabel.ja!,
     about: "会社紹介",
     companyProfile: "会社案内",
     agents: "AI",
@@ -1297,9 +1297,9 @@ const ja: Dictionary = {
       { value: "保証 3–6ヶ月", label: "検収済み範囲内の技術不具合保証 — 新機能は含みません。" },
     ],
   },
-  popularServices: popularServicesByLocale.ja,
-  uiGallery: uiGalleryByLocale.ja,
-  aiEdge: aiEdgeByLocale.ja,
+  popularServices: popularServicesByLocale.ja!,
+  uiGallery: uiGalleryByLocale.ja!,
+  aiEdge: aiEdgeByLocale.ja!,
   capabilities: {
     eyebrow: "How we help",
     title: "わかりやすく回る[[Webサイト]]を先に",
@@ -1761,8 +1761,8 @@ const ja: Dictionary = {
       message: "プロジェクトの概要を入力してください",
     },
   },
-  news: newsByLocale.ja,
-  careers: careersByLocale.ja,
+  news: newsByLocale.ja!,
+  careers: careersByLocale.ja!,
   faq: getFaqCopy("ja"),
   footer: {
     groupExplore: "Explore",
@@ -1832,7 +1832,7 @@ const ja: Dictionary = {
 };
 
 
-export const dictionaries: Record<Locale, Dictionary> = { vi, en, ja };
+export const dictionaries: LocaleMap<Dictionary> = { vi, en, ja };
 
 export function getDictionary(locale: Locale): Dictionary {
   const dict = dictionaries[locale] ?? dictionaries.vi;

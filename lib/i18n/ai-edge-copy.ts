@@ -1,4 +1,4 @@
-import type { Dictionary, Locale } from "./types";
+import type {Dictionary, Locale, LocaleMap} from "./types";
 
 type AiEdge = Dictionary["aiEdge"];
 
@@ -95,7 +95,7 @@ const ja: AiEdge = {
   learnMore: "詳しく見る",
 };
 
-export const aiEdgeByLocale: Record<Locale, AiEdge> = {
+export const aiEdgeByLocale: LocaleMap<AiEdge> = {
   vi,
   en,
   ja,

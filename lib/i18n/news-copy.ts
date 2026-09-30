@@ -1,4 +1,4 @@
-import type { Locale } from "./types";
+import type {Locale, LocaleMap} from "./types";
 import type { NewsCategory } from "@/lib/news-details";
 
 export type NewsCopy = {
@@ -139,9 +139,9 @@ const ja: NewsCopy = {
 
 
 
-export const newsByLocale: Record<Locale, NewsCopy> = { vi, en, ja };
+export const newsByLocale: LocaleMap<NewsCopy> = { vi, en, ja };
 
-export const newsNavLabel: Record<Locale, string> = {
+export const newsNavLabel: LocaleMap<string> = {
   vi: "Tin tức",
   en: "News",
   ja: "ニュース",

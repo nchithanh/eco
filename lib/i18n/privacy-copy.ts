@@ -1,4 +1,4 @@
-import type { Locale } from "@/lib/i18n/types";
+import type {Locale, LocaleMap} from "@/lib/i18n/types";
 import { CONTACTS } from "@/lib/contacts";
 
 export type PrivacyCopy = {
@@ -146,7 +146,7 @@ const ja: PrivacyCopy = {
   ],
 };
 
-const byLocale: Record<Locale, PrivacyCopy> = { vi, en, ja };
+const byLocale: LocaleMap<PrivacyCopy> = { vi, en, ja };
 
 export function getPrivacyCopy(locale: Locale): PrivacyCopy {
   return byLocale[locale] ?? vi;

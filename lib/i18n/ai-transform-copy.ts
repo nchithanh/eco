@@ -1,4 +1,4 @@
-import type { Locale } from "@/lib/i18n/types";
+import type {Locale, LocaleMap} from "@/lib/i18n/types";
 
 export type AiTransformCopy = {
   metaTitle: string;
@@ -820,7 +820,7 @@ const ja: AiTransformCopy = {
     "見積もり明確 · 隠れた費用なし · 納品後サポート · ベンダーロックインなし",
 };
 
-export const aiTransformCopy: Record<Locale, AiTransformCopy> = {
+export const aiTransformCopy: LocaleMap<AiTransformCopy> = {
   vi,
   en,
   ja,

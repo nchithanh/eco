@@ -1,4 +1,11 @@
-export type Locale = "vi" | "en" | "ja";
+/** Active UI locales. SEO/GEO SoT is always Vietnamese; EN is viewing-only. */
+export type Locale = "vi" | "en";
+
+/** Archived JA copy blobs may still exist on disk — not wired to UI/SEO. */
+export type ArchivedLocale = "ja";
+
+/** Active locales required; archived JA optional for leftover copy files. */
+export type LocaleMap<T> = Record<Locale, T> & Partial<Record<ArchivedLocale, T>>;
 
 export const LOCALES: {
   code: Locale;
@@ -7,7 +14,6 @@ export const LOCALES: {
 }[] = [
   { code: "vi", label: "VI", name: "Tiếng Việt" },
   { code: "en", label: "EN", name: "English" },
-  { code: "ja", label: "JA", name: "日本語" },
 ];
 
 export const DEFAULT_LOCALE: Locale = "vi";

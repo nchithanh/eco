@@ -13,7 +13,7 @@ const quicksand = Quicksand({
  display: "swap",
 });
 
-/** JP face — not preloaded; only needed when locale is ja (see CSS below). */
+/** Archived JP face token — kept for CSS vars; JA UI locale is unwired. */
 const notoSansJp = Noto_Sans_JP({
  subsets: ["latin"],
  variable: "--font-jp",
@@ -89,7 +89,6 @@ export const metadata: Metadata = {
  openGraph: {
  type: "website",
  locale: "vi_VN",
- alternateLocale: ["en_US", "ja_JP"],
  url: "/",
  siteName: "Dolphin Software",
  title: "Dolphin Software",

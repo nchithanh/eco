@@ -29,10 +29,10 @@ type LocaleContextValue = {
 const LocaleContext = createContext<LocaleContextValue | null>(null);
 
 export function isLocale(value: string | null | undefined): value is Locale {
-  return value === "vi" || value === "en" || value === "ja";
+  return value === "vi" || value === "en";
 }
 
-/** Map BCP-47 / navigator language tags to supported locales. */
+/** Map BCP-47 / navigator language tags to supported locales (VI / EN only). */
 export function detectBrowserLocale(
   languages: readonly string[] | undefined,
 ): Locale {
@@ -42,8 +42,8 @@ export function detectBrowserLocale(
     const tag = raw.toLowerCase();
     const primary = tag.split("-")[0] ?? tag;
     if (primary === "vi") return "vi";
-    if (primary === "ja") return "ja";
     if (primary === "en") return "en";
+    // Former JA (and other) browser prefs → Vietnamese SEO SoT, not EN.
   }
   return DEFAULT_LOCALE;
 }

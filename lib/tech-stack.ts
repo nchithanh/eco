@@ -1,4 +1,4 @@
-import type { Locale } from "@/lib/i18n/types";
+import type {Locale, LocaleMap} from "@/lib/i18n/types";
 
 export const TECH_SLUGS = [
   "react",
@@ -80,7 +80,7 @@ type TechMeta = {
   officialUrl: string;
 };
 
-const ui: Record<Locale, TechDetailUi> = {
+const ui: LocaleMap<TechDetailUi> = {
   vi: {
     back: "← Về Tech stack",
     highlightsTitle: "Điểm nổi bật",
@@ -202,7 +202,7 @@ const meta: Record<TechSlug, TechMeta> = {
   },
 };
 
-const copyByLocale: Record<Locale, Record<TechSlug, TechCopy>> = {
+const copyByLocale: LocaleMap<Record<TechSlug, TechCopy>> = {
   en: {
     react: {
       tagline: "The library for web and native user interfaces",

@@ -1,4 +1,4 @@
-import type { Dictionary, Locale } from "./types";
+import type {Dictionary, Locale, LocaleMap} from "./types";
 
 type UiGallery = Dictionary["uiGallery"];
 
@@ -319,7 +319,7 @@ const ja: UiGallery = {
 
 
 
-export const uiGalleryByLocale: Record<Locale, UiGallery> = {
+export const uiGalleryByLocale: LocaleMap<UiGallery> = {
   vi,
   en,
   ja,

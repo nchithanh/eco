@@ -36,14 +36,14 @@ describe("Dolphin Software homepage", () => {
     expect(screen.getAllByLabelText(/Dolphin Software/i).length).toBeGreaterThanOrEqual(1);
     expect(
       screen.getByRole("heading", {
-        name: /ビジネスの課題をAIとテクノロジーで解く/i,
+        name: /Giải pháp vận hành cho doanh nghiệp dịch vụ B2B/i,
       }),
     ).toBeInTheDocument();
     expect(
-      screen.getAllByRole("link", { name: /事業について話す/i })[0],
+      screen.getAllByRole("link", { name: /Nói về doanh nghiệp của bạn/i })[0],
     ).toHaveAttribute("href", "#contact");
     expect(
-      screen.getAllByRole("button", { name: /見積もりを依頼|見積りを依頼/i }).length,
+      screen.getAllByRole("button", { name: /Nhận báo giá/i }).length,
     ).toBeGreaterThanOrEqual(1);
   });
 
@@ -109,24 +109,24 @@ describe("Dolphin Software homepage", () => {
     expect(faq!.compareDocumentPosition(contact!) & following).toBeTruthy();
 
     expect(
-      within(agentDolphin!).getByRole("link", { name: /Dolphin Careを見る/i }),
+      within(agentDolphin!).getByRole("link", { name: /Tìm hiểu Dolphin Care/i }),
     ).toHaveAttribute("href", expect.stringMatching(/\/dolphin-care\/?$/));
     expect(
-      within(agentDolphin!).getByRole("button", { name: /見積もりを依頼/i }),
+      within(agentDolphin!).getByRole("button", { name: /Nhận báo giá/i }),
     ).toBeInTheDocument();
-    expect(within(agentDolphin!).getByText(/24時間の文脈対応/i)).toBeInTheDocument();
-    expect(within(agentDolphin!).getByText(/Spa · 予約/i)).toBeInTheDocument();
+    expect(within(agentDolphin!).getByText(/Chăm khách đa kênh đúng ngữ cảnh/i)).toBeInTheDocument();
+    expect(within(agentDolphin!).getByText(/^Spa$/i)).toBeInTheDocument();
     expect(
       within(dolphinOps!).getByRole("heading", {
         level: 2,
-        name: /Agent CRM/i,
+        name: /CRM nền \+ chatbox AI tăng trưởng/i,
       }),
     ).toBeInTheDocument();
     expect(
-      within(dolphinOps!).getByRole("link", { name: /Opsの動きを見る/i }),
+      within(dolphinOps!).getByRole("link", { name: /Xem Ops chạy việc/i }),
     ).toHaveAttribute("href", expect.stringMatching(/\/dolphin-ops\/?$/));
     expect(
-      screen.getByRole("link", { name: /ソリューションを見る/i }),
+      screen.getByRole("link", { name: /Xem combo CRM · AI · Web/i }),
     ).toHaveAttribute("href", "#solutions");
   });
 
@@ -159,15 +159,15 @@ describe("Dolphin Software homepage", () => {
     expect(
       within(technology!).getByRole("heading", {
         level: 2,
-        name: /運用向けのAIソリューション/i,
+        name: /AI thực tế cho vận hành/i,
       }),
     ).toBeInTheDocument();
     expect(
-      within(aiEdge!).getByRole("link", { name: /AI変革のロードマップ/i }),
+      within(aiEdge!).getByRole("link", { name: /Lộ trình chuyển đổi AI/i }),
     ).toHaveAttribute("href", expect.stringMatching(/\/ai-transform\/?$/));
     expect(
       within(aiEdge!).getByRole("link", {
-        name: /Dolphin Intelligence を見る/i,
+        name: /Xem Dolphin Intelligence/i,
       }),
     ).toHaveAttribute(
       "href",
@@ -183,28 +183,24 @@ describe("Dolphin Software homepage", () => {
     expect(
       screen.getByRole("heading", {
         level: 2,
-        name: /見つけてもらい、転換するためのWebパッケージ/i,
+        name: /Website \/ Landing — hỗ trợ chốt theo combo CRM/i,
       }),
     ).toBeInTheDocument();
     const section = within(popular as HTMLElement);
-    expect(section.getByRole("heading", { name: /ランディングページ/i })).toBeInTheDocument();
-    expect(section.getByRole("heading", { name: /企業サイト/i })).toBeInTheDocument();
-    expect(section.getByRole("heading", { name: /ECサイト|オンラインショップ/i })).toBeInTheDocument();
-    expect(section.getByRole("heading", { name: /カスタムWebアプリ|Webアプリ/i })).toBeInTheDocument();
-    expect(section.getByText("￥9,300")).toBeInTheDocument();
-    await user.click(section.getByRole("radio", { name: /ランディングページ/i }));
-    expect(section.getByRole("button", { name: /LP見積もり|LP見積り/i })).toBeInTheDocument();
-    expect(section.getByRole("link", { name: /Zaloで相談/i })).toHaveAttribute(
-      "href",
-      "https://zalo.me/0779937633",
-    );
+    expect(section.getByRole("heading", { name: /Landing Page/i })).toBeInTheDocument();
+    expect(section.getByRole("heading", { name: /Website doanh nghiệp/i })).toBeInTheDocument();
+    expect(section.getByText("1.500.000đ")).toBeInTheDocument();
+    await user.click(section.getByRole("radio", { name: /Landing Page/i }));
+    expect(
+      section.getByRole("button", { name: /Nhận báo giá combo/i }),
+    ).toBeInTheDocument();
   });
 
   it("converts popular service prices when switching language", async () => {
     const user = userEvent.setup();
     renderHome();
     const popular = document.getElementById("popular-services") as HTMLElement;
-    expect(within(popular).getByText("￥9,300")).toBeInTheDocument();
+    expect(within(popular).getByText("1.500.000đ")).toBeInTheDocument();
 
     await openLanguageMenu(user);
     await user.click(screen.getByRole("button", { name: /English/i }));
@@ -213,10 +209,6 @@ describe("Dolphin Software homepage", () => {
     await openLanguageMenu(user);
     await user.click(screen.getByRole("button", { name: /Tiếng Việt/i }));
     expect(within(popular).getByText("1.500.000đ")).toBeInTheDocument();
-
-    await openLanguageMenu(user);
-    await user.click(screen.getByRole("button", { name: /日本語/i }));
-    expect(within(popular).getByText("￥9,300")).toBeInTheDocument();
   });
 
   it("renders projects and care before website packages", () => {
@@ -248,10 +240,10 @@ describe("Dolphin Software homepage", () => {
   it("renders process headings", () => {
     renderHome();
     expect(
-      screen.getByRole("heading", { name: /明確な納品を伴う5ステッププロセス/i }),
+      screen.getByRole("heading", { name: /Hợp tác rõ ràng — năm bước đến bàn giao/i }),
     ).toBeInTheDocument();
-    expect(screen.getByText(/傾聴と発見/i)).toBeInTheDocument();
-    expect(screen.getByText(/納品とパートナーシップ/i)).toBeInTheDocument();
+    expect(screen.getByText(/Lắng nghe & Khám phá/i)).toBeInTheDocument();
+    expect(screen.getAllByText(/Bàn giao & Đồng hành/i).length).toBeGreaterThanOrEqual(1);
   });
 
   it("renders problems before solutions and process before faq", () => {
@@ -275,7 +267,7 @@ describe("Dolphin Software homepage", () => {
     expect(
       screen.getByRole("heading", {
         level: 2,
-        name: /何が事業を遅らせていますか/i,
+        name: /Điều gì đang làm chậm doanh nghiệp của anh chị/i,
       }),
     ).toBeInTheDocument();
     expect(
@@ -287,16 +279,16 @@ describe("Dolphin Software homepage", () => {
     renderHome();
     expect(document.getElementById("handover")).toBeNull();
     expect(
-      screen.queryByRole("region", { name: /引き渡し成果物/i }),
+      screen.queryByRole("region", { name: /Đầu ra bàn giao|Handover/i }),
     ).not.toBeInTheDocument();
   });
 
   it("renders process step deliverables and works outcomes", () => {
     renderHome();
-    expect(screen.getAllByText(/成果物:/i).length).toBeGreaterThanOrEqual(5);
-    expect(screen.getAllByText(/^課題$/i).length).toBeGreaterThanOrEqual(1);
-    expect(screen.getAllByText(/^範囲$/i).length).toBeGreaterThanOrEqual(1);
-    expect(screen.getAllByText(/^結果$/i).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText(/Đầu ra:/i).length).toBeGreaterThanOrEqual(5);
+    expect(screen.getAllByText(/^Bài toán$/i).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText(/^Phạm vi$/i).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText(/^Kết quả$/i).length).toBeGreaterThanOrEqual(1);
   });
 
   it("renders why, contact, and tech stack", () => {
@@ -306,7 +298,7 @@ describe("Dolphin Software homepage", () => {
     expect(document.getElementById("cofounder")).toBeNull();
     expect(
       screen.getByRole("heading", {
-        name: /機能の山を売りません/i,
+        name: /CRM giữ vận hành — AI đẩy tăng trưởng/i,
       }),
     ).toBeInTheDocument();
     expect(document.getElementById("services")).toBeNull();
@@ -314,14 +306,14 @@ describe("Dolphin Software homepage", () => {
     const contact = within(document.getElementById("contact")!);
     expect(
       contact.getByRole("heading", {
-        name: /御社の事業について話す/i,
+        name: /Chọn combo CRM · AI · Web phù hợp/i,
       }),
     ).toBeInTheDocument();
     expect(
-      contact.getByRole("link", { name: /Zaloで相談/i }),
+      contact.getByRole("link", { name: /Chat Zalo/i }),
     ).toHaveAttribute("href", "https://zalo.me/0779937633");
     expect(
-      contact.getByRole("link", { name: /メールを送る/i }),
+      contact.getByRole("link", { name: /Gửi email/i }),
     ).toHaveAttribute("href", "mailto:support@dolphin-software.io.vn");
   });
 
@@ -331,11 +323,11 @@ describe("Dolphin Software homepage", () => {
     expect(news).toBeTruthy();
     expect(
       within(news!).getByRole("link", {
-        name: /小さな店にウェブサイトは必要か/i,
+        name: /ChatGPT Ads đã có ở Việt Nam/i,
       }),
     ).toHaveAttribute("aria-current", "true");
     expect(
-      within(news!).getByRole("link", { name: /すべて見る/i }),
+      within(news!).getByRole("link", { name: /Xem đầy đủ/i }),
     ).toHaveAttribute("href", expect.stringMatching(/\/news\/?$/));
   });
 
@@ -348,11 +340,11 @@ describe("Dolphin Software homepage", () => {
 
     expect(
       within(news!).getByRole("link", {
-        name: /Kinh doanh nhỏ có cần website không/i,
+        name: /ChatGPT Ads đã có ở Việt Nam/i,
       }),
     ).toHaveAttribute(
       "href",
-      expect.stringMatching(/website-cho-kinh-doanh-nho/),
+      expect.stringMatching(/chatgpt-ads-viet-nam/),
     );
   });
 
@@ -364,24 +356,24 @@ describe("Dolphin Software homepage", () => {
       </AppProviders>,
     );
 
-    await user.click(screen.getByRole("button", { name: /メニューを開く/i }));
+    await user.click(screen.getByRole("button", { name: /Mở menu/i }));
 
-    const mobileNav = screen.getByRole("navigation", { name: /モバイルナビ/i });
+    const mobileNav = screen.getByRole("navigation", { name: /Điều hướng di động/i });
     expect(
-      within(mobileNav).getByRole("link", { name: /Dolphinに相談/i }),
-    ).toHaveAttribute("href", "#contact");
+      within(mobileNav).getByRole("link", { name: /Dolphin Care/i }),
+    ).toHaveAttribute("href", expect.stringMatching(/\/dolphin-care\/?$/));
     expect(
-      within(mobileNav).getByRole("link", { name: /ソリューション/i }),
+      within(mobileNav).getByRole("link", { name: /Tin tức/i }),
     ).toBeInTheDocument();
     expect(
-      within(mobileNav).queryByRole("button", { name: /^サービス$/i }),
+      within(mobileNav).queryByRole("button", { name: /^Dịch vụ$/i }),
     ).not.toBeInTheDocument();
   });
 
   it("renders FAQ heading on the homepage", () => {
     renderHome();
     expect(
-      screen.getByRole("heading", { level: 2, name: /よくある質問/i }),
+      screen.getByRole("heading", { level: 2, name: /Câu hỏi thường gặp/i }),
     ).toBeInTheDocument();
   });
 
@@ -397,12 +389,11 @@ describe("Dolphin Software homepage", () => {
     ).toBeInTheDocument();
 
     await user.click(
-      screen.getByRole("button", { name: /クイック連絡を開く/i }),
+      screen.getByRole("button", { name: /Mở liên hệ nhanh/i }),
     );
-    expect(screen.getByRole("link", { name: /Zaloでチャット/i })).toHaveAttribute(
-      "href",
-      "https://zalo.me/0779937633",
-    );
+    expect(
+      screen.getAllByRole("link", { name: /Chat Zalo/i })[0],
+    ).toHaveAttribute("href", "https://zalo.me/0779937633");
   });
 
   it("opens the same chat drawer from the floating Care FAB", async () => {
@@ -426,7 +417,7 @@ describe("Dolphin Software homepage", () => {
     );
 
     expect(
-      screen.queryByRole("button", { name: /カラーテーマ/i }),
+      screen.queryByRole("button", { name: /Color theme|Chủ đề màu|テーマ/i }),
     ).not.toBeInTheDocument();
   });
 
@@ -439,7 +430,7 @@ describe("Dolphin Software homepage", () => {
 
     expect(
       screen.getByRole("heading", {
-        name: /Giải quyết vấn đề doanh nghiệp bằng AI & Công nghệ/i,
+        name: /Giải pháp vận hành cho doanh nghiệp dịch vụ B2B/i,
       }),
     ).toBeInTheDocument();
     expect(
@@ -456,7 +447,7 @@ describe("Dolphin Software homepage", () => {
 
     expect(
       screen.getByRole("heading", {
-        name: /Solve Business Problems with AI & Technology/i,
+        name: /Operations solutions for B2B service businesses/i,
       }),
     ).toBeInTheDocument();
     expect(
@@ -464,22 +455,4 @@ describe("Dolphin Software homepage", () => {
     ).toHaveAttribute("href", "#contact");
   });
 
-  it("switches language to Japanese", async () => {
-    const user = userEvent.setup();
-    renderHome();
-
-    await openLanguageMenu(user);
-    await user.click(screen.getByRole("button", { name: /English/i }));
-    await openLanguageMenu(user);
-    await user.click(screen.getByRole("button", { name: /日本語/i }));
-
-    expect(
-      screen.getByRole("heading", {
-        name: /ビジネスの課題をAIとテクノロジーで解く/i,
-      }),
-    ).toBeInTheDocument();
-    expect(
-      screen.getAllByRole("link", { name: /事業について話す/i })[0],
-    ).toHaveAttribute("href", "#contact");
-  });
 });

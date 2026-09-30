@@ -1,4 +1,4 @@
-import type { Locale } from "@/lib/i18n/types";
+import type {Locale, LocaleMap} from "@/lib/i18n/types";
 
 export type OpsToolId =
   | "booking"
@@ -1244,7 +1244,7 @@ const ja: DolphinOpsCopy = {
   zaloLabel: "Zaloで相談",
 };
 
-const byLocale: Record<Locale, DolphinOpsCopy> = {
+const byLocale: LocaleMap<DolphinOpsCopy> = {
   vi,
   en,
   ja,
@@ -1355,7 +1355,7 @@ const homeJa: DolphinOpsHomeCopy = {
   trust: "実務の日々向けCRM — チャットを後付けしただけではありません。",
 };
 
-const homeByLocale: Record<Locale, DolphinOpsHomeCopy> = {
+const homeByLocale: LocaleMap<DolphinOpsHomeCopy> = {
   vi: homeVi,
   en: homeEn,
   ja: homeJa,

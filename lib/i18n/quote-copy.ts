@@ -1,4 +1,4 @@
-import type { Locale } from "@/lib/i18n/types";
+import type {Locale, LocaleMap} from "@/lib/i18n/types";
 import type { ExtraKey } from "@/lib/quotes/ma-dance-pricing";
 
 /** Public quote modal extras (general visitor — not MA-specific). */
@@ -206,7 +206,7 @@ const ja: QuoteCopy = {
   policyLinkLabel: "2026料金ポリシーを見る",
 };
 
-export const quoteCopy: Record<Locale, QuoteCopy> = { vi, en, ja };
+export const quoteCopy: LocaleMap<QuoteCopy> = { vi, en, ja };
 
 export function getQuoteCopy(locale: Locale): QuoteCopy {
   return quoteCopy[locale];

@@ -7,7 +7,7 @@ import { LazyImage } from "@/components/LazyImage";
 import { Reveal } from "@/components/Reveal";
 import { assetPath, themeAsset } from "@/lib/asset";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
-import type { Locale } from "@/lib/i18n/types";
+import type {Locale} from "@/lib/i18n/types";
 import { useTheme } from "@/lib/theme";
 import {
  getNewsImage,
@@ -40,8 +40,7 @@ function resolveSlideDirection(
 
 function formatCarouselDate(locale: Locale, isoDate: string): string {
  const date = new Date(`${isoDate}T12:00:00`);
- const tag =
- locale === "vi" ? "vi-VN" : locale === "ja" ? "ja-JP" : "en-US";
+ const tag = locale === "vi" ? "vi-VN" : "en-US";
  return new Intl.DateTimeFormat(tag, {
  month: "short",
  day: "numeric",

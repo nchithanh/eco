@@ -57,8 +57,8 @@ export function buildPageMetadata({
       description,
       url,
       siteName: "Dolphin Software",
+      /** SEO/GEO SoT — Vietnam only; EN is UI viewing language, not a crawl locale. */
       locale: "vi_VN",
-      alternateLocale: ["en_US", "ja_JP"],
       images: [
         {
           url: imageUrl,
@@ -107,7 +107,8 @@ export function organizationJsonLd() {
         "@type": "ContactPoint",
         contactType: "sales",
         email: CONTACTS.email,
-        availableLanguage: ["Vietnamese", "Japanese", "English"],
+        availableLanguage: ["Vietnamese", "English"],
+        areaServed: "VN",
       },
     ],
   };
@@ -125,7 +126,8 @@ export function websiteJsonLd() {
       name: "Dolphin Software",
       url: SITE_URL,
     },
-    inLanguage: ["vi", "en", "ja"],
+    /** Crawl/SEO language — Vietnamese only. EN is client UI overlay. */
+    inLanguage: "vi",
   };
 }
 
@@ -145,7 +147,10 @@ export function serviceJsonLd(input: {
       name: "Dolphin Software",
       url: SITE_URL,
     },
-    areaServed: "Worldwide",
+    areaServed: {
+      "@type": "Country",
+      name: "VN",
+    },
   };
 }
 

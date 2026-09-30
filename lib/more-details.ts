@@ -1,4 +1,4 @@
-import type { Locale } from "@/lib/i18n/types";
+import type {Locale, LocaleMap} from "@/lib/i18n/types";
 
 export const MORE_SLUGS = ["architecture", "stock"] as const;
 
@@ -26,7 +26,7 @@ export type MoreDetailUi = {
   cta: string;
 };
 
-const ui: Record<Locale, MoreDetailUi> = {
+const ui: LocaleMap<MoreDetailUi> = {
   vi: {
     back: "← Về trang chủ",
     highlightsTitle: "Phạm vi",
@@ -60,7 +60,7 @@ const images: Record<MoreSlug, string> = {
 
 type MoreCopy = Omit<MoreDetail, "image">;
 
-const copyByLocale: Record<Locale, Record<MoreSlug, MoreCopy>> = {
+const copyByLocale: LocaleMap<Record<MoreSlug, MoreCopy>> = {
   vi: {
     architecture: {
       title: "Kiến trúc & hỗ trợ hệ thống",

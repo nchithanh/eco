@@ -1,4 +1,4 @@
-import type { Dictionary, Locale } from "./types";
+import type {Dictionary, Locale, LocaleMap} from "./types";
 
 type CareersCopy = Dictionary["careers"];
 
@@ -1462,13 +1462,13 @@ const ja: CareersCopy = {
   },
 };
 
-export const careersByLocale: Record<Locale, CareersCopy> = {
+export const careersByLocale: LocaleMap<CareersCopy> = {
   vi,
   en,
   ja,
 };
 
-export const careersNavLabel: Record<Locale, string> = {
+export const careersNavLabel: LocaleMap<string> = {
   vi: "Tuyển dụng",
   en: "Careers",
   ja: "採用",

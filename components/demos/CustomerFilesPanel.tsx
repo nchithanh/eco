@@ -8,7 +8,7 @@ import {
   type CustomerDocKind,
   type CustomerFile,
 } from "@/lib/demos/customer-files";
-import type { DolphinSalesCopy, SalesLocale } from "@/lib/demos/dolphin-sales-copy";
+import type {DolphinSalesCopy, SalesLocale} from "@/lib/demos/dolphin-sales-copy";
 
 function docHref(href: string): string {
   if (href.startsWith("http://") || href.startsWith("https://")) return href;
