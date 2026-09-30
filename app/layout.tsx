@@ -1,15 +1,16 @@
 import type { Metadata } from "next";
-import { Quicksand, Noto_Sans_JP, Instrument_Serif } from "next/font/google";
+import { Inter, Noto_Sans_JP, Instrument_Serif } from "next/font/google";
 import { AppProviders } from "@/components/AppProviders";
 import { BootScripts } from "@/components/BootScripts";
 import { JsonLd } from "@/components/JsonLd";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 import "./globals.css";
 
-const quicksand = Quicksand({
+/** ElevenLabs-adjacent UI face — Waldenburg not licensed; Inter 300 for display. */
+const inter = Inter({
  subsets: ["latin", "latin-ext", "vietnamese"],
- variable: "--font-quicksand",
- weight: ["400", "500", "600", "700"],
+ variable: "--font-sans",
+ weight: ["300", "400", "500", "600", "700"],
  display: "swap",
 });
 
@@ -118,7 +119,7 @@ export default function RootLayout({
  return (
  <html lang="vi" suppressHydrationWarning>
  <body
- className={`${quicksand.variable} ${notoSansJp.variable} ${instrumentSerif.variable} antialiased`}
+ className={`${inter.variable} ${notoSansJp.variable} ${instrumentSerif.variable} antialiased`}
  >
  <BootScripts />
  <JsonLd id="site-jsonld" data={[organizationJsonLd(), websiteJsonLd()]} />

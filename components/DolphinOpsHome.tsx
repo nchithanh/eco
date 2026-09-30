@@ -24,7 +24,7 @@ export function DolphinOpsHome() {
       className="scroll-mt-20 py-20 sm:py-24"
       aria-labelledby="home-ops-heading"
     >
-      <div className="mx-auto grid max-w-7xl items-center gap-10 px-6 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-14">
+      <div className="mx-auto grid max-w-7xl items-stretch gap-10 px-6 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-14">
         <div className="min-w-0">
           <Reveal variant="title" className="max-w-xl">
             <p className="kuct-section-eyebrow">{c.eyebrow}</p>
@@ -96,8 +96,8 @@ export function DolphinOpsHome() {
           </Reveal>
         </div>
 
-        <Reveal delay={100} className="min-w-0 lg:justify-self-stretch">
-          <div className="kuct-product-panel">
+        <Reveal delay={100} className="flex min-h-0 min-w-0 flex-col lg:justify-self-stretch">
+          <div className="kuct-product-panel flex h-full min-h-0 flex-1 flex-col">
             <OpsHeroDemo copy={demo} />
           </div>
         </Reveal>

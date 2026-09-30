@@ -42,6 +42,12 @@ export type DolphinOpsCopy = {
   heroStaffValue: string;
   heroConfirm: string;
   heroSuccess: string;
+  heroAwaitConfirm: string;
+  heroContextNote: string;
+  heroSummaryLabel: string;
+  heroSummaryLine: string;
+  heroNoteLabel: string;
+  heroNoteValue: string;
   problemEyebrow: string;
   problemTitle: string;
   problemSupport: string;
@@ -178,6 +184,13 @@ const vi: DolphinOpsCopy = {
   heroStaffValue: "Mai",
   heroConfirm: "Xác nhận đặt lịch",
   heroSuccess: "Đã tạo lịch hẹn.",
+  heroAwaitConfirm: "Chờ người xác nhận",
+  heroContextNote:
+    "Agent chọn Booking Tool → mở form → nhân viên bổ sung giờ / người phụ trách → xác nhận. Không đi menu CRM.",
+  heroSummaryLabel: "Tóm tắt lịch",
+  heroSummaryLine: "Lan · Chăm sóc da mặt · Thứ Bảy 15:00 · Mai",
+  heroNoteLabel: "Ghi chú",
+  heroNoteValue: "Khách quen — nhắc mang kết quả lần trước.",
   problemEyebrow: "Vấn đề",
   problemTitle: "CRM đòi anh chị học nó. Ops nghe việc rồi mở đúng màn.",
   problemSupport:
@@ -544,6 +557,13 @@ const en: DolphinOpsCopy = {
   heroStaffValue: "Mai",
   heroConfirm: "Confirm booking",
   heroSuccess: "Appointment created.",
+  heroAwaitConfirm: "Waiting for a person",
+  heroContextNote:
+    "Agent picks Booking Tool → opens the form → staff fill time / assignee → confirm. No CRM menu walk.",
+  heroSummaryLabel: "Booking summary",
+  heroSummaryLine: "Lan · Facial · Saturday 15:00 · Mai",
+  heroNoteLabel: "Note",
+  heroNoteValue: "Regular guest — remind them to bring last visit results.",
   problemEyebrow: "The problem",
   problemTitle: "A CRM asks you to learn it. Ops hears the job and opens the right screen.",
   problemSupport:
@@ -910,6 +930,13 @@ const ja: DolphinOpsCopy = {
   heroStaffValue: "Mai",
   heroConfirm: "予約を確定",
   heroSuccess: "予約を作成しました。",
+  heroAwaitConfirm: "人の確認待ち",
+  heroContextNote:
+    "AgentがBooking Toolを選び → フォームを開き → 担当が時刻／担当者を補い → 確定。CRMメニューは歩きません。",
+  heroSummaryLabel: "予約の要約",
+  heroSummaryLine: "Lan · フェイシャル · 土曜 15:00 · Mai",
+  heroNoteLabel: "メモ",
+  heroNoteValue: "常連 — 前回の結果を持参するようリマインド。",
   problemEyebrow: "課題",
   problemTitle: "CRMに使い方を覚えさせる仕事。Opsは用件を聞いて画面を出す。",
   problemSupport:

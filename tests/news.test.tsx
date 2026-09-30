@@ -235,6 +235,37 @@ describe("Dolphin Software news page", () => {
     ).toBeInTheDocument();
   });
 
+  it("renders GEO ChatGPT Gemini mention article with FAQ", async () => {
+    const page = await NewsArticlePage({
+      params: Promise.resolve({
+        slug: "co-duoc-nhac-toi-tren-chatgpt-gemini",
+      }),
+    });
+    render(<AppProviders>{page}</AppProviders>);
+    expect(
+      screen.getByRole("heading", {
+        level: 1,
+        name: /được nhắc tới khi khách tìm trên ChatGPT/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", {
+        level: 2,
+        name: /AI trả lời lấy tín hiệu từ đâu/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", {
+        name: /Làm sao biết tiệm mình có được ChatGPT/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("img", {
+        name: /ChatGPT và Gemini liệt kê vài chỗ khác/i,
+      }),
+    ).toBeInTheDocument();
+  });
+
   it("renders ChatGPT Ads Vietnam article with FAQ", async () => {
     const page = await NewsArticlePage({
       params: Promise.resolve({

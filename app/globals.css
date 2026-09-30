@@ -18,8 +18,8 @@
   --color-df-text: #f4f4f5;
   --color-df-muted: #a1a1aa;
   --color-df-faint: #71717a;
-  --color-df-accent: #6b56d6;
-  --color-df-accent-hover: #5644b8;
+  --color-df-accent: #000000;
+  --color-df-accent-hover: #1a1a1a;
   --color-df-ink: #f4f4f5;
   --color-df-ok: #22c55e;
   --color-df-warn: #f0c93a;
@@ -47,42 +47,56 @@
   }
 }
 
-/* Default + violet theme tokens */
+/* Default theme — ElevenLabs-adjacent monochrome (warm off-white + ink) */
 :root,
 html[data-theme="violet"] {
-  --kuct-bg: #fcfcfd;
+  /* Font aliases (Inter via --font-sans from layout; Waldenburg unavailable) */
+  --font-quicksand: var(--font-sans);
+  --font-display: var(--font-sans);
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  --kuct-bg: #fdfcfc;
   --kuct-surface: #ffffff;
-  --kuct-accent: #6b56d6;
-  --kuct-accent-2: #5644b8;
-  --kuct-accent-3: #9b8ce8;
-  --kuct-accent-rgb: 107, 86, 214;
-  --kuct-text: #1a1625;
-  --kuct-muted: #5c5668;
-  --kuct-border: rgba(26, 22, 37, 0.08);
+  --kuct-surface-muted: #f5f5f5;
+  --kuct-surface-warm: #f5f2ef;
+  --kuct-accent: #000000;
+  --kuct-accent-2: #1a1a1a;
+  --kuct-accent-3: #4e4e4e;
+  --kuct-accent-rgb: 0, 0, 0;
+  --kuct-text: #000000;
+  --kuct-muted: #4e4e4e;
+  --kuct-muted-soft: #777169;
+  --kuct-border: #e5e5e5;
+  --kuct-border-soft: rgba(0, 0, 0, 0.05);
+  --kuct-border-strong: #d4d4d4;
   --kuct-on-accent: #ffffff;
   --kuct-glass: #ffffff;
-  --kuct-shadow: 0 8px 24px rgb(26 22 37 / 0.05);
+  --kuct-shadow: 0 1px 2px rgb(0 0 0 / 0.04), 0 8px 24px rgb(0 0 0 / 0.04);
   --kuct-glow-1: transparent;
   --kuct-glow-2: transparent;
   --kuct-glow-3: transparent;
-  --kuct-btn-from: #5644b8;
-  --kuct-btn-mid: #6b56d6;
-  --kuct-btn-to: #7d6ce0;
-  --kuct-serif-a: #5644b8;
-  --kuct-serif-b: #6b56d6;
-  --kuct-serif-c: #6366f1;
-  --kuct-menu-hover: #f4f3f8;
+  --kuct-btn-from: #000000;
+  --kuct-btn-mid: #000000;
+  --kuct-btn-to: #1a1a1a;
+  --kuct-serif-a: #000000;
+  --kuct-serif-b: #1a1a1a;
+  --kuct-serif-c: #4e4e4e;
+  --kuct-menu-hover: #f5f5f5;
   --kuct-ribbon-1: transparent;
   --kuct-ribbon-2: transparent;
   --kuct-ribbon-3: transparent;
-  --kuct-fab-from: #7d6ce0;
-  --kuct-fab-mid: #6b56d6;
-  --kuct-fab-to: #5644b8;
+  --kuct-fab-from: #1a1a1a;
+  --kuct-fab-mid: #000000;
+  --kuct-fab-to: #000000;
   --kuct-card-from: #ffffff;
   --kuct-card-mid: #ffffff;
   --kuct-card-to: #ffffff;
-  --kuct-panel: #f5f4f8;
+  --kuct-panel: #f5f2ef;
   --kuct-panel-2: #ffffff;
+  --kuct-success: #16a34a;
+  --kuct-destructive: #dc2626;
+  --kuct-radius-btn: 9999px;
+  --kuct-space-section-y: clamp(3.5rem, 8vw, 6rem);
 }
 
 /* Archive — orangered (not default) */
@@ -173,26 +187,26 @@ html.kuct-loading body {
 
 @media (min-width: 64rem) {
   html {
-    font-size: 112.5%; /* 18px base on desktop */
+    font-size: 100%; /* 16px base — ElevenLabs-adjacent body scale */
   }
 }
 
 body {
-  background:
-    radial-gradient(ellipse 80% 50% at 10% -10%, var(--kuct-glow-1), transparent 55%),
-    radial-gradient(ellipse 70% 45% at 90% 5%, var(--kuct-glow-2), transparent 50%),
-    radial-gradient(ellipse 60% 40% at 50% 100%, var(--kuct-glow-3), transparent 55%),
-    var(--kuct-bg);
+  background: var(--kuct-bg);
   color: var(--kuct-text);
-  font-family: var(--font-quicksand), var(--font-jp), Quicksand, "Noto Sans JP",
-    sans-serif;
+  font-family: var(--font-sans), var(--font-jp), Inter, "Noto Sans JP",
+    ui-sans-serif, system-ui, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.55;
 }
 
-/* Purple custom cursor */
+/* Neutral ink cursor (no brand purple) */
 html,
 body {
   cursor:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='4.6' fill='%236b56d6'/%3E%3Ccircle cx='12' cy='12' r='8.2' fill='none' stroke='%239b8ce8' stroke-opacity='0.82' stroke-width='1.6'/%3E%3C/svg%3E")
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='4.6' fill='%23000000'/%3E%3Ccircle cx='12' cy='12' r='8.2' fill='none' stroke='%234E4E4E' stroke-opacity='0.55' stroke-width='1.4'/%3E%3C/svg%3E")
       12 12,
     auto;
 }
@@ -488,9 +502,8 @@ html[data-theme="orangered"] .kuct-feature-card {
 }
 
 .font-display {
-  font-family: var(--font-quicksand), var(--font-jp), Quicksand, "Noto Sans JP",
-    sans-serif;
-  letter-spacing: -0.025em;
+  font-family: var(--font-display), var(--font-sans), var(--font-jp), Inter,
+    "Noto Sans JP", ui-sans-serif, system-ui, sans-serif;
 }
 
 .font-serif-accent {
@@ -499,40 +512,40 @@ html[data-theme="orangered"] .kuct-feature-card {
   color: inherit;
 }
 
-/* Editorial type scale — Phase 0 anti-vibe-code */
+/* Editorial type scale — ElevenLabs-adjacent */
 .kuct-type-h1 {
-  font-family: var(--font-quicksand), var(--font-jp), Quicksand, "Noto Sans JP",
-    sans-serif;
-  font-weight: 600;
-  letter-spacing: -0.03em;
+  font-family: var(--font-display), var(--font-sans), var(--font-jp), Inter,
+    "Noto Sans JP", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 300;
+  letter-spacing: -0.02em;
   line-height: 1.08;
   color: var(--kuct-text);
 }
 
 .kuct-type-h2 {
-  font-family: var(--font-quicksand), var(--font-jp), Quicksand, "Noto Sans JP",
-    sans-serif;
-  font-weight: 600;
-  letter-spacing: -0.02em;
+  font-family: var(--font-display), var(--font-sans), var(--font-jp), Inter,
+    "Noto Sans JP", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 300;
+  letter-spacing: -0.01em;
   line-height: 1.15;
   color: var(--kuct-text);
 }
 
 .kuct-type-body {
-  font-family: var(--font-quicksand), var(--font-jp), Quicksand, "Noto Sans JP",
-    sans-serif;
-  font-weight: 500;
-  letter-spacing: 0.005em;
-  line-height: 1.65;
+  font-family: var(--font-sans), var(--font-jp), Inter, "Noto Sans JP",
+    ui-sans-serif, system-ui, sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.55;
   color: var(--kuct-muted);
 }
 
 .kuct-type-eyebrow {
-  font-size: 0.6875rem;
-  font-weight: 600;
-  letter-spacing: 0.2em;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
   text-transform: uppercase;
-  color: var(--kuct-accent);
+  color: var(--kuct-muted-soft, var(--kuct-muted));
 }
 
 /* Component language — soft card (no hairline border — anti vibe-code) */
@@ -545,7 +558,7 @@ html[data-theme="orangered"] .kuct-feature-card {
 
 /* FAQ (#faq): Jasper 2-col — violet badge + accordion (no box border) */
 .kuct-faq {
-  background-color: color-mix(in srgb, var(--kuct-accent) 3%, #fcfcfd);
+  background-color: var(--kuct-surface-warm, var(--kuct-panel));
 }
 
 .kuct-faq-badge {
@@ -554,22 +567,22 @@ html[data-theme="orangered"] .kuct-feature-card {
   border-radius: 10px;
   background: var(--kuct-accent);
   color: var(--kuct-on-accent, #fff);
-  font-family: var(--font-quicksand), var(--font-jp), Quicksand, "Noto Sans JP",
-    sans-serif;
+  font-family: var(--font-sans), var(--font-jp), Inter, "Noto Sans JP",
+    ui-sans-serif, system-ui, sans-serif;
   font-size: 1.15rem;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1;
   letter-spacing: 0.02em;
   transform: rotate(-6deg);
-  box-shadow: 0 0.45rem 1rem rgb(26 22 37 / 0.12);
+  box-shadow: var(--kuct-shadow);
 }
 
 .kuct-faq-panel {
   overflow: hidden;
   border-radius: 10px;
-  border: none;
-  background: color-mix(in srgb, var(--kuct-accent) 6%, #fff);
-  box-shadow: 0 0.35rem 1.25rem rgb(26 22 37 / 0.05);
+  border: 1px solid var(--kuct-border-soft, var(--kuct-border));
+  background: var(--kuct-surface);
+  box-shadow: var(--kuct-shadow);
 }
 
 .kuct-faq-row--divided {
@@ -642,21 +655,35 @@ html[data-theme="orangered"] .kuct-feature-card {
   animation: none !important;
 }
 
-/* Soft section rhythm (Jasper-inspired canvas tint + faint grid) */
+/* Soft section rhythm — warm stone wash, minimal hairline grid */
 .kuct-section-soft {
-  background-color: color-mix(in srgb, var(--kuct-accent) 4%, var(--kuct-bg));
+  background-color: var(--kuct-surface-warm, var(--kuct-panel));
   background-image:
-    linear-gradient(rgb(26 22 37 / 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgb(26 22 37 / 0.03) 1px, transparent 1px);
-  background-size: 28px 28px;
+    linear-gradient(rgb(0 0 0 / 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(0 0 0 / 0.03) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Prefer this token when adding new section vertical rhythm */
+.kuct-section-y {
+  padding-block: var(--kuct-space-section-y, clamp(3.5rem, 8vw, 6rem));
+}
+
+/* Beat Tailwind font-semibold on large titles — keep light display face */
+h1.font-display,
+h2.font-display,
+.kuct-type-h1,
+.kuct-type-h2,
+.kuct-hero-display {
+  font-weight: 300 !important;
 }
 
 /* Process (#process): white cards, no pastel grid */
 .kuct-process-card {
   border-radius: 10px;
-  border: none;
+  border: 1px solid var(--kuct-border-soft, var(--kuct-border));
   background: var(--kuct-surface, #fff);
-  box-shadow: 0 0.35rem 1.1rem rgb(26 22 37 / 0.04);
+  box-shadow: var(--kuct-shadow);
   color: var(--kuct-text);
 }
 
@@ -707,6 +734,17 @@ html[data-theme="orangered"] .kuct-feature-card {
 .kuct-product-panel > * {
   position: relative;
   z-index: 1;
+}
+
+.kuct-product-panel:has(.ops-app--hero) {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.kuct-product-panel:has(.ops-app--hero) > .ops-app--hero {
+  flex: 1 1 auto;
+  min-height: 100%;
 }
 
 /* Shared homepage section eyebrow (Problems / Pastel language) */
@@ -1022,9 +1060,11 @@ ul[data-pastel-cols="4"] .kuct-pastel-card__art svg.kuct-pastel-scene {
   background: var(--kuct-accent);
   color: var(--kuct-on-accent);
   border: 1px solid var(--kuct-accent);
-  border-radius: 10px;
+  border-radius: var(--kuct-radius-btn, 9999px);
   box-shadow: none;
-  font-weight: 700;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.625rem 1.125rem;
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease,
@@ -1040,33 +1080,38 @@ ul[data-pastel-cols="4"] .kuct-pastel-card__art svg.kuct-pastel-scene {
   border-color: var(--kuct-accent-2);
 }
 
-/* Tailwind font-semibold on same node — keep primary at 700 */
+/* Tailwind font-semibold on same node — ElevenLabs CTAs stay medium */
 .kuct-btn-primary.font-semibold {
-  font-weight: 700;
+  font-weight: 500;
 }
 
-/* All interactive buttons / banner CTAs — 10px (avatars/dots keep rounded-full) */
+/* Interactive CTAs — pill (ElevenLabs override); chips stay soft 10px */
 button,
 [type="button"],
 [type="submit"],
 [type="reset"],
 .kuct-banner-cta,
-.kuct-banner-cta-outline,
+.kuct-banner-cta-outline {
+  border-radius: var(--kuct-radius-btn, 9999px);
+}
+
 .kuct-chip {
   border-radius: 10px;
 }
 
-/* Secondary CTA — outlined (Jasper-style dual CTA pair) */
+/* Secondary CTA — outline pill */
 .kuct-btn-outline {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: var(--kuct-surface);
-  border: 1px solid var(--kuct-text);
-  border-radius: 10px;
+  background: transparent;
+  border: 1px solid var(--kuct-border);
+  border-radius: var(--kuct-radius-btn, 9999px);
   box-shadow: none;
   color: var(--kuct-text);
-  font-weight: 700;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.625rem 1.125rem;
   text-decoration: none;
   transition:
     color 0.2s ease,
@@ -1488,22 +1533,18 @@ html[data-theme="violet"] .kuct-banner-cta-outline:hover {
 @media (hover: hover) and (pointer: fine) {
   @media (min-width: 1024px) {
     .kuct-btn-primary:hover {
-      background: linear-gradient(
-        135deg,
-        var(--kuct-btn-from) 0%,
-        var(--kuct-btn-mid) 45%,
-        var(--kuct-btn-to) 100%
-      );
+      background: var(--kuct-accent-2);
       color: var(--kuct-on-accent);
-      border-color: transparent;
+      border-color: var(--kuct-accent-2);
       filter: none;
-      transform: translateY(-2px);
-      box-shadow: 0 10px 28px rgb(26 21 32 / 0.12);
+      transform: none;
+      box-shadow: none;
     }
 
     .kuct-btn-outline:hover {
-      border-color: var(--kuct-accent);
-      color: var(--kuct-accent);
+      background: var(--kuct-surface-muted, #f5f5f5);
+      border-color: var(--kuct-border-strong, #d4d4d4);
+      color: var(--kuct-text);
     }
 
     .kuct-btn-ghost:hover {
@@ -1659,13 +1700,14 @@ html[data-theme="violet"] .kuct-banner-cta-outline:hover {
   );
 }
 
-/* Hero display — Jasper-scale editorial H1; Quicksand for VI glyphs */
+/* Hero display — Inter 300 (Waldenburg fallback), ethereal scale */
 .kuct-hero-display {
-  font-family: var(--font-quicksand), var(--font-jp), Quicksand, "Noto Sans JP",
-    sans-serif;
-  font-weight: 700;
-  letter-spacing: -0.035em;
-  line-height: 1.06;
+  font-family: var(--font-display), var(--font-sans), var(--font-jp), Inter,
+    "Noto Sans JP", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+  font-size: clamp(2rem, 4.5vw, 3rem); /* ~32–48px */
   color: var(--kuct-text);
   text-wrap: balance;
 }

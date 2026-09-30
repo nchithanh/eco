@@ -65,6 +65,7 @@ function BookingFormPreview({
 }) {
   const showForm = step >= 4;
   const showStaff = step >= 6;
+  const showNote = step >= 6;
   const ready = step >= 7;
   const done = step >= 8;
 
@@ -102,11 +103,25 @@ function BookingFormPreview({
             {showStaff ? copy.heroStaffValue : copy.heroStaffPlaceholder}
           </span>
         </div>
+        <div
+          className={
+            showNote ? "ops-field ops-field--wide is-on" : "ops-field ops-field--wide"
+          }
+        >
+          <span className="ops-field__label">{copy.heroNoteLabel}</span>
+          <span className="ops-field__value ops-field__value--note">
+            {copy.heroNoteValue}
+          </span>
+        </div>
       </div>
       <div className={ready ? "ops-form__btn is-ready" : "ops-form__btn"}>
         {copy.heroConfirm}
       </div>
       <p className={done ? "ops-form__ok is-on" : "ops-form__ok"}>{copy.heroSuccess}</p>
+      <div className="ops-hero__fill" aria-hidden={!showForm}>
+        <p className="ops-hero__fill-label">{copy.heroSummaryLabel}</p>
+        <p className="ops-hero__fill-line">{copy.heroSummaryLine}</p>
+      </div>
     </div>
   );
 }
@@ -260,7 +275,14 @@ export function OpsHeroDemo({ copy }: { copy: DolphinOpsCopy }) {
                 </span>
                 {copy.heroToolSelected}
               </div>
+              <div className={step >= 7 ? "ops-trace__row is-on" : "ops-trace__row"}>
+                <span className="ops-trace__mark" aria-hidden>
+                  3
+                </span>
+                {copy.heroAwaitConfirm}
+              </div>
             </div>
+            <p className="ops-intent__hint">{copy.heroContextNote}</p>
           </div>
           <BookingFormPreview copy={copy} step={step} />
         </div>

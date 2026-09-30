@@ -325,7 +325,7 @@ describe("Dolphin Software homepage", () => {
     expect(news).toBeTruthy();
     expect(
       within(news!).getByRole("link", {
-        name: /ChatGPT Ads đã có ở Việt Nam/i,
+        name: /được nhắc tới khi khách tìm trên ChatGPT/i,
       }),
     ).toHaveAttribute("aria-current", "true");
     expect(
@@ -342,11 +342,11 @@ describe("Dolphin Software homepage", () => {
 
     expect(
       within(news!).getByRole("link", {
-        name: /ChatGPT Ads đã có ở Việt Nam/i,
+        name: /được nhắc tới khi khách tìm trên ChatGPT/i,
       }),
     ).toHaveAttribute(
       "href",
-      expect.stringMatching(/chatgpt-ads-viet-nam/),
+      expect.stringMatching(/co-duoc-nhac-toi-tren-chatgpt-gemini/),
     );
   });
 

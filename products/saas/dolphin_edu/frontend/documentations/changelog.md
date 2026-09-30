@@ -1,5 +1,9 @@
 # Changelog — Dolphin Edu frontend
 
+## 2026-10-01
+
+- Sync `app/tokens.css` from shared brand — marketing chrome monochrome (`--kuct-accent` `#000000`), pill CTA radius token.
+
 ## 2026-09-21
 
 - SoT báo giá: đường dẫn hợp đồng MA → `/demos/admin/contract/hop-dong-ma/` (Admin Contracts); `/demos/hop-dong-ma/` redirect.
