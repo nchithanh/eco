@@ -5,17 +5,17 @@
     "rawPath": "/schema/homepage/index.json",
     "brand": "Dolphin Software",
     "locale": "vi",
-    "updated": "2026-08-31",
+    "updated": "2026-09-30",
     "seo": {
-      "title": "Dolphin Software – Giải Pháp AI & Công Nghệ Cho Doanh Nghiệp",
-      "description": "Dolphin Software giúp doanh nghiệp xác định nghẽn vận hành và xây giải pháp phù hợp — website, AI Agent, CRM, automation, tích hợp và phần mềm theo yêu cầu. Bắt đầu từ vấn đề, không từ sản phẩm.",
-      "og_title": "Dolphin Software – Giải Pháp AI & Công Nghệ Cho Doanh Nghiệp",
-      "og_description": "Không bắt đầu từ công nghệ. Bắt đầu từ vấn đề. Website, AI, CRM, automation và phần mềm riêng — chỉ những gì doanh nghiệp thực sự cần.",
+      "title": "Dolphin Software – CRM và AI cho doanh nghiệp dịch vụ",
+      "description": "Dolphin Software cho thuê phần mềm CRM và AI (SaaS) cho spa, nail, salon, giáo dục, clinic. Combo CRM kèm Care hoặc Ops từ 6 tháng tặng website khi triển khai.",
+      "og_title": "Dolphin Software – CRM và AI cho doanh nghiệp dịch vụ",
+      "og_description": "CRM thuê theo kỳ là nền vận hành. Care, Ops và Intelligence đẩy tăng trưởng. Website tặng hoặc giảm theo combo.",
       "canonical": "https://dolphin-software.io.vn/",
       "keywords": [
-        "giải pháp AI và công nghệ cho doanh nghiệp",
-        "thiết kế website theo yêu cầu",
-        "CRM cho doanh nghiệp vừa và nhỏ",
+        "phần mềm CRM tặng website",
+        "CRM cho doanh nghiệp dịch vụ",
+        "CRM thuê bao cho spa salon clinic",
         "tự động hóa quy trình doanh nghiệp",
         "phần mềm quản lý theo yêu cầu",
         "Dolphin Software",
@@ -30,18 +30,6 @@
       "anchor": "#top",
       "schemaPath": "/schema/homepage/hero/",
       "rawPath": "/schema/homepage/hero.json"
-    },
-    {
-      "id": "problems",
-      "anchor": "#problems",
-      "schemaPath": "/schema/homepage/problems/",
-      "rawPath": "/schema/homepage/problems.json"
-    },
-    {
-      "id": "why",
-      "anchor": "#why",
-      "schemaPath": "/schema/homepage/why/",
-      "rawPath": "/schema/homepage/why.json"
     },
     {
       "id": "capabilities",
@@ -62,6 +50,30 @@
       "rawPath": "/schema/homepage/dolphin-ops.json"
     },
     {
+      "id": "popular-services",
+      "anchor": "#popular-services",
+      "schemaPath": "/schema/homepage/popular-services/",
+      "rawPath": "/schema/homepage/popular-services.json"
+    },
+    {
+      "id": "fit",
+      "anchor": "#fit",
+      "schemaPath": "/schema/homepage/fit/",
+      "rawPath": "/schema/homepage/fit.json"
+    },
+    {
+      "id": "problems",
+      "anchor": "#problems",
+      "schemaPath": "/schema/homepage/problems/",
+      "rawPath": "/schema/homepage/problems.json"
+    },
+    {
+      "id": "why",
+      "anchor": "#why",
+      "schemaPath": "/schema/homepage/why/",
+      "rawPath": "/schema/homepage/why.json"
+    },
+    {
       "id": "works",
       "anchor": "#works",
       "schemaPath": "/schema/homepage/works/",
@@ -72,12 +84,6 @@
       "anchor": "#process",
       "schemaPath": "/schema/homepage/process/",
       "rawPath": "/schema/homepage/process.json"
-    },
-    {
-      "id": "popular-services",
-      "anchor": "#popular-services",
-      "schemaPath": "/schema/homepage/popular-services/",
-      "rawPath": "/schema/homepage/popular-services.json"
     },
     {
       "id": "stack",

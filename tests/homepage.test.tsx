@@ -92,16 +92,17 @@ describe("Dolphin Software homepage", () => {
     expect(document.getElementById("stats")).toBeNull();
 
     const following = Node.DOCUMENT_POSITION_FOLLOWING;
-    expect(top!.compareDocumentPosition(fit!) & following).toBeTruthy();
-    expect(fit!.compareDocumentPosition(problems!) & following).toBeTruthy();
-    expect(problems!.compareDocumentPosition(why!) & following).toBeTruthy();
-    expect(why!.compareDocumentPosition(solutions!) & following).toBeTruthy();
+    // CRM-first: solutions → Care → Ops → combo → fit → pain → why → works → process → stack…
+    expect(top!.compareDocumentPosition(solutions!) & following).toBeTruthy();
     expect(solutions!.compareDocumentPosition(agentDolphin!) & following).toBeTruthy();
     expect(agentDolphin!.compareDocumentPosition(dolphinOps!) & following).toBeTruthy();
-    expect(dolphinOps!.compareDocumentPosition(works!) & following).toBeTruthy();
+    expect(dolphinOps!.compareDocumentPosition(popular!) & following).toBeTruthy();
+    expect(popular!.compareDocumentPosition(fit!) & following).toBeTruthy();
+    expect(fit!.compareDocumentPosition(problems!) & following).toBeTruthy();
+    expect(problems!.compareDocumentPosition(why!) & following).toBeTruthy();
+    expect(why!.compareDocumentPosition(works!) & following).toBeTruthy();
     expect(works!.compareDocumentPosition(process!) & following).toBeTruthy();
-    expect(process!.compareDocumentPosition(popular!) & following).toBeTruthy();
-    expect(popular!.compareDocumentPosition(stack!) & following).toBeTruthy();
+    expect(process!.compareDocumentPosition(stack!) & following).toBeTruthy();
     expect(stack!.compareDocumentPosition(technology!) & following).toBeTruthy();
     expect(technology!.compareDocumentPosition(aiEdge!) & following).toBeTruthy();
     expect(aiEdge!.compareDocumentPosition(news!) & following).toBeTruthy();
@@ -150,8 +151,8 @@ describe("Dolphin Software homepage", () => {
     expect(
       agentDolphin!.compareDocumentPosition(dolphinOps!) & following,
     ).toBeTruthy();
-    expect(process!.compareDocumentPosition(popular!) & following).toBeTruthy();
-    expect(popular!.compareDocumentPosition(stack!) & following).toBeTruthy();
+    expect(popular!.compareDocumentPosition(process!) & following).toBeTruthy();
+    expect(process!.compareDocumentPosition(stack!) & following).toBeTruthy();
     expect(stack!.compareDocumentPosition(technology!) & following).toBeTruthy();
     expect(
       technology!.compareDocumentPosition(aiEdge!) & following,
@@ -230,11 +231,12 @@ describe("Dolphin Software homepage", () => {
     expect(why).toBeTruthy();
     expect(process).toBeTruthy();
     const following = Node.DOCUMENT_POSITION_FOLLOWING;
+    expect(solutions!.compareDocumentPosition(agentDolphin!) & following).toBeTruthy();
+    expect(agentDolphin!.compareDocumentPosition(popular!) & following).toBeTruthy();
+    expect(popular!.compareDocumentPosition(problems!) & following).toBeTruthy();
     expect(problems!.compareDocumentPosition(why!) & following).toBeTruthy();
-    expect(why!.compareDocumentPosition(solutions!) & following).toBeTruthy();
-    expect(agentDolphin!.compareDocumentPosition(works!) & following).toBeTruthy();
+    expect(why!.compareDocumentPosition(works!) & following).toBeTruthy();
     expect(works!.compareDocumentPosition(process!) & following).toBeTruthy();
-    expect(process!.compareDocumentPosition(popular!) & following).toBeTruthy();
   });
 
   it("renders process headings", () => {
@@ -246,7 +248,7 @@ describe("Dolphin Software homepage", () => {
     expect(screen.getAllByText(/Bàn giao & Đồng hành/i).length).toBeGreaterThanOrEqual(1);
   });
 
-  it("renders problems before solutions and process before faq", () => {
+  it("renders solutions before problems and process before faq", () => {
     renderHome();
     const problems = document.getElementById("problems");
     const solutions = document.getElementById("solutions");
@@ -257,7 +259,7 @@ describe("Dolphin Software homepage", () => {
     expect(process).toBeTruthy();
     expect(faq).toBeTruthy();
     expect(
-      problems!.compareDocumentPosition(solutions!) &
+      solutions!.compareDocumentPosition(problems!) &
         Node.DOCUMENT_POSITION_FOLLOWING,
     ).toBeTruthy();
     expect(
@@ -360,7 +362,7 @@ describe("Dolphin Software homepage", () => {
 
     const mobileNav = screen.getByRole("navigation", { name: /Điều hướng di động/i });
     expect(
-      within(mobileNav).getByRole("link", { name: /Dolphin Care/i }),
+      within(mobileNav).getByRole("link", { name: /^Care$/i }),
     ).toHaveAttribute("href", expect.stringMatching(/\/dolphin-care\/?$/));
     expect(
       within(mobileNav).getByRole("link", { name: /Tin tức/i }),
@@ -381,9 +383,10 @@ describe("Dolphin Software homepage", () => {
     const user = userEvent.setup();
     renderHome();
 
-    const askAi = screen.getAllByRole("button", { name: /^Ask AI$/i })[0];
-    expect(askAi).toBeTruthy();
-    await user.click(askAi!);
+    const careFab = screen.getByRole("button", {
+      name: /Hỏi AI|Ask AI —|AIに聞く/i,
+    });
+    await user.click(careFab);
     expect(
       screen.getByRole("dialog", { name: /Dolphin Assist|Dolphin Care/i }),
     ).toBeInTheDocument();

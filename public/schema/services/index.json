@@ -4,70 +4,62 @@
     "schemaPath": "/schema/services/",
     "rawPath": "/schema/services/index.json",
     "brand": "Dolphin Software",
-    "updated": "2026-08-08"
+    "updated": "2026-09-30",
+    "note": "Website/Landing = quyền lợi combo CRM. Mobile/software/design/integrations = outsource phụ. Sản phẩm lõi CRM · Care · Ops · Intelligence → /schema/agents/."
   },
-  "umbrella": [
-    "Build",
-    "Modernize",
-    "Automate",
-    "Care"
-  ],
+  "model": ["CRM", "AI", "Website", "Outsource"],
   "items": [
     {
       "id": "web",
-      "title": "Thiết kế & làm website theo yêu cầu",
-      "pillar": "Build",
+      "title": "Website doanh nghiệp (tặng hoặc giảm theo combo CRM)",
+      "role": "Website",
       "productRoute": "/services/web/",
       "schemaPath": "/schema/services/web/",
       "rawPath": "/schema/services/web.json"
     },
     {
       "id": "landing",
-      "title": "Thiết kế Landing Page",
-      "pillar": "Build",
+      "title": "Landing page (tặng kèm CRM Base 12 hoặc bán lẻ)",
+      "role": "Website",
       "productRoute": "/services/landing/",
       "schemaPath": "/schema/services/landing/",
       "rawPath": "/schema/services/landing.json"
     },
     {
-      "id": "mobile",
-      "title": "Phát triển mobile app",
-      "pillar": "Build",
-      "productRoute": "/services/mobile/",
-      "schemaPath": "/schema/services/mobile/",
-      "rawPath": "/schema/services/mobile.json"
-    },
-    {
       "id": "software",
-      "title": "Phát triển phần mềm theo yêu cầu",
-      "pillar": "Build",
+      "title": "Phần mềm theo yêu cầu (outsource · bàn giao source)",
+      "role": "Outsource",
       "productRoute": "/services/software/",
       "schemaPath": "/schema/services/software/",
       "rawPath": "/schema/services/software.json"
     },
     {
+      "id": "mobile",
+      "title": "Mobile app (outsource)",
+      "role": "Outsource",
+      "productRoute": "/services/mobile/",
+      "schemaPath": "/schema/services/mobile/",
+      "rawPath": "/schema/services/mobile.json"
+    },
+    {
       "id": "design",
-      "title": "UI/UX & bàn giao",
-      "pillar": "Build",
+      "title": "UI/UX (outsource)",
+      "role": "Outsource",
       "productRoute": "/services/design/",
       "schemaPath": "/schema/services/design/",
       "rawPath": "/schema/services/design.json"
     },
     {
       "id": "integrations",
-      "title": "Tích hợp dịch vụ bên thứ ba",
-      "pillar": "Modernize",
+      "title": "Tích hợp hệ thống (outsource)",
+      "role": "Outsource",
       "productRoute": "/services/integrations/",
       "schemaPath": "/schema/services/integrations/",
       "rawPath": "/schema/services/integrations.json"
-    },
-    {
-      "id": "agents",
-      "title": "Hệ sinh thái agent cho business",
-      "pillar": "Automate",
-      "productRoute": "/services/agents/",
-      "schemaPath": "/schema/services/agents/",
-      "rawPath": "/schema/services/agents.json"
     }
-  ]
+  ],
+  "related": {
+    "agentsIndex": "/schema/agents/",
+    "company": "/schema/company/"
+  }
 }

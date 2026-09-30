@@ -16,7 +16,7 @@ const vi: FaqCopy = {
   items: [
       {
           "q": "Dolphin Software làm gì?",
-          "a": "Dolphin Software là công ty giải pháp AI và công nghệ cho doanh nghiệp. Chúng tôi bắt đầu từ vấn đề vận hành — rồi mới chọn website, AI Agent, CRM, automation, tích hợp hoặc phần mềm theo yêu cầu. Không chắc cần công nghệ gì vẫn bắt đầu được: kể chỗ đang nghẽn."
+          "a": "Dolphin Software cho thuê phần mềm CRM và AI (SaaS) cho doanh nghiệp dịch vụ. CRM là nền vận hành. Care, Ops và Intelligence là lớp tăng trưởng. Website được tặng hoặc giảm khi triển khai combo CRM."
       },
       {
           "q": "Doanh nghiệp không rành kỹ thuật có làm việc được không?",
@@ -44,7 +44,7 @@ const vi: FaqCopy = {
       },
       {
           "q": "Bảo trì sau bàn giao khác gì tính năng mới?",
-          "a": "Sau bàn giao: hướng dẫn vận hành cộng với bảo hành lỗi kỹ thuật (thường 3–6 tháng) trong phạm vi đã nghiệm thu. Tính năng mới là riêng — báo giá trước, không nằm trong bảo hành."
+          "a": "Website: bảo hành kỹ thuật 36 tháng. CRM và AI (SaaS): trong hạn gói đã thanh toán. Outsource / may đo: 3 tháng sau nghiệm thu. Tính năng mới báo giá riêng, không nằm trong bảo hành."
       },
       {
           "q": "Bảo mật và dữ liệu được xử lý như thế nào?",
@@ -77,7 +77,7 @@ const en: FaqCopy = {
   items: [
     {
       q: "What does Dolphin Software do?",
-      a: "Dolphin Software is an AI and technology solutions company. We start from the operational problem — then choose a website, AI agent, CRM, automation, integration, or custom software. Not sure which technology you need? Start by describing the bottleneck.",
+      a: "Dolphin Software rents CRM and AI software (SaaS) for service businesses. CRM is the operating base. Care, Ops, and Intelligence are the growth layer. A website is included or discounted when you deploy a CRM combo.",
     },
     {
       q: "Can non-technical businesses work with you?",
@@ -105,7 +105,7 @@ const en: FaqCopy = {
     },
     {
       q: "How is post-handoff maintenance different from new features?",
-      a: "After handoff: operations guide plus technical bug warranty (typically 3–6 months) within accepted scope. New features are separate — quoted first, not covered by warranty.",
+      a: "Website: 36 months of technical warranty. CRM and AI (SaaS): for the prepaid term. Custom outsource: 3 months after acceptance. New features are quoted separately and are not covered by warranty.",
     },
     {
       q: "How are security and data handled?",

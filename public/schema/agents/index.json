@@ -4,7 +4,8 @@
     "schemaPath": "/schema/agents/",
     "rawPath": "/schema/agents/index.json",
     "brand": "Dolphin Software",
-    "updated": "2026-08-22"
+    "updated": "2026-09-30",
+    "note": "Sản phẩm lõi SaaS: CRM (Ops) · Care · Intelligence · AI Transform. Website combo nằm ở /schema/services/."
   },
   "items": [
     {

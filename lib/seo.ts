@@ -9,10 +9,10 @@ export const SEO_LOCALE = DEFAULT_LOCALE;
 
 /** GEO / Organization — VI public identity. */
 export const ORG_DESCRIPTION_VI =
-  "Dolphin Software là công ty cung cấp giải pháp AI và công nghệ cho doanh nghiệp, tập trung giải quyết các vấn đề vận hành thực tế thông qua website, AI Agent, CRM, automation, tích hợp hệ thống và phần mềm theo yêu cầu.";
+  "Dolphin Software cho thuê phần mềm CRM và AI (SaaS) cho doanh nghiệp dịch vụ. Combo CRM kèm Care hoặc Ops từ 6 tháng tặng website khi triển khai. CRM thuê 12 tháng tặng landing hoặc giảm giá website.";
 
 export const ORG_DESCRIPTION_EN =
-  "Dolphin Software is an AI and technology solutions company helping growing businesses solve operational problems through practical technology. Its solutions include websites, AI agents, CRM, automation, integrations and custom software.";
+  "Dolphin Software rents CRM and AI software (SaaS) for service businesses. A CRM plan with Care or Ops from 6 months includes a business website. A 12-month CRM plan includes a landing page or a discount on the website.";
 
 export function absoluteUrl(path = "/"): string {
   const normalized = path.startsWith("/") ? path : `/${path}`;

@@ -4,7 +4,7 @@
     "id": "capabilities",
     "locale": "vi",
     "brand": "Dolphin Software",
-    "updated": "2026-09-17",
+    "updated": "2026-09-30",
     "schemaPath": "/schema/homepage/capabilities/",
     "rawPath": "/schema/homepage/capabilities.json",
     "productRoute": "/"
@@ -12,9 +12,9 @@
   "content": {
     "order": 4,
     "id": "solutions",
-    "section_label": "Solutions",
-    "headline": "Cách Dolphin giúp doanh nghiệp vận hành tốt hơn",
-    "subheadline": "Không phải bảy dịch vụ rời. Đây là các lớp công nghệ Dolphin dùng để nối dữ liệu → hiểu → quyết định → hành động quanh quy trình thật.",
+    "section_label": "Giải pháp",
+    "headline": "Khách và lịch một chỗ, không trôi trên Zalo",
+    "subheadline": "Dành cho spa, nail, salon, lớp học, phòng khám. CRM giữ khách, lịch và việc cần gọi lại. Care trả lời trên web, Zalo, Messenger. Ops nhắc việc trong CRM. Thuê CRM kèm AI từ 6 tháng thì được tặng website để khách tìm thấy tiệm.",
     "layout": "header-hub-cta-carousel",
     "positioning": ["Website", "AI", "CRM", "Automation", "Integrations", "Custom"],
     "hub_cta": {

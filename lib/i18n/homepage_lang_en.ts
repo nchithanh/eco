@@ -11,7 +11,7 @@ export const homepageLangEn: HomepageLang = {
     subhead:
       "Focused on spa, nail, salon, education, and clinics — expanding to F&B, showrooms, transport, and teams that need flexible systems. CRM is the foundation; Care · Ops · Intelligence drive growth; websites fuel demand via combo.",
     support:
-      "We don’t sell feature lists. We start from the business problem — and only build what helps win more customers and revenue. Full source handover, no lock-in.",
+      "We don’t sell feature lists. We start from the business problem and only build what wins customers and revenue. CRM and AI are rented by term. A website is included or discounted with a combo. Source handover is for outsource work.",
     trustLine: "Problem-first · CRM foundation · AI for growth · Website combo",
     ctaPrimary: "Talk about your business",
     ctaSecondary: "See CRM · AI · Web combos",
@@ -21,7 +21,7 @@ export const homepageLangEn: HomepageLang = {
       { value: "AI", label: "Care · Ops · Intel" },
     ],
     visual: {
-      web: "Web with combo",
+      web: "Website included with combo",
       automation: "Ops CRM",
       ai: "Care · Ops · Intel",
     },
@@ -170,9 +170,9 @@ export const homepageLangEn: HomepageLang = {
   },
   capabilities: {
     eyebrow: "Solutions",
-    title: "CRM core · AI growth · [[Web]] helps close",
+    title: "Customers and bookings [[in one place]], not lost in chat",
     support:
-      "Clear order: rent vertical CRM → add Care / Ops / Intelligence for growth → Website / Landing gifted or discounted with combos (2026 pricing policy).",
+      "For spas, nail studios, salons, classes, and clinics. CRM keeps customers, appointments, and follow-ups. Care answers on web, Zalo, and Messenger. Ops nudges work inside the CRM. Rent CRM with AI from 6 months and get a website so guests can find you.",
     ctaPrimary: "Talk about your business",
     ctaSecondary: "Talk about your business",
     ctaSecondaryHref: "#contact",
@@ -183,18 +183,11 @@ export const homepageLangEn: HomepageLang = {
     playCarousel: "Play carousel",
     offers: [
       {
-        id: "website",
-        title: "Website / Landing (with combo)",
-        body: "Helps close: CRM Base 12 gifts Landing or 50% off business website; from CRM + Care 6, gift business website when deploying — web is not the core product.",
-        meta: "Helps close",
-        href: "/services/web/",
-      },
-      {
-        id: "ai",
-        title: "AI — growth revenue",
-        body: "Care · Ops · Intelligence: sold with CRM or expanded later. AI on real data and workflows — audit → pilot → scale.",
-        meta: "Growth",
-        href: "/ai-transform/",
+        id: "crm",
+        title: "CRM — base revenue",
+        body: "Core product: rent CRM for service verticals (listed monthly, sold in 6/12-month prepaid terms).",
+        meta: "Core operations",
+        href: "/dolphin-ops/",
       },
       {
         id: "agents",
@@ -204,18 +197,25 @@ export const homepageLangEn: HomepageLang = {
         href: "/dolphin-care/",
       },
       {
-        id: "crm",
-        title: "CRM — base revenue",
-        body: "Core product: rent CRM for service verticals (listed monthly, sold in 6/12-month prepaid terms).",
-        meta: "Base revenue",
-        href: "/dolphin-ops/",
-      },
-      {
         id: "automation",
         title: "Dolphin Ops — AI on CRM",
         body: "Chatbox AI plus day-to-day CRM tools: calendar, customers, follow-up, reports — growth on top of CRM.",
-        meta: "Growth · CRM",
+        meta: "Growth",
         href: "/dolphin-ops/",
+      },
+      {
+        id: "website",
+        title: "Website / Landing (with combo)",
+        body: "Helps close: CRM Base 12 gifts Landing or 50% off business website; from CRM + Care 6, gift business website when deploying — web is not the core product.",
+        meta: "Included with combo",
+        href: "/services/web/",
+      },
+      {
+        id: "ai",
+        title: "AI — growth revenue",
+        body: "Care · Ops · Intelligence: sold with CRM or expanded later. AI on real data and workflows — audit → pilot → scale.",
+        meta: "Growth",
+        href: "/ai-transform/",
       },
       {
         id: "integrations",
@@ -497,7 +497,7 @@ export const homepageLangEn: HomepageLang = {
     ],
   },
   popularServicesChrome: {
-    eyebrow: "Website packages",
+    eyebrow: "CRM combo",
     title: "Website / Landing — [[helps close]] with CRM combos",
     support:
       "Not an agency catalog. Landing / business website are one-time items — gifted or deeply discounted with CRM (± AI) under the 2026 pricing policy.",
@@ -554,7 +554,7 @@ export const homepageLangEn: HomepageLang = {
       },
       {
         q: "Support after handoff?",
-        a: "Ops guidance plus technical warranty within accepted scope (as agreed). New features are quoted separately.",
+        a: "Website: 36 months of technical warranty. CRM and AI: for the prepaid term. Outsource: 3 months after acceptance. New features are quoted separately.",
       },
       {
         q: "How do we start?",

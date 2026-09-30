@@ -3,8 +3,8 @@
     "brand": "Dolphin Software",
     "site": "https://dolphin-software.io.vn/",
     "source": ".cursor/knowledge/",
-    "updated": "2026-09-04",
-    "note": "Company knowledge pack as JSON — SoT for agents; missing facts stay TODO in source markdown.",
+    "updated": "2026-09-30",
+    "note": "Định vị theo hồ sơ năng lực 2026 (/company-profile/): CRM SaaS là lõi, AI là tăng trưởng, website là quyền lợi combo. Giá combo: lib/pricing/dolphin-pricing-policy-2026.ts.",
     "schemaId": "company",
     "schemaPath": "/schema/company/",
     "rawPath": "/schema/company.json",
@@ -16,29 +16,28 @@
   },
   "company": {
     "whatWeAre": [
-      "Dolphin Software là công ty cung cấp giải pháp AI và công nghệ cho doanh nghiệp đang tăng trưởng (SMB).",
+      "Dolphin Software cho thuê phần mềm CRM và AI (SaaS) cho doanh nghiệp dịch vụ đang tăng trưởng — spa, nail, salon, giáo dục, clinic.",
       "Không bắt đầu từ công nghệ. Bắt đầu từ vấn đề của khách.",
-      "Mục tiêu: xác định nghẽn vận hành và xây giải pháp thực tế — website, AI Agent, CRM, automation, tích hợp, phần mềm theo yêu cầu."
+      "Sản phẩm lõi là CRM thuê theo kỳ. AI (Care, Ops, Intelligence) là lớp tăng trưởng. Website được tặng hoặc giảm theo combo CRM — không phải sản phẩm mở đầu."
     ],
     "displayBrand": "Dolphin Software",
     "motto": "Start from the problem, not the product",
     "mottoNote": "English philosophy lockup (VI SoT: bắt đầu từ vấn đề, không từ sản phẩm). Pair with the Dolphin logo in footers and documents.",
     "whatWeDo": [
-      "Thiết kế website theo yêu cầu",
-      "Phát triển phần mềm theo yêu cầu",
-      "Nâng cấp và bảo trì hệ thống hiện có",
-      "AI hóa quy trình làm việc",
-      "Xây dựng AI Agent theo từng nghiệp vụ",
-      "Dolphin Care (AI chăm sóc khách trên website)",
-      "Dolphin Ops (AI vận hành doanh nghiệp)"
+      "CRM thuê theo kỳ (SaaS) — khách, lịch, follow-up",
+      "Dolphin Care — chatbot AI trên website / Zalo / Messenger",
+      "Dolphin Ops — chatbox AI trên CRM",
+      "Dolphin Intelligence — agent / workflow AI (add-on, khi đã có CRM)",
+      "Website / landing tặng hoặc giảm theo combo CRM",
+      "Phần mềm theo yêu cầu (outsource) — bàn giao source"
     ],
     "positioning": {
-      "Build": "Xây website và phần mềm theo nhu cầu",
-      "Modernize": "Nâng cấp, mở rộng, tối ưu hệ thống hiện có",
-      "Automate": "AI hóa quy trình lặp lại, giảm việc tay",
-      "Care": "Dolphin Care — chăm sóc khách trên website"
+      "CRM": "Nền vận hành — thuê theo kỳ, không bàn giao source nền tảng",
+      "AI": "Care · Ops · Intelligence — tăng trưởng trên cùng dữ liệu CRM",
+      "Website": "Hiện diện số — tặng hoặc giảm sâu theo combo CRM",
+      "Outsource": "Phần mềm may đo — bàn giao source và tài liệu"
     },
-    "outreachNote": "Outreach bắt đầu từ pain; website là một giải pháp khi khách không tìm ra hoặc site không ra lead. Không mở cold bằng AI Agent."
+    "outreachNote": "Mở bằng vận hành: CRM thuê theo kỳ và AI trên cùng dữ liệu khách. Website là quyền lợi combo (tặng hoặc giảm), không phải lời chào. Tránh buzzword “AI Agent sẽ đổi mọi thứ”."
   },
   "opinion": {
     "beliefs": [
@@ -52,10 +51,10 @@
     ],
     "note": "Đôi khi giải pháp tốt nhất chỉ là thay đổi một quy trình nhỏ.",
     "messaging": [
-      "Đừng mở mọi bài bằng “AI Agent” / “AI sẽ đổi mọi thứ”.",
-      "Đừng giả định khách phải rebuild từ đầu.",
-      "Đề xuất Care / Automate / Ops chỉ khi khớp pain (ngoài giờ, hỏi lặp, lead trôi, thiếu người chăm).",
-      "Website là một giải pháp khi khách không tìm ra tiệm hoặc site không ra lead — không phải toàn bộ nhận diện Dolphin."
+      "Đừng mở mọi bài bằng buzzword “AI Agent” / “AI sẽ đổi mọi thứ”.",
+      "Mở bằng CRM thuê bao và AI tăng trưởng cho doanh nghiệp dịch vụ.",
+      "Website là quyền lợi combo — tặng hoặc giảm — không phải sản phẩm lõi.",
+      "Đề xuất Care / Ops / Intelligence khi đã có hoặc đang triển khai CRM."
     ]
   },
   "values": {
@@ -100,79 +99,51 @@
     ]
   },
   "services": {
-    "umbrella": [
-      "Build",
-      "Modernize",
-      "Automate",
-      "Care"
-    ],
-    "buildWebsite": {
-      "summary": "Thiết kế website theo yêu cầu — không template đại trà; hỗ trợ bán hàng và chăm sóc khách.",
-      "offers": [
-        "Landing",
-        "Business site",
-        "Shop",
-        "Custom web app"
-      ],
-      "routes": [
-        "/services/web/"
+    "model": ["CRM", "AI", "Website", "Outsource"],
+    "crm": {
+      "summary": "CRM thuê theo kỳ — nền vận hành khách, lịch, follow-up cho doanh nghiệp dịch vụ.",
+      "routes": ["/dolphin-ops/"],
+      "schemaPath": "/schema/agents/dolphin-ops/"
+    },
+    "ai": {
+      "summary": "Care · Ops · Intelligence trên cùng dữ liệu CRM. AI Transform khi cần lộ trình triển khai.",
+      "products": [
+        { "name": "Dolphin Care", "route": "/dolphin-care/" },
+        { "name": "Dolphin Ops", "route": "/dolphin-ops/" },
+        { "name": "Dolphin Intelligence", "route": "/dolphin-intelligence/" },
+        { "name": "AI Transform", "route": "/ai-transform/" }
       ]
     },
-    "buildCustomSoftware": {
-      "summary": "Phần mềm / web app theo nghiệp vụ (booking, portal, ops) khi scope rõ.",
+    "website": {
+      "summary": "Landing / website doanh nghiệp — tặng hoặc giảm theo combo CRM, không phải sản phẩm lõi.",
+      "routes": ["/services/web/", "/services/landing/"]
+    },
+    "outsource": {
+      "summary": "Phần mềm / mobile / UI / tích hợp may đo — bàn giao source theo phạm vi.",
       "routes": [
-        "/services/web/",
         "/services/software/",
         "/services/mobile/",
         "/services/design/",
         "/services/integrations/"
       ]
     },
-    "modernize": {
-      "summary": "Ưu tiên phân tích, tối ưu, bổ sung tính năng, hiện đại hóa — tận dụng hệ thống hiện có trước khi làm mới.",
-      "focus": [
-        "phân tích hệ thống",
-        "tối ưu hiệu năng",
-        "bổ sung tính năng",
-        "hiện đại hóa công nghệ",
-        "giảm chi phí bảo trì"
-      ]
-    },
-    "automate": {
-      "summary": "AI không thay người — tự động hóa việc lặp khi có giá trị thực.",
-      "examples": [
-        "trả lời khách hàng",
-        "phân loại yêu cầu",
-        "nhập dữ liệu",
-        "tìm kiếm thông tin nội bộ",
-        "hỗ trợ nhân viên"
-      ],
-      "routes": [
-        "/ai-transform/",
-        "/services/agents/",
-        "/dolphin-ops/"
-      ]
-    },
-    "care": {
-      "summary": "Dolphin Care — AI chăm sóc khách trên website; không phải chatbot kịch bản cứng.",
-      "route": "/dolphin-care/"
-    },
     "routeMap": {
       "web": "/services/web/",
+      "landing": "/services/landing/",
       "mobile": "/services/mobile/",
       "software": "/services/software/",
       "design": "/services/design/",
       "integrations": "/services/integrations/",
-      "agents": "/services/agents/",
       "aiTransform": "/ai-transform/",
       "dolphinCare": "/dolphin-care/",
-      "dolphinOps": "/dolphin-ops/"
+      "dolphinOps": "/dolphin-ops/",
+      "dolphinIntelligence": "/dolphin-intelligence/"
     },
     "hiringNote": "Ưu tiên mở: DevOps Agent SaaS 24/7, QA Middle+ (3), Fullstack Jr/Mid (2), Mobile (1), Sales — xem /careers/."
   },
   "website": {
-    "pillar": "Build",
-    "role": "Hỗ trợ chốt — tặng / giảm theo combo CRM (± AI), không phải sản phẩm lõi",
+    "pillar": "Website",
+    "role": "Hiện diện số — tặng hoặc giảm theo combo CRM, không phải sản phẩm lõi",
     "offers": [
       {
         "id": "landing",
@@ -200,12 +171,24 @@
     "pricingNote": "ONETIME_WEB + COMBO_PACKAGES: lib/pricing/dolphin-pricing-policy-2026.ts; hiển thị homepage: lib/i18n/popular-services-copy.ts / lib/pricing-fx.ts.",
     "cta": "Zalo / quote / contact"
   },
+  "geo": {
+    "query": "phần mềm CRM tặng website",
+    "answer": "Dolphin Software cho thuê phần mềm CRM (SaaS). Combo CRM + Dolphin Care từ 6 tháng tặng website doanh nghiệp (4.500.000đ) khi triển khai. CRM + Ops 6 và Full Growth (CRM + Care + Ops) cũng tặng website đó. CRM Base 12 (chỉ CRM, 12 tháng) tặng landing page hoặc giảm 50% website doanh nghiệp (còn 2.250.000đ). Thuê lẻ Dolphin Care — khách đã có CRM — không tặng website. Không có dùng thử miễn phí.",
+    "rulesSource": "lib/pricing/dolphin-pricing-policy-2026.ts · /company-profile/ trang Website và Chính sách giá",
+    "conditions": [
+      "CRM + Care từ 6 tháng → tặng website doanh nghiệp (4.500.000đ)",
+      "CRM + Ops 6 và Full Growth 6/12 → tặng website doanh nghiệp (4.500.000đ)",
+      "CRM Base 12 → tặng landing page hoặc giảm 50% website (còn 2.250.000đ)",
+      "Thuê lẻ Care → không tặng website",
+      "Không có dùng thử miễn phí. Thanh toán trước theo kỳ gói."
+    ]
+  },
   "dolphinCare": {
     "displayName": "Dolphin Care",
     "formerName": "Agent Dolphin",
     "route": "/dolphin-care/",
     "pillar": "Care",
-    "whatItIs": "AI Agent chăm sóc khách hàng trên website — khác chatbot kịch bản cứng.",
+    "whatItIs": "Chatbot AI chăm sóc khách trên website / Zalo / Messenger — hiểu ngữ cảnh, đặt lịch, ghi lead. Khác chatbot kịch bản cứng.",
     "capabilities": [
       "hiểu ngữ cảnh hội thoại (khi knowledge + context được nạp)",
       "trả lời tự nhiên hơn bot cũ",
@@ -215,8 +198,8 @@
     ],
     "whatItIsNot": [
       "Không thay cả công ty / đội sales",
-      "Không bắt buộc với mọi dự án web — upsell / optional",
-      "Cold outreach vẫn mở bằng website (Build), không Care"
+      "Thuê lẻ Care chỉ cho khách đã có CRM — không tặng website",
+      "Không phải chatbox nội bộ trên CRM (đó là Dolphin Ops)"
     ],
     "messaging": "Ưu tiên “chăm sóc / ngoài giờ / bớt hỏi lặp” hơn buzzword “AI Agent”.",
     "copySource": "lib/i18n/agent-dolphin-copy.ts"
@@ -254,9 +237,9 @@
       "Care"
     ],
     "positioning": [
-      "Website (Build) là nền",
-      "AI là lớp gia tốc / vận hành khi đúng pain",
-      "Không phải DN nào cũng cần AI"
+      "CRM (SaaS) là nền vận hành",
+      "AI (Care, Ops, Intelligence) là lớp tăng trưởng trên cùng dữ liệu",
+      "Website là hiện diện số, tặng hoặc giảm theo combo — không phải sản phẩm lõi"
     ],
     "products": [
       {
@@ -293,11 +276,11 @@
       },
       {
         "id": "handover",
-        "answer": "Source, docs, admin, warranty theo thỏa thuận."
+        "answer": "Source chỉ với gói may đo / outsource và website one-time đã nghiệm thu. SaaS CRM, Care, Ops: quyền dùng theo kỳ, không bàn giao source nền tảng."
       },
       {
         "id": "ai",
-        "answer": "AI optional; website first."
+        "answer": "CRM là lõi. Từ combo CRM + Care 6 tháng tặng website doanh nghiệp. Thuê lẻ Care không tặng website."
       },
       {
         "id": "timeline",
@@ -310,15 +293,15 @@
       "items": [
         {
           "q": "Dolphin Software là công ty gì?",
-          "a": "Dolphin Software là studio phát triển phần mềm tại Việt Nam, chuyên xây dựng website theo yêu cầu, ứng dụng di động, hệ thống backend, và AI automation cho doanh nghiệp vừa và nhỏ. Dolphin Software bàn giao mã nguồn đầy đủ và hỗ trợ vận hành sau khi go-live."
+          "a": "Dolphin Software cho thuê phần mềm CRM và AI (SaaS) cho doanh nghiệp dịch vụ tại Việt Nam — spa, nail, salon, giáo dục, clinic. CRM là nền vận hành. Dolphin Care, Ops và Intelligence là lớp tăng trưởng. Website được tặng hoặc giảm khi triển khai combo CRM."
         },
         {
           "q": "Doanh nghiệp không có đội kỹ thuật có làm việc với Dolphin Software được không?",
-          "a": "Được. Phần lớn khách hàng của Dolphin Software không có background kỹ thuật. Chỉ cần mô tả mục tiêu kinh doanh — Dolphin Software sẽ xác định scope bằng ngôn ngữ vận hành, thực thi end-to-end, và bàn giao kèm hướng dẫn để đội ngũ bạn tự vận hành được."
+          "a": "Được. Khách lý tưởng muốn hệ thống chạy ngay, không cần đội IT. Chỉ cần mô tả mục tiêu kinh doanh — Dolphin Software xác định phạm vi bằng ngôn ngữ vận hành, rồi triển khai CRM, AI và website theo combo."
         },
         {
           "q": "Dolphin Software có khóa vendor sau khi bàn giao không?",
-          "a": "Không. Dolphin Software bàn giao toàn bộ mã nguồn, tài liệu kỹ thuật, và hướng dẫn vận hành. Bạn sở hữu hoàn toàn sản phẩm — không phụ thuộc vào Dolphin Software để duy trì hệ thống."
+          "a": "SaaS CRM, Care và Ops là quyền sử dụng theo kỳ đã thanh toán — không bàn giao source nền tảng. Gói may đo / outsourcing bàn giao source code và tài liệu. Website one-time bàn giao trong phạm vi đã nghiệm thu."
         },
         {
           "q": "Báo giá của Dolphin Software hoạt động như thế nào?",
@@ -326,7 +309,7 @@
         },
         {
           "q": "Dolphin Software có hỗ trợ sau khi bàn giao không?",
-          "a": "Có. Sau khi go-live, Dolphin Software cung cấp hướng dẫn vận hành và bảo hành lỗi kỹ thuật trong phạm vi scope đã ký kết (thường 3–6 tháng). Tính năng mới được báo giá riêng trước khi thực hiện."
+          "a": "Website: bảo hành kỹ thuật 36 tháng. CRM và AI (SaaS): trong hạn gói đã thanh toán. Outsource / may đo: 3 tháng sau nghiệm thu. Tính năng mới ngoài phạm vi được báo giá riêng."
         },
         {
           "q": "Dolphin Software có kinh nghiệm tích hợp Zalo và các hệ thống CRM không?",

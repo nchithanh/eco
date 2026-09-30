@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
-import { AnnouncementBar } from "@/components/AnnouncementBar";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { ThemeSwitcher } from "@/components/ThemeSwitcher";
 import { Logo } from "@/components/Logo";
@@ -13,10 +12,6 @@ type NavLink = {
   href: string;
   label: string;
 };
-
-function isDolphinProductHref(href: string) {
-  return /\/(ai-transform|dolphin-(care|ops|intelligence))\/?$/.test(href);
-}
 
 function normalizePath(path: string) {
   const stripped = path.replace(BASE_PATH, "") || "/";
@@ -105,11 +100,26 @@ export function Nav() {
     return () => root.removeAttribute("data-mobile-nav-open");
   }, [isMenuOpen]);
 
-  const serviceItems: NavLink[] = [
+  const productItems: NavLink[] = [
+    {
+      href: assetPath("/dolphin-ops/"),
+      label: t.nav.crm,
+    },
+    {
+      href: assetPath("/dolphin-care/"),
+      label: t.nav.agentDolphin,
+    },
+    {
+      href: assetPath("/#dolphin-ops"),
+      label: t.nav.dolphinOps,
+    },
     {
       href: assetPath("/services/web/"),
       label: t.nav.serviceWeb,
     },
+  ];
+
+  const serviceItems: NavLink[] = [
     {
       href: assetPath("/services/landing/"),
       label: t.nav.serviceLanding,
@@ -130,14 +140,6 @@ export function Nav() {
       label: t.nav.aiTransform,
     },
     {
-      href: assetPath("/dolphin-care/"),
-      label: t.nav.agentDolphin,
-    },
-    {
-      href: assetPath("/dolphin-ops/"),
-      label: t.nav.dolphinOps,
-    },
-    {
       href: assetPath("/dolphin-intelligence/"),
       label: t.nav.dolphinIntelligence,
     },
@@ -153,8 +155,17 @@ export function Nav() {
     { href: assetPath("/careers/"), label: t.nav.careers },
   ];
 
-  const desktopGnbLinks: NavLink[] = [...serviceItems, ...agentItems];
-  const allNavLinks = [...serviceItems, ...agentItems, ...pageLinks];
+  const desktopGnbLinks: NavLink[] = [
+    ...productItems,
+    ...agentItems,
+    ...serviceItems,
+  ];
+  const allNavLinks = [
+    ...productItems,
+    ...agentItems,
+    ...serviceItems,
+    ...pageLinks,
+  ];
 
   const isPageActive = (href: string) => {
     const [pathPart, hashPart] = href.split("#");
@@ -226,7 +237,6 @@ export function Nav() {
         headerHidden ? "is-hidden" : ""
       }`}
     >
-      <AnnouncementBar />
       <header className="bg-white">
         <nav
           className="mx-auto max-w-7xl px-6"
@@ -278,15 +288,14 @@ export function Nav() {
               <ul className="flex min-w-0 flex-1 flex-wrap items-center gap-x-4 gap-y-1 xl:gap-x-5">
                 {desktopGnbLinks.map((link) => {
                   const active = isPageActive(link.href);
-                  const dolphin = isDolphinProductHref(link.href);
                   return (
                     <li key={link.href + link.label}>
                       <a
                         href={link.href}
                         aria-current={active ? "page" : undefined}
                         className={`${gnbLinkClass}${
-                          dolphin ? " kuct-nav-dolphin" : ""
-                        }${active ? gnbLinkActiveClass : ""}`}
+                          active ? gnbLinkActiveClass : ""
+                        }`}
                       >
                         {link.label}
                       </a>
@@ -382,6 +391,21 @@ export function Nav() {
 
             <ul className="mx-auto flex min-h-0 w-full max-w-lg flex-1 flex-col overflow-y-auto overscroll-contain px-4 py-3">
               <li className="kuct-mobile-nav__label" aria-hidden="true">
+                {t.nav.solutions}
+              </li>
+              {productItems.map((item) => (
+                <li key={item.href + item.label}>
+                  <a
+                    href={item.href}
+                    aria-current={isPageActive(item.href) ? "page" : undefined}
+                    className="kuct-mobile-nav__link"
+                    onClick={closeMenu}
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+              <li className="kuct-mobile-nav__label" aria-hidden="true">
                 {t.nav.services}
               </li>
               {serviceItems.map((item) => (
@@ -404,9 +428,7 @@ export function Nav() {
                   <a
                     href={item.href}
                     aria-current={isPageActive(item.href) ? "page" : undefined}
-                    className={`kuct-mobile-nav__link${
-                      isDolphinProductHref(item.href) ? " kuct-nav-dolphin" : ""
-                    }`}
+                    className="kuct-mobile-nav__link"
                     onClick={closeMenu}
                   >
                     {item.label}

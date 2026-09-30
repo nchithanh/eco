@@ -12,7 +12,7 @@ const vi: Dictionary = {
   meta: {
     title: "Dolphin Software",
     description:
-      "Dolphin Software là công ty giải pháp AI và công nghệ cho doanh nghiệp, tập trung giải quyết các vấn đề vận hành thực tế thông qua website, AI Agent, CRM, automation, tích hợp hệ thống và phần mềm theo yêu cầu.",
+      "Dolphin Software cho thuê phần mềm CRM và AI (SaaS) cho doanh nghiệp dịch vụ. Combo CRM kèm Care hoặc Ops từ 6 tháng tặng website khi triển khai.",
   },
   nav: {
     ariaMain: "Chính",
@@ -20,8 +20,9 @@ const vi: Dictionary = {
     openMenu: "Mở menu",
     closeMenu: "Đóng menu",
     services: "Dịch vụ",
-    web: "Làm website",
-    serviceWeb: "Thiết kế website",
+    web: "Website kèm combo",
+    serviceWeb: "Website kèm combo",
+    crm: "CRM",
     serviceLanding: "Landing page",
     serviceMobile: "App mobile",
     serviceBackend: "Phát triển phần mềm",
@@ -34,8 +35,8 @@ const vi: Dictionary = {
     about: "Giới thiệu",
     companyProfile: "Hồ sơ năng lực",
     agents: "AI",
-    agentDolphin: "Dolphin Care",
-    dolphinOps: "Dolphin Ops",
+    agentDolphin: "Care",
+    dolphinOps: "Ops",
     aiTransform: "AI-Transform",
     dolphinIntelligence: "Dolphin Intelligence",
     contact: "Liên hệ",
@@ -47,7 +48,7 @@ const vi: Dictionary = {
   },
   banner: {
     aria: "Thông báo",
-    text: "Tặng Website / Landing page khi dùng bất kỳ dịch vụ nào của Dolphin",
+    text: "Combo CRM + Care từ 6 tháng tặng website khi triển khai",
     ctaQuote: "Nhận báo giá",
   },
   hero: {
@@ -57,7 +58,7 @@ const vi: Dictionary = {
     subhead:
       "Tập trung spa, nail, salon, giáo dục, clinic — mở rộng F&B, showroom, vận tải và doanh nghiệp cần hệ thống linh hoạt. CRM là nền tảng; Care · Ops · Intelligence đẩy tăng trưởng; Website kích cầu theo combo.",
     support:
-      "Không bán danh sách tính năng. Bắt đầu từ vấn đề kinh doanh — chỉ xây những gì giúp tăng khách và doanh thu. Bàn giao source code đầy đủ, không khóa hệ thống.",
+      "Không bán danh sách tính năng. Bắt đầu từ vấn đề kinh doanh — chỉ xây những gì giúp tăng khách và doanh thu. CRM và AI thuê theo kỳ. Website tặng hoặc giảm theo combo. Source bàn giao với gói outsource.",
     trustLine: "Problem-first · CRM nền tảng · AI tăng trưởng · Website combo",
     ctaPrimary: "Nói về doanh nghiệp của bạn",
     ctaSecondary: "Xem combo CRM · AI · Web",
@@ -67,7 +68,7 @@ const vi: Dictionary = {
       { value: "AI", label: "Care · Ops · Intel" },
     ],
     visual: {
-      web: "Web kèm combo",
+      web: "Tặng website theo combo",
       automation: "Ops CRM",
       ai: "Care · Ops · Intel",
     },
@@ -610,7 +611,7 @@ const en: Dictionary = {
   meta: {
     title: "Dolphin Software",
     description:
-      "Dolphin Software is an AI and technology solutions company helping growing businesses solve operational problems through practical technology. Its solutions include websites, AI agents, CRM, automation, integrations and custom software.",
+      "Dolphin Software rents CRM and AI software (SaaS) for service businesses. A CRM plan with Care or Ops from 6 months includes a website when you deploy.",
   },
   nav: {
     ariaMain: "Main",
@@ -618,8 +619,9 @@ const en: Dictionary = {
     openMenu: "Open menu",
     closeMenu: "Close menu",
     services: "Services",
-    web: "Websites",
-    serviceWeb: "Website design",
+    web: "Website with combo",
+    serviceWeb: "Website with combo",
+    crm: "CRM",
     serviceLanding: "Landing page",
     serviceMobile: "Mobile app",
     serviceBackend: "Custom software",
@@ -632,8 +634,8 @@ const en: Dictionary = {
     about: "About",
     companyProfile: "Company profile",
     agents: "AI",
-    agentDolphin: "Dolphin Care",
-    dolphinOps: "Dolphin Ops",
+    agentDolphin: "Care",
+    dolphinOps: "Ops",
     aiTransform: "AI-Transform",
     dolphinIntelligence: "Dolphin Intelligence",
     contact: "Contact",
@@ -645,7 +647,7 @@ const en: Dictionary = {
   },
   banner: {
     aria: "Announcement",
-    text: "Free Website / Landing page with any Dolphin service",
+    text: "CRM + Care from 6 months includes a website when you deploy",
     ctaQuote: "Get a quote",
   },
   hero: {
@@ -655,7 +657,7 @@ const en: Dictionary = {
     subhead:
       "Focused on spa, nail, salon, education, and clinics — expanding to F&B, showrooms, transport, and teams that need flexible systems. CRM is the foundation; Care · Ops · Intelligence drive growth; websites fuel demand via combo.",
     support:
-      "We don’t sell feature lists. We start from the business problem — and only build what helps win more customers and revenue. Full source handover, no lock-in.",
+      "We don’t sell feature lists. We start from the business problem and only build what wins customers and revenue. CRM and AI are rented by term. A website is included or discounted with a combo. Source handover is for outsource work.",
     trustLine: "Problem-first · CRM foundation · AI for growth · Website combo",
     ctaPrimary: "Talk about your business",
     ctaSecondary: "See CRM · AI · Web combos",
@@ -665,7 +667,7 @@ const en: Dictionary = {
       { value: "AI", label: "Care · Ops · Intel" },
     ],
     visual: {
-      web: "Web with combo",
+      web: "Website included with combo",
       automation: "Ops CRM",
       ai: "Care · Ops · Intel",
     },
@@ -1232,7 +1234,8 @@ const ja: Dictionary = {
     closeMenu: "メニューを閉じる",
     services: "サービス",
     web: "Web制作",
-    serviceWeb: "Webサイト制作",
+    serviceWeb: "コンボのWeb",
+    crm: "CRM",
     serviceLanding: "ランディングページ",
     serviceMobile: "モバイルアプリ",
     serviceBackend: "ソフトウェア開発",
@@ -1245,8 +1248,8 @@ const ja: Dictionary = {
     about: "会社紹介",
     companyProfile: "会社案内",
     agents: "AI",
-    agentDolphin: "Dolphin Care",
-    dolphinOps: "Dolphin Ops",
+    agentDolphin: "Care",
+    dolphinOps: "Ops",
     aiTransform: "AI-Transform",
     dolphinIntelligence: "Dolphin Intelligence",
     contact: "お問い合わせ",
@@ -1258,7 +1261,7 @@ const ja: Dictionary = {
   },
   banner: {
     aria: "お知らせ",
-    text: "Dolphinのどのサービスでも Website / ランディングページをプレゼント",
+    text: "CRM + Care 6ヶ月以上で導入時にウェブサイトを進呈",
     ctaQuote: "見積もりを依頼",
   },
   hero: {

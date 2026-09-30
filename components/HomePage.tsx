@@ -20,24 +20,24 @@ import { ContactForm } from "@/components/ContactForm";
 import { Footer } from "@/components/Footer";
 
 /**
- * Homepage story (pain-first):
- * Hero → Fit → Problems → Why (4 steps) → Solutions → Care → Ops → Works →
- * Process → Website packages → Stack → Ops AI → News → FAQ → CTA
+ * Homepage story (CRM SaaS first):
+ * Hero → Solutions (CRM → Care → Ops → Web) → Care → Ops → Combo packages →
+ * Fit → Problems → Why → Works → Process → Stack → News → FAQ → CTA
  */
 export function HomePage() {
   return (
     <main>
       <Nav />
       <Hero />
-      <FitSection />
-      <HomeProblems />
-      <WhyKuct />
       <Capabilities />
       <AgentDolphinHome />
       <DolphinOpsHome />
+      <PopularServices />
+      <FitSection />
+      <HomeProblems />
+      <WhyKuct />
       <WorksShowcase />
       <Process />
-      <PopularServices />
       <TechStack />
       <Technology />
       <AiEdge />

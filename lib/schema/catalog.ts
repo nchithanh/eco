@@ -6,7 +6,6 @@ import mobile from "../../public/schema/services/mobile.json";
 import software from "../../public/schema/services/software.json";
 import design from "../../public/schema/services/design.json";
 import integrations from "../../public/schema/services/integrations.json";
-import agentsService from "../../public/schema/services/agents.json";
 import agentsIndex from "../../public/schema/agents/index.json";
 import dolphinCare from "../../public/schema/agents/dolphin-care.json";
 import dolphinOps from "../../public/schema/agents/dolphin-ops.json";
@@ -15,7 +14,6 @@ import dolphinIntelligence from "../../public/schema/agents/dolphin-intelligence
 import homepageIndex from "../../public/schema/homepage/index.json";
 import homepageHero from "../../public/schema/homepage/hero.json";
 import homepageProblems from "../../public/schema/homepage/problems.json";
-import homepageStats from "../../public/schema/homepage/stats.json";
 import homepageWhy from "../../public/schema/homepage/why.json";
 import homepageCapabilities from "../../public/schema/homepage/capabilities.json";
 import homepageWorks from "../../public/schema/homepage/works.json";
@@ -30,6 +28,7 @@ import homepagePopular from "../../public/schema/homepage/popular-services.json"
 import homepageFaq from "../../public/schema/homepage/faq.json";
 import homepageContact from "../../public/schema/homepage/contact.json";
 
+/** Website combo + outsource — CRM/AI SaaS live under /schema/agents/. */
 export const SCHEMA_SERVICE_SLUGS = [
   "web",
   "landing",
@@ -37,7 +36,6 @@ export const SCHEMA_SERVICE_SLUGS = [
   "software",
   "design",
   "integrations",
-  "agents",
 ] as const;
 
 export type SchemaServiceSlug = (typeof SCHEMA_SERVICE_SLUGS)[number];
@@ -51,23 +49,23 @@ export const SCHEMA_AGENT_SLUGS = [
 
 export type SchemaAgentSlug = (typeof SCHEMA_AGENT_SLUGS)[number];
 
+/** Order matches homepage/index.json (CRM-first story). */
 export const SCHEMA_HOMEPAGE_SLUGS = [
   "hero",
-  "problems",
-  "why",
   "capabilities",
   "dolphin-care",
   "dolphin-ops",
+  "popular-services",
+  "fit",
+  "problems",
+  "why",
   "works",
   "process",
-  "popular-services",
   "stack",
   "technology",
   "ai-edge",
   "faq",
   "contact",
-  "stats",
-  "fit",
 ] as const;
 
 export type SchemaHomepageSlug = (typeof SCHEMA_HOMEPAGE_SLUGS)[number];
@@ -98,7 +96,6 @@ export const schemaServicesBySlug: Record<SchemaServiceSlug, object> = {
   software,
   design,
   integrations,
-  agents: agentsService,
 };
 
 export const schemaAgentsBySlug: Record<SchemaAgentSlug, object> = {
@@ -110,19 +107,18 @@ export const schemaAgentsBySlug: Record<SchemaAgentSlug, object> = {
 
 export const schemaHomepageBySlug: Record<SchemaHomepageSlug, object> = {
   hero: homepageHero,
-  problems: homepageProblems,
-  stats: homepageStats,
-  why: homepageWhy,
   capabilities: homepageCapabilities,
-  works: homepageWorks,
   "dolphin-care": homepageDolphinCare,
   "dolphin-ops": homepageDolphinOps,
+  "popular-services": homepagePopular,
+  fit: homepageFit,
+  problems: homepageProblems,
+  why: homepageWhy,
+  works: homepageWorks,
+  process: homepageProcess,
+  stack: homepageStack,
   technology: homepageTechnology,
   "ai-edge": homepageAiEdge,
-  stack: homepageStack,
-  process: homepageProcess,
-  fit: homepageFit,
-  "popular-services": homepagePopular,
   faq: homepageFaq,
   contact: homepageContact,
 };

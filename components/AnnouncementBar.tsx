@@ -7,7 +7,7 @@ import { useLocale } from "@/lib/i18n/LocaleProvider";
 
 const BANNER_FALLBACK = {
   aria: "Announcement",
-  text: "Free Website / Landing page with any Dolphin service",
+  text: "CRM + Care from 6 months includes a website when you deploy",
   ctaQuote: "Get a quote",
 } as const;
 

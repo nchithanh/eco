@@ -1,6 +1,6 @@
 /**
  * Homepage copy — Vietnamese SEO/AEO/GEO SoT (locale `vi`).
- * Synced from public/schema/homepage/overview.json (rewriter part1+part2).
+ * Synced with public/schema/homepage/index.json + per-section JSON (CRM-first).
  */
 import type { Dictionary } from "./types";
 
@@ -42,7 +42,7 @@ export const homepageLangVi: HomepageLang = {
     subhead:
       "Tập trung spa, nail, salon, giáo dục, clinic — mở rộng F&B, showroom, vận tải và doanh nghiệp cần hệ thống linh hoạt. CRM là nền tảng; Care · Ops · Intelligence đẩy tăng trưởng; Website kích cầu theo combo.",
     support:
-      "Không bán danh sách tính năng. Bắt đầu từ vấn đề kinh doanh — chỉ xây những gì giúp tăng khách và doanh thu. Bàn giao source code đầy đủ, không khóa hệ thống.",
+      "Không bán danh sách tính năng. Bắt đầu từ vấn đề kinh doanh — chỉ xây những gì giúp tăng khách và doanh thu. CRM và AI thuê theo kỳ. Website tặng hoặc giảm theo combo. Source bàn giao với gói outsource.",
     trustLine: "Problem-first · CRM nền tảng · AI tăng trưởng · Website combo",
     ctaPrimary: "Nói về doanh nghiệp của bạn",
     ctaSecondary: "Xem combo CRM · AI · Web",
@@ -52,7 +52,7 @@ export const homepageLangVi: HomepageLang = {
       { value: "AI", label: "Care · Ops · Intel" },
     ],
     visual: {
-      web: "Web kèm combo",
+      web: "Tặng website theo combo",
       automation: "Ops CRM",
       ai: "Care · Ops · Intel",
     },
@@ -200,10 +200,10 @@ export const homepageLangVi: HomepageLang = {
     ],
   },
   capabilities: {
-    eyebrow: "Solutions",
-    title: "CRM lõi · AI tăng trưởng · [[Web]] hỗ trợ chốt",
+    eyebrow: "Giải pháp",
+    title: "Khách và lịch [[một chỗ]], không trôi trên Zalo",
     support:
-      "Thứ tự rõ: thuê CRM theo ngành dịch vụ → gắn Care / Ops / Intelligence khi cần tăng trưởng → Website / Landing tặng hoặc giảm theo combo (chính sách giá 2026).",
+      "Dành cho spa, nail, salon, lớp học, phòng khám. CRM giữ khách, lịch và việc cần gọi lại. Care trả lời trên web, Zalo, Messenger. Ops nhắc việc trong CRM. Thuê CRM kèm AI từ 6 tháng thì được tặng website để khách tìm thấy tiệm.",
     ctaPrimary: "Nói về doanh nghiệp của bạn",
     ctaSecondary: "Nói về doanh nghiệp của bạn",
     ctaSecondaryHref: "#contact",
@@ -214,18 +214,11 @@ export const homepageLangVi: HomepageLang = {
     playCarousel: "Phát carousel",
     offers: [
       {
-        id: "website",
-        title: "Website / Landing (kèm combo)",
-        body: "Hỗ trợ chốt: CRM Base 12 tặng Landing hoặc −50% Website DN; từ CRM + Care 6 trở đi tặng Website DN khi triển khai — không bán web như sản phẩm lõi.",
-        meta: "Hỗ trợ chốt",
-        href: "/services/web/",
-      },
-      {
-        id: "ai",
-        title: "AI — doanh thu tăng trưởng",
-        body: "Care · Ops · Intelligence: bán kèm hoặc mở rộng sau CRM. AI gắn dữ liệu và quy trình thật — audit → pilot → nhân rộng.",
-        meta: "Growth",
-        href: "/ai-transform/",
+        id: "crm",
+        title: "CRM — doanh thu nền",
+        body: "Sản phẩm lõi: thuê CRM vận hành khách theo ngành dịch vụ (niêm yết theo kỳ 6/12 tháng, thanh toán trước).",
+        meta: "Vận hành lõi",
+        href: "/dolphin-ops/",
       },
       {
         id: "agents",
@@ -235,18 +228,25 @@ export const homepageLangVi: HomepageLang = {
         href: "/dolphin-care/",
       },
       {
-        id: "crm",
-        title: "CRM — doanh thu nền",
-        body: "Sản phẩm lõi: thuê CRM vận hành khách theo ngành dịch vụ (niêm yết theo kỳ 6/12 tháng, thanh toán trước).",
-        meta: "Base revenue",
-        href: "/dolphin-ops/",
-      },
-      {
         id: "automation",
         title: "Dolphin Ops — AI trên CRM",
         body: "Chatbox AI + công cụ CRM ngày làm việc: lịch, khách, follow-up, báo cáo — lớp tăng trưởng trên nền CRM.",
-        meta: "Growth · CRM",
+        meta: "Tăng trưởng",
         href: "/dolphin-ops/",
+      },
+      {
+        id: "website",
+        title: "Website / Landing (kèm combo)",
+        body: "Hỗ trợ chốt: CRM Base 12 tặng Landing hoặc −50% Website DN; từ CRM + Care 6 trở đi tặng Website DN khi triển khai — không bán web như sản phẩm lõi.",
+        meta: "Tặng theo combo",
+        href: "/services/web/",
+      },
+      {
+        id: "ai",
+        title: "AI — doanh thu tăng trưởng",
+        body: "Care · Ops · Intelligence: bán kèm hoặc mở rộng sau CRM. AI gắn dữ liệu và quy trình thật — audit → pilot → nhân rộng.",
+        meta: "Growth",
+        href: "/ai-transform/",
       },
       {
         id: "integrations",
@@ -540,7 +540,7 @@ export const homepageLangVi: HomepageLang = {
     ],
   },
   popularServicesChrome: {
-    eyebrow: "Website packages",
+    eyebrow: "Combo CRM",
     title: "Website / Landing — [[hỗ trợ chốt]] theo combo CRM",
     support:
       "Không phải catalog agency. Landing / Website DN one-time theo chính sách giá 2026 — tặng hoặc giảm sâu khi thuê CRM (± AI).",
@@ -597,7 +597,7 @@ export const homepageLangVi: HomepageLang = {
       },
       {
         q: "Bảo trì sau bàn giao?",
-        a: "Hướng dẫn vận hành + bảo hành lỗi kỹ thuật trong phạm vi đã nghiệm thu (theo thỏa thuận). Tính năng mới báo giá riêng.",
+        a: "Website: bảo hành kỹ thuật 36 tháng. CRM và AI: trong hạn gói đã thanh toán. Outsource: 3 tháng sau nghiệm thu. Tính năng mới báo giá riêng.",
       },
       {
         q: "Làm sao để bắt đầu?",

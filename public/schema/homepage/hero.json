@@ -4,7 +4,7 @@
     "id": "hero",
     "locale": "vi",
     "brand": "Dolphin Software",
-    "updated": "2026-09-17",
+    "updated": "2026-09-30",
     "schemaPath": "/schema/homepage/hero/",
     "rawPath": "/schema/homepage/hero.json",
     "productRoute": "/",
@@ -15,7 +15,7 @@
     "id": "hero",
     "headline": "Giải pháp vận hành cho doanh nghiệp dịch vụ B2B",
     "subheadline": "Tập trung spa, nail, salon, giáo dục, clinic — mở rộng F&B, showroom, vận tải và doanh nghiệp cần hệ thống linh hoạt. CRM là nền tảng; Care · Ops · Intelligence đẩy tăng trưởng; Website kích cầu theo combo.",
-    "body": "Không bán danh sách tính năng. Bắt đầu từ vấn đề kinh doanh — chỉ xây những gì giúp tăng khách và doanh thu. Bàn giao source code đầy đủ, không khóa hệ thống.",
+    "body": "Không bán danh sách tính năng. Bắt đầu từ vấn đề kinh doanh — chỉ xây những gì giúp tăng khách và doanh thu. CRM và AI thuê theo kỳ (quyền dùng, không bàn giao source nền tảng). Website tặng hoặc giảm theo combo. Source code bàn giao với gói outsource.",
     "trust_strip": [
       "Problem-first · CRM nền tảng · AI tăng trưởng · Website combo"
     ],

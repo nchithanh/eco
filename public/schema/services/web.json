@@ -6,14 +6,15 @@
     "brand": "Dolphin Software",
     "schemaPath": "/schema/services/web/",
     "rawPath": "/schema/services/web.json",
-    "updated": "2026-08-10"
+    "updated": "2026-09-30"
   },
-  "pillar": "Build",
+  "role": "Hiện diện số — tặng hoặc giảm theo combo CRM, không phải sản phẩm lõi. Landing 1.500.000đ; website doanh nghiệp 4.500.000đ. Combo CRM + Care từ 6 tháng tặng website khi triển khai.",
+  "pillar": "Website",
   "productRoute": "/services/web/",
   "title": "Thiết kế website theo yêu cầu cho doanh nghiệp vừa và nhỏ",
   "metaTitle": "Thiết kế website theo yêu cầu | Dolphin Software",
   "metaDescription": "Dolphin Software thiết kế website doanh nghiệp, landing page và e-commerce theo yêu cầu — báo giá rõ ràng, bàn giao đúng hạn, dễ mở rộng về sau. Xem gói dịch vụ.",
-  "intro": "Dolphin Software xây dựng website doanh nghiệp, landing page, và cửa hàng trực tuyến — phạm vi rõ ràng, tiến độ minh bạch, dễ báo giá và mở rộng về sau. Phù hợp cho SMB, startup, và đội marketing cần ra hàng nhanh mà không cần am hiểu kỹ thuật.",
+  "intro": "Website và landing là lớp hiện diện số của Dolphin Software, đi cùng CRM thuê theo kỳ. Landing 1.500.000đ; website doanh nghiệp 4.500.000đ. Combo CRM + Dolphin Care từ 6 tháng tặng website khi triển khai. CRM Base 12 tặng landing hoặc giảm 50% website.",
   "tech": "Next.js · React · Headless CMS (Strapi)",
   "highlightsTitle": "Bạn nhận được gì từ dịch vụ thiết kế web của Dolphin Software?",
   "highlightsLead": "Mỗi website do Dolphin Software xây dựng đều được thiết kế hướng đến chuyển đổi — không chỉ đẹp về hình thức mà còn hoạt động hiệu quả cho doanh nghiệp.",
@@ -79,7 +80,11 @@
   "faq": [
     {
       "q": "Thiết kế website theo yêu cầu giá bao nhiêu?",
-      "a": "Giá phụ thuộc phạm vi: Landing ~1.500.000đ; website doanh nghiệp khoảng 4–10 triệu; website bán hàng khoảng 7–15 triệu; web app từ 10 triệu. Báo giá chính xác sau khi chốt mục tiêu và scope."
+      "a": "Landing 1.500.000đ. Website doanh nghiệp 4.500.000đ. Combo CRM + Care từ 6 tháng tặng website đó khi triển khai. CRM Base 12 tặng landing hoặc giảm 50% website (còn 2.250.000đ). Shop, web app và tích hợp nâng cao báo riêng."
+    },
+    {
+      "q": "Phần mềm CRM của Dolphin Software có tặng website không?",
+      "a": "Có, theo combo. CRM + Dolphin Care từ 6 tháng, CRM + Ops, và Full Growth tặng website doanh nghiệp (4.500.000đ) khi triển khai. CRM Base 12 tặng landing hoặc giảm 50% website. Thuê lẻ Care — khách đã có CRM — không tặng website."
     },
     {
       "q": "Làm website doanh nghiệp mất bao lâu?",
@@ -103,7 +108,7 @@
     },
     {
       "q": "Dolphin Software có tích hợp AI automation vào website không?",
-      "a": "Có. Với định vị là studio phát triển phần mềm và AI, Dolphin Software có thể tích hợp các tính năng AI automation — như chatbot, xử lý đơn hàng tự động, hoặc phân tích dữ liệu — vào website doanh nghiệp theo yêu cầu."
+      "a": "Có. Dolphin Care là chatbot AI trên website, Zalo và Messenger, gắn với CRM. Dolphin Ops là chatbox AI trên CRM. Cả hai thuê theo kỳ, cùng combo có thể tặng website."
     }
   ],
   "positioningNote": "không bán thừa, không phí ẩn"

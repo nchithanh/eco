@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { AccentText, BrandText } from "@/components/BrandName";
-import { HeroSitePreview } from "@/components/HeroSitePreview";
 import { useMascotSrc } from "@/components/useMascotSrc";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
 
@@ -56,6 +55,43 @@ function TagIcon({ index }: { index: number }) {
   );
 }
 
+function HeroCrmPreview() {
+  const { t } = useLocale();
+  const lanes = [
+    { title: t.hero.metrics[0]?.value ?? "CRM", body: t.hero.metrics[0]?.label ?? "" },
+    { title: "Ops", body: t.hero.visual.automation },
+    { title: "Care", body: t.hero.visual.ai },
+  ];
+
+  return (
+    <div className="flex h-full min-h-[18rem] flex-col overflow-hidden rounded-[10px] bg-[var(--kuct-surface)] text-left shadow-[0_0.5rem_1.5rem_rgb(26_22_37/0.06)] sm:min-h-[22rem] lg:min-h-[24rem]">
+      <div className="flex items-center justify-between gap-3 border-b border-black/[0.06] px-3 py-2.5 sm:px-4 sm:py-3">
+        <p className="font-display text-sm font-semibold tracking-tight text-[var(--kuct-text)]">
+          CRM
+        </p>
+        <span className="inline-flex max-w-[14rem] rounded-[10px] bg-[var(--kuct-accent)] px-2.5 py-1 text-center text-[0.65rem] font-semibold leading-snug text-white sm:max-w-none sm:text-[0.7rem]">
+          {t.hero.visual.web}
+        </span>
+      </div>
+      <ul className="m-0 flex flex-1 list-none flex-col gap-2 p-3 sm:gap-3 sm:p-4">
+        {lanes.map((lane) => (
+          <li
+            key={lane.title}
+            className="rounded-[10px] border border-black/[0.06] bg-white px-3 py-3 sm:px-4"
+          >
+            <p className="font-display text-sm font-semibold text-[var(--kuct-text)]">
+              {lane.title}
+            </p>
+            <p className="mt-1 text-[0.75rem] leading-snug text-[var(--kuct-muted)]">
+              {lane.body}
+            </p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 function HeroCollage() {
   const { t } = useLocale();
   const metrics = t.hero.metrics;
@@ -87,7 +123,7 @@ function HeroCollage() {
         <div className="kuct-hero-collage__frame">
           <div className="kuct-hero-collage__panel">
             <div aria-hidden>
-              <HeroSitePreview />
+              <HeroCrmPreview />
             </div>
           </div>
         </div>

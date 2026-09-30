@@ -66,15 +66,15 @@ export type AboutCopy = {
 
 const vi: AboutCopy = {
   metaTitle:
-    "Dolphin Software là gì? | Giải pháp AI & công nghệ cho doanh nghiệp",
+    "Dolphin Software là gì? | CRM và AI cho doanh nghiệp dịch vụ",
   metaDescription:
-    "Dolphin Software là công ty giải pháp AI và công nghệ cho doanh nghiệp — bắt đầu từ vấn đề vận hành, rồi mới chọn website, AI Agent, CRM, automation hoặc phần mềm theo yêu cầu.",
-  eyebrow: "Studio",
+    "Dolphin Software cho thuê phần mềm CRM và AI (SaaS) cho doanh nghiệp dịch vụ. Combo CRM kèm Care hoặc Ops từ 6 tháng tặng website khi triển khai.",
+  eyebrow: "SaaS",
   title: "Dolphin Software",
   motto:
-    "Công ty [[giải pháp AI & công nghệ]] — bắt đầu từ vấn đề, không từ sản phẩm",
+    "Thuê [[CRM và AI]] — bắt đầu từ vấn đề, không từ sản phẩm",
   support:
-    "Dolphin Software giúp doanh nghiệp xác định nghẽn vận hành và xây đúng thứ cần: website, AI Agent, CRM, automation, tích hợp, hoặc phần mềm theo yêu cầu. Bàn giao mã nguồn, hướng dẫn vận hành, hỗ trợ sau triển khai — không khóa vendor. Không chắc cần công nghệ gì vẫn bắt đầu được: kể chỗ đang nghẽn.",
+    "Dolphin Software cho thuê CRM (nền vận hành) và AI Care · Ops · Intelligence (tăng trưởng) cho spa, nail, salon, giáo dục, clinic. Website tặng hoặc giảm theo combo. SaaS là quyền dùng theo kỳ. Source bàn giao với gói outsource.",
   ctaPrimary: "Nói về doanh nghiệp của bạn",
   ctaSecondary: "Xem giải pháp",
   mindsetEyebrow: "Approach",
@@ -217,7 +217,7 @@ const vi: AboutCopy = {
   faqItems: [
     {
       q: "Dolphin Software là công ty gì?",
-      a: "Dolphin Software là công ty giải pháp AI và công nghệ cho doanh nghiệp. Chúng tôi bắt đầu từ vấn đề vận hành — rồi mới chọn website, AI Agent, CRM, automation, tích hợp hoặc phần mềm theo yêu cầu.",
+      a: "Dolphin Software cho thuê phần mềm CRM và AI (SaaS) cho doanh nghiệp dịch vụ. CRM là nền vận hành. Care, Ops và Intelligence là lớp tăng trưởng. Website được tặng hoặc giảm khi triển khai combo CRM.",
     },
     {
       q: "Doanh nghiệp không có đội kỹ thuật có làm việc với Dolphin Software được không?",
@@ -225,7 +225,7 @@ const vi: AboutCopy = {
     },
     {
       q: "Dolphin Software có khóa vendor sau khi bàn giao không?",
-      a: "Không. Dolphin Software bàn giao toàn bộ mã nguồn, tài liệu kỹ thuật, và hướng dẫn vận hành. Bạn sở hữu hoàn toàn sản phẩm — không phụ thuộc vào Dolphin Software để duy trì hệ thống.",
+      a: "SaaS CRM, Care và Ops là quyền sử dụng theo kỳ đã thanh toán — không bàn giao source nền tảng. Gói may đo / outsourcing bàn giao source code và tài liệu. Website one-time bàn giao trong phạm vi đã nghiệm thu.",
     },
     {
       q: "Báo giá của Dolphin Software hoạt động như thế nào?",
@@ -233,7 +233,7 @@ const vi: AboutCopy = {
     },
     {
       q: "Dolphin Software có hỗ trợ sau khi bàn giao không?",
-      a: "Có. Sau khi go-live, Dolphin Software cung cấp hướng dẫn vận hành và bảo hành lỗi kỹ thuật trong phạm vi scope đã ký kết (thường 3–6 tháng). Tính năng mới được báo giá riêng trước khi thực hiện.",
+      a: "Website: bảo hành kỹ thuật 36 tháng. CRM và AI (SaaS): trong hạn gói đã thanh toán. Outsource / may đo: 3 tháng sau nghiệm thu. Tính năng mới ngoài phạm vi được báo giá riêng.",
     },
     {
       q: "Dolphin Software có kinh nghiệm tích hợp Zalo và các hệ thống CRM không?",
@@ -248,15 +248,15 @@ const vi: AboutCopy = {
 
 const en: AboutCopy = {
   metaTitle:
-    "What is Dolphin Software? | AI & technology solutions for business",
+    "What is Dolphin Software? | CRM and AI for service businesses",
   metaDescription:
-    "Dolphin Software is an AI and technology solutions company — we start from the operational problem, then choose a website, AI agent, CRM, automation, or custom software.",
-  eyebrow: "Studio",
+    "Dolphin Software rents CRM and AI software (SaaS) for service businesses. A CRM plan with Care or Ops from 6 months includes a website when you deploy.",
+  eyebrow: "SaaS",
   title: "Dolphin Software",
   motto:
-    "[[AI & technology solutions]] — we start with the problem, not the product",
+    "Rent [[CRM and AI]] — we start with the problem, not the product",
   support:
-    "Dolphin Software helps businesses spot operational bottlenecks and build the right fix: website, AI agent, CRM, automation, integrations, or custom software. Full source handover, ops guidance, post-launch support — no vendor lock-in. Not sure which technology you need? Start by describing the bottleneck.",
+    "Dolphin Software rents CRM (the operating base) and AI Care · Ops · Intelligence (growth) for spas, nail studios, salons, education, and clinics. A website is included or discounted with a combo. SaaS is a term license. Source handover is for outsource work.",
   ctaPrimary: "Talk about your business",
   ctaSecondary: "See solutions",
   mindsetEyebrow: "Approach",
@@ -399,7 +399,7 @@ const en: AboutCopy = {
   faqItems: [
     {
       q: "What kind of company is Dolphin Software?",
-      a: "Dolphin Software is an AI and technology solutions company. We start from the operational problem — then choose a website, AI agent, CRM, automation, integration, or custom software.",
+      a: "Dolphin Software rents CRM and AI software (SaaS) for service businesses. CRM is the operating base. Care, Ops, and Intelligence are the growth layer. A website is included or discounted when you deploy a CRM combo.",
     },
     {
       q: "Can non-technical businesses work with Dolphin Software?",
@@ -407,7 +407,7 @@ const en: AboutCopy = {
     },
     {
       q: "Does Dolphin Software lock customers into a vendor after handover?",
-      a: "No. You get full source, technical docs, and ops guidance. You own the product — you are not dependent on Dolphin Software to keep it running.",
+      a: "CRM, Care, and Ops SaaS are a license for the prepaid term — platform source is not handed over. Custom outsource includes source and docs. A one-time website is handed over within the accepted scope.",
     },
     {
       q: "How does Dolphin Software pricing work?",
@@ -415,7 +415,7 @@ const en: AboutCopy = {
     },
     {
       q: "Is there support after handover?",
-      a: "Yes. After go-live you get ops guidance and warranty for technical defects in the signed scope (typically 3–6 months). New features are quoted separately first.",
+      a: "Website: 36 months of technical warranty. CRM and AI (SaaS): for the prepaid term. Custom outsource: 3 months after acceptance. New features outside scope are quoted separately.",
     },
     {
       q: "Does Dolphin Software integrate Zalo and CRM systems?",

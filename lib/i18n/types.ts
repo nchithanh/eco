@@ -44,6 +44,8 @@ export type Dictionary = {
     /** Utility → `/company-profile/` */
     companyProfile: string;
     agents: string;
+    /** GNB → `/dolphin-ops/` */
+    crm: string;
     agentDolphin: string;
     dolphinOps: string;
     aiTransform: string;
