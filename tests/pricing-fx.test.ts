@@ -23,6 +23,12 @@ describe("quote FX formatting", () => {
 });
 
 describe("package display prices", () => {
+  it("formats landing onetime (ONETIME_WEB)", () => {
+    expect(getPackageDisplayPrices("vi", "landing", "Từ").price).toBe(
+      "1.500.000đ",
+    );
+  });
+
   it("formats CRM Base 12 prepaid (COMBO_PACKAGES)", () => {
     expect(getPackageDisplayPrices("vi", "crm-base-12", "Từ").price).toBe(
       "5.400.000đ",
