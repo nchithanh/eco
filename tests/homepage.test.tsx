@@ -176,7 +176,7 @@ describe("Dolphin Software homepage", () => {
     );
   });
 
-  it("renders popular services click-select with landing price focus", async () => {
+  it("renders popular services click-select with CRM packages", async () => {
     const user = userEvent.setup();
     renderHome();
     const popular = document.getElementById("popular-services");
@@ -184,16 +184,16 @@ describe("Dolphin Software homepage", () => {
     expect(
       screen.getByRole("heading", {
         level: 2,
-        name: /Phần mềm CRM tặng website — quyền lợi combo 2026/i,
+        name: /Thuê CRM theo kỳ — Care · Ops khi cần tăng trưởng/i,
       }),
     ).toBeInTheDocument();
     const section = within(popular as HTMLElement);
-    expect(section.getByRole("heading", { name: /Landing Page/i })).toBeInTheDocument();
-    expect(section.getByRole("heading", { name: /Website doanh nghiệp/i })).toBeInTheDocument();
-    expect(section.getByText("1.500.000đ")).toBeInTheDocument();
-    await user.click(section.getByRole("radio", { name: /Landing Page/i }));
+    expect(section.getByRole("heading", { name: /CRM Base 12/i })).toBeInTheDocument();
+    expect(section.getByRole("heading", { name: /CRM \+ Care 12/i })).toBeInTheDocument();
+    expect(section.getAllByText("16.200.000đ").length).toBeGreaterThan(0);
+    await user.click(section.getByRole("radio", { name: /CRM Base 12/i }));
     expect(
-      section.getByRole("button", { name: /Nhận báo giá combo/i }),
+      section.getByRole("button", { name: /Nhận báo giá CRM/i }),
     ).toBeInTheDocument();
   });
 
@@ -201,18 +201,18 @@ describe("Dolphin Software homepage", () => {
     const user = userEvent.setup();
     renderHome();
     const popular = document.getElementById("popular-services") as HTMLElement;
-    expect(within(popular).getByText("1.500.000đ")).toBeInTheDocument();
+    expect(within(popular).getAllByText("16.200.000đ").length).toBeGreaterThan(0);
 
     await openLanguageMenu(user);
     await user.click(screen.getByRole("button", { name: /English/i }));
-    expect(within(popular).getByText("$57")).toBeInTheDocument();
+    expect(within(popular).getAllByText("$616").length).toBeGreaterThan(0);
 
     await openLanguageMenu(user);
     await user.click(screen.getByRole("button", { name: /Tiếng Việt/i }));
-    expect(within(popular).getByText("1.500.000đ")).toBeInTheDocument();
+    expect(within(popular).getAllByText("16.200.000đ").length).toBeGreaterThan(0);
   });
 
-  it("renders projects and care before website packages", () => {
+  it("renders projects and care before CRM combo packages", () => {
     renderHome();
     const popular = document.getElementById("popular-services");
     const works = document.getElementById("works");

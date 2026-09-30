@@ -23,15 +23,15 @@ describe("quote FX formatting", () => {
 });
 
 describe("package display prices", () => {
-  it("formats landing fixed promo price (ONETIME_WEB)", () => {
-    expect(getPackageDisplayPrices("vi", "landing", "Từ").price).toBe(
-      "1.500.000đ",
+  it("formats CRM Base 12 prepaid (COMBO_PACKAGES)", () => {
+    expect(getPackageDisplayPrices("vi", "crm-base-12", "Từ").price).toBe(
+      "5.400.000đ",
     );
   });
 
-  it("formats business website fixed list price (ONETIME_WEB)", () => {
-    expect(getPackageDisplayPrices("vi", "business", "Từ").price).toBe(
-      "4.500.000đ",
+  it("formats CRM + Care 12 prepaid (COMBO_PACKAGES)", () => {
+    expect(getPackageDisplayPrices("vi", "crm-care-12", "Từ").price).toBe(
+      "16.200.000đ",
     );
   });
 });

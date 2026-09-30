@@ -97,8 +97,9 @@ html[data-theme="violet"] {
   --kuct-destructive: #dc2626;
   --kuct-radius-btn: 9999px;
   --kuct-space-section-y: clamp(3.5rem, 8vw, 6rem);
-  /* Section frame — continuous rails + horizontal rules (cross, no dots) */
+  /* Section frame — rails sit slightly outside max-w-7xl content (not border L/R) */
   --kuct-rail-inset: max(1.5rem, calc(50% - 40rem));
+  --kuct-rail-outset: 0.75rem;
   --kuct-section-rule: var(--kuct-border);
 }
 
@@ -342,29 +343,25 @@ html[data-theme="violet"] body::after {
   display: none;
 }
 
-/* Section frame: continuous vertical rails + horizontal rules (cross through) */
+/* Section frame: one ::after draws both vertical rails (outset past content) */
 .kuct-page-rails {
   position: relative;
 }
 
-.kuct-page-rails::before,
 .kuct-page-rails::after {
   content: "";
   position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 1px;
-  background: var(--kuct-section-rule);
+  inset: 0;
   pointer-events: none;
   z-index: 4;
-}
-
-.kuct-page-rails::before {
-  left: var(--kuct-rail-inset);
-}
-
-.kuct-page-rails::after {
-  right: var(--kuct-rail-inset);
+  background-image:
+    linear-gradient(var(--kuct-section-rule), var(--kuct-section-rule)),
+    linear-gradient(var(--kuct-section-rule), var(--kuct-section-rule));
+  background-size: 1px 100%;
+  background-repeat: no-repeat;
+  background-position:
+    calc(var(--kuct-rail-inset) - var(--kuct-rail-outset)) 0,
+    calc(100% - var(--kuct-rail-inset) + var(--kuct-rail-outset)) 0;
 }
 
 .kuct-page-rails main > * + * {
@@ -1089,6 +1086,11 @@ button,
 .kuct-banner-cta,
 .kuct-banner-cta-outline {
   border-radius: var(--kuct-radius-btn, 9999px);
+}
+
+/* Popular-services package tabs — square (beat global pill) */
+#popular-services [role="radiogroup"] > button {
+  border-radius: 0;
 }
 
 .kuct-chip {

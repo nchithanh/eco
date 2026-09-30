@@ -4,52 +4,60 @@
     "id": "popular-services",
     "locale": "vi",
     "brand": "Dolphin Software",
-    "updated": "2026-09-30",
+    "updated": "2026-10-01",
     "schemaPath": "/schema/homepage/popular-services/",
     "rawPath": "/schema/homepage/popular-services.json",
     "productRoute": "/",
-    "source": "ONETIME_WEB + COMBO web rights (dolphin-pricing-policy-2026)"
+    "source": "COMBO_PACKAGES (dolphin-pricing-policy-2026) — CRM-first, not website catalog"
   },
   "content": {
     "order": 11,
     "id": "popular-services",
-    "section_label": "Website packages",
-    "headline": "Phần mềm CRM tặng website — quyền lợi combo 2026",
-    "subheadline": "Landing 1.500.000đ · Website DN 4.500.000đ. CRM Base 12 tặng landing hoặc −50% website. Từ CRM + Care 6: tặng website DN khi triển khai — không phải catalog agency đứng một mình.",
-    "ui_pattern": "click-select-split",
-    "note_fx": "Giá VND từ ONETIME_WEB. Quy đổi FX tham chiếu lib/pricing-fx.ts.",
+    "section_label": "Gói CRM · AI",
+    "headline": "Thuê CRM theo kỳ — Care · Ops khi cần tăng trưởng",
+    "subheadline": "CRM là lõi vận hành (khách, lịch, follow-up). Care và Ops là lớp AI. Thanh toán trước theo kỳ — không dùng thử.",
+    "ui_pattern": "click-select-tabs",
+    "note_fx": "Giá VND prepaid từ COMBO_PACKAGES. Quy đổi FX tham chiếu lib/pricing-fx.ts.",
     "packages": [
       {
-        "id": "landing",
-        "name": "Landing Page",
-        "tag": "CRM Base 12",
-        "price_vnd": 1500000,
-        "list_was_vnd": 3000000,
-        "discount_label": "Tặng với Base 12",
-        "timeline": "3–5 ngày",
-        "best_for": "Campaign, giới thiệu dịch vụ, form tư vấn",
-        "highlight": "CRM Base 12: tặng Landing khi triển khai",
-        "cta": {
-          "label": "Nhận báo giá combo",
-          "href": "#contact"
-        }
+        "id": "crm-base-12",
+        "name": "CRM Base 12",
+        "tag": "CRM lõi",
+        "prepaid_vnd": 5400000,
+        "term": "12 tháng",
+        "components": "CRM",
+        "cta": { "label": "Nhận báo giá CRM", "href": "#contact" }
       },
       {
-        "id": "business",
-        "name": "Website doanh nghiệp",
-        "tag": "Đề xuất",
-        "price_vnd": 4500000,
-        "discount_label": "Tặng từ Care 6",
-        "timeline": "7–14 ngày",
-        "best_for": "Hồ sơ công ty, dịch vụ, SEO dài hạn",
-        "highlight": "Base 12: −50% (2.250.000đ). Từ CRM + Care 6: tặng Website DN",
-        "cta": {
-          "label": "Nhận báo giá combo",
-          "href": "#contact"
-        }
+        "id": "crm-care-6",
+        "name": "CRM + Care 6",
+        "tag": "Care",
+        "prepaid_vnd": 9000000,
+        "term": "6 tháng",
+        "components": "CRM + Dolphin Care",
+        "cta": { "label": "Nhận báo giá CRM + Care", "href": "#contact" }
+      },
+      {
+        "id": "crm-care-12",
+        "name": "CRM + Care 12",
+        "tag": "Phổ biến",
+        "prepaid_vnd": 16200000,
+        "term": "12 tháng",
+        "components": "CRM + Dolphin Care",
+        "featured": true,
+        "cta": { "label": "Nhận báo giá CRM + Care", "href": "#contact" }
+      },
+      {
+        "id": "full-growth-12",
+        "name": "Full Growth 12",
+        "tag": "Đầy đủ",
+        "prepaid_vnd": 27000000,
+        "term": "12 tháng",
+        "components": "CRM + Care + Ops",
+        "cta": { "label": "Nhận báo giá Full Growth", "href": "#contact" }
       }
     ],
-    "footer_note": "Shop / web app / tích hợp nâng cao báo riêng (outsource). Thuê lẻ Care — khách đã có CRM — không tặng website. Chọn combo CRM · AI trong báo giá để áp quyền lợi web.",
+    "footer_note": "CRM đứng một mình chỉ bán Base 12 tháng. Gói 6 tháng khi kèm Care hoặc Ops. Chi tiết trên /chinh-sach-gia-dolphin-2026/.",
     "zalo_cta": {
       "label": "Tư vấn Zalo miễn phí",
       "href": "https://zalo.me/0779937633"

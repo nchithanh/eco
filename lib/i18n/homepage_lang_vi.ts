@@ -552,10 +552,10 @@ export const homepageLangVi: HomepageLang = {
     ],
   },
   popularServicesChrome: {
-    eyebrow: "Combo CRM",
-    title: "Phần mềm CRM tặng [[website]] — quyền lợi combo 2026",
+    eyebrow: "Gói CRM · AI",
+    title: "Thuê [[CRM]] theo kỳ — Care · Ops khi cần tăng trưởng",
     support:
-      "Landing 1.500.000đ · Website DN 4.500.000đ. CRM Base 12 tặng landing hoặc −50% website. Từ CRM + Care 6: tặng website DN khi triển khai — không phải catalog agency đứng một mình.",
+      "CRM là lõi vận hành (khách, lịch, follow-up). Care và Ops là lớp AI. Thanh toán trước theo kỳ — không dùng thử. Chi tiết trên bảng giá 2026.",
   },
   faq: {
     eyebrow: "FAQ",

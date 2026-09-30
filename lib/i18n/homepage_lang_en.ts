@@ -508,10 +508,10 @@ export const homepageLangEn: HomepageLang = {
     ],
   },
   popularServicesChrome: {
-    eyebrow: "CRM combo",
-    title: "CRM software with a [[gifted website]] — 2026 combo rights",
+    eyebrow: "CRM · AI packages",
+    title: "Rent [[CRM]] by term — Care · Ops when you need growth",
     support:
-      "Landing 1,500,000đ · business website 4,500,000đ. CRM Base 12 gifts landing or 50% off website. From CRM + Care 6: gift business website when deploying — not a standalone agency catalog.",
+      "CRM is the operating core (customers, calendar, follow-up). Care and Ops are the AI layer. Prepaid by term — no free trial. Full detail on the 2026 price list.",
   },
   faq: {
     eyebrow: "FAQ",

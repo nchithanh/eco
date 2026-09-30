@@ -44,5 +44,6 @@
   --kuct-radius-btn: 9999px;
   --kuct-space-section-y: clamp(3.5rem, 8vw, 6rem);
   --kuct-rail-inset: max(1.5rem, calc(50% - 40rem));
+  --kuct-rail-outset: 0.75rem;
   --kuct-section-rule: var(--kuct-border);
 }

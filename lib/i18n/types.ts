@@ -108,18 +108,18 @@ export type Dictionary = {
       price: string;
       timeline: string;
       fit: string;
-      ui: string;
-      seo: string;
-      admin: string;
-      measure: string;
-      warranty: string;
+      stack: string;
+      booking: string;
+      ai: string;
+      report: string;
+      payment: string;
       highlight: string;
     };
     priceNote: string;
     fromPrefix: string;
     /** Right panel label next to each included feature */
     includedLabel: string;
-    /** Left column footer prompt linking to Zalo */
+    /** Left column footer prompt linking to pricing / Zalo */
     consultPrompt: string;
     /** Short trust chips under features */
     commitments: string[];
@@ -128,21 +128,21 @@ export type Dictionary = {
     footerNote: string;
     footerCta: string;
     packages: {
-      id: "landing" | "business";
+      id: "crm-base-12" | "crm-care-6" | "crm-care-12" | "full-growth-12";
       title: string;
       badge: string;
       /** Soft column highlight (recommended package) */
       featured?: boolean;
-      /** Emphasize sale price visually (Landing) */
+      /** Emphasize prepaid price visually */
       priceFocus?: boolean;
       saveBadge?: string;
       timeline: string;
       fit: string;
-      ui: string;
-      seo: string;
-      admin: string;
-      measure: string;
-      warranty: string;
+      stack: string;
+      booking: string;
+      ai: string;
+      report: string;
+      payment: string;
       highlight: string;
       cta: string;
       detailHref: string;

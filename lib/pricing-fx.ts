@@ -10,7 +10,11 @@ export const FX_VND_PER_UNIT = {
   USD: 26_300,
 } as const;
 
-export type PackagePriceId = "landing" | "business";
+export type PackagePriceId =
+  | "crm-base-12"
+  | "crm-care-6"
+  | "crm-care-12"
+  | "full-growth-12";
 
 export type PackagePriceVnd = {
   /** Optional list / strike price (promo compare). */
@@ -23,10 +27,12 @@ export type PackagePriceVnd = {
   from?: boolean;
 };
 
-/** Canonical package amounts in VND — SoT `ONETIME_WEB` (pricing policy 2026). */
+/** Canonical combo prepaid amounts in VND — SoT `COMBO_PACKAGES` (pricing policy 2026). */
 export const PACKAGE_PRICES_VND: Record<PackagePriceId, PackagePriceVnd> = {
-  landing: { was: 3_000_000, now: 1_500_000 },
-  business: { now: 4_500_000 },
+  "crm-base-12": { now: 5_400_000 },
+  "crm-care-6": { now: 9_000_000 },
+  "crm-care-12": { now: 16_200_000 },
+  "full-growth-12": { now: 27_000_000 },
 };
 
 type DisplayCurrency = "VND" | "USD";
