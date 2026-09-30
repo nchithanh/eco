@@ -12,11 +12,19 @@ export type FaqCopy = {
 const vi: FaqCopy = {
   eyebrow: "FAQ",
   title: "Câu hỏi [[thường gặp]]",
-  support: "Timeline · báo giá · bảo hành · bảo mật — trả lời trước khi bắt đầu.",
+  support: "CRM · AI Care/Ops · website theo combo · báo giá — trả lời trước khi bắt đầu.",
   items: [
       {
           "q": "Dolphin Software làm gì?",
-          "a": "Dolphin Software cho thuê phần mềm CRM và AI (SaaS) cho doanh nghiệp dịch vụ. CRM là nền vận hành. Care, Ops và Intelligence là lớp tăng trưởng. Website được tặng hoặc giảm khi triển khai combo CRM."
+          "a": "Dolphin Software cho thuê CRM và AI (SaaS) cho doanh nghiệp dịch vụ B2B tại Việt Nam — spa, nail, salon, giáo dục, clinic. CRM là nền vận hành. Care, Ops và Intelligence là lớp tăng trưởng. Website tặng hoặc giảm theo combo CRM."
+      },
+      {
+          "q": "Phần mềm CRM có tặng website không?",
+          "a": "Có, theo combo. CRM + Dolphin Care từ 6 tháng, CRM + Ops và Full Growth tặng website doanh nghiệp (4.500.000đ) khi triển khai. CRM Base 12 tặng landing hoặc giảm 50% website. Thuê lẻ Care không tặng website."
+      },
+      {
+          "q": "Dolphin Care khác Dolphin Ops ở đâu?",
+          "a": "Dolphin Care là AI chăm sóc khách hàng của anh chị trên website, Zalo, Messenger. Dolphin Ops là Agent CRM giúp đội ngũ chạy việc nội bộ — lịch, khách, báo cáo."
       },
       {
           "q": "Doanh nghiệp không rành kỹ thuật có làm việc được không?",

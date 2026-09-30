@@ -115,12 +115,12 @@ describe("Dolphin Software homepage", () => {
     expect(
       within(agentDolphin!).getByRole("button", { name: /Nhận báo giá/i }),
     ).toBeInTheDocument();
-    expect(within(agentDolphin!).getByText(/Chăm khách đa kênh đúng ngữ cảnh/i)).toBeInTheDocument();
+    expect(within(agentDolphin!).getByText(/Trả lời đúng ngữ cảnh/i)).toBeInTheDocument();
     expect(within(agentDolphin!).getByText(/^Spa$/i)).toBeInTheDocument();
     expect(
       within(dolphinOps!).getByRole("heading", {
         level: 2,
-        name: /CRM nền \+ chatbox AI tăng trưởng/i,
+        name: /Agent CRM — đội ngũ nói việc, mở đúng màn/i,
       }),
     ).toBeInTheDocument();
     expect(
@@ -184,7 +184,7 @@ describe("Dolphin Software homepage", () => {
     expect(
       screen.getByRole("heading", {
         level: 2,
-        name: /Website \/ Landing — hỗ trợ chốt theo combo CRM/i,
+        name: /Phần mềm CRM tặng website — quyền lợi combo 2026/i,
       }),
     ).toBeInTheDocument();
     const section = within(popular as HTMLElement);
@@ -300,7 +300,7 @@ describe("Dolphin Software homepage", () => {
     expect(document.getElementById("cofounder")).toBeNull();
     expect(
       screen.getByRole("heading", {
-        name: /CRM giữ vận hành — AI đẩy tăng trưởng/i,
+        name: /Đối tác vận hành — CRM lõi, AI tăng trưởng, website combo/i,
       }),
     ).toBeInTheDocument();
     expect(document.getElementById("services")).toBeNull();
@@ -308,7 +308,7 @@ describe("Dolphin Software homepage", () => {
     const contact = within(document.getElementById("contact")!);
     expect(
       contact.getByRole("heading", {
-        name: /Chọn combo CRM · AI · Web phù hợp/i,
+        name: /Cùng xây cách vận hành tốt hơn/i,
       }),
     ).toBeInTheDocument();
     expect(

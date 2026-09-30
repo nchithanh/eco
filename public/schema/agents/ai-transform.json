@@ -6,15 +6,15 @@
     "brand": "Dolphin Software",
     "schemaPath": "/schema/agents/ai-transform/",
     "rawPath": "/schema/agents/ai-transform.json",
-    "updated": "2026-08-08"
+    "updated": "2026-09-30"
   },
   "pillar": "Automate",
   "displayName": "Chuyển đổi AI doanh nghiệp",
   "productRoute": "/ai-transform/",
-  "metaTitle": "Lộ Trình Triển Khai AI cho Doanh Nghiệp | Dolphin Software",
-  "metaDescription": "Dolphin Software tư vấn chuyển đổi AI cho SMB Việt Nam: kiểm toán quy trình, ưu tiên use-case, pilot có số đo, agent tùy chỉnh — báo giá minh bạch, không phí ẩn.",
-  "summary": "Lộ trình triển khai AI có kiểm soát — audit, ưu tiên use-case, pilot đo được, governance và ROI framework.",
-  "headline": "Chuyển Đổi AI cho Doanh Nghiệp: Lộ Trình Triển Khai Có Kiểm Soát",
+  "metaTitle": "Lộ trình triển khai AI cho doanh nghiệp | Dolphin",
+  "metaDescription": "Dolphin tư vấn chuyển đổi AI có kiểm soát: kiểm toán quy trình, chọn 1–2 use-case, pilot có số đo rồi mới nhân rộng. Báo giá theo phạm vi, không phí ẩn.",
+  "summary": "Không bắt đầu bằng mua AI. Dolphin rà soát quy trình thực tế, chọn 1–2 việc đang đốt người, thiết kế agent, đo kết quả trước khi nhân rộng.",
+  "headline": "Lộ trình triển khai AI cho doanh nghiệp có kiểm soát",
   "support": "Rà soát quy trình thực tế, chọn 1–2 việc ưu tiên, thiết kế AI agent, đo kết quả trước khi nhân rộng.",
   "whenItems": [
     {

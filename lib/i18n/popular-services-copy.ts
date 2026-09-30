@@ -4,9 +4,9 @@ type PopularServices = Dictionary["popularServices"];
 
 const vi: PopularServices = {
   eyebrow: "Website packages",
-  title: "Website / Landing — [[hỗ trợ chốt]] theo combo CRM",
+  title: "Phần mềm CRM tặng [[website]] — quyền lợi combo 2026",
   support:
-    "Không phải catalog agency. Hai hạng mục one-time theo chính sách giá 2026 — tặng hoặc giảm sâu khi thuê CRM (± AI).",
+    "Landing 1.500.000đ · Website DN 4.500.000đ. CRM Base 12 tặng landing hoặc −50% website. Từ CRM + Care 6: tặng website DN khi triển khai — không phải catalog agency đứng một mình.",
   categoryLabel: "Hạng mục",
   rowLabels: {
     price: "Giá niêm yết",
@@ -27,7 +27,7 @@ const vi: PopularServices = {
   priceBundleLabel: "Giá one-time",
   noHiddenLabel: "Không chi phí ẩn",
   footerNote:
-    "Shop / web app / tích hợp nâng cao báo riêng theo phạm vi (outsource). Chọn combo CRM · AI trong báo giá để áp quyền lợi web.",
+    "Shop / web app / tích hợp nâng cao báo riêng (outsource). Thuê lẻ Care — khách đã có CRM — không tặng website. Chọn combo CRM · AI trong báo giá để áp quyền lợi web.",
   footerCta: "Tư vấn Zalo miễn phí",
   packages: [
     {
@@ -43,7 +43,7 @@ const vi: PopularServices = {
       admin: "Form liên hệ",
       measure: "GA4 + Pixel cơ bản",
       warranty: "Bảo hành kỹ thuật theo chính sách BH",
-      highlight: "CRM Base 12: tặng Landing (1.500.000đ) khi triển khai",
+      highlight: "CRM Base 12: tặng Landing khi triển khai",
       cta: "Nhận báo giá combo",
       detailHref: "/chinh-sach-gia-dolphin-2026/",
     },
@@ -61,7 +61,7 @@ const vi: PopularServices = {
       measure: "GA4 + sự kiện chính",
       warranty: "Bảo hành kỹ thuật 36 tháng (chính sách BH)",
       highlight:
-        "Base 12: −50% (còn 2.250.000đ). Từ CRM + Care 6: tặng Website DN (4.500.000đ)",
+        "Base 12: −50% (2.250.000đ). Từ CRM + Care 6: tặng Website DN",
       cta: "Nhận báo giá combo",
       detailHref: "/chinh-sach-gia-dolphin-2026/",
     },
@@ -70,9 +70,9 @@ const vi: PopularServices = {
 
 const en: PopularServices = {
   eyebrow: "Website packages",
-  title: "Website / Landing — [[helps close]] with CRM combos",
+  title: "CRM software with a [[gifted website]] — 2026 combo rights",
   support:
-    "Not an agency catalog. Two one-time items per the 2026 pricing policy — gifted or deeply discounted when you rent CRM (± AI).",
+    "Landing 1,500,000đ · business website 4,500,000đ. CRM Base 12 gifts landing or 50% off website. From CRM + Care 6: gift business website when deploying — not a standalone agency catalog.",
   categoryLabel: "Item",
   rowLabels: {
     price: "List price",

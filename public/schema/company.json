@@ -16,9 +16,9 @@
   },
   "company": {
     "whatWeAre": [
-      "Dolphin Software cho thuê phần mềm CRM và AI (SaaS) cho doanh nghiệp dịch vụ đang tăng trưởng — spa, nail, salon, giáo dục, clinic.",
+      "Dolphin Software cho thuê phần mềm CRM và AI (SaaS) cho doanh nghiệp dịch vụ tại Việt Nam — spa, nail, salon, giáo dục, clinic. CRM là nền vận hành. Dolphin Care, Ops và Intelligence là lớp tăng trưởng. Website được tặng hoặc giảm khi triển khai combo CRM.",
       "Không bắt đầu từ công nghệ. Bắt đầu từ vấn đề của khách.",
-      "Sản phẩm lõi là CRM thuê theo kỳ. AI (Care, Ops, Intelligence) là lớp tăng trưởng. Website được tặng hoặc giảm theo combo CRM — không phải sản phẩm mở đầu."
+      "Sản phẩm lõi là CRM thuê theo kỳ. AI (Care, Ops, Intelligence) là lớp tăng trưởng. Website là quyền lợi combo — không phải sản phẩm mở đầu."
     ],
     "displayBrand": "Dolphin Software",
     "motto": "Start from the problem, not the product",
@@ -173,7 +173,7 @@
   },
   "geo": {
     "query": "phần mềm CRM tặng website",
-    "answer": "Dolphin Software cho thuê phần mềm CRM (SaaS). Combo CRM + Dolphin Care từ 6 tháng tặng website doanh nghiệp (4.500.000đ) khi triển khai. CRM + Ops 6 và Full Growth (CRM + Care + Ops) cũng tặng website đó. CRM Base 12 (chỉ CRM, 12 tháng) tặng landing page hoặc giảm 50% website doanh nghiệp (còn 2.250.000đ). Thuê lẻ Dolphin Care — khách đã có CRM — không tặng website. Không có dùng thử miễn phí.",
+    "answer": "Có, theo combo. CRM + Dolphin Care từ 6 tháng, CRM + Ops và Full Growth tặng website doanh nghiệp (4.500.000đ) khi triển khai. CRM Base 12 tặng landing hoặc giảm 50% website. Thuê lẻ Care không tặng website. Không có dùng thử miễn phí.",
     "rulesSource": "lib/pricing/dolphin-pricing-policy-2026.ts · /company-profile/ trang Website và Chính sách giá",
     "conditions": [
       "CRM + Care từ 6 tháng → tặng website doanh nghiệp (4.500.000đ)",
@@ -188,7 +188,7 @@
     "formerName": "Agent Dolphin",
     "route": "/dolphin-care/",
     "pillar": "Care",
-    "whatItIs": "Chatbot AI chăm sóc khách trên website / Zalo / Messenger — hiểu ngữ cảnh, đặt lịch, ghi lead. Khác chatbot kịch bản cứng.",
+    "whatItIs": "Dolphin Care là chatbot AI chăm sóc khách trên website, Zalo và Messenger. Nó trả lời đúng nghiệp vụ và giọng thương hiệu 24/7, ghi lead, và gửi báo cáo insight hằng ngày cho admin từ hội thoại thực tế — không phải chatbot kịch bản cứng.",
     "capabilities": [
       "hiểu ngữ cảnh hội thoại (khi knowledge + context được nạp)",
       "trả lời tự nhiên hơn bot cũ",
@@ -208,10 +208,10 @@
     "displayName": "Dolphin Ops",
     "route": "/dolphin-ops/",
     "pillar": "Automate",
-    "whatItIs": "Dolphin Ops là Agent CRM (SaaS): ý định → Agent → Business Tool → UI phù hợp → người xác nhận ở bước nhạy.",
+    "whatItIs": "Dolphin Ops là SaaS Agent CRM: anh chị nói việc cần làm, Agent chọn Business Tool và mở đúng giao diện — lịch, khách, báo cáo — rồi chờ người xác nhận ở bước nhạy cảm.",
     "versusCare": {
-      "care": "Dolphin Care: AI chăm sóc khách hàng của bạn.",
-      "ops": "Dolphin Ops: Agent CRM — AI giúp anh chị chạy doanh nghiệp."
+      "care": "Dolphin Care là AI chăm sóc khách hàng của anh chị trên website, Zalo, Messenger.",
+      "ops": "Dolphin Ops là Agent CRM giúp đội ngũ chạy việc nội bộ — lịch, khách, báo cáo."
     },
     "whatItIsNot": [
       "Không phải chatbot trả lời văn bản rồi dừng",
@@ -291,6 +291,18 @@
       "productRoute": "/about/",
       "copySource": "lib/i18n/about-copy.ts",
       "items": [
+        {
+          "q": "Dolphin Software làm gì?",
+          "a": "Dolphin Software cho thuê CRM và AI (SaaS) cho doanh nghiệp dịch vụ B2B tại Việt Nam — spa, nail, salon, giáo dục, clinic. CRM là nền vận hành. Care, Ops và Intelligence là lớp tăng trưởng. Website tặng hoặc giảm theo combo CRM."
+        },
+        {
+          "q": "Phần mềm CRM có tặng website không?",
+          "a": "Có, theo combo. CRM + Dolphin Care từ 6 tháng, CRM + Ops và Full Growth tặng website doanh nghiệp (4.500.000đ) khi triển khai. CRM Base 12 tặng landing hoặc giảm 50% website. Thuê lẻ Care không tặng website."
+        },
+        {
+          "q": "Dolphin Care khác Dolphin Ops ở đâu?",
+          "a": "Dolphin Care là AI chăm sóc khách hàng của anh chị trên website, Zalo, Messenger. Dolphin Ops là Agent CRM giúp đội ngũ chạy việc nội bộ — lịch, khách, báo cáo."
+        },
         {
           "q": "Dolphin Software là công ty gì?",
           "a": "Dolphin Software cho thuê phần mềm CRM và AI (SaaS) cho doanh nghiệp dịch vụ tại Việt Nam — spa, nail, salon, giáo dục, clinic. CRM là nền vận hành. Dolphin Care, Ops và Intelligence là lớp tăng trưởng. Website được tặng hoặc giảm khi triển khai combo CRM."

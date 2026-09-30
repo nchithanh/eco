@@ -747,24 +747,24 @@ export type AgentDolphinHomeCopy = {
 
 const homeVi: AgentDolphinHomeCopy = {
   eyebrow: "Dolphin Care",
-  title: "AI tăng trưởng — Chatbot [[Web / Zalo / Messenger]]",
+  title: "Chatbot AI chăm khách trên [[Web, Zalo, Messenger]]",
   support:
-    "Care thuộc doanh thu tăng trưởng: chatbot AI chăm khách trên kênh, gắn CRM. Thường bán kèm combo CRM; từ CRM + Care 6 có thể tặng Website DN khi triển khai.",
+    "Dolphin Care là lớp AI tăng trưởng trên CRM — trả lời đúng nghiệp vụ và giọng thương hiệu 24/7, ghi lead, gửi insight hằng ngày. Không phải chatbot kịch bản cứng.",
   cta: "Tìm hiểu Dolphin Care",
   ctaSecondary: "Nhận báo giá",
-  trustMicro: "Growth AI · thường kèm CRM · Web/Zalo/Messenger",
+  trustMicro: "Growth AI · gắn CRM · Web/Zalo/Messenger · combo tặng website DN",
   benefits: [
     {
-      title: "Chăm khách đa kênh đúng ngữ cảnh",
-      body: "Website · Zalo · Messenger — FAQ, đặt lịch, thu lead trong phạm vi kiến thức tiệm.",
+      title: "Trả lời đúng ngữ cảnh",
+      body: "Câu hỏi thường gặp được phản hồi ngay trên website / Zalo / Messenger — gắn dữ liệu CRM, không cần nhân viên trực 24/7.",
     },
     {
-      title: "Báo cáo insight hằng ngày",
-      body: "Câu hỏi phổ biến, lead cần follow-up và gợi ý từ hội thoại thật.",
+      title: "Giảm trao đổi thủ công",
+      body: "Thu thập thông tin, trả lời câu hỏi lặp và chuyển tiếp sang người khi cần — lead không trôi ngoài giờ.",
     },
     {
-      title: "Kết hợp CRM + Web theo combo",
-      body: "AI tăng trưởng trên nền CRM; Website / Landing theo quyền lợi combo giá 2026.",
+      title: "Insight từ hội thoại thật",
+      body: "Báo cáo hằng ngày cho admin: câu hỏi phổ biến, lead cần follow-up, điểm nghẽn lặp lại.",
     },
   ],
   situationsLabel: "Dolphin Care xử lý được:",
@@ -826,24 +826,24 @@ const homeVi: AgentDolphinHomeCopy = {
 
 const homeEn: AgentDolphinHomeCopy = {
   eyebrow: "Dolphin Care",
-  title: "Growth AI — Chatbot on [[Web / Zalo / Messenger]]",
+  title: "AI chatbot for guests on [[Web, Zalo, Messenger]]",
   support:
-    "Care is growth revenue: customer chatbot AI on your channels, tied to CRM. Usually sold with CRM combos; from CRM + Care 6, a business website may be gifted when deploying.",
+    "Dolphin Care is the growth AI layer on CRM — 24/7 answers in your ops and brand voice, lead capture, daily insights. Not a rigid script chatbot.",
   cta: "Explore Dolphin Care",
   ctaSecondary: "Get a quote",
-  trustMicro: "Growth AI · usually with CRM · Web/Zalo/Messenger",
+  trustMicro: "Growth AI · on CRM · Web/Zalo/Messenger · combo may gift website",
   benefits: [
     {
-      title: "Multi-channel, on-context care",
-      body: "Website · Zalo · Messenger — FAQs, booking, lead capture within your shop knowledge.",
+      title: "On-context replies",
+      body: "FAQs answered right away on website / Zalo / Messenger — tied to CRM data, no 24/7 staff desk.",
     },
     {
-      title: "Daily insight reports",
-      body: "Top questions, leads to follow up, and ideas from real chats.",
+      title: "Less manual back-and-forth",
+      body: "Capture details, answer repeats, escalate to a person when needed — leads don’t go cold after hours.",
     },
     {
-      title: "Pairs with CRM + Web combos",
-      body: "Growth AI on the CRM foundation; Website / Landing rights follow the 2026 combo rules.",
+      title: "Insights from real chats",
+      body: "Daily admin report: top questions, leads to follow up, recurring bottlenecks.",
     },
   ],
   situationsLabel: "Dolphin Care handles:",

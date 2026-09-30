@@ -4,7 +4,7 @@
     "id": "why",
     "locale": "vi",
     "brand": "Dolphin Software",
-    "updated": "2026-09-17",
+    "updated": "2026-09-30",
     "schemaPath": "/schema/homepage/why/",
     "rawPath": "/schema/homepage/why.json",
     "productRoute": "/"
@@ -13,8 +13,8 @@
     "order": 3,
     "id": "why",
     "section_label": "Why Dolphin",
-    "headline": "Đối tác công nghệ — không bán một đống tính năng",
-    "subheadline": "Phần lớn doanh nghiệp đang lớn không cần hệ thống hàng trăm nút. Họ cần cách gỡ chỗ đang làm chậm. Dolphin bắt đầu từ doanh nghiệp — phần mềm, AI và tự động hóa chỉ là cách giải.",
+    "headline": "Đối tác vận hành — CRM lõi, AI tăng trưởng, website combo",
+    "subheadline": "Phần lớn spa, salon, clinic không cần hệ thống hàng trăm nút. Họ cần CRM gom khách–lịch–follow-up, AI Care/Ops khi đã sẵn sàng, và website theo quyền lợi combo — không bán thừa.",
     "promise": "We don't start with technology. We start with your problem.",
     "layout": "icon-line-pillars",
     "pillars": [
@@ -26,12 +26,12 @@
       {
         "icon": "delivery",
         "title": "Xác định nghẽn",
-        "body": "Chỉ ra chỗ mất thời gian, mất lead, hoặc phụ thuộc một người."
+        "body": "Chỉ ra chỗ mất lead, lịch rải, hoặc phụ thuộc một người — trước khi đề xuất CRM hay AI."
       },
       {
         "icon": "process",
         "title": "Xây đúng thứ",
-        "body": "Website, chatbot AI, CRM, tích hợp hoặc phần mềm riêng — chỉ những gì khớp pain."
+        "body": "CRM thuê theo kỳ trước; Care · Ops · Intelligence khi khớp pain; website tặng hoặc giảm theo combo."
       },
       {
         "icon": "support",

@@ -6,16 +6,16 @@
     "brand": "Dolphin Software",
     "schemaPath": "/schema/agents/dolphin-intelligence/",
     "rawPath": "/schema/agents/dolphin-intelligence.json",
-    "updated": "2026-08-12"
+    "updated": "2026-09-30"
   },
   "pillar": "Automate",
   "displayName": "Dolphin Intelligence",
   "productRoute": "/dolphin-intelligence/",
-  "metaTitle": "Dolphin Intelligence — Nền Tảng AI Workflow Cho Doanh Nghiệp | Dolphin Software",
-  "metaDescription": "Dolphin Intelligence là nền tảng AI workflow giúp doanh nghiệp tự động hóa quy trình bằng AI agent, action và human checkpoint — không cần code, không mất kiểm soát.",
-  "summary": "Nền tảng AI workflow: agent + action + logic + human checkpoint — tự động hóa chuỗi quy trình, không phải chatbot đơn lẻ.",
-  "headline": "Dolphin Intelligence: Biến Quy Trình Lặp Lại Thành AI Workflow Chạy Tự Động",
-  "support": "Thiết kế, điều phối và vận hành quy trình thông minh trong một hệ thống — không cần code, không mất kiểm soát.",
+  "metaTitle": "Dolphin Intelligence – AI workflow add-on khi đã có CRM",
+  "metaDescription": "Dolphin Intelligence là AI workflow add-on khi đã có CRM: agent, action và human checkpoint — tự động hóa chuỗi việc, không phải chatbot kênh khách.",
+  "summary": "Dolphin Intelligence là add-on AI workflow khi doanh nghiệp đã có gói CRM: agent + action + logic + human checkpoint — điều phối nhiều bước nghiệp vụ, không phải chatbot chăm khách (đó là Dolphin Care).",
+  "headline": "Dolphin Intelligence: AI workflow khi vận hành CRM đã sẵn sàng",
+  "support": "Add-on khi đã có CRM. Thiết kế và điều phối chuỗi việc có human checkpoint — không thay Care (kênh khách) hay Ops (chatbox trên CRM).",
   "trustLine": "Agent · Action · Logic · Human Checkpoint",
   "pillars": [
     {

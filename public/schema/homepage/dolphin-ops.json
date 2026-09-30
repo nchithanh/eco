@@ -4,7 +4,7 @@
     "id": "dolphin-ops",
     "locale": "vi",
     "brand": "Dolphin Software",
-    "updated": "2026-08-22",
+    "updated": "2026-09-30",
     "schemaPath": "/schema/homepage/dolphin-ops/",
     "rawPath": "/schema/homepage/dolphin-ops.json",
     "productRoute": "/"
@@ -13,10 +13,10 @@
     "order": 7,
     "id": "dolphin-ops",
     "section_label": "SaaS · Agent CRM",
-    "headline": "Agent CRM cho vận hành nội bộ",
-    "subheadline": "Anh chị nói việc cần làm. Agent chọn Business Tool và mở đúng giao diện — lịch, khách, báo cáo. Chat là cửa vào, không phải toàn bộ sản phẩm.",
+    "headline": "Agent CRM — đội ngũ nói việc, mở đúng màn",
+    "subheadline": "Dolphin Ops là chatbox AI trên CRM: lịch, khách, báo cáo. Anh chị nói việc cần làm — Agent chọn tool và mở đúng giao diện. Care chăm khách bên ngoài; Ops chạy việc nội bộ.",
     "signature": "AI không thay giao diện. Nó chọn đúng giao diện.",
-    "versusCare": "Dolphin Care chăm khách trên website. Dolphin Ops giúp đội ngũ chạy việc bên trong.",
+    "versusCare": "Dolphin Care chăm khách trên website / Zalo / Messenger. Dolphin Ops giúp đội ngũ chạy việc bên trong CRM.",
     "benefits": [
       {
         "title": "Nói việc — mở đúng màn",
@@ -44,7 +44,7 @@
         "style": "secondary"
       }
     ],
-    "trust": "Không phải CRM gắn thêm chat.",
+    "trust": "Không phải CRM gắn thêm chat — Agent chọn đúng tool trên CRM.",
     "visual": "OpsHeroDemo — intent → Booking form (canvas marketing, chưa phải runtime Agent)"
   }
 }

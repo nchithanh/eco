@@ -6,17 +6,17 @@
     "brand": "Dolphin Software",
     "schemaPath": "/schema/agents/dolphin-care/",
     "rawPath": "/schema/agents/dolphin-care.json",
-    "updated": "2026-08-05"
+    "updated": "2026-09-30"
   },
   "pillar": "Care",
   "displayName": "Dolphin Care",
   "formerName": "Agent Dolphin",
   "productRoute": "/dolphin-care/",
-  "metaTitle": "Dolphin Care – AI Chăm Sóc Khách Hàng Trên Website | Báo Cáo Insight Hằng Ngày",
-  "metaDescription": "Dolphin Care là chatbot AI chăm sóc khách hàng trên website cho SMB Việt Nam — trả lời 24/7, tích hợp Zalo & CRM, và gửi báo cáo insight hằng ngày cho admin. Tìm hiểu ngay.",
-  "summary": "AI chăm sóc khách trên website cho SMB Việt Nam — 24/7 + báo cáo insight hằng ngày (câu hỏi phổ biến, lead, điểm nghẽn, gợi ý marketing).",
-  "headline": "Dolphin Care – AI Chăm Sóc Khách Hàng Trên Website Cho SMB Việt Nam",
-  "support": "Không chỉ trả lời khách 24/7 đúng nghiệp vụ và giọng thương hiệu — còn tổng hợp báo cáo insight hằng ngày cho admin từ hội thoại thực tế.",
+  "metaTitle": "Dolphin Care – Chatbot AI trên Web, Zalo, Messenger",
+  "metaDescription": "Dolphin Care là chatbot AI trên website, Zalo và Messenger cho spa, salon, clinic. Trả lời 24/7 đúng nghiệp vụ, ghi lead, gửi insight hằng ngày. Gắn CRM.",
+  "summary": "Dolphin Care là chatbot AI chăm sóc khách trên website, Zalo và Messenger. Nó trả lời đúng nghiệp vụ và giọng thương hiệu 24/7, ghi lead, và gửi báo cáo insight hằng ngày cho admin từ hội thoại thực tế — không phải chatbot kịch bản cứng.",
+  "headline": "Dolphin Care – Chatbot AI chăm sóc khách trên Website, Zalo, Messenger",
+  "support": "Trả lời 24/7 đúng nghiệp vụ và giọng thương hiệu; ghi lead; gửi báo cáo insight hằng ngày từ hội thoại thực tế — không phải chatbot kịch bản cứng.",
   "trustLine": "LLM · Nghiệp vụ doanh nghiệp · Ngữ cảnh khách hàng · Báo cáo insight hằng ngày",
   "layers": [
     {
@@ -84,12 +84,20 @@
       "a": "Có. Dolphin Care hỗ trợ tích hợp Zalo OA, giúp thông báo và dữ liệu khách hàng được đồng bộ sang Zalo theo thời gian thực."
     },
     {
+      "q": "Dolphin Care khác Dolphin Ops ở đâu?",
+      "a": "Dolphin Care là AI chăm sóc khách hàng của anh chị trên website, Zalo, Messenger. Dolphin Ops là Agent CRM giúp đội ngũ chạy việc nội bộ — lịch, khách, báo cáo."
+    },
+    {
+      "q": "Thuê lẻ Care có tặng website không?",
+      "a": "Không. Gói thuê lẻ Dolphin Care dành cho khách đã có CRM — không tặng website. Website doanh nghiệp được tặng khi combo CRM + Care từ 6 tháng (hoặc CRM + Ops / Full Growth) khi triển khai."
+    },
+    {
       "q": "Dolphin Care phù hợp với doanh nghiệp quy mô nào?",
-      "a": "Dolphin Care được thiết kế đặc biệt cho SMB Việt Nam — doanh nghiệp vừa và nhỏ đang vận hành website và muốn tự động hóa CSKH mà không cần đội ngũ kỹ thuật lớn."
+      "a": "Dolphin Care phù hợp spa, salon, clinic và doanh nghiệp dịch vụ muốn chăm khách ngoài giờ trên website, Zalo, Messenger mà không cần đội kỹ thuật lớn."
     },
     {
       "q": "Chi phí triển khai Dolphin Care là bao nhiêu?",
-      "a": "Dolphin Software báo giá minh bạch theo phạm vi triển khai thực tế — không tính phí ẩn, không bán thêm dịch vụ không cần thiết. Liên hệ để nhận tư vấn và báo giá phù hợp với quy mô doanh nghiệp."
+      "a": "Care thuê theo kỳ (niêm yết từ khoảng 1.000.000đ/tháng, trả trước 6 hoặc 12 tháng theo chính sách giá 2026). Báo giá combo CRM + Care qua Zalo hoặc Contact — không phí ngoài phạm vi đã thỏa thuận."
     }
   ],
   "positioningNote": "báo giá minh bạch, không bán thêm dịch vụ không cần thiết, hỗ trợ sau bàn giao",

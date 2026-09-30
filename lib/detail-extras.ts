@@ -36,16 +36,20 @@ const serviceExtras: L<ServiceExtras> = {
   vi: {
     web: {
       audience:
-        "Doanh nghiệp vừa và nhỏ (SMB), startup, và đội marketing cần website hoàn chỉnh, bàn giao đúng hạn và dễ báo giá.",
+        "Doanh nghiệp dịch vụ B2B (spa, nail, salon, giáo dục, clinic) đang thuê hoặc chuẩn bị thuê CRM — cần website theo quyền lợi combo.",
       useCases: [
-        "Landing page cho chiến dịch quảng cáo hoặc ra mắt sản phẩm mới",
-        "Website doanh nghiệp với CMS để tự quản lý nội dung",
-        "Website đa ngôn ngữ hỗ trợ VI / EN / JA cho doanh nghiệp hướng xuất khẩu hoặc khách quốc tế",
+        "Landing tặng với CRM Base 12 — thu lead gắn follow-up CRM",
+        "Website DN tặng từ CRM + Care 6 — hồ sơ + Care trên Web/Zalo/Messenger",
+        "Website đa ngôn ngữ VI / EN / JA khi doanh nghiệp có khách quốc tế",
       ],
       faq: [
         {
           q: "Thiết kế website theo yêu cầu giá bao nhiêu?",
-          a: "Giá phụ thuộc vào phạm vi: số trang, thiết kế tùy chỉnh hay dùng template, có CMS không, và các tích hợp như form hoặc thanh toán. Gói khởi điểm từ $38 (landing page) đến $380 (e-commerce). Báo giá chính xác được cung cấp sau khi xác nhận mục tiêu.",
+          a: "Landing 1.500.000đ. Website doanh nghiệp 4.500.000đ. Combo CRM + Care từ 6 tháng tặng website đó khi triển khai. CRM Base 12 tặng landing hoặc giảm 50% website (còn 2.250.000đ). Shop, web app và tích hợp nâng cao báo riêng.",
+        },
+        {
+          q: "Phần mềm CRM của Dolphin Software có tặng website không?",
+          a: "Có, theo combo. CRM + Dolphin Care từ 6 tháng, CRM + Ops, và Full Growth tặng website doanh nghiệp (4.500.000đ) khi triển khai. CRM Base 12 tặng landing hoặc giảm 50% website. Thuê lẻ Care — khách đã có CRM — không tặng website.",
         },
         {
           q: "Làm website doanh nghiệp mất bao lâu?",
@@ -69,7 +73,7 @@ const serviceExtras: L<ServiceExtras> = {
         },
         {
           q: "Dolphin Software có tích hợp AI automation vào website không?",
-          a: "Có. Với định vị là studio phát triển phần mềm và AI, Dolphin Software có thể tích hợp các tính năng AI automation — như chatbot, xử lý đơn hàng tự động, hoặc phân tích dữ liệu — vào website doanh nghiệp theo yêu cầu.",
+          a: "Có. Dolphin Care là chatbot AI trên website, Zalo và Messenger, gắn với CRM. Dolphin Ops là chatbox AI trên CRM. Cả hai thuê theo kỳ, cùng combo có thể tặng website.",
         },
       ],
     },

@@ -75,26 +75,26 @@ const ui: LocaleMap<ServiceDetailUi> = {
 
 const vi: Record<ServiceSlug, ServiceDetail> = {
   web: {
-    title: "Thiết kế website theo yêu cầu cho doanh nghiệp vừa và nhỏ",
-    metaTitle: "Thiết kế website theo yêu cầu | Dolphin Software",
+    title: "Website doanh nghiệp — tặng hoặc giảm theo combo CRM",
+    metaTitle: "CRM tặng website doanh nghiệp | Dolphin Software",
     metaDescription:
-      "Dolphin Software thiết kế website doanh nghiệp, landing page và e-commerce theo yêu cầu — báo giá rõ ràng, bàn giao đúng hạn, dễ mở rộng về sau. Xem gói dịch vụ.",
+      "Website DN 4.500.000đ · Landing 1.500.000đ. CRM + Care từ 6 tháng tặng website khi triển khai. Base 12 tặng landing hoặc −50% web. Báo giá rõ, không phí ẩn.",
     intro:
-      "Khách tìm Google không ra tiệm, hoặc vào site rồi không gọi — đó là lúc website là giải pháp đúng. Dolphin Software xây website doanh nghiệp, landing và shop với phạm vi rõ, tiến độ minh bạch, dễ mở rộng. Không phải mọi vấn đề đều bắt đầu bằng website; khi pain là tìm thấy và chuyển đổi, đây là chỗ bắt đầu.",
-    highlightsTitle: "Bạn nhận được gì từ dịch vụ thiết kế web của Dolphin Software?",
+      "Website và landing là quyền lợi combo khi thuê CRM (± AI) tại Dolphin Software — không phải sản phẩm mở đầu. Landing 1.500.000đ; website doanh nghiệp 4.500.000đ. Từ CRM + Care 6: tặng website DN khi triển khai. CRM Base 12: tặng landing hoặc giảm 50% website (còn 2.250.000đ). Thuê lẻ Care không tặng website.",
+    highlightsTitle: "Website combo CRM — anh chị nhận được gì?",
     highlightsLead:
-      "Mỗi website do Dolphin Software xây dựng đều được thiết kế hướng đến chuyển đổi — không chỉ đẹp về hình thức mà còn hoạt động hiệu quả cho doanh nghiệp.",
+      "Website gắn vận hành: form/lead nối CRM, có thể gắn Dolphin Care. Đẹp chưa đủ — phải giúp tiệm nhận và chăm khách.",
     processTitle: "Quy trình làm việc",
     processLead:
       "Dolphin Software theo quy trình theo từng milestone — minh bạch, gọn gàng, không kéo dài không cần thiết.",
     deliverablesTitle: "Bàn giao bao gồm những gì?",
     deliverablesLead:
-      "Phù hợp nhất cho: doanh nghiệp vừa và nhỏ (SMB), startup, và đội marketing cần website hoàn chỉnh, bàn giao đúng hạn và dễ báo giá.",
+      "Phù hợp nhất cho doanh nghiệp dịch vụ B2B đang thuê hoặc chuẩn bị thuê CRM — cần website theo quyền lợi combo.",
     highlights: [
-      "Landing page & marketing site tối ưu chuyển đổi, rõ thông điệp",
-      "Website doanh nghiệp đa trang cho profile công ty, dịch vụ, SEO dài hạn",
-      "CMS headless (Strapi) để đội ngũ tự cập nhật nội dung mà không cần lập trình viên",
-      "Nền tảng SEO kỹ thuật bao gồm meta tags, tốc độ tải, mobile, sitemap/robots",
+      "Landing / website DN theo chính sách combo CRM 2026 (tặng hoặc giảm)",
+      "Website doanh nghiệp đa trang: hồ sơ, dịch vụ, SEO dài hạn",
+      "CMS headless (Strapi) để đội ngũ tự cập nhật nội dung",
+      "SEO kỹ thuật nền: meta, tốc độ, mobile, sitemap/robots — sẵn sàng gắn Care",
     ],
     process: [
       "Khám phá mục tiêu — xác định sitemap, cấu trúc nội dung, và yêu cầu kỹ thuật",

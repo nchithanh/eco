@@ -66,14 +66,14 @@ const ZALO = "https://zalo.me/0779937633";
 const EMAIL = "mailto:support@dolphin-software.io.vn";
 
 const vi: LandingCopy = {
-  metaTitle: "Thiết Kế Landing Page Chuyên Nghiệp | Dolphin Software",
+  metaTitle: "Landing page tặng với CRM Base 12 | Dolphin",
   metaDescription:
-    "Dịch vụ thiết kế landing page cho SMB Việt Nam — bàn giao trong 3–5 ngày, CTA rõ ràng, tối ưu chuyển đổi. Báo giá cố định, không phát sinh chi phí ngoài scope.",
-  eyebrow: "Service · Landing Page",
-  title: "Dịch vụ thiết kế Landing Page cho doanh nghiệp vừa và nhỏ",
-  lead: "Khách click quảng cáo rồi không để lại thông tin — landing là trang một mục tiêu: biến người truy cập thành lead. Dolphin bàn giao trong 3–5 ngày làm việc, CTA rõ, responsive, kèm hướng dẫn vận hành.",
+    "Landing 1.500.000đ, bàn giao 3–5 ngày. CRM Base 12 tặng landing khi triển khai. Form thu lead gắn CRM; có thể bổ sung Dolphin Care trên Web/Zalo.",
+  eyebrow: "Service · Landing Page · Combo CRM",
+  title: "Landing page — tặng với CRM Base 12 hoặc mua one-time",
+  lead: "Landing page tại Dolphin Software là quyền lợi combo CRM — không phải sản phẩm mở đầu. Giá one-time 1.500.000đ, bàn giao 3–5 ngày. CRM Base 12 tặng Landing khi triển khai. Một trang, một CTA, form ngắn — lead vào CRM để follow-up.",
   fitLine:
-    "Phù hợp cho: chiến dịch quảng cáo, ra mắt dịch vụ mới, thu lead nhanh — không cần website nhiều trang.",
+    "Phù hợp cho: CRM Base 12 (tặng landing), campaign thu lead, ra mắt dịch vụ — gắn follow-up CRM / Care.",
   ctaPrimary: "Nhận báo giá ngay",
   ctaSecondary: "Xem bảng giá",
 
@@ -204,13 +204,13 @@ const vi: LandingCopy = {
       name: "Landing Page cơ bản",
       price: "{{landingPrice}}",
       timeline: "3–5 ngày",
-      fit: "Thu lead, quảng bá dịch vụ",
+      fit: "Thu lead; tặng với CRM Base 12",
     },
     {
       name: "Landing Page nâng cao",
       price: "Báo giá theo scope",
       timeline: "5–7 ngày",
-      fit: "Tích hợp form CRM, payment, Zalo OA",
+      fit: "CRM, payment, Zalo OA, Care",
     },
   ],
   pricingCta: "Nhận báo giá ngay →",
@@ -219,32 +219,24 @@ const vi: LandingCopy = {
   faqTitle: "Câu hỏi thường gặp về thiết kế Landing Page",
   faqItems: [
     {
+      q: "Phần mềm CRM có tặng landing page không?",
+      a: "Có. CRM Base 12 tặng Landing Page (1.500.000đ) khi triển khai, hoặc giảm 50% website DN. Từ CRM + Care 6 trở đi tặng website doanh nghiệp (4.500.000đ), không chỉ landing.",
+    },
+    {
       q: "Thiết kế landing page mất bao lâu?",
-      a: "Landing page tiêu chuẩn tại Dolphin Software được bàn giao trong 3–5 ngày làm việc sau khi chốt scope và nhận đủ nội dung từ khách hàng. Trang có tích hợp phức tạp hơn (CRM, payment) có thể cần 5–7 ngày.",
+      a: "Landing tiêu chuẩn bàn giao trong 3–5 ngày làm việc sau khi chốt scope và nhận đủ nội dung. Tích hợp phức tạp hơn (CRM, payment, Care) có thể cần 5–7 ngày.",
     },
     {
       q: "Landing page có khác website không?",
-      a: "Có. Website là hệ thống nhiều trang phục vụ nhiều mục đích (giới thiệu công ty, sản phẩm, blog, liên hệ). Landing page là một trang duy nhất tập trung vào một hành động cụ thể — phù hợp cho chiến dịch quảng cáo hoặc ra mắt dịch vụ mới. Xem thêm dịch vụ website tại /services/web/.",
-    },
-    {
-      q: "Tôi có thể tự chỉnh sửa nội dung sau khi bàn giao không?",
-      a: "Có. Dolphin Software cung cấp hướng dẫn chỉnh sửa nội dung cơ bản (văn bản, hình ảnh) sau bàn giao. Nếu cần CMS đầy đủ để tự cập nhật thường xuyên, hãy nêu yêu cầu khi báo giá.",
-    },
-    {
-      q: "Landing page có được tối ưu cho quảng cáo không?",
-      a: "Có. Mỗi landing page được tối ưu on-page SEO cơ bản (meta title, description, heading structure) và tích hợp Google Analytics 4 để theo dõi hiệu quả quảng cáo Google Ads hoặc Facebook Ads.",
-    },
-    {
-      q: "Nếu tôi chưa có nội dung, Dolphin Software có hỗ trợ không?",
-      a: "Dolphin Software có thể hỗ trợ tư vấn cấu trúc nội dung (content outline) cho landing page. Nội dung chuyên sâu theo ngành sẽ cần phía khách hàng cung cấp hoặc bổ sung scope viết nội dung.",
+      a: "Có. Website DN là nhiều trang (hồ sơ, dịch vụ, SEO dài hạn). Landing là một trang, một hành động. Xem /services/web/ cho website DN và quyền lợi combo.",
     },
     {
       q: "Chi phí thiết kế landing page tại Dolphin Software là bao nhiêu?",
-      a: "Landing page cơ bản bắt đầu từ {{landingPrice}}, bao gồm thiết kế UI, responsive, form thu lead, và tích hợp GA4. Các gói nâng cao (CRM, payment gateway, Zalo OA) được báo giá theo scope cụ thể — không áp dụng mức giá cố định chung.",
+      a: "Landing cơ bản 1.500.000đ one-time — hoặc tặng với CRM Base 12. Gói nâng cao (CRM, payment, Zalo OA, Care) báo giá theo scope.",
     },
     {
       q: "Dolphin Software có hỗ trợ tích hợp chatbot AI vào landing page không?",
-      a: "Có. Dolphin Software cung cấp giải pháp Dolphin Care — chatbot AI được tích hợp trực tiếp vào trang web, hỗ trợ trả lời câu hỏi tự động, thu thập lead, và chuyển tiếp cho nhân viên khi cần. Tính năng này có thể bổ sung vào scope landing page theo yêu cầu. Chi tiết tại /dolphin-care/.",
+      a: "Có — Dolphin Care (chatbot AI trên Web / Zalo / Messenger) bổ sung vào scope hoặc combo CRM + Care. Chi tiết tại /dolphin-care/.",
     },
   ],
 

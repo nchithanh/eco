@@ -44,11 +44,14 @@ describe("service detail pages", () => {
     expect(
       await section.findByRole("heading", {
         level: 2,
-        name: /Giải pháp xoay quanh cách doanh nghiệp đang chạy/i,
+        name: /Khách và lịch một chỗ, không trôi trên Zalo/i,
       }),
     ).toBeInTheDocument();
     expect(
-      section.getByRole("heading", { level: 3, name: /^Website$/i }),
+      section.getByRole("heading", {
+        level: 3,
+        name: /Website \/ Landing \(kèm combo\)/i,
+      }),
     ).toBeInTheDocument();
     expect(
       section.getByRole("link", { name: /Landing Page/i }),
@@ -97,14 +100,17 @@ describe("service detail pages", () => {
 
     expect(
       screen.getByRole("heading", {
-        name: /Thiết kế website theo yêu cầu cho doanh nghiệp vừa và nhỏ/i,
+        name: /Website doanh nghiệp — tặng hoặc giảm theo combo CRM/i,
       }),
     ).toBeInTheDocument();
     expect(
-      screen.getByText(/Bạn nhận được gì từ dịch vụ thiết kế web của Dolphin Software/i),
+      screen.getByText(/Website combo CRM — anh chị nhận được gì/i),
     ).toBeInTheDocument();
     expect(
       screen.getByText(/Thiết kế website theo yêu cầu giá bao nhiêu/i),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(/Phần mềm CRM của Dolphin Software có tặng website không/i),
     ).toBeInTheDocument();
     expect(
       screen.getAllByRole("button", { name: /Nhận báo giá miễn phí/i }).length,
@@ -173,14 +179,14 @@ describe("service detail pages", () => {
     expect(
       screen.getByRole("heading", {
         level: 1,
-        name: /AI chăm sóc khách hàng trên/i,
+        name: /Dolphin Care.*chăm khách trên website/i,
       }),
     ).toBeInTheDocument();
     expect(
-      screen.getByText(/Dolphin Care có hỗ trợ tích hợp Zalo không/i),
+      screen.getByText(/Dolphin Care có tích hợp được với Zalo không/i),
     ).toBeInTheDocument();
     expect(
-      screen.getByText(/Chi phí triển khai Dolphin Care như thế nào/i),
+      screen.getByText(/Chi phí triển khai Dolphin Care là bao nhiêu/i),
     ).toBeInTheDocument();
   });
 
@@ -194,7 +200,7 @@ describe("service detail pages", () => {
     expect(
       screen.getByRole("heading", {
         level: 1,
-        name: /Agent CRM cho vận hành doanh nghiệp/i,
+        name: /Agent CRM.*cho vận hành/i,
       }),
     ).toBeInTheDocument();
     expect(
@@ -222,12 +228,10 @@ describe("service detail pages", () => {
         /Đổi form hay báo cáo, anh chị có phải chờ bộ phận software không/i,
       ),
     ).toBeInTheDocument();
-    const opsLinks = screen.getAllByRole("link", { name: /^Dolphin Ops$/i });
+    const opsLinks = screen
+      .getAllByRole("link", { name: /^(Dolphin )?Ops$/i })
+      .filter((el) => /\/dolphin-ops\/?$/.test(el.getAttribute("href") ?? ""));
     expect(opsLinks.length).toBeGreaterThanOrEqual(1);
-    expect(opsLinks[0]).toHaveAttribute(
-      "href",
-      expect.stringMatching(/\/dolphin-ops\/?$/),
-    );
   });
 
   it("renders about page VI SEO content", () => {
@@ -299,7 +303,7 @@ describe("service detail pages", () => {
     expect(
       screen.getByRole("heading", {
         level: 1,
-        name: /Chuyển Đổi AI cho Doanh Nghiệp/i,
+        name: /Muốn dùng AI, chưa biết bắt đầu đâu/i,
       }),
     ).toBeInTheDocument();
     expect(

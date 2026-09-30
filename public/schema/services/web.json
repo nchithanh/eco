@@ -11,18 +11,18 @@
   "role": "Hiện diện số — tặng hoặc giảm theo combo CRM, không phải sản phẩm lõi. Landing 1.500.000đ; website doanh nghiệp 4.500.000đ. Combo CRM + Care từ 6 tháng tặng website khi triển khai.",
   "pillar": "Website",
   "productRoute": "/services/web/",
-  "title": "Thiết kế website theo yêu cầu cho doanh nghiệp vừa và nhỏ",
-  "metaTitle": "Thiết kế website theo yêu cầu | Dolphin Software",
-  "metaDescription": "Dolphin Software thiết kế website doanh nghiệp, landing page và e-commerce theo yêu cầu — báo giá rõ ràng, bàn giao đúng hạn, dễ mở rộng về sau. Xem gói dịch vụ.",
-  "intro": "Website và landing là lớp hiện diện số của Dolphin Software, đi cùng CRM thuê theo kỳ. Landing 1.500.000đ; website doanh nghiệp 4.500.000đ. Combo CRM + Dolphin Care từ 6 tháng tặng website khi triển khai. CRM Base 12 tặng landing hoặc giảm 50% website.",
+  "title": "Website doanh nghiệp — tặng hoặc giảm theo combo CRM",
+  "metaTitle": "CRM tặng website doanh nghiệp | Dolphin Software",
+  "metaDescription": "Website DN 4.500.000đ · Landing 1.500.000đ. CRM + Care từ 6 tháng tặng website khi triển khai. Base 12 tặng landing hoặc −50% web. Báo giá rõ, không phí ẩn.",
+  "intro": "Website và landing là quyền lợi combo khi thuê CRM (± AI) tại Dolphin Software — không phải sản phẩm mở đầu. Landing 1.500.000đ; website doanh nghiệp 4.500.000đ. Từ CRM + Care 6: tặng website DN khi triển khai. CRM Base 12: tặng landing hoặc giảm 50% website (còn 2.250.000đ). Thuê lẻ Care không tặng website.",
   "tech": "Next.js · React · Headless CMS (Strapi)",
-  "highlightsTitle": "Bạn nhận được gì từ dịch vụ thiết kế web của Dolphin Software?",
-  "highlightsLead": "Mỗi website do Dolphin Software xây dựng đều được thiết kế hướng đến chuyển đổi — không chỉ đẹp về hình thức mà còn hoạt động hiệu quả cho doanh nghiệp.",
+  "highlightsTitle": "Website combo CRM — anh chị nhận được gì?",
+  "highlightsLead": "Website gắn vận hành: form/lead nối CRM, có thể gắn Dolphin Care. Đẹp chưa đủ — phải giúp tiệm nhận và chăm khách.",
   "highlights": [
-    "Landing page & marketing site tối ưu chuyển đổi, rõ thông điệp",
-    "Website doanh nghiệp đa trang cho profile công ty, dịch vụ, SEO dài hạn",
-    "CMS headless (Strapi) để đội ngũ tự cập nhật nội dung mà không cần lập trình viên",
-    "Nền tảng SEO kỹ thuật bao gồm meta tags, tốc độ tải, mobile, sitemap/robots"
+    "Landing / website DN theo chính sách combo CRM 2026 (tặng hoặc giảm)",
+    "Website doanh nghiệp đa trang: hồ sơ, dịch vụ, SEO dài hạn",
+    "CMS headless (Strapi) để đội ngũ tự cập nhật nội dung",
+    "SEO kỹ thuật nền: meta, tốc độ, mobile, sitemap/robots — sẵn sàng gắn Care"
   ],
   "processTitle": "Quy trình làm việc",
   "processLead": "Dolphin Software theo quy trình theo từng milestone — minh bạch, gọn gàng, không kéo dài không cần thiết.",
@@ -39,11 +39,11 @@
     "Tài liệu cấu trúc CMS / nội dung",
     "Checklist ra mắt và hỗ trợ ngắn sau launch"
   ],
-  "audience": "Doanh nghiệp vừa và nhỏ (SMB), startup, và đội marketing cần website hoàn chỉnh, bàn giao đúng hạn và dễ báo giá.",
+  "audience": "Doanh nghiệp dịch vụ B2B (spa, nail, salon, giáo dục, clinic) đang thuê hoặc chuẩn bị thuê CRM — cần website theo quyền lợi combo.",
   "useCases": [
-    "Landing page cho chiến dịch quảng cáo hoặc ra mắt sản phẩm mới",
-    "Website doanh nghiệp với CMS để tự quản lý nội dung",
-    "Website đa ngôn ngữ hỗ trợ VI / EN / JA cho doanh nghiệp hướng xuất khẩu hoặc khách quốc tế"
+    "Landing tặng với CRM Base 12 — thu lead gắn follow-up CRM",
+    "Website DN tặng từ CRM + Care 6 — hồ sơ + Care trên Web/Zalo/Messenger",
+    "Website đa ngôn ngữ VI / EN / JA khi doanh nghiệp có khách quốc tế"
   ],
   "caseStudies": [
     {

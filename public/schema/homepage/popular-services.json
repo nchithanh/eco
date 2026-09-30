@@ -4,7 +4,7 @@
     "id": "popular-services",
     "locale": "vi",
     "brand": "Dolphin Software",
-    "updated": "2026-09-17",
+    "updated": "2026-09-30",
     "schemaPath": "/schema/homepage/popular-services/",
     "rawPath": "/schema/homepage/popular-services.json",
     "productRoute": "/",
@@ -14,8 +14,8 @@
     "order": 11,
     "id": "popular-services",
     "section_label": "Website packages",
-    "headline": "Website / Landing — hỗ trợ chốt theo combo CRM",
-    "subheadline": "Không phải catalog agency. Landing / Website DN one-time theo chính sách giá 2026 — tặng hoặc giảm sâu khi thuê CRM (± AI).",
+    "headline": "Phần mềm CRM tặng website — quyền lợi combo 2026",
+    "subheadline": "Landing 1.500.000đ · Website DN 4.500.000đ. CRM Base 12 tặng landing hoặc −50% website. Từ CRM + Care 6: tặng website DN khi triển khai — không phải catalog agency đứng một mình.",
     "ui_pattern": "click-select-split",
     "note_fx": "Giá VND từ ONETIME_WEB. Quy đổi FX tham chiếu lib/pricing-fx.ts.",
     "packages": [
@@ -49,7 +49,7 @@
         }
       }
     ],
-    "footer_note": "Shop / web app / tích hợp nâng cao báo riêng (outsource). Chọn combo CRM · AI trong báo giá để áp quyền lợi web.",
+    "footer_note": "Shop / web app / tích hợp nâng cao báo riêng (outsource). Thuê lẻ Care — khách đã có CRM — không tặng website. Chọn combo CRM · AI trong báo giá để áp quyền lợi web.",
     "zalo_cta": {
       "label": "Tư vấn Zalo miễn phí",
       "href": "https://zalo.me/0779937633"

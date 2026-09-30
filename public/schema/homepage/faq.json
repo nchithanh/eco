@@ -4,7 +4,7 @@
     "id": "faq",
     "locale": "vi",
     "brand": "Dolphin Software",
-    "updated": "2026-09-17",
+    "updated": "2026-09-30",
     "schemaPath": "/schema/homepage/faq/",
     "rawPath": "/schema/homepage/faq.json",
     "productRoute": "/"
@@ -14,29 +14,39 @@
     "id": "faq",
     "section_label": "FAQ",
     "headline": "Câu hỏi thường gặp",
-    "subheadline": "Dolphin làm gì · tệp khách · hiện đại hóa hay làm mới · AI thực tế · quy trình hợp tác — trả lời trước khi bắt đầu.",
+    "subheadline": "CRM · AI Care/Ops · website theo combo · báo giá — trả lời trước khi bắt đầu.",
     "aeo_note": "Mỗi câu trả lời được viết để công cụ tìm kiếm và AI có thể trích dẫn độc lập.",
     "items": [
       {
         "id": "faq-what",
         "question": "Dolphin Software làm gì?",
-        "answer": "Dolphin Software là đối tác công nghệ cho doanh nghiệp đang lớn. Chúng tôi giúp hiện đại hóa vận hành bằng phần mềm, AI và tự động hóa quanh quy trình thật — bắt đầu từ vấn đề kinh doanh, không từ catalog sản phẩm.",
+        "answer": "Dolphin Software cho thuê CRM và AI (SaaS) cho doanh nghiệp dịch vụ B2B tại Việt Nam — spa, nail, salon, giáo dục, clinic. CRM là nền vận hành. Care, Ops và Intelligence là lớp tăng trưởng. Website tặng hoặc giảm theo combo CRM.",
         "open": true
+      },
+      {
+        "id": "faq-website-gift",
+        "question": "Phần mềm CRM có tặng website không?",
+        "answer": "Có, theo combo. CRM + Dolphin Care từ 6 tháng, CRM + Ops và Full Growth tặng website doanh nghiệp (4.500.000đ) khi triển khai. CRM Base 12 tặng landing hoặc giảm 50% website. Thuê lẻ Care không tặng website."
+      },
+      {
+        "id": "faq-care-vs-ops",
+        "question": "Dolphin Care khác Dolphin Ops ở đâu?",
+        "answer": "Dolphin Care là AI chăm sóc khách hàng của anh chị trên website, Zalo, Messenger. Dolphin Ops là Agent CRM giúp đội ngũ chạy việc nội bộ — lịch, khách, báo cáo."
       },
       {
         "id": "faq-who",
         "question": "Dolphin làm việc với loại doanh nghiệp nào?",
-        "answer": "Chủ yếu SMB và startup đang lớn — spa, salon, edu, clinic, dịch vụ và mô hình cần hệ thống linh hoạt. Nếu anh chị đang vượt Excel/tin nhắn rời hoặc muốn nâng cấp cách vận hành, đó thường là tệp phù hợp."
+        "answer": "Chủ yếu doanh nghiệp dịch vụ B2B đang lớn — spa, nail, salon, giáo dục, clinic. Nếu lịch và khách đang rải trên Zalo/Excel, hoặc muốn AI gắn vận hành thật, đó thường là tệp phù hợp."
       },
       {
         "id": "faq-website-only",
         "question": "Dolphin chỉ làm website thôi sao?",
-        "answer": "Không. Website là một cách giải khi pain là được tìm thấy và chuyển đổi. Dolphin còn CRM vận hành (Ops), chatbot AI kênh khách (Care), tích hợp, tự động hóa và phần mềm theo nghiệp vụ."
+        "answer": "Không. Website là quyền lợi combo khi thuê CRM (± AI), không phải sản phẩm mở đầu. Lõi là CRM thuê theo kỳ; Care, Ops và Intelligence là lớp tăng trưởng."
       },
       {
         "id": "faq-modernize",
         "question": "Làm hệ thống mới hay nâng cấp cái đang chạy?",
-        "answer": "Cả hai. Ưu tiên hiện đại hóa khi hệ thống cũ còn dùng được; chỉ xây mới khi phần mềm sẵn không khớp nghiệp vụ. Không mặc định làm lại toàn bộ."
+        "answer": "Cả hai. Ưu tiên gắn CRM và AI vào quy trình đang chạy; outsource may đo khi gói sẵn chưa khớp. Không mặc định làm lại toàn bộ."
       },
       {
         "id": "faq-integrate",
@@ -46,42 +56,42 @@
       {
         "id": "faq-ai",
         "question": "AI áp dụng vào doanh nghiệp mình thế nào?",
-        "answer": "Khi gắn dữ liệu và quy trình thật: Care (chatbot Web/Zalo/Messenger), Ops (chatbox trên CRM), hoặc workflow/agent (Intelligence). Không bắt đầu bằng 'mua AI' — bắt đầu bằng việc đang tốn giờ."
+        "answer": "Khi gắn dữ liệu và quy trình thật: Care (chatbot Web/Zalo/Messenger), Ops (chatbox trên CRM), hoặc Intelligence (workflow add-on khi đã có CRM). Không bắt đầu bằng mua AI — bắt đầu bằng việc đang tốn giờ."
       },
       {
         "id": "faq-replace",
         "question": "Có phải thay hết hệ thống hiện tại không?",
-        "answer": "Không bắt buộc. Nhiều việc là nối và nâng cấp từng phần. Thay toàn bộ chỉ khi hai bên thống nhất đó là cách hợp lý."
+        "answer": "Không bắt buộc. Nhiều việc là nối CRM/AI vào cách anh chị đang bán và chăm khách. Thay toàn bộ chỉ khi hai bên thống nhất đó là cách hợp lý."
       },
       {
         "id": "faq-custom",
         "question": "Có làm giải pháp riêng theo quy trình của tiệm không?",
-        "answer": "Có — phần mềm và workflow theo nghiệp vụ khi gói sẵn không đủ. Phạm vi, milestone và bàn giao được khóa trước khi làm."
+        "answer": "Có — phần mềm và workflow theo nghiệp vụ khi gói sẵn không đủ. Phạm vi, milestone và bàn giao (source với outsource) được khóa trước khi làm."
       },
       {
         "id": "faq-non-technical",
         "question": "Doanh nghiệp không rành kỹ thuật có làm việc được không?",
-        "answer": "Được. Anh chị kể chỗ đang nghẽn bằng ngôn ngữ kinh doanh; Dolphin đề xuất phạm vi, bàn giao và hướng dẫn vận hành."
+        "answer": "Được. Anh chị kể chỗ đang nghẽn bằng ngôn ngữ kinh doanh; Dolphin đề xuất combo CRM · AI · website khớp pain."
       },
       {
         "id": "faq-process",
         "question": "Làm việc với Dolphin trông như thế nào?",
-        "answer": "Hiểu → định phạm vi & báo giá → sprint/demo → UAT → bàn giao & đồng hành. Đầu ra rõ ở mỗi bước; đổi phạm vi chỉ khi hai bên đồng ý."
+        "answer": "Hiểu ngành → chọn CRM (± AI) → khóa phạm vi & báo giá → triển khai / UAT → bàn giao & đồng hành. Website đi theo rule combo nếu đủ điều kiện."
       },
       {
         "id": "faq-quote",
         "question": "Báo giá và phí ẩn?",
-        "answer": "Brief ngắn qua Contact hoặc Zalo. Phản hồi hướng tiếp cận và phạm vi dự kiến — không phí ngoài phạm vi đã thỏa thuận."
+        "answer": "Brief ngắn qua Contact hoặc Zalo. Phản hồi hướng tiếp cận và phạm vi dự kiến — không phí ngoài phạm vi đã thỏa thuận. Có thể tham chiếu trang Chính sách giá Dolphin 2026."
       },
       {
         "id": "faq-maintenance",
         "question": "Bảo trì sau bàn giao khác tính năng mới thế nào?",
-        "answer": "Sau bàn giao: hướng dẫn + bảo hành lỗi kỹ thuật trong phạm vi đã nghiệm thu (theo thỏa thuận). Tính năng mới báo giá riêng."
+        "answer": "Website: bảo hành kỹ thuật 36 tháng. CRM và AI (SaaS): trong hạn gói đã thanh toán. Outsource: 3 tháng sau nghiệm thu. Tính năng mới báo giá riêng."
       },
       {
         "id": "faq-start",
         "question": "Làm sao để bắt đầu?",
-        "answer": "Kể vấn đề đang nghẽn qua form Contact hoặc Zalo. Không cần biết sẵn 'cần website hay AI' — cùng chọn bước tiếp theo khớp pain."
+        "answer": "Kể ngành dịch vụ và chỗ đang nghẽn qua form Contact hoặc Zalo. Không cần biết sẵn tên gói — cùng chọn CRM và lớp AI / website phù hợp."
       }
     ]
   }

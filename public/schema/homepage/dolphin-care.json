@@ -4,7 +4,7 @@
     "id": "dolphin-care",
     "locale": "vi",
     "brand": "Dolphin Software",
-    "updated": "2026-08-03",
+    "updated": "2026-09-30",
     "schemaPath": "/schema/homepage/dolphin-care/",
     "rawPath": "/schema/homepage/dolphin-care.json",
     "productRoute": "/"
@@ -13,20 +13,20 @@
     "order": 6,
     "id": "dolphin-care",
     "section_label": "Dolphin Care",
-    "headline": "AI giảm tải vận hành và nâng cao hiệu quả",
-    "subheadline": "Dolphin Care là giải pháp AI chat tích hợp trực tiếp lên website của bạn — trả lời đúng việc, đúng giọng điệu thương hiệu, giảm câu hỏi lặp đi lặp lại.",
+    "headline": "Chatbot AI chăm khách trên Web, Zalo, Messenger",
+    "subheadline": "Dolphin Care là lớp AI tăng trưởng trên CRM — trả lời đúng nghiệp vụ và giọng thương hiệu 24/7, ghi lead, gửi insight hằng ngày. Không phải chatbot kịch bản cứng.",
     "benefits": [
       {
         "title": "Trả lời đúng ngữ cảnh",
-        "body": "Câu hỏi thường gặp được phản hồi ngay khi khách vừa vào trang — không cần nhân viên trực 24/7."
+        "body": "Câu hỏi thường gặp được phản hồi ngay trên website / Zalo / Messenger — gắn dữ liệu CRM, không cần nhân viên trực 24/7."
       },
       {
         "title": "Giảm trao đổi thủ công",
-        "body": "Thu thập thông tin, trả lời câu hỏi lặp và chuyển tiếp sang người khi cần thiết."
+        "body": "Thu thập thông tin, trả lời câu hỏi lặp và chuyển tiếp sang người khi cần — lead không trôi ngoài giờ."
       },
       {
-        "title": "Không bỏ lỡ lead ngoài giờ",
-        "body": "Khách vẫn nhận được phản hồi đầu tiên ngoài giờ làm việc — cơ hội không trôi qua."
+        "title": "Insight từ hội thoại thật",
+        "body": "Báo cáo hằng ngày cho admin: câu hỏi phổ biến, lead cần follow-up, điểm nghẽn lặp lại."
       }
     ],
     "ctas": [
@@ -41,7 +41,7 @@
         "style": "secondary"
       }
     ],
-    "compatibility_note": "Thêm vào website mới hoặc website bạn đang chạy",
+    "compatibility_note": "Thêm vào website mới hoặc đang chạy — combo CRM + Care từ 6 tháng tặng website DN",
     "chat_demo": {
       "messages": [
         {

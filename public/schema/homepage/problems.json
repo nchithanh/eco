@@ -4,7 +4,7 @@
     "id": "problems",
     "locale": "vi",
     "brand": "Dolphin Software",
-    "updated": "2026-09-17",
+    "updated": "2026-09-30",
     "schemaPath": "/schema/homepage/problems/",
     "rawPath": "/schema/homepage/problems.json",
     "productRoute": "/"
@@ -14,13 +14,13 @@
     "id": "problems",
     "section_label": "What is slowing you down?",
     "headline": "Điều gì đang làm chậm doanh nghiệp của anh chị?",
-    "subheadline": "Doanh nghiệp lớn lên — vận hành thường vỡ thành việc tay, tool rời và thiếu tầm nhìn. Mở bằng chỗ đang nghẽn, rồi mới chọn công cụ.",
+    "subheadline": "Doanh nghiệp dịch vụ lớn lên — lịch, khách và follow-up thường vỡ thành Zalo/Excel. Mở bằng chỗ đang nghẽn, rồi mới chọn CRM · AI · website combo.",
     "items": [
       {
         "title": "Quá nhiều việc làm tay",
-        "body": "Team mất giờ cho việc lặp lại mỗi ngày — nhắc lịch, nhập liệu, chuyển tin.",
-        "href": "/ai-transform/",
-        "solution": "Tự động hóa"
+        "body": "Team mất giờ nhắc lịch, nhập liệu, chuyển tin mỗi ngày — chưa có CRM gom một nơi.",
+        "href": "/dolphin-ops/",
+        "solution": "CRM / Tự động hóa"
       },
       {
         "title": "Khách bị bỏ sót",
@@ -30,9 +30,9 @@
       },
       {
         "title": "Website không giúp tiệm lớn lên",
-        "body": "Có trang, nhưng khách vào rồi không gọi, không để lại thông tin — digital presence chưa gắn với bán & chăm.",
+        "body": "Có trang nhưng khách vào rồi không gọi — digital chưa gắn CRM & chăm sóc. Website tặng/giảm theo combo CRM, không làm web đứng một mình.",
         "href": "/services/web/",
-        "solution": "Website"
+        "solution": "Website combo CRM"
       },
       {
         "title": "Công cụ không nói chuyện với nhau",
@@ -42,15 +42,15 @@
       },
       {
         "title": "Doanh nghiệp phụ thuộc quá nhiều vào người",
-        "body": "Quy trình và dữ liệu khách nằm trong đầu nhân viên — khó bàn giao, khó scale.",
-        "href": "/services/software/",
-        "solution": "Hệ thống / CRM"
+        "body": "Quy trình và dữ liệu khách nằm trong đầu nhân viên — khó bàn giao, khó scale. CRM + Ops giữ việc trong hệ thống.",
+        "href": "/dolphin-ops/",
+        "solution": "CRM / Agent CRM"
       },
       {
         "title": "Muốn dùng AI, chưa biết bắt đầu đâu",
-        "body": "Biết AI quan trọng, chưa rõ use case nào gắn dữ liệu và quy trình thật để ra giá trị.",
+        "body": "AI chỉ có giá trị khi gắn CRM và quy trình thật: Care (chăm khách), Ops (chạy việc nội bộ), Intelligence (add-on).",
         "href": "/ai-transform/",
-        "solution": "AI thực tế"
+        "solution": "AI trên CRM"
       }
     ]
   }

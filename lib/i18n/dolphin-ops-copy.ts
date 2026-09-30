@@ -1270,60 +1270,60 @@ export type DolphinOpsHomeCopy = {
 
 const homeVi: DolphinOpsHomeCopy = {
   eyebrow: "SaaS · Agent CRM",
-  title: "[[CRM nền]] + chatbox AI tăng trưởng",
+  title: "[[Agent CRM]] — đội ngũ nói việc, mở đúng màn",
   support:
-    "CRM là doanh thu nền (thuê theo ngành dịch vụ). Ops là AI tăng trưởng trên CRM: nói việc — mở đúng màn lịch, khách, báo cáo. Web / Landing theo combo CRM · AI.",
+    "Dolphin Ops là chatbox AI trên CRM: lịch, khách, báo cáo. Anh chị nói việc cần làm — Agent chọn tool và mở đúng giao diện. Care chăm khách bên ngoài; Ops chạy việc nội bộ.",
   quote: "AI không thay giao diện. Nó chọn đúng giao diện.",
   vsCare:
-    "Care = chatbot AI kênh khách (tăng trưởng). Ops = vận hành + chatbox AI trên CRM (tăng trưởng trên nền CRM).",
+    "Dolphin Care chăm khách trên website / Zalo / Messenger. Dolphin Ops giúp đội ngũ chạy việc bên trong CRM.",
   benefits: [
     {
       title: "Nói việc — mở đúng màn",
       body: "Không đi menu → module → form. Form, Customer 360 hay chart hiện đúng lúc cần.",
     },
     {
-      title: "Tầm nhìn vận hành rõ hơn",
-      body: "Khách, booking, thông báo và báo cáo trong một luồng — bớt phối hợp tay giữa các app.",
+      title: "Admin chỉnh tool bằng chat",
+      body: "Thêm trường, công thức báo cáo, quy tắc duyệt trong tool đã bật — không ticket software từng thay đổi nhỏ.",
     },
     {
-      title: "Gắn AI khi cần tăng trưởng",
-      body: "Ops / Care bán kèm CRM; không phải CRM doanh nghiệp khổng lồ.",
+      title: "Việc nhạy thì người duyệt",
+      body: "Thanh toán, hoàn tiền, xóa dữ liệu, gửi hàng loạt có thể dừng để người có quyền xác nhận.",
     },
   ],
   wedgeLabel: "Ưu tiên",
   wedge: ["Spa", "Salon", "Clinic", "Shop dịch vụ"],
   cta: "Xem Ops chạy việc",
   ctaSecondary: "Nói chuyện với chúng tôi",
-  trust: "CRM nền · AI tăng trưởng · Web hỗ trợ chốt",
+  trust: "Không phải CRM gắn thêm chat — Agent chọn đúng tool trên CRM.",
 };
 
 const homeEn: DolphinOpsHomeCopy = {
   eyebrow: "SaaS · Agent CRM",
-  title: "[[CRM foundation]] + growth chatbox AI",
+  title: "[[Agent CRM]] — say the job, open the right screen",
   support:
-    "CRM is base revenue (rented by service vertical). Ops is growth AI on CRM: say the job — open the right calendar, customer, or report screen. Website / Landing follows CRM · AI combos.",
+    "Dolphin Ops is a chatbox AI on CRM: calendar, customers, reports. You say the job — the Agent picks the tool and opens the right UI. Care serves guests outside; Ops runs internal work.",
   quote: "AI does not replace the interface. It picks the right one.",
   vsCare:
-    "Care = customer-channel chatbot AI (growth). Ops = operations + chatbox AI on CRM (growth on the CRM base).",
+    "Dolphin Care cares for guests on website / Zalo / Messenger. Dolphin Ops helps the team run work inside the CRM.",
   benefits: [
     {
       title: "Say the job — open the right screen",
       body: "No menu → module → form. A form, Customer 360, or a chart appears when the job needs it.",
     },
     {
-      title: "Clearer operational visibility",
-      body: "Customers, bookings, notifications and reports in one flow — less manual coordination across apps.",
+      title: "Admins change tools in chat",
+      body: "Add fields, report formulas, approval rules on enabled tools — no software ticket for every small change.",
     },
     {
-      title: "Add AI when you need growth",
-      body: "Ops / Care sold with CRM — not a giant enterprise CRM.",
+      title: "Sensitive work waits for a person",
+      body: "Payments, refunds, deletes, bulk sends can pause for an authorized confirmation.",
     },
   ],
   wedgeLabel: "We start with",
   wedge: ["Spa", "Salon", "Clinic", "Service shop"],
   cta: "See Ops run the job",
   ctaSecondary: "Talk to us",
-  trust: "CRM base · AI growth · Web helps close",
+  trust: "Not a CRM with chat bolted on — the Agent picks the right CRM tool.",
 };
 
 const homeJa: DolphinOpsHomeCopy = {
