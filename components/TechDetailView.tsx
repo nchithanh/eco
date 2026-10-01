@@ -54,7 +54,7 @@ export function TechDetailContent({
  ) : null}
  <Reveal delay={80} variant="right">
  <div
- className={`${embedded ? "mt-0" : "mt-6"} relative aspect-[16/9] max-w-3xl overflow-hidden rounded-xl shadow-[0_1rem_2.5rem_rgba(139,92,246,0.12)]`}
+ className={`${embedded ? "mt-0" : "mt-6"} relative aspect-[16/9] max-w-3xl overflow-hidden rounded-[10px] shadow-[0_1rem_2.5rem_rgba(139,92,246,0.12)]`}
  >
  <LazyImage
  src={hero}
@@ -100,7 +100,7 @@ export function TechDetailContent({
 
  <div className="mt-10 grid gap-6 lg:grid-cols-2 lg:items-stretch">
  <Reveal className="h-full">
- <div className="kuct-surface-card h-full rounded-xl p-6">
+ <div className="kuct-surface-card h-full rounded-[10px] p-6">
  <h2 className="font-display text-lg font-semibold text-[var(--kuct-text)]">
  {xui.whenToUseTitle}
  </h2>
@@ -112,7 +112,7 @@ export function TechDetailContent({
  </div>
  </Reveal>
  <Reveal delay={60} className="h-full">
- <div className="kuct-surface-card h-full rounded-xl p-6">
+ <div className="kuct-surface-card h-full rounded-[10px] p-6">
  <h2 className="font-display text-lg font-semibold text-[var(--kuct-text)]">
  {xui.stackFitTitle}
  </h2>
@@ -134,7 +134,7 @@ export function TechDetailContent({
  key={feature.title}
  as="li"
  delay={40 + index * 40}
- className="kuct-surface-card kuct-card-hover rounded-xl p-5"
+ className="kuct-surface-card kuct-card-hover rounded-[10px] p-5"
  >
  <h3 className="font-display text-base font-semibold text-[var(--kuct-text)]">
  {feature.title}
@@ -151,7 +151,7 @@ export function TechDetailContent({
  href={detail.officialUrl}
  target="_blank"
  rel="noopener noreferrer"
- className="kuct-btn-primary inline-flex items-center rounded-lg px-5 py-3 text-sm font-semibold"
+ className="kuct-btn-primary inline-flex items-center rounded-full px-5 py-3 text-sm font-semibold"
  >
  {ui.visitOfficial}
  </a>

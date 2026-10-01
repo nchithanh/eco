@@ -548,7 +548,6 @@ html[data-theme="orangered"] .kuct-feature-card {
 .kuct-type-h1 {
   font-family: var(--font-display), var(--font-sans), var(--font-jp), Inter,
     "Noto Sans JP", ui-sans-serif, system-ui, sans-serif;
-  font-weight: 300;
   letter-spacing: -0.02em;
   line-height: 1.08;
   color: var(--kuct-text);
@@ -557,7 +556,6 @@ html[data-theme="orangered"] .kuct-feature-card {
 .kuct-type-h2 {
   font-family: var(--font-display), var(--font-sans), var(--font-jp), Inter,
     "Noto Sans JP", ui-sans-serif, system-ui, sans-serif;
-  font-weight: 300;
   letter-spacing: -0.01em;
   line-height: 1.15;
   color: var(--kuct-text);
@@ -699,14 +697,6 @@ html[data-theme="orangered"] .kuct-feature-card {
 }
 
 /* Beat Tailwind font-semibold on large titles — keep light display face */
-h1.font-display,
-h2.font-display,
-.kuct-type-h1,
-.kuct-type-h2,
-.kuct-hero-display {
-  font-weight: 300 !important;
-}
-
 /* Process (#process): white cards, no pastel grid */
 .kuct-process-card {
   border-radius: 10px;
@@ -811,38 +801,7 @@ h2.font-display,
   --pastel-grid: transparent;
 }
 
-/* Problems (#problems): white cards + violet chrome (mockup Jasper) */
-.kuct-problem-card {
-  position: relative;
-  overflow: hidden;
-  border-radius: 10px;
-  border: none;
-  background-color: var(--kuct-surface, #fff);
-  box-shadow: 0 0.35rem 1.25rem rgb(26 22 37 / 0.04);
-  color: var(--kuct-text);
-  transition:
-    transform 220ms ease,
-    box-shadow 220ms ease;
-}
-
-.kuct-problem-card::before {
-  content: none;
-  display: none;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  a.kuct-problem-card:hover {
-    box-shadow: 0 0.75rem 1.75rem rgb(26 22 37 / 0.08);
-    transform: translateY(-2px);
-  }
-}
-
-.kuct-problem-card__icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: flex-start;
-  margin-inline-start: -0.125rem;
-}
+/* Problems (#problems): layout is ElevenLabs-style in HomeProblems.tsx (no card chrome). */
 
 .kuct-pastel-card__bar {
   background: var(--pastel-bar);
@@ -1915,7 +1874,6 @@ html[data-theme="violet"] .kuct-banner-cta-outline:hover {
 .kuct-hero-display {
   font-family: var(--font-display), var(--font-sans), var(--font-jp), Inter,
     "Noto Sans JP", ui-sans-serif, system-ui, sans-serif;
-  font-weight: 300;
   letter-spacing: -0.02em;
   line-height: 1.08;
   font-size: clamp(2rem, 4.5vw, 3rem); /* ~32–48px */

@@ -98,7 +98,7 @@ const vi: Dictionary = {
     ],
   },
   trustMetrics: {
-    aria: "Thông số tin cậy Dolphin Software",
+    aria: "Thông số và định vị Dolphin Software",
     items: [
       { value: "+200", label: "Người dùng" },
       { value: "10+", label: "Đối tác" },
@@ -106,6 +106,14 @@ const vi: Dictionary = {
       { value: "2", label: "Quốc gia" },
       { value: "5+", label: "Kinh nghiệm kỹ thuật" },
       { value: "24/7", label: "Thời gian" },
+    ],
+    chips: [
+      { value: "CRM", label: "Nền vận hành" },
+      { value: "Care", label: "AI chăm sóc khách" },
+      { value: "Ops", label: "Agent trên CRM" },
+      { value: "SMB", label: "Doanh nghiệp dịch vụ" },
+      { value: "HCM", label: "Việt Nam" },
+      { value: "24/7", label: "Care ngoài giờ" },
     ],
   },
   popularServices: popularServicesByLocale.vi,
@@ -723,7 +731,7 @@ const en: Dictionary = {
     ],
   },
   trustMetrics: {
-    aria: "Dolphin Software trust metrics",
+    aria: "Dolphin Software metrics and positioning",
     items: [
       { value: "+200", label: "Users" },
       { value: "10+", label: "Partners" },
@@ -731,6 +739,14 @@ const en: Dictionary = {
       { value: "2", label: "Countries" },
       { value: "5+", label: "Engineering experience" },
       { value: "24/7", label: "Availability" },
+    ],
+    chips: [
+      { value: "CRM", label: "Operating base" },
+      { value: "Care", label: "AI customer care" },
+      { value: "Ops", label: "Agent on CRM" },
+      { value: "SMB", label: "Service businesses" },
+      { value: "HCM", label: "Vietnam" },
+      { value: "24/7", label: "Care after hours" },
     ],
   },
   popularServices: popularServicesByLocale.en,
@@ -1363,7 +1379,7 @@ const ja: Dictionary = {
     ],
   },
   trustMetrics: {
-    aria: "Dolphin Softwareの信頼指標",
+    aria: "Dolphin Softwareの指標とポジショニング",
     items: [
       { value: "+200", label: "ユーザー" },
       { value: "10+", label: "パートナー" },
@@ -1371,6 +1387,14 @@ const ja: Dictionary = {
       { value: "2", label: "国" },
       { value: "5+", label: "技術経験" },
       { value: "24/7", label: "稼働" },
+    ],
+    chips: [
+      { value: "CRM", label: "運営基盤" },
+      { value: "Care", label: "AIカスタマーケア" },
+      { value: "Ops", label: "CRM上のエージェント" },
+      { value: "SMB", label: "サービス事業者" },
+      { value: "HCM", label: "ベトナム" },
+      { value: "24/7", label: "時間外Care" },
     ],
   },
   popularServices: popularServicesByLocale.ja!,

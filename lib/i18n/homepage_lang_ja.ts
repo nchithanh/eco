@@ -31,6 +31,7 @@ export const homepageLangJa: HomepageLang = {
     title: "何が事業を[[遅らせて]]いますか？",
     support:
       "成長とともに運用は手作業・ばらばらなツール・見通し不足に割れがちです。詰まっている箇所から始め、それから手段を選びます。",
+    cta: "課題について話す",
     items: [
       {
         title: "手作業が多すぎる",

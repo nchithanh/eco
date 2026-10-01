@@ -155,7 +155,7 @@ export function SoftwareServiceContent({
                 <button
                   type="button"
                   onClick={openQuoteFlow}
-                  className="kuct-btn-primary inline-flex items-center rounded-lg px-5 py-3 text-sm font-semibold"
+                  className="kuct-btn-primary inline-flex items-center rounded-full px-5 py-3 text-sm font-semibold"
                 >
                   {ui.cta}
                 </button>
@@ -275,7 +275,7 @@ export function SoftwareServiceContent({
                     key={step}
                     as="li"
                     delay={40 + index * 40}
-                    className="kuct-surface-card flex gap-4 rounded-xl p-5 sm:p-6"
+                    className="kuct-surface-card flex gap-4 rounded-[10px] p-5 sm:p-6"
                   >
                     <span
                       aria-hidden
@@ -337,7 +337,7 @@ export function SoftwareServiceContent({
           </Reveal>
           <div className="mt-12 grid items-start gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-12">
             <Reveal delay={40}>
-              <ul className="kuct-surface-card space-y-3 rounded-xl p-6 sm:p-8">
+              <ul className="kuct-surface-card space-y-3 rounded-[10px] p-6 sm:p-8">
                 {detail.deliverables.map((item) => (
                   <li
                     key={item}
@@ -390,7 +390,7 @@ export function SoftwareServiceContent({
                     key={item}
                     as="li"
                     delay={40 + index * 30}
-                    className="kuct-surface-card rounded-xl p-5 sm:p-6"
+                    className="kuct-surface-card rounded-[10px] p-5 sm:p-6"
                   >
                     {heading ? (
                       <>
@@ -436,7 +436,7 @@ export function SoftwareServiceContent({
           </Reveal>
           <div className="mt-12 grid items-start gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-12">
             <Reveal delay={40}>
-              <div className="kuct-surface-card rounded-xl p-6 sm:p-8">
+              <div className="kuct-surface-card rounded-[10px] p-6 sm:p-8">
                 <p className="text-base leading-relaxed text-[var(--kuct-muted)] sm:text-lg">
                   {extras.audience}
                 </p>
@@ -526,7 +526,7 @@ export function SoftwareServiceContent({
                 <button
                   type="button"
                   onClick={openQuoteFlow}
-                  className="kuct-btn-primary inline-flex items-center rounded-lg px-5 py-3 text-sm font-semibold"
+                  className="kuct-btn-primary inline-flex items-center rounded-full px-5 py-3 text-sm font-semibold"
                 >
                   {ui.cta}
                 </button>

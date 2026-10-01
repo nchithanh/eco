@@ -108,10 +108,13 @@ export type Dictionary = {
     support: string;
     items: { value: string; label: string }[];
   };
-  /** Compact stats strip under Hero */
+  /** Compact stats + positioning chips under Hero */
   trustMetrics: {
     aria: string;
+    /** KPI / scale numbers */
     items: { value: string; label: string }[];
+    /** Qualitative positioning chips (CRM · Care · Ops …) */
+    chips: { value: string; label: string }[];
   };
   popularServices: {
     eyebrow: string;
@@ -358,6 +361,8 @@ export type Dictionary = {
     eyebrow: string;
     title: string;
     support: string;
+    /** Pill CTA under section title (ElevenLabs-style header) */
+    cta: string;
     items: { title: string; body: string; href: string; solution: string }[];
   };
   cofounder: {

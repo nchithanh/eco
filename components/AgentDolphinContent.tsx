@@ -141,7 +141,7 @@ function HeroChatCards({
 
  return (
  <div
- className="relative min-h-[22rem] overflow-hidden rounded-xl bg-[var(--kuct-panel)] shadow-[0_1rem_2.5rem_rgb(26_21_32/0.08)] sm:min-h-[26rem] lg:min-h-[28rem]"
+ className="relative min-h-[22rem] overflow-hidden rounded-[10px] bg-[var(--kuct-panel)] shadow-none sm:min-h-[26rem] lg:min-h-[28rem]"
  data-motion={motion ? "desktop" : "static"}
  >
  <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(var(--kuct-accent-rgb),0.18),transparent_55%),radial-gradient(ellipse_at_80%_80%,rgba(var(--kuct-accent-rgb),0.1),transparent_50%)]" />
@@ -233,7 +233,7 @@ function SectionImage({
 }) {
  return (
  <div
- className={`relative ${aspect} overflow-hidden rounded-xl bg-[var(--kuct-panel)] shadow-[0_1rem_2.5rem_rgb(26_21_32/0.08)]`}
+ className={`relative ${aspect} overflow-hidden rounded-[10px] bg-[var(--kuct-panel)] shadow-none`}
  >
  <LazyImage
  src={assetPath(src)}
@@ -285,7 +285,7 @@ export function AgentDolphinContent({ embedded = false }: { embedded?: boolean }
  <button
  type="button"
  onClick={openQuote}
- className="kuct-btn-primary inline-flex items-center rounded-lg px-5 py-3 text-sm font-semibold"
+ className="kuct-btn-primary inline-flex items-center rounded-full px-5 py-3 text-sm font-semibold"
  >
  {c.ctaPrimary}
  </button>
@@ -419,7 +419,7 @@ export function AgentDolphinContent({ embedded = false }: { embedded?: boolean }
  <ul className="mt-10 grid gap-5 sm:grid-cols-2">
  {c.features.map((feature, index) => (
  <Reveal as="li" key={feature.title} delay={index * 60}>
- <article className="kuct-surface-card flex h-full flex-col rounded-xl p-6 sm:p-7">
+ <article className="kuct-surface-card flex h-full flex-col rounded-[10px] p-6 sm:p-7">
  <h3 className="font-display text-lg font-semibold text-[var(--kuct-text)] sm:text-xl">
  {feature.title}
  </h3>
@@ -462,7 +462,7 @@ export function AgentDolphinContent({ embedded = false }: { embedded?: boolean }
  <SectionImage src={IMG.compare} alt="" />
  </Reveal>
  <Reveal delay={100} className="mt-10 overflow-x-auto">
- <table className="w-full min-w-[36rem] border-collapse overflow-hidden rounded-xl bg-[var(--kuct-panel)] text-left text-sm shadow-[0_1rem_2.5rem_rgb(26_21_32/0.08)]">
+ <table className="w-full min-w-[36rem] border-collapse overflow-hidden rounded-[10px] bg-[var(--kuct-panel)] text-left text-sm shadow-none">
  <caption className="sr-only">{c.compareTitle.replace(/\[\[|\]\]/g, "")}</caption>
  <thead>
  <tr className="border-b border-[var(--kuct-border)] bg-[rgba(var(--kuct-accent-rgb),0.06)]">
@@ -522,7 +522,7 @@ export function AgentDolphinContent({ embedded = false }: { embedded?: boolean }
  <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
  {c.industries.map((item, index) => (
  <Reveal as="li" key={item.name} delay={index * 40}>
- <article className="kuct-surface-card h-full rounded-xl p-5">
+ <article className="kuct-surface-card h-full rounded-[10px] p-5">
  <h3 className="font-display text-base font-semibold text-[var(--kuct-text)] sm:text-lg">
  {item.name}
  </h3>
@@ -558,7 +558,7 @@ export function AgentDolphinContent({ embedded = false }: { embedded?: boolean }
  {c.howSteps.map((step, index) => (
  <li
  key={step.title}
- className="kuct-surface-card flex flex-1 gap-4 rounded-xl p-5 sm:p-6"
+ className="kuct-surface-card flex flex-1 gap-4 rounded-[10px] p-5 sm:p-6"
  >
  <span
  aria-hidden
@@ -598,7 +598,7 @@ export function AgentDolphinContent({ embedded = false }: { embedded?: boolean }
  </Reveal>
  <Reveal
  delay={60}
- className="mx-auto mt-10 max-w-3xl divide-y divide-[var(--kuct-border)] overflow-hidden rounded-xl bg-[var(--kuct-panel)] shadow-[0_1rem_2.5rem_rgb(26_21_32/0.08)] backdrop-blur-md"
+ className="mx-auto mt-10 max-w-3xl divide-y divide-[var(--kuct-border)] overflow-hidden rounded-[10px] bg-[var(--kuct-panel)] shadow-none backdrop-blur-md"
  >
  {c.faqItems.map((item, index) => {
  const open = openFaq === index;
@@ -658,7 +658,7 @@ export function AgentDolphinContent({ embedded = false }: { embedded?: boolean }
  <button
  type="button"
  onClick={openQuote}
- className="kuct-btn-primary inline-flex items-center rounded-lg px-5 py-3 text-sm font-semibold"
+ className="kuct-btn-primary inline-flex items-center rounded-full px-5 py-3 text-sm font-semibold"
  >
  {c.closeCta}
  </button>

@@ -74,8 +74,8 @@ function CarouselCard({
  onClick={onNavigate}
  className={
  active
- ? "group relative flex w-[min(100%,18.5rem)] shrink-0 flex-col overflow-hidden rounded-xl bg-[var(--kuct-panel)] shadow-[0_8px_24px_rgb(26_21_32/0.08)] transition duration-500 sm:w-[20rem] lg:w-[21rem]"
- : "group relative flex w-[min(78vw,15rem)] shrink-0 flex-col overflow-hidden rounded-xl bg-[var(--kuct-panel)] opacity-55 transition duration-500 hover:opacity-75 sm:w-[16rem] lg:w-[17rem]"
+ ? "group relative flex w-[min(100%,18.5rem)] shrink-0 flex-col overflow-hidden rounded-[10px] bg-[var(--kuct-panel)] shadow-[0_8px_24px_rgb(26_21_32/0.08)] transition duration-500 sm:w-[20rem] lg:w-[21rem]"
+ : "group relative flex w-[min(78vw,15rem)] shrink-0 flex-col overflow-hidden rounded-[10px] bg-[var(--kuct-panel)] opacity-55 transition duration-500 hover:opacity-75 sm:w-[16rem] lg:w-[17rem]"
  }
  aria-current={active ? "true" : undefined}
  >

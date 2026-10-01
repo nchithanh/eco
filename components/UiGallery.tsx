@@ -152,7 +152,7 @@ export function UiGallery() {
  <Reveal delay={120} className="mt-12 flex flex-col items-center justify-center gap-3 sm:flex-row">
  <a
  href="#capabilities"
- className="kuct-btn-primary inline-flex items-center justify-center rounded-lg px-5 py-3 text-sm font-semibold shadow-[0_12px_32px_rgb(26_21_32/0.18)]"
+ className="kuct-btn-primary inline-flex items-center justify-center rounded-full px-5 py-3 text-sm font-semibold shadow-[0_12px_32px_rgb(26_21_32/0.18)]"
  >
  {copy.ctaServices}
  </a>

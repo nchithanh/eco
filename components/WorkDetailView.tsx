@@ -56,7 +56,7 @@ export function WorkDetailContent({
  ) : null}
  <Reveal delay={80} variant="right">
  <div
- className={`${embedded ? "mt-0" : "mt-6"} relative aspect-[16/9] max-w-3xl overflow-hidden rounded-xl`}
+ className={`${embedded ? "mt-0" : "mt-6"} relative aspect-[16/9] max-w-3xl overflow-hidden rounded-[10px]`}
  >
  <LazyImage
  src={themeAsset(detail.image, theme)}
@@ -107,7 +107,7 @@ export function WorkDetailContent({
 
  <div className="mx-auto mt-10 grid max-w-7xl gap-6 px-6 lg:grid-cols-2 lg:items-stretch">
  <Reveal className="h-full">
- <div className="kuct-surface-card h-full rounded-xl p-6">
+ <div className="kuct-surface-card h-full rounded-[10px] p-6">
  <h2 className="font-display text-lg font-semibold text-[var(--kuct-text)]">
  {xui.timelineTitle}
  </h2>
@@ -117,7 +117,7 @@ export function WorkDetailContent({
  </div>
  </Reveal>
  <Reveal delay={60} className="h-full">
- <div className="kuct-surface-card h-full rounded-xl p-6">
+ <div className="kuct-surface-card h-full rounded-[10px] p-6">
  <h2 className="font-display text-lg font-semibold text-[var(--kuct-text)]">
  {xui.stackTitle}
  </h2>
@@ -140,7 +140,7 @@ export function WorkDetailContent({
  <button
  type="button"
  onClick={() => setViewerOpen(true)}
- className="kuct-btn-primary inline-flex items-center rounded-lg px-5 py-3 text-sm font-semibold"
+ className="kuct-btn-primary inline-flex items-center rounded-full px-5 py-3 text-sm font-semibold"
  >
  {ui.viewDesign}
  </button>
@@ -150,7 +150,7 @@ export function WorkDetailContent({
  className={
  showDesign
  ? "kuct-btn-ghost inline-flex items-center "
- : "kuct-btn-primary inline-flex items-center rounded-lg px-5 py-3 text-sm font-semibold"
+ : "kuct-btn-primary inline-flex items-center rounded-full px-5 py-3 text-sm font-semibold"
  }
  onClick={() => {
  if (embedded) close();
@@ -215,7 +215,7 @@ function WorkDetailBlock({
  list?: string[];
 }) {
  return (
- <Reveal delay={index * 40} className="kuct-surface-card rounded-xl p-6">
+ <Reveal delay={index * 40} className="kuct-surface-card rounded-[10px] p-6">
  <h2 className="font-display text-lg font-semibold text-[var(--kuct-text)]">
  {title}
  </h2>

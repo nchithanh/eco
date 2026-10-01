@@ -49,7 +49,7 @@ export function WarrantyPolicy2026Content() {
                 href={CONTACTS.zalo}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="kuct-btn-primary inline-flex items-center rounded-[10px] px-5 py-3.5 text-sm font-semibold"
+                className="kuct-btn-primary inline-flex items-center rounded-full px-5 py-3.5 text-sm font-semibold"
               >
                 {WARRANTY_CTA.zaloLabel}
               </a>
@@ -306,7 +306,7 @@ export function WarrantyPolicy2026Content() {
                   href={CONTACTS.zalo}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="kuct-btn-primary inline-flex items-center rounded-[10px] px-5 py-3.5 text-sm font-semibold"
+                  className="kuct-btn-primary inline-flex items-center rounded-full px-5 py-3.5 text-sm font-semibold"
                 >
                   {WARRANTY_CTA.zaloLabel}
                 </a>
@@ -333,7 +333,7 @@ export function WarrantyPolicy2026Content() {
           href={CONTACTS.zalo}
           target="_blank"
           rel="noopener noreferrer"
-          className="kuct-btn-primary inline-flex items-center rounded-[10px] px-5 py-3.5 text-sm font-semibold"
+          className="kuct-btn-primary inline-flex items-center rounded-full px-5 py-3.5 text-sm font-semibold"
         >
           {WARRANTY_CTA.stickyLabel}
         </a>

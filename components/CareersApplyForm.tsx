@@ -16,7 +16,7 @@ import { isJobAcceptingApplications, JOB_HIRING, sortJobsByDisplayOrder } from "
 import { submitLead } from "@/lib/leads-api";
 
 const fieldClass =
- "mt-1 w-full rounded-xl border border-black/15 bg-[var(--kuct-panel)] px-4 py-2.5 text-[var(--kuct-text)] outline-none backdrop-blur-md kuct-field focus:border-black/40";
+ "mt-1 w-full rounded-[10px] border border-black/15 bg-[var(--kuct-panel)] px-4 py-2.5 text-[var(--kuct-text)] outline-none backdrop-blur-md kuct-field focus:border-black/40";
 
 type Props = { initialRole?: JobId };
 
@@ -243,7 +243,7 @@ export function CareersApplyForm({ initialRole }: Props) {
  <button
  type="submit"
  disabled={submitting}
- className="kuct-btn-primary rounded-lg px-5 py-3 text-sm font-semibold disabled:opacity-50"
+ className="kuct-btn-primary rounded-full px-5 py-3 text-sm font-semibold disabled:opacity-50"
  >
  {a.submit}
  </button>

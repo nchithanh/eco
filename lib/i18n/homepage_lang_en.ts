@@ -27,8 +27,16 @@ export const homepageLangEn: HomepageLang = {
     },
   },
   trustMetrics: {
-    aria: "Dolphin Software positioning",
+    aria: "Dolphin Software metrics and positioning",
     items: [
+      { value: "+200", label: "Users" },
+      { value: "10+", label: "Partners" },
+      { value: "25%", label: "Revenue optimized" },
+      { value: "2", label: "Countries" },
+      { value: "5+", label: "Engineering experience" },
+      { value: "24/7", label: "Availability" },
+    ],
+    chips: [
       { value: "CRM", label: "Operating base" },
       { value: "Care", label: "AI customer care" },
       { value: "Ops", label: "Agent on CRM" },
@@ -42,6 +50,7 @@ export const homepageLangEn: HomepageLang = {
     title: "What is [[slowing down]] your business?",
     support:
       "As a service business grows, calendars, customers, and follow-ups often scatter across Zalo/Excel. We open with the bottleneck — then pick a CRM · AI · website combo.",
+    cta: "Talk about your bottleneck",
     items: [
       {
         title: "Too much manual work",

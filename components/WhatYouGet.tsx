@@ -58,7 +58,7 @@ function DeliverableGroup({
  as="li"
  key={item.title}
  delay={index * 45}
- className="flex gap-3.5 rounded-xl bg-[var(--kuct-panel)] p-5 backdrop-blur-md transition duration-300 sm:gap-4"
+ className="flex gap-3.5 rounded-[10px] bg-[var(--kuct-panel)] p-5 backdrop-blur-md transition duration-300 sm:gap-4"
  >
  <span
  aria-hidden

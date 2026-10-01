@@ -59,7 +59,7 @@ export function DolphinIntelligenceContent({
               <button
                 type="button"
                 onClick={openQuote}
-                className="kuct-btn-primary inline-flex items-center rounded-lg px-5 py-3 text-sm font-semibold"
+                className="kuct-btn-primary inline-flex items-center rounded-full px-5 py-3 text-sm font-semibold"
               >
                 {c.ctaPrimary}
               </button>
@@ -127,7 +127,7 @@ export function DolphinIntelligenceContent({
             {c.painCols.map((col, i) => (
               <Reveal key={col.title} delay={i * 40}>
                 <div
-                  className={`h-full rounded-2xl border p-6 ${
+                  className={`h-full rounded-[10px] border p-6 ${
                     i === 1
                       ? "border-[var(--kuct-accent)]/35 bg-[var(--kuct-accent)]/5"
                       : "border-[var(--kuct-border)] bg-[var(--kuct-surface)]"
@@ -176,7 +176,7 @@ export function DolphinIntelligenceContent({
           <div className="mt-8 grid gap-4 sm:grid-cols-2">
             {c.whatVs.map((item, i) => (
               <Reveal key={item.title} delay={i * 40}>
-                <div className="h-full rounded-xl border border-[var(--kuct-border)] p-5">
+                <div className="h-full rounded-[10px] border border-[var(--kuct-border)] p-5">
                   <h3 className="text-base font-semibold text-[var(--kuct-text)]">
                     {item.title}
                   </h3>
@@ -213,7 +213,7 @@ export function DolphinIntelligenceContent({
             {c.pillars.map((p, i) => (
               <Reveal key={p.title} delay={i * 40}>
                 <article
-                  className={`h-full rounded-xl border-l-4 bg-[var(--kuct-surface)] p-5 ring-1 ring-[var(--kuct-border)] ${KIND_ACCENT[p.kind]}`}
+                  className={`h-full rounded-[10px] border-l-4 bg-[var(--kuct-surface)] p-5 ring-1 ring-[var(--kuct-border)] ${KIND_ACCENT[p.kind]}`}
                 >
                   <h3 className="font-display text-lg text-[var(--kuct-text)]">
                     {p.title}
@@ -308,7 +308,7 @@ export function DolphinIntelligenceContent({
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {c.whyItems.map((item, i) => (
               <Reveal key={item.title} delay={i * 30}>
-                <article className="h-full rounded-xl border border-[var(--kuct-border)] p-5">
+                <article className="h-full rounded-[10px] border border-[var(--kuct-border)] p-5">
                   <h3 className="text-base font-semibold text-[var(--kuct-text)]">
                     {item.title}
                   </h3>
@@ -344,7 +344,7 @@ export function DolphinIntelligenceContent({
           <ol className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {c.deploySteps.map((step, i) => (
               <Reveal key={step.title} delay={i * 25} as="li">
-                <div className="h-full rounded-xl border border-[var(--kuct-border)] p-5">
+                <div className="h-full rounded-[10px] border border-[var(--kuct-border)] p-5">
                   <p className="text-xs font-semibold tracking-wide text-[var(--kuct-accent)]">
                     {String(i + 1).padStart(2, "0")}
                   </p>
@@ -384,7 +384,7 @@ export function DolphinIntelligenceContent({
               const btnId = `${faqId}-btn-${i}`;
               return (
                 <Reveal key={item.q} delay={Math.min(i * 20, 120)}>
-                  <div className="rounded-xl border border-[var(--kuct-border)]">
+                  <div className="rounded-[10px] border border-[var(--kuct-border)]">
                     <button
                       type="button"
                       id={btnId}
@@ -423,7 +423,7 @@ export function DolphinIntelligenceContent({
         <div className="mx-auto max-w-7xl px-6">
           <Reveal
             variant="title"
-            className="mx-auto max-w-3xl rounded-2xl border border-[var(--kuct-accent)]/30 bg-[var(--kuct-accent)]/5 px-6 py-10 text-center sm:px-10"
+            className="mx-auto max-w-3xl rounded-[10px] border border-[var(--kuct-accent)]/30 bg-[var(--kuct-accent)]/5 px-6 py-10 text-center sm:px-10"
           >
             <p className="text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
               {c.closeEyebrow}
@@ -441,7 +441,7 @@ export function DolphinIntelligenceContent({
               <button
                 type="button"
                 onClick={openQuote}
-                className="kuct-btn-primary inline-flex items-center rounded-lg px-5 py-3 text-sm font-semibold"
+                className="kuct-btn-primary inline-flex items-center rounded-full px-5 py-3 text-sm font-semibold"
               >
                 {c.closeCta}
               </button>

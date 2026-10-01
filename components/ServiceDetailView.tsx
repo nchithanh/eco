@@ -39,7 +39,7 @@ const MOBILE_IMG = {
 function MobileSectionImage({
   src,
   alt,
-  className = "relative mb-4 aspect-[16/9] overflow-hidden rounded-xl bg-[var(--kuct-panel)]",
+  className = "relative mb-4 aspect-[16/9] overflow-hidden rounded-[10px] bg-[var(--kuct-panel)]",
 }: {
   src: string;
   alt: string;
@@ -146,7 +146,7 @@ export function ServiceDetailContent({
               <div className="mt-8 flex flex-wrap items-center gap-3">
                 <button
                   type="button"
-                  className="kuct-btn-primary inline-flex items-center rounded-lg px-5 py-3.5 text-sm font-semibold shadow-[var(--kuct-shadow)]"
+                  className="kuct-btn-primary inline-flex items-center rounded-full px-5 py-3.5 text-sm font-semibold shadow-[var(--kuct-shadow)]"
                   onClick={openQuoteFlow}
                 >
                   {ui.cta}
@@ -170,10 +170,10 @@ export function ServiceDetailContent({
                   url="yourbusiness.com"
                   showChat={false}
                   animate
-                  className="relative flex h-full min-h-[22rem] flex-col overflow-hidden rounded-xl border border-[var(--kuct-border)] bg-[var(--kuct-panel)] shadow-[var(--kuct-shadow)] sm:min-h-[26rem]"
+                  className="relative flex h-full min-h-[22rem] flex-col overflow-hidden rounded-[10px] border border-[var(--kuct-border)] bg-[var(--kuct-panel)] shadow-[var(--kuct-shadow)] sm:min-h-[26rem]"
                 />
               ) : (
-                <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-[var(--kuct-panel)] sm:aspect-[16/11]">
+                <div className="relative aspect-[4/3] overflow-hidden rounded-[10px] bg-[var(--kuct-panel)] sm:aspect-[16/11]">
                   <LazyImage
                     src={hero}
                     alt={detail.title}
@@ -292,7 +292,7 @@ export function ServiceDetailContent({
                     {extras.faq.map((item) => (
                       <li
                         key={item.q}
-                        className="rounded-lg bg-[var(--kuct-panel-2)] px-3.5 py-3"
+                        className="rounded-[10px] bg-[var(--kuct-panel-2)] px-3.5 py-3"
                       >
                         <h3 className="text-sm font-semibold text-[var(--kuct-text)]">
                           {item.q}
@@ -306,10 +306,10 @@ export function ServiceDetailContent({
                 </Reveal>
               </div>
 
-              <Reveal className="mt-12 rounded-xl bg-[var(--kuct-panel)] px-6 py-8 text-center sm:mt-14 sm:px-10 sm:py-10">
+              <Reveal className="mt-12 rounded-[10px] bg-[var(--kuct-panel)] px-6 py-8 text-center sm:mt-14 sm:px-10 sm:py-10">
                 <button
                   type="button"
-                  className="kuct-btn-primary inline-flex items-center rounded-lg px-5 py-3.5 text-sm font-semibold"
+                  className="kuct-btn-primary inline-flex items-center rounded-full px-5 py-3.5 text-sm font-semibold"
                   onClick={openQuoteFlow}
                 >
                   {ui.cta}
@@ -339,7 +339,7 @@ export function ServiceDetailContent({
               </Reveal>
               <div className="mt-12 grid items-start gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-12">
                 <Reveal delay={40}>
-                  <div className="kuct-surface-card rounded-xl p-6 sm:p-8">
+                  <div className="kuct-surface-card rounded-[10px] p-6 sm:p-8">
                     <p className="text-base leading-relaxed text-[var(--kuct-muted)] sm:text-lg">
                       {extras.audience}
                     </p>
@@ -446,10 +446,10 @@ export function ServiceDetailContent({
 
           <section className="scroll-mt-20 py-16 sm:py-20">
             <div className="mx-auto max-w-7xl px-6">
-              <Reveal className="rounded-xl bg-[var(--kuct-panel)] px-6 py-8 text-center sm:px-10 sm:py-10">
+              <Reveal className="rounded-[10px] bg-[var(--kuct-panel)] px-6 py-8 text-center sm:px-10 sm:py-10">
                 <button
                   type="button"
-                  className="kuct-btn-primary inline-flex items-center rounded-lg px-5 py-3.5 text-sm font-semibold"
+                  className="kuct-btn-primary inline-flex items-center rounded-full px-5 py-3.5 text-sm font-semibold"
                   onClick={openQuoteFlow}
                 >
                   {ui.cta}

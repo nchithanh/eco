@@ -59,8 +59,16 @@ export const homepageLangVi: HomepageLang = {
     },
   },
   trustMetrics: {
-    aria: "Định vị Dolphin Software",
+    aria: "Thông số và định vị Dolphin Software",
     items: [
+      { value: "+200", label: "Người dùng" },
+      { value: "10+", label: "Đối tác" },
+      { value: "25%", label: "Tối ưu doanh thu" },
+      { value: "2", label: "Quốc gia" },
+      { value: "5+", label: "Kinh nghiệm kỹ thuật" },
+      { value: "24/7", label: "Thời gian" },
+    ],
+    chips: [
       { value: "CRM", label: "Nền vận hành" },
       { value: "Care", label: "AI chăm sóc khách" },
       { value: "Ops", label: "Agent trên CRM" },
@@ -74,6 +82,7 @@ export const homepageLangVi: HomepageLang = {
     title: "Điều gì đang [[làm chậm]] doanh nghiệp của anh chị?",
     support:
       "Doanh nghiệp dịch vụ lớn lên — lịch, khách và follow-up thường vỡ thành Zalo/Excel. Mở bằng chỗ đang nghẽn, rồi mới chọn CRM · AI · website combo.",
+    cta: "Nói về bài toán của anh chị",
     items: [
       {
         title: "Quá nhiều việc làm tay",

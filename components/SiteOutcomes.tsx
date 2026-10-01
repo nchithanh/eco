@@ -134,7 +134,7 @@ export function SiteOutcomes() {
                 <button
                   type="button"
                   onClick={openQuote}
-                  className="kuct-btn-primary inline-flex items-center rounded-lg px-5 py-3 text-sm"
+                  className="kuct-btn-primary inline-flex items-center rounded-full px-5 py-3 text-sm"
                 >
                   {ctaPrimary}
                 </button>

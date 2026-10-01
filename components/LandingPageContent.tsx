@@ -93,7 +93,7 @@ export function LandingPageContent() {
               <div className="mt-8 flex flex-wrap items-center gap-3">
                 <button
                   type="button"
-                  className="kuct-btn-primary inline-flex items-center rounded-lg px-5 py-3.5 text-sm font-semibold"
+                  className="kuct-btn-primary inline-flex items-center rounded-full px-5 py-3.5 text-sm font-semibold"
                   onClick={openQuote}
                 >
                   {c.ctaPrimary}
@@ -433,7 +433,7 @@ export function LandingPageContent() {
           <div className="mt-8">
             <button
               type="button"
-              className="kuct-btn-primary inline-flex items-center rounded-lg px-5 py-3.5 text-sm font-semibold"
+              className="kuct-btn-primary inline-flex items-center rounded-full px-5 py-3.5 text-sm font-semibold"
               onClick={openQuote}
             >
               {c.pricingCta}
@@ -552,7 +552,7 @@ export function LandingPageContent() {
                     <button
                       key={link.label}
                       type="button"
-                      className="kuct-btn-primary inline-flex items-center rounded-lg px-5 py-3 text-sm font-semibold"
+                      className="kuct-btn-primary inline-flex items-center rounded-full px-5 py-3 text-sm font-semibold"
                       onClick={openQuote}
                     >
                       {link.label}

@@ -179,7 +179,7 @@ export function WorksShowcase() {
                 <Reveal as="li" key={item.id} delay={index * 60}>
                   <a
                     href={href}
-                    className="group flex h-full touch-pan-y flex-col overflow-hidden rounded-xl bg-[var(--kuct-panel)] text-left backdrop-blur-md transition duration-300 "
+                    className="group flex h-full touch-pan-y flex-col overflow-hidden rounded-[10px] bg-[var(--kuct-panel)] text-left backdrop-blur-md transition duration-300 "
                   >
                     <div className="relative aspect-[16/10] overflow-hidden">
                       <LazyImage
@@ -246,7 +246,7 @@ export function WorksShowcase() {
                           </dd>
                         </div>
                         <div className="mt-auto pt-3">
-                          <div className="flex min-h-[4.75rem] flex-col justify-center rounded-lg bg-[var(--kuct-panel-2)] px-3 py-2.5 ">
+                          <div className="flex min-h-[4.75rem] flex-col justify-center rounded-[10px] bg-[var(--kuct-panel-2)] px-3 py-2.5 ">
                             <dt className="text-[11px] font-semibold tracking-[0.14em] text-[var(--kuct-accent)] uppercase">
                               {w.resultLabel}
                             </dt>

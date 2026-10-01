@@ -81,7 +81,7 @@ export function DolphinOpsContent() {
               <div className="mt-8 flex flex-wrap items-center gap-3">
                 <a
                   href="#ops-dynamic"
-                  className="kuct-btn-primary inline-flex items-center rounded-lg px-5 py-3 text-sm font-semibold"
+                  className="kuct-btn-primary inline-flex items-center rounded-full px-5 py-3 text-sm font-semibold"
                 >
                   {c.ctaPrimary}
                 </a>
@@ -140,7 +140,7 @@ export function DolphinOpsContent() {
           </Reveal>
           <div className="mt-10 grid gap-6 lg:grid-cols-2">
             <Reveal>
-              <article className="h-full rounded-2xl border border-[var(--kuct-border)] bg-[var(--kuct-surface)] p-6">
+              <article className="h-full rounded-[10px] border border-[var(--kuct-border)] bg-[var(--kuct-surface)] p-6">
                 <h3 className="font-display text-lg text-[var(--kuct-text)]">
                   {c.problemTraditionalTitle}
                 </h3>
@@ -168,7 +168,7 @@ export function DolphinOpsContent() {
               </article>
             </Reveal>
             <Reveal delay={40}>
-              <article className="h-full rounded-2xl border border-[var(--kuct-accent)]/35 bg-[var(--kuct-accent)]/5 p-6">
+              <article className="h-full rounded-[10px] border border-[var(--kuct-accent)]/35 bg-[var(--kuct-accent)]/5 p-6">
                 <h3 className="font-display text-lg text-[var(--kuct-text)]">
                   {c.problemOpsTitle}
                 </h3>
@@ -198,7 +198,7 @@ export function DolphinOpsContent() {
           </div>
           <div className="mt-8 grid gap-4 sm:grid-cols-2">
             <Reveal>
-              <article className="rounded-xl border border-[var(--kuct-border)] p-5">
+              <article className="rounded-[10px] border border-[var(--kuct-border)] p-5">
                 <h3 className="text-base font-semibold text-[var(--kuct-text)]">
                   {c.vsCareTitle}
                 </h3>
@@ -208,7 +208,7 @@ export function DolphinOpsContent() {
               </article>
             </Reveal>
             <Reveal delay={30}>
-              <article className="rounded-xl border border-[var(--kuct-accent)]/35 bg-[var(--kuct-accent)]/5 p-5">
+              <article className="rounded-[10px] border border-[var(--kuct-accent)]/35 bg-[var(--kuct-accent)]/5 p-5">
                 <h3 className="text-base font-semibold text-[var(--kuct-text)]">
                   {c.vsOpsTitle}
                 </h3>
@@ -247,7 +247,7 @@ export function DolphinOpsContent() {
           <ol className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
             {c.howSteps.map((step, i) => (
               <Reveal key={step.title} delay={i * 25} as="li">
-                <div className="h-full rounded-xl border border-[var(--kuct-border)] p-5">
+                <div className="h-full rounded-[10px] border border-[var(--kuct-border)] p-5">
                   <p className="text-xs font-semibold tracking-wide text-[var(--kuct-accent)]">
                     {String(i + 1).padStart(2, "0")}
                   </p>
@@ -413,7 +413,7 @@ export function DolphinOpsContent() {
           <div className="mt-10 grid gap-4 sm:grid-cols-2">
             {c.outcomes.map((item, i) => (
               <Reveal key={item.title} delay={i * 25}>
-                <article className="h-full rounded-xl border border-[var(--kuct-border)] bg-[var(--kuct-surface)] p-5">
+                <article className="h-full rounded-[10px] border border-[var(--kuct-border)] bg-[var(--kuct-surface)] p-5">
                   <h3 className="text-base font-semibold text-[var(--kuct-text)]">
                     {item.title}
                   </h3>
@@ -459,7 +459,7 @@ export function DolphinOpsContent() {
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {c.whoItems.map((item, i) => (
               <Reveal key={item.title} delay={i * 30}>
-                <article className="h-full rounded-xl border border-[var(--kuct-border)] p-5">
+                <article className="h-full rounded-[10px] border border-[var(--kuct-border)] p-5">
                   <h3 className="text-base font-semibold text-[var(--kuct-text)]">
                     {item.title}
                   </h3>
@@ -497,7 +497,7 @@ export function DolphinOpsContent() {
               const btnId = `${faqId}-btn-${i}`;
               return (
                 <Reveal key={item.q} delay={Math.min(i * 20, 120)}>
-                  <div className="rounded-xl border border-[var(--kuct-border)]">
+                  <div className="rounded-[10px] border border-[var(--kuct-border)]">
                     <button
                       type="button"
                       id={btnId}
@@ -537,7 +537,7 @@ export function DolphinOpsContent() {
         <div className="mx-auto max-w-7xl px-6">
           <Reveal
             variant="title"
-            className="mx-auto max-w-3xl rounded-2xl border border-[var(--kuct-accent)]/30 bg-[var(--kuct-accent)]/5 px-6 py-10 text-center sm:px-10"
+            className="mx-auto max-w-3xl rounded-[10px] border border-[var(--kuct-accent)]/30 bg-[var(--kuct-accent)]/5 px-6 py-10 text-center sm:px-10"
           >
             <p className="text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
               {c.closeEyebrow}
@@ -554,7 +554,7 @@ export function DolphinOpsContent() {
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
               <a
                 href={ZALO_HREF}
-                className="kuct-btn-primary inline-flex items-center rounded-lg px-5 py-3 text-sm font-semibold"
+                className="kuct-btn-primary inline-flex items-center rounded-full px-5 py-3 text-sm font-semibold"
               >
                 {c.zaloLabel}
               </a>

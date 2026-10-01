@@ -197,7 +197,7 @@ function ChatCard({
  return (
  <div
  ref={panelRef}
- className="flex h-full flex-col overflow-hidden rounded-xl bg-[var(--kuct-panel)] shadow-[0_18px_48px_rgb(26_21_32/0.07)] backdrop-blur-xl"
+ className="flex h-full flex-col overflow-hidden rounded-[10px] bg-[var(--kuct-panel)] shadow-[0_18px_48px_rgb(26_21_32/0.07)] backdrop-blur-xl"
  aria-label={`${agentName} — ${card.context}`}
  >
  <header className="flex items-center gap-3 bg-gradient-to-r from-[var(--kuct-btn-from)] via-[var(--kuct-btn-mid)] to-[var(--kuct-btn-to)] px-3.5 py-2.5 text-white sm:px-4 sm:py-3">
@@ -228,8 +228,8 @@ function ChatCard({
  key={`c-${i}-${m.role}`}
  className={
  m.role === "user"
- ? "ml-6 self-end rounded-xl rounded-br-md bg-[var(--kuct-accent)] px-3 py-2 text-[13px] leading-relaxed text-white sm:text-sm"
- : "mr-5 self-start rounded-xl rounded-bl-md bg-[var(--kuct-panel-2)] px-3 py-2 text-[13px] leading-relaxed text-[var(--kuct-text)] sm:text-sm"
+ ? "ml-6 self-end rounded-[10px] rounded-br-md bg-[var(--kuct-accent)] px-3 py-2 text-[13px] leading-relaxed text-white sm:text-sm"
+ : "mr-5 self-start rounded-[10px] rounded-bl-md bg-[var(--kuct-panel-2)] px-3 py-2 text-[13px] leading-relaxed text-[var(--kuct-text)] sm:text-sm"
  }
  >
  {m.text}
@@ -238,7 +238,7 @@ function ChatCard({
 
  {awaitingType ? (
  <div
- className="mr-5 flex items-center gap-1 self-start rounded-xl rounded-bl-md bg-[var(--kuct-panel-2)] px-3 py-2.5"
+ className="mr-5 flex items-center gap-1 self-start rounded-[10px] rounded-bl-md bg-[var(--kuct-panel-2)] px-3 py-2.5"
  aria-hidden
  >
  <span className="size-1.5 rounded-full bg-[var(--kuct-muted)] lg:animate-pulse" />
@@ -248,7 +248,7 @@ function ChatCard({
  ) : null}
 
  {streamText !== null ? (
- <div className="mr-5 self-start rounded-xl rounded-bl-md bg-[var(--kuct-panel-2)] px-3 py-2 text-[13px] leading-relaxed text-[var(--kuct-text)] sm:text-sm">
+ <div className="mr-5 self-start rounded-[10px] rounded-bl-md bg-[var(--kuct-panel-2)] px-3 py-2 text-[13px] leading-relaxed text-[var(--kuct-text)] sm:text-sm">
  {streamText}
  <span className="ml-0.5 inline-block w-[0.45ch] text-[var(--kuct-accent)] lg:animate-pulse">
  |
@@ -359,14 +359,14 @@ export function AgentDolphinHome() {
  <div className="flex flex-wrap items-center gap-3 sm:gap-4">
  <Link
  href={routePath("/dolphin-care/")}
- className="kuct-btn-primary inline-flex w-full items-center justify-center rounded-lg px-5 py-3.5 text-sm font-semibold sm:w-auto"
+ className="kuct-btn-primary inline-flex w-full items-center justify-center rounded-full px-5 py-3.5 text-sm font-semibold sm:w-auto"
  >
  {c.cta}
  </Link>
  <button
  type="button"
  onClick={openQuote}
- className="kuct-btn-outline inline-flex w-full items-center justify-center rounded-lg px-5 py-3.5 text-sm sm:w-auto"
+ className="kuct-btn-outline inline-flex w-full items-center justify-center rounded-full px-5 py-3.5 text-sm sm:w-auto"
  >
  {c.ctaSecondary}
  </button>

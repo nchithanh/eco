@@ -31,9 +31,7 @@ export function ContactForm({
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-14">
           <Reveal variant="title">
-            <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
-              {c.eyebrow}
-            </p>
+            <p className="kuct-type-eyebrow">{c.eyebrow}</p>
             <HeadingTag
               id={isPage ? "contact-page-heading" : "home-contact-heading"}
               className="mt-4 max-w-xl font-display text-3xl font-semibold leading-[1.12] tracking-tight sm:text-[2.15rem] lg:text-[2.35rem] lg:leading-[1.1]"
@@ -71,7 +69,7 @@ export function ContactForm({
                 href={CONTACTS.zalo}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="kuct-btn-primary inline-flex items-center rounded-lg px-5 py-3 text-sm font-semibold"
+                className="kuct-btn-primary inline-flex items-center rounded-full px-5 py-3 text-sm font-semibold"
               >
                 {c.ctaZalo}
               </a>

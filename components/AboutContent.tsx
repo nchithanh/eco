@@ -39,7 +39,7 @@ export function AboutContent() {
  <button
  type="button"
  onClick={openQuote}
- className="kuct-btn-primary inline-flex items-center rounded-lg px-5 py-3.5 text-sm font-semibold"
+ className="kuct-btn-primary inline-flex items-center rounded-full px-5 py-3.5 text-sm font-semibold"
  >
  {a.ctaPrimary}
  </button>
@@ -273,7 +273,7 @@ export function AboutContent() {
  <button
  type="button"
  onClick={openQuote}
- className="kuct-btn-primary inline-flex items-center rounded-lg px-5 py-3.5 text-sm font-semibold"
+ className="kuct-btn-primary inline-flex items-center rounded-full px-5 py-3.5 text-sm font-semibold"
  >
  {a.ctaPrimary}
  </button>

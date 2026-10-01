@@ -49,7 +49,7 @@ export function MoreDetailContent({
  ) : null}
  <Reveal delay={80} variant="right">
  <div
- className={`${embedded ? "mt-0" : "mt-6"} relative aspect-[16/9] max-w-3xl overflow-hidden rounded-xl shadow-[0_1rem_2.5rem_rgba(139,92,246,0.12)]`}
+ className={`${embedded ? "mt-0" : "mt-6"} relative aspect-[16/9] max-w-3xl overflow-hidden rounded-[10px] shadow-[0_1rem_2.5rem_rgba(139,92,246,0.12)]`}
  >
  <LazyImage
  src={themeAsset(detail.image, theme)}
@@ -77,7 +77,7 @@ export function MoreDetailContent({
  <section className={embedded ? "py-10 sm:py-12" : "py-16 sm:py-20"}>
  <div className="mx-auto grid max-w-7xl gap-8 px-6 lg:grid-cols-2 lg:items-stretch">
  <Reveal className="h-full">
- <div className="kuct-surface-card h-full rounded-xl p-6">
+ <div className="kuct-surface-card h-full rounded-[10px] p-6">
  <h2 className="font-display text-lg font-semibold text-[var(--kuct-text)]">
  {ui.highlightsTitle}
  </h2>
@@ -89,7 +89,7 @@ export function MoreDetailContent({
  </div>
  </Reveal>
  <Reveal delay={60} className="h-full">
- <div className="kuct-surface-card h-full rounded-xl p-6">
+ <div className="kuct-surface-card h-full rounded-[10px] p-6">
  <h2 className="font-display text-lg font-semibold text-[var(--kuct-text)]">
  {ui.processTitle}
  </h2>
@@ -104,7 +104,7 @@ export function MoreDetailContent({
 
  <div className="mx-auto mt-10 max-w-7xl px-6">
  <Reveal>
- <div className="kuct-surface-card rounded-xl p-6">
+ <div className="kuct-surface-card rounded-[10px] p-6">
  <h2 className="font-display text-lg font-semibold text-[var(--kuct-text)]">
  {ui.notesTitle}
  </h2>
@@ -120,7 +120,7 @@ export function MoreDetailContent({
  <Reveal className="mx-auto mt-12 max-w-7xl px-6">
  <Link
  href="/#contact"
- className="kuct-btn-primary inline-flex items-center rounded-lg px-5 py-3 text-sm font-semibold"
+ className="kuct-btn-primary inline-flex items-center rounded-full px-5 py-3 text-sm font-semibold"
  onClick={() => {
  if (embedded) close();
  }}

@@ -88,7 +88,7 @@ export function AiTransformContent({ embedded = false }: { embedded?: boolean })
  <button
  type="button"
  onClick={openQuote}
- className="kuct-btn-primary inline-flex items-center rounded-lg px-5 py-3 text-sm font-semibold"
+ className="kuct-btn-primary inline-flex items-center rounded-full px-5 py-3 text-sm font-semibold"
  >
  {c.ctaPrimary}
  </button>
@@ -132,7 +132,7 @@ export function AiTransformContent({ embedded = false }: { embedded?: boolean })
  </Reveal>
  <div className="mt-12 grid gap-6 lg:grid-cols-2 lg:items-stretch">
  <Reveal delay={40} className="h-full">
- <article className="kuct-surface-card flex h-full flex-col rounded-xl p-6 sm:p-8">
+ <article className="kuct-surface-card flex h-full flex-col rounded-[10px] p-6 sm:p-8">
  <h3 className="font-display text-xl font-semibold text-[var(--kuct-muted)]">
  {c.offShelfTitle}
  </h3>
@@ -149,7 +149,7 @@ export function AiTransformContent({ embedded = false }: { embedded?: boolean })
  </article>
  </Reveal>
  <Reveal delay={100} className="h-full">
- <article className="kuct-surface-card flex h-full flex-col rounded-xl p-6 sm:p-8 ">
+ <article className="kuct-surface-card flex h-full flex-col rounded-[10px] p-6 sm:p-8 ">
  <h3 className="font-display text-xl font-semibold text-[var(--kuct-text)]">
  {c.customTitle}
  </h3>
@@ -194,7 +194,7 @@ export function AiTransformContent({ embedded = false }: { embedded?: boolean })
  key={item.title}
  as="li"
  delay={40 + index * 40}
- className="kuct-surface-card rounded-xl p-6"
+ className="kuct-surface-card rounded-[10px] p-6"
  >
  <span className="text-xs font-bold tracking-[0.14em] text-[var(--kuct-accent)]">
  {String(index + 1).padStart(2, "0")}
@@ -245,7 +245,7 @@ export function AiTransformContent({ embedded = false }: { embedded?: boolean })
  key={item.title}
  as="li"
  delay={40 + index * 40}
- className="kuct-surface-card rounded-xl p-6"
+ className="kuct-surface-card rounded-[10px] p-6"
  >
  <h3 className="font-display text-lg font-semibold text-[var(--kuct-text)]">
  {item.title}
@@ -282,7 +282,7 @@ export function AiTransformContent({ embedded = false }: { embedded?: boolean })
  key={step.title}
  as="li"
  delay={40 + index * 40}
- className="kuct-surface-card flex gap-4 rounded-xl p-5 sm:p-6"
+ className="kuct-surface-card flex gap-4 rounded-[10px] p-5 sm:p-6"
  >
  <span
  aria-hidden
@@ -322,7 +322,7 @@ export function AiTransformContent({ embedded = false }: { embedded?: boolean })
  </p>
  </Reveal>
  <Reveal delay={60} className="mx-auto mt-10 max-w-3xl">
- <ul className="kuct-surface-card space-y-3 rounded-xl p-6 sm:p-8">
+ <ul className="kuct-surface-card space-y-3 rounded-[10px] p-6 sm:p-8">
  {c.agentItems.map((item) => (
  <li
  key={item}
@@ -374,7 +374,7 @@ export function AiTransformContent({ embedded = false }: { embedded?: boolean })
  key={item.title}
  as="li"
  delay={40 + (index % 2) * 40}
- className="kuct-surface-card rounded-xl p-6"
+ className="kuct-surface-card rounded-[10px] p-6"
  >
  <h3 className="font-display text-lg font-semibold text-[var(--kuct-text)]">
  {item.title}
@@ -407,7 +407,7 @@ export function AiTransformContent({ embedded = false }: { embedded?: boolean })
  key={item.name}
  as="li"
  delay={40 + (index % 3) * 40}
- className="kuct-surface-card rounded-xl p-5"
+ className="kuct-surface-card rounded-[10px] p-5"
  >
  <h3 className="font-display text-base font-semibold text-[var(--kuct-text)]">
  {item.name}
@@ -440,7 +440,7 @@ export function AiTransformContent({ embedded = false }: { embedded?: boolean })
  key={item.title}
  as="li"
  delay={40 + index * 40}
- className="kuct-surface-card rounded-xl p-6"
+ className="kuct-surface-card rounded-[10px] p-6"
  >
  <h3 className="font-display text-lg font-semibold text-[var(--kuct-text)]">
  {item.title}
@@ -468,7 +468,7 @@ export function AiTransformContent({ embedded = false }: { embedded?: boolean })
  </p>
  </Reveal>
  <Reveal delay={60} className="mx-auto mt-10 max-w-3xl">
- <ul className="kuct-surface-card space-y-3 rounded-xl p-6 sm:p-8">
+ <ul className="kuct-surface-card space-y-3 rounded-[10px] p-6 sm:p-8">
  {c.govItems.map((item) => (
  <li
  key={item}
@@ -522,7 +522,7 @@ export function AiTransformContent({ embedded = false }: { embedded?: boolean })
  key={item.title}
  as="li"
  delay={40 + (index % 2) * 40}
- className="kuct-surface-card rounded-xl p-5 sm:p-6"
+ className="kuct-surface-card rounded-[10px] p-5 sm:p-6"
  >
  <h3 className="font-display text-base font-semibold text-[var(--kuct-text)]">
  {item.title}
@@ -551,7 +551,7 @@ export function AiTransformContent({ embedded = false }: { embedded?: boolean })
  </Reveal>
  <Reveal
  delay={60}
- className="mx-auto mt-10 max-w-3xl divide-y divide-[var(--kuct-border)] overflow-hidden rounded-xl bg-[var(--kuct-panel)] shadow-[0_1rem_2.5rem_rgb(26_21_32/0.08)] backdrop-blur-md"
+ className="mx-auto mt-10 max-w-3xl divide-y divide-[var(--kuct-border)] overflow-hidden rounded-[10px] bg-[var(--kuct-panel)] shadow-none backdrop-blur-md"
  >
  {c.faqItems.map((item, index) => {
  const open = openFaq === index;
@@ -611,7 +611,7 @@ export function AiTransformContent({ embedded = false }: { embedded?: boolean })
  <button
  type="button"
  onClick={openQuote}
- className="kuct-btn-primary inline-flex items-center rounded-lg px-5 py-3 text-sm font-semibold"
+ className="kuct-btn-primary inline-flex items-center rounded-full px-5 py-3 text-sm font-semibold"
  >
  {c.closeCta}
  </button>

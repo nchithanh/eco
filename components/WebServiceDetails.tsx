@@ -274,7 +274,7 @@ export function WebServiceDetails({
                 <Reveal
                   key={item.q}
                   delay={Math.min(index, 6) * 40}
-                  className="overflow-hidden rounded-xl bg-[var(--kuct-panel)]"
+                  className="overflow-hidden rounded-[10px] bg-[var(--kuct-panel)]"
                 >
                   <h3>
                     <button
@@ -315,7 +315,7 @@ export function WebServiceDetails({
           <Reveal className="kuct-surface-card px-6 py-8 text-center sm:px-10 sm:py-10">
             <button
               type="button"
-              className="kuct-btn-primary inline-flex items-center rounded-lg px-5 py-3.5 text-sm font-semibold shadow-[var(--kuct-shadow)]"
+              className="kuct-btn-primary inline-flex items-center rounded-full px-5 py-3.5 text-sm font-semibold shadow-[var(--kuct-shadow)]"
               onClick={onQuote}
             >
               {ui.cta}

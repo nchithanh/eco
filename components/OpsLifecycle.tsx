@@ -17,7 +17,7 @@ function OpsVisualScene({
 }) {
  return (
  <div
- className="relative flex h-full w-full flex-col items-center justify-center overflow-hidden rounded-xl bg-[var(--kuct-panel)] p-5 backdrop-blur-md sm:p-6"
+ className="relative flex h-full w-full flex-col items-center justify-center overflow-hidden rounded-[10px] bg-[var(--kuct-panel)] p-5 backdrop-blur-md sm:p-6"
  aria-hidden
  >
  <div className="pointer-events-none absolute inset-[18%] rounded-full opacity-60 blur-2xl kuct-glow-orb" />
@@ -119,8 +119,8 @@ export function OpsLifecycle() {
  key={`${step.name}-${index}`}
  className={
  isLead
- ? "flex gap-3.5 rounded-xl bg-[var(--kuct-panel)] p-4 backdrop-blur-md"
- : "flex gap-3.5 rounded-xl bg-[var(--kuct-panel)] p-4 backdrop-blur-md"
+ ? "flex gap-3.5 rounded-[10px] bg-[var(--kuct-panel)] p-4 backdrop-blur-md"
+ : "flex gap-3.5 rounded-[10px] bg-[var(--kuct-panel)] p-4 backdrop-blur-md"
  }
  >
  <span
@@ -159,7 +159,7 @@ export function OpsLifecycle() {
  <Reveal className="md:col-start-1 md:row-start-3">
  <a
  href="#contact"
- className="kuct-btn-primary inline-flex items-center rounded-lg px-5 py-3 text-sm font-semibold"
+ className="kuct-btn-primary inline-flex items-center rounded-full px-5 py-3 text-sm font-semibold"
  >
  {o.cta}
  </a>

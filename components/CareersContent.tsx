@@ -45,7 +45,7 @@ export function CareersContent({ embedded = false }: { embedded?: boolean }) {
  <ul className="mx-auto mt-10 list-none space-y-3 p-0 sm:max-w-2xl">
  {c.model.bullets.map((item, index) => (
  <Reveal key={item} delay={index * 40} as="li">
- <div className="flex gap-3 rounded-lg bg-[var(--kuct-panel)] px-4 py-3.5">
+ <div className="flex gap-3 rounded-[10px] bg-[var(--kuct-panel)] px-4 py-3.5">
  <span
  aria-hidden
  className="mt-2 size-1.5 shrink-0 rounded-full bg-[var(--kuct-accent)]/75"
@@ -81,7 +81,7 @@ export function CareersContent({ embedded = false }: { embedded?: boolean }) {
  <ol className="mx-auto mt-10 list-none space-y-3 p-0 sm:max-w-2xl">
  {c.howToApply.steps.map((step, index) => (
  <Reveal key={step} delay={index * 40} as="li">
- <div className="flex gap-3 rounded-lg bg-[var(--kuct-panel)] px-4 py-3.5">
+ <div className="flex gap-3 rounded-[10px] bg-[var(--kuct-panel)] px-4 py-3.5">
  <span className="mt-0.5 shrink-0 text-[11px] font-semibold tabular-nums text-[var(--kuct-accent)]/80">
  {String(index + 1).padStart(2, "0")}
  </span>

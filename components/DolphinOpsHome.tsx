@@ -80,14 +80,14 @@ export function DolphinOpsHome() {
             <div className="flex flex-wrap items-center gap-3 sm:gap-4">
               <Link
                 href={routePath("/dolphin-ops/")}
-                className="kuct-btn-primary inline-flex w-full items-center justify-center rounded-lg px-5 py-3.5 text-sm font-semibold sm:w-auto"
+                className="kuct-btn-primary inline-flex w-full items-center justify-center rounded-full px-5 py-3.5 text-sm font-semibold sm:w-auto"
               >
                 {c.cta}
               </Link>
               <button
                 type="button"
                 onClick={openQuote}
-                className="kuct-btn-outline inline-flex w-full items-center justify-center rounded-lg px-5 py-3.5 text-sm sm:w-auto"
+                className="kuct-btn-outline inline-flex w-full items-center justify-center rounded-full px-5 py-3.5 text-sm sm:w-auto"
               >
                 {c.ctaSecondary}
               </button>

@@ -47,7 +47,7 @@ function NewsBodyBlockView({ block }: { block: NewsBodyBlock }) {
 
  if (block.type === "lead") {
  return (
- <p className="overflow-visible rounded-xl bg-[rgba(var(--kuct-accent-rgb),0.08)] px-5 py-4 text-base leading-relaxed text-[var(--kuct-text)] sm:text-lg">
+ <p className="overflow-visible rounded-[10px] bg-[rgba(var(--kuct-accent-rgb),0.08)] px-5 py-4 text-base leading-relaxed text-[var(--kuct-text)] sm:text-lg">
  <NewsBodyText text={block.text} />
  </p>
  );
@@ -55,7 +55,7 @@ function NewsBodyBlockView({ block }: { block: NewsBodyBlock }) {
 
  if (block.type === "image") {
  return (
- <figure className="relative aspect-[16/9] overflow-hidden rounded-xl ">
+ <figure className="relative aspect-[16/9] overflow-hidden rounded-[10px] ">
  <LazyImage
  src={assetPath(block.src)}
  alt={block.alt}
@@ -215,7 +215,7 @@ export function NewsDetailContent({
  </Reveal>
 
  <Reveal delay={80} variant="right" immediate={embedded}>
- <div className="relative aspect-[16/10] overflow-hidden rounded-xl bg-[var(--kuct-panel)]  lg:aspect-auto lg:min-h-[18rem]">
+ <div className="relative aspect-[16/10] overflow-hidden rounded-[10px] bg-[var(--kuct-panel)]  lg:aspect-auto lg:min-h-[18rem]">
  <LazyImage
  src={themeAsset(detail.image, theme)}
  alt={detail.title}
@@ -250,7 +250,7 @@ export function NewsDetailContent({
  <h2 className="text-center font-display text-lg font-semibold text-[var(--kuct-text)] sm:text-xl">
  {ui.faqTitle}
  </h2>
- <div className="mt-4 divide-y divide-[var(--kuct-border)] overflow-hidden rounded-xl bg-[var(--kuct-panel)]">
+ <div className="mt-4 divide-y divide-[var(--kuct-border)] overflow-hidden rounded-[10px] bg-[var(--kuct-panel)]">
  {faqItems.map((item, index) => {
  const open = openFaq === index;
  const panelId = `${faqId}-panel-${index}`;
@@ -327,7 +327,7 @@ export function NewsDetailContent({
  <Reveal className="mt-12" immediate={embedded}>
  <a
  href={contactHref}
- className="kuct-btn-primary inline-flex items-center rounded-lg px-5 py-3 text-sm font-semibold"
+ className="kuct-btn-primary inline-flex items-center rounded-full px-5 py-3 text-sm font-semibold"
  onClick={() => {
  if (embedded) close();
  }}

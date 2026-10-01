@@ -175,7 +175,7 @@ function JobDetailModal({
  role="dialog"
  aria-modal="true"
  aria-labelledby={`job-detail-${job.id}`}
- className="relative z-10 flex max-h-[min(92svh,56rem)] w-full max-w-2xl flex-col overflow-hidden rounded-xl bg-[var(--kuct-panel)] shadow-[0_1.5rem_4rem_rgb(0_0_0/0.45)]"
+ className="relative z-10 flex max-h-[min(92svh,56rem)] w-full max-w-2xl flex-col overflow-hidden rounded-[10px] bg-[var(--kuct-panel)] shadow-[0_1.5rem_4rem_rgb(0_0_0/0.45)]"
  data-lenis-prevent
  data-lenis-prevent-wheel
  >
@@ -280,7 +280,7 @@ function JobDetailModal({
  <button
  type="button"
  disabled={closed}
- className="kuct-btn-primary rounded-lg px-5 py-2.5 text-sm font-semibold disabled:cursor-not-allowed disabled:opacity-45"
+ className="kuct-btn-primary rounded-full px-5 py-2.5 text-sm font-semibold disabled:cursor-not-allowed disabled:opacity-45"
  onClick={() => {
  if (closed) return;
  onClose();
@@ -323,7 +323,7 @@ function JobCard({
  delay={40 + (index % 2) * 40}
  className={
  closed
- ? "relative flex flex-col rounded-xl bg-[var(--kuct-panel)] p-6 opacity-75"
+ ? "relative flex flex-col rounded-[10px] bg-[var(--kuct-panel)] p-6 opacity-75"
  : "kuct-card-hover kuct-surface-card flex flex-col p-6"
  }
  >
