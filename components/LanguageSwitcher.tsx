@@ -4,12 +4,17 @@ import { useEffect, useId, useRef, useState } from "react";
 import { LOCALES, type Locale } from "@/lib/i18n/types";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
 
-export function LanguageSwitcher() {
+export function LanguageSwitcher({
+  variant = "nav",
+}: {
+  variant?: "nav" | "footer";
+}) {
   const { locale, setLocale } = useLocale();
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
   const listId = useId();
   const current = LOCALES.find((item) => item.code === locale) ?? LOCALES[0];
+  const isFooter = variant === "footer";
 
   useEffect(() => {
     if (!open) return;
@@ -37,18 +42,37 @@ export function LanguageSwitcher() {
   };
 
   return (
-    <div ref={rootRef} className="relative">
+    <div ref={rootRef} className="relative inline-flex">
       <button
         type="button"
-        className="inline-flex items-center gap-1.5 px-1 py-1.5 text-[inherit] font-medium tracking-[-0.02em] text-[var(--kuct-text)] transition hover:text-[var(--kuct-accent)]"
+        className={
+          isFooter
+            ? "inline-flex items-center gap-1.5 py-1 text-sm font-medium text-[var(--kuct-text)] transition hover:opacity-60"
+            : "inline-flex items-center gap-1.5 px-1 py-1.5 text-[inherit] font-medium tracking-[-0.02em] text-[var(--kuct-text)] transition hover:text-[var(--kuct-accent)]"
+        }
         aria-label="Language"
         aria-haspopup="listbox"
         aria-expanded={open}
         aria-controls={listId}
         onClick={() => setOpen((value) => !value)}
       >
+        {isFooter ? (
+          <svg
+            viewBox="0 0 24 24"
+            className="size-4 shrink-0 text-[var(--kuct-muted)]"
+            fill="none"
+            aria-hidden
+          >
+            <circle cx="12" cy="12" r="8" stroke="currentColor" strokeWidth="1.5" />
+            <path
+              d="M4.5 12h15M12 4c2.1 2.3 3.2 4.8 3.2 8s-1.1 5.7-3.2 8c-2.1-2.3-3.2-4.8-3.2-8s1.1-5.7 3.2-8z"
+              stroke="currentColor"
+              strokeWidth="1.5"
+            />
+          </svg>
+        ) : null}
         <span>{current.name}</span>
-        <span aria-hidden className="text-[var(--kuct-text)]">
+        <span aria-hidden className="text-[var(--kuct-muted)]">
           {open ? "▴" : "▾"}
         </span>
       </button>
@@ -58,7 +82,11 @@ export function LanguageSwitcher() {
           id={listId}
           role="listbox"
           aria-label="Language"
-          className="absolute right-0 z-50 mt-2 min-w-[11rem] overflow-hidden rounded-lg bg-white py-1 shadow-[0_12px_30px_rgb(26_21_32/0.1)]"
+          className={
+            isFooter
+              ? "absolute left-0 z-50 mt-2 min-w-[11rem] overflow-hidden rounded-[10px] border border-[var(--kuct-border)] bg-[var(--kuct-surface)] py-1 shadow-[0_12px_30px_rgb(26_21_32/0.08)]"
+              : "absolute right-0 z-50 mt-2 min-w-[11rem] overflow-hidden rounded-lg bg-white py-1 shadow-[0_12px_30px_rgb(26_21_32/0.1)]"
+          }
         >
           {LOCALES.map((item) => (
             <li key={item.code} role="option" aria-selected={locale === item.code}>

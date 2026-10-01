@@ -1,97 +1,141 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { BrandMotto, BrandName } from "@/components/BrandName";
-import { SocialProfiles } from "@/components/SocialProfiles";
+import { BrandName } from "@/components/BrandName";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { BASE_PATH, assetPath } from "@/lib/asset";
+import { SOCIAL_PROFILES, TEAM_EMAILS } from "@/lib/contacts";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
+import { PRICING_INDUSTRIES } from "@/lib/pricing/dolphin-pricing-industries-2026";
 
 export function Footer() {
- const { t } = useLocale();
- const pathname = usePathname();
- const sectionBase = pathname === "/" ? "" : `${BASE_PATH}/`;
- const f = t.footer;
+  const { t } = useLocale();
+  const pathname = usePathname();
+  const sectionBase = pathname === "/" ? "" : `${BASE_PATH}/`;
+  const f = t.footer;
+  const pricingHref = assetPath("/chinh-sach-gia-dolphin-2026/");
 
- const groups = [
- {
- label: f.groupExplore,
- links: [
- { href: `${sectionBase}#solutions`, label: t.nav.solutions },
- { href: assetPath("/services/web/"), label: t.nav.serviceWeb },
- { href: assetPath("/services/mobile/"), label: t.nav.serviceMobile },
- { href: assetPath("/ai-transform/"), label: t.nav.aiTransform },
- { href: assetPath("/dolphin-care/"), label: t.nav.agentDolphin },
- { href: assetPath("/dolphin-ops/"), label: t.nav.dolphinOps },
- { href: assetPath("/dolphin-intelligence/"), label: t.nav.dolphinIntelligence },
- ],
- },
- {
- label: f.groupStudio,
- links: [
- { href: assetPath("/services/software/"), label: t.nav.serviceBackend },
- { href: assetPath("/about/"), label: t.nav.about },
- ],
- },
- {
- label: f.groupUpdates,
-    links: [
-      { href: assetPath("/news/"), label: t.nav.news },
-      { href: assetPath("/careers/"), label: t.nav.careers },
-    ],
- },
- {
- label: f.groupConnect,
- links: [
- { href: `${sectionBase}#contact`, label: t.nav.contact },
- { href: assetPath("/privacy/"), label: f.privacy },
- { href: assetPath("/chinh-sach-gia-dolphin-2026/"), label: f.pricingPolicy },
- { href: assetPath("/chinh-sach-bao-hanh-ho-tro-2026/"), label: f.warrantyPolicy },
- ],
- },
- ] as const;
+  const topGroups = [
+    {
+      label: f.groupCrm,
+      links: PRICING_INDUSTRIES.map((industry) => ({
+        href: `${pricingHref}#industry-${industry.id}`,
+        label: industry.label,
+      })),
+    },
+    {
+      label: f.groupExplore,
+      links: [
+        { href: `${sectionBase}#solutions`, label: t.nav.solutions },
+        { href: assetPath("/dolphin-care/"), label: t.nav.agentDolphin },
+        { href: assetPath("/dolphin-ops/"), label: t.nav.dolphinOps },
+        { href: assetPath("/dolphin-intelligence/"), label: t.nav.dolphinIntelligence },
+        { href: assetPath("/ai-transform/"), label: t.nav.aiTransform },
+        { href: assetPath("/services/web/"), label: t.nav.serviceWeb },
+      ],
+    },
+    {
+      label: f.groupStudio,
+      links: [
+        { href: assetPath("/services/software/"), label: t.nav.serviceBackend },
+        { href: assetPath("/services/landing/"), label: t.nav.serviceLanding },
+        { href: assetPath("/services/design/"), label: t.nav.serviceDesign },
+        { href: assetPath("/services/integrations/"), label: f.integrations },
+        { href: assetPath("/news/"), label: t.nav.news },
+        { href: pricingHref, label: f.pricingPolicy },
+        { href: assetPath("/chinh-sach-bao-hanh-ho-tro-2026/"), label: f.warrantyPolicy },
+      ],
+    },
+  ] as const;
 
- return (
- <footer className="py-12 sm:py-14">
- <div className="mx-auto max-w-7xl px-6">
- <div className="flex flex-col gap-10 lg:flex-row lg:justify-between lg:gap-14">
- <div className="flex shrink-0 flex-col gap-3">
- <p className="flex items-center gap-2 text-sm font-medium text-[var(--kuct-text)]">
- <BrandName size="sm" />
- <span className="text-xs text-[var(--kuct-muted)]">· © 2026</span>
- </p>
- <p className="max-w-[28ch] text-sm leading-relaxed text-[var(--kuct-muted)]">
- {f.blurb}
- </p>
- <SocialProfiles ariaLabel={f.socialAria} className="mt-4" />
- </div>
+  const bottomGroups = [
+    {
+      label: f.groupEmails,
+      links: TEAM_EMAILS.map((item) => ({
+        href: `mailto:${item.address}`,
+        label: item.address,
+      })),
+    },
+    {
+      label: f.groupSocials,
+      links: SOCIAL_PROFILES.map((profile) => ({
+        href: profile.href,
+        label: profile.label,
+        external: true as const,
+      })),
+    },
+    {
+      label: f.groupCompany,
+      links: [
+        { href: `${sectionBase}#contact`, label: t.nav.contact },
+        { href: assetPath("/about/"), label: t.nav.about },
+        { href: assetPath("/careers/"), label: t.nav.careers },
+        { href: assetPath("/company-profile/"), label: t.nav.companyProfile },
+        { href: assetPath("/privacy/"), label: f.privacy },
+        { href: pricingHref, label: t.nav.pricing },
+      ],
+    },
+  ] as const;
 
- <nav
- className="grid flex-1 grid-cols-2 gap-8 sm:grid-cols-4 sm:gap-6"
- aria-label="Footer"
- >
- {groups.map((group) => (
- <div key={group.label}>
- <p className="text-[11px] font-semibold tracking-[0.16em] text-[var(--kuct-muted)] uppercase">
- {group.label}
- </p>
- <ul className="mt-3 flex list-none flex-col gap-2 p-0">
- {group.links.map((link) => (
- <li key={link.href + link.label}>
- <a
- href={link.href}
- className="text-sm leading-relaxed text-[var(--kuct-muted)] transition hover:text-[var(--kuct-accent)]"
- >
- {link.label}
- </a>
- </li>
- ))}
- </ul>
- </div>
- ))}
- </nav>
- </div>
- <BrandMotto className="mt-10 justify-center text-center" />
- </div>
- </footer>
- );
+  return (
+    <footer className="kuct-footer bg-[var(--kuct-surface-muted)] py-14 sm:py-16 lg:py-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
+        <div className="grid gap-12 lg:grid-cols-[minmax(10rem,13rem)_minmax(0,1fr)] lg:gap-16 xl:gap-20">
+          <div className="flex flex-col gap-4">
+            <BrandName size="sm" />
+            <LanguageSwitcher variant="footer" />
+            <p className="max-w-[22ch] text-sm leading-relaxed text-[var(--kuct-muted)]">
+              {f.blurb}
+            </p>
+          </div>
+
+          <nav aria-label="Footer" className="min-w-0">
+            <div className="grid grid-cols-2 gap-x-8 gap-y-10 sm:grid-cols-3 sm:gap-x-10 lg:gap-x-12 lg:gap-y-12">
+              {topGroups.map((group) => (
+                <FooterColumn key={group.label} label={group.label} links={group.links} />
+              ))}
+              {bottomGroups.map((group) => (
+                <FooterColumn key={group.label} label={group.label} links={group.links} />
+              ))}
+            </div>
+          </nav>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+type FooterLink = {
+  href: string;
+  label: string;
+  external?: boolean;
+};
+
+function FooterColumn({
+  label,
+  links,
+}: {
+  label: string;
+  links: readonly FooterLink[];
+}) {
+  return (
+    <div>
+      <p className="text-sm font-medium text-[var(--kuct-muted)]">{label}</p>
+      <ul className="mt-4 flex list-none flex-col gap-2.5 p-0 sm:mt-5 sm:gap-3">
+        {links.map((link) => (
+          <li key={`${link.href}-${link.label}`}>
+            <a
+              href={link.href}
+              className="break-all text-sm leading-snug text-[var(--kuct-text)] no-underline transition hover:opacity-60 sm:break-normal"
+              {...(link.external
+                ? { target: "_blank", rel: "noopener noreferrer" }
+                : {})}
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 }

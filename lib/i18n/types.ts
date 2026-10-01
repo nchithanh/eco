@@ -523,12 +523,17 @@ export type Dictionary = {
   };
   footer: {
     groupExplore: string;
+    groupCrm: string;
     groupStudio: string;
     groupUpdates: string;
     groupConnect: string;
+    groupEmails: string;
+    groupSocials: string;
+    groupCompany: string;
     privacy: string;
     pricingPolicy: string;
     warrantyPolicy: string;
+    integrations: string;
     /** Short GEO blurb under brand */
     blurb: string;
     /** Nav label for social profile icons */

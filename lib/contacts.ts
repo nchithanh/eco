@@ -1,8 +1,11 @@
+const EMAIL_DOMAIN = "dolphin-software.io.vn" as const;
+
 /** Public contact channels — not secrets. */
 export const CONTACTS = {
   phone: "0779937633",
   zalo: "https://zalo.me/0779937633",
-  email: "support@dolphin-software.io.vn",
+  email: `support@${EMAIL_DOMAIN}`,
+  emailDomain: EMAIL_DOMAIN,
   /** Fanpage Dolphin Software */
   facebookPageId: "61592428631532",
   messenger: "https://m.me/61592428631532",
@@ -31,6 +34,18 @@ export const CONTACTS = {
     youtube: "https://www.youtube.com/channel/UCXquYc8wzFCJjKEXEg2O9vA",
   },
 } as const;
+
+/** Footer email directory — local-part labels (EN) @ dolphin-software.io.vn */
+export const TEAM_EMAILS: { id: string; label: string; address: string }[] = [
+  { id: "sales", label: "sales", address: `sales@${EMAIL_DOMAIN}` },
+  { id: "support", label: "support", address: `support@${EMAIL_DOMAIN}` },
+  { id: "info", label: "info", address: `info@${EMAIL_DOMAIN}` },
+  { id: "marketing", label: "marketing", address: `marketing@${EMAIL_DOMAIN}` },
+  { id: "partners", label: "partners", address: `partners@${EMAIL_DOMAIN}` },
+  { id: "invest", label: "invest", address: `invest@${EMAIL_DOMAIN}` },
+  { id: "careers", label: "careers", address: `careers@${EMAIL_DOMAIN}` },
+  { id: "thanhnc", label: "thanhnc", address: `thanhnc@${EMAIL_DOMAIN}` },
+];
 
 export type SocialNetwork = keyof typeof CONTACTS.social;
 

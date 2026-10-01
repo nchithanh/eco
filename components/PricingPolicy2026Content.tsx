@@ -687,10 +687,32 @@ function ComboCard({
   );
 }
 
+function industryFromHash(hash: string): IndustryId | null {
+  const match = /^#industry-([a-z]+)$/.exec(hash);
+  if (!match) return null;
+  const id = match[1];
+  return PRICING_INDUSTRIES.some((item) => item.id === id)
+    ? (id as IndustryId)
+    : null;
+}
+
 export function PricingPolicy2026Content() {
   const [industryId, setIndustryId] = useState<IndustryId>("spa");
   const [view, setView] = useState<ViewId>("packages");
   const tabsId = useId();
+
+  useEffect(() => {
+    const applyHash = () => {
+      const fromHash = industryFromHash(window.location.hash);
+      if (fromHash) {
+        setIndustryId(fromHash);
+        setView("packages");
+      }
+    };
+    applyHash();
+    window.addEventListener("hashchange", applyHash);
+    return () => window.removeEventListener("hashchange", applyHash);
+  }, []);
 
   const industry =
     PRICING_INDUSTRIES.find((i) => i.id === industryId) ?? PRICING_INDUSTRIES[0];
@@ -724,13 +746,20 @@ export function PricingPolicy2026Content() {
                     key={item.id}
                     type="button"
                     role="tab"
-                    id={`${tabsId}-${item.id}`}
+                    id={`industry-${item.id}`}
                     data-industry-tab={item.id}
                     aria-selected={active}
                     className={`elp__tab${active ? " is-active" : ""}`}
                     onClick={() => {
                       setIndustryId(item.id);
                       setView("packages");
+                      if (typeof window !== "undefined") {
+                        window.history.replaceState(
+                          null,
+                          "",
+                          `#industry-${item.id}`,
+                        );
+                      }
                     }}
                   >
                     <TabDot active={active} />
