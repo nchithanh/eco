@@ -130,6 +130,34 @@ export const industryPagesVi: Record<IndustrySlug, IndustryPageCopy> = {
         q: "Có bắt buộc mua AI trước CRM không?",
         a: "Không. Thường CRM là nền; Care/Ops gắn khi cần tăng trưởng trên cùng dữ liệu.",
       },
+      {
+        q: "Dolphin Care khác chatbot Facebook thế nào?",
+        a: "Care gắn knowledge và quy trình spa đã khóa (FAQ, lịch, lead), không chỉ kịch bản bán hàng chung. Việc nhạy vẫn bàn giao người.",
+      },
+      {
+        q: "Ops dùng khi nào cho spa?",
+        a: "Khi team nội bộ cần nhắc follow-up, mở đúng khách/lịch trên CRM bằng cách nói việc cần làm — sau khi đã có lớp CRM.",
+      },
+      {
+        q: "Website có đi kèm không?",
+        a: "Thường là quyền lợi combo khi thuê CRM (± Care/Ops) đủ điều kiện — xem /chinh-sach-gia-dolphin-2026/ tab Spa. Thuê lẻ Care không mặc định tặng website.",
+      },
+      {
+        q: "Có gắn Zalo OA được không?",
+        a: "Care hỗ trợ kênh Zalo khi triển khai trong phạm vi dự án — chi tiết theo báo giá /contact/.",
+      },
+      {
+        q: "Triển khai mất bao lâu?",
+        a: "Phụ thuộc phạm vi (CRM, Care, website). Timeline cụ thể khóa sau khi nắm số cơ sở, kênh lead và lịch hiện tại — không có một con số cố định cho mọi spa.",
+      },
+      {
+        q: "Spa nhiều chi nhánh dùng được không?",
+        a: "Có thể — phạm vi chi nhánh, quyền và báo cáo bàn rõ khi tư vấn. Không giả định mọi gói sẵn đã cover đa cơ sở.",
+      },
+      {
+        q: "Bắt đầu từ đâu?",
+        a: "Kể số giường/KT, kênh book (Zalo/web) và chỗ nghẽn qua /contact/ hoặc Zalo. Xem thêm FAQ chung tại /faq/ và ngành khác tại /industries/.",
+      },
     ],
   }),
 
@@ -199,6 +227,34 @@ export const industryPagesVi: Record<IndustrySlug, IndustryPageCopy> = {
       {
         q: "Có gắn Zalo được không?",
         a: "Care hỗ trợ kênh Zalo OA khi triển khai trong phạm vi dự án — chi tiết theo báo giá.",
+      },
+      {
+        q: "Salon có cần mua AI trước không?",
+        a: "Không. Nhiều salon bắt đầu CRM lịch–khách; Care/Ops thêm khi tin nhắn và follow-up nghẽn.",
+      },
+      {
+        q: "Đặt lịch theo thợ có làm được không?",
+        a: "CRM hướng lịch và hồ sơ khách/thợ theo phạm vi gói. Luồng book phức tạp bàn khi khóa phạm vi — không hứa mọi rule stylist sẵn có.",
+      },
+      {
+        q: "Ops giúp salon việc gì?",
+        a: "Nhắc follow-up (nhuộm/uốn/gội), mở đúng khách trên CRM khi team nói việc cần làm; bước nhạy có thể cần duyệt.",
+      },
+      {
+        q: "Website salon đi kèm combo nào?",
+        a: "Xem /chinh-sach-gia-dolphin-2026/ tab Salon. Website thường quyền lợi combo CRM đủ điều kiện — không tặng mặc định với mọi gói lẻ.",
+      },
+      {
+        q: "Khác tiệm nail chỗ nào?",
+        a: "Cùng họ lịch–KT–khách; nail có trang /industries/nail/ và FAQ riêng. Combo giá nail có thể tham chiếu nhóm salon.",
+      },
+      {
+        q: "Bao lâu triển khai?",
+        a: "Theo phạm vi (CRM, Care, web). Ngày cụ thể sau khi nắm số ghế, kênh book và quy trình hiện tại — trao đổi qua /contact/.",
+      },
+      {
+        q: "Bắt đầu thế nào?",
+        a: "Mô tả số stylist, kênh đặt lịch và pain qua /contact/ hoặc Zalo. FAQ tổng: /faq/.",
       },
     ],
   }),
@@ -270,6 +326,34 @@ export const industryPagesVi: Record<IndustrySlug, IndustryPageCopy> = {
         q: "Bắt đầu không cần hệ thống lớn?",
         a: "Có — thuê CRM theo kỳ + Care khi cần; không bắt buộc triển khai nặng ngày đầu.",
       },
+      {
+        q: "CRM giúp tiệm nail việc gì?",
+        a: "Gom lịch theo KT/slot, hồ sơ khách và ghi chú dịch vụ đã làm — bớt trùng slot khi book dày trong ngày.",
+      },
+      {
+        q: "Care trả lời được giá và giờ mở không?",
+        a: "Có, trong knowledge đã khóa (giá khung, giờ, quy trình đặt). Câu hỏi ngoài phạm vi chuyển người.",
+      },
+      {
+        q: "Nhắc khách tái đặt sau 2–3 tuần?",
+        a: "Có thể cấu hình nhắc nội bộ (Ops/CRM) hoặc kịch bản Care đã duyệt — không tự gửi hàng loạt ngoài phạm vi.",
+      },
+      {
+        q: "Có bắt buộc website không?",
+        a: "Không. Website thường đi kèm combo CRM khi đủ điều kiện; xem bảng giá nhóm salon /contact/.",
+      },
+      {
+        q: "Gắn Zalo được không?",
+        a: "Care hỗ trợ Zalo khi nằm trong phạm vi triển khai — chi tiết báo giá.",
+      },
+      {
+        q: "Khác spa chỗ nào?",
+        a: "Cùng họ dịch vụ có lịch; spa có trang /industries/spa/. Nail thiên slot ngắn và gallery mẫu.",
+      },
+      {
+        q: "Bắt đầu từ đâu?",
+        a: "Nói số KT, khung giờ đông và kênh book qua /contact/ hoặc Zalo. Xem /industries/ và /faq/.",
+      },
     ],
   }),
 
@@ -339,6 +423,34 @@ export const industryPagesVi: Record<IndustrySlug, IndustryPageCopy> = {
       {
         q: "Dữ liệu khách có kiểm soát không?",
         a: "Triển khai theo phạm vi hợp đồng và chính sách bảo mật site; chi tiết trao đổi khi tư vấn.",
+      },
+      {
+        q: "CRM clinic làm gì?",
+        a: "Gom lịch hẹn, hồ sơ liên hệ và follow-up hành chính — không thay phần mềm HIS/EMR bệnh viện nếu ngoài phạm vi.",
+      },
+      {
+        q: "Care trả lời được những gì?",
+        a: "Giờ khám, địa chỉ, quy trình đặt lịch, FAQ hành chính đã duyệt. Không kê đơn hay chẩn đoán.",
+      },
+      {
+        q: "Ops có tự nhắc bệnh nhân không?",
+        a: "Có thể nhắc nội bộ / quy trình đã cấu hình. Gửi thông báo hàng loạt hoặc bước nhạy cần quyền duyệt — không mặc định tự động y khoa.",
+      },
+      {
+        q: "Có bắt buộc AI không?",
+        a: "Không. Nhiều clinic chỉ cần CRM lịch trước; Care khi tin nhắn ngoài giờ nghẽn.",
+      },
+      {
+        q: "Website và bảng giá?",
+        a: "Website theo combo CRM khi đủ điều kiện. Mốc giá: /chinh-sach-gia-dolphin-2026/ tab Clinic hoặc /contact/.",
+      },
+      {
+        q: "Khác spa/salon chỗ nào?",
+        a: "Cùng họ lịch–khách nhưng ranh giới chuyên môn chặt hơn — Care không vào tư vấn điều trị.",
+      },
+      {
+        q: "Bắt đầu thế nào?",
+        a: "Mô tả loại hình clinic, kênh đặt lịch và FAQ được phép công bố qua /contact/. FAQ tổng: /faq/.",
       },
     ],
   }),
@@ -410,6 +522,34 @@ export const industryPagesVi: Record<IndustrySlug, IndustryPageCopy> = {
         q: "Xem giá combo ở đâu?",
         a: "Trang chính sách giá — tab Edu — hoặc /contact/.",
       },
+      {
+        q: "CRM giúp trung tâm việc gì?",
+        a: "Gom lead, học viên, lớp/lịch và follow-up tuyển sinh trên một nền theo phạm vi gói — bớt Excel/Zalo rời.",
+      },
+      {
+        q: "Care trả lời học phí được không?",
+        a: "Chỉ khi học phí khung được phép công bố và đã nạp knowledge. Không bịa mức giá; câu ngoài phạm vi chuyển tư vấn viên.",
+      },
+      {
+        q: "Ops dùng khi nào?",
+        a: "Khi team cần nhắc gọi lại lead hoặc mở đúng hồ sơ bằng cách nói việc trên CRM — sau khi đã có dữ liệu vận hành.",
+      },
+      {
+        q: "Website có kèm không?",
+        a: "Thường quyền lợi combo CRM đủ điều kiện. Chi tiết /chinh-sach-gia-dolphin-2026/ tab Edu.",
+      },
+      {
+        q: "Nhiều cơ sở / nhiều lớp?",
+        a: "Có thể bàn phạm vi chi nhánh và quyền. Không mặc định mọi gói sẵn cover đa cơ sở phức tạp.",
+      },
+      {
+        q: "Khác dance center chỗ nào?",
+        a: "Cùng họ giáo dục/dịch vụ; nhảy có trang /industries/dance-center/ (lịch phòng/studio).",
+      },
+      {
+        q: "Bắt đầu từ đâu?",
+        a: "Nói loại hình trung tâm, số lớp và kênh lead qua /contact/ hoặc Zalo. FAQ tổng: /faq/.",
+      },
     ],
   }),
 
@@ -480,6 +620,34 @@ export const industryPagesVi: Record<IndustrySlug, IndustryPageCopy> = {
         q: "Bắt đầu từ đâu?",
         a: "Nói rõ số cơ sở/lớp và kênh lead — xem bảng giá tab Edu hoặc /contact/.",
       },
+      {
+        q: "Có phải Dolphin Edu không?",
+        a: "Edu là CRM vận hành lớp/HV (demo riêng). Trang này là landing ngành trên marketing site — CRM · Care · Ops; nối Edu khi phù hợp deal.",
+      },
+      {
+        q: "Care giúp tuyển sinh lớp nhảy thế nào?",
+        a: "FAQ lịch khai giảng, level, học phí khung (nếu được phép), thu lead; xếp lớp thử và chuyên môn để người.",
+      },
+      {
+        q: "CRM có quản lý phòng tập không?",
+        a: "Hướng lịch lớp/HV theo phạm vi. Rule phòng phức tạp bàn khi khóa scope — không hứa TMS studio đầy đủ sẵn.",
+      },
+      {
+        q: "Ops nhắc việc gì?",
+        a: "Follow-up sau lớp thử, gọi lại lead, mở đúng hồ sơ khi team nói việc trên CRM.",
+      },
+      {
+        q: "AI thay huấn luyện viên?",
+        a: "Không. Care/Ops hỗ trợ vận hành và tuyển sinh; dạy nhảy vẫn do người.",
+      },
+      {
+        q: "Website và giá?",
+        a: "Website theo combo khi đủ điều kiện. Mốc: bảng giá tab Edu hoặc /contact/.",
+      },
+      {
+        q: "Nhiều chi nhánh studio?",
+        a: "Có thể trao đổi phạm vi chi nhánh. Không mặc định mọi gói đã cover đa cơ sở.",
+      },
     ],
   }),
 
@@ -536,6 +704,34 @@ export const industryPagesVi: Record<IndustrySlug, IndustryPageCopy> = {
       {
         q: "Xem giá ở đâu?",
         a: "/chinh-sach-gia-dolphin-2026/#industry-shop hoặc /contact/.",
+      },
+      {
+        q: "Shop dịch vụ là gì với Dolphin?",
+        a: "Cửa hàng/điểm có lịch hẹn hoặc chăm khách lặp (không phải sàn TMĐT lớn). CRM + Care/Ops theo pain thật.",
+      },
+      {
+        q: "CRM giúp shop việc gì?",
+        a: "Khách · lịch · follow-up · báo cáo cơ bản theo gói — bàn giao ca rõ hơn chat/Excel.",
+      },
+      {
+        q: "Care trả lời ngoài giờ?",
+        a: "Có, trong FAQ/giờ mở/lead đã khóa. Câu ngoài phạm vi chuyển người.",
+      },
+      {
+        q: "Ops khi nào cần?",
+        a: "Khi team cần nhắc tái đặt hoặc mở đúng khách bằng chat trên CRM.",
+      },
+      {
+        q: "Website có kèm combo không?",
+        a: "Thường quyền lợi combo CRM đủ điều kiện — xem bảng giá Shop; không mặc định mọi gói lẻ.",
+      },
+      {
+        q: "Gắn Zalo được không?",
+        a: "Care hỗ trợ Zalo khi nằm trong phạm vi dự án — chi tiết /contact/.",
+      },
+      {
+        q: "Bắt đầu thế nào?",
+        a: "Kể loại hình shop, kênh lead và chỗ nghẽn qua /contact/ hoặc Zalo. FAQ tổng: /faq/.",
       },
     ],
   }),
@@ -597,6 +793,34 @@ export const industryPagesVi: Record<IndustrySlug, IndustryPageCopy> = {
         q: "AI tự điều phối tài xế?",
         a: "Không mặc định. Mọi tự động hóa điều phối chỉ khi nằm trong phạm vi đã thống nhất.",
       },
+      {
+        q: "CRM giúp vận tải việc gì?",
+        a: "Theo dõi khách, đơn/việc, follow-up và ghi chú điều phối theo phạm vi gói — bớt lệch thông tin trên chat.",
+      },
+      {
+        q: "Care trả lời trạng thái đơn được không?",
+        a: "Chỉ khi đã nối dữ liệu thật và nằm trong knowledge. Không bịa ETA/SLA ngoài hệ thống.",
+      },
+      {
+        q: "Ops làm gì?",
+        a: "Nhắc việc nội bộ, mở đúng đơn/khách khi team nói việc; bước nhạy có duyệt.",
+      },
+      {
+        q: "Có cam kết SLA giao hàng không?",
+        a: "Không trên trang marketing. SLA chỉ khi ghi trong hợp đồng phạm vi riêng.",
+      },
+      {
+        q: "Website thu lead báo giá?",
+        a: "Có — trang dịch vụ + form/Care. Website combo theo điều kiện CRM trên bảng giá.",
+      },
+      {
+        q: "Khác đội sales chỗ nào?",
+        a: "Sales nghiêng pipeline deal (/industries/sales/); vận tải nghiêng đơn/trạng thái/điều phối trong phạm vi.",
+      },
+      {
+        q: "Bắt đầu từ đâu?",
+        a: "Mô tả loại hình vận tải, kênh lead và pain qua /contact/. FAQ tổng: /faq/.",
+      },
     ],
   }),
 
@@ -654,6 +878,34 @@ export const industryPagesVi: Record<IndustrySlug, IndustryPageCopy> = {
       {
         q: "Care có chốt deal giúp không?",
         a: "Care thu lead và FAQ; chốt deal do saler trên CRM.",
+      },
+      {
+        q: "CRM pipeline gồm gì?",
+        a: "Lead/deal theo stage, hoạt động và nhắc follow-up — lõi để lead không trôi trên chat.",
+      },
+      {
+        q: "Ops giúp saler thế nào?",
+        a: "Saler nói việc → mở đúng deal/khách trên CRM; bước nhạy (gửi hàng loạt, xóa…) có thể cần duyệt.",
+      },
+      {
+        q: "Lead từ website vào đâu?",
+        a: "Form/Care thu lead rồi vào CRM theo phạm vi triển khai — không bắt buộc mọi kênh nối sẵn.",
+      },
+      {
+        q: "Có báo cáo doanh số phức tạp không?",
+        a: "Báo cáo theo phạm vi gói. Dashboard kiểu enterprise lớn không mặc định — bàn khi tư vấn.",
+      },
+      {
+        q: "Bắt buộc Care/AI không?",
+        a: "Không. Có thể chỉ CRM pipeline trước; Care khi cần thu lead web ngoài giờ.",
+      },
+      {
+        q: "Website / landing có kèm không?",
+        a: "Theo combo CRM khi đủ điều kiện. Xem bảng giá Sales hoặc /contact/.",
+      },
+      {
+        q: "Bắt đầu thế nào?",
+        a: "Nói quy mô đội, kênh lead và stage hiện tại qua /contact/ hoặc Zalo. FAQ tổng: /faq/ · ngành khác: /industries/.",
       },
     ],
   }),
