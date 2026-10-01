@@ -41,7 +41,7 @@ export type WorkDetailUi = {
 
 const ui: LocaleMap<WorkDetailUi> = {
   vi: {
-    back: "← Về dự án SMB",
+    back: "← Case studies",
     problemTitle: "Bài toán",
     scopeTitle: "Phạm vi",
     highlightsTitle: "Tính năng chính",
@@ -53,7 +53,7 @@ const ui: LocaleMap<WorkDetailUi> = {
     viewerLabel: "Design UI quán bida",
   },
   en: {
-    back: "← Back to SMB works",
+    back: "← Case studies",
     problemTitle: "Problem",
     scopeTitle: "Scope",
     highlightsTitle: "Key features",
@@ -65,7 +65,7 @@ const ui: LocaleMap<WorkDetailUi> = {
     viewerLabel: "Billiard shop UI design",
   },
   ja: {
-    back: "← SMB 実績へ戻る",
+    back: "← Case studies",
     problemTitle: "課題",
     scopeTitle: "スコープ",
     highlightsTitle: "主な機能",

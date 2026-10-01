@@ -1,4 +1,19 @@
+# Dolphin Software — crawl policy (GEO Phase 10)
+# Allow marketing pages; block demos / schema HTML UI.
+# Raw JSON under /schema/*.json stays allowed for GEO readers.
+
 User-agent: *
 Allow: /
+Allow: /schema/*.json
+Disallow: /demos/
+Disallow: /demo/
+Disallow: /schema/
+Disallow: /company_value/
+Disallow: /agent-dolphin/
+Disallow: /custom-agent/
+Disallow: /services/custom-agent/
+Disallow: /services/agents/
+Disallow: /services/backend/
+Disallow: /tam-the/
 
 Sitemap: https://dolphin-software.io.vn/sitemap.xml

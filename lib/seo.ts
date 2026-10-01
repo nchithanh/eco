@@ -7,12 +7,15 @@ export const SITE_URL = "https://dolphin-software.io.vn";
 export const OG_IMAGE_PATH = "/og-default.png";
 export const SEO_LOCALE = DEFAULT_LOCALE;
 
-/** GEO / Organization — VI public identity. */
+/**
+ * GEO / Organization — VI public identity (entity A + commercial CRM motion).
+ * SoT: docs/DOLPHIN-ENTITY.md
+ */
 export const ORG_DESCRIPTION_VI =
-  "Dolphin Software cho thuê phần mềm CRM và AI (SaaS) cho doanh nghiệp dịch vụ. Combo CRM kèm Care hoặc Ops từ 6 tháng tặng website khi triển khai. CRM thuê 12 tháng tặng landing hoặc giảm giá website.";
+  "Dolphin Software là công ty giải pháp công nghệ giúp doanh nghiệp tối ưu vận hành và chăm sóc khách hàng — CRM, AI (Care · Ops), website, automation và tích hợp — để tăng trưởng bền vững. Tại Việt Nam (TP.HCM); doanh nghiệp dịch vụ thuê CRM kèm AI, combo từ 6 tháng có thể được tặng website khi triển khai.";
 
 export const ORG_DESCRIPTION_EN =
-  "Dolphin Software rents CRM and AI software (SaaS) for service businesses. A CRM plan with Care or Ops from 6 months includes a business website. A 12-month CRM plan includes a landing page or a discount on the website.";
+  "Dolphin Software is a technology solutions company helping businesses optimize operations and customer care — CRM, AI (Care · Ops), websites, automation, and integrations — for sustainable growth. Based in Ho Chi Minh City, Vietnam; service businesses can rent CRM with AI, and combos from 6 months may include a website when deploying.";
 
 export function absoluteUrl(path = "/"): string {
   const normalized = path.startsWith("/") ? path : `/${path}`;
@@ -150,6 +153,96 @@ export function serviceJsonLd(input: {
     areaServed: {
       "@type": "Country",
       name: "VN",
+    },
+  };
+}
+
+/**
+ * SaaS product entity — no AggregateRating / invented prices.
+ * Offer URL points at public pricing policy only.
+ */
+export function softwareApplicationJsonLd(input: {
+  name: string;
+  description: string;
+  path: string;
+  /** schema.org applicationCategory */
+  applicationCategory?: string;
+}) {
+  const path = input.path.endsWith("/") ? input.path : `${input.path}/`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: input.name,
+    description: input.description,
+    url: absoluteUrl(path),
+    applicationCategory: input.applicationCategory ?? "BusinessApplication",
+    operatingSystem: "Web",
+    inLanguage: "vi",
+    provider: {
+      "@type": "Organization",
+      name: "Dolphin Software",
+      url: SITE_URL,
+    },
+    offers: {
+      "@type": "Offer",
+      url: absoluteUrl("/chinh-sach-gia-dolphin-2026/"),
+      priceCurrency: "VND",
+      availability: "https://schema.org/InStock",
+    },
+  };
+}
+
+/** BreadcrumbList — paths should match visible trail when UI has one. */
+export function breadcrumbListJsonLd(
+  items: { name: string; path: string }[],
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, index) => {
+      const path = item.path.endsWith("/") || item.path === "/"
+        ? item.path
+        : `${item.path}/`;
+      return {
+        "@type": "ListItem",
+        position: index + 1,
+        name: item.name,
+        item: absoluteUrl(path),
+      };
+    }),
+  };
+}
+
+export function contactPageJsonLd(input?: {
+  name?: string;
+  description?: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    name: input?.name ?? "Liên hệ Dolphin Software",
+    description:
+      input?.description ??
+      "Liên hệ Dolphin Software tại TP.HCM — Zalo, email, hoặc để lại thông tin tư vấn CRM · Care · Ops.",
+    url: absoluteUrl("/contact/"),
+    isPartOf: {
+      "@type": "WebSite",
+      name: "Dolphin Software",
+      url: SITE_URL,
+    },
+    about: {
+      "@type": "Organization",
+      name: "Dolphin Software",
+      url: SITE_URL,
+      email: CONTACTS.email,
+      telephone: CONTACTS.phone,
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: CONTACTS.address.streetAddress,
+        addressLocality: CONTACTS.address.addressLocality,
+        addressRegion: CONTACTS.address.addressRegion,
+        addressCountry: CONTACTS.address.addressCountry,
+      },
     },
   };
 }

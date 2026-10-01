@@ -55,7 +55,7 @@ export function Process() {
   return (
     <section
       id="process"
-      className="scroll-mt-20 py-20 sm:py-24"
+      className="kuct-cv-auto scroll-mt-20 py-20 sm:py-24"
       aria-labelledby="process-heading"
     >
       <div className="mx-auto max-w-7xl px-6">

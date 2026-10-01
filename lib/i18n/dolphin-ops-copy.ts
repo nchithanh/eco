@@ -21,6 +21,7 @@ export type DolphinOpsCopy = {
   ctaPrimary: string;
   ctaSecondary: string;
   trustLine: string;
+  relatedLinks: { label: string; href: string }[];
   heroChromeTitle: string;
   heroStatusReady: string;
   heroStatusRunning: string;
@@ -163,6 +164,14 @@ const vi: DolphinOpsCopy = {
   ctaPrimary: "Xem Ops chạy việc",
   ctaSecondary: "Nói chuyện với chúng tôi",
   trustLine: "Không phải CRM gắn thêm chat.",
+  relatedLinks: [
+    { label: "Dolphin Care", href: "/dolphin-care/" },
+    { label: "Giải pháp theo ngành", href: "/industries/" },
+    { label: "Bảng giá", href: "/chinh-sach-gia-dolphin-2026/" },
+    { label: "Case studies", href: "/case-studies/" },
+    { label: "FAQ", href: "/faq/" },
+    { label: "Liên hệ", href: "/contact/" },
+  ],
   heroChromeTitle: "Dolphin Ops",
   heroStatusReady: "Sẵn sàng",
   heroStatusRunning: "Đang xử lý",
@@ -511,13 +520,13 @@ const vi: DolphinOpsCopy = {
     },
     {
       q: "Chi phí Dolphin Ops tính như thế nào?",
-      a: "Chi phí đi theo scope, không có một mức cố định cho mọi doanh nghiệp. Vì mỗi team đang vướng các tool và quy trình khác nhau, cách hợp lý là trao đổi phạm vi trước rồi mới chốt hướng làm. Anh chị có thể nhắn Zalo tại https://zalo.me/0779937633 để mô tả bài toán.",
+      a: "Chi phí đi theo scope — xem mốc combo tại /chinh-sach-gia-dolphin-2026/ rồi trao đổi phạm vi qua /contact/ hoặc Zalo https://zalo.me/0779937633. Không có một mức cố định cho mọi doanh nghiệp.",
     },
   ],
   closeEyebrow: "Bước tiếp",
   closeTitle: "Xem Dolphin Ops có phù hợp với doanh nghiệp của bạn",
   closeSupport:
-    "Nói doanh nghiệp đang vướng gì. Chúng tôi xem quy trình hiện tại và đề xuất phần nào Ops có thể tự động hóa. Zalo hoặc form bên dưới. Chăm khách trên web trước: /dolphin-care/. Lộ trình AI rộng hơn: /ai-transform/.",
+    "Nói doanh nghiệp đang vướng gì qua /contact/ hoặc Zalo. Chăm khách trên web: /dolphin-care/. Ngành: /industries/. FAQ: /faq/. Case SMB: /case-studies/. Lộ trình AI rộng hơn: /ai-transform/.",
   closeCta: "Nói chuyện với chúng tôi",
   closeSecondary: "Xem lại demo",
   closeTrust:
@@ -536,6 +545,14 @@ const en: DolphinOpsCopy = {
   ctaPrimary: "See Ops run the job",
   ctaSecondary: "Talk to us",
   trustLine: "Not a CRM with chat bolted on.",
+  relatedLinks: [
+    { label: "Dolphin Care", href: "/dolphin-care/" },
+    { label: "Industries", href: "/industries/" },
+    { label: "Pricing", href: "/chinh-sach-gia-dolphin-2026/" },
+    { label: "Case studies", href: "/case-studies/" },
+    { label: "FAQ", href: "/faq/" },
+    { label: "Contact", href: "/contact/" },
+  ],
   heroChromeTitle: "Dolphin Ops",
   heroStatusReady: "Ready",
   heroStatusRunning: "Working",
@@ -890,7 +907,7 @@ const en: DolphinOpsCopy = {
   closeEyebrow: "Next step",
   closeTitle: "See if Dolphin Ops fits your business",
   closeSupport:
-    "Tell us where work gets stuck. We look at the current process and suggest what Ops can take on. Zalo or the form below. On-site customer care first: /dolphin-care/. A broader AI path: /ai-transform/.",
+    "Tell us where work gets stuck via /contact/ or Zalo. Customer care: /dolphin-care/. Industries: /industries/. FAQ: /faq/. SMB cases: /case-studies/. Broader AI path: /ai-transform/.",
   closeCta: "Talk to us",
   closeSecondary: "Replay the demo",
   closeTrust:
@@ -909,6 +926,14 @@ const ja: DolphinOpsCopy = {
   ctaPrimary: "Opsの動きを見る",
   ctaSecondary: "相談する",
   trustLine: "チャットを後付けしたCRMではありません。",
+  relatedLinks: [
+    { label: "Dolphin Care", href: "/dolphin-care/" },
+    { label: "業種別", href: "/industries/" },
+    { label: "料金", href: "/chinh-sach-gia-dolphin-2026/" },
+    { label: "Case studies", href: "/case-studies/" },
+    { label: "FAQ", href: "/faq/" },
+    { label: "お問い合わせ", href: "/contact/" },
+  ],
   heroChromeTitle: "Dolphin Ops",
   heroStatusReady: "待機",
   heroStatusRunning: "処理中",
@@ -1263,7 +1288,7 @@ const ja: DolphinOpsCopy = {
   closeEyebrow: "次の一歩",
   closeTitle: "Dolphin Opsが御社に合うか見る",
   closeSupport:
-    "いま詰まっている業務を話してください。現状の流れを見て、Opsで自動化できる部分を提案します。連絡はZaloか下のフォーム。先にサイト上の顧客ケアなら /dolphin-care/。AIの進め方を広く見るなら /ai-transform/。",
+    "詰まっている業務は /contact/ またはZaloへ。顧客ケア: /dolphin-care/。業種: /industries/。FAQ: /faq/。SMB事例: /case-studies/。広いAIの進め方: /ai-transform/。",
   closeCta: "相談する",
   closeSecondary: "デモをもう一度",
   closeTrust:

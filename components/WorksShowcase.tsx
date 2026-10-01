@@ -110,7 +110,7 @@ export function WorksShowcase() {
   };
 
   return (
-    <section id="works" className="scroll-mt-20 py-24">
+    <section id="works" className="kuct-cv-auto scroll-mt-20 py-24">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal variant="title">
           <p className="kuct-section-eyebrow">
@@ -134,20 +134,29 @@ export function WorksShowcase() {
               ))}
             </ul>
           ) : null}
-          <div className="mt-5">
+          <div className="mt-5 flex flex-wrap items-baseline gap-x-5 gap-y-2">
             <a
-              href="#contact"
+              href={assetPath("/contact/")}
               className="inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--kuct-accent)] transition hover:text-[var(--kuct-text)]"
             >
               {w.cta}
               <span aria-hidden>→</span>
             </a>
-            {w.ctaHint ? (
-              <p className="mt-1.5 max-w-[42ch] text-sm leading-relaxed text-[var(--kuct-muted)]">
-                {w.ctaHint}
-              </p>
+            {w.hubCta ? (
+              <a
+                href={assetPath("/case-studies/")}
+                className="inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--kuct-text)] underline-offset-2 transition hover:text-[var(--kuct-accent)] hover:underline"
+              >
+                {w.hubCta}
+                <span aria-hidden>→</span>
+              </a>
             ) : null}
           </div>
+          {w.ctaHint ? (
+            <p className="mt-1.5 max-w-[42ch] text-sm leading-relaxed text-[var(--kuct-muted)]">
+              {w.ctaHint}
+            </p>
+          ) : null}
         </Reveal>
 
         <div

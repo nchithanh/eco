@@ -8,20 +8,20 @@
     "schemaPath": "/schema/homepage/trust-metrics/",
     "rawPath": "/schema/homepage/trust-metrics.json",
     "productRoute": "/",
-    "source": "homepage trust strip under Hero"
+    "source": "homepage trust strip under Hero — qualitative chips (no unverified KPI counts)"
   },
   "content": {
     "order": 2,
     "id": "trust-metrics",
     "anchor": "#trust",
-    "aria": "Thông số tin cậy Dolphin Software",
+    "aria": "Định vị Dolphin Software",
     "items": [
-      { "value": "+200", "label": "Người dùng" },
-      { "value": "10+", "label": "Đối tác" },
-      { "value": "25%", "label": "Tối ưu doanh thu" },
-      { "value": "2", "label": "Quốc gia" },
-      { "value": "5+", "label": "Kinh nghiệm kỹ thuật" },
-      { "value": "24/7", "label": "Thời gian" }
+      { "value": "CRM", "label": "Nền vận hành" },
+      { "value": "Care", "label": "AI chăm sóc khách" },
+      { "value": "Ops", "label": "Agent trên CRM" },
+      { "value": "SMB", "label": "Doanh nghiệp dịch vụ" },
+      { "value": "HCM", "label": "Việt Nam" },
+      { "value": "24/7", "label": "Care ngoài giờ" }
     ]
   }
 }

@@ -3,7 +3,11 @@ import { Inter, Noto_Sans_JP, Instrument_Serif } from "next/font/google";
 import { AppProviders } from "@/components/AppProviders";
 import { BootScripts } from "@/components/BootScripts";
 import { JsonLd } from "@/components/JsonLd";
-import { organizationJsonLd, websiteJsonLd } from "@/lib/seo";
+import {
+  ORG_DESCRIPTION_VI,
+  organizationJsonLd,
+  websiteJsonLd,
+} from "@/lib/seo";
 import "./globals.css";
 
 /** ElevenLabs-adjacent UI face — Waldenburg not licensed; Inter 300 for display. */
@@ -43,18 +47,16 @@ export const metadata: Metadata = {
  default: "Dolphin Software",
  template: "%s | Dolphin Software",
  },
- description:
- "Dolphin Software — studio làm website & mobile app, tự động hóa quy trình và tích hợp AI. Từ landing đến hệ thống vận hành.",
+ description: ORG_DESCRIPTION_VI,
  keywords: [
  "Dolphin Software",
- "làm website",
- "thiết kế web",
- "mobile app",
- "Next.js",
- "AI agents",
+ "giải pháp công nghệ",
+ "CRM doanh nghiệp dịch vụ",
  "Dolphin Care",
- "chuyển đổi AI doanh nghiệp",
- "web studio",
+ "Dolphin Ops",
+ "AI chăm sóc khách hàng",
+ "tự động hóa vận hành",
+ "TP.HCM",
  ],
  authors: [{ name: "Dolphin Software" }],
  creator: "Dolphin Software",
@@ -93,8 +95,7 @@ export const metadata: Metadata = {
  url: "/",
  siteName: "Dolphin Software",
  title: "Dolphin Software",
- description:
- "Studio xây website, mobile app, tự động hóa và AI — Dolphin Software.",
+ description: ORG_DESCRIPTION_VI,
  images: [
  {
  url: "/og-default.png",
@@ -107,8 +108,7 @@ export const metadata: Metadata = {
  twitter: {
  card: "summary_large_image",
  title: "Dolphin Software",
- description:
- "Studio xây website, mobile app, tự động hóa và AI — Dolphin Software.",
+ description: ORG_DESCRIPTION_VI,
  images: ["/og-default.png"],
  },
 };

@@ -5,8 +5,9 @@ import { BrandName } from "@/components/BrandName";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { BASE_PATH, assetPath } from "@/lib/asset";
 import { SOCIAL_PROFILES, TEAM_EMAILS } from "@/lib/contacts";
+import { INDUSTRY_CATALOG } from "@/lib/industries/catalog";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
-import { PRICING_INDUSTRIES } from "@/lib/pricing/dolphin-pricing-industries-2026";
+import { getIndustryPageCopy } from "@/lib/i18n/industries-copy";
 
 export function Footer() {
   const { t } = useLocale();
@@ -18,10 +19,16 @@ export function Footer() {
   const topGroups = [
     {
       label: f.groupCrm,
-      links: PRICING_INDUSTRIES.map((industry) => ({
-        href: `${pricingHref}#industry-${industry.id}`,
-        label: industry.label,
-      })),
+      links: [
+        {
+          href: assetPath("/industries/"),
+          label: "Tất cả ngành",
+        },
+        ...INDUSTRY_CATALOG.map((industry) => ({
+          href: assetPath(`/industries/${industry.slug}/`),
+          label: getIndustryPageCopy(industry.slug).label,
+        })),
+      ],
     },
     {
       label: f.groupExplore,
@@ -31,6 +38,7 @@ export function Footer() {
         { href: assetPath("/dolphin-ops/"), label: t.nav.dolphinOps },
         { href: assetPath("/dolphin-intelligence/"), label: t.nav.dolphinIntelligence },
         { href: assetPath("/ai-transform/"), label: t.nav.aiTransform },
+        { href: assetPath("/faq/"), label: "FAQ" },
         { href: assetPath("/services/web/"), label: t.nav.serviceWeb },
       ],
     },
@@ -41,6 +49,7 @@ export function Footer() {
         { href: assetPath("/services/landing/"), label: t.nav.serviceLanding },
         { href: assetPath("/services/design/"), label: t.nav.serviceDesign },
         { href: assetPath("/services/integrations/"), label: f.integrations },
+        { href: assetPath("/case-studies/"), label: "Case studies" },
         { href: assetPath("/news/"), label: t.nav.news },
         { href: pricingHref, label: f.pricingPolicy },
         { href: assetPath("/chinh-sach-bao-hanh-ho-tro-2026/"), label: f.warrantyPolicy },
@@ -67,7 +76,8 @@ export function Footer() {
     {
       label: f.groupCompany,
       links: [
-        { href: `${sectionBase}#contact`, label: t.nav.contact },
+        { href: assetPath("/contact/"), label: t.nav.contact },
+        { href: assetPath("/faq/"), label: "FAQ" },
         { href: assetPath("/about/"), label: t.nav.about },
         { href: assetPath("/careers/"), label: t.nav.careers },
         { href: assetPath("/company-profile/"), label: t.nav.companyProfile },

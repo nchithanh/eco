@@ -14,7 +14,7 @@ export function WhyKuct() {
   return (
     <section
       id="why"
-      className="scroll-mt-20 py-24"
+      className="kuct-cv-auto scroll-mt-20 py-24"
       aria-labelledby="home-why-heading"
     >
       <div className="relative mx-auto max-w-7xl px-6">

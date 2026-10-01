@@ -1,9 +1,11 @@
 "use client";
 
 import { useId, useState } from "react";
+import Link from "next/link";
 import { AccentText } from "@/components/BrandName";
 import { FaqAnswerText } from "@/components/FaqAnswerText";
 import { Reveal } from "@/components/Reveal";
+import { assetPath } from "@/lib/asset";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
 
 function Chevron({ open }: { open: boolean }) {
@@ -35,7 +37,7 @@ export function Faq() {
   return (
     <section
       id="faq"
-      className="kuct-faq scroll-mt-20 py-20 sm:py-24"
+      className="kuct-faq kuct-cv-auto scroll-mt-20 py-20 sm:py-24"
       aria-labelledby="faq-heading"
     >
       <div className="mx-auto max-w-7xl px-6">
@@ -50,6 +52,14 @@ export function Faq() {
             </h2>
             <p className="mt-4 max-w-[36ch] text-base leading-[1.7] text-[var(--kuct-muted)]">
               {f.support}
+            </p>
+            <p className="mt-4">
+              <Link
+                href={assetPath("/faq/")}
+                className="text-sm font-semibold text-[var(--kuct-accent)] no-underline underline-offset-2 hover:underline"
+              >
+                Xem FAQ đầy đủ →
+              </Link>
             </p>
           </Reveal>
 

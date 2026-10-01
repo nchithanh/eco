@@ -1,24 +1,58 @@
 "use client";
 
 import { useId, useState } from "react";
+import dynamic from "next/dynamic";
 import { AccentText } from "@/components/BrandName";
 import { FaqAnswerText } from "@/components/FaqAnswerText";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { Reveal } from "@/components/Reveal";
-import {
-  OpsAdminCustomizeDemo,
-  OpsDynamicUiDemo,
-  OpsHeroDemo,
-  OpsHumanControlDemo,
-  OpsPipelineDemo,
-  OpsToolsDemo,
-} from "@/components/DolphinOpsDemos";
+import { assetPath } from "@/lib/asset";
 import { getDolphinOpsCopy } from "@/lib/i18n/dolphin-ops-copy";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
 import { useQuote } from "@/components/QuoteProvider";
 
 const ZALO_HREF = "https://zalo.me/0779937633";
+
+function DemoShell({ className }: { className: string }) {
+  return (
+    <div
+      className={`animate-pulse rounded-[10px] bg-[var(--kuct-surface-muted)] ${className}`}
+      aria-hidden
+    />
+  );
+}
+
+const OpsHeroDemo = dynamic(
+  () =>
+    import("@/components/DolphinOpsDemos").then((m) => m.OpsHeroDemo),
+  { loading: () => <DemoShell className="min-h-[18rem] sm:min-h-[22rem]" /> },
+);
+const OpsPipelineDemo = dynamic(
+  () =>
+    import("@/components/DolphinOpsDemos").then((m) => m.OpsPipelineDemo),
+  { loading: () => <DemoShell className="min-h-[16rem]" /> },
+);
+const OpsDynamicUiDemo = dynamic(
+  () =>
+    import("@/components/DolphinOpsDemos").then((m) => m.OpsDynamicUiDemo),
+  { loading: () => <DemoShell className="min-h-[16rem]" /> },
+);
+const OpsToolsDemo = dynamic(
+  () =>
+    import("@/components/DolphinOpsDemos").then((m) => m.OpsToolsDemo),
+  { loading: () => <DemoShell className="min-h-[16rem]" /> },
+);
+const OpsAdminCustomizeDemo = dynamic(
+  () =>
+    import("@/components/DolphinOpsDemos").then((m) => m.OpsAdminCustomizeDemo),
+  { loading: () => <DemoShell className="min-h-[14rem]" /> },
+);
+const OpsHumanControlDemo = dynamic(
+  () =>
+    import("@/components/DolphinOpsDemos").then((m) => m.OpsHumanControlDemo),
+  { loading: () => <DemoShell className="min-h-[14rem]" /> },
+);
 
 export function DolphinOpsContent() {
   const { locale } = useLocale();
@@ -62,6 +96,20 @@ export function DolphinOpsContent() {
               <p className="mt-6 text-xs font-medium tracking-wide text-[var(--kuct-muted)]">
                 {c.trustLine}
               </p>
+              {c.relatedLinks.length > 0 ? (
+                <ul className="mt-4 flex list-none flex-wrap gap-x-4 gap-y-2 p-0 text-sm font-medium">
+                  {c.relatedLinks.map((link) => (
+                    <li key={link.href}>
+                      <a
+                        href={assetPath(link.href)}
+                        className="text-[var(--kuct-accent)] no-underline underline-offset-2 transition hover:underline"
+                      >
+                        {link.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
             </Reveal>
             <Reveal delay={80} className="min-w-0">
               <OpsHeroDemo copy={c} />

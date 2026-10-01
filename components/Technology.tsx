@@ -22,7 +22,7 @@ export function Technology() {
   return (
     <section
       id="technology"
-      className="relative scroll-mt-20 overflow-hidden py-24"
+      className="kuct-cv-auto relative scroll-mt-20 overflow-hidden py-24"
       aria-labelledby="home-technology-heading"
     >
       <div className="mx-auto max-w-7xl px-6">

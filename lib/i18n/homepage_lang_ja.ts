@@ -309,6 +309,7 @@ export const homepageLangJa: HomepageLang = {
       "各ケース：事業の文脈 → 詰まり → Dolphinが変えたこと → 運用価値。数字の捏造なし。技術スタックは下に。",
     cta: "御社の課題について話す",
     ctaHint: "まず会話 — 提案の前に一緒に分析します。",
+    hubCta: "Case studiesをすべて見る",
     industries: [
       "スパ",
       "レストラン",

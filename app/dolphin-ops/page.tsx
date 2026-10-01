@@ -3,9 +3,11 @@ import { DolphinOpsPage } from "@/components/DolphinOpsContent";
 import { JsonLd } from "@/components/JsonLd";
 import { getDolphinOpsCopy } from "@/lib/i18n/dolphin-ops-copy";
 import {
+  breadcrumbListJsonLd,
   buildPageMetadata,
   faqPageJsonLd,
   serviceJsonLd,
+  softwareApplicationJsonLd,
 } from "@/lib/seo";
 
 /** VI meta for crawlers / social (product SoT is Vietnamese). */
@@ -33,6 +35,16 @@ export default function Page() {
             description: c.metaDescription,
             path,
           }),
+          softwareApplicationJsonLd({
+            name: "Dolphin Ops",
+            description: c.metaDescription,
+            path,
+            applicationCategory: "BusinessApplication",
+          }),
+          breadcrumbListJsonLd([
+            { name: "Trang chủ", path: "/" },
+            { name: "Dolphin Ops", path },
+          ]),
           faqPageJsonLd(c.faqItems),
         ]}
       />

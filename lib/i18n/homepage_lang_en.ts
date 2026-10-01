@@ -27,14 +27,14 @@ export const homepageLangEn: HomepageLang = {
     },
   },
   trustMetrics: {
-    aria: "Dolphin Software trust metrics",
+    aria: "Dolphin Software positioning",
     items: [
-      { value: "+200", label: "Users" },
-      { value: "10+", label: "Partners" },
-      { value: "25%", label: "Revenue optimized" },
-      { value: "2", label: "Countries" },
-      { value: "5+", label: "Engineering experience" },
-      { value: "24/7", label: "Availability" },
+      { value: "CRM", label: "Operating base" },
+      { value: "Care", label: "AI customer care" },
+      { value: "Ops", label: "Agent on CRM" },
+      { value: "SMB", label: "Service businesses" },
+      { value: "HCM", label: "Vietnam" },
+      { value: "24/7", label: "Care after hours" },
     ],
   },
   problems: {
@@ -308,6 +308,7 @@ export const homepageLangEn: HomepageLang = {
       "Each case: business context → bottleneck → what Dolphin changed → operational value. No invented metrics; tech stack sits below.",
     cta: "Talk about your bottleneck",
     ctaHint: "Talk first — we analyze together before proposing a solution.",
+    hubCta: "See all case studies",
     industries: [
       "Spa",
       "Restaurant",

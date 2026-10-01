@@ -15,7 +15,7 @@ import {
  type WorkSlug,
 } from "@/lib/works-details";
 import { getDetailExtrasUi, getWorkExtras } from "@/lib/detail-extras";
-import { themeAsset } from "@/lib/asset";
+import { assetPath, themeAsset } from "@/lib/asset";
 import { useTheme } from "@/lib/theme";
 
 export function WorkDetailContent({
@@ -48,7 +48,7 @@ export function WorkDetailContent({
  <div className="relative mx-auto max-w-7xl px-6">
  {!embedded ? (
  <Link
- href="/#works"
+ href={assetPath("/case-studies/")}
  className="kuct-link inline-flex text-sm font-medium text-[var(--kuct-muted)]"
  >
  {ui.back}
@@ -146,7 +146,7 @@ export function WorkDetailContent({
  </button>
  ) : null}
  <Link
- href="/#contact"
+ href={assetPath("/contact/")}
  className={
  showDesign
  ? "kuct-btn-ghost inline-flex items-center "
@@ -159,6 +159,28 @@ export function WorkDetailContent({
  {ui.cta}
  </Link>
  </Reveal>
+ <ul className="mx-auto mt-8 flex max-w-7xl list-none flex-wrap gap-x-4 gap-y-2 px-6 p-0 text-sm font-medium">
+ <li>
+ <Link href={assetPath("/industries/")} className="text-[var(--kuct-accent)] hover:underline">
+ Ngành
+ </Link>
+ </li>
+ <li>
+ <Link href={assetPath("/dolphin-care/")} className="text-[var(--kuct-accent)] hover:underline">
+ Care
+ </Link>
+ </li>
+ <li>
+ <Link href={assetPath("/dolphin-ops/")} className="text-[var(--kuct-accent)] hover:underline">
+ Ops
+ </Link>
+ </li>
+ <li>
+ <Link href={assetPath("/faq/")} className="text-[var(--kuct-accent)] hover:underline">
+ FAQ
+ </Link>
+ </li>
+ </ul>
  </section>
 
  {showDesign ? (

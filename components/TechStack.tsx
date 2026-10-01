@@ -52,7 +52,7 @@ export function TechStack() {
  return (
  <section
  id="stack"
- className="relative scroll-mt-20 overflow-hidden py-14 sm:py-16"
+ className="kuct-cv-auto relative scroll-mt-20 overflow-hidden py-14 sm:py-16"
  aria-labelledby="home-stack-heading"
  >
  <div

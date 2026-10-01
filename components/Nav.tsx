@@ -1,17 +1,27 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import {
+  useEffect,
+  useId,
+  useRef,
+  useState,
+  type ReactNode,
+} from "react";
 import { usePathname } from "next/navigation";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
-import { ThemeSwitcher } from "@/components/ThemeSwitcher";
 import { Logo } from "@/components/Logo";
 import { BASE_PATH, assetPath } from "@/lib/asset";
+import { CONTACTS } from "@/lib/contacts";
+import { INDUSTRY_CATALOG } from "@/lib/industries/catalog";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
+import { getIndustryPageCopy } from "@/lib/i18n/industries-copy";
 
 type NavLink = {
   href: string;
   label: string;
 };
+
+type MegaId = "products" | "solutions" | "resources" | null;
 
 function normalizePath(path: string) {
   const stripped = path.replace(BASE_PATH, "") || "/";
@@ -19,31 +29,8 @@ function normalizePath(path: string) {
   return clean;
 }
 
-function NavItemLink({
-  href,
-  label,
-  active,
-  onClick,
-  className,
-}: {
-  href: string;
-  label: string;
-  active?: boolean;
-  onClick?: () => void;
-  className?: string;
-}) {
-  const tone =
-    "text-sm font-medium text-[var(--kuct-text)] transition hover:text-[var(--kuct-accent)]";
-  return (
-    <a
-      href={href}
-      onClick={onClick}
-      aria-current={active ? "page" : undefined}
-      className={className ? `${tone} ${className}` : tone}
-    >
-      {label}
-    </a>
-  );
+function padIndex(index: number) {
+  return String(index + 1).padStart(2, "0");
 }
 
 export function Nav() {
@@ -51,11 +38,87 @@ export function Nav() {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [headerHidden, setHeaderHidden] = useState(false);
+  const [mega, setMega] = useState<MegaId>(null);
+  const [mobileSection, setMobileSection] = useState<MegaId>(null);
   const closeMenuRef = useRef<HTMLButtonElement>(null);
+  const desktopNavRef = useRef<HTMLDivElement>(null);
+  const megaCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const hoverMegaOk = useRef(false);
   const [hash, setHash] = useState("");
   const lastScrollY = useRef(0);
+  const productsPanelId = useId();
+  const solutionsPanelId = useId();
+  const resourcesPanelId = useId();
   const homeHref = pathname === "/" ? "#top" : assetPath("/");
   const current = normalizePath(pathname);
+  const contactHref = assetPath("/contact/");
+  const pricingHref = assetPath("/chinh-sach-gia-dolphin-2026/");
+
+  const productOverview: NavLink[] = [
+    { href: assetPath("/dolphin-care/"), label: t.nav.agentDolphin },
+    { href: assetPath("/dolphin-ops/"), label: t.nav.dolphinOps },
+    { href: assetPath("/dolphin-intelligence/"), label: t.nav.dolphinIntelligence },
+    { href: assetPath("/ai-transform/"), label: t.nav.aiTransform },
+  ];
+
+  const productSecondary: NavLink[] = [
+    { href: assetPath("/services/web/"), label: t.nav.serviceWeb },
+    { href: assetPath("/services/landing/"), label: t.nav.serviceLanding },
+    { href: assetPath("/services/mobile/"), label: t.nav.serviceMobile },
+    { href: assetPath("/services/software/"), label: t.nav.serviceBackend },
+    { href: assetPath("/services/integrations/"), label: t.footer.integrations },
+  ];
+
+  const careColumn: NavLink[] = [
+    { href: assetPath("/dolphin-care/"), label: t.nav.agentDolphin },
+    { href: assetPath("/faq/"), label: "FAQ" },
+    { href: contactHref, label: t.nav.contact },
+  ];
+
+  const opsColumn: NavLink[] = [
+    { href: assetPath("/dolphin-ops/"), label: t.nav.dolphinOps },
+    { href: assetPath("/dolphin-intelligence/"), label: t.nav.dolphinIntelligence },
+    { href: assetPath("/ai-transform/"), label: t.nav.aiTransform },
+  ];
+
+  const webColumn: NavLink[] = [
+    { href: assetPath("/services/web/"), label: t.nav.serviceWeb },
+    { href: assetPath("/services/landing/"), label: t.nav.serviceLanding },
+    { href: assetPath("/services/mobile/"), label: t.nav.serviceMobile },
+    { href: assetPath("/services/software/"), label: t.nav.serviceBackend },
+    { href: assetPath("/services/design/"), label: t.nav.serviceDesign },
+    { href: assetPath("/services/integrations/"), label: t.footer.integrations },
+  ];
+
+  const solutionLinks: NavLink[] = [
+    { href: assetPath("/industries/"), label: t.nav.allIndustries },
+    ...INDUSTRY_CATALOG.filter((item) => item.priority === "p0").map((item) => ({
+      href: assetPath(`/industries/${item.slug}/`),
+      label: getIndustryPageCopy(item.slug).label,
+    })),
+    { href: pricingHref, label: t.nav.pricing },
+  ];
+
+  const resourceLinks: NavLink[] = [
+    { href: assetPath("/news/"), label: t.nav.news },
+    { href: assetPath("/faq/"), label: "FAQ" },
+    { href: assetPath("/case-studies/"), label: "Case studies" },
+    { href: assetPath("/about/"), label: t.nav.about },
+    { href: assetPath("/company-profile/"), label: t.nav.companyProfile },
+    { href: assetPath("/careers/"), label: t.nav.careers },
+  ];
+
+  const allNavLinks = [
+    ...productOverview,
+    ...productSecondary,
+    ...careColumn,
+    ...opsColumn,
+    ...webColumn,
+    ...solutionLinks,
+    ...resourceLinks,
+    { href: pricingHref, label: t.nav.pricing },
+    { href: contactHref, label: t.nav.contact },
+  ];
 
   useEffect(() => {
     const syncHash = () => setHash(window.location.hash.replace(/^#/, ""));
@@ -66,29 +129,25 @@ export function Nav() {
 
   useEffect(() => {
     lastScrollY.current = window.scrollY;
-
     const onScroll = () => {
       const y = window.scrollY;
       const delta = y - lastScrollY.current;
-
-      if (isMenuOpen || y < 24) {
+      if (isMenuOpen || mega || y < 24) {
         setHeaderHidden(false);
       } else if (delta > 8) {
         setHeaderHidden(true);
       } else if (delta < -8) {
         setHeaderHidden(false);
       }
-
       lastScrollY.current = y;
     };
-
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, [isMenuOpen]);
+  }, [isMenuOpen, mega]);
 
   useEffect(() => {
-    if (isMenuOpen) setHeaderHidden(false);
-  }, [isMenuOpen]);
+    if (isMenuOpen || mega) setHeaderHidden(false);
+  }, [isMenuOpen, mega]);
 
   useEffect(() => {
     const root = document.documentElement;
@@ -100,76 +159,75 @@ export function Nav() {
     return () => root.removeAttribute("data-mobile-nav-open");
   }, [isMenuOpen]);
 
-  const productItems: NavLink[] = [
-    {
-      href: assetPath("/dolphin-ops/"),
-      label: t.nav.crm,
-    },
-    {
-      href: assetPath("/dolphin-care/"),
-      label: t.nav.agentDolphin,
-    },
-    {
-      href: assetPath("/#dolphin-ops"),
-      label: t.nav.dolphinOps,
-    },
-    {
-      href: assetPath("/services/web/"),
-      label: t.nav.serviceWeb,
-    },
-  ];
+  useEffect(() => {
+    if (typeof window.matchMedia !== "function") return;
+    const mq = window.matchMedia("(min-width: 1024px)");
+    const hoverMq = window.matchMedia("(hover: hover) and (pointer: fine)");
+    const onChange = () => {
+      if (mq.matches) setIsMenuOpen(false);
+      else setMega(null);
+    };
+    const syncHover = () => {
+      hoverMegaOk.current = hoverMq.matches;
+    };
+    onChange();
+    syncHover();
+    mq.addEventListener("change", onChange);
+    hoverMq.addEventListener("change", syncHover);
+    return () => {
+      mq.removeEventListener("change", onChange);
+      hoverMq.removeEventListener("change", syncHover);
+    };
+  }, []);
 
-  const serviceItems: NavLink[] = [
-    {
-      href: assetPath("/services/landing/"),
-      label: t.nav.serviceLanding,
-    },
-    {
-      href: assetPath("/services/mobile/"),
-      label: t.nav.serviceMobile,
-    },
-    {
-      href: assetPath("/services/software/"),
-      label: t.nav.serviceBackend,
-    },
-  ];
+  useEffect(() => {
+    return () => {
+      if (megaCloseTimer.current) clearTimeout(megaCloseTimer.current);
+    };
+  }, []);
 
-  const agentItems: NavLink[] = [
-    {
-      href: assetPath("/ai-transform/"),
-      label: t.nav.aiTransform,
-    },
-    {
-      href: assetPath("/dolphin-intelligence/"),
-      label: t.nav.dolphinIntelligence,
-    },
-  ];
+  useEffect(() => {
+    setIsMenuOpen(false);
+    setMega(null);
+    setMobileSection(null);
+  }, [pathname]);
 
-  const pageLinks: NavLink[] = [
-    { href: assetPath("/news/"), label: t.nav.news },
-    { href: assetPath("/about/"), label: t.nav.about },
-    {
-      href: assetPath("/company-profile/"),
-      label: t.nav.companyProfile,
-    },
-    {
-      href: assetPath("/chinh-sach-gia-dolphin-2026/"),
-      label: t.nav.pricing,
-    },
-    { href: assetPath("/careers/"), label: t.nav.careers },
-  ];
+  useEffect(() => {
+    if (isMenuOpen) setMobileSection("products");
+  }, [isMenuOpen]);
 
-  const desktopGnbLinks: NavLink[] = [
-    ...productItems,
-    ...agentItems,
-    ...serviceItems,
-  ];
-  const allNavLinks = [
-    ...productItems,
-    ...agentItems,
-    ...serviceItems,
-    ...pageLinks,
-  ];
+  useEffect(() => {
+    if (!isMenuOpen) return;
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    closeMenuRef.current?.focus();
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setIsMenuOpen(false);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.body.style.overflow = prevOverflow;
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [isMenuOpen]);
+
+  useEffect(() => {
+    if (!mega) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setMega(null);
+    };
+    const onPointerDown = (event: MouseEvent) => {
+      if (!desktopNavRef.current?.contains(event.target as Node)) {
+        setMega(null);
+      }
+    };
+    window.addEventListener("keydown", onKeyDown);
+    document.addEventListener("mousedown", onPointerDown);
+    return () => {
+      window.removeEventListener("keydown", onKeyDown);
+      document.removeEventListener("mousedown", onPointerDown);
+    };
+  }, [mega]);
 
   const isPageActive = (href: string) => {
     const [pathPart, hashPart] = href.split("#");
@@ -184,188 +242,305 @@ export function Nav() {
   };
 
   const isHomeActive = current === "/" && (hash === "" || hash === "top");
+  const closeMenu = () => setIsMenuOpen(false);
 
-  useEffect(() => {
-    if (typeof window.matchMedia !== "function") return;
+  const cancelMegaClose = () => {
+    if (megaCloseTimer.current) {
+      clearTimeout(megaCloseTimer.current);
+      megaCloseTimer.current = null;
+    }
+  };
 
-    const mq = window.matchMedia("(min-width: 768px)");
-    const onChange = () => {
-      if (mq.matches) setIsMenuOpen(false);
-    };
-    onChange();
-    mq.addEventListener("change", onChange);
-    return () => mq.removeEventListener("change", onChange);
-  }, []);
+  const openMega = (id: Exclude<MegaId, null>) => {
+    cancelMegaClose();
+    setMega(id);
+  };
 
-  useEffect(() => {
-    setIsMenuOpen(false);
-  }, [pathname]);
+  const scheduleMegaClose = () => {
+    cancelMegaClose();
+    megaCloseTimer.current = setTimeout(() => setMega(null), 140);
+  };
 
-  useEffect(() => {
-    if (!isMenuOpen) return;
+  const toggleMega = (id: Exclude<MegaId, null>) => {
+    cancelMegaClose();
+    setMega((currentMega) => (currentMega === id ? null : id));
+  };
 
-    const prevOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    closeMenuRef.current?.focus();
+  const onMegaTriggerEnter = (id: Exclude<MegaId, null>) => {
+    if (hoverMegaOk.current) openMega(id);
+  };
 
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setIsMenuOpen(false);
-    };
-    window.addEventListener("keydown", onKeyDown);
-    return () => {
-      document.body.style.overflow = prevOverflow;
-      window.removeEventListener("keydown", onKeyDown);
-    };
-  }, [isMenuOpen]);
+  const topTriggerClass = (id: Exclude<MegaId, null>) =>
+    `kuct-nav-trigger inline-flex h-9 shrink-0 items-center rounded-full px-3 text-sm font-medium tracking-[-0.02em] transition ${
+      mega === id
+        ? "bg-[var(--kuct-surface-muted)] text-[var(--kuct-text)]"
+        : "text-[var(--kuct-text)] hover:bg-[var(--kuct-surface-muted)]"
+    }`;
 
-  const gnbLinkClass =
-    "kuct-gnb-link inline-flex h-[2.75rem] shrink-0 items-center text-[0.875rem] leading-none tracking-[-0.02em] text-[var(--kuct-text)] transition-colors hover:text-[var(--kuct-accent)]";
-  const gnbLinkActiveClass = " text-[var(--kuct-accent)]";
-  const utilityLinkClass =
-    "kuct-nav-utility kuct-gnb-link inline-flex h-[2.75rem] shrink-0 items-center text-[0.875rem] leading-none tracking-[-0.02em] text-[var(--kuct-text)] transition-colors hover:text-[var(--kuct-accent)]";
   const logoLinkClass =
-    "inline-flex h-[2.75rem] shrink-0 items-center text-[var(--kuct-text)] transition hover:opacity-85";
+    "inline-flex h-10 shrink-0 items-center text-[var(--kuct-text)] transition hover:opacity-85";
   const logoActiveWordmark =
     "font-display text-base font-bold leading-none tracking-tight text-[var(--kuct-accent)] sm:text-lg";
   const logoActiveTagline =
     "text-[9px] font-medium tracking-[0.34em] text-[var(--kuct-accent)] uppercase opacity-80 sm:text-[10px]";
 
-  const closeMenu = () => setIsMenuOpen(false);
-  const menuIconClass =
-    "kuct-mobile-nav__icon grid size-10 place-items-center text-[var(--kuct-text)] transition hover:text-[var(--kuct-accent)]";
-
   return (
     <>
-    <div
-      className={`kuct-site-header sticky top-0 z-50 ${
-        headerHidden ? "is-hidden" : ""
-      }`}
-    >
-      <header className="bg-white">
-        <nav
-          className="mx-auto max-w-7xl px-6"
-          aria-label={t.nav.ariaMain}
-        >
-          {/* Desktop — two-tier, flat GNB (no dropdowns) */}
-          <div className="hidden lg:block">
-            <div className="flex items-center justify-end gap-5">
-              {pageLinks.map((link) => {
-                const active = isPageActive(link.href);
-                return (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    aria-current={active ? "page" : undefined}
-                    className={`${utilityLinkClass}${
-                      active ? gnbLinkActiveClass : ""
-                    }`}
+      <div
+        className={`kuct-site-header sticky top-0 z-50 ${
+          headerHidden ? "is-hidden" : ""
+        }`}
+      >
+        <header className="border-b border-[var(--kuct-border)] bg-white">
+          <nav
+            ref={desktopNavRef}
+            className="relative mx-auto max-w-7xl px-4 sm:px-6"
+            aria-label={t.nav.ariaMain}
+            onMouseLeave={() => {
+              if (hoverMegaOk.current) scheduleMegaClose();
+            }}
+            onMouseEnter={cancelMegaClose}
+          >
+            {/* Desktop — ElevenLabs-style bar + megas */}
+            <div className="hidden h-[4.25rem] items-center gap-3 lg:flex xl:gap-5">
+              <a
+                href={homeHref}
+                className={logoLinkClass}
+                aria-label="Dolphin Software"
+                aria-current={isHomeActive ? "page" : undefined}
+              >
+                <Logo
+                  showWordmark
+                  wordmarkClassName={
+                    isHomeActive ? logoActiveWordmark : undefined
+                  }
+                  wordmarkTaglineClassName={
+                    isHomeActive ? logoActiveTagline : undefined
+                  }
+                />
+              </a>
+
+              <ul className="m-0 flex min-w-0 flex-1 list-none items-center gap-0.5 p-0 xl:gap-1">
+                <li>
+                  <button
+                    type="button"
+                    className={topTriggerClass("products")}
+                    aria-expanded={mega === "products"}
+                    aria-controls={productsPanelId}
+                    onMouseEnter={() => onMegaTriggerEnter("products")}
+                    onFocus={() => onMegaTriggerEnter("products")}
+                    onClick={() => toggleMega("products")}
                   >
-                    {link.label}
+                    {t.nav.products}
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    className={topTriggerClass("solutions")}
+                    aria-expanded={mega === "solutions"}
+                    aria-controls={solutionsPanelId}
+                    onMouseEnter={() => onMegaTriggerEnter("solutions")}
+                    onFocus={() => onMegaTriggerEnter("solutions")}
+                    onClick={() => toggleMega("solutions")}
+                  >
+                    {t.nav.solutions}
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    className={topTriggerClass("resources")}
+                    aria-expanded={mega === "resources"}
+                    aria-controls={resourcesPanelId}
+                    onMouseEnter={() => onMegaTriggerEnter("resources")}
+                    onFocus={() => onMegaTriggerEnter("resources")}
+                    onClick={() => toggleMega("resources")}
+                  >
+                    {t.nav.resources}
+                  </button>
+                </li>
+                <li>
+                  <a
+                    href={pricingHref}
+                    className="inline-flex h-9 shrink-0 items-center rounded-full px-3 text-sm font-medium tracking-[-0.02em] text-[var(--kuct-text)] transition hover:bg-[var(--kuct-surface-muted)]"
+                    aria-current={
+                      isPageActive(pricingHref) ? "page" : undefined
+                    }
+                    onMouseEnter={() => {
+                      if (hoverMegaOk.current) scheduleMegaClose();
+                    }}
+                  >
+                    {t.nav.pricing}
                   </a>
-                );
-              })}
-              <div className="kuct-nav-utility kuct-gnb-link flex h-[2.75rem] items-center text-[0.875rem]">
+                </li>
+              </ul>
+
+              <div
+                className="flex shrink-0 items-center gap-2 xl:gap-3"
+                onMouseEnter={() => {
+                  if (hoverMegaOk.current) scheduleMegaClose();
+                }}
+              >
                 <LanguageSwitcher />
+                <a
+                  href={contactHref}
+                  className="kuct-btn-outline inline-flex h-10 items-center rounded-full px-4 text-sm font-semibold"
+                >
+                  {t.nav.contact}
+                </a>
+                <a
+                  href={CONTACTS.zalo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="kuct-btn-primary inline-flex h-10 items-center rounded-full px-4 text-sm font-semibold"
+                >
+                  {t.nav.talk}
+                </a>
               </div>
             </div>
 
-            <div className="flex min-h-[3.65rem] items-center gap-6 pb-3 xl:gap-8">
-              <a
-                href={homeHref}
-                className={`${logoLinkClass}${
-                  isHomeActive ? gnbLinkActiveClass : ""
-                }`}
-                aria-label="Dolphin Software"
-                aria-current={isHomeActive ? "page" : undefined}
+            {mega === "products" ? (
+              <div
+                id={productsPanelId}
+                className="kuct-mega absolute left-4 right-4 top-full z-50 pt-2 xl:left-6 xl:right-6"
+                onMouseEnter={cancelMegaClose}
               >
-                <Logo
-                  showWordmark
-                  wordmarkClassName={
-                    isHomeActive ? logoActiveWordmark : undefined
-                  }
-                  wordmarkTaglineClassName={
-                    isHomeActive ? logoActiveTagline : undefined
-                  }
-                />
-              </a>
+                <div className="overflow-hidden rounded-[10px] border border-[var(--kuct-border)] bg-white shadow-[0_1.25rem_3rem_rgb(26_22_37/0.12)]">
+                <div className="grid min-h-[22rem] lg:grid-cols-[15.5rem_minmax(0,1fr)]">
+                  <aside className="flex flex-col border-r border-[var(--kuct-border)] bg-[var(--kuct-surface-muted)] p-5">
+                    <p className="m-0 text-[0.65rem] font-semibold tracking-[0.16em] text-[var(--kuct-muted)] uppercase">
+                      {t.nav.overview}
+                    </p>
+                    <ul className="mt-3 m-0 flex list-none flex-col gap-0.5 p-0">
+                      {productOverview.map((item) => (
+                        <li key={item.href + item.label}>
+                          <a
+                            href={item.href}
+                            className="block rounded-[10px] px-2.5 py-2 text-sm font-semibold text-[var(--kuct-text)] no-underline transition hover:bg-white"
+                            onClick={() => setMega(null)}
+                          >
+                            {item.label}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="my-3 border-t border-[var(--kuct-border)]" />
+                    <ul className="m-0 flex list-none flex-col gap-0.5 p-0">
+                      {productSecondary.map((item) => (
+                        <li key={item.href}>
+                          <a
+                            href={item.href}
+                            className="block rounded-[10px] px-2.5 py-1.5 text-sm font-medium text-[var(--kuct-text)] no-underline transition hover:bg-white"
+                            onClick={() => setMega(null)}
+                          >
+                            {item.label}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                    <a
+                      href={assetPath("/case-studies/")}
+                      className="mt-auto block rounded-[10px] bg-white px-3 py-3 no-underline transition hover:ring-1 hover:ring-[var(--kuct-border)]"
+                      onClick={() => setMega(null)}
+                    >
+                      <p className="m-0 text-sm font-semibold text-[var(--kuct-text)]">
+                        {t.nav.featuredTitle}
+                      </p>
+                      <p className="mt-1 m-0 text-xs leading-relaxed text-[var(--kuct-muted)]">
+                        {t.nav.featuredBody}
+                      </p>
+                    </a>
+                  </aside>
+                  <div className="grid gap-8 p-6 sm:grid-cols-3">
+                    <MegaColumn
+                      title={t.nav.groupCare}
+                      links={careColumn}
+                      onNavigate={() => setMega(null)}
+                      isActive={isPageActive}
+                    />
+                    <MegaColumn
+                      title={t.nav.groupOpsAi}
+                      links={opsColumn}
+                      onNavigate={() => setMega(null)}
+                      isActive={isPageActive}
+                    />
+                    <MegaColumn
+                      title={t.nav.groupWeb}
+                      links={webColumn}
+                      onNavigate={() => setMega(null)}
+                      isActive={isPageActive}
+                    />
+                  </div>
+                </div>
+                </div>
+              </div>
+            ) : null}
 
-              <ul className="flex min-w-0 flex-1 flex-wrap items-center gap-x-4 gap-y-1 xl:gap-x-5">
-                {desktopGnbLinks.map((link) => {
-                  const active = isPageActive(link.href);
-                  return (
-                    <li key={link.href + link.label}>
+            {mega === "solutions" ? (
+              <div
+                id={solutionsPanelId}
+                className="kuct-mega absolute left-4 right-4 top-full z-50 max-w-3xl pt-2 xl:left-6"
+                onMouseEnter={cancelMegaClose}
+              >
+                <div className="overflow-hidden rounded-[10px] border border-[var(--kuct-border)] bg-white p-6 shadow-[0_1.25rem_3rem_rgb(26_22_37/0.12)]">
+                <p className="m-0 text-[0.65rem] font-semibold tracking-[0.16em] text-[var(--kuct-muted)] uppercase">
+                  {t.nav.solutions}
+                </p>
+                <ul className="mt-4 m-0 grid list-none grid-cols-2 gap-1 p-0 sm:grid-cols-3">
+                  {solutionLinks.map((item) => (
+                    <li key={item.href}>
                       <a
-                        href={link.href}
-                        aria-current={active ? "page" : undefined}
-                        className={`${gnbLinkClass}${
-                          active ? gnbLinkActiveClass : ""
-                        }`}
+                        href={item.href}
+                        className="block rounded-[10px] px-3 py-2.5 text-sm font-medium text-[var(--kuct-text)] no-underline transition hover:bg-[var(--kuct-surface-muted)]"
+                        aria-current={
+                          isPageActive(item.href) ? "page" : undefined
+                        }
+                        onClick={() => setMega(null)}
                       >
-                        {link.label}
+                        {item.label}
                       </a>
                     </li>
-                  );
-                })}
-              </ul>
-            </div>
-          </div>
+                  ))}
+                </ul>
+                </div>
+              </div>
+            ) : null}
 
-          {/* Mobile / tablet — single compact row */}
-          <div className="flex h-14 items-center justify-between gap-4 sm:h-[3.75rem] lg:hidden">
-            <a
-              href={homeHref}
-              className={`${logoLinkClass}${
-                isHomeActive ? gnbLinkActiveClass : ""
-              }`}
-              aria-label="Dolphin Software"
-              aria-current={isHomeActive ? "page" : undefined}
-            >
-              <Logo
-                showWordmark
-                wordmarkClassName={
-                  isHomeActive ? logoActiveWordmark : undefined
-                }
-                wordmarkTaglineClassName={
-                  isHomeActive ? logoActiveTagline : undefined
-                }
-              />
-            </a>
-
-            <div className="flex shrink-0 items-center gap-2 text-[0.875rem]">
-              <LanguageSwitcher />
-              <button
-                type="button"
-                className={menuIconClass}
-                aria-label={isMenuOpen ? t.nav.closeMenu : t.nav.openMenu}
-                aria-controls="mobile-nav"
-                aria-expanded={isMenuOpen}
-                onClick={() => setIsMenuOpen((isOpen) => !isOpen)}
+            {mega === "resources" ? (
+              <div
+                id={resourcesPanelId}
+                className="kuct-mega absolute left-4 right-4 top-full z-50 max-w-sm pt-2 xl:left-6"
+                onMouseEnter={cancelMegaClose}
               >
-                <span aria-hidden="true" className="text-lg leading-none">
-                  {isMenuOpen ? "×" : "≡"}
-                </span>
-              </button>
-            </div>
-          </div>
-        </nav>
-      </header>
-    </div>
+                <div className="overflow-hidden rounded-[10px] border border-[var(--kuct-border)] bg-white p-4 shadow-[0_1.25rem_3rem_rgb(26_22_37/0.12)]">
+                <ul className="m-0 flex list-none flex-col gap-0.5 p-0">
+                  {resourceLinks.map((item) => (
+                    <li key={item.href}>
+                      <a
+                        href={item.href}
+                        className="block rounded-[10px] px-3 py-2.5 text-sm font-medium text-[var(--kuct-text)] no-underline transition hover:bg-[var(--kuct-surface-muted)]"
+                        aria-current={
+                          isPageActive(item.href) ? "page" : undefined
+                        }
+                        onClick={() => setMega(null)}
+                      >
+                        {item.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+                </div>
+              </div>
+            ) : null}
 
-        {isMenuOpen ? (
-          <nav
-            id="mobile-nav"
-            aria-label={t.nav.ariaMobile}
-            className="kuct-mobile-nav fixed inset-0 z-[70] flex h-dvh flex-col lg:hidden"
-          >
-            <div className="kuct-mobile-nav__bar flex h-14 shrink-0 items-center justify-between gap-4 px-6 sm:h-[3.75rem]">
+            {/* Mobile / tablet */}
+            <div className="flex h-14 items-center justify-between gap-4 sm:h-[3.75rem] lg:hidden">
               <a
                 href={homeHref}
-                className={`${logoLinkClass}${
-                  isHomeActive ? gnbLinkActiveClass : ""
-                }`}
+                className={logoLinkClass}
                 aria-label="Dolphin Software"
                 aria-current={isHomeActive ? "page" : undefined}
-                onClick={closeMenu}
               >
                 <Logo
                   showWordmark
@@ -377,90 +552,233 @@ export function Nav() {
                   }
                 />
               </a>
-              <div className="flex shrink-0 items-center gap-2 text-[0.875rem]">
+              <div className="flex shrink-0 items-center gap-2">
                 <LanguageSwitcher />
                 <button
-                  ref={closeMenuRef}
                   type="button"
-                  className={menuIconClass}
-                  aria-label={t.nav.closeMenu}
-                  onClick={closeMenu}
+                  className="kuct-mobile-nav__icon grid size-10 place-items-center text-[var(--kuct-text)]"
+                  aria-label={isMenuOpen ? t.nav.closeMenu : t.nav.openMenu}
+                  aria-controls="mobile-nav"
+                  aria-expanded={isMenuOpen}
+                  onClick={() => setIsMenuOpen((open) => !open)}
                 >
-                  <span aria-hidden="true" className="text-lg leading-none">
-                    ×
+                  <span aria-hidden className="text-lg leading-none">
+                    {isMenuOpen ? "×" : "≡"}
                   </span>
                 </button>
               </div>
             </div>
-
-            <ul className="mx-auto flex min-h-0 w-full max-w-lg flex-1 flex-col overflow-y-auto overscroll-contain px-4 py-3">
-              <li className="kuct-mobile-nav__label" aria-hidden="true">
-                {t.nav.solutions}
-              </li>
-              {productItems.map((item) => (
-                <li key={item.href + item.label}>
-                  <a
-                    href={item.href}
-                    aria-current={isPageActive(item.href) ? "page" : undefined}
-                    className="kuct-mobile-nav__link"
-                    onClick={closeMenu}
-                  >
-                    {item.label}
-                  </a>
-                </li>
-              ))}
-              <li className="kuct-mobile-nav__label" aria-hidden="true">
-                {t.nav.services}
-              </li>
-              {serviceItems.map((item) => (
-                <li key={item.href + item.label}>
-                  <a
-                    href={item.href}
-                    aria-current={isPageActive(item.href) ? "page" : undefined}
-                    className="kuct-mobile-nav__link"
-                    onClick={closeMenu}
-                  >
-                    {item.label}
-                  </a>
-                </li>
-              ))}
-              <li className="kuct-mobile-nav__label" aria-hidden="true">
-                {t.nav.agents}
-              </li>
-              {agentItems.map((item) => (
-                <li key={item.href}>
-                  <a
-                    href={item.href}
-                    aria-current={isPageActive(item.href) ? "page" : undefined}
-                    className="kuct-mobile-nav__link"
-                    onClick={closeMenu}
-                  >
-                    {item.label}
-                  </a>
-                </li>
-              ))}
-              <li
-                className="mt-3 border-t border-[var(--kuct-border)] pt-3"
-                aria-hidden="true"
-              />
-              {pageLinks.map((link) => (
-                <li key={link.href}>
-                  <a
-                    href={link.href}
-                    aria-current={isPageActive(link.href) ? "page" : undefined}
-                    className="kuct-mobile-nav__link"
-                    onClick={closeMenu}
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-              <li>
-                <ThemeSwitcher />
-              </li>
-            </ul>
           </nav>
-        ) : null}
+        </header>
+      </div>
+
+      {isMenuOpen ? (
+        <nav
+          id="mobile-nav"
+          aria-label={t.nav.ariaMobile}
+          className="kuct-mobile-nav fixed inset-0 z-[70] flex h-dvh flex-col lg:hidden"
+        >
+          <div className="kuct-mobile-nav__bar flex h-14 shrink-0 items-center justify-between gap-4 px-6 sm:h-[3.75rem]">
+            <a
+              href={homeHref}
+              className={logoLinkClass}
+              aria-label="Dolphin Software"
+              onClick={closeMenu}
+            >
+              <Logo showWordmark />
+            </a>
+            <button
+              ref={closeMenuRef}
+              type="button"
+              className="kuct-mobile-nav__icon grid size-10 place-items-center"
+              aria-label={t.nav.closeMenu}
+              onClick={closeMenu}
+            >
+              <span aria-hidden className="text-lg leading-none">
+                ×
+              </span>
+            </button>
+          </div>
+
+          <div className="mx-auto flex min-h-0 w-full max-w-lg flex-1 flex-col overflow-y-auto overscroll-contain px-4 py-3">
+            <MobileAccordion
+              title={t.nav.products}
+              open={mobileSection === "products"}
+              onToggle={() =>
+                setMobileSection((s) => (s === "products" ? null : "products"))
+              }
+            >
+              {[...productOverview, ...productSecondary].map((item, index) => (
+                <a
+                  key={`p-${item.href}-${item.label}`}
+                  href={item.href}
+                  className="kuct-mobile-nav__link"
+                  onClick={closeMenu}
+                >
+                  <span
+                    className="mr-3 text-xs text-[var(--kuct-muted)]"
+                    aria-hidden
+                  >
+                    {padIndex(index)}
+                  </span>
+                  {item.label}
+                </a>
+              ))}
+            </MobileAccordion>
+
+            <MobileAccordion
+              title={t.nav.solutions}
+              open={mobileSection === "solutions"}
+              onToggle={() =>
+                setMobileSection((s) =>
+                  s === "solutions" ? null : "solutions",
+                )
+              }
+            >
+              {solutionLinks.map((item, index) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className="kuct-mobile-nav__link"
+                  onClick={closeMenu}
+                >
+                  <span
+                    className="mr-3 text-xs text-[var(--kuct-muted)]"
+                    aria-hidden
+                  >
+                    {padIndex(index)}
+                  </span>
+                  {item.label}
+                </a>
+              ))}
+            </MobileAccordion>
+
+            <MobileAccordion
+              title={t.nav.resources}
+              open={mobileSection === "resources"}
+              onToggle={() =>
+                setMobileSection((s) =>
+                  s === "resources" ? null : "resources",
+                )
+              }
+            >
+              {resourceLinks.map((item, index) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className="kuct-mobile-nav__link"
+                  onClick={closeMenu}
+                >
+                  <span
+                    className="mr-3 text-xs text-[var(--kuct-muted)]"
+                    aria-hidden
+                  >
+                    {padIndex(index)}
+                  </span>
+                  {item.label}
+                </a>
+              ))}
+            </MobileAccordion>
+
+            <a
+              href={pricingHref}
+              className="kuct-mobile-nav__link mt-2"
+              onClick={closeMenu}
+            >
+              {t.nav.pricing}
+            </a>
+            <a
+              href={contactHref}
+              className="kuct-mobile-nav__link"
+              onClick={closeMenu}
+            >
+              {t.nav.contact}
+            </a>
+          </div>
+
+          <div className="kuct-mobile-nav__foot flex flex-col gap-2">
+            <a
+              href={CONTACTS.zalo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="kuct-btn-primary inline-flex items-center justify-center rounded-full px-5 py-3 text-sm font-semibold"
+              onClick={closeMenu}
+            >
+              {t.nav.talk}
+            </a>
+            <a
+              href={contactHref}
+              className="kuct-btn-outline inline-flex items-center justify-center rounded-full px-5 py-3 text-sm font-semibold"
+              onClick={closeMenu}
+            >
+              {t.nav.contact}
+            </a>
+          </div>
+        </nav>
+      ) : null}
     </>
+  );
+}
+
+function MegaColumn({
+  title,
+  links,
+  onNavigate,
+  isActive,
+}: {
+  title: string;
+  links: NavLink[];
+  onNavigate: () => void;
+  isActive: (href: string) => boolean;
+}) {
+  return (
+    <div>
+      <p className="m-0 text-[0.65rem] font-semibold tracking-[0.14em] text-[var(--kuct-muted)] uppercase">
+        {title}
+      </p>
+      <ul className="mt-3 m-0 flex list-none flex-col gap-0.5 p-0">
+        {links.map((item) => (
+          <li key={`${title}-${item.href}-${item.label}`}>
+            <a
+              href={item.href}
+              className="block rounded-[10px] px-2 py-2 text-sm font-medium text-[var(--kuct-text)] no-underline transition hover:bg-[var(--kuct-surface-muted)]"
+              aria-current={isActive(item.href) ? "page" : undefined}
+              onClick={onNavigate}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function MobileAccordion({
+  title,
+  open,
+  onToggle,
+  children,
+}: {
+  title: string;
+  open: boolean;
+  onToggle: () => void;
+  children: ReactNode;
+}) {
+  return (
+    <div className="border-b border-[var(--kuct-border)] py-1">
+      <button
+        type="button"
+        className="flex w-full items-center justify-between px-2 py-3 text-left text-base font-semibold text-[var(--kuct-text)]"
+        aria-expanded={open}
+        onClick={onToggle}
+      >
+        {title}
+        <span aria-hidden className="text-[var(--kuct-muted)]">
+          {open ? "−" : "+"}
+        </span>
+      </button>
+      {open ? <div className="pb-2">{children}</div> : null}
+    </div>
   );
 }

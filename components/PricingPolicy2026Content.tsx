@@ -1097,8 +1097,17 @@ export function PricingPolicy2026Content() {
           >
             {PRICING_CTA.zaloLabel}
           </a>
-          <Link href={assetPath("/#contact")} className="elp__ghost">
+          <Link href={assetPath("/contact/")} className="elp__ghost">
             {PRICING_CTA.contactLabel}
+          </Link>
+          <Link href={assetPath("/industries/")} className="elp__ghost">
+            Giải pháp theo ngành
+          </Link>
+          <Link href={assetPath("/case-studies/")} className="elp__ghost">
+            Case studies
+          </Link>
+          <Link href={assetPath("/faq/")} className="elp__ghost">
+            FAQ
           </Link>
           <Link href={assetPath(WARRANTY_POLICY_PATH)} className="elp__ghost">
             Chính sách bảo hành

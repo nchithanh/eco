@@ -120,7 +120,7 @@ export function FitSection() {
     <section
       id="fit"
       aria-labelledby="home-fit-heading"
-      className="scroll-mt-20 bg-white py-20 sm:py-24"
+      className="kuct-cv-auto scroll-mt-20 bg-white py-20 sm:py-24"
     >
       <div className="mx-auto max-w-7xl px-6">
         <Reveal variant="title" className="mx-auto max-w-4xl text-center">

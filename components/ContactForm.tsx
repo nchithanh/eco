@@ -1,25 +1,45 @@
 "use client";
 
+import Link from "next/link";
 import { AccentText, BrandText } from "@/components/BrandName";
 import { Reveal } from "@/components/Reveal";
+import { assetPath } from "@/lib/asset";
 import { CONTACTS } from "@/lib/contacts";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
 
-export function ContactForm() {
+export function ContactForm({
+  variant = "section",
+}: {
+  /** `page` = standalone `/contact/` (h1); `section` = homepage embed (h2) */
+  variant?: "section" | "page";
+}) {
   const { t } = useLocale();
   const c = t.contact;
+  const isPage = variant === "page";
+  const HeadingTag = isPage ? "h1" : "h2";
 
   return (
-    <section id="contact" className="scroll-mt-20 py-24">
+    <section
+      id="contact"
+      aria-labelledby={isPage ? "contact-page-heading" : "home-contact-heading"}
+      className={
+        isPage
+          ? "scroll-mt-20 py-16 sm:py-20 lg:py-24"
+          : "kuct-cv-auto scroll-mt-20 py-24"
+      }
+    >
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-14">
           <Reveal variant="title">
             <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
               {c.eyebrow}
             </p>
-            <h2 className="mt-4 max-w-xl font-display text-3xl font-semibold leading-[1.12] tracking-tight sm:text-[2.15rem] lg:text-[2.35rem] lg:leading-[1.1]">
+            <HeadingTag
+              id={isPage ? "contact-page-heading" : "home-contact-heading"}
+              className="mt-4 max-w-xl font-display text-3xl font-semibold leading-[1.12] tracking-tight sm:text-[2.15rem] lg:text-[2.35rem] lg:leading-[1.1]"
+            >
               <AccentText>{c.title}</AccentText>
-            </h2>
+            </HeadingTag>
             <p className="mt-5 max-w-[42ch] text-base leading-[1.7] text-[var(--kuct-muted)]">
               <BrandText size="sm">{c.support}</BrandText>
             </p>
@@ -79,6 +99,43 @@ export function ContactForm() {
                 {CONTACTS.address.label}
               </a>
             </p>
+            {isPage ? (
+              <ul className="mt-6 flex list-none flex-wrap gap-x-4 gap-y-2 p-0 text-sm font-medium">
+                <li>
+                  <Link href={assetPath("/industries/")} className="text-[var(--kuct-accent)] hover:underline">
+                    Ngành
+                  </Link>
+                </li>
+                <li>
+                  <Link href={assetPath("/case-studies/")} className="text-[var(--kuct-accent)] hover:underline">
+                    Case studies
+                  </Link>
+                </li>
+                <li>
+                  <Link href={assetPath("/faq/")} className="text-[var(--kuct-accent)] hover:underline">
+                    FAQ
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href={assetPath("/chinh-sach-gia-dolphin-2026/")}
+                    className="text-[var(--kuct-accent)] hover:underline"
+                  >
+                    Bảng giá
+                  </Link>
+                </li>
+                <li>
+                  <Link href={assetPath("/dolphin-care/")} className="text-[var(--kuct-accent)] hover:underline">
+                    Care
+                  </Link>
+                </li>
+                <li>
+                  <Link href={assetPath("/dolphin-ops/")} className="text-[var(--kuct-accent)] hover:underline">
+                    Ops
+                  </Link>
+                </li>
+              </ul>
+            ) : null}
           </Reveal>
 
           <Reveal variant="right" delay={100}>

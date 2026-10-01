@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import { assetPath } from "@/lib/asset";
 
 const PATH_RE =
- /(\/(?:services\/[\w-]+|about|careers|dolphin-care|dolphin-ops|ai-transform|works\/[\w-]+)\/?)/g;
+ /(\/(?:services\/[\w-]+|industries(?:\/[\w-]+)?|case-studies|about|careers|contact|faq|dolphin-care|dolphin-ops|dolphin-intelligence|ai-transform|chinh-sach-gia-dolphin-2026|works\/[\w-]+)\/?)/g;
 
 /** Turn plain `/path/` mentions in FAQ answers into real anchors. */
 export function FaqAnswerText({

@@ -58,10 +58,12 @@ export function LazyImage({
  const label = t.preview.loading;
  // Next.js: `priority` implies eager load — do not also pass loading="lazy"
  const loadingProp = priority ? undefined : loading;
+ // Priority / LCP candidates: paint immediately (no opacity-0 fade or overlay).
+ const deferPaint = !priority;
 
  return (
  <>
- {!loaded ? (
+ {deferPaint && !loaded ? (
  <div
  className={`pointer-events-none absolute inset-0 z-[1] flex items-center justify-center bg-gradient-to-br from-[#faf5ff]/90 via-white/75 to-[#ede9fe]/85 ${overlayClassName ?? ""}`}
  >
@@ -74,7 +76,11 @@ export function LazyImage({
  alt={alt}
  priority={priority}
  loading={loadingProp}
- className={`${className ?? ""} transition-opacity duration-500 ${loaded ? "opacity-100" : "opacity-0"}`}
+ className={`${className ?? ""}${
+ deferPaint
+ ? ` transition-opacity duration-500 ${loaded ? "opacity-100" : "opacity-0"}`
+ : ""
+ }`}
  onLoad={(event) => {
  setLoadedSrc(key);
  onLoad?.(event);

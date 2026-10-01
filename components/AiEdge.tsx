@@ -22,7 +22,7 @@ export function AiEdge() {
   return (
     <section
       id="ai-edge"
-      className="scroll-mt-20 py-24"
+      className="kuct-cv-auto scroll-mt-20 py-24"
       aria-labelledby="home-ai-edge-heading"
     >
       <div className="mx-auto max-w-7xl px-6">

@@ -16,7 +16,7 @@ const vi: FaqCopy = {
   items: [
       {
           "q": "Dolphin Software làm gì?",
-          "a": "Dolphin Software cho thuê CRM và AI (SaaS) cho doanh nghiệp dịch vụ B2B tại Việt Nam — spa, nail, salon, giáo dục, clinic. CRM là nền vận hành. Care, Ops và Intelligence là lớp tăng trưởng. Website tặng hoặc giảm theo combo CRM."
+          "a": "Dolphin Software là công ty giải pháp công nghệ giúp doanh nghiệp tối ưu vận hành và chăm sóc khách hàng. GTM hiện tại: thuê CRM + AI (Care · Ops) cho doanh nghiệp dịch vụ; website thường là quyền lợi combo. Không phải chỉ agency làm web hay chỉ bán chatbot."
       },
       {
           "q": "Phần mềm CRM có tặng website không?",
@@ -36,7 +36,7 @@ const vi: FaqCopy = {
       },
       {
           "q": "Báo giá hoạt động như thế nào? Có phí ẩn không?",
-          "a": "Gửi brief ngắn qua Contact, 'Nhận báo giá' hoặc Zalo. Dolphin Software phản hồi với phạm vi dự kiến và bước tiếp theo — không có phí ngoài phạm vi đã thỏa thuận."
+          "a": "Gửi brief ngắn qua /contact/, nút nhận báo giá hoặc Zalo. Dolphin Software phản hồi phạm vi dự kiến và bước tiếp theo — không phí ngoài phạm vi đã thỏa thuận. Xem thêm /chinh-sach-gia-dolphin-2026/."
       },
       {
           "q": "Timeline điển hình là bao lâu?",
@@ -72,7 +72,7 @@ const vi: FaqCopy = {
       },
       {
           "q": "Làm sao để bắt đầu?",
-          "a": "Kể vấn đề đang nghẽn qua form Contact hoặc Zalo. Không cần biết sẵn 'cần website hay AI' — Dolphin đề xuất phạm vi khớp pain."
+          "a": "Kể vấn đề đang nghẽn qua /contact/ hoặc Zalo (https://zalo.me/0779937633). Không cần biết sẵn cần website hay AI — Dolphin đề xuất phạm vi khớp pain."
       }
   ],
 };

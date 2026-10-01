@@ -16,9 +16,9 @@ import { useDesktopMotion } from "@/lib/motion";
 import { useQuote } from "@/components/QuoteProvider";
 
 const IMG = {
- compare: "/services/agent-dolphin/compare.jpg",
- context: "/services/agent-dolphin/context.jpg",
- care: "/services/agent-dolphin/care.jpg",
+ compare: "/services/agent-dolphin/compare.webp",
+ context: "/services/agent-dolphin/context.webp",
+ care: "/services/agent-dolphin/care.webp",
 } as const;
 
 const CHAR_MS = 26;
@@ -329,9 +329,33 @@ export function AgentDolphinContent({ embedded = false }: { embedded?: boolean }
  <h2 className="kuct-type-h2 mt-3 font-display text-3xl sm:text-4xl">
  <AccentText>{c.whatTitle}</AccentText>
  </h2>
- <p className="mt-3 max-w-xl text-[var(--kuct-muted)]">
+ <p className="mt-3 max-w-xl text-base leading-relaxed text-[var(--kuct-text)]">
  {c.whatSupport}
  </p>
+ <h2 className="kuct-type-h2 mt-10 font-display text-2xl sm:text-3xl">
+ <AccentText>{c.fitTitle}</AccentText>
+ </h2>
+ <p className="mt-3 max-w-xl text-base leading-relaxed text-[var(--kuct-text)]">
+ {c.fitSupport}
+ </p>
+ {c.relatedLinks.length > 0 ? (
+ <ul className="mt-4 flex list-none flex-wrap gap-x-4 gap-y-2 p-0 text-sm font-medium">
+ {c.relatedLinks.map((link) => (
+ <li key={link.href}>
+ <a
+ href={
+ link.href.startsWith("http")
+ ? link.href
+ : assetPath(link.href)
+ }
+ className="text-[var(--kuct-accent)] no-underline underline-offset-2 transition hover:underline"
+ >
+ {link.label}
+ </a>
+ </li>
+ ))}
+ </ul>
+ ) : null}
  <p className="mt-8 text-xs font-semibold tracking-[0.2em] text-[var(--kuct-accent)] uppercase">
  {c.pillarsEyebrow}
  </p>

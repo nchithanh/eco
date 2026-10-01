@@ -4,11 +4,12 @@ import { JsonLd } from "@/components/JsonLd";
 import { NewsDetailView } from "@/components/NewsDetailView";
 import { getNewsDetail, NEWS_SLUGS, isNewsSlug } from "@/lib/news-details";
 import {
- articleJsonLd,
- buildPageMetadata,
- faqPageJsonLd,
- OG_IMAGE_PATH,
- SEO_LOCALE,
+  articleJsonLd,
+  breadcrumbListJsonLd,
+  buildPageMetadata,
+  faqPageJsonLd,
+  OG_IMAGE_PATH,
+  SEO_LOCALE,
 } from "@/lib/seo";
 
 export function generateStaticParams() {
@@ -60,14 +61,19 @@ export default async function NewsArticlePage({
  const article = getNewsDetail(SEO_LOCALE, slug);
  const path = `/news/${slug}/`;
  const jsonLd = [
- articleJsonLd({
-    title: article.metaTitle ?? article.title,
-    description: article.metaDescription ?? article.excerpt,
- path,
- datePublished: article.date,
- image: article.image,
- }),
- ...(article.faq?.length ? [faqPageJsonLd(article.faq)] : []),
+   articleJsonLd({
+     title: article.metaTitle ?? article.title,
+     description: article.metaDescription ?? article.excerpt,
+     path,
+     datePublished: article.date,
+     image: article.image,
+   }),
+   breadcrumbListJsonLd([
+     { name: "Trang chủ", path: "/" },
+     { name: "Tin tức", path: "/news/" },
+     { name: article.title, path },
+   ]),
+   ...(article.faq?.length ? [faqPageJsonLd(article.faq)] : []),
  ];
 
  return (

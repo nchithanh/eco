@@ -41,7 +41,7 @@ describe("Dolphin Software homepage", () => {
     ).toBeInTheDocument();
     expect(
       screen.getAllByRole("link", { name: /Nói về doanh nghiệp của bạn/i })[0],
-    ).toHaveAttribute("href", "#contact");
+    ).toHaveAttribute("href", "/contact/");
     expect(
       screen.getAllByRole("button", { name: /Nhận báo giá/i }).length,
     ).toBeGreaterThanOrEqual(1);
@@ -364,6 +364,7 @@ describe("Dolphin Software homepage", () => {
     expect(
       within(mobileNav).getByRole("link", { name: /^Care$/i }),
     ).toHaveAttribute("href", expect.stringMatching(/\/dolphin-care\/?$/));
+    await user.click(within(mobileNav).getByRole("button", { name: /Tài nguyên/i }));
     expect(
       within(mobileNav).getByRole("link", { name: /Tin tức/i }),
     ).toBeInTheDocument();
@@ -438,7 +439,7 @@ describe("Dolphin Software homepage", () => {
     ).toBeInTheDocument();
     expect(
       screen.getAllByRole("link", { name: /Nói về doanh nghiệp của bạn/i })[0],
-    ).toHaveAttribute("href", "#contact");
+    ).toHaveAttribute("href", "/contact/");
   });
 
   it("switches language to English", async () => {
@@ -455,7 +456,7 @@ describe("Dolphin Software homepage", () => {
     ).toBeInTheDocument();
     expect(
       screen.getAllByRole("link", { name: /Talk about your business/i })[0],
-    ).toHaveAttribute("href", "#contact");
+    ).toHaveAttribute("href", "/contact/");
   });
 
 });

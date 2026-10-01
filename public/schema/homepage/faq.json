@@ -4,7 +4,7 @@
     "id": "faq",
     "locale": "vi",
     "brand": "Dolphin Software",
-    "updated": "2026-09-30",
+    "updated": "2026-10-01",
     "schemaPath": "/schema/homepage/faq/",
     "rawPath": "/schema/homepage/faq.json",
     "productRoute": "/"
@@ -20,7 +20,7 @@
       {
         "id": "faq-what",
         "question": "Dolphin Software làm gì?",
-        "answer": "Dolphin Software cho thuê CRM và AI (SaaS) cho doanh nghiệp dịch vụ B2B tại Việt Nam — spa, nail, salon, giáo dục, clinic. CRM là nền vận hành. Care, Ops và Intelligence là lớp tăng trưởng. Website tặng hoặc giảm theo combo CRM.",
+        "answer": "Dolphin Software là công ty giải pháp công nghệ giúp doanh nghiệp tối ưu vận hành và chăm sóc khách hàng. GTM hiện tại: thuê CRM + AI (Care · Ops) cho doanh nghiệp dịch vụ; website thường là quyền lợi combo. Không phải chỉ agency làm web hay chỉ bán chatbot.",
         "open": true
       },
       {
@@ -81,7 +81,7 @@
       {
         "id": "faq-quote",
         "question": "Báo giá và phí ẩn?",
-        "answer": "Brief ngắn qua Contact hoặc Zalo. Phản hồi hướng tiếp cận và phạm vi dự kiến — không phí ngoài phạm vi đã thỏa thuận. Có thể tham chiếu trang Chính sách giá Dolphin 2026."
+        "answer": "Brief ngắn qua /contact/, nút nhận báo giá hoặc Zalo. Phản hồi hướng tiếp cận và phạm vi dự kiến — không phí ngoài phạm vi đã thỏa thuận. Xem thêm /chinh-sach-gia-dolphin-2026/."
       },
       {
         "id": "faq-maintenance",
@@ -91,7 +91,7 @@
       {
         "id": "faq-start",
         "question": "Làm sao để bắt đầu?",
-        "answer": "Kể ngành dịch vụ và chỗ đang nghẽn qua form Contact hoặc Zalo. Không cần biết sẵn tên gói — cùng chọn CRM và lớp AI / website phù hợp."
+        "answer": "Kể vấn đề đang nghẽn qua /contact/ hoặc Zalo (https://zalo.me/0779937633). Không cần biết sẵn cần website hay AI — Dolphin đề xuất phạm vi khớp pain."
       }
     ]
   }

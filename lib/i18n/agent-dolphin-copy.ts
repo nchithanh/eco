@@ -15,6 +15,10 @@ export type AgentDolphinCopy = {
   whatEyebrow: string;
   whatTitle: string;
   whatSupport: string;
+  /** Answer-first: when Care is a fit */
+  fitTitle: string;
+  fitSupport: string;
+  relatedLinks: { label: string; href: string }[];
   pillarsEyebrow: string;
   pillarsTitle: string;
   pillarsSupport: string;
@@ -81,7 +85,18 @@ const vi: AgentDolphinCopy = {
   whatEyebrow: "Definition",
   whatTitle: "Dolphin Care [[là gì]]?",
   whatSupport:
-    "Dolphin Care là chatbot AI cho website, được phát triển bởi Dolphin Software, hoạt động dựa trên 4 lớp xử lý. Không phải chatbot kịch bản cứng nhắc — hiểu ngữ cảnh và trả lời linh hoạt theo từng tình huống, đồng thời giữ đúng giọng thương hiệu.",
+    "Dolphin Care là AI chăm sóc khách hàng của Dolphin Software: chatbot trên website (và có thể nối Zalo / Messenger) trả lời đúng nghiệp vụ đã khóa, ghi lead, hỗ trợ đặt lịch / FAQ, rồi gửi insight hằng ngày cho admin. Không phải bot kịch bản if-else — dùng LLM + knowledge doanh nghiệp + ngữ cảnh hội thoại trong phạm vi đã cấu hình.",
+  fitTitle: "Dolphin Care [[phù hợp khi nào]]?",
+  fitSupport:
+    "Phù hợp SMB dịch vụ (spa, salon, clinic, lớp học…) có website hoặc đang làm combo CRM: khách hỏi ngoài giờ, câu hỏi lặp nhiều, team mỏng. Chưa thay nhân viên cho việc nhạy cảm — bước quan trọng vẫn bàn giao người. Muốn CRM nội bộ thì xem Dolphin Ops; giá combo xem bảng giá theo ngành.",
+  relatedLinks: [
+    { label: "Dolphin Ops (CRM)", href: "/dolphin-ops/" },
+    { label: "Giải pháp theo ngành", href: "/industries/" },
+    { label: "Bảng giá theo ngành", href: "/chinh-sach-gia-dolphin-2026/" },
+    { label: "Case studies", href: "/case-studies/" },
+    { label: "FAQ", href: "/faq/" },
+    { label: "Liên hệ", href: "/contact/" },
+  ],
   pillarsEyebrow: "Four layers",
   pillarsTitle: "Cơ chế hoạt động của [[Dolphin Care]]",
   pillarsSupport:
@@ -264,7 +279,15 @@ const vi: AgentDolphinCopy = {
     },
     {
       q: "Chi phí triển khai Dolphin Care là bao nhiêu?",
-      a: "Dolphin Software báo giá minh bạch theo phạm vi triển khai thực tế — không tính phí ẩn, không bán thêm dịch vụ không cần thiết. Liên hệ để nhận tư vấn và báo giá phù hợp với quy mô doanh nghiệp.",
+      a: "Dolphin Software báo giá minh bạch theo phạm vi triển khai thực tế — không tính phí ẩn, không bán thêm dịch vụ không cần thiết. Xem khung combo trên trang chính sách giá hoặc liên hệ /contact/ để nhận tư vấn theo quy mô.",
+    },
+    {
+      q: "AI có thể trả lời khách ngoài giờ không?",
+      a: "Có — trong phạm vi kiến thức đã khóa (giờ mở cửa, dịch vụ, FAQ, lịch trống nếu đã kết nối). Ngoài phạm vi hoặc việc nhạy cảm, Care chuyển cho người.",
+    },
+    {
+      q: "Dolphin Care khác chatbot thông thường như thế nào?",
+      a: "Chatbot kịch bản đi theo nút/if-else cố định. Care kết hợp LLM với nghiệp vụ và ngữ cảnh hội thoại, kèm báo cáo insight hằng ngày — vẫn bị giới hạn bởi knowledge và guardrails doanh nghiệp đặt ra.",
     },
   ],
   closeEyebrow: "Get started",
@@ -274,7 +297,7 @@ const vi: AgentDolphinCopy = {
   closeCta: "Nhận tư vấn Dolphin Care",
   closeLinks: [
     { label: "Chat Zalo", href: "https://zalo.me/0779937633" },
-    { label: "Gửi yêu cầu tư vấn", href: "/#contact" },
+    { label: "Trang liên hệ", href: "/contact/" },
     { label: "Lộ trình AI", href: "/ai-transform/" },
   ],
 };
@@ -303,7 +326,18 @@ const en: AgentDolphinCopy = {
   whatEyebrow: "Definition",
   whatTitle: "What is [[Dolphin Care]]?",
   whatSupport:
-    "Dolphin Care is a website AI chatbot developed by Dolphin Software, operating on four layers — not a rigid if-else script. It understands context, answers flexibly, and stays on-brand.",
+    "Dolphin Care is Dolphin Software’s AI customer service: a website chatbot (optionally Zalo / Messenger) that answers from locked business knowledge, captures leads, supports booking/FAQ workflows, and emails admins a daily insight report. Not a button-tree script bot — LLM + company knowledge + conversation context, inside configured guardrails.",
+  fitTitle: "When is [[Dolphin Care]] a fit?",
+  fitSupport:
+    "Best for service SMBs (spa, salon, clinic, classes…) with a site or a CRM combo: after-hours questions, repeat FAQs, small teams. It does not replace people on sensitive steps — those hand off to staff. For internal CRM, see Dolphin Ops; for prepaid combos, see the pricing page by industry.",
+  relatedLinks: [
+    { label: "Dolphin Ops (CRM)", href: "/dolphin-ops/" },
+    { label: "Industries", href: "/industries/" },
+    { label: "Pricing by industry", href: "/chinh-sach-gia-dolphin-2026/" },
+    { label: "Case studies", href: "/case-studies/" },
+    { label: "FAQ", href: "/faq/" },
+    { label: "Contact", href: "/contact/" },
+  ],
   pillarsEyebrow: "Four layers",
   pillarsTitle: "How [[Dolphin Care]] works",
   pillarsSupport:
@@ -481,7 +515,15 @@ const en: AgentDolphinCopy = {
     },
     {
       q: "How is pricing handled?",
-      a: "Transparent quotes by scope — no hidden fees. Contact us for a fit-based estimate.",
+      a: "Transparent quotes by scope — no hidden fees. See the pricing policy page or /contact/ for a fit-based estimate.",
+    },
+    {
+      q: "Can AI answer customers after hours?",
+      a: "Yes — within locked knowledge (hours, services, FAQ, availability if connected). Out of scope or sensitive steps hand off to a person.",
+    },
+    {
+      q: "How is Dolphin Care different from a normal chatbot?",
+      a: "Script bots follow fixed buttons/if-else. Care combines an LLM with business and conversation context plus a daily insight report — still bounded by your knowledge and guardrails.",
     },
   ],
   closeEyebrow: "Get started",
@@ -491,7 +533,7 @@ const en: AgentDolphinCopy = {
   closeCta: "Talk about Dolphin Care",
   closeLinks: [
     { label: "Chat on Zalo", href: "https://zalo.me/0779937633" },
-    { label: "Contact form", href: "/#contact" },
+    { label: "Contact page", href: "/contact/" },
     { label: "AI roadmap", href: "/ai-transform/" },
   ],
 };
@@ -520,7 +562,18 @@ const ja: AgentDolphinCopy = {
   whatEyebrow: "Definition",
   whatTitle: "Dolphin Careとは？",
   whatSupport:
-    "Dolphin Softwareが開発するWebサイト向けAIチャット。4層で動作し、硬いif-elseスクリプトではありません。文脈を理解し、柔軟に回答し、ブランドに沿います。",
+    "Dolphin CareはDolphin SoftwareのAIカスタマーサービスです。Webサイト上のチャット（Zalo／Messenger接続可）がロックした業務知識で回答し、リードを記録し、予約／FAQを支援し、管理者へ日次インサイトを送ります。ボタン型スクリプトではなく、LLM＋社内ナレッジ＋会話文脈をガードレール内で使います。",
+  fitTitle: "[[Dolphin Care]]が合うのはどんなとき？",
+  fitSupport:
+    "サイトまたはCRMコンボがあるサービス業SMB（スパ、サロン、クリニック、教室など）向け。時間外の質問、繰り返しFAQ、少人数チーム。機微な判断は人に引き継ぎます。社内CRMはDolphin Ops、料金は業種別価格ページを参照。",
+  relatedLinks: [
+    { label: "Dolphin Ops（CRM）", href: "/dolphin-ops/" },
+    { label: "業種別ソリューション", href: "/industries/" },
+    { label: "業種別料金", href: "/chinh-sach-gia-dolphin-2026/" },
+    { label: "Case studies", href: "/case-studies/" },
+    { label: "FAQ", href: "/faq/" },
+    { label: "お問い合わせ", href: "/contact/" },
+  ],
   pillarsEyebrow: "Four layers",
   pillarsTitle: "[[Dolphin Care]]の仕組み",
   pillarsSupport:
@@ -690,7 +743,7 @@ const ja: AgentDolphinCopy = {
   closeCta: "Dolphin Careを相談",
   closeLinks: [
     { label: "Zaloでチャット", href: "https://zalo.me/0779937633" },
-    { label: "お問い合わせ", href: "/#contact" },
+    { label: "お問い合わせ", href: "/contact/" },
     { label: "AIロードマップ", href: "/ai-transform/" },
   ],
 };

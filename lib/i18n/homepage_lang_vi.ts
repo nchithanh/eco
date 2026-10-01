@@ -59,14 +59,14 @@ export const homepageLangVi: HomepageLang = {
     },
   },
   trustMetrics: {
-    aria: "Thông số tin cậy Dolphin Software",
+    aria: "Định vị Dolphin Software",
     items: [
-      { value: "+200", label: "Người dùng" },
-      { value: "10+", label: "Đối tác" },
-      { value: "25%", label: "Tối ưu doanh thu" },
-      { value: "2", label: "Quốc gia" },
-      { value: "5+", label: "Kinh nghiệm kỹ thuật" },
-      { value: "24/7", label: "Thời gian" },
+      { value: "CRM", label: "Nền vận hành" },
+      { value: "Care", label: "AI chăm sóc khách" },
+      { value: "Ops", label: "Agent trên CRM" },
+      { value: "SMB", label: "Doanh nghiệp dịch vụ" },
+      { value: "HCM", label: "Việt Nam" },
+      { value: "24/7", label: "Care ngoài giờ" },
     ],
   },
   problems: {
@@ -352,6 +352,7 @@ export const homepageLangVi: HomepageLang = {
       "Mỗi case: bối cảnh doanh nghiệp → chỗ nghẽn → Dolphin đổi gì → giá trị vận hành. Không bịa số liệu; stack kỹ thuật nằm dưới.",
     cta: "Nói về bài toán của anh chị",
     ctaHint: "Trao đổi trước — cùng phân tích trước khi đề xuất giải pháp.",
+    hubCta: "Xem tất cả case studies",
     industries: [
       "Spa",
       "Nhà hàng",

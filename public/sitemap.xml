@@ -2,11 +2,63 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://dolphin-software.io.vn/</loc>
-    <lastmod>2026-07-31</lastmod>
+    <lastmod>2026-10-01</lastmod>
   </url>
   <url>
     <loc>https://dolphin-software.io.vn/about/</loc>
     <lastmod>2026-07-31</lastmod>
+  </url>
+  <url>
+    <loc>https://dolphin-software.io.vn/contact/</loc>
+    <lastmod>2026-10-01</lastmod>
+  </url>
+  <url>
+    <loc>https://dolphin-software.io.vn/faq/</loc>
+    <lastmod>2026-10-01</lastmod>
+  </url>
+  <url>
+    <loc>https://dolphin-software.io.vn/case-studies/</loc>
+    <lastmod>2026-10-01</lastmod>
+  </url>
+  <url>
+    <loc>https://dolphin-software.io.vn/industries/</loc>
+    <lastmod>2026-10-01</lastmod>
+  </url>
+  <url>
+    <loc>https://dolphin-software.io.vn/industries/spa/</loc>
+    <lastmod>2026-10-01</lastmod>
+  </url>
+  <url>
+    <loc>https://dolphin-software.io.vn/industries/salon/</loc>
+    <lastmod>2026-10-01</lastmod>
+  </url>
+  <url>
+    <loc>https://dolphin-software.io.vn/industries/nail/</loc>
+    <lastmod>2026-10-01</lastmod>
+  </url>
+  <url>
+    <loc>https://dolphin-software.io.vn/industries/clinic/</loc>
+    <lastmod>2026-10-01</lastmod>
+  </url>
+  <url>
+    <loc>https://dolphin-software.io.vn/industries/education/</loc>
+    <lastmod>2026-10-01</lastmod>
+  </url>
+  <url>
+    <loc>https://dolphin-software.io.vn/industries/dance-center/</loc>
+    <lastmod>2026-10-01</lastmod>
+  </url>
+  <url>
+    <loc>https://dolphin-software.io.vn/industries/shop/</loc>
+    <lastmod>2026-10-01</lastmod>
+  </url>
+  <url>
+    <loc>https://dolphin-software.io.vn/industries/transport/</loc>
+    <lastmod>2026-10-01</lastmod>
+  </url>
+  <url>
+    <loc>https://dolphin-software.io.vn/industries/sales/</loc>
+    <lastmod>2026-10-01</lastmod>
   </url>
   <url>
     <loc>https://dolphin-software.io.vn/company-profile/</loc>
@@ -34,7 +86,11 @@
   </url>
   <url>
     <loc>https://dolphin-software.io.vn/news/</loc>
-    <lastmod>2026-09-29</lastmod>
+    <lastmod>2026-10-01</lastmod>
+  </url>
+  <url>
+    <loc>https://dolphin-software.io.vn/news/co-duoc-nhac-toi-tren-chatgpt-gemini/</loc>
+    <lastmod>2026-10-01</lastmod>
   </url>
   <url>
     <loc>https://dolphin-software.io.vn/news/chatgpt-ads-viet-nam/</loc>
@@ -42,111 +98,111 @@
   </url>
   <url>
     <loc>https://dolphin-software.io.vn/news/mat-lead-ngoai-gio-hanh-chinh/</loc>
-    <lastmod>2026-09-18</lastmod>
+    <lastmod>2026-09-29</lastmod>
   </url>
   <url>
     <loc>https://dolphin-software.io.vn/news/chatgpt-ads-doanh-nghiep-co-nen-chay/</loc>
-    <lastmod>2026-09-10</lastmod>
+    <lastmod>2026-09-29</lastmod>
   </url>
   <url>
     <loc>https://dolphin-software.io.vn/news/chuyen-quan-ly-task-tu-zalo-sang-crm/</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-09-29</lastmod>
   </url>
   <url>
     <loc>https://dolphin-software.io.vn/news/crm-cho-studio-wedding-thay-vi-excel/</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-09-29</lastmod>
   </url>
   <url>
     <loc>https://dolphin-software.io.vn/news/website-cho-kinh-doanh-nho/</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-29</lastmod>
   </url>
   <url>
     <loc>https://dolphin-software.io.vn/news/ban-dang-dieu-hanh-doanh-nghiep-hay-di-hoi-tung-nhan-vien/</loc>
-    <lastmod>2026-08-30</lastmod>
+    <lastmod>2026-09-29</lastmod>
   </url>
   <url>
     <loc>https://dolphin-software.io.vn/news/trung-tam-nho-it-nguoi-cang-nen-co-crm/</loc>
-    <lastmod>2026-08-27</lastmod>
+    <lastmod>2026-09-29</lastmod>
   </url>
   <url>
     <loc>https://dolphin-software.io.vn/news/mai-gv-nghi-nhan-zalo-sua-excel/</loc>
-    <lastmod>2026-08-27</lastmod>
+    <lastmod>2026-09-29</lastmod>
   </url>
   <url>
     <loc>https://dolphin-software.io.vn/news/dolphin-ops-thuc-the-song-24-7/</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-09-29</lastmod>
   </url>
   <url>
     <loc>https://dolphin-software.io.vn/news/saas-la-gi-giai-thich-cho-chu-doanh-nghiep/</loc>
-    <lastmod>2026-08-20</lastmod>
+    <lastmod>2026-09-29</lastmod>
   </url>
   <url>
     <loc>https://dolphin-software.io.vn/news/website-co-traffic-khong-ra-khach-hang/</loc>
-    <lastmod>2026-08-20</lastmod>
+    <lastmod>2026-09-29</lastmod>
   </url>
   <url>
     <loc>https://dolphin-software.io.vn/news/website-doanh-nghiep-can-co-nhung-gi-checklist-2026/</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-09-29</lastmod>
   </url>
   <url>
     <loc>https://dolphin-software.io.vn/news/website-hay-facebook-doanh-nghiep-nho/</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-09-29</lastmod>
   </url>
   <url>
     <loc>https://dolphin-software.io.vn/news/website-shop-do-xe-instagram-chua-du/</loc>
-    <lastmod>2026-08-17</lastmod>
+    <lastmod>2026-09-29</lastmod>
   </url>
   <url>
     <loc>https://dolphin-software.io.vn/news/thiet-ke-website-gia-bao-nhieu-bang-gia-2026/</loc>
-    <lastmod>2026-08-17</lastmod>
+    <lastmod>2026-09-29</lastmod>
   </url>
   <url>
     <loc>https://dolphin-software.io.vn/news/5-agent-xuyen-dem-viec-chua-xong/</loc>
-    <lastmod>2026-08-17</lastmod>
+    <lastmod>2026-09-29</lastmod>
   </url>
   <url>
     <loc>https://dolphin-software.io.vn/news/rui-ro-copy-prompt-chatgpt-doanh-nghiep/</loc>
-    <lastmod>2026-08-14</lastmod>
+    <lastmod>2026-09-29</lastmod>
   </url>
   <url>
     <loc>https://dolphin-software.io.vn/news/landing-page-giao-vien-tieng-anh/</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-09-29</lastmod>
   </url>
   <url>
     <loc>https://dolphin-software.io.vn/news/landing-page-sales-o-to-ca-nhan/</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-09-29</lastmod>
   </url>
   <url>
     <loc>https://dolphin-software.io.vn/news/chuyen-doi-ai-doanh-nghiep-lo-trinh-5-buoc/</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-09-29</lastmod>
   </url>
   <url>
     <loc>https://dolphin-software.io.vn/news/dolphin-care-chatbot-ai-tang-chuyen-doi/</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-09-29</lastmod>
   </url>
   <url>
     <loc>https://dolphin-software.io.vn/news/dolphin-care-bao-cao-insight-hang-ngay/</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-09-29</lastmod>
   </url>
   <url>
     <loc>https://dolphin-software.io.vn/news/website-gioi-thieu-xe-showroom/</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-29</lastmod>
   </url>
   <url>
     <loc>https://dolphin-software.io.vn/news/studio-cuoi-website-xem-vay-online/</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-09-29</lastmod>
   </url>
   <url>
     <loc>https://dolphin-software.io.vn/news/5-dau-hieu-website-lam-mat-khach/</loc>
-    <lastmod>2026-08-04</lastmod>
+    <lastmod>2026-09-29</lastmod>
   </url>
   <url>
     <loc>https://dolphin-software.io.vn/dolphin-care/</loc>
-    <lastmod>2026-07-31</lastmod>
+    <lastmod>2026-10-01</lastmod>
   </url>
   <url>
     <loc>https://dolphin-software.io.vn/dolphin-ops/</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-10-01</lastmod>
   </url>
   <url>
     <loc>https://dolphin-software.io.vn/dolphin-intelligence/</loc>
@@ -155,6 +211,10 @@
   <url>
     <loc>https://dolphin-software.io.vn/ai-transform/</loc>
     <lastmod>2026-07-31</lastmod>
+  </url>
+  <url>
+    <loc>https://dolphin-software.io.vn/services/landing/</loc>
+    <lastmod>2026-08-06</lastmod>
   </url>
   <url>
     <loc>https://dolphin-software.io.vn/services/web/</loc>
@@ -177,36 +237,28 @@
     <lastmod>2026-07-31</lastmod>
   </url>
   <url>
-    <loc>https://dolphin-software.io.vn/services/agents/</loc>
-    <lastmod>2026-07-31</lastmod>
-  </url>
-  <url>
-    <loc>https://dolphin-software.io.vn/services/landing/</loc>
-    <lastmod>2026-08-06</lastmod>
-  </url>
-  <url>
     <loc>https://dolphin-software.io.vn/works/billiard/</loc>
-    <lastmod>2026-07-31</lastmod>
+    <lastmod>2026-10-01</lastmod>
   </url>
   <url>
     <loc>https://dolphin-software.io.vn/works/badminton/</loc>
-    <lastmod>2026-07-31</lastmod>
+    <lastmod>2026-10-01</lastmod>
   </url>
   <url>
     <loc>https://dolphin-software.io.vn/works/tickets/</loc>
-    <lastmod>2026-07-31</lastmod>
+    <lastmod>2026-10-01</lastmod>
   </url>
   <url>
     <loc>https://dolphin-software.io.vn/works/beauty/</loc>
-    <lastmod>2026-07-31</lastmod>
+    <lastmod>2026-10-01</lastmod>
   </url>
   <url>
     <loc>https://dolphin-software.io.vn/works/cafe/</loc>
-    <lastmod>2026-07-31</lastmod>
+    <lastmod>2026-10-01</lastmod>
   </url>
   <url>
     <loc>https://dolphin-software.io.vn/works/clinic/</loc>
-    <lastmod>2026-07-31</lastmod>
+    <lastmod>2026-10-01</lastmod>
   </url>
   <url>
     <loc>https://dolphin-software.io.vn/tech/react/</loc>
@@ -289,3 +341,4 @@
     <lastmod>2026-07-31</lastmod>
   </url>
 </urlset>
+

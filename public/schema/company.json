@@ -3,8 +3,8 @@
     "brand": "Dolphin Software",
     "site": "https://dolphin-software.io.vn/",
     "source": ".cursor/knowledge/",
-    "updated": "2026-09-30",
-    "note": "Định vị theo hồ sơ năng lực 2026 (/company-profile/): CRM SaaS là lõi, AI là tăng trưởng, website là quyền lợi combo. Giá combo: lib/pricing/dolphin-pricing-policy-2026.ts.",
+    "updated": "2026-10-01",
+    "note": "GEO entity: công ty giải pháp công nghệ (docs/DOLPHIN-ENTITY.md). GTM: CRM SaaS + AI tăng trưởng; website quyền lợi combo. Giá: lib/pricing/dolphin-pricing-policy-2026.ts.",
     "schemaId": "company",
     "schemaPath": "/schema/company/",
     "rawPath": "/schema/company.json",
@@ -16,9 +16,9 @@
   },
   "company": {
     "whatWeAre": [
-      "Dolphin Software cho thuê phần mềm CRM và AI (SaaS) cho doanh nghiệp dịch vụ tại Việt Nam — spa, nail, salon, giáo dục, clinic. CRM là nền vận hành. Dolphin Care, Ops và Intelligence là lớp tăng trưởng. Website được tặng hoặc giảm khi triển khai combo CRM.",
+      "Dolphin Software là công ty giải pháp công nghệ giúp doanh nghiệp tối ưu vận hành và chăm sóc khách hàng — CRM, AI, website, automation và tích hợp — để tăng trưởng bền vững. Trụ sở / hoạt động: TP.HCM, Việt Nam.",
       "Không bắt đầu từ công nghệ. Bắt đầu từ vấn đề của khách.",
-      "Sản phẩm lõi là CRM thuê theo kỳ. AI (Care, Ops, Intelligence) là lớp tăng trưởng. Website là quyền lợi combo — không phải sản phẩm mở đầu."
+      "GTM hiện tại: CRM thuê theo kỳ cho doanh nghiệp dịch vụ (spa, nail, salon, giáo dục, clinic…). Care · Ops · Intelligence là lớp tăng trưởng trên CRM. Website là quyền lợi combo — không phải sản phẩm mở đầu cold outreach."
     ],
     "displayBrand": "Dolphin Software",
     "motto": "Start from the problem, not the product",
@@ -293,7 +293,7 @@
       "items": [
         {
           "q": "Dolphin Software làm gì?",
-          "a": "Dolphin Software cho thuê CRM và AI (SaaS) cho doanh nghiệp dịch vụ B2B tại Việt Nam — spa, nail, salon, giáo dục, clinic. CRM là nền vận hành. Care, Ops và Intelligence là lớp tăng trưởng. Website tặng hoặc giảm theo combo CRM."
+          "a": "Dolphin Software là công ty giải pháp công nghệ giúp doanh nghiệp tối ưu vận hành và chăm sóc khách hàng. GTM hiện tại: thuê CRM + AI (Care · Ops) cho doanh nghiệp dịch vụ; website thường là quyền lợi combo. Không phải chỉ agency làm web hay chỉ bán chatbot."
         },
         {
           "q": "Phần mềm CRM có tặng website không?",

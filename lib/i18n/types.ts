@@ -55,7 +55,21 @@ export type Dictionary = {
     contact: string;
     /** Footer / homepage CTAs → `/#solutions` (not GNB) */
     solutions: string;
-    /** Utility CTA → `#contact` */
+    /** Top GNB mega: Products */
+    products: string;
+    /** Top GNB mega: Resources */
+    resources: string;
+    /** Mega sidebar eyebrow */
+    overview: string;
+    /** Mega featured teaser */
+    featuredTitle: string;
+    featuredBody: string;
+    /** Mega column headers */
+    groupCare: string;
+    groupOpsAi: string;
+    groupWeb: string;
+    allIndustries: string;
+    /** Utility CTA → `/contact/` (homepage may still use `#contact` section) */
     talk: string;
     /** Opens site AI chat drawer */
     askAi: string;
@@ -260,6 +274,8 @@ export type Dictionary = {
     cta: string;
     /** Optional line under CTA (owner invite) */
     ctaHint?: string;
+    /** Link to /case-studies/ hub */
+    hubCta?: string;
     /** Industry chips — “họ từng làm ngành mình” */
     industries?: string[];
     problemLabel: string;

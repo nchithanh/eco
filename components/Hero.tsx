@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { AccentText, BrandText } from "@/components/BrandName";
 import { useMascotSrc } from "@/components/useMascotSrc";
+import { assetPath } from "@/lib/asset";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
 
 function TagIcon({ index }: { index: number }) {
@@ -133,9 +134,11 @@ function HeroCollage() {
             <Image
               src={ecoSrc}
               alt=""
-              width={800}
-              height={994}
+              width={320}
+              height={398}
               priority
+              fetchPriority="high"
+              sizes="(max-width: 640px) 7rem, (max-width: 1024px) 9rem, 10rem"
               className="h-28 w-auto object-contain drop-shadow-[0_12px_28px_rgb(26_21_32/0.14)] select-none sm:h-36 lg:h-40"
             />
           </div>
@@ -211,7 +214,7 @@ export function Hero() {
 
           <div className="mt-7 flex flex-wrap items-center justify-center gap-3 sm:mt-8 sm:gap-4">
             <a
-              href="#contact"
+              href={assetPath("/contact/")}
               className="kuct-btn-primary inline-flex min-w-[12rem] items-center justify-center rounded-[10px] px-6 py-3.5 text-sm font-semibold"
             >
               {t.hero.ctaPrimary}

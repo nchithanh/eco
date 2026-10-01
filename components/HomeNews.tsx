@@ -263,7 +263,7 @@ export function HomeNews() {
  <section
  id="news"
  aria-labelledby="home-news-heading"
- className="relative scroll-mt-20 overflow-hidden py-16 sm:py-20 lg:py-24"
+ className="kuct-cv-auto relative scroll-mt-20 overflow-hidden py-16 sm:py-20 lg:py-24"
  >
  <div
  className="pointer-events-none absolute -left-24 top-8 size-56 rounded-full bg-[rgba(var(--kuct-accent-rgb),0.12)] blur-3xl"
