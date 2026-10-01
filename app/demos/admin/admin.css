@@ -5,6 +5,44 @@ body:has(.df) .kuct-page-rails::after {
   display: none;
 }
 
+/* Override marketing ink/SVG cursors — use system cursor in Admin */
+body:has(.df),
+body:has(.df) .df,
+.df,
+.df * {
+  cursor: auto;
+}
+
+.df a,
+.df button,
+.df [role="button"],
+.df summary,
+.df label[for],
+.df input[type="checkbox"],
+.df input[type="radio"],
+.df input[type="range"],
+.df .df-nav__item,
+.df .df-table tbody tr.is-click {
+  cursor: pointer;
+}
+
+.df input[type="text"],
+.df input[type="email"],
+.df input[type="search"],
+.df input[type="tel"],
+.df input[type="url"],
+.df input[type="password"],
+.df input[type="number"],
+.df textarea,
+.df [contenteditable="true"] {
+  cursor: text;
+}
+
+.df [disabled],
+.df [aria-disabled="true"] {
+  cursor: default;
+}
+
 .df {
   --df-bg: var(--color-df-bg);
   --df-panel: var(--color-df-card);
