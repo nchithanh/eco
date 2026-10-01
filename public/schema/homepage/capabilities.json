@@ -4,7 +4,7 @@
     "id": "capabilities",
     "locale": "vi",
     "brand": "Dolphin Software",
-    "updated": "2026-09-30",
+    "updated": "2026-10-01",
     "schemaPath": "/schema/homepage/capabilities/",
     "rawPath": "/schema/homepage/capabilities.json",
     "productRoute": "/"
@@ -15,11 +15,13 @@
     "section_label": "Giải pháp",
     "headline": "Khách và lịch một chỗ, không trôi trên Zalo",
     "subheadline": "Dành cho spa, nail, salon, lớp học, phòng khám. CRM giữ khách, lịch và việc cần gọi lại. Care trả lời trên web, Zalo, Messenger. Ops nhắc việc trong CRM. Thuê CRM kèm AI từ 6 tháng thì được tặng website để khách tìm thấy tiệm.",
-    "layout": "header-hub-cta-carousel",
+    "layout": "header-2col + 2-featured + 4-compact + strip",
+    "featured_ids": ["crm", "agents"],
+    "compact_ids": ["automation", "website", "ai", "integrations"],
     "positioning": ["CRM", "AI", "Website", "Outsource"],
     "hub_cta": {
-      "label": "Nói về doanh nghiệp của bạn",
-      "href": "#contact"
+      "label": "Tìm hiểu thêm",
+      "href": "/dolphin-ops/"
     },
     "services": [
       {
@@ -81,6 +83,10 @@
     ],
     "secondary_links": [
       {
+        "label": "Intelligence & phần mềm may đo",
+        "href": "https://dolphin-software.io.vn/services/software/"
+      },
+      {
         "label": "Landing Page",
         "href": "https://dolphin-software.io.vn/services/landing/"
       },
@@ -91,9 +97,14 @@
     ],
     "ctas": [
       {
+        "label": "Tìm hiểu thêm",
+        "href": "https://dolphin-software.io.vn/dolphin-ops/",
+        "style": "primary"
+      },
+      {
         "label": "Nói về doanh nghiệp của bạn",
         "href": "#contact",
-        "style": "primary"
+        "style": "outline"
       }
     ]
   }

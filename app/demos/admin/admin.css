@@ -1,5 +1,10 @@
 /* Dolphin Admin — Tailwind tokens (dark shell, violet accent). Layout stays here; colors come from @theme --color-df-* */
 
+/* Hide marketing page vertical rails over the admin shell */
+body:has(.df) .kuct-page-rails::after {
+  display: none;
+}
+
 .df {
   --df-bg: var(--color-df-bg);
   --df-panel: var(--color-df-card);
