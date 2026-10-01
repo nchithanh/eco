@@ -11,6 +11,7 @@ const labels: Record<(typeof SCHEMA_HOMEPAGE_SLUGS)[number], string> = {
   capabilities: "Solutions (#solutions)",
   "dolphin-care": "Dolphin Care",
   "dolphin-ops": "Dolphin Ops",
+  "dolphin-pos": "Dolphin POS (#dolphin-pos)",
   "popular-services": "Combo CRM / Website packages",
   problems: "Problems (#problems)",
   why: "Why Dolphin",
