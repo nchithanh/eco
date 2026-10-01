@@ -66,6 +66,7 @@ export default async function NewsArticlePage({
      description: article.metaDescription ?? article.excerpt,
      path,
      datePublished: article.date,
+     dateModified: article.dateModified ?? article.date,
      image: article.image,
    }),
    breadcrumbListJsonLd([

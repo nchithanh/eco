@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { AccentText } from "@/components/BrandName";
+import { PageBreadcrumb } from "@/components/PageBreadcrumb";
 import { Reveal } from "@/components/Reveal";
 import { assetPath } from "@/lib/asset";
 import { CONTACTS } from "@/lib/contacts";
@@ -29,7 +30,13 @@ export function WarrantyPolicy2026Content() {
         <div className="pointer-events-none absolute inset-0 kuct-hero-wash" aria-hidden />
         <div className="relative mx-auto max-w-7xl px-6">
           <Reveal variant="title" className="max-w-4xl">
-            <p className="kuct-type-eyebrow">{WARRANTY_POLICY_META.eyebrow}</p>
+            <PageBreadcrumb
+              items={[
+                { name: "Trang chủ", href: "/" },
+                { name: "Bảo hành & Hỗ trợ 2026" },
+              ]}
+            />
+            <p className="kuct-type-eyebrow mt-6">{WARRANTY_POLICY_META.eyebrow}</p>
             <h1
               id="warranty-policy-heading"
               className="mt-4 font-display text-4xl font-bold tracking-tight text-[var(--kuct-text)] sm:text-5xl lg:text-[3.25rem]"

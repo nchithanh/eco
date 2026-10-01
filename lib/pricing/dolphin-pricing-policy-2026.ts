@@ -191,6 +191,18 @@ export const IMPORTANT_RULES = [
   "Thanh toán trước theo đúng thời hạn gói đã chọn.",
 ] as const;
 
+/** Visible FAQ on pricing page — keep in sync with FAQPage JSON-LD. */
+export const PRICING_FAQ_ITEMS: { q: string; a: string }[] = [
+  { q: "CRM đứng một mình bán thế nào?", a: IMPORTANT_RULES[0] },
+  { q: "Khi nào được mua gói 6 tháng?", a: IMPORTANT_RULES[1] },
+  { q: "Gói nào được tặng Website doanh nghiệp?", a: IMPORTANT_RULES[2] },
+  { q: "CRM Base 12 hỗ trợ web ra sao?", a: IMPORTANT_RULES[3] },
+  { q: "Dolphin Intelligence bán thế nào?", a: IMPORTANT_RULES[4] },
+  { q: "Thuê lẻ Dolphin Care dành cho ai?", a: IMPORTANT_RULES[5] },
+  { q: "Có dùng thử miễn phí không?", a: IMPORTANT_RULES[6] },
+  { q: "Thanh toán gói như thế nào?", a: IMPORTANT_RULES[7] },
+];
+
 export const PRICING_CTA = {
   title: "Chọn gói phù hợp với vận hành của bạn",
   body: "Nhắn Zalo để Dolphin Software tư vấn combo CRM · AI · Website theo phạm vi thực tế.",

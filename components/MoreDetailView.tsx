@@ -4,6 +4,7 @@ import Link from "next/link";
 import { LazyImage } from "@/components/LazyImage";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
+import { PageBreadcrumb } from "@/components/PageBreadcrumb";
 import { Reveal } from "@/components/Reveal";
 import { usePagePreview } from "@/components/PagePreviewProvider";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
@@ -40,16 +41,16 @@ export function MoreDetailContent({
  <div className="pointer-events-none absolute inset-0 kuct-hero-wash" aria-hidden />
  <div className="relative mx-auto max-w-7xl px-6">
  {!embedded ? (
- <Link
- href="/"
- className="kuct-link inline-flex text-sm font-medium text-[var(--kuct-muted)]"
- >
- {ui.back}
- </Link>
+ <PageBreadcrumb
+ items={[
+ { name: "Trang chủ", href: "/" },
+ { name: detail.title },
+ ]}
+ />
  ) : null}
  <Reveal delay={80} variant="right">
  <div
- className={`${embedded ? "mt-0" : "mt-6"} relative aspect-[16/9] max-w-3xl overflow-hidden rounded-[10px] shadow-[0_1rem_2.5rem_rgba(139,92,246,0.12)]`}
+ className={`${embedded ? "mt-0" : "mt-6"} relative aspect-[16/9] max-w-3xl overflow-hidden rounded-[10px] shadow-[0_1rem_2.5rem_rgb(26_22_37/0.06)]`}
  >
  <LazyImage
  src={themeAsset(detail.image, theme)}

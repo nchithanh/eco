@@ -9,16 +9,17 @@ import {
   type PointerEvent as ReactPointerEvent,
   type ReactNode,
 } from "react";
+import { PageBreadcrumb } from "@/components/PageBreadcrumb";
 import { assetPath } from "@/lib/asset";
 import { CONTACTS } from "@/lib/contacts";
 import {
   CARE_STANDALONE,
   CARE_STANDALONE_AUDIENCE,
   COMBO_PACKAGES,
-  IMPORTANT_RULES,
   INTEGRATION_OUTSOURCE,
   ONETIME_WEB,
   PRICING_CTA,
+  PRICING_FAQ_ITEMS,
   SAAS_MONTHLY,
   DOLPHIN_CARE_GLOSS,
   formatVnd,
@@ -38,17 +39,6 @@ const VIEWS: { id: ViewId; label: string }[] = [
   { id: "care", label: "Care lẻ" },
   { id: "list", label: "Niêm yết" },
   { id: "outsource", label: "Outsource" },
-];
-
-const FAQ_ITEMS: { q: string; a: string }[] = [
-  { q: "CRM đứng một mình bán thế nào?", a: IMPORTANT_RULES[0] },
-  { q: "Khi nào được mua gói 6 tháng?", a: IMPORTANT_RULES[1] },
-  { q: "Gói nào được tặng Website doanh nghiệp?", a: IMPORTANT_RULES[2] },
-  { q: "CRM Base 12 hỗ trợ web ra sao?", a: IMPORTANT_RULES[3] },
-  { q: "Dolphin Intelligence bán thế nào?", a: IMPORTANT_RULES[4] },
-  { q: "Thuê lẻ Dolphin Care dành cho ai?", a: IMPORTANT_RULES[5] },
-  { q: "Có dùng thử miễn phí không?", a: IMPORTANT_RULES[6] },
-  { q: "Thanh toán gói như thế nào?", a: IMPORTANT_RULES[7] },
 ];
 
 const DRAG_THRESHOLD_PX = 28;
@@ -723,6 +713,14 @@ export function PricingPolicy2026Content() {
   return (
     <div className="elp">
       <section className="elp__hero" aria-labelledby="pricing-policy-heading">
+        <div className="mb-6 flex justify-center">
+          <PageBreadcrumb
+            items={[
+              { name: "Trang chủ", href: "/" },
+              { name: "Chính sách giá 2026" },
+            ]}
+          />
+        </div>
         <h1 id="pricing-policy-heading" className="elp__h1">
           Giá linh hoạt theo nhu cầu
         </h1>
@@ -1071,7 +1069,7 @@ export function PricingPolicy2026Content() {
           FAQs
         </h2>
         <div className="elp__faq-list">
-          {FAQ_ITEMS.map((item, index) => (
+          {PRICING_FAQ_ITEMS.map((item, index) => (
             <details key={item.q} className="elp__faq-item" open={index === 0}>
               <summary>
                 <h3 className="elp__faq-q">{item.q}</h3>

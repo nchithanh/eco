@@ -31,8 +31,7 @@ const CORE: SitemapEntry[] = [
     path: `/industries/${slug}/`,
     lastmod: TODAY,
   })),
-  { path: "/company-profile/", lastmod: "2026-09-15" },
-  { path: "/card-visit/", lastmod: "2026-09-16" },
+  // company-profile / card-visit: noindex — omit from sitemap
   { path: "/privacy/", lastmod: "2026-08-27" },
   { path: "/chinh-sach-gia-dolphin-2026/", lastmod: "2026-09-14" },
   { path: "/chinh-sach-bao-hanh-ho-tro-2026/", lastmod: "2026-09-14" },

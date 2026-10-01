@@ -5,6 +5,7 @@ import { AccentText } from "@/components/BrandName";
 import { FaqAnswerText } from "@/components/FaqAnswerText";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
+import { PageBreadcrumb } from "@/components/PageBreadcrumb";
 import { Reveal } from "@/components/Reveal";
 import { IntelligenceWorkflowDemo } from "@/components/IntelligenceWorkflowDemo";
 import { getDolphinIntelligenceCopy } from "@/lib/i18n/dolphin-intelligence-copy";
@@ -45,7 +46,19 @@ export function DolphinIntelligenceContent({
         />
         <div className="relative mx-auto max-w-7xl px-6">
           <Reveal variant="title" className="max-w-4xl text-left">
-            <p className="kuct-type-eyebrow">{c.eyebrow}</p>
+            {!embedded ? (
+              <>
+                <PageBreadcrumb
+                  items={[
+                    { name: "Trang chủ", href: "/" },
+                    { name: "Dolphin Intelligence" },
+                  ]}
+                />
+                <p className="kuct-type-eyebrow mt-6">{c.eyebrow}</p>
+              </>
+            ) : (
+              <p className="kuct-type-eyebrow">{c.eyebrow}</p>
+            )}
             <h1 className="kuct-type-h1 mt-4 max-w-[48rem] font-display text-3xl text-[var(--kuct-text)] sm:text-5xl">
               <AccentText>{c.headline}</AccentText>
             </h1>

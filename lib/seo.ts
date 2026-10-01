@@ -183,11 +183,77 @@ export function softwareApplicationJsonLd(input: {
       name: "Dolphin Software",
       url: SITE_URL,
     },
+    /** URL only — no invented list prices (see pricing policy page). */
     offers: {
       "@type": "Offer",
       url: absoluteUrl("/chinh-sach-gia-dolphin-2026/"),
-      priceCurrency: "VND",
-      availability: "https://schema.org/InStock",
+    },
+  };
+}
+
+export function webPageJsonLd(input: {
+  name: string;
+  description: string;
+  path: string;
+}) {
+  const path =
+    input.path.endsWith("/") || input.path === "/"
+      ? input.path
+      : `${input.path}/`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: input.name,
+    description: input.description,
+    url: absoluteUrl(path),
+    isPartOf: {
+      "@type": "WebSite",
+      name: "Dolphin Software",
+      url: SITE_URL,
+    },
+    about: {
+      "@type": "Organization",
+      name: "Dolphin Software",
+      url: SITE_URL,
+    },
+    inLanguage: "vi",
+  };
+}
+
+/** News / case-study hub listing. */
+export function collectionPageJsonLd(input: {
+  name: string;
+  description: string;
+  path: string;
+  items: { name: string; path: string }[];
+}) {
+  const path =
+    input.path.endsWith("/") || input.path === "/"
+      ? input.path
+      : `${input.path}/`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: input.name,
+    description: input.description,
+    url: absoluteUrl(path),
+    inLanguage: "vi",
+    isPartOf: {
+      "@type": "WebSite",
+      name: "Dolphin Software",
+      url: SITE_URL,
+    },
+    mainEntity: {
+      "@type": "ItemList",
+      itemListElement: input.items.map((item, index) => {
+        const itemPath = item.path.endsWith("/") ? item.path : `${item.path}/`;
+        return {
+          "@type": "ListItem",
+          position: index + 1,
+          name: item.name,
+          url: absoluteUrl(itemPath),
+        };
+      }),
     },
   };
 }
@@ -200,9 +266,10 @@ export function breadcrumbListJsonLd(
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: items.map((item, index) => {
-      const path = item.path.endsWith("/") || item.path === "/"
-        ? item.path
-        : `${item.path}/`;
+      let path = item.path;
+      if (!path.includes("#") && path !== "/" && !path.endsWith("/")) {
+        path = `${path}/`;
+      }
       return {
         "@type": "ListItem",
         position: index + 1,
@@ -252,15 +319,19 @@ export function articleJsonLd(input: {
   description: string;
   path: string;
   datePublished: string;
+  /** Defaults to datePublished when omitted */
+  dateModified?: string;
   image?: string;
 }) {
   const path = input.path.endsWith("/") ? input.path : `${input.path}/`;
+  const dateModified = input.dateModified ?? input.datePublished;
   return {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: input.title,
     description: input.description,
     datePublished: input.datePublished,
+    dateModified,
     url: absoluteUrl(path),
     author: {
       "@type": "Organization",

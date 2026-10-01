@@ -17,6 +17,7 @@ export const metadata: Metadata = {
     description:
       "Hồ sơ năng lực Dolphin Software 2026 — CRM + AI cho doanh nghiệp dịch vụ (spa, nail, salon, giáo dục, clinic).",
     path: "/company-profile/",
+    noIndex: true,
   }),
   title: { absolute: "Hồ sơ năng lực | Dolphin Software" },
 };

@@ -6,6 +6,7 @@ import { FaqAnswerText } from "@/components/FaqAnswerText";
 import { LazyImage } from "@/components/LazyImage";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
+import { PageBreadcrumb } from "@/components/PageBreadcrumb";
 import { Reveal } from "@/components/Reveal";
 import { assetPath } from "@/lib/asset";
 import { getAiTransformCopy } from "@/lib/i18n/ai-transform-copy";
@@ -72,9 +73,19 @@ export function AiTransformContent({ embedded = false }: { embedded?: boolean })
  <div className="relative mx-auto max-w-7xl px-6">
  <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-12">
  <Reveal variant="title" className="max-w-5xl text-left">
- <p className="kuct-type-eyebrow">
- {c.eyebrow}
- </p>
+ {!embedded ? (
+ <>
+ <PageBreadcrumb
+ items={[
+ { name: "Trang chủ", href: "/" },
+ { name: "AI Transform" },
+ ]}
+ />
+ <p className="kuct-type-eyebrow mt-6">{c.eyebrow}</p>
+ </>
+ ) : (
+ <p className="kuct-type-eyebrow">{c.eyebrow}</p>
+ )}
  <h1 className="kuct-type-h1 mt-4 max-w-[48rem] font-display text-3xl text-[var(--kuct-text)] sm:text-5xl">
  <AccentText>{c.headline}</AccentText>
  </h1>

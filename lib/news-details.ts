@@ -101,6 +101,8 @@ export type NewsListItem = {
 export type NewsDetail = NewsListItem & {
   metaTitle?: string;
   metaDescription?: string;
+  /** ISO date; defaults to `date` when omitted */
+  dateModified?: string;
   body: NewsBodyBlock[];
   faq?: NewsFaqItem[];
   image: string;
@@ -121,6 +123,8 @@ export type NewsDetailUi = {
 type NewsMeta = {
   category: NewsCategory;
   date: string;
+  /** When the article body/meta was last substantively updated */
+  dateModified?: string;
 };
 
 const metaBySlug: Record<NewsSlug, NewsMeta> = {
@@ -786,6 +790,7 @@ export function getNewsDetail(locale: Locale, slug: NewsSlug): NewsDetail {
     slug,
     category: meta.category,
     date: meta.date,
+    dateModified: meta.dateModified ?? meta.date,
     title: copy.title,
     metaTitle: copy.metaTitle,
     metaDescription: copy.metaDescription,

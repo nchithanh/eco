@@ -17,6 +17,7 @@ export function TrustMetrics() {
         <h2 id="home-trust-heading" className="sr-only">
           {aria}
         </h2>
+        {/* KPI values are company-stated UI metrics — not verified AggregateRating. */}
         <ul className="m-0 grid list-none grid-cols-2 gap-x-4 gap-y-8 p-0 sm:grid-cols-3 lg:grid-cols-6 lg:gap-x-6">
           {items.map((item) => (
             <li key={`stat-${item.label}`} className="min-w-0 text-center">

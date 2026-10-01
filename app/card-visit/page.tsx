@@ -17,6 +17,7 @@ export const metadata: Metadata = {
     description:
       "Danh thiếp Dolphin Software — CRM + AI, Zalo/hotline, website và địa chỉ. In PDF khổ 90×54mm.",
     path: "/card-visit/",
+    noIndex: true,
   }),
   title: { absolute: "Danh thiếp | Dolphin Software" },
 };

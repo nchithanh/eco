@@ -6,6 +6,7 @@ import { AccentText } from "@/components/BrandName";
 import { FaqAnswerText } from "@/components/FaqAnswerText";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
+import { PageBreadcrumb } from "@/components/PageBreadcrumb";
 import { Reveal } from "@/components/Reveal";
 import { assetPath } from "@/lib/asset";
 import { getDolphinOpsCopy } from "@/lib/i18n/dolphin-ops-copy";
@@ -71,7 +72,13 @@ export function DolphinOpsContent() {
         <div className="relative mx-auto max-w-7xl px-6">
           <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
             <Reveal variant="title" className="text-left">
-              <p className="kuct-type-eyebrow">{c.eyebrow}</p>
+              <PageBreadcrumb
+                items={[
+                  { name: "Trang chủ", href: "/" },
+                  { name: "Dolphin Ops" },
+                ]}
+              />
+              <p className="kuct-type-eyebrow mt-6">{c.eyebrow}</p>
               <h1 className="kuct-type-h1 mt-4 max-w-[48rem] font-display text-3xl text-[var(--kuct-text)] sm:text-5xl">
                 <AccentText>{c.headline}</AccentText>
               </h1>

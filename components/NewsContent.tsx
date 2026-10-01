@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import { AccentText } from "@/components/BrandName";
 import { LazyImage } from "@/components/LazyImage";
+import { PageBreadcrumb } from "@/components/PageBreadcrumb";
 import { Reveal } from "@/components/Reveal";
 import { assetPath, themeAsset } from "@/lib/asset";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
@@ -190,8 +191,18 @@ export function NewsContent({ embedded = false }: { embedded?: boolean }) {
  <div className="mx-auto max-w-7xl px-4 sm:px-6">
  <Reveal delay={40} immediate={embedded}>
  <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between lg:gap-10">
- <div className="max-w-2xl">
- <p className="text-[10px] font-semibold tracking-[0.18em] text-[var(--kuct-accent)] uppercase">
+                 <div className="max-w-2xl">
+ {!embedded ? (
+ <PageBreadcrumb
+ items={[
+ { name: "Trang chủ", href: "/" },
+ { name: "Tin tức" },
+ ]}
+ />
+ ) : null}
+ <p
+ className={`text-[10px] font-semibold tracking-[0.18em] text-[var(--kuct-accent)] uppercase${!embedded ? " mt-6" : ""}`}
+ >
  {n.pageEyebrow}
  </p>
  <h1
