@@ -7,6 +7,7 @@ import { INDUSTRY_SLUGS } from "@/lib/industries/catalog";
 import { SERVICE_SLUGS } from "@/lib/i18n/service-details";
 import { MORE_SLUGS } from "@/lib/more-details";
 import { NEWS_SLUGS } from "@/lib/news-details";
+import { POS_SLUGS } from "@/lib/pos/catalog";
 import { TECH_SLUGS } from "@/lib/tech-stack";
 import { WORK_SLUGS } from "@/lib/works-details";
 import { SITE_URL } from "@/lib/seo";
@@ -17,7 +18,7 @@ export type SitemapEntry = {
   lastmod: string;
 };
 
-const TODAY = "2026-10-01";
+const TODAY = "2026-10-02";
 
 /** Core marketing / GEO pages (hubs first). */
 const CORE: SitemapEntry[] = [
@@ -31,15 +32,24 @@ const CORE: SitemapEntry[] = [
     path: `/industries/${slug}/`,
     lastmod: TODAY,
   })),
+  { path: "/pos/", lastmod: TODAY },
+  ...POS_SLUGS.map((slug) => ({
+    path: `/pos/${slug}/`,
+    lastmod: TODAY,
+  })),
   // company-profile / card-visit: noindex — omit from sitemap
   { path: "/privacy/", lastmod: "2026-08-27" },
-  { path: "/chinh-sach-gia-dolphin-2026/", lastmod: "2026-09-14" },
+  { path: "/chinh-sach-gia-dolphin-2026/", lastmod: TODAY },
   { path: "/chinh-sach-bao-hanh-ho-tro-2026/", lastmod: "2026-09-14" },
   { path: "/careers/", lastmod: "2026-07-31" },
   { path: "/news/", lastmod: TODAY },
   ...NEWS_SLUGS.map((slug) => ({
     path: `/news/${slug}/`,
-    lastmod: slug === "co-duoc-nhac-toi-tren-chatgpt-gemini" ? TODAY : "2026-09-29",
+    lastmod:
+      slug === "tai-sao-can-dung-phan-mem-pos" ||
+      slug === "co-duoc-nhac-toi-tren-chatgpt-gemini"
+        ? TODAY
+        : "2026-09-29",
   })),
   { path: "/dolphin-care/", lastmod: TODAY },
   { path: "/dolphin-ops/", lastmod: TODAY },

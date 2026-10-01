@@ -862,6 +862,23 @@ html[data-theme="orangered"] .kuct-feature-card {
   overflow: visible;
 }
 
+/* POS industry landings — decorative scene SVGs */
+svg.kuct-pos-scene {
+  display: block;
+  width: 100%;
+  max-width: 20rem;
+  height: auto;
+  margin-inline: auto;
+  aspect-ratio: 200 / 160;
+  overflow: visible;
+}
+
+svg.kuct-pos-scene--card {
+  max-width: 11rem;
+}
+
+/* POS scenes stay static — flat ElevenLabs-style, no pastel bob */
+
 ul[data-pastel-cols="4"] .kuct-pastel-card__art {
   min-height: 11rem;
 }

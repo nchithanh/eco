@@ -72,6 +72,11 @@ export function IndustriesHubContent() {
                 Liên hệ
               </Link>
             </li>
+            <li>
+              <Link href={assetPath("/pos/")} className="text-[var(--kuct-accent)] hover:underline">
+                POS · bán hàng
+              </Link>
+            </li>
           </ul>
         </div>
       </section>

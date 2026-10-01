@@ -8,6 +8,8 @@ import { SOCIAL_PROFILES, TEAM_EMAILS } from "@/lib/contacts";
 import { INDUSTRY_CATALOG } from "@/lib/industries/catalog";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
 import { getIndustryPageCopy } from "@/lib/i18n/industries-copy";
+import { getPosPageCopy } from "@/lib/i18n/pos-copy";
+import { POS_CATALOG } from "@/lib/pos/catalog";
 
 export function Footer() {
   const { t } = useLocale();
@@ -28,6 +30,23 @@ export function Footer() {
           href: assetPath(`/industries/${industry.slug}/`),
           label: getIndustryPageCopy(industry.slug).label,
         })),
+      ],
+    },
+    {
+      label: f.groupPos,
+      links: [
+        {
+          href: assetPath("/pos/"),
+          label: "Tất cả POS",
+        },
+        ...POS_CATALOG.map((item) => ({
+          href: assetPath(`/pos/${item.slug}/`),
+          label: getPosPageCopy(item.slug).label,
+        })),
+        {
+          href: `${pricingHref}#pos`,
+          label: f.pricingPolicy,
+        },
       ],
     },
     {

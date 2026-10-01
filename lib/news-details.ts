@@ -25,6 +25,7 @@ import { chatgptAdsDoanhNghiepCoNenChayCopy } from "@/lib/news-articles/chatgpt-
 import { chatgptAdsVietNamCopy } from "@/lib/news-articles/chatgpt-ads-viet-nam";
 import { matLeadNgoaiGioHanhChinhCopy } from "@/lib/news-articles/mat-lead-ngoai-gio-hanh-chinh";
 import { coDuocNhacToiTrenChatgptGeminiCopy } from "@/lib/news-articles/co-duoc-nhac-toi-tren-chatgpt-gemini";
+import { taiSaoCanDungPhanMemPosCopy } from "@/lib/news-articles/tai-sao-can-dung-phan-mem-pos";
 
 export const NEWS_CATEGORIES = [
   "process",
@@ -37,6 +38,7 @@ export const NEWS_CATEGORIES = [
 export type NewsCategory = (typeof NEWS_CATEGORIES)[number];
 
 export const NEWS_SLUGS = [
+  "tai-sao-can-dung-phan-mem-pos",
   "co-duoc-nhac-toi-tren-chatgpt-gemini",
   "chatgpt-ads-viet-nam",
   "mat-lead-ngoai-gio-hanh-chinh",
@@ -128,6 +130,10 @@ type NewsMeta = {
 };
 
 const metaBySlug: Record<NewsSlug, NewsMeta> = {
+  "tai-sao-can-dung-phan-mem-pos": {
+    category: "product",
+    date: "2026-10-02",
+  },
   "co-duoc-nhac-toi-tren-chatgpt-gemini": {
     category: "process",
     date: "2026-10-01",
@@ -247,6 +253,8 @@ const categoryImages: Record<NewsCategory, string> = {
 };
 
 const slugImages: Partial<Record<NewsSlug, string>> = {
+  "tai-sao-can-dung-phan-mem-pos":
+    "/news/tai-sao-can-dung-phan-mem-pos.jpg",
   "co-duoc-nhac-toi-tren-chatgpt-gemini":
     "/news/co-duoc-nhac-toi-chatgpt-gemini-cover.jpg",
   "chatgpt-ads-viet-nam": "/news/chatgpt-ads-viet-nam.jpg",
@@ -305,6 +313,7 @@ export function getNewsImage(slug: NewsSlug): string {
 
 const copyByLocale: LocaleMap<Record<NewsSlug, NewsArticleCopy>> = {
   vi: {
+    "tai-sao-can-dung-phan-mem-pos": taiSaoCanDungPhanMemPosCopy.vi,
     "co-duoc-nhac-toi-tren-chatgpt-gemini":
       coDuocNhacToiTrenChatgptGeminiCopy.vi,
     "chatgpt-ads-viet-nam": chatgptAdsVietNamCopy.vi,
@@ -516,6 +525,7 @@ const copyByLocale: LocaleMap<Record<NewsSlug, NewsArticleCopy>> = {
     },
   },
   en: {
+    "tai-sao-can-dung-phan-mem-pos": taiSaoCanDungPhanMemPosCopy.en,
     "co-duoc-nhac-toi-tren-chatgpt-gemini":
       coDuocNhacToiTrenChatgptGeminiCopy.en,
     "chatgpt-ads-viet-nam": chatgptAdsVietNamCopy.en,
@@ -655,6 +665,7 @@ const copyByLocale: LocaleMap<Record<NewsSlug, NewsArticleCopy>> = {
     },
   },
   ja: {
+    "tai-sao-can-dung-phan-mem-pos": taiSaoCanDungPhanMemPosCopy.ja,
     "co-duoc-nhac-toi-tren-chatgpt-gemini":
       coDuocNhacToiTrenChatgptGeminiCopy.ja!,
     "chatgpt-ads-viet-nam": chatgptAdsVietNamCopy.ja!,

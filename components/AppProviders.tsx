@@ -1,7 +1,6 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { AgentLoader } from "@/components/AgentLoader";
 import { AiChatProvider } from "@/components/AiChatProvider";
 import { AiChatWidget } from "@/components/AiChatWidget";
 import { CookieConsent } from "@/components/CookieConsent";
@@ -22,7 +21,6 @@ export function AppProviders({ children }: { children: ReactNode }) {
           <PagePreviewProvider>
             <AiChatProvider>
               {SHOW_WHALE_BACKDROP ? <WhaleBackdrop /> : null}
-              <AgentLoader />
               <div className="relative z-10 kuct-page-rails">{children}</div>
               <AiChatWidget />
               <CookieConsent />

@@ -58,6 +58,7 @@ describe("Dolphin Software homepage", () => {
     const works = document.getElementById("works");
     const agentDolphin = document.getElementById("dolphin-care");
     const dolphinOps = document.getElementById("dolphin-ops");
+    const dolphinPos = document.getElementById("dolphin-pos");
     const technology = document.getElementById("technology");
     const aiEdge = document.getElementById("ai-edge");
     const stack = document.getElementById("stack");
@@ -76,6 +77,7 @@ describe("Dolphin Software homepage", () => {
     expect(works).toBeTruthy();
     expect(agentDolphin).toBeTruthy();
     expect(dolphinOps).toBeTruthy();
+    expect(dolphinPos).toBeTruthy();
     expect(technology).toBeTruthy();
     expect(aiEdge).toBeTruthy();
     expect(stack).toBeTruthy();
@@ -325,7 +327,7 @@ describe("Dolphin Software homepage", () => {
     expect(news).toBeTruthy();
     expect(
       within(news!).getByRole("link", {
-        name: /được nhắc tới khi khách tìm trên ChatGPT/i,
+        name: /Tại sao cửa hàng cần dùng phần mềm POS/i,
       }),
     ).toHaveAttribute("aria-current", "true");
     expect(
@@ -342,11 +344,11 @@ describe("Dolphin Software homepage", () => {
 
     expect(
       within(news!).getByRole("link", {
-        name: /được nhắc tới khi khách tìm trên ChatGPT/i,
+        name: /Tại sao cửa hàng cần dùng phần mềm POS/i,
       }),
     ).toHaveAttribute(
       "href",
-      expect.stringMatching(/co-duoc-nhac-toi-tren-chatgpt-gemini/),
+      expect.stringMatching(/tai-sao-can-dung-phan-mem-pos/),
     );
   });
 

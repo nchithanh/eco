@@ -14,6 +14,7 @@ import {
   PRICING_POLICY_META,
   PRICING_POLICY_PATH,
 } from "@/lib/pricing/dolphin-pricing-policy-2026";
+import { POS_FAQ_ITEMS } from "@/lib/pricing/dolphin-pos-policy-2026";
 import "./pricing-policy.css";
 
 export const metadata: Metadata = {
@@ -40,7 +41,7 @@ export default function PricingPolicy2026Page() {
             { name: "Trang chủ", path: "/" },
             { name: "Chính sách giá 2026", path: PRICING_POLICY_PATH },
           ]),
-          faqPageJsonLd(PRICING_FAQ_ITEMS),
+          faqPageJsonLd([...PRICING_FAQ_ITEMS, ...POS_FAQ_ITEMS]),
         ]}
       />
       <Nav />

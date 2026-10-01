@@ -1,0 +1,49 @@
+{
+  "meta": {
+    "kind": "homepage-section",
+    "id": "dolphin-pos",
+    "locale": "vi",
+    "brand": "Dolphin Software",
+    "updated": "2026-10-02",
+    "schemaPath": "/schema/homepage/dolphin-pos/",
+    "rawPath": "/schema/homepage/dolphin-pos.json",
+    "productRoute": "/pos/"
+  },
+  "content": {
+    "order": 8,
+    "id": "dolphin-pos",
+    "section_label": "POS · bán hàng",
+    "headline": "Một nền tảng POS cho mọi cửa hàng bán hàng",
+    "subheadline": "Hóa đơn, quầy, kho và kênh bán trên một bảng giá năm — tách CRM dịch vụ (spa/salon). Cafe, trà sữa, pet, fashion và HKD.",
+    "features": [
+      {
+        "title": "Bán tại quầy",
+        "body": "Ghi đơn, size/topping hoặc SKU, thu tiền — giảm sót so với giấy và chat lúc peak."
+      },
+      {
+        "title": "Kho & nguyên liệu",
+        "body": "Hạt cafe, topping, hạt mèo hay size/màu — tồn theo phạm vi gói, thấy lệch sớm hơn Excel."
+      },
+      {
+        "title": "Kênh & gói năm",
+        "body": "Web cơ bản đến MXH/sàn theo gói. Cơ Bản · Chuyên nghiệp · Toàn Diện — không trial miễn phí."
+      }
+    ],
+    "ctas": [
+      {
+        "label": "Xem Dolphin POS",
+        "href": "https://dolphin-software.io.vn/pos/",
+        "style": "primary"
+      },
+      {
+        "label": "Nhận báo giá",
+        "href": "#contact",
+        "style": "secondary"
+      }
+    ],
+    "trust": "POS · bán hàng · 3 gói năm · runtime app TODO",
+    "visual": "PosAppStage — mock cafe order (marketing, chưa runtime)",
+    "industries": ["F&B", "Cafe", "Trà sữa", "Pet", "Fashion", "Shop / HKD"],
+    "note": "Tách /industries/* (CRM dịch vụ). SoT giá lib/pricing/dolphin-pos-policy-2026.ts"
+  }
+}

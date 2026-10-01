@@ -10,6 +10,7 @@ import { Capabilities } from "@/components/Capabilities";
 import { WorksShowcase } from "@/components/WorksShowcase";
 import { AgentDolphinHome } from "@/components/AgentDolphinHome";
 import { DolphinOpsHome } from "@/components/DolphinOpsHome";
+import { HomePos } from "@/components/HomePos";
 import { Technology } from "@/components/Technology";
 import { AiEdge } from "@/components/AiEdge";
 import { TechStack } from "@/components/TechStack";
@@ -22,7 +23,7 @@ import { Footer } from "@/components/Footer";
 
 /**
  * Homepage story (CRM SaaS first):
- * Hero → Trust metrics → Solutions (CRM → Care → Ops → Web) → Care → Ops → Combo →
+ * Hero → Trust metrics → Solutions → Care → Ops → POS → Combo →
  * Fit → Problems → Why → Works → Process → Stack → News → FAQ → CTA
  */
 export function HomePage() {
@@ -34,6 +35,7 @@ export function HomePage() {
       <Capabilities />
       <AgentDolphinHome />
       <DolphinOpsHome />
+      <HomePos />
       <PopularServices />
       <FitSection />
       <HomeProblems />

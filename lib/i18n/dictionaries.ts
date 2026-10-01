@@ -571,7 +571,8 @@ const vi: Dictionary = {
   faq: getFaqCopy("vi"),
   footer: {
     groupExplore: "Sản phẩm",
-    groupCrm: "CRM",
+    groupCrm: "CRM · dịch vụ",
+    groupPos: "POS · bán hàng",
     groupStudio: "Dịch vụ",
     groupUpdates: "Tài nguyên",
     groupConnect: "Liên hệ",
@@ -1218,7 +1219,8 @@ const en: Dictionary = {
   faq: getFaqCopy("en"),
   footer: {
     groupExplore: "Products",
-    groupCrm: "CRM",
+    groupCrm: "CRM · services",
+    groupPos: "POS · retail",
     groupStudio: "Services",
     groupUpdates: "Resources",
     groupConnect: "Connect",
@@ -1866,7 +1868,8 @@ const ja: Dictionary = {
   faq: getFaqCopy("ja"),
   footer: {
     groupExplore: "プロダクト",
-    groupCrm: "CRM",
+    groupCrm: "CRM · サービス業",
+    groupPos: "POS · 小売",
     groupStudio: "サービス",
     groupUpdates: "リソース",
     groupConnect: "コンタクト",

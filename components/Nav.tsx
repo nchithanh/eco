@@ -15,6 +15,8 @@ import { CONTACTS } from "@/lib/contacts";
 import { INDUSTRY_CATALOG } from "@/lib/industries/catalog";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
 import { getIndustryPageCopy } from "@/lib/i18n/industries-copy";
+import { getPosPageCopy } from "@/lib/i18n/pos-copy";
+import { POS_CATALOG } from "@/lib/pos/catalog";
 
 type NavLink = {
   href: string;
@@ -90,12 +92,29 @@ export function Nav() {
     { href: assetPath("/services/integrations/"), label: t.footer.integrations },
   ];
 
-  const solutionLinks: NavLink[] = [
+  const crmSolutionLinks: NavLink[] = [
     { href: assetPath("/industries/"), label: t.nav.allIndustries },
     ...INDUSTRY_CATALOG.filter((item) => item.priority === "p0").map((item) => ({
       href: assetPath(`/industries/${item.slug}/`),
       label: getIndustryPageCopy(item.slug).label,
     })),
+  ];
+
+  const posSolutionLinks: NavLink[] = [
+    { href: assetPath("/pos/"), label: "Tất cả POS" },
+    ...POS_CATALOG.map((item) => ({
+      href: assetPath(`/pos/${item.slug}/`),
+      label: getPosPageCopy(item.slug).label,
+    })),
+    {
+      href: `${pricingHref}#pos`,
+      label: "Bảng giá POS",
+    },
+  ];
+
+  const solutionLinks: NavLink[] = [
+    ...crmSolutionLinks,
+    ...posSolutionLinks,
     { href: pricingHref, label: t.nav.pricing },
   ];
 
@@ -484,25 +503,59 @@ export function Nav() {
                 onMouseEnter={cancelMegaClose}
               >
                 <div className="overflow-hidden rounded-[10px] border border-[var(--kuct-border)] bg-white p-6 shadow-[0_1.25rem_3rem_rgb(26_22_37/0.12)]">
-                <p className="m-0 text-[0.65rem] font-semibold tracking-[0.16em] text-[var(--kuct-muted)] uppercase">
-                  {t.nav.solutions}
+                <div className="grid gap-6 sm:grid-cols-2">
+                  <div>
+                    <p className="m-0 text-[0.65rem] font-semibold tracking-[0.16em] text-[var(--kuct-muted)] uppercase">
+                      CRM · dịch vụ
+                    </p>
+                    <ul className="mt-3 m-0 grid list-none grid-cols-1 gap-1 p-0">
+                      {crmSolutionLinks.map((item) => (
+                        <li key={item.href}>
+                          <a
+                            href={item.href}
+                            className="block rounded-[10px] px-3 py-2.5 text-sm font-medium text-[var(--kuct-text)] no-underline transition hover:bg-[var(--kuct-surface-muted)]"
+                            aria-current={
+                              isPageActive(item.href) ? "page" : undefined
+                            }
+                            onClick={() => setMega(null)}
+                          >
+                            {item.label}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    <p className="m-0 text-[0.65rem] font-semibold tracking-[0.16em] text-[var(--kuct-muted)] uppercase">
+                      POS · bán hàng
+                    </p>
+                    <ul className="mt-3 m-0 grid list-none grid-cols-1 gap-1 p-0">
+                      {posSolutionLinks.map((item) => (
+                        <li key={item.href}>
+                          <a
+                            href={item.href}
+                            className="block rounded-[10px] px-3 py-2.5 text-sm font-medium text-[var(--kuct-text)] no-underline transition hover:bg-[var(--kuct-surface-muted)]"
+                            aria-current={
+                              isPageActive(item.href) ? "page" : undefined
+                            }
+                            onClick={() => setMega(null)}
+                          >
+                            {item.label}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+                <p className="mt-4 border-t border-[var(--kuct-border)] pt-3">
+                  <a
+                    href={pricingHref}
+                    className="text-sm font-semibold text-[var(--kuct-accent)] no-underline hover:underline"
+                    onClick={() => setMega(null)}
+                  >
+                    {t.nav.pricing} →
+                  </a>
                 </p>
-                <ul className="mt-4 m-0 grid list-none grid-cols-2 gap-1 p-0 sm:grid-cols-3">
-                  {solutionLinks.map((item) => (
-                    <li key={item.href}>
-                      <a
-                        href={item.href}
-                        className="block rounded-[10px] px-3 py-2.5 text-sm font-medium text-[var(--kuct-text)] no-underline transition hover:bg-[var(--kuct-surface-muted)]"
-                        aria-current={
-                          isPageActive(item.href) ? "page" : undefined
-                        }
-                        onClick={() => setMega(null)}
-                      >
-                        {item.label}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
                 </div>
               </div>
             ) : null}
@@ -635,7 +688,10 @@ export function Nav() {
                 )
               }
             >
-              {solutionLinks.map((item, index) => (
+              <p className="px-1 pt-1 text-[0.65rem] font-semibold tracking-[0.14em] text-[var(--kuct-muted)] uppercase">
+                CRM · dịch vụ
+              </p>
+              {crmSolutionLinks.map((item, index) => (
                 <a
                   key={item.href}
                   href={item.href}
@@ -651,6 +707,38 @@ export function Nav() {
                   {item.label}
                 </a>
               ))}
+              <p className="px-1 pt-3 text-[0.65rem] font-semibold tracking-[0.14em] text-[var(--kuct-muted)] uppercase">
+                POS · bán hàng
+              </p>
+              {posSolutionLinks.map((item, index) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className="kuct-mobile-nav__link"
+                  onClick={closeMenu}
+                >
+                  <span
+                    className="mr-3 text-xs text-[var(--kuct-muted)]"
+                    aria-hidden
+                  >
+                    {padIndex(index)}
+                  </span>
+                  {item.label}
+                </a>
+              ))}
+              <a
+                href={pricingHref}
+                className="kuct-mobile-nav__link"
+                onClick={closeMenu}
+              >
+                <span
+                  className="mr-3 text-xs text-[var(--kuct-muted)]"
+                  aria-hidden
+                >
+                  {padIndex(crmSolutionLinks.length + posSolutionLinks.length)}
+                </span>
+                {t.nav.pricing}
+              </a>
             </MobileAccordion>
 
             <MobileAccordion

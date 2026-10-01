@@ -48,7 +48,7 @@ export function LanguageSwitcher({
         className={
           isFooter
             ? "inline-flex items-center gap-1.5 py-1 text-sm font-medium text-[var(--kuct-text)] transition hover:opacity-60"
-            : "inline-flex items-center gap-1.5 px-1 py-1.5 text-[inherit] font-medium tracking-[-0.02em] text-[var(--kuct-text)] transition hover:text-[var(--kuct-accent)]"
+            : "inline-flex items-center gap-1.5 px-1 py-1.5 text-sm font-medium tracking-[-0.02em] text-[var(--kuct-text)] transition hover:text-[var(--kuct-accent)]"
         }
         aria-label="Language"
         aria-haspopup="listbox"

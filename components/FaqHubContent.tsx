@@ -165,7 +165,12 @@ export function FaqHubContent() {
           <ul className="mt-6 flex list-none flex-wrap justify-center gap-x-4 gap-y-2 p-0 text-sm font-medium">
             <li>
               <Link href={assetPath("/industries/")} className="text-[var(--kuct-accent)] hover:underline">
-                Ngành
+                CRM · ngành
+              </Link>
+            </li>
+            <li>
+              <Link href={assetPath("/pos/")} className="text-[var(--kuct-accent)] hover:underline">
+                POS
               </Link>
             </li>
             <li>

@@ -30,8 +30,17 @@ import {
   featuresForCombo,
   type IndustryId,
 } from "@/lib/pricing/dolphin-pricing-industries-2026";
+import {
+  POS_CTA,
+  POS_FAQ_ITEMS,
+  POS_INDUSTRIES,
+  POS_PLANS,
+  POS_POLICY_META,
+  type PosIndustryId,
+} from "@/lib/pricing/dolphin-pos-policy-2026";
 import { WARRANTY_POLICY_PATH } from "@/lib/pricing/dolphin-warranty-policy-2026";
 
+type ProductLine = "crm" | "pos";
 type ViewId = "packages" | "care" | "list" | "outsource";
 
 const VIEWS: { id: ViewId; label: string }[] = [
@@ -39,6 +48,11 @@ const VIEWS: { id: ViewId; label: string }[] = [
   { id: "care", label: "Care lẻ" },
   { id: "list", label: "Niêm yết" },
   { id: "outsource", label: "Outsource" },
+];
+
+const PRODUCT_LINES: { id: ProductLine; label: string }[] = [
+  { id: "crm", label: "CRM · AI" },
+  { id: "pos", label: "POS" },
 ];
 
 const DRAG_THRESHOLD_PX = 28;
@@ -686,15 +700,55 @@ function industryFromHash(hash: string): IndustryId | null {
     : null;
 }
 
+function PosPlanCard({
+  plan,
+  industryLabel,
+}: {
+  plan: (typeof POS_PLANS)[number];
+  industryLabel: string;
+}) {
+  const features = plan.includesLine
+    ? [plan.includesLine, ...plan.features]
+    : [...plan.features];
+
+  return (
+    <ElPlanCard
+      name={plan.name}
+      price={formatVnd(plan.priceYear)}
+      priceNote="/ năm"
+      cta={POS_CTA.buy}
+      industryTag={industryLabel}
+      intro={plan.audience}
+      features={features}
+      metric={`${POS_POLICY_META.billingYearLabel} · thanh toán trước`}
+      popular={plan.popular}
+      badge={plan.badge}
+      tone={plan.popular ? "gradient" : plan.id === "toan-dien" ? "ink" : "grey"}
+    />
+  );
+}
+
 export function PricingPolicy2026Content() {
+  const [productLine, setProductLine] = useState<ProductLine>("crm");
   const [industryId, setIndustryId] = useState<IndustryId>("spa");
+  const [posIndustryId, setPosIndustryId] = useState<PosIndustryId>("fnb");
   const [view, setView] = useState<ViewId>("packages");
   const tabsId = useId();
 
   useEffect(() => {
     const applyHash = () => {
-      const fromHash = industryFromHash(window.location.hash);
+      const hash = window.location.hash;
+      if (hash === "#pos" || hash.startsWith("#pos-")) {
+        setProductLine("pos");
+        const posMatch = /^#pos-([a-z0-9-]+)$/.exec(hash);
+        if (posMatch && POS_INDUSTRIES.some((i) => i.id === posMatch[1])) {
+          setPosIndustryId(posMatch[1] as PosIndustryId);
+        }
+        return;
+      }
+      const fromHash = industryFromHash(hash);
       if (fromHash) {
+        setProductLine("crm");
         setIndustryId(fromHash);
         setView("packages");
       }
@@ -706,9 +760,21 @@ export function PricingPolicy2026Content() {
 
   const industry =
     PRICING_INDUSTRIES.find((i) => i.id === industryId) ?? PRICING_INDUSTRIES[0];
+  const posIndustry =
+    POS_INDUSTRIES.find((i) => i.id === posIndustryId) ?? POS_INDUSTRIES[0];
 
   const starterCombos = COMBO_PACKAGES.filter((p) => p.no <= 4);
   const growthCombos = COMBO_PACKAGES.filter((p) => p.no >= 5);
+
+  const setLine = (line: ProductLine) => {
+    setProductLine(line);
+    if (typeof window === "undefined") return;
+    if (line === "pos") {
+      window.history.replaceState(null, "", `#pos-${posIndustryId}`);
+    } else {
+      window.history.replaceState(null, "", `#industry-${industryId}`);
+    }
+  };
 
   return (
     <div className="elp">
@@ -725,9 +791,34 @@ export function PricingPolicy2026Content() {
           Giá linh hoạt theo nhu cầu
         </h1>
         <p className="elp__hero-sub">
-          Chọn ngành — xem gói và chức năng CRM · Care · Ops tương ứng.
+          {productLine === "pos"
+            ? POS_POLICY_META.lead
+            : "Chọn ngành — xem gói và chức năng CRM · Care · Ops tương ứng."}
         </p>
 
+        <div
+          className="elp__views elp__views--lines"
+          role="tablist"
+          aria-label="Dòng sản phẩm"
+        >
+          <div className="elp__views-inner">
+            {PRODUCT_LINES.map((line) => (
+              <button
+                key={line.id}
+                type="button"
+                role="tab"
+                aria-selected={productLine === line.id}
+                className={`elp__view${productLine === line.id ? " is-active" : ""}`}
+                onClick={() => setLine(line.id)}
+              >
+                {line.label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {productLine === "crm" ? (
+          <>
         <div className="elp__controls elp__controls--bar">
           <DragStrip
             label="Ngành"
@@ -736,7 +827,7 @@ export function PricingPolicy2026Content() {
             resetKey={`industries-${PRICING_INDUSTRIES.length}`}
             activeSelector={`[data-industry-tab="${industryId}"]`}
           >
-            <div role="tablist" aria-label="Ngành" id={tabsId} className="elp__tabs-inner">
+            <div role="tablist" aria-label="Ngành CRM" id={tabsId} className="elp__tabs-inner">
               {PRICING_INDUSTRIES.map((item) => {
                 const active = industryId === item.id;
                 return (
@@ -807,10 +898,103 @@ export function PricingPolicy2026Content() {
             ))}
           </div>
         </DragStrip>
+          </>
+        ) : (
+          <>
+            <div className="elp__controls elp__controls--bar">
+              <DragStrip
+                label="Ngành POS"
+                className="elp__dragstrip--tabs"
+                trackClassName="elp__tabs elp__tabs--industry"
+                resetKey={`pos-industries-${POS_INDUSTRIES.length}`}
+                activeSelector={`[data-pos-industry="${posIndustryId}"]`}
+              >
+                <div
+                  role="tablist"
+                  aria-label="Ngành POS"
+                  className="elp__tabs-inner"
+                >
+                  {POS_INDUSTRIES.map((item) => {
+                    const active = posIndustryId === item.id;
+                    return (
+                      <button
+                        key={item.id}
+                        type="button"
+                        role="tab"
+                        data-pos-industry={item.id}
+                        aria-selected={active}
+                        className={`elp__tab${active ? " is-active" : ""}`}
+                        onClick={() => {
+                          setPosIndustryId(item.id);
+                          if (typeof window !== "undefined") {
+                            window.history.replaceState(
+                              null,
+                              "",
+                              `#pos-${item.id}`,
+                            );
+                          }
+                        }}
+                      >
+                        <TabDot active={active} />
+                        <span className="elp__tab-label">{item.label}</span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </DragStrip>
+              <div
+                className="elp__billing elp__billing--toggle"
+                role="group"
+                aria-label="Chu kỳ POS"
+              >
+                <button
+                  type="button"
+                  className="elp__billing-opt"
+                  disabled
+                  title="Giá tháng: TODO khi công bố"
+                >
+                  {POS_POLICY_META.billingMonthLabel}
+                </button>
+                <button
+                  type="button"
+                  className="elp__billing-opt is-on"
+                  aria-pressed="true"
+                >
+                  {POS_POLICY_META.billingYearLabel}
+                </button>
+              </div>
+            </div>
+            <p className="elp__industry-lead" key={posIndustry.id}>
+              {posIndustry.lead}
+            </p>
+            <p className="elp__industry-lead elp__industry-lead--muted">
+              {POS_POLICY_META.statusNote}
+            </p>
+          </>
+        )}
       </section>
 
       <div className="elp__main">
-        {view === "packages" ? (
+        {productLine === "pos" ? (
+          <div className="elp__panel-block" key={posIndustryId}>
+            <h2 className="elp__group-label">
+              Gói POS · {posIndustry.label} · {POS_POLICY_META.billingYearLabel}
+            </h2>
+            <PlanSlider
+              label={`Gói POS ${posIndustry.label}`}
+              resetKey={`pos-${posIndustryId}`}
+              slides={POS_PLANS.map((plan) => (
+                <PosPlanCard
+                  key={plan.id}
+                  plan={plan}
+                  industryLabel={posIndustry.label}
+                />
+              ))}
+            />
+          </div>
+        ) : null}
+
+        {productLine === "crm" && view === "packages" ? (
           <div className="elp__panel-block" key={industryId}>
             <h2 className="elp__group-label">
               Gói combo cho {industry.label}
@@ -871,7 +1055,7 @@ export function PricingPolicy2026Content() {
           </div>
         ) : null}
 
-        {view === "care" ? (
+        {productLine === "crm" && view === "care" ? (
           <div className="elp__panel-block" key={`care-${industryId}`}>
             <p className="elp__tab-lead">
               {CARE_STANDALONE_AUDIENCE} Phù hợp khi đã có CRM {industry.label}.
@@ -920,7 +1104,7 @@ export function PricingPolicy2026Content() {
           </div>
         ) : null}
 
-        {view === "list" ? (
+        {productLine === "crm" && view === "list" ? (
           <div className="elp__panel-block">
             <p className="elp__tab-lead">
               Giá niêm yết gốc — combo = kỳ hạn × giá tháng (hoặc one-time web).
@@ -970,7 +1154,7 @@ export function PricingPolicy2026Content() {
           </div>
         ) : null}
 
-        {view === "outsource" ? (
+        {productLine === "crm" && view === "outsource" ? (
           <div className="elp__panel-block">
             <p className="elp__tab-lead">
               One-time · khoảng giá hoặc giá chốt sau khảo sát phạm vi.
@@ -1069,7 +1253,7 @@ export function PricingPolicy2026Content() {
           FAQs
         </h2>
         <div className="elp__faq-list">
-          {PRICING_FAQ_ITEMS.map((item, index) => (
+          {[...PRICING_FAQ_ITEMS, ...POS_FAQ_ITEMS].map((item, index) => (
             <details key={item.q} className="elp__faq-item" open={index === 0}>
               <summary>
                 <h3 className="elp__faq-q">{item.q}</h3>

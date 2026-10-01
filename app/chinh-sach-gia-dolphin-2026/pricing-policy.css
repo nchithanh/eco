@@ -163,6 +163,51 @@
   color: #fff;
 }
 
+/* CRM · AI | POS product line switch */
+.elp__views--lines {
+  display: flex;
+  justify-content: center;
+  margin: 1.25rem auto 0.5rem;
+  width: fit-content;
+  max-width: 100%;
+  padding: 0.3rem;
+  border-radius: 9999px;
+  border: 1px solid var(--elp-line);
+  background: #fff;
+}
+
+.elp__billing--toggle {
+  gap: 0.25rem;
+  padding: 0.25rem;
+}
+
+.elp__billing-opt {
+  border: 0;
+  border-radius: 9999px;
+  background: transparent;
+  padding: 0.4rem 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 500 !important;
+  color: var(--elp-muted);
+  cursor: pointer;
+}
+
+.elp__billing-opt.is-on {
+  background: #0a0a0a;
+  color: #fff;
+}
+
+.elp__billing-opt:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.elp__industry-lead--muted {
+  margin-top: 0.35rem;
+  font-size: 0.85rem;
+  color: var(--elp-muted);
+}
+
 .elp__tab {
   display: inline-flex;
   flex: 0 0 auto;

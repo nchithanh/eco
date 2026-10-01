@@ -545,6 +545,7 @@ export type Dictionary = {
   footer: {
     groupExplore: string;
     groupCrm: string;
+    groupPos: string;
     groupStudio: string;
     groupUpdates: string;
     groupConnect: string;

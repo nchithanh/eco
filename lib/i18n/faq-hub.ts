@@ -7,7 +7,9 @@ import { getAgentDolphinCopy } from "@/lib/i18n/agent-dolphin-copy";
 import { getDolphinOpsCopy } from "@/lib/i18n/dolphin-ops-copy";
 import { getFaqCopy } from "@/lib/i18n/faq-copy";
 import { getIndustryPageCopy } from "@/lib/i18n/industries-copy";
+import { getPosPageCopy } from "@/lib/i18n/pos-copy";
 import type { IndustrySlug } from "@/lib/industries/catalog";
+import type { PosSlug } from "@/lib/pos/catalog";
 
 export type FaqHubGroup = {
   id: string;
@@ -34,6 +36,8 @@ const INDUSTRY_PICK: IndustrySlug[] = [
   "education",
 ];
 
+const POS_PICK: PosSlug[] = ["cafe", "tra-sua", "pet", "fashion"];
+
 export function getFaqHubCopy(): FaqHubCopy {
   const home = getFaqCopy("vi");
   const care = getAgentDolphinCopy("vi");
@@ -43,23 +47,34 @@ export function getFaqHubCopy(): FaqHubCopy {
     const page = getIndustryPageCopy(slug);
     return {
       id: `industry-${slug}`,
-      title: `Ngành: ${page.label}`,
-      intro: `Câu hỏi thường gặp cho ${page.label}. Chi tiết đầy đủ tại trang ngành.`,
+      title: `CRM · ${page.label}`,
+      intro: `Câu hỏi thường gặp cho ${page.label} (CRM dịch vụ). Chi tiết đầy đủ tại trang ngành.`,
       href: `/industries/${slug}/`,
+      items: page.faq.slice(0, 3),
+    };
+  });
+
+  const posGroups: FaqHubGroup[] = POS_PICK.map((slug) => {
+    const page = getPosPageCopy(slug);
+    return {
+      id: `pos-${slug}`,
+      title: `POS · ${page.label}`,
+      intro: `Câu hỏi thường gặp cho ${page.label} (POS bán hàng). Chi tiết tại trang POS.`,
+      href: `/pos/${slug}/`,
       items: page.faq.slice(0, 3),
     };
   });
 
   return {
     metaTitle:
-      "FAQ Dolphin Software — CRM · Care · Ops · Website combo | Câu hỏi thường gặp",
+      "FAQ Dolphin Software — CRM · POS · Care · Ops | Câu hỏi thường gặp",
     metaDescription:
-      "Câu hỏi thường gặp về Dolphin Software: CRM, Dolphin Care, Dolphin Ops, website combo, báo giá và ngành spa/salon/clinic/giáo dục. Trả lời ngắn, theo fact trên site.",
+      "Câu hỏi thường gặp về Dolphin Software: CRM dịch vụ, POS bán hàng, Dolphin Care, Dolphin Ops, website combo và báo giá. Trả lời ngắn, theo fact trên site.",
     h1: "Câu hỏi thường gặp về Dolphin Software",
-    lead: "Gom câu hỏi người dùng hay hỏi khi tìm CRM, AI chăm sóc khách hoặc website combo — trả lời ngắn, có link sang trang sản phẩm và ngành.",
+    lead: "Gom câu hỏi khi tìm CRM dịch vụ, POS cửa hàng, AI chăm sóc khách hoặc website combo — trả lời ngắn, có link sang trang sản phẩm, ngành và POS.",
     answerTitle: "Dolphin Software là gì?",
     answerFirst:
-      "Dolphin Software là công ty giải pháp công nghệ tại Việt Nam (TP.HCM), giúp doanh nghiệp dịch vụ tối ưu vận hành và chăm sóc khách hàng qua CRM, AI (Dolphin Care · Ops), website và tích hợp. Bắt đầu từ vấn đề vận hành — không từ buzzword sản phẩm.",
+      "Dolphin Software là công ty giải pháp công nghệ tại Việt Nam (TP.HCM), giúp doanh nghiệp tối ưu vận hành qua CRM (dịch vụ), POS (bán hàng), AI (Dolphin Care · Ops), website và tích hợp. Bắt đầu từ vấn đề vận hành — không từ buzzword sản phẩm.",
     groups: [
       {
         id: "general",
@@ -83,6 +98,7 @@ export function getFaqHubCopy(): FaqHubCopy {
         items: ops.faqItems,
       },
       ...industryGroups,
+      ...posGroups,
     ],
   };
 }
