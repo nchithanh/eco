@@ -621,7 +621,7 @@ const vi: Dictionary = {
   },
   cookie: {
     title: "Cookie & quyền riêng tư",
-    body: "Chúng tôi dùng cookie và lưu trữ trình duyệt cần thiết để ghi nhớ ngôn ngữ, theme giao diện và lựa chọn cookie của bạn — giúp trang tải đúng và tránh hỏi lại mỗi lần vào. Cookie tùy chọn (nếu có) chỉ phục vụ cải thiện trải nghiệm, không bán dữ liệu cho bên thứ ba. Bạn có thể chấp nhận hoặc từ chối phần không bắt buộc; từ chối vẫn dùng được site với các chức năng cốt lõi.",
+    body: "Chúng tôi dùng cookie và lưu trữ trình duyệt cần thiết để ghi nhớ ngôn ngữ, theme giao diện và lựa chọn cookie của bạn — giúp trang tải đúng và tránh hỏi lại mỗi lần vào. Nếu chấp nhận, chúng tôi có thể dùng Google Analytics (GA4) để đo lượt truy cập và cải thiện site — không bán dữ liệu cho bên thứ ba. Từ chối vẫn dùng được các chức năng cốt lõi; GA không được tải.",
     accept: "Chấp nhận",
     decline: "Từ chối",
   },
@@ -1269,7 +1269,7 @@ const en: Dictionary = {
   },
   cookie: {
     title: "Cookies & privacy",
-    body: "We use essential cookies and browser storage to remember your language, color theme, and cookie choice — so the site loads correctly and we don’t ask again on every visit. Optional cookies (if any) only help improve the experience; we don’t sell your data to third parties. You can accept or decline non-essential cookies; declining still lets you use core site features.",
+    body: "We use essential cookies and browser storage to remember your language, color theme, and cookie choice — so the site loads correctly and we don’t ask again on every visit. If you accept, we may use Google Analytics (GA4) to measure traffic and improve the site — we don’t sell your data to third parties. Declining still lets you use core features; GA is not loaded.",
     accept: "Accept",
     decline: "Decline",
   },
@@ -1918,7 +1918,7 @@ const ja: Dictionary = {
   },
   cookie: {
     title: "Cookieとプライバシー",
-    body: "言語・テーマ・Cookieの選択を記憶するため、必要なCookieとブラウザ保存を使います。これによりページが正しく表示され、毎回の再確認を避けられます。任意のCookie（ある場合）は体験向上のみに使い、第三者へのデータ販売は行いません。必須以外は同意または拒否でき、拒否してもサイトの基本機能はそのまま利用できます。",
+    body: "言語・テーマ・Cookieの選択を記憶するため、必要なCookieとブラウザ保存を使います。同意した場合、サイト改善のため Google Analytics（GA4）でアクセスを計測することがあります。第三者へのデータ販売は行いません。拒否しても基本機能はそのまま使え、GAは読み込まれません。",
     accept: "同意する",
     decline: "拒否する",
   },

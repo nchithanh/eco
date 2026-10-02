@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 import { AiChatProvider } from "@/components/AiChatProvider";
 import { AiChatWidget } from "@/components/AiChatWidget";
 import { CookieConsent } from "@/components/CookieConsent";
+import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import { PagePreviewProvider } from "@/components/PagePreviewProvider";
 import { QuoteProvider } from "@/components/QuoteProvider";
 import { WhaleBackdrop } from "@/components/WhaleBackdrop";
@@ -24,6 +25,7 @@ export function AppProviders({ children }: { children: ReactNode }) {
               <div className="relative z-10 kuct-page-rails">{children}</div>
               <AiChatWidget />
               <CookieConsent />
+              <GoogleAnalytics />
             </AiChatProvider>
           </PagePreviewProvider>
         </QuoteProvider>

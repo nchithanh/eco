@@ -17,7 +17,7 @@ const vi: PrivacyCopy = {
     "Dolphin Software thu thập dữ liệu nào trên website và Facebook Messenger, dùng để làm gì, và cách yêu cầu xóa.",
   eyebrow: "Pháp lý",
   title: "Quyền riêng tư",
-  updated: "Cập nhật 27/08/2026",
+  updated: "Cập nhật 02/10/2026",
   intro:
     "Trang này mô tả dữ liệu Dolphin Software xử lý trên website dolphin-software.io.vn và khi anh/chị nhắn Fanpage qua Messenger. Không bán dữ liệu cho bên thứ ba.",
   sections: [
@@ -26,6 +26,7 @@ const vi: PrivacyCopy = {
       title: "Website",
       body: [
         "Cookie và lưu trữ trình duyệt cần thiết: ngôn ngữ, theme, lựa chọn cookie, phiên xem demo. Chi tiết trên banner cookie khi vào site.",
+        "Nếu anh/chị chấp nhận cookie tùy chọn: Google Analytics 4 (measurement ID G-PK0D2X1YKV) đo lượt truy cập và hành vi cơ bản trên site để cải thiện nội dung — script chỉ tải sau khi chấp nhận; từ chối thì không tải GA.",
         "Form liên hệ / báo giá / tuyển dụng: tên, cách liên hệ, ghi chú anh/chị gửi — để trả lời yêu cầu, không dùng cho quảng cáo bên thứ ba.",
       ],
     },
@@ -62,7 +63,7 @@ const en: PrivacyCopy = {
     "What Dolphin Software collects on the website and Facebook Messenger, why, and how to request deletion.",
   eyebrow: "Legal",
   title: "Privacy",
-  updated: "Updated 27 Aug 2026",
+  updated: "Updated 2 Oct 2026",
   intro:
     "This page describes data Dolphin Software processes on dolphin-software.io.vn and when you message the Fanpage on Messenger. We do not sell data to third parties.",
   sections: [
@@ -71,6 +72,7 @@ const en: PrivacyCopy = {
       title: "Website",
       body: [
         "Essential cookies and browser storage: language, theme, cookie choice, demo session. Details are on the cookie banner.",
+        "If you accept optional cookies: Google Analytics 4 (measurement ID G-PK0D2X1YKV) measures visits and basic on-site behavior to improve content — scripts load only after acceptance; decline means GA is not loaded.",
         "Contact / quote / careers forms: name, contact method, and notes you send — to reply to the request, not for third-party ads.",
       ],
     },
@@ -107,7 +109,7 @@ const ja: PrivacyCopy = {
     "Dolphin SoftwareがサイトとFacebook Messengerで扱うデータ、目的、削除の依頼方法。",
   eyebrow: "法務",
   title: "プライバシー",
-  updated: "更新 2026年8月27日",
+  updated: "更新 2026年10月2日",
   intro:
     "dolphin-software.io.vn と Fanpage の Messenger で Dolphin Software が扱うデータです。第三者への販売はありません。",
   sections: [
@@ -116,6 +118,7 @@ const ja: PrivacyCopy = {
       title: "ウェブサイト",
       body: [
         "必須のCookieとブラウザ保存：言語、テーマ、Cookie選択、デモセッション。詳細はCookieバナー。",
+        "任意Cookieに同意した場合：Google Analytics 4（測定ID G-PK0D2X1YKV）でアクセスと基本行動を計測し、コンテンツ改善に使います。同意後のみスクリプトを読み込み、拒否時はGAを読み込みません。",
         "問い合わせ / 見積 / 採用フォーム：お名前、連絡先、メモ。返信のためであり、第三者広告には使いません。",
       ],
     },

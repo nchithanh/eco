@@ -2,65 +2,11 @@
 
 import { useEffect, useState } from "react";
 import {
-  COOKIE_CONSENT_COOKIE_NAME,
-  COOKIE_CONSENT_STORAGE_KEY,
+  persistCookieConsent,
+  readStoredCookieConsent,
+  type CookieConsentValue,
 } from "@/lib/cookie-consent";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
-
-const STORAGE_KEY = COOKIE_CONSENT_STORAGE_KEY;
-const COOKIE_NAME = COOKIE_CONSENT_COOKIE_NAME;
-const COOKIE_MAX_AGE = 60 * 60 * 24 * 400; // ~13 months
-
-type ConsentValue = "accepted" | "declined";
-
-function isConsentValue(value: string | null | undefined): value is ConsentValue {
-  return value === "accepted" || value === "declined";
-}
-
-function readCookieConsent(): ConsentValue | null {
-  if (typeof document === "undefined") return null;
-  try {
-    const match = document.cookie
-      .split("; ")
-      .find((row) => row.startsWith(`${COOKIE_NAME}=`));
-    if (!match) return null;
-    const value = decodeURIComponent(match.split("=").slice(1).join("="));
-    return isConsentValue(value) ? value : null;
-  } catch {
-    return null;
-  }
-}
-
-function writeCookieConsent(value: ConsentValue) {
-  try {
-    const secure =
-      typeof location !== "undefined" && location.protocol === "https:"
-        ? "; Secure"
-        : "";
-    document.cookie = `${COOKIE_NAME}=${encodeURIComponent(value)}; path=/; max-age=${COOKIE_MAX_AGE}; SameSite=Lax${secure}`;
-  } catch {
-    // ignore
-  }
-}
-
-function readStoredConsent(): ConsentValue | null {
-  try {
-    const stored = window.localStorage.getItem(STORAGE_KEY);
-    if (isConsentValue(stored)) return stored;
-  } catch {
-    // ignore quota / private mode
-  }
-  return readCookieConsent();
-}
-
-function persistConsent(value: ConsentValue) {
-  try {
-    window.localStorage.setItem(STORAGE_KEY, value);
-  } catch {
-    // ignore quota / private mode
-  }
-  writeCookieConsent(value);
-}
 
 export function CookieConsent() {
   const { t } = useLocale();
@@ -70,17 +16,17 @@ export function CookieConsent() {
   useEffect(() => {
     if (process.env.NODE_ENV === "test") return;
 
-    const existing = readStoredConsent();
+    const existing = readStoredCookieConsent();
     if (existing) {
-      persistConsent(existing);
+      persistCookieConsent(existing);
       setVisible(false);
       return;
     }
     setVisible(true);
   }, []);
 
-  const choose = (value: ConsentValue) => {
-    persistConsent(value);
+  const choose = (value: CookieConsentValue) => {
+    persistCookieConsent(value);
     setVisible(false);
   };
 
