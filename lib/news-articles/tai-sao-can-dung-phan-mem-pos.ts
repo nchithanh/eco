@@ -23,7 +23,7 @@ const vi: NewsArticleCopy = {
     {
       type: "image",
       src: COVER,
-      alt: "Chủ quán cafe đóng cửa, sổ tay và giấy order trên quầy, đang đối chiếu tiền mặt",
+      alt: "Cover promo Dolphin: tiêu đề tại sao cần phần mềm POS và bộ thiết bị bán hàng nhìn từ trên",
     },
     {
       type: "p",
@@ -183,7 +183,7 @@ const en: NewsArticleCopy = {
     {
       type: "image",
       src: COVER,
-      alt: "Cafe owner at closing, paper orders and cash on the counter",
+      alt: "Dolphin promo cover: why stores need POS title with top-down tablet POS and cash drawer kit",
     },
     {
       type: "p",
@@ -315,7 +315,7 @@ const ja: NewsArticleCopy = {
     {
       type: "image",
       src: COVER,
-      alt: "閉店時のカフェカウンター。紙の伝票と現金を照合する店主",
+      alt: "Dolphinのプロモカバー。POSソフトの必要性タイトルと俯瞰のPOS機器セット",
     },
     {
       type: "h2",

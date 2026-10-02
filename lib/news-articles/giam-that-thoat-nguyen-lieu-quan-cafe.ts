@@ -23,7 +23,7 @@ const vi: NewsArticleCopy = {
     {
       type: "image",
       src: COVER,
-      alt: "Quầy bar cafe: túi hạt và hộp sữa sắp hết, barista lo giữa giờ cao điểm",
+      alt: "Cover promo Dolphin: tiêu đề giảm thất thoát nguyên liệu cafe và bộ mise-en-place nhìn từ trên",
     },
     {
       type: "p",
@@ -167,7 +167,7 @@ const en: NewsArticleCopy = {
     {
       type: "image",
       src: COVER,
-      alt: "Cafe bar shelf with nearly empty coffee bags and milk during a rush",
+      alt: "Dolphin promo cover: cafe ingredient-waste title with top-down mise-en-place product kit",
     },
     {
       type: "p",
