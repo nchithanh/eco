@@ -8,17 +8,17 @@ const vi: NewsArticleCopy = {
   title: "Giảm thất thoát nguyên liệu quán cafe: bắt đầu từ đâu?",
   metaTitle: "Giảm thất thoát nguyên liệu quán cafe | Dolphin",
   metaDescription:
-    "Hạt, sữa, syrup hết giữa ca hoặc lệch sổ: chỗ thất thoát thật ở quán cafe và checklist vận hành — khi nào cần gắn bán với tồn qua phần mềm POS.",
+    "Hạt sữa hết giữa ca, sổ tồn lệch kệ: cách giảm thất thoát nguyên liệu quán cafe từ quy trình thực tế — checklist vận hành trước, phần mềm sau.",
   excerpt:
-    "Nguyên liệu cafe thất thoát thường không vì “nhân viên xấu” — mà vì đong tay, bán không gắn tồn, và kiểm cuối ngày muộn. Bài này nói chỗ gãy và cách siết lại từng bước.",
+    "Thất thoát nguyên liệu quán cafe ít khi bắt đầu từ “ai lấy đồ”. Thường là đong tay, quên trừ tồn, kiểm muộn. Bài này kể chuyện vận hành và cách siết lại từng bước.",
   body: [
     {
       type: "lead",
-      text: "Quán cafe sống bằng hạt, sữa, syrup, topping. Khi chúng “biến mất” giữa ca hoặc sổ tồn không khớp thực tế, chủ quán hay nghĩ ngay đến gian lận. Thực tế phổ biến hơn: quy trình đong–bán–ghi còn lỏng. Bài này giúp anh chị thấy chỗ thất thoát nguyên liệu quán cafe thường nằm ở đâu, siết gì trước khi mua phần mềm.",
+      text: "Tối hôm đó đóng cửa muộn hơn thường lệ. Quầy còn mấy ly bẩn, máy xay nóng bỏng tay. Tôi mở tủ lạnh lấy sữa cho ca sáng hôm sau thì thấy hai hộp còn lại — trong khi sổ ghi còn bốn. Không ai thừa nhận đổ, không ai nhớ đã pha thừa bao nhiêu ly “test máy”. Chỉ biết sáng mai sẽ phải chạy đi mua gấp, và một phần tiền trong tháng đã bay theo những chỗ không ai ghi lại. Đó là lần tôi chịu ngồi lại nghĩ thật: giảm thất thoát nguyên liệu quán cafe không phải chuyện bắt lỗi người, mà là chuyện nhìn ra lỗ hổng trong cách mình đang chạy quán.",
     },
     {
       type: "p",
-      text: "Ca chiều đông. Barista mở túi hạt cuối cùng. Tủ lạnh còn một hộp sữa. Khách xếp hàng — không ai kịp ghi “hết giữa ca”. Cuối ngày sổ Excel nói còn đủ cho ngày mai. Kệ thì trống.",
+      text: "Nếu anh chị từng đứng giữa giờ cao điểm mà hết hạt, hết topping, hoặc cuối tuần đối chiếu tồn mà “sổ đẹp — kệ trống”, bài này viết cho anh chị. Không phải bài giảng công nghệ. Là những thứ tôi (và nhiều chủ tiệm tôi từng ngồi nói chuyện) hay mắc, rồi phải sửa bằng quy trình trước khi nghĩ tới phần mềm.",
     },
     {
       type: "image",
@@ -26,16 +26,28 @@ const vi: NewsArticleCopy = {
       alt: "Cover promo Dolphin: tiêu đề giảm thất thoát nguyên liệu cafe và bộ mise-en-place nhìn từ trên",
     },
     {
+      type: "h2",
+      text: "Thất thoát nguyên liệu quán cafe thường đến từ đâu?",
+    },
+    {
       type: "p",
-      text: "Nếu cảnh này quen, anh chị không đơn độc. Giảm thất thoát không bắt đầu từ app đắt tiền — bắt đầu từ chỗ nào đang “ăn” nguyên liệu mà không để lại dấu vết.",
+      text: "Nhiều người nhảy ngay vào nghi ngờ nhân viên. Thỉnh thoảng đúng — nhưng theo quan sát thực tế, tỷ lệ lớn hơn nằm ở chỗ “không có dấu vết”. Một ly latte đong sữa bằng mắt. Một scoop topping “cỡ vừa” tùy người. Một đơn mang đi ghi trên giấy, quên trừ kho. Cuối ngày Excel vẫn xanh vì mọi người chỉ nhập những gì nhớ được.",
+    },
+    {
+      type: "p",
+      text: "Thất thoát kiểu này âm ỉ. Không ầm ĩ như két tiền lệch vài trăm. Nó ăn dần biên lợi nhuận: hạt rang, sữa tươi, syrup, bột, topping — những thứ mua theo thùng, mất theo muỗng. Khi anh chị chỉ nhìn doanh thu ngày mà không soi lượng nguyên liệu đi kèm, cảm giác quán “đông mà không dư” rất dễ xuất hiện mà không giải thích được.",
     },
     {
       type: "h2",
-      text: "Thất thoát nguyên liệu quán cafe thường nằm ở đâu?",
+      text: "Tại sao sổ tay và Excel vẫn lệch dù đã ghi chép?",
     },
     {
-      type: "h3",
-      text: "1. Đong tay, mỗi người một kiểu",
+      type: "p",
+      text: "Vì ghi chép thường xảy ra sau khi bán, không gắn với lúc bán. Ca chiều đông: hai người pha, một người thu tiền, điện thoại kêu đơn mang đi. Không ai dừng lại mở file. Tối về nhà mới nhớ “hôm nay dùng hết bao nhiêu sữa?” — lúc đó trí nhớ đã méo.",
+    },
+    {
+      type: "p",
+      text: "Excel cũng không xấu. Nó chỉ không chịu nổi tốc độ quầy. Tôi từng thấy quán ghi tồn cuối tuần rất chỉn chu, rồi giữa tuần vẫn hết topping giữa ca vì không ai cập nhật theo đơn. Sổ đẹp là sổ của buổi kiểm, không phải sổ của từng ly đã bán.",
     },
     {
       type: "image",
@@ -43,20 +55,24 @@ const vi: NewsArticleCopy = {
       alt: "Barista rót sữa và espresso không dùng cốc định lượng, nguyên liệu đổ thừa trên quầy",
     },
     {
-      type: "p",
-      text: "Công thức trên giấy; thực tế mỗi ca đong mắt. Thừa một chút mỗi ly — cả ngày thành vài trăm gram hạt hoặc vài hộp sữa. Không phải lỗi “thích lãng phí”: thiếu chuẩn đong và thiếu đối chiếu theo món bán.",
-    },
-    {
-      type: "h3",
-      text: "2. Bán rồi mới nhớ trừ tồn",
+      type: "h2",
+      text: "Đong tay có làm mất nguyên liệu nhiều không?",
     },
     {
       type: "p",
-      text: "Order Zalo, order quầy, order mang đi — ghi bán một chỗ, trừ kho chỗ khác (hoặc quên). Excel cập nhật cuối ngày thì lệch đã xảy ra từ buổi sáng. Càng đông kênh, càng dễ “bán không thấy tồn”.",
+      text: "Có — và thường bị xem nhẹ vì “chỉ hơn một chút”. Một chút mỗi ly, nhân với cả trăm ly, thành vài hộp sữa hoặc vài trăm gram hạt. Không phải ai cũng cố ý. Người mới sợ khách bảo nhạt nên thêm. Người cũ quen tay, mỗi người một “chuẩn riêng”. Recipe dán tường thì có, nhưng giờ cao điểm ít ai nhìn.",
     },
     {
-      type: "h3",
-      text: "3. Nhập hàng nhanh, kiểm chậm",
+      type: "p",
+      text: "Sai lầm hay gặp: nghĩ mua cân định lượng là xong. Cân không dùng thì chỉ là đồ trang trí. Thứ quan trọng hơn là thói quen — ai pha cũng phải qua cùng một mốc (ml, gram, scoop), và có người soi định kỳ, dù chỉ năm phút đầu ca.",
+    },
+    {
+      type: "h2",
+      text: "Làm sao phát hiện thất thoát sớm hơn cuối tháng?",
+    },
+    {
+      type: "p",
+      text: "Đừng chờ báo cáo tháng. Chờ tháng là đã mất cả chu kỳ nhập hàng. Cách thực tế hơn: chọn vài SKU “đau” — hạt chính, sữa chính, ba syrup bán chạy — và ghi mở–đóng theo ca. Không cần cả kho. Chỉ cần những thứ hay hết giữa giờ và hay lệch sổ.",
     },
     {
       type: "image",
@@ -65,51 +81,35 @@ const vi: NewsArticleCopy = {
     },
     {
       type: "p",
-      text: "Túi hạt về nhiều; ghi nhận trên giấy rồi quên. Kiểm tồn cuối tuần mới phát hiện thiếu. Lúc đó khó biết mất ở ca nào, món nào. Thất thoát nguyên liệu quán cafe hay bị “phát hiện muộn” vì không có mốc mở/đóng ca gắn với tồn quan trọng.",
-    },
-    {
-      type: "h3",
-      text: "4. Pha thừa, huỷ, và “ly test” không ghi",
-    },
-    {
-      type: "p",
-      text: "Pha sai đổ đi, test máy, tặng nhân viên — bình thường nếu ghi được. Không ghi thì sổ đẹp, kệ trống: anh chị tưởng bán nhiều hơn thực tế nguyên liệu đã dùng.",
+      text: "Cuối ngày, lấy số ly bán được (bill, sổ order, hoặc tổng đơn) rồi ước lượng nguyên liệu lý thuyết theo recipe. Lệch nhẹ thì bình thường. Lệch to và lặp lại cùng một ca — đó là tín hiệu. Tôi từng thấy ca tối lệch sữa liên tục; hóa ra máy steam xả và pha test không ghi, không phải “kho bị lấy”.",
     },
     {
       type: "h2",
-      text: "Checklist vận hành trước khi nghĩ đến phần mềm",
+      text: "Checklist thực chiến để giảm thất thoát nguyên liệu quán cafe",
     },
     {
       type: "p",
-      text: "Ba việc rẻ, làm được tuần này:",
+      text: "Không cần làm hết một lúc. Làm đủ để thấy số rõ hơn tuần này:",
     },
     {
       type: "p",
-      text: "• Chốt recipe cho 5–10 món bán chạy (gram hạt / ml sữa / scoop topping) và dán nơi pha.\n• Mỗi ca: ghi mở–đóng tồn các SKU “đau” (hạt chính, sữa, syrup top 3) — dù chỉ một dòng sổ.\n• Cuối ngày: đối chiếu số ly bán (bill hoặc sổ order) với lượng nguyên liệu ước tính đã dùng. Lệch lớn → tìm ca, không đổ hết cho “kho mất”.",
+      text: "Chốt recipe cho 5–10 món chạy nhất — ghi gram hạt, ml sữa, scoop topping — dán chỗ pha, không dán trong file ít ai mở. Thống nhất dụng cụ đong; bỏ kiểu “ước mắt” với sữa và topping đắt. Mỗi ca ghi mở–đóng tồn vài SKU đau (một dòng sổ cũng được). Cuối ngày đối chiếu ly bán với lượng ước tính; lệch lớn thì hỏi ca, không đổ hết cho “kho mất”. Ghi riêng pha sai, test máy, huỷ — dù chỉ tick nhanh — kẻo sổ đẹp mà kệ trống.",
     },
     {
       type: "p",
-      text: "Nếu checklist này đã làm mà vẫn lệch mỗi ngày, hoặc hai–ba người cùng pha và anh chị không kịp soi — lúc đó mới cần chỗ ghi bán gắn với tồn rõ hơn.",
+      text: "Nếu anh chị làm checklist này được hai–ba tuần mà vẫn lệch mỗi ngày, hoặc hai ba người cùng pha mà không ai kịp soi, lúc đó mới nên nghĩ tới chỗ ghi bán gắn với tồn rõ hơn. Quy trình trước — phần mềm sau.",
     },
     {
       type: "h2",
-      text: "Khi nào phần mềm POS giúp giảm thất thoát?",
+      text: "Khi nào cần phần mềm POS để siết tồn?",
     },
     {
       type: "p",
-      text: "Phần mềm POS không thay recipe hay kỷ luật pha chế. Nó giúp khi anh chị cần: mỗi đơn bán trừ (theo gói) nguyên liệu/SKU liên quan; mở/đóng ca có dấu vết; cuối ngày đối chiếu dựa trên dữ liệu chứ không đoán. Đọc thêm góc nhìn tổng: [Tại sao cửa hàng cần dùng phần mềm POS?](/news/tai-sao-can-dung-phan-mem-pos/).",
+      text: "Phần mềm không thay được recipe hay kỷ luật pha chế. Nó hữu ích khi anh chị cần mỗi đơn bán có dấu vết trừ nguyên liệu/SKU (theo phạm vi gói), mở–đóng ca không phụ thuộc trí nhớ, và cuối ngày đối chiếu dựa trên dữ liệu thay vì đoán. Đọc thêm góc nhìn tổng về POS cửa hàng: [Tại sao cửa hàng cần dùng phần mềm POS?](/news/tai-sao-can-dung-phan-mem-pos/).",
     },
     {
       type: "p",
-      text: "Dolphin tách POS cửa hàng bán hàng khỏi CRM lịch dịch vụ. Với quán cafe: xem landing [POS tiệm cafe](/pos/cafe/) và [hub POS](/pos/). Runtime app vẫn theo lộ trình (TODO); bảng giá năm đã công bố để tư vấn — [chính sách giá POS](/chinh-sach-gia-dolphin-2026/#pos).",
-    },
-    {
-      type: "h2",
-      text: "Không nhầm POS với “máy tính tiền đắt”",
-    },
-    {
-      type: "p",
-      text: "Mục tiêu ở đây là siết thất thoát nguyên liệu quán cafe — không phải sắm đủ máy in bill ngay ngày đầu. Nhiều quán bắt đầu bằng quy trình + ghi bán rõ; phần cứng tùy chọn. Nếu quán còn một người, vài chục ly/ngày và sổ còn sạch — cứ làm checklist trước.",
+      text: "Với Dolphin, dòng POS dành cửa hàng bán hàng tách khỏi CRM lịch dịch vụ. Quán cafe xem [POS tiệm cafe](/pos/cafe/) hoặc [hub POS](/pos/). Runtime app vẫn theo lộ trình sản phẩm (TODO); bảng giá năm đã công bố để tư vấn rõ — [chính sách giá POS](/chinh-sach-gia-dolphin-2026/#pos). Không cần sắm đủ máy in bill ngày đầu nếu mục tiêu trước mắt chỉ là siết thất thoát nguyên liệu quán cafe.",
     },
     {
       type: "h2",
@@ -117,52 +117,52 @@ const vi: NewsArticleCopy = {
     },
     {
       type: "p",
-      text: "Giảm thất thoát bắt đầu từ đong chuẩn, ghi mở–đóng tồn SKU đau, và đối chiếu bán–dùng cuối ngày. Phần mềm POS (khi cần) là chỗ gắn đơn với tồn để lệch lộ sớm hơn — không phải phép màu. Muốn xem gói theo quán cafe: [Dolphin POS cafe](/pos/cafe/). Cần mặt tiền online trước: [thiết kế website](/services/web/). Hoặc nhắn [Zalo](https://zalo.me/0779937633) kể loại quán và chỗ nguyên liệu đang lệch.",
+      text: "Giảm thất thoát nguyên liệu quán cafe bắt đầu từ những việc hơi nhàm: đong chuẩn, ghi mở–đóng vài SKU đau, đối chiếu bán–dùng trước khi ngủ. Phần mềm chỉ đáng bàn khi quy trình tay đã làm mà vẫn không theo kịp tốc độ quán. Nếu anh chị muốn xem gói theo ngành cafe, ghé [Dolphin POS cafe](/pos/cafe/). Cần mặt tiền online trước thì xem [thiết kế website](/services/web/). Hoặc nhắn [Zalo](https://zalo.me/0779937633) kể quán đang lệch ở đâu — hạt, sữa, hay đa kênh — để nói chuyện cụ thể, không cần “biết IT”.",
     },
   ],
   faq: [
     {
-      q: "Thất thoát nguyên liệu quán cafe thường do đâu?",
-      a: "Hay gặp: đong tay không chuẩn, bán không gắn trừ tồn, nhập ghi chậm, pha thừa/huỷ không ghi — không phải lúc nào cũng gian lận.",
+      q: "Thất thoát nguyên liệu quán cafe có phải lúc nào cũng do nhân viên lấy không?",
+      a: "Không hẳn. Hay gặp hơn là đong tay lệch, bán không gắn trừ tồn, pha test/huỷ không ghi, kiểm tồn muộn. Nghi ngờ gian lận nên là bước sau khi đã có dấu vết rõ.",
     },
     {
-      q: "Chưa có POS vẫn giảm được thất thoát không?",
-      a: "Có. Chốt recipe món chạy, ghi mở–đóng tồn SKU quan trọng mỗi ca, đối chiếu ly bán với lượng ước tính cuối ngày.",
+      q: "Chưa có phần mềm POS thì giảm thất thoát được không?",
+      a: "Được. Nhiều quán siết bằng recipe, đong chuẩn và sổ mở–đóng SKU đau theo ca. Phần mềm giúp khi tốc độ và số người pha vượt sức ghi tay.",
     },
     {
-      q: "POS giúp gì với hạt và sữa?",
-      a: "Theo gói có quản lý tồn: gắn bán với trừ SKU/nguyên liệu, có dấu vết ca — để thấy lệch sớm hơn Excel cuối tuần.",
+      q: "Nên kiểm tồn mỗi ngày hay mỗi tuần?",
+      a: "SKU đau (hạt chính, sữa, syrup top) nên mở–đóng theo ca hoặc ít nhất cuối ngày. Kiểm cả kho mỗi tuần vẫn hữu ích, nhưng không thay được mốc theo ca nếu hay hết giữa giờ.",
     },
     {
-      q: "Quán nhỏ có cần POS ngay không?",
-      a: "Chưa chắc. Ít ly, một người, sổ còn khớp thì làm checklist trước. Cân nhắc khi lệch mỗi ngày hoặc nhiều người cùng pha.",
+      q: "POS giúp gì với hạt và sữa cụ thể?",
+      a: "Ở các gói có quản lý tồn: gắn bán với trừ SKU/nguyên liệu và để lại dấu vết ca — lệch lộ sớm hơn Excel cuối tuần. Không thay được việc chốt recipe và kỷ luật đong.",
     },
     {
-      q: "Dolphin POS cho cafe xem ở đâu?",
-      a: "Landing /pos/cafe/ và hub /pos/; bảng giá năm tại /chinh-sach-gia-dolphin-2026/#pos. Runtime app: TODO.",
+      q: "Quán nhỏ một người có cần mua POS ngay không?",
+      a: "Chưa chắc. Ít ly, sổ còn khớp thì làm checklist trước. Cân nhắc khi lệch lặp lại mỗi ngày hoặc thêm người cùng pha/bán.",
     },
     {
-      q: "POS cafe khác CRM spa thế nào?",
-      a: "POS theo dõi đơn–thu–tồn cửa hàng bán hàng. CRM spa/salon theo dõi khách–lịch dịch vụ. Dolphin: /pos/ vs /industries/.",
+      q: "Dolphin POS cho cafe xem thông tin ở đâu?",
+      a: "Landing /pos/cafe/ và hub /pos/; bảng giá năm tại /chinh-sach-gia-dolphin-2026/#pos. Runtime app: TODO theo lộ trình.",
     },
   ],
 };
 
 const en: NewsArticleCopy = {
-  title: "Cut cafe ingredient waste: where to start?",
+  title: "Cut cafe ingredient waste: where do you actually start?",
   metaTitle: "Reduce cafe ingredient waste | Dolphin Software",
   metaDescription:
-    "Beans, milk, and syrup running out mid-shift or mismatching the books: where cafe ingredient waste really happens — and when POS stock helps.",
+    "Beans and milk gone mid-shift, books that do not match the shelf: how to cut cafe ingredient waste with real ops first — checklist before software.",
   excerpt:
-    "Cafe ingredient loss is often process, not theft: free-pouring, sales not tied to stock, late checks. Here is where it breaks and how to tighten step by step.",
+    "Cafe ingredient waste rarely starts with “someone stole stock.” It is free-pouring, late counts, sales not tied to usage. A practical ops story — then when software helps.",
   body: [
     {
       type: "lead",
-      text: "A cafe runs on beans, milk, syrup, toppings. When they vanish mid-shift or the stock book lies, owners often suspect theft. More often the pour–sell–record loop is loose. This piece maps where cafe ingredient waste usually sits — and what to tighten before buying software.",
+      text: "We closed late that night. The bar was sticky, the grinder still hot. I opened the fridge for tomorrow’s milk and found two cartons — the book said four. Nobody remembered how many “machine tests” got poured out. Next morning we rushed a buy-run, and part of the month’s margin had already left through unlogged gaps. That was when I stopped treating cafe ingredient waste as a blame game and started treating it as a process problem.",
     },
     {
       type: "p",
-      text: "Busy afternoon. Last bag of beans. One milk left. A queue — nobody logs “out mid-rush.” End of day, Excel says tomorrow is fine. The shelf is empty.",
+      text: "If you have run out mid-rush or closed a week with a pretty spreadsheet and an empty shelf, this is for you. Not a tech lecture — the mistakes shop operators actually make, and what to tighten before buying software.",
     },
     {
       type: "image",
@@ -170,16 +170,28 @@ const en: NewsArticleCopy = {
       alt: "Dolphin promo cover: cafe ingredient-waste title with top-down mise-en-place product kit",
     },
     {
+      type: "h2",
+      text: "Where does cafe ingredient waste usually come from?",
+    },
+    {
       type: "p",
-      text: "If that feels familiar, start with what eats ingredients without leaving a trail — not with the most expensive app.",
+      text: "Suspicion jumps to staff. Sometimes that is fair. More often there is simply no trail: milk poured by eye, toppings “about a scoop,” a takeaway slip that never hit the stock sheet. End-of-day Excel looks fine because people only enter what they remember.",
+    },
+    {
+      type: "p",
+      text: "This kind of loss is quiet. It nibbles beans, fresh milk, syrups, powders — bought by the case, lost by the spoon. Revenue can look busy while contribution quietly thins, and nobody can explain why.",
     },
     {
       type: "h2",
-      text: "Where cafe ingredient waste usually sits",
+      text: "Why do notebooks and Excel still drift?",
     },
     {
-      type: "h3",
-      text: "1. Free-pour, every barista slightly different",
+      type: "p",
+      text: "Because logging usually happens after the sale, not with it. Rush hour: two on bar, one on till, phones buzzing. Nobody opens the file. At night someone guesses milk usage — memory already bent.",
+    },
+    {
+      type: "p",
+      text: "Excel is not the villain. It cannot match bar speed. Weekly counts can look tidy while mid-week toppings still die mid-shift because nothing followed each order. A clean weekly book is not a per-drink book.",
     },
     {
       type: "image",
@@ -187,20 +199,24 @@ const en: NewsArticleCopy = {
       alt: "Barista pouring milk and espresso without measuring cups, spill on the counter",
     },
     {
-      type: "p",
-      text: "Recipes on paper; eyes on the cup. A little extra each drink becomes hundreds of grams of beans or cartons of milk by night — not malice, missing standards and sell-vs-use checks.",
-    },
-    {
-      type: "h3",
-      text: "2. Sell first, subtract stock later (or never)",
+      type: "h2",
+      text: "Does free-pouring really waste that much?",
     },
     {
       type: "p",
-      text: "Counter, chat, takeaway — sales in one place, stock in another. End-of-day Excel is already late. More channels means more “sold but stock still looks full.”",
+      text: "Yes — and it gets dismissed as “just a little.” A little per cup across a hundred drinks becomes cartons of milk or hundreds of grams of beans. New staff pour heavy so drinks do not taste weak. Veterans each have a private “standard.” Recipes on the wall get ignored in the rush.",
     },
     {
-      type: "h3",
-      text: "3. Fast inbound, slow counts",
+      type: "p",
+      text: "Common mistake: buying a scale and never using it. Habit beats hardware. Same ml / gram / scoop for everyone, and a quick check at the start of a shift — even five minutes.",
+    },
+    {
+      type: "h2",
+      text: "How do you spot waste before month-end?",
+    },
+    {
+      type: "p",
+      text: "Do not wait for a monthly report. Pick a few painful SKUs — main beans, main milk, top syrups — and open–close them by shift. Not the whole warehouse. Just what runs out mid-rush and drifts on paper.",
     },
     {
       type: "image",
@@ -209,51 +225,35 @@ const en: NewsArticleCopy = {
     },
     {
       type: "p",
-      text: "Deliveries land; paper notes get forgotten. Weekly counts find gaps with no shift trail. Waste often shows up late because open/close stock on critical SKUs never happened.",
-    },
-    {
-      type: "h3",
-      text: "4. Remakes, dumps, and unlogged tests",
-    },
-    {
-      type: "p",
-      text: "Wrong pours and machine tests are normal if logged. Unlogged, the book looks fine while the shelf is empty — you think sales used less than they did.",
+      text: "At close, take drinks sold and estimate theoretical usage from recipes. Small gaps happen. Big gaps on the same shift are a signal. I once chased “missing milk” for a week; it was unlogged steam dumps and test pours, not theft.",
     },
     {
       type: "h2",
-      text: "Ops checklist before software",
+      text: "Field checklist to cut cafe ingredient waste",
     },
     {
       type: "p",
-      text: "Three cheap moves this week:",
+      text: "You do not need everything at once. Enough to see clearer numbers this week:",
     },
     {
       type: "p",
-      text: "• Lock recipes for your top 5–10 drinks (grams / ml / scoops) and post them at the bar.\n• Each shift: open–close counts on painful SKUs (main beans, milk, top syrups) — even one notebook line.\n• End of day: compare drinks sold to estimated usage. Big gaps → find the shift, don’t blame “the warehouse.”",
+      text: "Lock recipes for your top 5–10 drinks and post them where people pour. Standardize measuring tools; stop eye-balling expensive milk and toppings. Open–close a few painful SKUs each shift — one notebook line is fine. Compare drinks sold to estimated usage at night; ask the shift before blaming “the warehouse.” Log remakes, machine tests, and dumps somehow — or the book stays pretty while the shelf empties.",
     },
     {
       type: "p",
-      text: "If you already do this and still miss every day — or two or three people pour while you cannot watch — you need sales tied to stock more clearly.",
+      text: "If you run this for two or three weeks and still miss every day — or several people pour while nobody can watch — then sales tied to stock starts to matter. Process first. Software second.",
     },
     {
       type: "h2",
-      text: "When POS helps cut waste",
+      text: "When does POS software help with stock?",
     },
     {
       type: "p",
-      text: "POS does not replace recipes or bar discipline. It helps when each sale (by plan) decrements related SKUs, shifts leave a trail, and end-of-day reconcile uses data. Broader view: [Why stores need POS software](/news/tai-sao-can-dung-phan-mem-pos/).",
+      text: "Software does not replace recipes or bar discipline. It helps when each sale should leave a trail against SKUs (by plan), shifts should not depend on memory, and end-of-day reconcile should use data. Broader view: [Why stores need POS software](/news/tai-sao-can-dung-phan-mem-pos/).",
     },
     {
       type: "p",
-      text: "Dolphin separates retail POS from service CRM. For cafes: [POS for cafes](/pos/cafe/) and the [POS hub](/pos/). App runtime is TODO; yearly pricing is published for quotes — [POS pricing](/chinh-sach-gia-dolphin-2026/#pos).",
-    },
-    {
-      type: "h2",
-      text: "POS is not “buy every gadget day one”",
-    },
-    {
-      type: "p",
-      text: "The goal is less cafe ingredient waste — not a full hardware kit on day one. Process + clear sales records first; printers optional. One person, modest volume, clean books — keep the checklist.",
+      text: "Dolphin keeps retail POS separate from service CRM. Cafes: [POS for cafes](/pos/cafe/) or the [POS hub](/pos/). App runtime is TODO; yearly pricing is published for clear quotes — [POS pricing](/chinh-sach-gia-dolphin-2026/#pos). You do not need a full hardware kit on day one if the goal is cutting cafe ingredient waste.",
     },
     {
       type: "h2",
@@ -261,33 +261,33 @@ const en: NewsArticleCopy = {
     },
     {
       type: "p",
-      text: "Cut waste with standard pours, open–close on painful SKUs, and sell-vs-use checks. POS (when needed) ties orders to stock so gaps show sooner — not magic. Cafe packs: [Dolphin POS cafe](/pos/cafe/). Need a web front first: [website design](/services/web/). Or [Zalo](https://zalo.me/0779937633) with your shop type and where stock drifts.",
+      text: "Cutting cafe ingredient waste starts with slightly boring work: standard pours, open–close on painful SKUs, sell-vs-use before you sleep. Software is worth discussing when hand process cannot keep up. Cafe packs: [Dolphin POS cafe](/pos/cafe/). Need a web front first: [website design](/services/web/). Or [Zalo](https://zalo.me/0779937633) with where you drift — beans, milk, or channels — no “IT speak” required.",
     },
   ],
   faq: [
     {
-      q: "What usually causes cafe ingredient waste?",
-      a: "Free-pour variance, sales not tied to stock, slow inbound logging, unlogged remakes — not always theft.",
+      q: "Is cafe ingredient waste always theft?",
+      a: "Not usually. Free-pour drift, sales not tied to stock, unlogged tests/dumps, and late counts show up more often. Treat theft as a later question once you have a trail.",
     },
     {
       q: "Can I cut waste without POS?",
-      a: "Yes. Lock top recipes, open–close critical SKUs each shift, compare drinks sold to estimated usage daily.",
+      a: "Yes. Many shops tighten with recipes, measuring standards, and shift open–close on painful SKUs. Software helps when speed and headcount outgrow hand logs.",
     },
     {
-      q: "How does POS help with beans and milk?",
-      a: "Plans with inventory tie sales to SKU decrements and leave shift trails — gaps show sooner than weekly Excel.",
+      q: "Daily counts or weekly?",
+      a: "Painful SKUs deserve shift or at least end-of-day open–close. Full weekly counts still help but will not catch mid-rush gaps alone.",
     },
     {
-      q: "Do small cafes need POS now?",
-      a: "Not always. Few drinks and one barista can wait. Consider it when you miss every day or several people pour.",
+      q: "What does POS do for beans and milk?",
+      a: "Inventory-capable plans tie sales to SKU decrements and leave shift trails — gaps show sooner than weekly Excel. Recipes and pour discipline still matter.",
+    },
+    {
+      q: "Does a one-person cafe need POS now?",
+      a: "Not always. Low volume and clean books can wait. Consider it when the same gap repeats daily or more people pour and sell together.",
     },
     {
       q: "Where is Dolphin POS for cafes?",
       a: "/pos/cafe/ and /pos/; yearly pricing at /chinh-sach-gia-dolphin-2026/#pos. App runtime: TODO.",
-    },
-    {
-      q: "Cafe POS vs spa CRM?",
-      a: "POS tracks orders, take, and stock for retail. Spa CRM tracks clients and appointments. Dolphin: /pos/ vs /industries/.",
     },
   ],
 };

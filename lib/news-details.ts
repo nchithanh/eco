@@ -135,6 +135,7 @@ const metaBySlug: Record<NewsSlug, NewsMeta> = {
   "giam-that-thoat-nguyen-lieu-quan-cafe": {
     category: "process",
     date: "2026-10-03",
+    dateModified: "2026-10-03",
   },
   "tai-sao-can-dung-phan-mem-pos": {
     category: "product",
