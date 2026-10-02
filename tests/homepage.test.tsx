@@ -327,7 +327,7 @@ describe("Dolphin Software homepage", () => {
     expect(news).toBeTruthy();
     expect(
       within(news!).getByRole("link", {
-        name: /Tại sao cửa hàng cần dùng phần mềm POS/i,
+        name: /Giảm thất thoát nguyên liệu quán cafe/i,
       }),
     ).toHaveAttribute("aria-current", "true");
     expect(
@@ -344,11 +344,11 @@ describe("Dolphin Software homepage", () => {
 
     expect(
       within(news!).getByRole("link", {
-        name: /Tại sao cửa hàng cần dùng phần mềm POS/i,
+        name: /Giảm thất thoát nguyên liệu quán cafe/i,
       }),
     ).toHaveAttribute(
       "href",
-      expect.stringMatching(/tai-sao-can-dung-phan-mem-pos/),
+      expect.stringMatching(/giam-that-thoat-nguyen-lieu-quan-cafe/),
     );
   });
 
