@@ -327,7 +327,7 @@ describe("Dolphin Software homepage", () => {
     expect(news).toBeTruthy();
     expect(
       within(news!).getByRole("link", {
-        name: /Giảm thất thoát nguyên liệu quán cafe/i,
+        name: /Quản lý tồn kho pet shop/i,
       }),
     ).toHaveAttribute("aria-current", "true");
     expect(
@@ -344,11 +344,11 @@ describe("Dolphin Software homepage", () => {
 
     expect(
       within(news!).getByRole("link", {
-        name: /Giảm thất thoát nguyên liệu quán cafe/i,
+        name: /Quản lý tồn kho pet shop/i,
       }),
     ).toHaveAttribute(
       "href",
-      expect.stringMatching(/giam-that-thoat-nguyen-lieu-quan-cafe/),
+      expect.stringMatching(/quan-ly-ton-kho-pet-shop/),
     );
   });
 
