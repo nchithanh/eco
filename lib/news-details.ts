@@ -28,6 +28,7 @@ import { coDuocNhacToiTrenChatgptGeminiCopy } from "@/lib/news-articles/co-duoc-
 import { taiSaoCanDungPhanMemPosCopy } from "@/lib/news-articles/tai-sao-can-dung-phan-mem-pos";
 import { giamThatThoatNguyenLieuQuanCafeCopy } from "@/lib/news-articles/giam-that-thoat-nguyen-lieu-quan-cafe";
 import { quanLyTonKhoPetShopCopy } from "@/lib/news-articles/quan-ly-ton-kho-pet-shop";
+import { truocKhiMoCuaHangDungVoiChonPhanMemBanHangCopy } from "@/lib/news-articles/truoc-khi-mo-cua-hang-dung-voi-chon-phan-mem-ban-hang";
 
 export const NEWS_CATEGORIES = [
   "process",
@@ -40,6 +41,7 @@ export const NEWS_CATEGORIES = [
 export type NewsCategory = (typeof NEWS_CATEGORIES)[number];
 
 export const NEWS_SLUGS = [
+  "truoc-khi-mo-cua-hang-dung-voi-chon-phan-mem-ban-hang",
   "quan-ly-ton-kho-pet-shop",
   "giam-that-thoat-nguyen-lieu-quan-cafe",
   "tai-sao-can-dung-phan-mem-pos",
@@ -134,6 +136,10 @@ type NewsMeta = {
 };
 
 const metaBySlug: Record<NewsSlug, NewsMeta> = {
+  "truoc-khi-mo-cua-hang-dung-voi-chon-phan-mem-ban-hang": {
+    category: "process",
+    date: "2026-10-05",
+  },
   "quan-ly-ton-kho-pet-shop": {
     category: "process",
     date: "2026-10-04",
@@ -266,6 +272,8 @@ const categoryImages: Record<NewsCategory, string> = {
 };
 
 const slugImages: Partial<Record<NewsSlug, string>> = {
+  "truoc-khi-mo-cua-hang-dung-voi-chon-phan-mem-ban-hang":
+    "/news/truoc-khi-mo-cua-hang-dung-voi-chon-phan-mem-ban-hang.jpg",
   "quan-ly-ton-kho-pet-shop": "/news/quan-ly-ton-kho-pet-shop.jpg",
   "giam-that-thoat-nguyen-lieu-quan-cafe":
     "/news/giam-that-thoat-nguyen-lieu-quan-cafe.jpg",
@@ -329,6 +337,8 @@ export function getNewsImage(slug: NewsSlug): string {
 
 const copyByLocale: LocaleMap<Record<NewsSlug, NewsArticleCopy>> = {
   vi: {
+    "truoc-khi-mo-cua-hang-dung-voi-chon-phan-mem-ban-hang":
+      truocKhiMoCuaHangDungVoiChonPhanMemBanHangCopy.vi,
     "quan-ly-ton-kho-pet-shop": quanLyTonKhoPetShopCopy.vi,
     "giam-that-thoat-nguyen-lieu-quan-cafe":
       giamThatThoatNguyenLieuQuanCafeCopy.vi,
@@ -544,6 +554,8 @@ const copyByLocale: LocaleMap<Record<NewsSlug, NewsArticleCopy>> = {
     },
   },
   en: {
+    "truoc-khi-mo-cua-hang-dung-voi-chon-phan-mem-ban-hang":
+      truocKhiMoCuaHangDungVoiChonPhanMemBanHangCopy.en,
     "quan-ly-ton-kho-pet-shop": quanLyTonKhoPetShopCopy.en,
     "giam-that-thoat-nguyen-lieu-quan-cafe":
       giamThatThoatNguyenLieuQuanCafeCopy.en,
@@ -687,6 +699,8 @@ const copyByLocale: LocaleMap<Record<NewsSlug, NewsArticleCopy>> = {
     },
   },
   ja: {
+    "truoc-khi-mo-cua-hang-dung-voi-chon-phan-mem-ban-hang":
+      truocKhiMoCuaHangDungVoiChonPhanMemBanHangCopy.vi,
     "quan-ly-ton-kho-pet-shop": quanLyTonKhoPetShopCopy.vi,
     "giam-that-thoat-nguyen-lieu-quan-cafe":
       giamThatThoatNguyenLieuQuanCafeCopy.vi,

@@ -327,7 +327,7 @@ describe("Dolphin Software homepage", () => {
     expect(news).toBeTruthy();
     expect(
       within(news!).getByRole("link", {
-        name: /Quản lý tồn kho pet shop/i,
+        name: /Trước khi mở cửa hàng, đừng vội chọn phần mềm bán hàng/i,
       }),
     ).toHaveAttribute("aria-current", "true");
     expect(
@@ -344,11 +344,13 @@ describe("Dolphin Software homepage", () => {
 
     expect(
       within(news!).getByRole("link", {
-        name: /Quản lý tồn kho pet shop/i,
+        name: /Trước khi mở cửa hàng, đừng vội chọn phần mềm bán hàng/i,
       }),
     ).toHaveAttribute(
       "href",
-      expect.stringMatching(/quan-ly-ton-kho-pet-shop/),
+      expect.stringMatching(
+        /truoc-khi-mo-cua-hang-dung-voi-chon-phan-mem-ban-hang/,
+      ),
     );
   });
 
