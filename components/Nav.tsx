@@ -101,31 +101,75 @@ export function Nav() {
   ];
 
   const posSolutionLinks: NavLink[] = [
-    { href: assetPath("/pos/"), label: "Tất cả POS" },
+    { href: assetPath("/pos/"), label: t.nav.allPos },
     ...POS_CATALOG.map((item) => ({
       href: assetPath(`/pos/${item.slug}/`),
       label: getPosPageCopy(item.slug).label,
     })),
     {
       href: `${pricingHref}#pos`,
-      label: "Bảng giá POS",
+      label: t.nav.posPricing,
+    },
+  ];
+
+  const solutionsOverview: NavLink[] = [
+    { href: assetPath("/industries/"), label: t.nav.allIndustries },
+    { href: assetPath("/pos/"), label: t.nav.allPos },
+    { href: assetPath("/dolphin-care/"), label: t.nav.agentDolphin },
+    { href: assetPath("/dolphin-ops/"), label: t.nav.dolphinOps },
+  ];
+
+  const solutionsSecondary: NavLink[] = [
+    { href: assetPath("/dolphin-intelligence/"), label: t.nav.dolphinIntelligence },
+    { href: assetPath("/ai-transform/"), label: t.nav.aiTransform },
+    { href: assetPath("/services/web/"), label: t.nav.serviceWeb },
+    { href: assetPath("/services/landing/"), label: t.nav.serviceLanding },
+  ];
+
+  const pricingColumn: NavLink[] = [
+    { href: pricingHref, label: t.nav.pricing },
+    { href: `${pricingHref}#pos`, label: t.nav.posPricing },
+    {
+      href: assetPath("/chinh-sach-bao-hanh-ho-tro-2026/"),
+      label: t.nav.warranty2026,
     },
   ];
 
   const solutionLinks: NavLink[] = [
     ...crmSolutionLinks,
     ...posSolutionLinks,
-    { href: pricingHref, label: t.nav.pricing },
+    ...solutionsOverview,
+    ...solutionsSecondary,
+    ...pricingColumn,
   ];
 
-  const resourceLinks: NavLink[] = [
+  const resourceLearn: NavLink[] = [
     { href: assetPath("/news/"), label: t.nav.news },
     { href: assetPath("/faq/"), label: "FAQ" },
+  ];
+
+  const resourceProof: NavLink[] = [
     { href: assetPath("/case-studies/"), label: "Case studies" },
+  ];
+
+  const resourceCompany: NavLink[] = [
     { href: assetPath("/about/"), label: t.nav.about },
     { href: assetPath("/company-profile/"), label: t.nav.companyProfile },
     { href: assetPath("/careers/"), label: t.nav.careers },
   ];
+
+  const resourceLinks: NavLink[] = [
+    ...resourceLearn,
+    ...resourceProof,
+    ...resourceCompany,
+  ];
+
+  const resourcesOverview: NavLink[] = [
+    ...resourceLearn,
+    ...resourceProof,
+  ];
+
+  const resourcesSecondary: NavLink[] = resourceCompany;
 
   const allNavLinks = [
     ...productOverview,
@@ -310,7 +354,7 @@ export function Nav() {
           headerHidden ? "is-hidden" : ""
         }`}
       >
-        <header className="border-b border-[var(--kuct-border)] bg-white">
+        <header className="bg-white">
           <nav
             ref={desktopNavRef}
             className="relative mx-auto max-w-7xl px-4 sm:px-6"
@@ -420,171 +464,108 @@ export function Nav() {
             </div>
 
             {mega === "products" ? (
-              <div
+              <MegaShell
                 id={productsPanelId}
-                className="kuct-mega absolute left-4 right-4 top-full z-50 pt-2 xl:left-6 xl:right-6"
+                overviewLabel={t.nav.overview}
+                primary={productOverview}
+                secondary={productSecondary}
+                featured={{
+                  href: assetPath("/case-studies/"),
+                  title: t.nav.featuredTitle,
+                  body: t.nav.featuredBody,
+                }}
                 onMouseEnter={cancelMegaClose}
+                onNavigate={() => setMega(null)}
               >
-                <div className="overflow-hidden rounded-[10px] border border-[var(--kuct-border)] bg-white shadow-[0_1.25rem_3rem_rgb(26_22_37/0.12)]">
-                <div className="grid min-h-[22rem] lg:grid-cols-[15.5rem_minmax(0,1fr)]">
-                  <aside className="flex flex-col border-r border-[var(--kuct-border)] bg-[var(--kuct-surface-muted)] p-5">
-                    <p className="m-0 text-[0.65rem] font-semibold tracking-[0.16em] text-[var(--kuct-muted)] uppercase">
-                      {t.nav.overview}
-                    </p>
-                    <ul className="mt-3 m-0 flex list-none flex-col gap-0.5 p-0">
-                      {productOverview.map((item) => (
-                        <li key={item.href + item.label}>
-                          <a
-                            href={item.href}
-                            className="block rounded-[10px] px-2.5 py-2 text-sm font-semibold text-[var(--kuct-text)] no-underline transition hover:bg-white"
-                            onClick={() => setMega(null)}
-                          >
-                            {item.label}
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                    <div className="my-3 border-t border-[var(--kuct-border)]" />
-                    <ul className="m-0 flex list-none flex-col gap-0.5 p-0">
-                      {productSecondary.map((item) => (
-                        <li key={item.href}>
-                          <a
-                            href={item.href}
-                            className="block rounded-[10px] px-2.5 py-1.5 text-sm font-medium text-[var(--kuct-text)] no-underline transition hover:bg-white"
-                            onClick={() => setMega(null)}
-                          >
-                            {item.label}
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                    <a
-                      href={assetPath("/case-studies/")}
-                      className="mt-auto block rounded-[10px] bg-white px-3 py-3 no-underline transition hover:ring-1 hover:ring-[var(--kuct-border)]"
-                      onClick={() => setMega(null)}
-                    >
-                      <p className="m-0 text-sm font-semibold text-[var(--kuct-text)]">
-                        {t.nav.featuredTitle}
-                      </p>
-                      <p className="mt-1 m-0 text-xs leading-relaxed text-[var(--kuct-muted)]">
-                        {t.nav.featuredBody}
-                      </p>
-                    </a>
-                  </aside>
-                  <div className="grid gap-8 p-6 sm:grid-cols-3">
-                    <MegaColumn
-                      title={t.nav.groupCare}
-                      links={careColumn}
-                      onNavigate={() => setMega(null)}
-                      isActive={isPageActive}
-                    />
-                    <MegaColumn
-                      title={t.nav.groupOpsAi}
-                      links={opsColumn}
-                      onNavigate={() => setMega(null)}
-                      isActive={isPageActive}
-                    />
-                    <MegaColumn
-                      title={t.nav.groupWeb}
-                      links={webColumn}
-                      onNavigate={() => setMega(null)}
-                      isActive={isPageActive}
-                    />
-                  </div>
-                </div>
-                </div>
-              </div>
+                <MegaColumn
+                  title={t.nav.groupCare}
+                  links={careColumn}
+                  onNavigate={() => setMega(null)}
+                  isActive={isPageActive}
+                />
+                <MegaColumn
+                  title={t.nav.groupOpsAi}
+                  links={opsColumn}
+                  onNavigate={() => setMega(null)}
+                  isActive={isPageActive}
+                />
+                <MegaColumn
+                  title={t.nav.groupWeb}
+                  links={webColumn}
+                  onNavigate={() => setMega(null)}
+                  isActive={isPageActive}
+                />
+              </MegaShell>
             ) : null}
 
             {mega === "solutions" ? (
-              <div
+              <MegaShell
                 id={solutionsPanelId}
-                className="kuct-mega absolute left-4 right-4 top-full z-50 max-w-3xl pt-2 xl:left-6"
+                overviewLabel={t.nav.overview}
+                primary={solutionsOverview}
+                secondary={solutionsSecondary}
+                featured={{
+                  href: pricingHref,
+                  title: t.nav.solutionsFeaturedTitle,
+                  body: t.nav.solutionsFeaturedBody,
+                }}
                 onMouseEnter={cancelMegaClose}
+                onNavigate={() => setMega(null)}
               >
-                <div className="overflow-hidden rounded-[10px] border border-[var(--kuct-border)] bg-white p-6 shadow-[0_1.25rem_3rem_rgb(26_22_37/0.12)]">
-                <div className="grid gap-6 sm:grid-cols-2">
-                  <div>
-                    <p className="m-0 text-[0.65rem] font-semibold tracking-[0.16em] text-[var(--kuct-muted)] uppercase">
-                      CRM · dịch vụ
-                    </p>
-                    <ul className="mt-3 m-0 grid list-none grid-cols-1 gap-1 p-0">
-                      {crmSolutionLinks.map((item) => (
-                        <li key={item.href}>
-                          <a
-                            href={item.href}
-                            className="block rounded-[10px] px-3 py-2.5 text-sm font-medium text-[var(--kuct-text)] no-underline transition hover:bg-[var(--kuct-surface-muted)]"
-                            aria-current={
-                              isPageActive(item.href) ? "page" : undefined
-                            }
-                            onClick={() => setMega(null)}
-                          >
-                            {item.label}
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div>
-                    <p className="m-0 text-[0.65rem] font-semibold tracking-[0.16em] text-[var(--kuct-muted)] uppercase">
-                      POS · bán hàng
-                    </p>
-                    <ul className="mt-3 m-0 grid list-none grid-cols-1 gap-1 p-0">
-                      {posSolutionLinks.map((item) => (
-                        <li key={item.href}>
-                          <a
-                            href={item.href}
-                            className="block rounded-[10px] px-3 py-2.5 text-sm font-medium text-[var(--kuct-text)] no-underline transition hover:bg-[var(--kuct-surface-muted)]"
-                            aria-current={
-                              isPageActive(item.href) ? "page" : undefined
-                            }
-                            onClick={() => setMega(null)}
-                          >
-                            {item.label}
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-                <p className="mt-4 border-t border-[var(--kuct-border)] pt-3">
-                  <a
-                    href={pricingHref}
-                    className="text-sm font-semibold text-[var(--kuct-accent)] no-underline hover:underline"
-                    onClick={() => setMega(null)}
-                  >
-                    {t.nav.pricing} →
-                  </a>
-                </p>
-                </div>
-              </div>
+                <MegaColumn
+                  title={t.nav.groupCrm}
+                  links={crmSolutionLinks}
+                  onNavigate={() => setMega(null)}
+                  isActive={isPageActive}
+                />
+                <MegaColumn
+                  title={t.nav.groupPos}
+                  links={posSolutionLinks}
+                  onNavigate={() => setMega(null)}
+                  isActive={isPageActive}
+                />
+                <MegaColumn
+                  title={t.nav.groupPricingCol}
+                  links={pricingColumn}
+                  onNavigate={() => setMega(null)}
+                  isActive={isPageActive}
+                />
+              </MegaShell>
             ) : null}
 
             {mega === "resources" ? (
-              <div
+              <MegaShell
                 id={resourcesPanelId}
-                className="kuct-mega absolute left-4 right-4 top-full z-50 max-w-sm pt-2 xl:left-6"
+                overviewLabel={t.nav.overview}
+                primary={resourcesOverview}
+                secondary={resourcesSecondary}
+                featured={{
+                  href: assetPath("/case-studies/"),
+                  title: t.nav.resourcesFeaturedTitle,
+                  body: t.nav.resourcesFeaturedBody,
+                }}
                 onMouseEnter={cancelMegaClose}
+                onNavigate={() => setMega(null)}
               >
-                <div className="overflow-hidden rounded-[10px] border border-[var(--kuct-border)] bg-white p-4 shadow-[0_1.25rem_3rem_rgb(26_22_37/0.12)]">
-                <ul className="m-0 flex list-none flex-col gap-0.5 p-0">
-                  {resourceLinks.map((item) => (
-                    <li key={item.href}>
-                      <a
-                        href={item.href}
-                        className="block rounded-[10px] px-3 py-2.5 text-sm font-medium text-[var(--kuct-text)] no-underline transition hover:bg-[var(--kuct-surface-muted)]"
-                        aria-current={
-                          isPageActive(item.href) ? "page" : undefined
-                        }
-                        onClick={() => setMega(null)}
-                      >
-                        {item.label}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-                </div>
-              </div>
+                <MegaColumn
+                  title={t.nav.groupLearn}
+                  links={resourceLearn}
+                  onNavigate={() => setMega(null)}
+                  isActive={isPageActive}
+                />
+                <MegaColumn
+                  title={t.nav.groupProof}
+                  links={resourceProof}
+                  onNavigate={() => setMega(null)}
+                  isActive={isPageActive}
+                />
+                <MegaColumn
+                  title={t.nav.groupCompany}
+                  links={resourceCompany}
+                  onNavigate={() => setMega(null)}
+                  isActive={isPageActive}
+                />
+              </MegaShell>
             ) : null}
 
             {/* Mobile / tablet */}
@@ -689,7 +670,7 @@ export function Nav() {
               }
             >
               <p className="px-1 pt-1 text-[0.65rem] font-semibold tracking-[0.14em] text-[var(--kuct-muted)] uppercase">
-                CRM · dịch vụ
+                {t.nav.groupCrm}
               </p>
               {crmSolutionLinks.map((item, index) => (
                 <a
@@ -708,7 +689,7 @@ export function Nav() {
                 </a>
               ))}
               <p className="px-1 pt-3 text-[0.65rem] font-semibold tracking-[0.14em] text-[var(--kuct-muted)] uppercase">
-                POS · bán hàng
+                {t.nav.groupPos}
               </p>
               {posSolutionLinks.map((item, index) => (
                 <a
@@ -805,6 +786,88 @@ export function Nav() {
         </nav>
       ) : null}
     </>
+  );
+}
+
+function MegaShell({
+  id,
+  overviewLabel,
+  primary,
+  secondary,
+  featured,
+  onMouseEnter,
+  onNavigate,
+  children,
+}: {
+  id: string;
+  overviewLabel: string;
+  primary: NavLink[];
+  secondary: NavLink[];
+  featured: { href: string; title: string; body: string };
+  onMouseEnter: () => void;
+  onNavigate: () => void;
+  children: ReactNode;
+}) {
+  return (
+    <div
+      id={id}
+      className="kuct-mega absolute left-4 right-4 top-full z-50 pt-2 xl:left-6 xl:right-6"
+      onMouseEnter={onMouseEnter}
+    >
+      <div className="overflow-hidden rounded-[10px] border border-[var(--kuct-border)] bg-white shadow-[0_1.25rem_3rem_rgb(26_22_37/0.12)]">
+        <div className="grid min-h-[22rem] lg:grid-cols-[15.5rem_minmax(0,1fr)]">
+          <aside className="flex flex-col border-r border-[var(--kuct-border)] bg-[var(--kuct-surface-muted)] p-5">
+            <p className="m-0 text-[0.65rem] font-semibold tracking-[0.16em] text-[var(--kuct-muted)] uppercase">
+              {overviewLabel}
+            </p>
+            <ul className="mt-3 m-0 flex list-none flex-col gap-0.5 p-0">
+              {primary.map((item) => (
+                <li key={`primary-${item.href}-${item.label}`}>
+                  <a
+                    href={item.href}
+                    className="block rounded-[10px] px-2.5 py-2 text-sm font-semibold text-[var(--kuct-text)] no-underline transition hover:bg-white"
+                    onClick={onNavigate}
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+            {secondary.length > 0 ? (
+              <>
+                <div className="my-3 border-t border-[var(--kuct-border)]" />
+                <ul className="m-0 flex list-none flex-col gap-0.5 p-0">
+                  {secondary.map((item) => (
+                    <li key={`secondary-${item.href}-${item.label}`}>
+                      <a
+                        href={item.href}
+                        className="block rounded-[10px] px-2.5 py-1.5 text-sm font-medium text-[var(--kuct-text)] no-underline transition hover:bg-white"
+                        onClick={onNavigate}
+                      >
+                        {item.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            ) : null}
+            <a
+              href={featured.href}
+              className="mt-auto block rounded-[10px] bg-white px-3 py-3 no-underline transition hover:ring-1 hover:ring-[var(--kuct-border)]"
+              onClick={onNavigate}
+            >
+              <p className="m-0 text-sm font-semibold text-[var(--kuct-text)]">
+                {featured.title}
+              </p>
+              <p className="mt-1 m-0 text-xs leading-relaxed text-[var(--kuct-muted)]">
+                {featured.body}
+              </p>
+            </a>
+          </aside>
+          <div className="grid gap-8 p-6 sm:grid-cols-3">{children}</div>
+        </div>
+      </div>
+    </div>
   );
 }
 

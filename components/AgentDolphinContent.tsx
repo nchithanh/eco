@@ -264,11 +264,10 @@ export function AgentDolphinContent({ embedded = false }: { embedded?: boolean }
  <section
  className={
  embedded
- ? "relative overflow-hidden py-12 sm:py-16"
- : "relative overflow-hidden py-20 sm:py-28"
+ ? "relative overflow-hidden bg-white py-12 sm:py-16"
+ : "relative overflow-hidden bg-white py-20 sm:py-28"
  }
  >
- <div className="pointer-events-none absolute inset-0 kuct-hero-wash" aria-hidden />
  <div className="relative mx-auto max-w-7xl px-6">
  <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-12 xl:gap-16">
  <Reveal variant="title">

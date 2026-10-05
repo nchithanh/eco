@@ -40,12 +40,12 @@ export function PosPageContent({ slug }: { slug: PosSlug }) {
     <main className="bg-[var(--kuct-bg)]">
       <Nav />
 
-      {/* Hero — ElevenCreative header pattern */}
-      <section className="py-14 sm:py-16 lg:py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+      {/* Hero — centered, white, no frame */}
+      <section className="bg-white py-14 sm:py-16 lg:py-20">
+        <div className="mx-auto max-w-7xl px-4 text-center sm:px-6">
           <Reveal variant="title">
             <nav aria-label="Breadcrumb" className="text-sm text-[var(--kuct-muted)]">
-              <ol className="m-0 flex list-none flex-wrap items-center gap-1.5 p-0">
+              <ol className="m-0 flex list-none flex-wrap items-center justify-center gap-1.5 p-0">
                 <li>
                   <Link href={assetPath("/")} className="hover:text-[var(--kuct-text)]">
                     Trang chủ
@@ -64,62 +64,55 @@ export function PosPageContent({ slug }: { slug: PosSlug }) {
                 <li className="text-[var(--kuct-text)]">{meta.labelVi}</li>
               </ol>
             </nav>
+            <p className="kuct-section-eyebrow mt-6">Dolphin POS · {c.label}</p>
+            <h1 className="mx-auto mt-4 max-w-[16ch] font-display text-[2rem] font-semibold leading-[1.08] tracking-tight text-[var(--kuct-text)] sm:text-[2.5rem] lg:text-[2.75rem]">
+              <AccentText>{c.h1}</AccentText>
+            </h1>
+            <p className="mx-auto mt-5 max-w-[48ch] text-base leading-[1.7] text-[var(--kuct-muted)]">
+              {c.answerFirst}
+            </p>
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+              <button
+                type="button"
+                onClick={openQuote}
+                className="kuct-btn-primary inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-semibold"
+              >
+                {c.ctaTitle}
+              </button>
+              <a
+                href={pricingHref}
+                className="kuct-btn-outline inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-semibold no-underline"
+              >
+                Xem bảng giá
+              </a>
+            </div>
+            <ul className="mt-5 flex list-none flex-wrap items-center justify-center gap-x-4 gap-y-2 p-0 text-sm font-medium">
+              <li>
+                <Link
+                  href={assetPath("/pos/")}
+                  className="text-[var(--kuct-muted)] no-underline hover:text-[var(--kuct-text)]"
+                >
+                  Tất cả POS
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={assetPath("/industries/")}
+                  className="text-[var(--kuct-muted)] no-underline hover:text-[var(--kuct-text)]"
+                >
+                  CRM · dịch vụ
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={assetPath("/faq/")}
+                  className="text-[var(--kuct-muted)] no-underline hover:text-[var(--kuct-text)]"
+                >
+                  FAQ
+                </Link>
+              </li>
+            </ul>
           </Reveal>
-
-          <div className="mt-8 grid gap-8 lg:mt-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:items-start lg:gap-16">
-            <Reveal variant="title">
-              <p className="kuct-section-eyebrow">Dolphin POS · {c.label}</p>
-              <h1 className="mt-4 max-w-[16ch] font-display text-[2rem] font-semibold leading-[1.08] tracking-tight text-[var(--kuct-text)] sm:text-[2.5rem] lg:text-[2.75rem]">
-                <AccentText>{c.h1}</AccentText>
-              </h1>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <button
-                  type="button"
-                  onClick={openQuote}
-                  className="kuct-btn-primary inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-semibold"
-                >
-                  {c.ctaTitle}
-                </button>
-                <a
-                  href={pricingHref}
-                  className="kuct-btn-outline inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-semibold no-underline"
-                >
-                  Xem bảng giá
-                </a>
-              </div>
-            </Reveal>
-            <Reveal delay={40}>
-              <p className="m-0 max-w-[40ch] text-base leading-[1.7] text-[var(--kuct-text)] lg:pt-10 lg:justify-self-end">
-                {c.answerFirst}
-              </p>
-              <ul className="mt-5 flex list-none flex-wrap gap-x-4 gap-y-2 p-0 text-sm font-medium lg:justify-end">
-                <li>
-                  <Link
-                    href={assetPath("/pos/")}
-                    className="text-[var(--kuct-muted)] no-underline hover:text-[var(--kuct-text)]"
-                  >
-                    Tất cả POS
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href={assetPath("/industries/")}
-                    className="text-[var(--kuct-muted)] no-underline hover:text-[var(--kuct-text)]"
-                  >
-                    CRM · dịch vụ
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href={assetPath("/faq/")}
-                    className="text-[var(--kuct-muted)] no-underline hover:text-[var(--kuct-text)]"
-                  >
-                    FAQ
-                  </Link>
-                </li>
-              </ul>
-            </Reveal>
-          </div>
         </div>
       </section>
 

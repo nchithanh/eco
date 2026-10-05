@@ -4,7 +4,7 @@
     "id": "capabilities",
     "locale": "vi",
     "brand": "Dolphin Software",
-    "updated": "2026-10-01",
+    "updated": "2026-10-05",
     "schemaPath": "/schema/homepage/capabilities/",
     "rawPath": "/schema/homepage/capabilities.json",
     "productRoute": "/"
@@ -13,12 +13,12 @@
     "order": 4,
     "id": "solutions",
     "section_label": "Giải pháp",
-    "headline": "Khách và lịch một chỗ, không trôi trên Zalo",
-    "subheadline": "Dành cho spa, nail, salon, lớp học, phòng khám. CRM giữ khách, lịch và việc cần gọi lại. Care trả lời trên web, Zalo, Messenger. Ops nhắc việc trong CRM. Thuê CRM kèm AI từ 6 tháng thì được tặng website để khách tìm thấy tiệm.",
+    "headline": "CRM dịch vụ · POS bán hàng — thuê bao lõi",
+    "subheadline": "CRM: spa, nail, salon, lớp học, phòng khám — khách, lịch, follow một chỗ; Care/Ops trên CRM; website tặng theo combo từ 6 tháng. POS: cafe, F&B, pet, fashion — quầy, kho, hóa đơn theo gói năm. Gia công phần mềm khi gói sẵn chưa khớp.",
     "layout": "header-2col + 2-featured + 4-compact + strip",
     "featured_ids": ["crm", "agents"],
     "compact_ids": ["automation", "website", "ai", "integrations"],
-    "positioning": ["CRM", "AI", "Website", "Outsource"],
+    "positioning": ["CRM", "POS", "AI", "Website", "Outsource"],
     "hub_cta": {
       "label": "Tìm hiểu thêm",
       "href": "/dolphin-ops/"
@@ -74,16 +74,16 @@
       },
       {
         "id": "custom",
-        "title": "Intelligence & phần mềm may đo",
-        "description": "Intelligence là add-on khi đã có CRM. Outsource phần mềm riêng khi gói sẵn chưa khớp — bàn giao source theo phạm vi.",
-        "timeline": "Add-on · Outsource",
+        "title": "Intelligence & gia công phần mềm",
+        "description": "Intelligence là add-on khi đã có CRM. Gia công phần mềm khi gói sẵn chưa khớp — bàn giao source theo phạm vi.",
+        "timeline": "Add-on · Gia công",
         "href": "https://dolphin-software.io.vn/services/software/",
         "image": "/capabilities/backend.jpg"
       }
     ],
     "secondary_links": [
       {
-        "label": "Intelligence & phần mềm may đo",
+        "label": "Intelligence & gia công phần mềm",
         "href": "https://dolphin-software.io.vn/services/software/"
       },
       {

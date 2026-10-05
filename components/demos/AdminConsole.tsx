@@ -77,6 +77,7 @@ import { EmptyArt, EmptyState } from "@/components/demos/EmptyArt";
 import { MoneyInput } from "@/components/demos/MoneyInput";
 import { SalesEventsPanel } from "@/components/demos/SalesEventsPanel";
 import { CustomerFilesPanel } from "@/components/demos/CustomerFilesPanel";
+import { AdminSchemaPanel } from "@/components/demos/AdminSchemaPanel";
 import { formatVnd, formatVndInput, parseVndInput } from "@/lib/demos/money-format";
 import {
   EMPTY_EXPENSE_FORM,
@@ -110,7 +111,8 @@ type AppPage =
   | "company"
   | "users"
   | "events"
-  | "files";
+  | "files"
+  | "schema";
 type DealSort = "activity" | "amount" | "title";
 
 const DIM_PAGES = new Set<AppPage>([
@@ -900,6 +902,12 @@ function NavIcon({ name }: { name: string }) {
       return (
         <svg {...common}>
           <path d="M2.5 4.5h4l1.2 1.5H13.5V13H2.5z" strokeLinejoin="round" />
+        </svg>
+      );
+    case "schema":
+      return (
+        <svg {...common}>
+          <path d="M5 3.5 2.5 8 5 12.5M11 3.5 13.5 8 11 12.5" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       );
     case "playbook":
@@ -2186,7 +2194,9 @@ export function AdminConsole() {
                 ? t.eventsPage.title
                 : appPage === "files"
                   ? t.filesPage.title
-                  : DIM_PAGES.has(appPage)
+                  : appPage === "schema"
+                    ? t.schemaPage.title
+                    : DIM_PAGES.has(appPage)
                       ? t.menu[appPage]
                       : t.hero.title;
 
@@ -2307,6 +2317,7 @@ export function AdminConsole() {
               ["emails", "mail", t.menu.emails],
               ["company", "companies", t.menu.company],
               ["files", "files", t.menu.files],
+              ["schema", "schema", t.menu.schema],
               ["users", "users", t.menu.users],
             ] as const
           ).map(([id, icon, label]) => (
@@ -2431,6 +2442,8 @@ export function AdminConsole() {
           {appPage === "files" ? (
             <CustomerFilesPanel copy={t} locale={salesLocale} />
           ) : null}
+
+          {appPage === "schema" ? <AdminSchemaPanel copy={t} /> : null}
 
           {DIM_PAGES.has(appPage) ? (
             <div className="df-panel">

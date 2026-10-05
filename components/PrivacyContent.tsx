@@ -12,13 +12,9 @@ export function PrivacyContent() {
   return (
     <section
       id="privacy"
-      className="relative isolate overflow-hidden py-20 sm:py-24"
+      className="relative isolate overflow-hidden bg-white py-20 sm:py-24"
       aria-labelledby="privacy-heading"
     >
-      <div
-        className="pointer-events-none absolute inset-0 kuct-hero-wash"
-        aria-hidden
-      />
       <div className="relative mx-auto max-w-3xl px-6">
         <Reveal variant="title">
           <p className="kuct-type-eyebrow">{c.eyebrow}</p>

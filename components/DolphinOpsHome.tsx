@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { AccentText } from "@/components/BrandName";
-import { OpsHeroDemo } from "@/components/DolphinOpsDemos";
 import { Reveal } from "@/components/Reveal";
 import { useQuote } from "@/components/QuoteProvider";
 import { routePath } from "@/lib/asset";
@@ -11,6 +11,24 @@ import {
   getDolphinOpsHomeCopy,
 } from "@/lib/i18n/dolphin-ops-copy";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
+
+function OpsDemoShell() {
+  return (
+    <div
+      className="min-h-[18rem] flex-1 animate-pulse rounded-[10px] bg-[var(--kuct-surface-muted)] sm:min-h-[22rem]"
+      aria-hidden
+    />
+  );
+}
+
+const OpsHeroDemo = dynamic(
+  () =>
+    import("@/components/DolphinOpsDemos").then((m) => m.OpsHeroDemo),
+  {
+    loading: () => <OpsDemoShell />,
+    ssr: false,
+  },
+);
 
 export function DolphinOpsHome() {
   const { locale } = useLocale();
@@ -21,7 +39,7 @@ export function DolphinOpsHome() {
   return (
     <section
       id="dolphin-ops"
-      className="scroll-mt-20 py-20 sm:py-24"
+      className="kuct-cv-auto scroll-mt-20 py-20 sm:py-24"
       aria-labelledby="home-ops-heading"
     >
       <div className="mx-auto grid max-w-7xl items-stretch gap-10 px-6 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-14">
@@ -96,7 +114,10 @@ export function DolphinOpsHome() {
           </Reveal>
         </div>
 
-        <Reveal delay={100} className="flex min-h-0 min-w-0 flex-col lg:justify-self-stretch">
+        <Reveal
+          delay={100}
+          className="flex min-h-0 min-w-0 flex-col lg:justify-self-stretch"
+        >
           <div className="kuct-product-panel flex h-full min-h-0 flex-1 flex-col">
             <OpsHeroDemo copy={demo} />
           </div>

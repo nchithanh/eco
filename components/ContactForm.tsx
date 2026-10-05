@@ -24,7 +24,7 @@ export function ContactForm({
       aria-labelledby={isPage ? "contact-page-heading" : "home-contact-heading"}
       className={
         isPage
-          ? "scroll-mt-20 py-16 sm:py-20 lg:py-24"
+          ? "scroll-mt-20 bg-white py-16 sm:py-20 lg:py-24"
           : "kuct-cv-auto scroll-mt-20 py-24"
       }
     >

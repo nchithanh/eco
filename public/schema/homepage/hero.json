@@ -4,20 +4,20 @@
     "id": "hero",
     "locale": "vi",
     "brand": "Dolphin Software",
-    "updated": "2026-09-30",
+    "updated": "2026-10-05",
     "schemaPath": "/schema/homepage/hero/",
     "rawPath": "/schema/homepage/hero.json",
     "productRoute": "/",
-    "source": "company-profile §1 Giới thiệu Dolphin Software"
+    "source": "company-profile · hồ sơ năng lực 2026"
   },
   "content": {
     "order": 1,
     "id": "hero",
-    "headline": "Giải pháp vận hành cho doanh nghiệp dịch vụ B2B",
-    "subheadline": "Tập trung spa, nail, salon, giáo dục, clinic. CRM là nền tảng vận hành. Care · Ops · Intelligence đẩy tăng trưởng. Website tặng hoặc giảm theo combo.",
-    "body": "Dolphin Software không bán danh sách tính năng. Chúng tôi bắt đầu từ chỗ đang nghẽn của anh chị — lịch rải, khách trôi, follow-up thủ công — rồi chỉ xây những gì giúp tăng khách và doanh thu. CRM thuê theo kỳ là lõi. AI (Care, Ops, Intelligence) là lớp tăng trưởng. Website là quyền lợi combo, không phải sản phẩm mở đầu.",
+    "headline": "Cho thuê CRM & POS — vận hành dịch vụ và cửa hàng",
+    "subheadline": "CRM cho spa, nail, salon, giáo dục, clinic. POS cho cafe, F&B, pet, fashion. Care · Ops · Intelligence tăng trưởng trên CRM. Website / gia công phần mềm — bổ sung.",
+    "body": "Dolphin Software không bán danh sách tính năng. Bắt đầu từ chỗ đang nghẽn — lịch rải, khách trôi (CRM) hoặc quầy · kho rối (POS) — rồi chỉ làm những gì giúp tăng khách và doanh thu. CRM và POS thuê bao là lõi. AI Care/Ops gắn CRM khi cần. Website và gia công phần mềm nhận làm thêm.",
     "trust_strip": [
-      "Problem-first · CRM nền tảng · AI tăng trưởng · Website combo"
+      "Problem-first · CRM & POS lõi · AI tăng trưởng · Web / gia công bổ sung"
     ],
     "ctas": [
       {
@@ -26,15 +26,15 @@
         "style": "primary"
       },
       {
-        "label": "Xem combo CRM · AI · Web",
+        "label": "Xem CRM · POS · giá",
         "href": "#solutions",
         "style": "secondary"
       }
     ],
-    "tags": ["Problem-first", "CRM nền tảng", "AI tăng trưởng"],
+    "tags": ["Problem-first", "CRM thuê bao", "POS thuê bao"],
     "metrics": [
-      { "value": "CRM", "label": "Vận hành lõi" },
-      { "value": "AI", "label": "Care · Ops · Intel" }
+      { "value": "CRM", "label": "Dịch vụ · lịch · khách" },
+      { "value": "POS", "label": "Quầy · kho · hóa đơn" }
     ],
     "visual": "HeroSitePreview collage + dolphin-eco mascot"
   }

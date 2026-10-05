@@ -4,7 +4,7 @@
     "id": "why",
     "locale": "vi",
     "brand": "Dolphin Software",
-    "updated": "2026-09-30",
+    "updated": "2026-10-05",
     "schemaPath": "/schema/homepage/why/",
     "rawPath": "/schema/homepage/why.json",
     "productRoute": "/"
@@ -13,8 +13,8 @@
     "order": 3,
     "id": "why",
     "section_label": "Why Dolphin",
-    "headline": "Đối tác vận hành — CRM lõi, AI tăng trưởng, website combo",
-    "subheadline": "Phần lớn spa, salon, clinic không cần hệ thống hàng trăm nút. Họ cần CRM gom khách–lịch–follow-up, AI Care/Ops khi đã sẵn sàng, và website theo quyền lợi combo — không bán thừa.",
+    "headline": "Đối tác vận hành — CRM & POS lõi, AI tăng trưởng",
+    "subheadline": "Hai dòng thuê bao tách ICP: CRM cho dịch vụ (khách–lịch–follow), POS cho cửa hàng (quầy–kho–hóa đơn). Care/Ops khi đã sẵn sàng; website / gia công phần mềm bổ sung — không bán thừa.",
     "promise": "We don't start with technology. We start with your problem.",
     "layout": "icon-line-pillars",
     "pillars": [
@@ -26,12 +26,12 @@
       {
         "icon": "delivery",
         "title": "Xác định nghẽn",
-        "body": "Chỉ ra chỗ mất lead, lịch rải, hoặc phụ thuộc một người — trước khi đề xuất CRM hay AI."
+        "body": "Chỉ ra chỗ mất lead, lịch rải, quầy/kho rối, hoặc phụ thuộc một người — trước khi đề xuất CRM, POS hay AI."
       },
       {
         "icon": "process",
         "title": "Xây đúng thứ",
-        "body": "CRM thuê theo kỳ trước; Care · Ops · Intelligence khi khớp pain; website tặng hoặc giảm theo combo."
+        "body": "CRM hoặc POS thuê bao trước; Care · Ops · Intelligence khi khớp pain; website / gia công nhận làm thêm."
       },
       {
         "icon": "support",

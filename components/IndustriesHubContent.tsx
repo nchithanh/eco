@@ -15,15 +15,14 @@ export function IndustriesHubContent() {
   return (
     <main>
       <Nav />
-      <section className="relative overflow-hidden py-16 sm:py-20 lg:py-24">
-        <div className="pointer-events-none absolute inset-0 kuct-hero-wash" aria-hidden />
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
+      <section className="bg-white py-16 sm:py-20 lg:py-24">
+        <div className="mx-auto max-w-7xl px-4 text-center sm:px-6">
           <Reveal variant="title">
             <p className="kuct-section-eyebrow">Industries</p>
-            <h1 className="mt-3 max-w-[22ch] font-display text-[1.75rem] font-semibold leading-[1.12] tracking-tight sm:text-[2.25rem] lg:text-[2.5rem]">
+            <h1 className="mx-auto mt-3 max-w-[22ch] font-display text-[1.75rem] font-semibold leading-[1.12] tracking-tight sm:text-[2.25rem] lg:text-[2.5rem]">
               <AccentText>{hub.h1}</AccentText>
             </h1>
-            <p className="mt-4 max-w-[56ch] text-base leading-relaxed text-[var(--kuct-muted)]">
+            <p className="mx-auto mt-4 max-w-[56ch] text-base leading-relaxed text-[var(--kuct-muted)]">
               {hub.lead}
             </p>
           </Reveal>

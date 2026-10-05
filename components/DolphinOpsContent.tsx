@@ -64,11 +64,7 @@ export function DolphinOpsContent() {
 
   return (
     <div>
-      <section className="relative overflow-hidden py-20 sm:py-28">
-        <div
-          className="pointer-events-none absolute inset-0 kuct-hero-wash"
-          aria-hidden
-        />
+      <section className="relative overflow-hidden bg-white py-20 sm:py-28">
         <div className="relative mx-auto max-w-7xl px-6">
           <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
             <Reveal variant="title" className="text-left">

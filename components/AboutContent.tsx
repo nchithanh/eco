@@ -19,8 +19,7 @@ export function AboutContent() {
 
  return (
  <>
- <section className="relative isolate overflow-hidden py-20 sm:py-24">
- <div className="pointer-events-none absolute inset-0 kuct-hero-wash" aria-hidden />
+ <section className="relative isolate overflow-hidden bg-white py-20 sm:py-24">
  <div className="relative mx-auto max-w-7xl px-6">
  <Reveal variant="title" className="max-w-5xl text-left">
  <p className="kuct-type-eyebrow">

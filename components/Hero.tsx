@@ -167,13 +167,9 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative isolate overflow-x-clip touch-pan-y"
+      className="relative isolate overflow-x-clip touch-pan-y bg-white"
       aria-labelledby="home-hero-heading"
     >
-      <div
-        className="pointer-events-none absolute inset-0 kuct-hero-wash"
-        aria-hidden
-      />
       <div className="relative mx-auto flex w-full max-w-6xl flex-col items-center px-6 pt-14 pb-16 text-center sm:pt-16 sm:pb-20 lg:pt-20 lg:pb-24">
         <div className="relative z-10 w-full max-w-5xl touch-pan-y">
           {banner ? (

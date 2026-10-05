@@ -52,7 +52,7 @@ const vi: FaqCopy = {
       },
       {
           "q": "Bảo trì sau bàn giao khác gì tính năng mới?",
-          "a": "Website: bảo hành kỹ thuật 36 tháng. CRM và AI (SaaS): trong hạn gói đã thanh toán. Outsource / may đo: 3 tháng sau nghiệm thu. Tính năng mới báo giá riêng, không nằm trong bảo hành."
+          "a": "Website: bảo hành kỹ thuật 36 tháng. CRM · POS · AI (SaaS): trong hạn gói đã thanh toán. Outsource / gia công phần mềm: 3 tháng sau nghiệm thu. Tính năng mới báo giá riêng, không nằm trong bảo hành."
       },
       {
           "q": "Bảo mật và dữ liệu được xử lý như thế nào?",

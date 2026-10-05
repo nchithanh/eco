@@ -1,4 +1,5 @@
 import company from "../../public/schema/company.json";
+import companyProfile from "../../public/schema/company-profile.json";
 import servicesIndex from "../../public/schema/services/index.json";
 import web from "../../public/schema/services/web.json";
 import landing from "../../public/schema/services/landing.json";
@@ -89,6 +90,7 @@ export function isSchemaHomepageSlug(
 }
 
 export const schemaCompany = company;
+export const schemaCompanyProfile = companyProfile;
 export const schemaServicesIndex = servicesIndex;
 export const schemaAgentsIndex = agentsIndex;
 export const schemaHomepageIndex = homepageIndex;

@@ -68,13 +68,13 @@ const vi: AboutCopy = {
   metaTitle:
     "Dolphin Software là gì? | CRM và AI cho doanh nghiệp dịch vụ",
   metaDescription:
-    "Dolphin Software cho thuê phần mềm CRM và AI (SaaS) cho doanh nghiệp dịch vụ. Combo CRM kèm Care hoặc Ops từ 6 tháng tặng website khi triển khai.",
+    "Dolphin Software cho thuê CRM (dịch vụ) và POS (cửa hàng bán hàng). Care · Ops trên CRM. Website / gia công phần mềm bổ sung. Combo CRM + Care từ 6 tháng tặng website.",
   eyebrow: "SaaS",
   title: "Dolphin Software",
   motto:
-    "Thuê [[CRM và AI]] — bắt đầu từ vấn đề, không từ sản phẩm",
+    "Thuê [[CRM & POS]] — bắt đầu từ vấn đề, không từ sản phẩm",
   support:
-    "Dolphin Software cho thuê CRM (nền vận hành) và AI Care · Ops · Intelligence (tăng trưởng) cho spa, nail, salon, giáo dục, clinic. Website tặng hoặc giảm theo combo. SaaS là quyền dùng theo kỳ. Source bàn giao với gói outsource.",
+    "Dolphin Software cho thuê CRM (doanh nghiệp dịch vụ) và POS (cửa hàng bán hàng) — hai dòng tách ICP. Care · Ops · Intelligence tăng trưởng trên CRM. Website / gia công phần mềm bổ sung. SaaS là quyền dùng theo kỳ; source bàn giao với gói gia công.",
   ctaPrimary: "Nói về doanh nghiệp của bạn",
   ctaSecondary: "Xem giải pháp",
   mindsetEyebrow: "Approach",
@@ -92,7 +92,7 @@ const vi: AboutCopy = {
     },
     {
       title: "Xây đúng thứ",
-      body: "Website, AI, CRM, tích hợp hoặc phần mềm riêng — chỉ những gì khớp pain. Không bán đống tính năng.",
+      body: "CRM, POS, AI, website / gia công phần mềm — chỉ những gì khớp pain. Không bán đống tính năng.",
     },
     {
       title: "Đo và cải thiện",
@@ -217,15 +217,15 @@ const vi: AboutCopy = {
   faqItems: [
     {
       q: "Dolphin Software là công ty gì?",
-      a: "Dolphin Software cho thuê phần mềm CRM và AI (SaaS) cho doanh nghiệp dịch vụ. CRM là nền vận hành. Care, Ops và Intelligence là lớp tăng trưởng. Website được tặng hoặc giảm khi triển khai combo CRM.",
+      a: "Dolphin Software cho thuê CRM và POS (SaaS). CRM cho spa, nail, salon, giáo dục, clinic; POS cho cafe, F&B, pet, fashion. Care · Ops · Intelligence tăng trưởng trên CRM. Website / gia công phần mềm bổ sung.",
     },
     {
       q: "Doanh nghiệp không có đội kỹ thuật có làm việc với Dolphin Software được không?",
-      a: "Được. Phần lớn khách hàng của Dolphin Software không có background kỹ thuật. Chỉ cần mô tả mục tiêu kinh doanh — Dolphin Software sẽ xác định scope bằng ngôn ngữ vận hành, thực thi end-to-end, và bàn giao kèm hướng dẫn để đội ngũ bạn tự vận hành được.",
+      a: "Được. Khách lý tưởng muốn hệ thống thuê bao chạy ngay, không cần đội IT. Chỉ cần mô tả mục tiêu kinh doanh — Dolphin xác định phạm vi bằng ngôn ngữ vận hành, rồi đề xuất CRM, POS, AI hoặc website / gia công khớp pain.",
     },
     {
       q: "Dolphin Software có khóa vendor sau khi bàn giao không?",
-      a: "SaaS CRM, Care và Ops là quyền sử dụng theo kỳ đã thanh toán — không bàn giao source nền tảng. Gói may đo / outsourcing bàn giao source code và tài liệu. Website one-time bàn giao trong phạm vi đã nghiệm thu.",
+      a: "SaaS CRM, POS, Care và Ops là quyền sử dụng theo kỳ đã thanh toán — không bàn giao source nền tảng. Gói gia công phần mềm / outsourcing bàn giao source code và tài liệu. Website one-time bàn giao trong phạm vi đã nghiệm thu.",
     },
     {
       q: "Báo giá của Dolphin Software hoạt động như thế nào?",
@@ -233,7 +233,7 @@ const vi: AboutCopy = {
     },
     {
       q: "Dolphin Software có hỗ trợ sau khi bàn giao không?",
-      a: "Website: bảo hành kỹ thuật 36 tháng. CRM và AI (SaaS): trong hạn gói đã thanh toán. Outsource / may đo: 3 tháng sau nghiệm thu. Tính năng mới ngoài phạm vi được báo giá riêng.",
+      a: "Website: bảo hành kỹ thuật 36 tháng. CRM · POS · AI (SaaS): trong hạn gói đã thanh toán. Outsource / gia công phần mềm: 3 tháng sau nghiệm thu. Tính năng mới ngoài phạm vi được báo giá riêng.",
     },
     {
       q: "Dolphin Software có kinh nghiệm tích hợp Zalo và các hệ thống CRM không?",

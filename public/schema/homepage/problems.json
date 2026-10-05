@@ -4,7 +4,7 @@
     "id": "problems",
     "locale": "vi",
     "brand": "Dolphin Software",
-    "updated": "2026-10-01",
+    "updated": "2026-10-05",
     "schemaPath": "/schema/homepage/problems/",
     "rawPath": "/schema/homepage/problems.json",
     "productRoute": "/",
@@ -16,7 +16,7 @@
     "anchor": "#problems",
     "section_label": "What is slowing you down?",
     "headline": "Điều gì đang làm chậm doanh nghiệp của anh chị?",
-    "subheadline": "Doanh nghiệp dịch vụ lớn lên — lịch, khách và follow-up thường vỡ thành Zalo/Excel. Mở bằng chỗ đang nghẽn, rồi mới chọn CRM · AI · website combo.",
+    "subheadline": "Dịch vụ: lịch · khách · follow vỡ Zalo/Excel. Cửa hàng: quầy · kho · hóa đơn rối. Mở bằng chỗ đang nghẽn — rồi chọn CRM, POS, AI hoặc website / gia công khớp pain.",
     "cta": "Nói về bài toán của anh chị",
     "ctaHref": "#contact",
     "items": [

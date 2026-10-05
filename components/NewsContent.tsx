@@ -184,8 +184,8 @@ export function NewsContent({ embedded = false }: { embedded?: boolean }) {
  aria-labelledby="news-page-heading"
  className={
  embedded
- ? "scroll-mt-16 py-10 sm:py-12"
- : "scroll-mt-20 py-16 sm:py-20 lg:py-24"
+ ? "scroll-mt-16 bg-white py-10 sm:py-12"
+ : "scroll-mt-20 bg-white py-16 sm:py-20 lg:py-24"
  }
  >
  <div className="mx-auto max-w-7xl px-4 sm:px-6">

@@ -36,14 +36,10 @@ export function DolphinIntelligenceContent({
       <section
         className={
           embedded
-            ? "relative overflow-hidden py-12 sm:py-16"
-            : "relative overflow-hidden py-20 sm:py-28"
+            ? "relative overflow-hidden bg-white py-12 sm:py-16"
+            : "relative overflow-hidden bg-white py-20 sm:py-28"
         }
       >
-        <div
-          className="pointer-events-none absolute inset-0 kuct-hero-wash"
-          aria-hidden
-        />
         <div className="relative mx-auto max-w-7xl px-6">
           <Reveal variant="title" className="max-w-4xl text-left">
             {!embedded ? (

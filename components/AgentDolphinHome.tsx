@@ -1,402 +1,226 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import dynamic from "next/dynamic";
+import type { ReactNode } from "react";
 import { AccentText } from "@/components/BrandName";
 import { Reveal } from "@/components/Reveal";
 import { useQuote } from "@/components/QuoteProvider";
 import { routePath } from "@/lib/asset";
-import {
- getAgentDolphinHomeCopy,
- type AgentDolphinHomeCard,
- type AgentDolphinHomeMessage,
-} from "@/lib/i18n/agent-dolphin-copy";
+import { getAgentDolphinHomeCopy } from "@/lib/i18n/agent-dolphin-copy";
 import { useLocale } from "@/lib/i18n/LocaleProvider";
-import { useMascotSrc } from "@/components/useMascotSrc";
 import { useDesktopMotion } from "@/lib/motion";
 
-const CHAR_MS = 28;
-const USER_GAP_MS = 480;
-const BEFORE_TYPE_MS = 420;
-const AFTER_REPLY_MS = 560;
+function CareHomeChatShell() {
+  return (
+    <div
+      className="flex min-h-[18rem] flex-col overflow-hidden rounded-[10px] bg-[var(--kuct-panel)] shadow-[0_18px_48px_rgb(26_21_32/0.07)] sm:min-h-[22rem] lg:min-h-[26rem]"
+      aria-hidden
+    >
+      <div className="h-12 animate-pulse bg-[var(--kuct-surface-muted)]" />
+      <div className="flex flex-1 flex-col gap-2.5 p-4">
+        <div className="ml-auto h-10 w-2/3 animate-pulse rounded-[10px] bg-[var(--kuct-surface-muted)]" />
+        <div className="h-14 w-3/4 animate-pulse rounded-[10px] bg-[var(--kuct-surface-muted)]" />
+        <div className="h-10 w-1/2 animate-pulse rounded-[10px] bg-[var(--kuct-surface-muted)]" />
+      </div>
+    </div>
+  );
+}
+
+const CareHomeChatDemo = dynamic(
+  () =>
+    import("@/components/AgentDolphinHomeChat").then((m) => m.CareHomeChatDemo),
+  {
+    loading: () => <CareHomeChatShell />,
+    ssr: false,
+  },
+);
 
 function IconReply() {
- return (
- <svg viewBox="0 0 24 24" className="size-4" fill="none" aria-hidden>
- <path
- d="M5 12h11M12 7l5 5-5 5"
- stroke="currentColor"
- strokeWidth="1.7"
- strokeLinecap="round"
- strokeLinejoin="round"
- />
- </svg>
- );
+  return (
+    <svg viewBox="0 0 24 24" className="size-4" fill="none" aria-hidden>
+      <path
+        d="M5 12h11M12 7l5 5-5 5"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
 }
 
 function IconHandsFree() {
- return (
- <svg viewBox="0 0 24 24" className="size-4" fill="none" aria-hidden>
- <path
- d="M8 14V9a4 4 0 1 1 8 0v5"
- stroke="currentColor"
- strokeWidth="1.7"
- strokeLinecap="round"
- />
- <path
- d="M6 14h12v2.5a4.5 4.5 0 0 1-4.5 4.5h-3A4.5 4.5 0 0 1 6 16.5V14z"
- stroke="currentColor"
- strokeWidth="1.7"
- strokeLinejoin="round"
- />
- </svg>
- );
+  return (
+    <svg viewBox="0 0 24 24" className="size-4" fill="none" aria-hidden>
+      <path
+        d="M8 14V9a4 4 0 1 1 8 0v5"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+      />
+      <path
+        d="M6 14h12v2.5a4.5 4.5 0 0 1-4.5 4.5h-3A4.5 4.5 0 0 1 6 16.5V14z"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
 }
 
 function IconEfficiency() {
- return (
- <svg viewBox="0 0 24 24" className="size-4" fill="none" aria-hidden>
- <path
- d="M4 16l5-5 3.5 3.5L20 7"
- stroke="currentColor"
- strokeWidth="1.7"
- strokeLinecap="round"
- strokeLinejoin="round"
- />
- <path d="M14 7h6v6" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
- </svg>
- );
+  return (
+    <svg viewBox="0 0 24 24" className="size-4" fill="none" aria-hidden>
+      <path
+        d="M4 16l5-5 3.5 3.5L20 7"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M14 7h6v6"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
 }
 
 const BENEFIT_ICONS: ReactNode[] = [
- <IconReply key="reply" />,
- <IconHandsFree key="hands" />,
- <IconEfficiency key="eff" />,
+  <IconReply key="reply" />,
+  <IconHandsFree key="hands" />,
+  <IconEfficiency key="eff" />,
 ];
 
-function ChatCard({
- card,
- agentName,
- online,
- inputPlaceholder,
- animate,
-}: {
- card: AgentDolphinHomeCard;
- agentName: string;
- online: string;
- inputPlaceholder: string;
- animate: boolean;
-}) {
- const chatAvatar = useMascotSrc("chat");
- const panelRef = useRef<HTMLDivElement>(null);
- const [inView, setInView] = useState(false);
- const [committed, setCommitted] = useState<AgentDolphinHomeMessage[]>(
- animate ? [] : card.messages,
- );
- const [streamText, setStreamText] = useState<string | null>(null);
- const [awaitingType, setAwaitingType] = useState(false);
-
- useEffect(() => {
- if (!animate) {
- setCommitted(card.messages);
- setStreamText(null);
- setAwaitingType(false);
- return;
- }
-
- const el = panelRef.current;
- if (!el) return;
-
- if (typeof IntersectionObserver !== "function") {
- setInView(true);
- return;
- }
-
- const io = new IntersectionObserver(
- ([entry]) => {
- if (entry?.isIntersecting) {
- setInView(true);
- io.disconnect();
- }
- },
- { threshold: 0.12, rootMargin: "0px 0px -4% 0px" },
- );
- io.observe(el);
- return () => io.disconnect();
- }, [animate, card.messages]);
-
- useEffect(() => {
- if (!animate) return;
-
- if (!inView) {
- setCommitted([]);
- setStreamText(null);
- setAwaitingType(false);
- return;
- }
-
- let cancelled = false;
- const timers: number[] = [];
- const schedule = (fn: () => void, ms: number) => {
- timers.push(window.setTimeout(fn, ms));
- };
-
- setCommitted([]);
- setStreamText(null);
- setAwaitingType(false);
-
- const runFrom = (index: number) => {
- if (cancelled) return;
- if (index >= card.messages.length) {
- setAwaitingType(false);
- setStreamText(null);
- return;
- }
-
- const msg = card.messages[index];
- if (!msg) return;
-
- if (msg.role === "user") {
- setCommitted((prev) => [...prev, msg]);
- schedule(() => runFrom(index + 1), USER_GAP_MS);
- return;
- }
-
- setAwaitingType(true);
- schedule(() => {
- if (cancelled) return;
- setAwaitingType(false);
- let charIndex = 0;
- setStreamText("");
-
- const tick = () => {
- if (cancelled) return;
- charIndex += 1;
- setStreamText(msg.text.slice(0, charIndex));
- if (charIndex < msg.text.length) {
- schedule(tick, CHAR_MS);
- return;
- }
- setCommitted((prev) => [...prev, msg]);
- setStreamText(null);
- schedule(() => runFrom(index + 1), AFTER_REPLY_MS);
- };
-
- tick();
- }, BEFORE_TYPE_MS);
- };
-
- schedule(() => runFrom(0), 240);
-
- return () => {
- cancelled = true;
- timers.forEach((id) => window.clearTimeout(id));
- };
- }, [animate, inView, card.messages]);
-
- return (
- <div
- ref={panelRef}
- className="flex h-full flex-col overflow-hidden rounded-[10px] bg-[var(--kuct-panel)] shadow-[0_18px_48px_rgb(26_21_32/0.07)] backdrop-blur-xl"
- aria-label={`${agentName} — ${card.context}`}
- >
- <header className="flex items-center gap-3 bg-gradient-to-r from-[var(--kuct-btn-from)] via-[var(--kuct-btn-mid)] to-[var(--kuct-btn-to)] px-3.5 py-2.5 text-white sm:px-4 sm:py-3">
- <span className="relative shrink-0">
- <img
- src={chatAvatar}
- alt=""
- width={36}
- height={36}
- loading="lazy"
- decoding="async"
- className="size-9 rounded-full object-cover"
- />
- <span className="absolute right-0 bottom-0 size-2 rounded-full bg-emerald-400 ring-2 ring-white" />
- </span>
- <div className="min-w-0 flex-1">
- <p className="truncate text-sm font-semibold">{agentName}</p>
- <p className="truncate text-[11px] text-white/85">{card.context}</p>
- </div>
- <span className="hidden shrink-0 text-[10px] font-medium tracking-wide text-white/80 sm:inline">
- {online}
- </span>
- </header>
-
- <div className="flex min-h-[18rem] flex-1 flex-col gap-2.5 overflow-y-auto px-3.5 py-3.5 sm:min-h-[22rem] sm:px-4 sm:py-4 lg:min-h-[26rem]">
- {committed.map((m, i) => (
- <div
- key={`c-${i}-${m.role}`}
- className={
- m.role === "user"
- ? "ml-6 self-end rounded-[10px] rounded-br-md bg-[var(--kuct-accent)] px-3 py-2 text-[13px] leading-relaxed text-white sm:text-sm"
- : "mr-5 self-start rounded-[10px] rounded-bl-md bg-[var(--kuct-panel-2)] px-3 py-2 text-[13px] leading-relaxed text-[var(--kuct-text)] sm:text-sm"
- }
- >
- {m.text}
- </div>
- ))}
-
- {awaitingType ? (
- <div
- className="mr-5 flex items-center gap-1 self-start rounded-[10px] rounded-bl-md bg-[var(--kuct-panel-2)] px-3 py-2.5"
- aria-hidden
- >
- <span className="size-1.5 rounded-full bg-[var(--kuct-muted)] lg:animate-pulse" />
- <span className="size-1.5 rounded-full bg-[var(--kuct-muted)] lg:animate-pulse lg:[animation-delay:150ms]" />
- <span className="size-1.5 rounded-full bg-[var(--kuct-muted)] lg:animate-pulse lg:[animation-delay:300ms]" />
- </div>
- ) : null}
-
- {streamText !== null ? (
- <div className="mr-5 self-start rounded-[10px] rounded-bl-md bg-[var(--kuct-panel-2)] px-3 py-2 text-[13px] leading-relaxed text-[var(--kuct-text)] sm:text-sm">
- {streamText}
- <span className="ml-0.5 inline-block w-[0.45ch] text-[var(--kuct-accent)] lg:animate-pulse">
- |
- </span>
- </div>
- ) : null}
- </div>
-
- <div className="px-3 py-2.5 sm:px-3.5 sm:py-3">
- <div className="flex items-center gap-2 rounded-[10px] bg-[var(--kuct-panel-2)] px-3.5 py-2 text-xs text-[var(--kuct-muted)]/60 sm:text-sm">
- <span className="min-w-0 flex-1 truncate">{inputPlaceholder}</span>
- <span className="grid size-7 shrink-0 place-items-center rounded-[10px] bg-[var(--kuct-accent)]/80 text-white sm:size-8">
- <svg className="size-3 sm:size-3.5" viewBox="0 0 24 24" fill="none" aria-hidden>
- <path
- d="M5 12h12M13 6l6 6-6 6"
- stroke="currentColor"
- strokeWidth="1.8"
- strokeLinecap="round"
- strokeLinejoin="round"
- />
- </svg>
- </span>
- </div>
- </div>
- </div>
- );
-}
-
 export function AgentDolphinHome() {
- const { locale } = useLocale();
- const { openQuote } = useQuote();
- const c = getAgentDolphinHomeCopy(locale);
- const motion = useDesktopMotion();
+  const { locale } = useLocale();
+  const { openQuote } = useQuote();
+  const c = getAgentDolphinHomeCopy(locale);
+  const motion = useDesktopMotion();
 
- return (
- <section id="dolphin-care" className="kuct-section-soft scroll-mt-20 py-20 sm:py-24" aria-labelledby="home-care-heading">
- <div className="mx-auto grid max-w-7xl items-center gap-10 px-6 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-14">
- <div className="min-w-0">
- <Reveal variant="title" className="max-w-xl">
- <p className="kuct-section-eyebrow">
- {c.eyebrow}
- </p>
- <h2 id="home-care-heading" className="kuct-type-h2 mt-4 text-3xl text-[var(--kuct-text)] sm:text-[2.15rem] lg:text-[2.35rem]">
- <AccentText>{c.title}</AccentText>
- </h2>
- <p className="kuct-type-body mt-5 max-w-[46ch] text-base">
- {c.support}
- </p>
- </Reveal>
+  return (
+    <section
+      id="dolphin-care"
+      className="kuct-cv-auto kuct-section-soft scroll-mt-20 py-20 sm:py-24"
+      aria-labelledby="home-care-heading"
+    >
+      <div className="mx-auto grid max-w-7xl items-center gap-10 px-6 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-14">
+        <div className="min-w-0">
+          <Reveal variant="title" className="max-w-xl">
+            <p className="kuct-section-eyebrow">{c.eyebrow}</p>
+            <h2
+              id="home-care-heading"
+              className="kuct-type-h2 mt-4 text-3xl text-[var(--kuct-text)] sm:text-[2.15rem] lg:text-[2.35rem]"
+            >
+              <AccentText>{c.title}</AccentText>
+            </h2>
+            <p className="kuct-type-body mt-5 max-w-[46ch] text-base">
+              {c.support}
+            </p>
+          </Reveal>
 
- <Reveal delay={60}>
- <ul className="mt-8 grid gap-3 sm:mt-9">
- {c.benefits.map((benefit, index) => (
- <li
- key={benefit.title}
- className="kuct-surface-card flex items-start gap-3 px-4 py-3"
- >
- <span className="mt-0.5 grid size-9 shrink-0 place-items-center rounded-[10px] bg-white text-[var(--kuct-accent)] shadow-[0_1px_3px_rgb(26_22_37/0.06)]">
- {BENEFIT_ICONS[index] ?? BENEFIT_ICONS[0]}
- </span>
- <div className="min-w-0">
- <p className="text-sm font-semibold leading-snug text-[var(--kuct-text)]">
- {benefit.title}
- </p>
- <p className="mt-1 text-sm leading-relaxed text-[var(--kuct-muted)]">
- {benefit.body}
- </p>
- </div>
- </li>
- ))}
- </ul>
- </Reveal>
+          <Reveal delay={60}>
+            <ul className="mt-8 grid gap-3 sm:mt-9">
+              {c.benefits.map((benefit, index) => (
+                <li
+                  key={benefit.title}
+                  className="kuct-surface-card flex items-start gap-3 px-4 py-3"
+                >
+                  <span className="mt-0.5 grid size-9 shrink-0 place-items-center rounded-[10px] bg-white text-[var(--kuct-accent)] shadow-[0_1px_3px_rgb(26_22_37/0.06)]">
+                    {BENEFIT_ICONS[index] ?? BENEFIT_ICONS[0]}
+                  </span>
+                  <div className="min-w-0">
+                    <p className="text-sm font-semibold leading-snug text-[var(--kuct-text)]">
+                      {benefit.title}
+                    </p>
+                    <p className="mt-1 text-sm leading-relaxed text-[var(--kuct-muted)]">
+                      {benefit.body}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </Reveal>
 
- {c.situations && c.situations.length > 0 ? (
- <Reveal delay={90} className="mt-7">
- <p className="kuct-type-eyebrow text-[11px] text-[var(--kuct-muted)]">
- {c.situationsLabel}
- </p>
- <ul className="mt-3 flex list-none flex-wrap gap-2 p-0">
- {c.situations.map((item) => (
- <li key={item} className="kuct-badge text-[var(--kuct-text)]">
- ✓ {item}
- </li>
- ))}
- </ul>
- </Reveal>
- ) : null}
+          {c.situations && c.situations.length > 0 ? (
+            <Reveal delay={90} className="mt-7">
+              <p className="kuct-type-eyebrow text-[11px] text-[var(--kuct-muted)]">
+                {c.situationsLabel}
+              </p>
+              <ul className="mt-3 flex list-none flex-wrap gap-2 p-0">
+                {c.situations.map((item) => (
+                  <li key={item} className="kuct-badge text-[var(--kuct-text)]">
+                    ✓ {item}
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
+          ) : null}
 
- {c.industries && c.industries.length > 0 ? (
- <Reveal delay={110} className="mt-6">
- <p className="kuct-type-eyebrow text-[11px] text-[var(--kuct-muted)]">
- {c.industriesLabel}
- </p>
- <ul className="mt-3 flex list-none flex-wrap gap-2 p-0">
- {c.industries.map((item) => (
- <li
- key={item}
- className="rounded-[10px] px-3 py-1 text-xs font-medium text-[var(--kuct-muted)]"
- >
- {item}
- </li>
- ))}
- </ul>
- </Reveal>
- ) : null}
+          {c.industries && c.industries.length > 0 ? (
+            <Reveal delay={110} className="mt-6">
+              <p className="kuct-type-eyebrow text-[11px] text-[var(--kuct-muted)]">
+                {c.industriesLabel}
+              </p>
+              <ul className="mt-3 flex list-none flex-wrap gap-2 p-0">
+                {c.industries.map((item) => (
+                  <li
+                    key={item}
+                    className="rounded-[10px] px-3 py-1 text-xs font-medium text-[var(--kuct-muted)]"
+                  >
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
+          ) : null}
 
- <Reveal delay={140} className="mt-8 sm:mt-9">
- <div className="flex flex-wrap items-center gap-3 sm:gap-4">
- <Link
- href={routePath("/dolphin-care/")}
- className="kuct-btn-primary inline-flex w-full items-center justify-center rounded-full px-5 py-3.5 text-sm font-semibold sm:w-auto"
- >
- {c.cta}
- </Link>
- <button
- type="button"
- onClick={openQuote}
- className="kuct-btn-outline inline-flex w-full items-center justify-center rounded-full px-5 py-3.5 text-sm sm:w-auto"
- >
- {c.ctaSecondary}
- </button>
- </div>
- <p className="mt-4 text-sm text-[var(--kuct-muted)]">{c.trustMicro}</p>
- </Reveal>
- </div>
+          <Reveal delay={140} className="mt-8 sm:mt-9">
+            <div className="flex flex-wrap items-center gap-3 sm:gap-4">
+              <Link
+                href={routePath("/dolphin-care/")}
+                className="kuct-btn-primary inline-flex w-full items-center justify-center rounded-full px-5 py-3.5 text-sm font-semibold sm:w-auto"
+              >
+                {c.cta}
+              </Link>
+              <button
+                type="button"
+                onClick={openQuote}
+                className="kuct-btn-outline inline-flex w-full items-center justify-center rounded-full px-5 py-3.5 text-sm sm:w-auto"
+              >
+                {c.ctaSecondary}
+              </button>
+            </div>
+            <p className="mt-4 text-sm text-[var(--kuct-muted)]">{c.trustMicro}</p>
+          </Reveal>
+        </div>
 
- <Reveal delay={100} className="min-w-0 lg:justify-self-stretch">
- <div className="kuct-product-panel">
- <ChatCard
- card={c.card}
- agentName={c.agentName}
- online={c.online}
- inputPlaceholder={c.inputPlaceholder}
- animate={motion}
- />
- {c.pipeline && c.pipeline.length > 0 ? (
- <div className="mt-4 rounded-[10px] bg-[var(--kuct-surface)] px-4 py-3.5 shadow-[0_0.35rem_1rem_rgb(26_22_37/0.05)]">
- <p className="kuct-section-eyebrow text-[10px] tracking-[0.16em]">
- {c.pipelineLabel}
- </p>
- <p className="mt-2 text-sm leading-relaxed text-[var(--kuct-muted)]">
- {c.pipeline.join(" → ")}
- </p>
- </div>
- ) : null}
- </div>
- </Reveal>
- </div>
- </section>
- );
+        <Reveal delay={100} className="min-w-0 lg:justify-self-stretch">
+          <div className="kuct-product-panel">
+            <CareHomeChatDemo
+              card={c.card}
+              agentName={c.agentName}
+              online={c.online}
+              inputPlaceholder={c.inputPlaceholder}
+              animate={motion}
+            />
+            {c.pipeline && c.pipeline.length > 0 ? (
+              <div className="mt-4 rounded-[10px] bg-[var(--kuct-surface)] px-4 py-3.5 shadow-[0_0.35rem_1rem_rgb(26_22_37/0.05)]">
+                <p className="kuct-section-eyebrow text-[10px] tracking-[0.16em]">
+                  {c.pipelineLabel}
+                </p>
+                <p className="mt-2 text-sm leading-relaxed text-[var(--kuct-muted)]">
+                  {c.pipeline.join(" → ")}
+                </p>
+              </div>
+            ) : null}
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
 }

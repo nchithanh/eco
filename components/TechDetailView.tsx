@@ -39,11 +39,10 @@ export function TechDetailContent({
  <section
  className={
  embedded
- ? "relative overflow-hidden py-10 sm:py-12"
- : "relative overflow-hidden py-16 sm:py-20"
+ ? "relative overflow-hidden bg-white py-10 sm:py-12"
+ : "relative overflow-hidden bg-white py-16 sm:py-20"
  }
  >
- <div className="pointer-events-none absolute inset-0 kuct-hero-wash" aria-hidden />
  <div className="relative mx-auto max-w-7xl px-6">
  {!embedded ? (
  <PageBreadcrumb

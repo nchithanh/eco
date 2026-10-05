@@ -49,6 +49,7 @@ export type DolphinSalesCopy = {
     users: string;
     events: string;
     files: string;
+    schema: string;
     dimTitle: string;
     dimBody: string;
     projectedDeals: string;
@@ -94,6 +95,24 @@ export type DolphinSalesCopy = {
     groupDocuments: string;
     groupDiscovery: string;
     groupChannels: string;
+  };
+  schemaPage: {
+    title: string;
+    lede: string;
+    hint: string;
+    readOnly: string;
+    listAria: string;
+    groupCompany: string;
+    groupCompanyProfile: string;
+    groupHomepage: string;
+    groupServices: string;
+    groupAgents: string;
+    copy: string;
+    copied: string;
+    download: string;
+    exportAll: string;
+    openRaw: string;
+    openPublic: string;
   };
   side: {
     search: string;
@@ -653,6 +672,7 @@ const VI: DolphinSalesCopy = {
     users: "Users",
     events: "Events",
     files: "Hồ sơ",
+    schema: "Schema",
     dimTitle: "Chưa đủ dữ liệu",
     dimBody:
       "Mục này hiện trên menu để khớp workspace. Sẽ mở khi có lịch hẹn, task, hóa đơn hoặc email.",
@@ -699,6 +719,24 @@ const VI: DolphinSalesCopy = {
     groupDocuments: "Tài liệu",
     groupDiscovery: "Discovery",
     groupChannels: "Kênh",
+  },
+  schemaPage: {
+    title: "Schema marketing",
+    lede: "SoT copy site marketing (`public/schema/`) — chỉ xem và export.",
+    hint: "Dùng để đánh giá lại câu chữ trên site, tránh text nghe AI-hóa. Không chỉnh sửa tại đây — sửa file JSON / i18n rồi sync schema.",
+    readOnly: "Chỉ đọc · không ghi",
+    listAria: "Danh sách schema",
+    groupCompany: "Company",
+    groupCompanyProfile: "Company profile",
+    groupHomepage: "Homepage",
+    groupServices: "Services",
+    groupAgents: "Agents",
+    copy: "Copy JSON",
+    copied: "Đã copy",
+    download: "Tải file",
+    exportAll: "Export all",
+    openRaw: "Mở .json",
+    openPublic: "Mở /schema/",
   },
   side: {
     search: "Tìm kiếm",
@@ -1211,6 +1249,7 @@ const EN: DolphinSalesCopy = {
     users: "Users",
     events: "Events",
     files: "Files",
+    schema: "Schema",
     dimTitle: "Not enough data yet",
     dimBody:
       "This item stays on the menu to match the workspace. It opens when appointments, tasks, invoices, or email exist.",
@@ -1257,6 +1296,24 @@ const EN: DolphinSalesCopy = {
     groupDocuments: "Documents",
     groupDiscovery: "Discovery",
     groupChannels: "Channels",
+  },
+  schemaPage: {
+    title: "Marketing schema",
+    lede: "Marketing copy SoT (`public/schema/`) — view and export only.",
+    hint: "Use this to review site wording and catch AI-sounding text. Do not edit here — change JSON / i18n then sync schema.",
+    readOnly: "Read-only · no writes",
+    listAria: "Schema file list",
+    groupCompany: "Company",
+    groupCompanyProfile: "Company profile",
+    groupHomepage: "Homepage",
+    groupServices: "Services",
+    groupAgents: "Agents",
+    copy: "Copy JSON",
+    copied: "Copied",
+    download: "Download",
+    exportAll: "Export all",
+    openRaw: "Open .json",
+    openPublic: "Open /schema/",
   },
   side: {
     search: "Search",

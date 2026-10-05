@@ -1,0 +1,526 @@
+{
+  "meta": {
+    "kind": "company-profile",
+    "id": "company-profile",
+    "locale": "vi",
+    "brand": "Dolphin Software",
+    "updated": "2026-10-05",
+    "schemaPath": "/schema/company-profile/",
+    "rawPath": "/schema/company-profile.json",
+    "productRoute": "/company-profile/",
+    "source": "components/company-profile/ProfileDocument.tsx",
+    "note": "SoT copy hồ sơ năng lực 2026 (bản ngắn 18 tờ). Runtime UI vẫn ở ProfileDocument; file này để đánh giá / sync text. Định vị: CRM & POS thuê bao là lõi; website / gia công phần mềm bổ sung. Giá CRM · POS · BH tách trang."
+  },
+  "document": {
+    "title": "Hồ sơ năng lực 2026",
+    "format": "18 tờ · 210×180mm",
+    "footer": "Dolphin Software – Chỉ làm những gì giúp bạn tăng trưởng"
+  },
+  "pages": [
+    {
+      "n": 1,
+      "id": "cover",
+      "title": "Trang bìa",
+      "brand": "DOLPHIN SOFTWARE",
+      "subtitle": "Hồ sơ năng lực 2026",
+      "quote": "Không bán thứ Dolphin có. Chỉ cung cấp thứ khách hàng cần – và thứ đó phải giúp tăng khách, tăng doanh thu.",
+      "focus": "Cho thuê CRM & POS — vận hành dịch vụ và cửa hàng bán hàng",
+      "industries": "CRM: Spa · Salon · Clinic · Giáo dục · … · POS: Cafe · Pet · F&B · Fashion · …",
+      "year": "2026"
+    },
+    {
+      "n": 2,
+      "id": "toc",
+      "title": "Mục lục",
+      "items": [
+        { "n": "01", "label": "Giới thiệu Dolphin Software", "page": 3 },
+        { "n": "02", "label": "Châm ngôn & Giá trị cốt lõi", "page": 4 },
+        { "n": "03", "label": "Tệp khách hàng mục tiêu", "page": 5 },
+        { "n": "04", "label": "Mô hình dịch vụ & Doanh thu", "page": 6 },
+        { "n": "05", "label": "Sản phẩm lõi: CRM & POS (thuê bao)", "page": 7 },
+        { "n": "06", "label": "Dolphin Care — Chatbot AI (Web / Zalo / Messenger)", "page": 8 },
+        { "n": "07", "label": "Dolphin Ops — Chatbox AI trên CRM", "page": 9 },
+        { "n": "08", "label": "Intelligence — Agent / workflow AI (add-on)", "page": 10 },
+        { "n": "09", "label": "Website & gia công phần mềm (bổ sung)", "page": 11 },
+        { "n": "10", "label": "Quy trình làm việc 5 bước", "page": 12 },
+        { "n": "11", "label": "Chính sách giá CRM", "page": 13 },
+        { "n": "12", "label": "Chính sách giá POS", "page": 14 },
+        { "n": "13", "label": "Chính sách bảo hành & IP", "page": 15 },
+        { "n": "14", "label": "Case study thực tế", "page": 16 },
+        { "n": "15", "label": "Đội ngũ & Cam kết", "page": 17 },
+        { "n": "16", "label": "Liên hệ", "page": 18 }
+      ]
+    },
+    {
+      "n": 3,
+      "id": "intro",
+      "title": "1. Giới thiệu Dolphin Software",
+      "layout": "split-2col · no logo — left: body/positioning/pills · right: differentiators/stats",
+      "body": "Dolphin Software cho thuê CRM cho doanh nghiệp dịch vụ và POS cho cửa hàng bán hàng. Hai dòng sản phẩm tách nhau rõ. Website và gia công phần mềm vẫn nhận làm khi anh chị cần — như dịch vụ bổ sung, không phải sản phẩm chính.",
+      "positioning": "Không bán danh sách tính năng. Bắt đầu từ chỗ đang nghẽn — chỉ làm những gì giúp tăng khách và doanh thu.",
+      "pills": [
+        "Problem-first",
+        "CRM thuê bao",
+        "POS thuê bao",
+        "Web / gia công phần mềm"
+      ],
+      "differentiators": [
+        "Bắt đầu từ bottleneck vận hành thực tế",
+        "CRM và POS thuê theo kỳ — lõi doanh thu",
+        "AI Care / Ops gắn CRM khi cần tăng trưởng",
+        "Website và gia công phần mềm nhận làm thêm",
+        "Bàn giao source với gói gia công phần mềm / Outsourcing",
+        "SaaS: quyền dùng theo kỳ — không bàn giao source nền tảng"
+      ],
+      "stats": [
+        { "n": "CRM", "label": "Dịch vụ · lịch · khách" },
+        { "n": "POS", "label": "Quầy · kho · hóa đơn" },
+        { "n": "+", "label": "Web · gia công" }
+      ]
+    },
+    {
+      "n": 4,
+      "id": "values",
+      "title": "2. Châm ngôn & Giá trị cốt lõi",
+      "quote": "Không bán thứ Dolphin có. Chỉ cung cấp thứ khách hàng cần – và thứ đó phải giúp tăng khách, tăng doanh thu.",
+      "cards": [
+        {
+          "title": "Problem-first",
+          "body": "Bắt đầu từ chỗ đang nghẽn thật — lịch rải, khách trôi, follow thủ công — không từ danh sách tính năng."
+        },
+        {
+          "title": "Tăng trưởng thực",
+          "body": "Đo bằng khách mới và doanh thu tăng thêm. Không đo bằng slide đẹp."
+        },
+        {
+          "title": "Không khóa khách (outsource)",
+          "body": "Gói gia công phần mềm / Outsourcing: bàn giao source code + tài liệu đầy đủ. SaaS thuê bao: quyền sử dụng theo kỳ — không bàn giao source nền tảng."
+        }
+      ],
+      "philosophy": {
+        "title": "Triết lý làm việc",
+        "body": "Công nghệ chỉ có giá trị khi giúp chủ doanh nghiệp ngủ ngon hơn và doanh thu tăng thật. Dolphin từ chối bán thứ “hay” nhưng không giải quyết bài toán cụ thể.",
+        "pills": ["PROBLEM", "UNDERSTAND", "SOLUTION", "IMPACT"]
+      }
+    },
+    {
+      "n": 5,
+      "id": "audience",
+      "title": "3. Tệp khách hàng mục tiêu",
+      "crmCards": [
+        {
+          "title": "Spa / Massage",
+          "body": "Lịch hẹn dày, khách quay lại, chăm sóc sau dịch vụ."
+        },
+        {
+          "title": "Nail / Beauty",
+          "body": "Booking nhanh, follow-up, giảm bỏ lỡ ngoài giờ."
+        },
+        {
+          "title": "Salon tóc",
+          "body": "Khách quen, dịch vụ lặp, nhắc lịch tự động."
+        },
+        {
+          "title": "Giáo dục",
+          "body": "Tư vấn khóa, học viên, chăm sóc phụ huynh."
+        },
+        {
+          "title": "Clinic",
+          "body": "Đặt lịch, tư vấn sơ bộ, giảm double-booking."
+        }
+      ],
+      "expand": {
+        "crm": "spa · salon · nail · clinic · giáo dục · dịch vụ khác",
+        "pos": "cafe · trà sữa · F&B · pet shop · fashion · cửa hàng bán hàng",
+        "ideal": "muốn hệ thống thuê bao chạy ngay, không cần đội IT phức tạp — quan tâm tăng khách + doanh thu"
+      }
+    },
+    {
+      "n": 6,
+      "id": "model",
+      "title": "4. Mô hình dịch vụ & Doanh thu",
+      "rows": [
+        {
+          "group": "Giải pháp lõi (thuê bao)",
+          "products": "CRM · Dolphin POS",
+          "value": "CRM: khách · lịch · follow · POS: quầy · kho · hóa đơn · kênh bán"
+        },
+        {
+          "group": "Tăng trưởng trên CRM",
+          "products": "AI Care / Ops / Intel",
+          "value": "Chăm kênh · thao tác CRM · workflow"
+        },
+        {
+          "group": "Dịch vụ bổ sung",
+          "products": "Website / Landing",
+          "value": "Hiện diện số — combo hoặc thuê làm riêng"
+        },
+        {
+          "group": "Dịch vụ bổ sung",
+          "products": "Gia công phần mềm / Outsourcing",
+          "value": "Source + tài liệu · giá phạm vi rõ"
+        }
+      ],
+      "summary": "Lõi: thuê CRM hoặc POS theo kỳ. AI gắn CRM khi cần. Website và gia công phần mềm nhận làm thêm — không thay sản phẩm thuê bao chính."
+    },
+    {
+      "n": 7,
+      "id": "crm-pos",
+      "title": "5. Sản phẩm lõi: CRM & POS (thuê bao)",
+      "lead": "Hai dòng thuê bao chính — không gộp ICP. Chọn theo cách anh chị kiếm tiền: bán dịch vụ (lịch · khách) hay bán hàng (quầy · kho).",
+      "crm": {
+        "title": "CRM — doanh nghiệp dịch vụ",
+        "bullets": [
+          "Khách · lịch · follow-up tập trung một chỗ",
+          "Giảm Excel / Zalo rời cho spa, salon, clinic, giáo dục…",
+          "Mở rộng Care / Ops / Intelligence trên cùng dữ liệu"
+        ],
+        "note": "Thuê theo kỳ — niêm yết từ 500.000đ/tháng. Không bàn giao source nền tảng. Combo & web: trang 13."
+      },
+      "pos": {
+        "title": "Dolphin POS — cửa hàng bán hàng",
+        "bullets": [
+          "Hóa đơn · quầy · tồn kho · ca · kênh bán",
+          "ICP: cafe, trà sữa, F&B, pet, fashion, shop bán hàng",
+          "Ba gói theo năm: Cơ Bản · Chuyên nghiệp · Toàn Diện"
+        ],
+        "note": "Thuê theo năm — gói phổ biến Chuyên nghiệp từ 2.520.000đ/năm. Runtime app: theo lộ trình (bảng giá đã công bố để tư vấn). Chi tiết: /chinh-sach-gia-dolphin-2026/#pos.",
+        "runtimeTodo": true
+      }
+    },
+    {
+      "n": 8,
+      "id": "care",
+      "title": "6. Dolphin Care — Chatbot AI (Web / Zalo / Messenger)",
+      "body": "Chatbot AI chăm sóc khách trên website, Zalo và Messenger. Trả lời đúng nghiệp vụ, đặt lịch, ghi lead, gửi insight cuối ngày cho admin. Không phải chatbot kịch bản cứng.",
+      "bullets": [
+        "Chăm sóc đa kênh: Web · Zalo · Messenger",
+        "Trả lời 24/7 · capture lead & đặt lịch",
+        "Tổng hợp & phân tích data cuối ngày",
+        "Insight gửi admin mỗi ngày",
+        "Không phải chatbot kịch bản cứng"
+      ],
+      "pricing": {
+        "listMonthly": "1.000.000đ / tháng",
+        "standalone": [
+          {
+            "term": "6 tháng",
+            "price": "5.100.000đ",
+            "discount": "15%",
+            "avgMonthly": "850.000đ/th"
+          },
+          {
+            "term": "12 tháng",
+            "price": "9.600.000đ",
+            "discount": "20%",
+            "avgMonthly": "800.000đ/th"
+          }
+        ],
+        "note": "Thuê lẻ Care: khách đã có CRM — không tặng Website. SaaS Care = quyền dùng theo kỳ (không bàn giao source nền tảng)."
+      }
+    },
+    {
+      "n": 9,
+      "id": "ops",
+      "title": "7. Dolphin Ops — Chatbox AI trên CRM",
+      "body": "Chatbox AI trên CRM. Anh chị nói việc cần làm, hệ thống chọn đúng tool và mở giao diện (booking, khách, báo cáo). Việc nhạy cảm thì người duyệt trước khi chạy.",
+      "bullets": [
+        "Chatbox AI gắn trực tiếp trong CRM",
+        "Booking · Customer 360 · báo cáo",
+        "Admin chỉnh form / tool trong chat",
+        "Xác nhận hành động nhạy cảm",
+        "Thao tác được các chức năng trên CRM"
+      ],
+      "pricing": {
+        "listMonthly": "1.000.000đ / tháng",
+        "prepaid": [
+          { "term": "6 tháng", "price": "6.000.000đ" },
+          { "term": "12 tháng", "price": "12.000.000đ" }
+        ],
+        "note": "Gói 6 tháng khi bán kèm CRM (theo chính sách giá 2026)."
+      }
+    },
+    {
+      "n": 10,
+      "id": "intelligence",
+      "title": "8. Intelligence — Agent / workflow AI (add-on)",
+      "body": "Agent / workflow AI (add-on). Điều phối nhiều bước nghiệp vụ, gắn action và human checkpoint. Không phải chatbot kênh khách — đó là Dolphin Care.",
+      "bullets": [
+        "Workflow theo quy trình nghiệp vụ",
+        "Agent + action kết nối hệ thống",
+        "Human checkpoint bước nhạy cảm",
+        "Mở rộng khi vận hành đã sẵn sàng"
+      ],
+      "pricing": {
+        "listMonthly": "2.000.000đ / tháng",
+        "prepaid": [
+          { "term": "6 tháng", "price": "12.000.000đ" },
+          { "term": "12 tháng", "price": "24.000.000đ" }
+        ],
+        "note": "Add-on khi đã có gói CRM (theo chính sách giá 2026)."
+      }
+    },
+    {
+      "n": 11,
+      "id": "web-outsource",
+      "title": "9. Website & gia công phần mềm (bổ sung)",
+      "lead": "Không phải sản phẩm thuê bao chính. Dolphin vẫn nhận làm website và gia công phần mềm theo yêu cầu khi bài toán cần — song song hoặc sau khi đã có CRM / POS.",
+      "website": {
+        "title": "Website / Landing",
+        "bullets": [
+          "Landing: 1.500.000đ",
+          "Website DN: 4.500.000đ",
+          "Combo CRM + Care 6 tháng+ → tặng Website",
+          "BH kỹ thuật 36 tháng"
+        ],
+        "note": "Thuê làm riêng khi cần mặt tiền online; hoặc nhận Website trong combo CRM + Care (từ 6 tháng)."
+      },
+      "outsource": {
+        "title": "Gia công phần mềm / Outsourcing",
+        "bullets": [
+          "Phạm vi: 10 – 100 triệu",
+          "BH 3 tháng sau nghiệm thu",
+          "Bàn giao source code + tài liệu đầy đủ",
+          "Không khóa hệ thống khách (outsource)"
+        ],
+        "note": "IP: Chỉ gói gia công phần mềm / Outsourcing bàn giao source. SaaS CRM / POS / Care / Ops thuê bao không gồm source nền tảng."
+      }
+    },
+    {
+      "n": 12,
+      "id": "process",
+      "title": "10. Quy trình làm việc 5 bước",
+      "steps": [
+        {
+          "n": 1,
+          "title": "Lắng nghe & Khám phá",
+          "body": "Bottleneck, mục tiêu, ngân sách, thời gian.",
+          "deliverable": "Tóm tắt vấn đề đã thống nhất"
+        },
+        {
+          "n": 2,
+          "title": "Lập kế hoạch & Báo giá",
+          "body": "Phạm vi, milestone, chi phí, bàn giao.",
+          "deliverable": "Proposal + timeline + báo giá"
+        },
+        {
+          "n": 3,
+          "title": "Phát triển theo Sprint",
+          "body": "UI, tính năng, tích hợp — demo sớm.",
+          "deliverable": "Bản build từng sprint"
+        },
+        {
+          "n": 4,
+          "title": "Kiểm thử & UAT",
+          "body": "Nghiệm thu cùng khách trước production.",
+          "deliverable": "Checklist UAT + lỗi đã xử lý"
+        },
+        {
+          "n": 5,
+          "title": "Bàn giao & Đồng hành",
+          "body": "Deploy, hướng dẫn, hỗ trợ sau live.",
+          "deliverable": "Deploy, guide, BH; source nếu outsource"
+        }
+      ]
+    },
+    {
+      "n": 13,
+      "id": "pricing-crm",
+      "title": "11. Chính sách giá CRM (2026)",
+      "lead": "Combo CRM + AI thanh toán trước theo kỳ. SaaS = quyền dùng trong hạn gói (không bàn giao source nền tảng). Giá POS và bảo hành: trang 14–15.",
+      "crmCombos": [
+        {
+          "name": "CRM Base 12",
+          "components": "CRM",
+          "term": "12 tháng",
+          "prepaid": "5.400.000đ",
+          "web": "Tặng Landing Page hoặc giảm 50% Website (còn 2.250.000đ)"
+        },
+        {
+          "name": "CRM + Care 6",
+          "components": "CRM + Dolphin Care (AI chatbot)",
+          "term": "6 tháng",
+          "prepaid": "9.000.000đ",
+          "web": "Tặng Website (4.500.000đ)"
+        },
+        {
+          "name": "CRM + Care 12",
+          "components": "CRM + Dolphin Care (AI chatbot)",
+          "term": "12 tháng",
+          "prepaid": "16.200.000đ",
+          "web": "Tặng Website (4.500.000đ)",
+          "badge": "Phổ biến"
+        },
+        {
+          "name": "CRM + Ops 6",
+          "components": "CRM + Dolphin Ops",
+          "term": "6 tháng",
+          "prepaid": "9.000.000đ",
+          "web": "Tặng Website (4.500.000đ)"
+        },
+        {
+          "name": "Full Growth 6",
+          "components": "CRM + Care + Ops",
+          "term": "6 tháng",
+          "prepaid": "15.000.000đ",
+          "web": "Tặng Website (4.500.000đ)"
+        },
+        {
+          "name": "Full Growth 12",
+          "components": "CRM + Care + Ops",
+          "term": "12 tháng",
+          "prepaid": "27.000.000đ",
+          "web": "Tặng Website (4.500.000đ)",
+          "badge": "Đầy đủ nhất"
+        }
+      ],
+      "priceSource": "lib/pricing/dolphin-pricing-policy-2026.ts",
+      "detailUrl": "/chinh-sach-gia-dolphin-2026/"
+    },
+    {
+      "n": 14,
+      "id": "pricing-pos",
+      "title": "12. Chính sách giá POS (2026)",
+      "layout": "3 plan cards (mirror website /chinh-sach-gia-dolphin-2026/#pos)",
+      "lead": "Nhóm POS — bán hàng tại quầy · web · kho · FnB. Khác CRM dịch vụ (spa/salon/clinic). Thanh toán mỗi năm. Bảng giá POS công bố cho báo giá. Triển khai app POS: TODO theo lộ trình sản phẩm.",
+      "posPlans": [
+        {
+          "name": "Cơ Bản",
+          "audience": "Mới sử dụng, cá nhân kinh doanh hoặc Hộ kinh doanh nhỏ",
+          "priceYear": "1.920.000đ",
+          "features": [
+            "Tạo hóa đơn cơ bản",
+            "Tài chính cơ bản",
+            "Bán hàng tại cửa hàng cơ bản",
+            "Bán hàng web online cơ bản",
+            "Giải pháp tích hợp ngân hàng"
+          ]
+        },
+        {
+          "name": "Chuyên nghiệp",
+          "audience": "Cá nhân kinh doanh hoặc Hộ kinh doanh có một cửa hàng",
+          "priceYear": "2.520.000đ",
+          "badge": "Phổ biến",
+          "includesLine": "Toàn bộ tính năng gói cơ bản",
+          "features": [
+            "Quản lý tồn kho cơ bản",
+            "Quản lý FnB cơ bản",
+            "Tích hợp vận chuyển",
+            "Quản lý ca",
+            "Kết nối hóa đơn điện tử",
+            "Quản lý nhân viên cơ bản"
+          ]
+        },
+        {
+          "name": "Toàn Diện",
+          "audience": "Chủ hộ kinh doanh đa kênh hoặc đa ngành nghề",
+          "priceYear": "8.400.000đ",
+          "includesLine": "Toàn bộ tính năng gói chuyên nghiệp",
+          "features": [
+            "Quản lý tồn kho nâng cao",
+            "Quản lý FnB nâng cao",
+            "Tích điểm khách hàng",
+            "Bán hàng MXH - Chat đa kênh",
+            "Thêm nhiều cửa hàng",
+            "Quản lý sàn TMĐT"
+          ]
+        }
+      ],
+      "runtimeTodo": true,
+      "priceSource": "lib/pricing/dolphin-pos-policy-2026.ts",
+      "detailUrl": "/chinh-sach-gia-dolphin-2026/#pos"
+    },
+    {
+      "n": 15,
+      "id": "warranty",
+      "title": "13. Chính sách bảo hành & IP",
+      "lead": "Phạm vi bảo hành theo loại sản phẩm. SaaS = quyền dùng trong hạn gói; gia công / website one-time theo nghiệm thu.",
+      "items": [
+        "Website: 36 tháng BH kỹ thuật",
+        "CRM · POS · AI (SaaS): trong hạn gói đã thanh toán",
+        "Outsource / gia công phần mềm: 3 tháng sau UAT",
+        "Bàn giao source chỉ với gói gia công phần mềm / Outsourcing (và website one-time trong phạm vi đã nghiệm thu)",
+        "SaaS CRM / POS / Care / Ops: không bàn giao source nền tảng"
+      ],
+      "detailUrl": "/chinh-sach-bao-hanh-ho-tro-2026/"
+    },
+    {
+      "n": 16,
+      "id": "cases",
+      "title": "14. Case study thực tế",
+      "items": [
+        {
+          "title": "Billiard",
+          "problem": "Giấy/Excel, thất thoát ca.",
+          "solution": "Bản đồ bàn, timer, tổng kết ca.",
+          "result": "Giảm gần như toàn bộ lệch ca / sót sổ; tiết kiệm ~1 giờ chốt sổ mỗi ngày."
+        },
+        {
+          "title": "Sân cầu lông",
+          "problem": "Gọi hỏi chỗ, chồng lịch.",
+          "solution": "Web + lịch trống + quy trình đặt.",
+          "result": "Giảm rõ cuộc gọi hỏi chỗ trống; đặt lịch chính xác hơn, ít chồng khung giờ."
+        },
+        {
+          "title": "Spa / Beauty",
+          "problem": "Bỏ lỡ ngoài giờ, follow thủ công.",
+          "solution": "Booking + Care (Chatbot) 24/7.",
+          "result": "Tăng ~25–30% booking phát sinh khung 22h–8h sáng (kênh chatbot ngoài giờ)."
+        },
+        {
+          "title": "Clinic & Ticket",
+          "problem": "Double-booking, thanh toán rời.",
+          "solution": "Luồng đặt + thanh toán thống nhất.",
+          "result": "Tăng tỷ lệ hoàn tất đặt chỗ; ít double-booking hơn trước khi live."
+        },
+        {
+          "title": "Edu",
+          "problem": "Lead tư vấn rời Zalo/Excel, sót follow học viên.",
+          "solution": "CRM học viên + Care tư vấn / đặt lịch.",
+          "result": "Giảm sót lead follow; pipeline tư vấn theo dõi được theo tuần."
+        },
+        {
+          "title": "Nha khoa",
+          "problem": "Chồng lịch khám, hỏi ngoài giờ bỏ lỡ.",
+          "solution": "Booking + Care (Chatbot) 24/7 trên kênh sẵn có.",
+          "result": "Đặt chỗ ổn định hơn; ít cuộc gọi hỏi lặp ngoài giờ."
+        }
+      ]
+    },
+    {
+      "n": 17,
+      "id": "team",
+      "title": "15. Đội ngũ & Cam kết",
+      "founder": {
+        "role": "Founder / Solution Architect",
+        "name": "Nguyễn Chí Thành",
+        "bio": "Hơn 7 năm backend trên sản phẩm live (Marathon, Myspa, Splus) — team lead, xử lý sự cố production, thiết kế hệ thống. Tư duy production áp vào mọi dự án Dolphin Software.",
+        "pills": ["Go / Node", "Cloud / DevOps", "CRM · AI Agent"]
+      },
+      "commitments": [
+        "Outsource / gia công phần mềm: bàn giao source + tài liệu đầy đủ",
+        "SaaS: quyền dùng theo kỳ — không bàn giao source nền tảng",
+        "Checklist UAT trước bàn giao",
+        "Đào tạo 1–2 buổi tùy gói",
+        "Hỗ trợ sau bàn giao theo SLA",
+        "Chỉ làm việc tăng khách & doanh thu"
+      ],
+      "closing": "Không bán công nghệ vì công nghệ. Bán kết quả kinh doanh."
+    },
+    {
+      "n": 18,
+      "id": "contact",
+      "title": "16. Liên hệ",
+      "lead": "Cho chúng tôi biết bottleneck hiện tại — chỉ đề xuất những gì giúp tăng khách, tăng doanh thu.",
+      "company": "Dolphin Software",
+      "address": "2 Hồng Hà, Tân Sơn Hòa, Hồ Chí Minh, Việt Nam",
+      "hotlineNote": "Hotline / Zalo: theo ?sdt= hoặc số mặc định runtime",
+      "website": "https://dolphin-software.io.vn",
+      "cta": "Chat Zalo để tư vấn CRM, POS hoặc dịch vụ web / gia công phần mềm phù hợp bài toán của anh chị.",
+      "end": [
+        "— Kết thúc Hồ sơ năng lực —",
+        "Dolphin Software © 2026"
+      ]
+    }
+  ]
+}

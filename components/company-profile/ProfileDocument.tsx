@@ -15,6 +15,10 @@ import {
   SAAS_MONTHLY,
   formatVnd,
 } from "@/lib/pricing/dolphin-pricing-policy-2026";
+import {
+  POS_PLANS,
+  POS_POLICY_META,
+} from "@/lib/pricing/dolphin-pos-policy-2026";
 
 export type ProfilePageProps = {
   /** Hotline / Zalo display from `?sdt=` (already resolved). */
@@ -90,14 +94,15 @@ function CoverPage() {
         </div>
         <blockquote className="cp-cover-quote">
           “Không bán thứ Dolphin có. Chỉ cung cấp thứ khách hàng cần – và thứ đó
-          phải giúp tăng khách, tăng doanh thu, phát triển công ty.”
+          phải giúp tăng khách, tăng doanh thu.”
         </blockquote>
         <div className="cp-cover-bottom">
           <p className="cp-cover-focus">
-            Giải pháp CRM + AI cho doanh nghiệp dịch vụ
+            Cho thuê CRM &amp; POS — vận hành dịch vụ và cửa hàng bán hàng
           </p>
           <p className="cp-cover-industries">
-            CRM đa ngành · Spa · Nail · Salon · Giáo dục · Clinic · Vận tải · …
+            CRM: Spa · Salon · Clinic · Giáo dục · … · POS: Cafe · Pet · F&amp;B
+            · Fashion · …
           </p>
           <p className="cp-cover-year">2026</p>
         </div>
@@ -111,16 +116,18 @@ const TOC_ITEMS = [
   { n: "02", label: "Châm ngôn & Giá trị cốt lõi", page: 4 },
   { n: "03", label: "Tệp khách hàng mục tiêu", page: 5 },
   { n: "04", label: "Mô hình dịch vụ & Doanh thu", page: 6 },
-  { n: "05", label: "Sản phẩm lõi: CRM", page: 7 },
+  { n: "05", label: "Sản phẩm lõi: CRM & POS (thuê bao)", page: 7 },
   { n: "06", label: "Dolphin Care — Chatbot AI (Web / Zalo / Messenger)", page: 8 },
   { n: "07", label: "Dolphin Ops — Chatbox AI trên CRM", page: 9 },
   { n: "08", label: "Intelligence — Agent / workflow AI (add-on)", page: 10 },
-  { n: "09", label: "Website & Outsourcing", page: 11 },
+  { n: "09", label: "Website & gia công phần mềm (bổ sung)", page: 11 },
   { n: "10", label: "Quy trình làm việc 5 bước", page: 12 },
-  { n: "11", label: "Chính sách giá & Bảo hành", page: 13 },
-  { n: "12", label: "Case study thực tế", page: 14 },
-  { n: "13", label: "Đội ngũ & Cam kết", page: 15 },
-  { n: "14", label: "Liên hệ", page: 16 },
+  { n: "11", label: "Chính sách giá CRM", page: 13 },
+  { n: "12", label: "Chính sách giá POS", page: 14 },
+  { n: "13", label: "Chính sách bảo hành & IP", page: 15 },
+  { n: "14", label: "Case study thực tế", page: 16 },
+  { n: "15", label: "Đội ngũ & Cam kết", page: 17 },
+  { n: "16", label: "Liên hệ", page: 18 },
 ] as const;
 
 function TocPage() {
@@ -142,59 +149,58 @@ function TocPage() {
 function IntroPage() {
   return (
     <PageShell page={3} title="1. Giới thiệu Dolphin Software" titleId="cp-intro">
-      <div className="cp-split cp-split--fill">
+      <div className="cp-split cp-split--fill cp-intro-split">
         <div className="cp-stack-fill">
           <p className="cp-p">
-            <strong>Dolphin Software</strong> cung cấp giải pháp vận hành cho
-            doanh nghiệp dịch vụ B2B tại Việt Nam — tập trung{" "}
-            <strong>spa, nail, salon, giáo dục, clinic</strong>, mở rộng sang
-            F&amp;B, showroom, vận tải và doanh nghiệp cần hệ thống linh hoạt.
+            <strong>Dolphin Software</strong> cho thuê <strong>CRM</strong> cho
+            doanh nghiệp dịch vụ và <strong>POS</strong> cho cửa hàng bán hàng.
+            Hai dòng sản phẩm tách nhau rõ. Website và gia công phần mềm vẫn
+            nhận làm khi anh chị cần — như dịch vụ bổ sung, không phải sản phẩm
+            chính.
           </p>
           <div className="cp-box cp-box--accent" style={{ marginTop: 8 }}>
             <p className="cp-p" style={{ margin: 0, fontSize: "9pt" }}>
               <strong>Định vị:</strong> Không bán danh sách tính năng. Bắt đầu từ
-              vấn đề kinh doanh — chỉ xây những gì giúp tăng khách và doanh thu.
+              chỗ đang nghẽn — chỉ làm những gì giúp tăng khách và doanh thu.
             </p>
           </div>
-          <div className="cp-pill-row">
+          <div className="cp-pill-row" style={{ marginTop: "auto" }}>
             <span className="cp-pill">Problem-first</span>
-            <span className="cp-pill">CRM nền tảng</span>
-            <span className="cp-pill">AI tăng trưởng</span>
-            <span className="cp-pill">Source khi outsource</span>
+            <span className="cp-pill">CRM thuê bao</span>
+            <span className="cp-pill">POS thuê bao</span>
+            <span className="cp-pill">Web / gia công phần mềm</span>
           </div>
-          <h3 className="cp-h3">Chúng tôi khác biệt</h3>
-          <ul className="cp-check cp-check--2col" style={{ flex: 1 }}>
-            <li>Bắt đầu từ bottleneck vận hành</li>
-            <li>CRM thuê bao · AI tăng trưởng</li>
-            <li>Website hỗ trợ hiện diện (combo)</li>
-            <li>Outsource may đo, giá rõ</li>
+        </div>
+        <div className="cp-stack-fill">
+          <h3 className="cp-h3" style={{ marginTop: 0 }}>
+            Chúng tôi khác biệt
+          </h3>
+          <ul className="cp-check" style={{ flex: 1 }}>
+            <li>Bắt đầu từ bottleneck vận hành thực tế</li>
+            <li>CRM và POS thuê theo kỳ — lõi doanh thu</li>
+            <li>AI Care / Ops gắn CRM khi cần tăng trưởng</li>
+            <li>Website và gia công phần mềm nhận làm thêm</li>
             <li>
-              Bàn giao source code đầy đủ với gói{" "}
-              <strong>may đo / Outsourcing</strong>
+              Bàn giao source với gói{" "}
+              <strong>gia công phần mềm / Outsourcing</strong>
             </li>
             <li>SaaS: quyền dùng theo kỳ — không bàn giao source nền tảng</li>
           </ul>
           <div className="cp-stat-row">
             <div className="cp-stat">
               <span className="cp-stat__n">CRM</span>
-              <span className="cp-stat__l">Vận hành lõi</span>
+              <span className="cp-stat__l">Dịch vụ · lịch · khách</span>
             </div>
             <div className="cp-stat">
-              <span className="cp-stat__n">AI</span>
-              <span className="cp-stat__l">Care · Ops · Intel</span>
+              <span className="cp-stat__n">POS</span>
+              <span className="cp-stat__l">Quầy · kho · hóa đơn</span>
             </div>
             <div className="cp-stat">
-              <span className="cp-stat__n">36 th</span>
-              <span className="cp-stat__l">BH website</span>
+              <span className="cp-stat__n">+</span>
+              <span className="cp-stat__l">Web · gia công</span>
             </div>
           </div>
         </div>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={assetPath(IMG.about)}
-          alt="Logo Dolphin Software"
-          className="cp-media cp-media--fill cp-media--logo"
-        />
       </div>
     </PageShell>
   );
@@ -205,27 +211,29 @@ function ValuesPage() {
     <PageShell page={4} title="2. Châm ngôn & Giá trị cốt lõi" titleId="cp-values">
       <blockquote className="cp-quote" style={{ marginBottom: 8, fontSize: "10pt", flexShrink: 0 }}>
         “Không bán thứ Dolphin có. Chỉ cung cấp thứ khách hàng cần – và thứ đó
-        phải giúp tăng khách, tăng doanh thu, phát triển công ty.”
+        phải giúp tăng khách, tăng doanh thu.”
       </blockquote>
 
       <div className="cp-grid-3" style={{ flexShrink: 0 }}>
         <div className="cp-card cp-card--soft">
           <h4 className="cp-card__title">Problem-first</h4>
           <p className="cp-card__body">
-            Bắt đầu từ bottleneck vận hành thực tế — không từ danh sách tính năng.
+            Bắt đầu từ chỗ đang nghẽn thật — lịch rải, khách trôi, follow thủ
+            công — không từ danh sách tính năng.
           </p>
         </div>
         <div className="cp-card cp-card--soft">
           <h4 className="cp-card__title">Tăng trưởng thực</h4>
           <p className="cp-card__body">
-            Đo bằng khách mới và doanh thu tăng thêm — không bằng slide đẹp.
+            Đo bằng khách mới và doanh thu tăng thêm. Không đo bằng slide đẹp.
           </p>
         </div>
         <div className="cp-card cp-card--soft">
           <h4 className="cp-card__title">Không khóa khách (outsource)</h4>
           <p className="cp-card__body">
-            Gói may đo / Outsourcing: bàn giao source code + tài liệu đầy đủ.
-            SaaS thuê bao: quyền sử dụng theo kỳ — không bàn giao source nền tảng.
+            Gói gia công phần mềm / Outsourcing: bàn giao source code + tài liệu
+            đầy đủ. SaaS thuê bao: quyền sử dụng theo kỳ — không bàn giao source
+            nền tảng.
           </p>
         </div>
       </div>
@@ -238,7 +246,7 @@ function ValuesPage() {
           <p className="cp-p" style={{ marginBottom: 8, fontSize: "9.5pt" }}>
             Công nghệ chỉ có giá trị khi giúp chủ doanh nghiệp ngủ ngon hơn và
             doanh thu tăng thật. Dolphin từ chối bán thứ “hay” nhưng không giải
-            quyết bài toán kinh doanh cụ thể.
+            quyết bài toán cụ thể.
           </p>
           <div className="cp-pill-row">
             <span className="cp-pill">PROBLEM</span>
@@ -262,7 +270,7 @@ function AudiencePage() {
   const cards = [
     {
       title: "Spa / Massage",
-      body: "Lịch hẹn, khách quay lại, chăm sóc sau dịch vụ.",
+      body: "Lịch hẹn dày, khách quay lại, chăm sóc sau dịch vụ.",
       img: IMG.spa,
     },
     {
@@ -311,12 +319,15 @@ function AudiencePage() {
             Mở rộng
           </h3>
           <p className="cp-p" style={{ fontSize: "9.5pt" }}>
-            F&amp;B · Showroom / BĐS · Vận tải · Dịch vụ khác · Doanh nghiệp cần
-            hệ thống linh hoạt, giá hợp lý.
+            <strong>CRM:</strong> spa · salon · nail · clinic · giáo dục · dịch
+            vụ khác.
+            <br />
+            <strong>POS:</strong> cafe · trà sữa · F&amp;B · pet shop · fashion ·
+            cửa hàng bán hàng.
           </p>
           <p className="cp-p" style={{ margin: 0, fontSize: "9pt" }}>
-            <strong>Khách lý tưởng:</strong> muốn hệ thống chạy ngay, không cần
-            đội IT phức tạp, quan tâm tăng khách + doanh thu.
+            <strong>Khách lý tưởng:</strong> muốn hệ thống thuê bao chạy ngay,
+            không cần đội IT phức tạp — quan tâm tăng khách + doanh thu.
           </p>
         </div>
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -347,39 +358,42 @@ function ModelPage() {
             <tbody>
               <tr>
                 <td>
-                  <strong>Giải pháp lõi</strong>
+                  <strong>Giải pháp lõi (thuê bao)</strong>
                 </td>
-                <td>CRM (thuê theo kỳ)</td>
-                <td>Vận hành khách · lịch · follow tập trung</td>
+                <td>CRM · Dolphin POS</td>
+                <td>
+                  CRM: khách · lịch · follow · POS: quầy · kho · hóa đơn · kênh
+                  bán
+                </td>
               </tr>
               <tr>
                 <td>
-                  <strong>Giải pháp tăng trưởng</strong>
+                  <strong>Tăng trưởng trên CRM</strong>
                 </td>
                 <td>AI Care / Ops / Intel</td>
                 <td>Chăm kênh · thao tác CRM · workflow</td>
               </tr>
               <tr>
                 <td>
-                  <strong>Hỗ trợ hiện diện số</strong>
+                  <strong>Dịch vụ bổ sung</strong>
                 </td>
                 <td>Website / Landing</td>
-                <td>Tặng hoặc giảm sâu theo combo CRM</td>
+                <td>Hiện diện số — combo hoặc thuê làm riêng</td>
               </tr>
               <tr>
                 <td>
-                  <strong>May đo / Outsourcing</strong>
+                  <strong>Dịch vụ bổ sung</strong>
                 </td>
-                <td>Phần mềm theo yêu cầu</td>
+                <td>Gia công phần mềm / Outsourcing</td>
                 <td>Source + tài liệu · giá phạm vi rõ</td>
               </tr>
             </tbody>
           </table>
           <p className="cp-p" style={{ margin: 0, fontSize: "9.5pt" }}>
-            <strong>CRM</strong> là nền vận hành · <strong>AI</strong> đẩy tăng
-            trưởng · <strong>Website</strong> hỗ trợ hiện diện ·{" "}
-            <strong>Outsource</strong> khi cần hệ thống riêng (có bàn giao
-            source).
+            <strong>Lõi:</strong> thuê <strong>CRM</strong> hoặc{" "}
+            <strong>POS</strong> theo kỳ. <strong>AI</strong> gắn CRM khi cần.{" "}
+            <strong>Website và gia công phần mềm</strong> nhận làm thêm — không
+            thay sản phẩm thuê bao chính.
           </p>
         </div>
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -394,43 +408,81 @@ function ModelPage() {
   );
 }
 
-function CrmPage() {
-  const crmMonthly = SAAS_MONTHLY.find((r) => r.product === "CRM")?.price ?? 500_000;
+function CrmPosPage() {
+  const crmMonthly =
+    SAAS_MONTHLY.find((r) => r.product === "CRM")?.price ?? 500_000;
+  const posPopular =
+    POS_PLANS.find((p) => p.popular) ?? POS_PLANS[1] ?? POS_PLANS[0];
 
   return (
-    <PageShell page={7} title="5. Sản phẩm lõi: CRM" titleId="cp-crm">
-      <div className="cp-split cp-split--fill">
-        <div className="cp-stack-fill">
-          <p className="cp-p" style={{ marginBottom: 8 }}>
-            Quản lý khách hàng, lịch hẹn và follow-up tập trung —{" "}
-            <strong>nền tảng vận hành</strong> cho doanh nghiệp dịch vụ. CRM chạy
-            lõi; <strong>Care (Chatbot)</strong> / <strong>Ops (Chatbox)</strong>{" "}
-            gắn thêm khi cần tăng trưởng trên cùng dữ liệu khách.
-          </p>
-          <h3 className="cp-h3">Giá trị nghiệp vụ</h3>
-          <ul className="cp-check" style={{ marginBottom: 8 }}>
-            <li>Một nơi theo dõi khách, lịch, trạng thái — giảm Excel / Zalo rời</li>
-            <li>Follow-up có chủ — ít sót lead và nhắc hẹn</li>
-            <li>Phân quyền theo vai trò (lễ tân / quản lý / vận hành)</li>
-            <li>Mở rộng Care / Ops / Intelligence khi đã có CRM</li>
+    <PageShell
+      page={7}
+      title="5. Sản phẩm lõi: CRM & POS (thuê bao)"
+      titleId="cp-crm-pos"
+    >
+      <p className="cp-p" style={{ marginBottom: 8, fontSize: "9pt" }}>
+        Hai dòng thuê bao chính — <strong>không gộp ICP</strong>. Chọn theo cách
+        anh chị kiếm tiền: bán dịch vụ (lịch · khách) hay bán hàng (quầy · kho).
+      </p>
+      <div className="cp-grid-2 cp-split--fill">
+        <div className="cp-card cp-card--fill">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={assetPath(IMG.crm)}
+            alt="Minh họa CRM vận hành dịch vụ"
+            className="cp-media cp-media--card-hero"
+          />
+          <h3 className="cp-h3" style={{ marginTop: 0 }}>
+            CRM — doanh nghiệp dịch vụ
+          </h3>
+          <ul className="cp-check" style={{ flex: 1 }}>
+            <li>Khách · lịch · follow-up tập trung một chỗ</li>
+            <li>Giảm Excel / Zalo rời cho spa, salon, clinic, giáo dục…</li>
+            <li>Mở rộng Care / Ops / Intelligence trên cùng dữ liệu</li>
           </ul>
-          <div className="cp-box cp-box--accent" style={{ padding: "8px 10px" }}>
-            <p className="cp-p" style={{ margin: 0, fontSize: "9pt" }}>
-              <strong>Mô hình:</strong> SaaS thuê theo kỳ (niêm yết từ{" "}
-              {formatVnd(crmMonthly)}
-              /tháng) — quyền sử dụng trong hạn gói,{" "}
-              <strong>không bàn giao source nền tảng CRM</strong>. Chi tiết gói
-              combo &amp; quyền lợi web: trang{" "}
-              <strong>11. Chính sách giá &amp; Bảo hành</strong>.
+          <div
+            className="cp-box cp-box--accent"
+            style={{ marginTop: 8, padding: "8px 10px" }}
+          >
+            <p className="cp-p" style={{ margin: 0, fontSize: "8.5pt" }}>
+              Thuê theo kỳ — niêm yết từ {formatVnd(crmMonthly)}/tháng. Không bàn
+              giao source nền tảng. Combo &amp; web: trang 13.
             </p>
           </div>
         </div>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={assetPath(IMG.crm)}
-          alt="Minh họa CRM vận hành"
-          className="cp-media cp-media--fill"
-        />
+
+        <div className="cp-card cp-card--fill">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={assetPath(IMG.tech)}
+            alt="Minh họa Dolphin POS cửa hàng"
+            className="cp-media cp-media--card-hero"
+          />
+          <h3 className="cp-h3" style={{ marginTop: 0 }}>
+            Dolphin POS — cửa hàng bán hàng
+          </h3>
+          <ul className="cp-check" style={{ flex: 1 }}>
+            <li>Hóa đơn · quầy · tồn kho · ca · kênh bán</li>
+            <li>ICP: cafe, trà sữa, F&amp;B, pet, fashion, shop bán hàng</li>
+            <li>Ba gói theo năm: Cơ Bản · Chuyên nghiệp · Toàn Diện</li>
+          </ul>
+          <div
+            className="cp-box cp-box--accent"
+            style={{ marginTop: 8, padding: "8px 10px" }}
+          >
+            <p className="cp-p" style={{ margin: 0, fontSize: "8.5pt" }}>
+              Thuê theo năm — gói phổ biến{" "}
+              <strong>{posPopular?.name}</strong> từ{" "}
+              {formatVnd(posPopular?.priceYear ?? 0)}
+              /năm. Runtime app: theo lộ trình (bảng giá đã công bố để tư vấn).
+              Chi tiết:{" "}
+              <a href="https://dolphin-software.io.vn/chinh-sach-gia-dolphin-2026/#pos">
+                chính sách giá POS
+              </a>
+              .
+            </p>
+          </div>
+        </div>
       </div>
     </PageShell>
   );
@@ -446,9 +498,9 @@ function CarePage() {
       <div className="cp-split cp-split--fill cp-split--ai-product">
         <div className="cp-stack-fill">
           <p className="cp-p">
-            <strong>Chatbot AI</strong> chăm sóc khách trên{" "}
-            <strong>website / Zalo / Messenger</strong> — hiểu ngữ cảnh, đặt lịch,
-            ghi lead, và tổng hợp phân tích data cuối ngày.
+            <strong>Chatbot AI</strong> chăm sóc khách trên website, Zalo và
+            Messenger. Trả lời đúng nghiệp vụ, đặt lịch, ghi lead, gửi insight
+            cuối ngày cho admin. Không phải chatbot kịch bản cứng.
           </p>
           <ul className="cp-check" style={{ flex: 1 }}>
             <li>Chăm sóc đa kênh: Web · Zalo · Messenger</li>
@@ -490,8 +542,9 @@ function OpsPage() {
       <div className="cp-split cp-split--fill cp-split--ai-product">
         <div className="cp-stack-fill">
           <p className="cp-p">
-            <strong>Chatbox AI trên CRM</strong> — nói việc cần làm, hệ thống
-            chọn đúng tool và mở giao diện CRM (booking, khách, báo cáo).
+            <strong>Chatbox AI trên CRM</strong>. Anh chị nói việc cần làm, hệ
+            thống chọn đúng tool và mở giao diện (booking, khách, báo cáo). Việc
+            nhạy cảm thì người duyệt trước khi chạy.
           </p>
           <ul className="cp-check" style={{ flex: 1 }}>
             <li>Chatbox AI gắn trực tiếp trong CRM</li>
@@ -531,10 +584,9 @@ function IntelligencePage() {
       <div className="cp-split cp-split--fill cp-split--ai-product">
         <div className="cp-stack-fill">
           <p className="cp-p">
-            <strong>Agent / workflow AI</strong> (add-on) — điều phối nhiều bước
-            nghiệp vụ, gắn action và human checkpoint.{" "}
-            <strong>Không phải</strong> chatbot kênh khách (Web / Zalo /
-            Messenger — đó là Dolphin Care).
+            <strong>Agent / workflow AI</strong> (add-on). Điều phối nhiều bước
+            nghiệp vụ, gắn action và human checkpoint. Không phải chatbot kênh
+            khách — đó là Dolphin Care.
           </p>
           <ul className="cp-check" style={{ flex: 1 }}>
             <li>Workflow theo quy trình nghiệp vụ</li>
@@ -565,7 +617,16 @@ function IntelligencePage() {
 
 function WebOutsourcePage() {
   return (
-    <PageShell page={11} title="9. Website & Outsourcing" titleId="cp-web">
+    <PageShell
+      page={11}
+      title="9. Website & gia công phần mềm (bổ sung)"
+      titleId="cp-web"
+    >
+      <p className="cp-p" style={{ marginBottom: 8, fontSize: "9pt" }}>
+        Không phải sản phẩm thuê bao chính. Dolphin <strong>vẫn nhận làm</strong>{" "}
+        website và gia công phần mềm theo yêu cầu khi bài toán cần — song song
+        hoặc sau khi đã có CRM / POS.
+      </p>
       <div className="cp-grid-2 cp-split--fill">
         <div className="cp-card cp-card--fill">
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -588,10 +649,13 @@ function WebOutsourcePage() {
               BH kỹ thuật <strong>36 tháng</strong>
             </li>
           </ul>
-          <div className="cp-box cp-box--accent" style={{ marginTop: 8, padding: "8px 10px" }}>
+          <div
+            className="cp-box cp-box--accent"
+            style={{ marginTop: 8, padding: "8px 10px" }}
+          >
             <p className="cp-p" style={{ margin: 0, fontSize: "8.5pt" }}>
-              Combo <strong>CRM + Dolphin Care</strong> (AI chatbot) từ 6 tháng →{" "}
-              <strong>tặng Website</strong>.
+              Thuê làm riêng khi cần mặt tiền online; hoặc nhận Website trong
+              combo CRM + Care (từ 6 tháng).
             </p>
           </div>
         </div>
@@ -605,7 +669,7 @@ function WebOutsourcePage() {
             aria-hidden
           />
           <h3 className="cp-h3" style={{ marginTop: 0 }}>
-            Outsourcing
+            Gia công phần mềm / Outsourcing
           </h3>
           <ul className="cp-check" style={{ flex: 1 }}>
             <li>Phạm vi: 10 – 100 triệu</li>
@@ -615,10 +679,14 @@ function WebOutsourcePage() {
             </li>
             <li>Không khóa hệ thống khách (outsource)</li>
           </ul>
-          <div className="cp-box cp-box--accent" style={{ marginTop: 8, padding: "8px 10px" }}>
+          <div
+            className="cp-box cp-box--accent"
+            style={{ marginTop: 8, padding: "8px 10px" }}
+          >
             <p className="cp-p" style={{ margin: 0, fontSize: "8.5pt" }}>
-              <strong>IP:</strong> Chỉ gói may đo / Outsourcing bàn giao source.
-              SaaS CRM/Care/Ops thuê bao không gồm source nền tảng.
+              <strong>IP:</strong> Chỉ gói gia công phần mềm / Outsourcing bàn
+              giao source. SaaS CRM / POS / Care / Ops thuê bao không gồm source
+              nền tảng.
             </p>
           </div>
         </div>
@@ -688,19 +756,24 @@ function ProcessPage() {
   );
 }
 
-function PricingPage() {
+function PricingCrmPage() {
   return (
-    <PageShell page={13} title="11. Chính sách giá & Bảo hành (2026)" titleId="cp-price">
+    <PageShell
+      page={13}
+      title="11. Chính sách giá CRM (2026)"
+      titleId="cp-price-crm"
+    >
       <div className="cp-stack-fill" style={{ justifyContent: "flex-start" }}>
         <p className="cp-p" style={{ marginBottom: 8, fontSize: "9pt" }}>
-          Bảng combo chính thức — thanh toán trước theo kỳ. SaaS = quyền dùng
-          trong hạn gói (không bàn giao source nền tảng).
+          Combo <strong>CRM + AI</strong> thanh toán trước theo kỳ. SaaS = quyền
+          dùng trong hạn gói (không bàn giao source nền tảng). Giá POS và bảo
+          hành: trang 14–15.
         </p>
-        <div style={{ marginBottom: 12, width: "100%" }}>
+        <div style={{ width: "100%" }}>
           <table className="cp-table">
             <thead>
               <tr>
-                <th>Gói</th>
+                <th>Gói CRM / AI</th>
                 <th>Thành phần</th>
                 <th>Kỳ</th>
                 <th>Trả trước</th>
@@ -723,18 +796,119 @@ function PricingPage() {
             </tbody>
           </table>
         </div>
-        <h3 className="cp-h3">Bảo hành &amp; IP</h3>
+        <p className="cp-p" style={{ marginTop: 10, marginBottom: 0, fontSize: "8.5pt" }}>
+          Chi tiết đầy đủ:{" "}
+          <a href="https://dolphin-software.io.vn/chinh-sach-gia-dolphin-2026/">
+            chính sách giá CRM · AI 2026
+          </a>
+          .
+        </p>
+      </div>
+    </PageShell>
+  );
+}
+
+function PricingPosPage() {
+  return (
+    <PageShell
+      page={14}
+      title="12. Chính sách giá POS (2026)"
+      titleId="cp-price-pos"
+    >
+      <div className="cp-stack-fill" style={{ justifyContent: "flex-start" }}>
+        <p className="cp-p" style={{ marginBottom: 8, fontSize: "9pt" }}>
+          <strong>Dolphin POS</strong> — {POS_POLICY_META.lead} Thanh toán{" "}
+          {POS_POLICY_META.billingYearLabel.toLowerCase()}.{" "}
+          {POS_POLICY_META.statusNote}
+        </p>
+        <div className="cp-grid-3 cp-pos-plans">
+          {POS_PLANS.map((plan) => {
+            const features = plan.includesLine
+              ? [plan.includesLine, ...plan.features]
+              : [...plan.features];
+            return (
+              <div
+                key={plan.id}
+                className={
+                  plan.popular
+                    ? "cp-card cp-card--fill cp-pos-plan cp-pos-plan--popular"
+                    : "cp-card cp-card--fill cp-pos-plan"
+                }
+              >
+                <div className="cp-pos-plan__head">
+                  <h3 className="cp-h3" style={{ margin: 0 }}>
+                    {plan.name}
+                  </h3>
+                  {plan.badge ? (
+                    <span className="cp-pos-plan__badge">{plan.badge}</span>
+                  ) : null}
+                </div>
+                <p className="cp-pos-plan__audience">{plan.audience}</p>
+                <p className="cp-pos-plan__price">
+                  {formatVnd(plan.priceYear)}
+                  <span> / năm</span>
+                </p>
+                <p className="cp-pos-plan__metric">
+                  {POS_POLICY_META.billingYearLabel} · thanh toán trước
+                </p>
+                <ul className="cp-check cp-pos-plan__features">
+                  {features.map((f) => (
+                    <li key={f}>{f}</li>
+                  ))}
+                </ul>
+              </div>
+            );
+          })}
+        </div>
+        <p
+          className="cp-p"
+          style={{ marginTop: 8, marginBottom: 0, fontSize: "8.5pt" }}
+        >
+          Chi tiết / ngành:{" "}
+          <a href="https://dolphin-software.io.vn/chinh-sach-gia-dolphin-2026/#pos">
+            chính sách giá POS trên website
+          </a>
+          . Bảo hành &amp; IP: trang 15.
+        </p>
+      </div>
+    </PageShell>
+  );
+}
+
+function WarrantyPage() {
+  return (
+    <PageShell
+      page={15}
+      title="13. Chính sách bảo hành & IP"
+      titleId="cp-warranty"
+    >
+      <div className="cp-stack-fill" style={{ justifyContent: "center" }}>
+        <p className="cp-p" style={{ marginBottom: 10, fontSize: "9pt" }}>
+          Phạm vi bảo hành theo loại sản phẩm. SaaS = quyền dùng trong hạn gói;
+          gia công / website one-time theo nghiệm thu.
+        </p>
         <ul className="cp-check">
           <li>
             Website: <strong>36 tháng</strong> BH kỹ thuật
           </li>
-          <li>CRM + AI (SaaS): trong hạn gói đã thanh toán</li>
-          <li>Outsource / may đo: 3 tháng sau UAT</li>
+          <li>CRM · POS · AI (SaaS): trong hạn gói đã thanh toán</li>
+          <li>Outsource / gia công phần mềm: 3 tháng sau UAT</li>
           <li>
-            <strong>Bàn giao source</strong> chỉ với gói may đo / Outsourcing
-            (và website one-time trong phạm vi đã nghiệm thu)
+            <strong>Bàn giao source</strong> chỉ với gói gia công phần mềm /
+            Outsourcing (và website one-time trong phạm vi đã nghiệm thu)
+          </li>
+          <li>
+            SaaS CRM / POS / Care / Ops: <strong>không</strong> bàn giao source
+            nền tảng
           </li>
         </ul>
+        <p className="cp-p" style={{ marginTop: 12, marginBottom: 0, fontSize: "8.5pt" }}>
+          Chi tiết SLA / Maintenance:{" "}
+          <a href="https://dolphin-software.io.vn/chinh-sach-bao-hanh-ho-tro-2026/">
+            chính sách bảo hành &amp; hỗ trợ 2026
+          </a>
+          .
+        </p>
       </div>
     </PageShell>
   );
@@ -784,7 +958,7 @@ function CasesPage() {
   ] as const;
 
   return (
-    <PageShell page={14} title="12. Case study thực tế" titleId="cp-cases">
+    <PageShell page={16} title="14. Case study thực tế" titleId="cp-cases">
       <ol className="cp-case-process" aria-label="6 case study">
         {cases.map((c) => (
           <li key={c.title} className="cp-case-process__step">
@@ -814,7 +988,7 @@ function CasesPage() {
 
 function TeamPage() {
   return (
-    <PageShell page={15} title="13. Đội ngũ & Cam kết" titleId="cp-team">
+    <PageShell page={17} title="15. Đội ngũ & Cam kết" titleId="cp-team">
       <div className="cp-stack-fill" style={{ justifyContent: "center", maxWidth: "42rem" }}>
         <div className="cp-founder">
           <p className="cp-founder__role">Founder / Solution Architect</p>
@@ -834,7 +1008,9 @@ function TeamPage() {
         </div>
         <h3 className="cp-h3">Cam kết</h3>
         <ul className="cp-check">
-          <li>Outsource / may đo: bàn giao source + tài liệu đầy đủ</li>
+          <li>
+            Outsource / gia công phần mềm: bàn giao source + tài liệu đầy đủ
+          </li>
           <li>SaaS: quyền dùng theo kỳ — không bàn giao source nền tảng</li>
           <li>Checklist UAT trước bàn giao</li>
           <li>Đào tạo 1–2 buổi tùy gói</li>
@@ -856,12 +1032,12 @@ function ContactPage({
   contactPhone = PROFILE_DEFAULT_PHONE_DISPLAY,
 }: ProfilePageProps = {}) {
   return (
-    <PageShell page={16} title="14. Liên hệ" titleId="cp-contact">
+    <PageShell page={18} title="16. Liên hệ" titleId="cp-contact">
       <div className="cp-split cp-split--fill">
         <div className="cp-stack-fill">
           <p className="cp-p" style={{ fontSize: "9.5pt", flexShrink: 0 }}>
             Cho chúng tôi biết bottleneck hiện tại — chỉ đề xuất những gì giúp
-            tăng khách, tăng doanh thu và phát triển công ty.
+            tăng khách, tăng doanh thu.
           </p>
           <div className="cp-contact" style={{ marginTop: 0, flex: 1 }}>
             <h3>Dolphin Software</h3>
@@ -876,7 +1052,8 @@ function ContactPage({
               </a>
             </p>
             <p className="cp-cta">
-              Chat Zalo để tư vấn combo CRM + AI phù hợp vận hành của bạn.
+              Chat Zalo để tư vấn CRM, POS hoặc dịch vụ web / gia công phần mềm
+              phù hợp bài toán của anh chị.
             </p>
           </div>
           <div className="cp-end" style={{ paddingTop: 8, flexShrink: 0 }}>
@@ -905,13 +1082,15 @@ export const PROFILE_PAGES: Array<
   ValuesPage,
   AudiencePage,
   ModelPage,
-  CrmPage,
+  CrmPosPage,
   CarePage,
   OpsPage,
   IntelligencePage,
   WebOutsourcePage,
   ProcessPage,
-  PricingPage,
+  PricingCrmPage,
+  PricingPosPage,
+  WarrantyPage,
   CasesPage,
   TeamPage,
   ContactPage,

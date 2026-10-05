@@ -16,11 +16,11 @@ export function PosHubContent() {
   return (
     <main>
       <Nav />
-      <section className="py-16 sm:py-20 lg:py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+      <section className="bg-white py-16 sm:py-20 lg:py-24">
+        <div className="mx-auto max-w-7xl px-4 text-center sm:px-6">
           <Reveal variant="title">
             <nav aria-label="Breadcrumb" className="text-sm text-[var(--kuct-muted)]">
-              <ol className="m-0 flex list-none flex-wrap items-center gap-1.5 p-0">
+              <ol className="m-0 flex list-none flex-wrap items-center justify-center gap-1.5 p-0">
                 <li>
                   <Link href={assetPath("/")} className="hover:text-[var(--kuct-text)]">
                     Trang chủ
@@ -31,13 +31,13 @@ export function PosHubContent() {
               </ol>
             </nav>
             <p className="kuct-section-eyebrow mt-6">Dolphin POS</p>
-            <h1 className="mt-3 max-w-[22ch] font-display text-[1.75rem] font-semibold leading-[1.12] tracking-tight sm:text-[2.25rem] lg:text-[2.5rem]">
+            <h1 className="mx-auto mt-3 max-w-[22ch] font-display text-[1.75rem] font-semibold leading-[1.12] tracking-tight sm:text-[2.25rem] lg:text-[2.5rem]">
               <AccentText>{hub.h1}</AccentText>
             </h1>
-            <p className="mt-4 max-w-[56ch] text-base leading-relaxed text-[var(--kuct-muted)]">
+            <p className="mx-auto mt-4 max-w-[56ch] text-base leading-relaxed text-[var(--kuct-muted)]">
               {hub.lead}
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
               <a
                 href={pricingHref}
                 className="kuct-btn-primary inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-semibold no-underline"

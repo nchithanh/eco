@@ -16,7 +16,7 @@ function CompanyProfileViewerInner() {
     <div className="cp-root">
       <header className="cp-toolbar cp-no-print">
         <div className="cp-toolbar__meta">
-          <p className="cp-toolbar__title">Hồ sơ năng lực · 16 tờ ngắn</p>
+          <p className="cp-toolbar__title">Hồ sơ năng lực · 18 tờ ngắn</p>
           <p className="cp-toolbar__hint">
             Khổ 210×180mm · In PDF → “Save as PDF”
           </p>

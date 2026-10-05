@@ -69,6 +69,20 @@ export type Dictionary = {
     groupOpsAi: string;
     groupWeb: string;
     allIndustries: string;
+    /** Solutions mega — POS hub */
+    allPos: string;
+    groupCrm: string;
+    groupPos: string;
+    groupPricingCol: string;
+    posPricing: string;
+    warranty2026: string;
+    solutionsFeaturedTitle: string;
+    solutionsFeaturedBody: string;
+    groupLearn: string;
+    groupProof: string;
+    groupCompany: string;
+    resourcesFeaturedTitle: string;
+    resourcesFeaturedBody: string;
     /** Utility CTA → `/contact/` (homepage may still use `#contact` section) */
     talk: string;
     /** Opens site AI chat drawer */

@@ -17,8 +17,7 @@ export function CaseStudiesHubContent() {
   return (
     <main>
       <Nav />
-      <section className="relative overflow-hidden py-16 sm:py-20 lg:py-24">
-        <div className="pointer-events-none absolute inset-0 kuct-hero-wash" aria-hidden />
+      <section className="relative overflow-hidden bg-white py-16 sm:py-20 lg:py-24">
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
           <Reveal variant="title">
             <p className="kuct-section-eyebrow">Case studies</p>

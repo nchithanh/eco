@@ -7,21 +7,21 @@ export const homepageLangEn: HomepageLang = {
   hero: {
     eyebrow: "Dolphin Software",
     aiPill: "",
-    headline: "Operations solutions for [[B2B]] service businesses",
+    headline: "Rent [[CRM]] & [[POS]] — services and retail stores",
     subhead:
-      "Focused on spa, nail, salon, education, and clinics. CRM is the operating foundation. Care · Ops · Intelligence drive growth. A website is gifted or discounted with the combo.",
+      "CRM for spa, nail, salon, education, clinics. POS for cafe, F&B, pet, fashion. Care · Ops · Intelligence grow on CRM. Website / custom software — add-ons.",
     support:
-      "Dolphin Software doesn’t sell feature lists. We start from the bottleneck — scattered calendars, cold leads, manual follow-up — and only build what grows customers and revenue. Term CRM rental is the core. AI (Care, Ops, Intelligence) is the growth layer. A website is a combo benefit, not the opening product.",
-    trustLine: "Problem-first · CRM foundation · AI for growth · Website combo",
+      "Dolphin Software doesn’t sell feature lists. We start from the bottleneck — scattered calendars and cold leads (CRM) or counter/inventory chaos (POS) — and only build what grows customers and revenue. CRM and POS rental are the core. Care/Ops attach to CRM when needed. Website and custom software are add-ons.",
+    trustLine: "Problem-first · CRM & POS core · AI growth · Web / custom add-on",
     ctaPrimary: "Talk about your business",
-    ctaSecondary: "See CRM · AI · Web combos",
-    tags: ["Problem-first", "CRM foundation", "AI for growth"],
+    ctaSecondary: "See CRM · POS · pricing",
+    tags: ["Problem-first", "CRM rental", "POS rental"],
     metrics: [
-      { value: "CRM", label: "Core operations" },
-      { value: "AI", label: "Care · Ops · Intel" },
+      { value: "CRM", label: "Services · bookings · customers" },
+      { value: "POS", label: "Counter · stock · invoices" },
     ],
     visual: {
-      web: "Website included with combo",
+      web: "Web / custom add-on",
       automation: "Ops CRM",
       ai: "Care · Ops · Intel",
     },
@@ -246,8 +246,8 @@ export const homepageLangEn: HomepageLang = {
       },
       {
         id: "custom",
-        title: "Intelligence & tailored software",
-        body: "Intelligence is an add-on when you already have CRM. Outsource custom software when packages don’t fit — source handover by scope.",
+        title: "Intelligence & custom software development",
+        body: "Intelligence is an add-on when you already have CRM. Custom software development when packages don’t fit — source handover by scope.",
         meta: "Add-on · Outsource",
         href: "/services/software/",
       },
@@ -304,7 +304,7 @@ export const homepageLangEn: HomepageLang = {
       {
         id: "custom",
         category: "Custom",
-        title: "Intelligence & custom software",
+        title: "Intelligence & custom software development",
         body: "Intelligence add-on when you already have CRM. Custom software when packages are not enough — modernize, don't rebuild by default.",
         tags: ["Add-on · Custom"],
       },
@@ -531,7 +531,7 @@ export const homepageLangEn: HomepageLang = {
     items: [
       {
         q: "What does Dolphin Software do?",
-        a: "Dolphin Software rents CRM and AI (SaaS) for B2B service businesses in Vietnam — spa, nail, salon, education, clinic. CRM is the operating base. Care, Ops, and Intelligence are the growth layer. A website is gifted or discounted with a CRM combo.",
+        a: "Dolphin Software rents CRM for service businesses and POS for retail stores — two separate ICPs. Care · Ops · Intelligence grow on CRM. Website and custom software are add-ons / combo benefits.",
       },
       {
         q: "Does CRM software include a gifted website?",
@@ -543,15 +543,15 @@ export const homepageLangEn: HomepageLang = {
       },
       {
         q: "What kinds of businesses do you work with?",
-        a: "Mainly growing B2B service businesses — spa, nail, salon, education, clinic. If calendars and customers are scattered on Zalo/Excel, or you want AI on real ops, that is usually a fit.",
+        a: "Two ICPs: (1) services — spa, nail, salon, education, clinic (CRM); (2) retail stores — cafe, F&B, pet, fashion (POS). Do not mix the lines.",
       },
       {
         q: "Do you only build websites?",
-        a: "No. A website is a combo benefit when you rent CRM (± AI), not the opening product. The core is term CRM rental; Care, Ops, and Intelligence are the growth layer.",
+        a: "No. A website is a combo benefit / add-on. The core is CRM and POS rental; Care, Ops, and Intelligence grow on CRM; custom software development when needed.",
       },
       {
         q: "New system or upgrade what we already run?",
-        a: "Both. Prefer attaching CRM and AI to the process you already run; custom outsource when packages don’t fit. We don’t rebuild everything by default.",
+        a: "Both. Prefer attaching CRM / POS and AI to the process you already run; custom software development when packages don’t fit. We don’t rebuild everything by default.",
       },
       {
         q: "Can you integrate software / channels we already use?",

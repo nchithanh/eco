@@ -4,7 +4,7 @@
     "id": "faq",
     "locale": "vi",
     "brand": "Dolphin Software",
-    "updated": "2026-10-01",
+    "updated": "2026-10-05",
     "schemaPath": "/schema/homepage/faq/",
     "rawPath": "/schema/homepage/faq.json",
     "productRoute": "/"
@@ -20,7 +20,7 @@
       {
         "id": "faq-what",
         "question": "Dolphin Software làm gì?",
-        "answer": "Dolphin Software là công ty giải pháp công nghệ giúp doanh nghiệp tối ưu vận hành và chăm sóc khách hàng. GTM hiện tại: thuê CRM + AI (Care · Ops) cho doanh nghiệp dịch vụ; website thường là quyền lợi combo. Không phải chỉ agency làm web hay chỉ bán chatbot.",
+        "answer": "Dolphin Software cho thuê CRM (doanh nghiệp dịch vụ) và POS (cửa hàng bán hàng) — hai dòng tách ICP. Care · Ops · Intelligence tăng trưởng trên CRM. Website và gia công phần mềm là bổ sung / quyền lợi combo. Không phải chỉ agency làm web hay chỉ bán chatbot.",
         "open": true
       },
       {
@@ -36,17 +36,17 @@
       {
         "id": "faq-who",
         "question": "Dolphin làm việc với loại doanh nghiệp nào?",
-        "answer": "Chủ yếu doanh nghiệp dịch vụ B2B đang lớn — spa, nail, salon, giáo dục, clinic. Nếu lịch và khách đang rải trên Zalo/Excel, hoặc muốn AI gắn vận hành thật, đó thường là tệp phù hợp."
+        "answer": "Hai tệp: (1) dịch vụ — spa, nail, salon, giáo dục, clinic (CRM); (2) cửa hàng bán hàng — cafe, F&B, pet, fashion, HKD (POS). Không gộp ICP."
       },
       {
         "id": "faq-website-only",
         "question": "Dolphin chỉ làm website thôi sao?",
-        "answer": "Không. Website là quyền lợi combo khi thuê CRM (± AI), không phải sản phẩm mở đầu. Lõi là CRM thuê theo kỳ; Care, Ops và Intelligence là lớp tăng trưởng."
+        "answer": "Không. Website là quyền lợi combo / dịch vụ bổ sung. Lõi là CRM và POS thuê bao; Care, Ops, Intelligence tăng trưởng trên CRM; gia công phần mềm khi cần."
       },
       {
         "id": "faq-modernize",
         "question": "Làm hệ thống mới hay nâng cấp cái đang chạy?",
-        "answer": "Cả hai. Ưu tiên gắn CRM và AI vào quy trình đang chạy; outsource may đo khi gói sẵn chưa khớp. Không mặc định làm lại toàn bộ."
+        "answer": "Cả hai. Ưu tiên gắn CRM / POS và AI vào quy trình đang chạy; gia công phần mềm khi gói sẵn chưa khớp. Không mặc định làm lại toàn bộ."
       },
       {
         "id": "faq-integrate",

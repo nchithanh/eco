@@ -7,21 +7,21 @@ export const homepageLangJa: HomepageLang = {
   hero: {
     eyebrow: "Dolphin Software",
     aiPill: "",
-    headline: "[[B2B]]サービス業向けの運用ソリューション",
+    headline: "[[CRM]]と[[POS]]をレンタル — サービス業と店舗",
     subhead:
-      "スパ・ネイル・サロン・教育・クリニックに特化し、F&B・ショールーム・運送など柔軟な仕組みが必要な事業へ拡大。CRMが基盤、Care・Ops・Intelligenceが成長、Websiteはコンボで需要を後押し。",
+      "CRMはスパ・ネイル・サロン・教育・クリニック向け。POSはカフェ・F&B・ペット・ファッション向け。Care・Ops・IntelligenceはCRM上で成長。Website／受託開発は補完。",
     support:
-      "機能一覧は売りません。事業課題から始め、新規客と売上につながるものだけを作ります。ソース一式を引き渡し、ロックインなし。",
-    trustLine: "Problem-first · CRM基盤 · AI成長 · Websiteコンボ",
+      "機能一覧は売りません。詰まり（予約散乱・リード漏れ／レジ・在庫）から始め、新規客と売上につながるものだけを作ります。CRMとPOSのレンタルが核心。Websiteと受託開発は補完。",
+    trustLine: "Problem-first · CRM & POS核心 · AI成長 · Web／受託は補完",
     ctaPrimary: "事業の話をする",
-    ctaSecondary: "CRM · AI · Webコンボを見る",
-    tags: ["Problem-first", "CRM基盤", "AIで成長"],
+    ctaSecondary: "CRM · POS · 料金を見る",
+    tags: ["Problem-first", "CRMレンタル", "POSレンタル"],
     metrics: [
-      { value: "CRM", label: "コア運用" },
-      { value: "AI", label: "Care · Ops · Intel" },
+      { value: "CRM", label: "サービス · 予約 · 顧客" },
+      { value: "POS", label: "レジ · 在庫 · 伝票" },
     ],
     visual: {
-      web: "コンボのWeb",
+      web: "Web／受託は補完",
       automation: "Ops CRM",
       ai: "Care · Ops · Intel",
     },

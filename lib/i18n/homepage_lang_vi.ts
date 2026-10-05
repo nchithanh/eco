@@ -39,21 +39,21 @@ export const homepageLangVi: HomepageLang = {
   hero: {
     eyebrow: "Dolphin Software",
     aiPill: "",
-    headline: "Giải pháp vận hành cho doanh nghiệp dịch vụ [[B2B]]",
+    headline: "Cho thuê [[CRM]] & [[POS]] — vận hành dịch vụ và cửa hàng",
     subhead:
-      "Tập trung spa, nail, salon, giáo dục, clinic. CRM là nền tảng vận hành. Care · Ops · Intelligence đẩy tăng trưởng. Website tặng hoặc giảm theo combo.",
+      "CRM cho spa, nail, salon, giáo dục, clinic. POS cho cafe, F&B, pet, fashion. Care · Ops · Intelligence tăng trưởng trên CRM. Website / gia công phần mềm — bổ sung.",
     support:
-      "Dolphin Software không bán danh sách tính năng. Chúng tôi bắt đầu từ chỗ đang nghẽn — lịch rải, khách trôi, follow-up thủ công — rồi chỉ xây những gì giúp tăng khách và doanh thu. CRM thuê theo kỳ là lõi. AI (Care, Ops, Intelligence) là lớp tăng trưởng. Website là quyền lợi combo, không phải sản phẩm mở đầu.",
-    trustLine: "Problem-first · CRM nền tảng · AI tăng trưởng · Website combo",
+      "Dolphin Software không bán danh sách tính năng. Bắt đầu từ chỗ đang nghẽn — lịch rải, khách trôi (CRM) hoặc quầy · kho rối (POS) — rồi chỉ làm những gì giúp tăng khách và doanh thu. CRM và POS thuê bao là lõi. AI Care/Ops gắn CRM khi cần. Website và gia công phần mềm nhận làm thêm.",
+    trustLine: "Problem-first · CRM & POS lõi · AI tăng trưởng · Web / gia công bổ sung",
     ctaPrimary: "Nói về doanh nghiệp của bạn",
-    ctaSecondary: "Xem combo CRM · AI · Web",
-    tags: ["Problem-first", "CRM nền tảng", "AI tăng trưởng"],
+    ctaSecondary: "Xem CRM · POS · giá",
+    tags: ["Problem-first", "CRM thuê bao", "POS thuê bao"],
     metrics: [
-      { value: "CRM", label: "Vận hành lõi" },
-      { value: "AI", label: "Care · Ops · Intel" },
+      { value: "CRM", label: "Dịch vụ · lịch · khách" },
+      { value: "POS", label: "Quầy · kho · hóa đơn" },
     ],
     visual: {
-      web: "Tặng website theo combo",
+      web: "Web / gia công bổ sung",
       automation: "Ops CRM",
       ai: "Care · Ops · Intel",
     },
@@ -69,10 +69,10 @@ export const homepageLangVi: HomepageLang = {
       { value: "24/7", label: "Thời gian" },
     ],
     chips: [
-      { value: "CRM", label: "Nền vận hành" },
+      { value: "CRM", label: "Dịch vụ · lịch" },
+      { value: "POS", label: "Quầy · kho" },
       { value: "Care", label: "AI chăm sóc khách" },
       { value: "Ops", label: "Agent trên CRM" },
-      { value: "SMB", label: "Doanh nghiệp dịch vụ" },
       { value: "HCM", label: "Việt Nam" },
       { value: "24/7", label: "Care ngoài giờ" },
     ],
@@ -81,7 +81,7 @@ export const homepageLangVi: HomepageLang = {
     eyebrow: "What is slowing you down?",
     title: "Điều gì đang [[làm chậm]] doanh nghiệp của anh chị?",
     support:
-      "Doanh nghiệp dịch vụ lớn lên — lịch, khách và follow-up thường vỡ thành Zalo/Excel. Mở bằng chỗ đang nghẽn, rồi mới chọn CRM · AI · website combo.",
+      "Dịch vụ: lịch · khách · follow vỡ Zalo/Excel. Cửa hàng: quầy · kho · hóa đơn rối. Mở bằng chỗ đang nghẽn — rồi chọn CRM, POS, AI hoặc website / gia công khớp pain.",
     cta: "Nói về bài toán của anh chị",
     items: [
       {
@@ -197,9 +197,9 @@ export const homepageLangVi: HomepageLang = {
   },
   why: {
     eyebrow: "Why Dolphin",
-    title: "Đối tác vận hành — CRM lõi, [[AI]] tăng trưởng, website combo",
+    title: "Đối tác vận hành — [[CRM]] & [[POS]] lõi, AI tăng trưởng",
     support:
-      "Phần lớn spa, salon, clinic không cần hệ thống hàng trăm nút. Họ cần CRM gom khách–lịch–follow-up, AI Care/Ops khi đã sẵn sàng, và website theo quyền lợi combo — không bán thừa.",
+      "Hai dòng thuê bao tách ICP: CRM cho dịch vụ (khách–lịch–follow), POS cho cửa hàng (quầy–kho–hóa đơn). Care/Ops khi đã sẵn sàng; website / gia công phần mềm bổ sung — không bán thừa.",
     promise: "We don't start with technology. We start with your problem.",
     reasons: [
       {
@@ -208,11 +208,11 @@ export const homepageLangVi: HomepageLang = {
       },
       {
         title: "Xác định nghẽn",
-        body: "Chỉ ra chỗ mất lead, lịch rải, hoặc phụ thuộc một người — trước khi đề xuất CRM hay AI.",
+        body: "Chỉ ra chỗ mất lead, lịch rải, quầy/kho rối, hoặc phụ thuộc một người — trước khi đề xuất CRM, POS hay AI.",
       },
       {
         title: "Xây đúng thứ",
-        body: "CRM thuê theo kỳ trước; Care · Ops · Intelligence khi khớp pain; website tặng hoặc giảm theo combo.",
+        body: "CRM hoặc POS thuê bao trước; Care · Ops · Intelligence khi khớp pain; website / gia công nhận làm thêm.",
       },
       {
         title: "Đo và cải thiện",
@@ -222,9 +222,9 @@ export const homepageLangVi: HomepageLang = {
   },
   capabilities: {
     eyebrow: "Giải pháp",
-    title: "Khách và lịch [[một chỗ]], không trôi trên Zalo",
+    title: "CRM dịch vụ · [[POS]] bán hàng — thuê bao lõi",
     support:
-      "Dành cho spa, nail, salon, lớp học, phòng khám. CRM giữ khách, lịch và việc cần gọi lại. Care trả lời trên web, Zalo, Messenger. Ops nhắc việc trong CRM. Thuê CRM kèm AI từ 6 tháng thì được tặng website để khách tìm thấy tiệm.",
+      "CRM: spa, nail, salon, lớp học, phòng khám — khách, lịch, follow một chỗ; Care/Ops trên CRM; website tặng theo combo từ 6 tháng. POS: cafe, F&B, pet, fashion — quầy, kho, hóa đơn theo gói năm. Gia công phần mềm khi gói sẵn chưa khớp.",
     ctaPrimary: "Nói về doanh nghiệp của bạn",
     ctaSecondary: "Nói về doanh nghiệp của bạn",
     ctaSecondaryHref: "#contact",
@@ -278,9 +278,9 @@ export const homepageLangVi: HomepageLang = {
       },
       {
         id: "custom",
-        title: "Intelligence & phần mềm may đo",
-        body: "Intelligence là add-on khi đã có CRM. Outsource phần mềm riêng khi gói sẵn chưa khớp — bàn giao source theo phạm vi.",
-        meta: "Add-on · Outsource",
+        title: "Intelligence & gia công phần mềm",
+        body: "Intelligence là add-on khi đã có CRM. Gia công phần mềm khi gói sẵn chưa khớp — bàn giao source theo phạm vi.",
+        meta: "Add-on · Gia công",
         href: "/services/software/",
       },
     ],
@@ -348,9 +348,9 @@ export const homepageLangVi: HomepageLang = {
       {
         id: "custom",
         category: "Custom",
-        title: "Intelligence & phần mềm may đo",
-        body: "Intelligence là add-on khi đã có CRM. Outsource phần mềm riêng khi gói sẵn chưa khớp — bàn giao source theo phạm vi.",
-        tags: ["Add-on · Outsource"],
+        title: "Intelligence & gia công phần mềm",
+        body: "Intelligence là add-on khi đã có CRM. Gia công phần mềm khi gói sẵn chưa khớp — bàn giao source theo phạm vi.",
+        tags: ["Add-on · Gia công"],
       },
     ],
   },
@@ -575,7 +575,7 @@ export const homepageLangVi: HomepageLang = {
     items: [
       {
         q: "Dolphin Software làm gì?",
-        a: "Dolphin Software cho thuê CRM và AI (SaaS) cho doanh nghiệp dịch vụ B2B tại Việt Nam — spa, nail, salon, giáo dục, clinic. CRM là nền vận hành. Care, Ops và Intelligence là lớp tăng trưởng. Website tặng hoặc giảm theo combo CRM.",
+        a: "Dolphin Software cho thuê CRM (doanh nghiệp dịch vụ) và POS (cửa hàng bán hàng) — hai dòng tách ICP. Care · Ops · Intelligence tăng trưởng trên CRM. Website và gia công phần mềm là bổ sung / quyền lợi combo.",
       },
       {
         q: "Phần mềm CRM có tặng website không?",
@@ -587,15 +587,15 @@ export const homepageLangVi: HomepageLang = {
       },
       {
         q: "Dolphin làm việc với loại doanh nghiệp nào?",
-        a: "Chủ yếu doanh nghiệp dịch vụ B2B đang lớn — spa, nail, salon, giáo dục, clinic. Nếu lịch và khách đang rải trên Zalo/Excel, hoặc muốn AI gắn vận hành thật, đó thường là tệp phù hợp.",
+        a: "Hai tệp: (1) dịch vụ — spa, nail, salon, giáo dục, clinic (CRM); (2) cửa hàng bán hàng — cafe, F&B, pet, fashion, HKD (POS). Không gộp ICP.",
       },
       {
         q: "Dolphin chỉ làm website thôi sao?",
-        a: "Không. Website là quyền lợi combo khi thuê CRM (± AI), không phải sản phẩm mở đầu. Lõi là CRM thuê theo kỳ; Care, Ops và Intelligence là lớp tăng trưởng.",
+        a: "Không. Website là quyền lợi combo / dịch vụ bổ sung. Lõi là CRM và POS thuê bao; Care, Ops, Intelligence tăng trưởng trên CRM; gia công phần mềm khi cần.",
       },
       {
         q: "Làm hệ thống mới hay nâng cấp cái đang chạy?",
-        a: "Cả hai. Ưu tiên gắn CRM và AI vào quy trình đang chạy; outsource may đo khi gói sẵn chưa khớp. Không mặc định làm lại toàn bộ.",
+        a: "Cả hai. Ưu tiên gắn CRM / POS và AI vào quy trình đang chạy; gia công phần mềm khi gói sẵn chưa khớp. Không mặc định làm lại toàn bộ.",
       },
       {
         q: "Có tích hợp được phần mềm / kênh đang dùng không?",
@@ -627,11 +627,11 @@ export const homepageLangVi: HomepageLang = {
       },
       {
         q: "Bảo trì sau bàn giao khác tính năng mới thế nào?",
-        a: "Website: bảo hành kỹ thuật 36 tháng. CRM và AI (SaaS): trong hạn gói đã thanh toán. Outsource: 3 tháng sau nghiệm thu. Tính năng mới báo giá riêng.",
+        a: "Website: bảo hành kỹ thuật 36 tháng. CRM · POS · AI (SaaS): trong hạn gói đã thanh toán. Gia công phần mềm: 3 tháng sau nghiệm thu. Tính năng mới báo giá riêng.",
       },
       {
         q: "Làm sao để bắt đầu?",
-        a: "Kể ngành dịch vụ và chỗ đang nghẽn qua form Contact hoặc Zalo. Không cần biết sẵn tên gói — cùng chọn CRM và lớp AI / website phù hợp.",
+        a: "Kể ngành và chỗ đang nghẽn qua form Contact hoặc Zalo — dịch vụ (CRM) hay cửa hàng (POS). Không cần biết sẵn tên gói.",
       },
     ],
   },
@@ -639,27 +639,28 @@ export const homepageLangVi: HomepageLang = {
     eyebrow: "Next step",
     title: "Cùng xây cách [[vận hành]] tốt hơn",
     support:
-      "Kể doanh nghiệp đang ở đâu và chỗ nào đang nghẽn — lịch, khách, follow-up. Dolphin đề xuất combo CRM · AI · website khớp pain, không ép gói.",
+      "Kể doanh nghiệp đang ở đâu và chỗ nào đang nghẽn — lịch/khách (CRM) hoặc quầy/kho (POS). Dolphin đề xuất CRM · POS · AI · website / gia công khớp pain, không ép gói.",
     nextHint: "Thường phản hồi trong ngày làm việc.",
     afterSubmitTitle: "Sau khi anh chị gửi brief:",
     afterSubmitItems: [
-      "Hướng tiếp cận ban đầu: CRM thuê theo kỳ (± Care / Ops)",
-      "Gợi ý phạm vi khớp pain: CRM · Care · Ops · website combo · outsource",
+      "Hướng tiếp cận ban đầu: CRM hoặc POS thuê bao (± Care / Ops)",
+      "Gợi ý phạm vi khớp pain: CRM · POS · Care · Ops · website combo · gia công phần mềm",
       "Mốc thời gian và khoảng chi phí ước tính theo chính sách 2026",
     ],
   },
   seo: {
-    title: "Thuê CRM & AI cho spa, salon, clinic | Dolphin",
+    title: "Thuê CRM & POS | Dolphin Software",
     description:
-      "Dolphin cho thuê CRM (khách, lịch, follow-up) và AI cho spa, salon, clinic. Combo CRM + Care từ 6 tháng tặng website doanh nghiệp. Báo giá rõ, không phí ẩn.",
-    og_title: "Thuê CRM & AI cho spa, salon, clinic | Dolphin",
+      "Dolphin cho thuê CRM (spa, salon, clinic) và POS (cafe, F&B, pet, fashion). Care · Ops trên CRM. Website / gia công phần mềm bổ sung. Báo giá rõ.",
+    og_title: "Thuê CRM & POS | Dolphin Software",
     og_description:
-      "CRM là nền vận hành. Care · Ops · Intelligence đẩy tăng trưởng. Website tặng hoặc giảm theo combo CRM.",
+      "CRM và POS thuê bao là lõi. Care · Ops · Intelligence tăng trưởng trên CRM. Website / gia công phần mềm bổ sung.",
     canonical: "https://dolphin-software.io.vn/",
     keywords: [
-      "phần mềm CRM tặng website",
-      "CRM cho spa salon clinic",
       "thuê CRM doanh nghiệp dịch vụ",
+      "Dolphin POS",
+      "CRM cho spa salon clinic",
+      "phần mềm CRM tặng website",
       "chatbot AI Zalo Messenger",
       "Agent CRM",
       "Dolphin Software",

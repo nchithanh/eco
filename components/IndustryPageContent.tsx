@@ -33,12 +33,11 @@ export function IndustryPageContent({ slug }: { slug: IndustrySlug }) {
     <main>
       <Nav />
 
-      <section className="relative overflow-hidden py-16 sm:py-20 lg:py-24">
-        <div className="pointer-events-none absolute inset-0 kuct-hero-wash" aria-hidden />
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
+      <section className="bg-white py-16 sm:py-20 lg:py-24">
+        <div className="mx-auto max-w-7xl px-4 text-center sm:px-6">
           <Reveal variant="title">
             <nav aria-label="Breadcrumb" className="text-sm text-[var(--kuct-muted)]">
-              <ol className="m-0 flex list-none flex-wrap items-center gap-1.5 p-0">
+              <ol className="m-0 flex list-none flex-wrap items-center justify-center gap-1.5 p-0">
                 <li>
                   <Link href={assetPath("/")} className="hover:text-[var(--kuct-text)]">
                     Trang chủ
@@ -58,10 +57,10 @@ export function IndustryPageContent({ slug }: { slug: IndustrySlug }) {
               </ol>
             </nav>
             <p className="kuct-section-eyebrow mt-6">{c.label}</p>
-            <h1 className="mt-3 max-w-[20ch] font-display text-[1.75rem] font-semibold leading-[1.12] tracking-tight sm:text-[2.25rem] lg:text-[2.5rem]">
+            <h1 className="mx-auto mt-3 max-w-[20ch] font-display text-[1.75rem] font-semibold leading-[1.12] tracking-tight sm:text-[2.25rem] lg:text-[2.5rem]">
               <AccentText>{c.h1}</AccentText>
             </h1>
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
               <button
                 type="button"
                 onClick={openQuote}

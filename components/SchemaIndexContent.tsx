@@ -21,6 +21,11 @@ const sections: {
  body: "Overview — knowledge pack, values, positioning, FAQ neo.",
  },
  {
+ href: "/schema/company-profile/",
+ title: "Company profile",
+ body: "Hồ sơ năng lực 2026 — 18 tờ copy (CRM & POS lõi). Runtime /company-profile/.",
+ },
+ {
  href: "/schema/homepage/",
  title: "Homepage",
  body: "Thứ tự section + JSON từng khối (VI SoT).",
@@ -51,7 +56,7 @@ const sections: {
 
 export function SchemaIndexContent() {
  return (
- <section className="scroll-mt-20 py-16 sm:py-20">
+ <section className="scroll-mt-20 bg-white py-16 sm:py-20">
  <div className="mx-auto max-w-7xl px-6">
  <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--kuct-accent)] uppercase sm:text-xs">
  Schema

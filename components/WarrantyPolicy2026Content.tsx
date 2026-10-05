@@ -24,10 +24,9 @@ export function WarrantyPolicy2026Content() {
   return (
     <div className="pp26 pp26--pad-sticky">
       <section
-        className="relative isolate overflow-hidden py-16 sm:py-20"
+        className="relative isolate overflow-hidden bg-white py-16 sm:py-20"
         aria-labelledby="warranty-policy-heading"
       >
-        <div className="pointer-events-none absolute inset-0 kuct-hero-wash" aria-hidden />
         <div className="relative mx-auto max-w-7xl px-6">
           <Reveal variant="title" className="max-w-4xl">
             <PageBreadcrumb
