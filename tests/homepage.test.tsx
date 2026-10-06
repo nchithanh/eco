@@ -327,7 +327,7 @@ describe("Dolphin Software homepage", () => {
     expect(news).toBeTruthy();
     expect(
       within(news!).getByRole("link", {
-        name: /Trước khi mở cửa hàng, đừng vội chọn phần mềm bán hàng/i,
+        name: /Quản lý dòng tiền cửa hàng khi doanh thu và két không khớp/i,
       }),
     ).toHaveAttribute("aria-current", "true");
     expect(
@@ -344,12 +344,12 @@ describe("Dolphin Software homepage", () => {
 
     expect(
       within(news!).getByRole("link", {
-        name: /Trước khi mở cửa hàng, đừng vội chọn phần mềm bán hàng/i,
+        name: /Quản lý dòng tiền cửa hàng khi doanh thu và két không khớp/i,
       }),
     ).toHaveAttribute(
       "href",
       expect.stringMatching(
-        /truoc-khi-mo-cua-hang-dung-voi-chon-phan-mem-ban-hang/,
+        /quan-ly-dong-tien-cua-hang/,
       ),
     );
   });
