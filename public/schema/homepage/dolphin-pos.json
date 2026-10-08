@@ -4,7 +4,7 @@
     "id": "dolphin-pos",
     "locale": "vi",
     "brand": "Dolphin Software",
-    "updated": "2026-10-02",
+    "updated": "2026-10-08",
     "schemaPath": "/schema/homepage/dolphin-pos/",
     "rawPath": "/schema/homepage/dolphin-pos.json",
     "productRoute": "/pos/"
@@ -14,36 +14,36 @@
     "id": "dolphin-pos",
     "section_label": "POS · bán hàng",
     "headline": "Một nền tảng POS cho mọi cửa hàng bán hàng",
-    "subheadline": "Hóa đơn, quầy, kho và kênh bán trên một bảng giá năm — tách CRM dịch vụ (spa/salon). Cafe, trà sữa, pet, fashion và HKD.",
+    "subheadline": "Bán hàng, kho kiểm nhận, tài chính local, chi nhánh — demo live. Tách CRM dịch vụ (spa/salon). Cafe, trà sữa, pet, thời trang, tạp hóa.",
     "features": [
       {
         "title": "Bán tại quầy",
-        "body": "Ghi đơn, size/topping hoặc SKU, thu tiền — giảm sót so với giấy và chat lúc peak."
+        "body": "Giỏ, giảm giá, tách bill, điểm, in / gửi bill Zalo, QR chuyển khoản demo."
       },
       {
-        "title": "Kho & nguyên liệu",
-        "body": "Hạt cafe, topping, hạt mèo hay size/màu — tồn theo phạm vi gói, thấy lệch sớm hơn Excel."
+        "title": "Kho vận hành",
+        "body": "Nhập kiểm nhận theo số thực nhận, xuất duyệt/soạn, tồn khả dụng — thấy lệch sớm hơn Excel."
       },
       {
-        "title": "Kênh & gói năm",
-        "body": "Web cơ bản đến MXH/sàn theo gói. Cơ Bản · Chuyên nghiệp · Toàn Diện — không trial miễn phí."
+        "title": "Tài chính & gói năm",
+        "body": "Quỹ, công nợ, ca trên trình duyệt (chưa ngân hàng thật). Cơ Bản · Chuyên nghiệp · Toàn Diện — không trial miễn phí."
       }
     ],
     "ctas": [
       {
-        "label": "Xem Dolphin POS",
-        "href": "https://dolphin-software.io.vn/pos/",
+        "label": "Mở demo POS",
+        "href": "https://nchithanh.github.io/pos/",
         "style": "primary"
       },
       {
-        "label": "Nhận báo giá",
-        "href": "#contact",
+        "label": "Xem hub POS",
+        "href": "https://dolphin-software.io.vn/pos/",
         "style": "secondary"
       }
     ],
-    "trust": "POS · bán hàng · 3 gói năm · runtime app TODO",
-    "visual": "PosAppStage — mock cafe order (marketing, chưa runtime)",
-    "industries": ["F&B", "Cafe", "Trà sữa", "Pet", "Fashion", "Shop / HKD"],
-    "note": "Tách /industries/* (CRM dịch vụ). SoT giá lib/pricing/dolphin-pos-policy-2026.ts"
+    "trust": "POS · bán hàng · 3 gói năm · demo https://nchithanh.github.io/pos/",
+    "visual": "PosAppStage — mock AppShell (sidebar, chi nhánh, bán hàng)",
+    "industries": ["Nhà hàng", "Cafe", "Trà sữa", "Pet", "Thời trang", "Tạp hóa"],
+    "note": "Tách /industries/* (CRM dịch vụ). SoT giá lib/pricing/dolphin-pos-policy-2026.ts · hub /pos/"
   }
 }

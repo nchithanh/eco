@@ -4,25 +4,53 @@ import Link from "next/link";
 import { AccentText } from "@/components/BrandName";
 import { Footer } from "@/components/Footer";
 import { Nav } from "@/components/Nav";
+import {
+  PosDayStrip,
+  PosDescGrid,
+} from "@/components/PosDescBlocks";
 import { Reveal } from "@/components/Reveal";
 import { assetPath } from "@/lib/asset";
-import { getPosHubCopy, getPosPageCopy } from "@/lib/i18n/pos-copy";
-import { POS_CATALOG } from "@/lib/pos/catalog";
+import { getPosHubCopy } from "@/lib/i18n/pos-copy";
+import {
+  POS_CATALOG,
+  POS_DAY_STEPS,
+  POS_DEMO_URL,
+  POS_HUB_MODULES,
+  POS_LIMIT_CARDS,
+  POS_WHO_CARDS,
+} from "@/lib/pos/catalog";
+
+const ZALO = "https://zalo.me/0779937633";
 
 export function PosHubContent() {
   const hub = getPosHubCopy();
   const pricingHref = `${assetPath("/chinh-sach-gia-dolphin-2026/")}#pos`;
 
   return (
-    <main>
+    <main className="bg-[var(--kuct-bg)]">
       <Nav />
-      <section className="bg-white py-16 sm:py-20 lg:py-24">
-        <div className="mx-auto max-w-7xl px-4 text-center sm:px-6">
+
+      <section className="relative overflow-hidden bg-white py-16 sm:py-20 lg:py-24">
+        <div
+          className="pointer-events-none absolute inset-0 opacity-[0.55]"
+          aria-hidden
+          style={{
+            background:
+              "radial-gradient(ellipse 80% 50% at 50% -10%, #ECFDF5, transparent), radial-gradient(ellipse 40% 40% at 100% 0%, #F5F3FF, transparent)",
+          }}
+        />
+        <div className="relative mx-auto max-w-7xl px-4 text-center sm:px-6">
           <Reveal variant="title">
-            <nav aria-label="Breadcrumb" className="text-sm text-[var(--kuct-muted)]">
+            <nav
+              aria-label="Breadcrumb"
+              className="text-sm text-[var(--kuct-muted)]"
+            >
               <ol className="m-0 flex list-none flex-wrap items-center justify-center gap-1.5 p-0">
                 <li>
-                  <Link href={assetPath("/")} className="hover:text-[var(--kuct-text)]">
+                  <Link
+                    href={assetPath("/")}
+                    className="hover:text-[var(--kuct-text)]"
+                  >
                     Trang chủ
                   </Link>
                 </li>
@@ -31,25 +59,35 @@ export function PosHubContent() {
               </ol>
             </nav>
             <p className="kuct-section-eyebrow mt-6">Dolphin POS</p>
-            <h1 className="mx-auto mt-3 max-w-[22ch] font-display text-[1.75rem] font-semibold leading-[1.12] tracking-tight sm:text-[2.25rem] lg:text-[2.5rem]">
+            <h1 className="mx-auto mt-3 max-w-[20ch] font-display text-[1.75rem] font-semibold leading-[1.12] tracking-tight sm:text-[2.25rem] lg:text-[2.5rem]">
               <AccentText>{hub.h1}</AccentText>
             </h1>
-            <p className="mx-auto mt-4 max-w-[56ch] text-base leading-relaxed text-[var(--kuct-muted)]">
+            <p className="mx-auto mt-4 max-w-[52ch] text-base leading-relaxed text-[var(--kuct-muted)]">
               {hub.lead}
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
               <a
-                href={pricingHref}
+                href={POS_DEMO_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="kuct-btn-primary inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-semibold no-underline"
               >
-                Xem bảng giá POS
+                Mở demo POS
               </a>
-              <Link
-                href={assetPath("/industries/")}
+              <a
+                href={pricingHref}
+                className="kuct-btn-outline inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-semibold no-underline"
+              >
+                Xem bảng giá
+              </a>
+              <a
+                href={ZALO}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center rounded-full border border-[var(--kuct-border)] px-5 py-2.5 text-sm font-semibold text-[var(--kuct-text)] no-underline transition hover:bg-[var(--kuct-surface-muted)]"
               >
-                CRM theo ngành →
-              </Link>
+                Chat Zalo
+              </a>
             </div>
           </Reveal>
         </div>
@@ -66,76 +104,81 @@ export function PosHubContent() {
           >
             <AccentText>{hub.answerTitle}</AccentText>
           </h2>
-          <p className="mt-3 max-w-[62ch] text-base leading-relaxed text-[var(--kuct-text)]">
+          <p className="mt-3 max-w-[44ch] text-base leading-relaxed text-[var(--kuct-text)]">
             {hub.answerFirst}
           </p>
-          <ul className="mt-5 flex list-none flex-wrap gap-x-4 gap-y-2 p-0 text-sm font-medium">
-            <li>
-              <Link
-                href={pricingHref}
-                className="text-[var(--kuct-accent)] hover:underline"
-              >
-                Bảng giá POS
-              </Link>
-            </li>
-            <li>
-              <Link
-                href={assetPath("/industries/")}
-                className="text-[var(--kuct-accent)] hover:underline"
-              >
-                CRM · ngành dịch vụ
-              </Link>
-            </li>
-            <li>
-              <Link
-                href={assetPath("/faq/")}
-                className="text-[var(--kuct-accent)] hover:underline"
-              >
-                FAQ
-              </Link>
-            </li>
-            <li>
-              <Link
-                href={assetPath("/contact/")}
-                className="text-[var(--kuct-accent)] hover:underline"
-              >
-                Liên hệ
-              </Link>
-            </li>
+        </div>
+      </section>
+
+      <PosDescGrid
+        id="pos-hub-modules"
+        title="Trong app đang có gì"
+        lead="Khớp demo — chưa nối ngân hàng thật."
+        cards={POS_HUB_MODULES}
+      />
+
+      <PosDayStrip
+        id="pos-hub-day"
+        title="Một ca mẫu"
+        steps={POS_DAY_STEPS}
+      />
+
+      <PosDescGrid
+        id="pos-hub-who"
+        title="Ai dùng"
+        cards={POS_WHO_CARDS}
+        muted
+      />
+
+      <PosDescGrid
+        id="pos-hub-limits"
+        title="Giới hạn trung thực"
+        cards={POS_LIMIT_CARDS}
+      />
+
+      <section
+        className="border-t border-[var(--kuct-border)] bg-[var(--kuct-surface-muted)] py-14 sm:py-16 lg:pb-20"
+        aria-labelledby="pos-hub-list"
+      >
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <h2
+            id="pos-hub-list"
+            className="font-display text-[1.65rem] font-semibold tracking-tight sm:text-[2rem]"
+          >
+            <AccentText>Chọn lĩnh vực cửa hàng</AccentText>
+          </h2>
+          <p className="mt-3 max-w-[48ch] text-[var(--kuct-muted)]">
+            Cùng kiểu chọn lĩnh vực trong app — bấm thẻ để xem landing ngành.
+          </p>
+          <ul className="mt-8 m-0 mx-auto grid max-w-lg list-none grid-cols-1 gap-3 p-0 sm:mx-0 sm:max-w-none sm:grid-cols-2 lg:grid-cols-3">
+            {POS_CATALOG.map((item) => (
+              <li key={item.slug}>
+                <Link
+                  href={assetPath(`/pos/${item.slug}/`)}
+                  className="flex h-full items-center gap-3 rounded-[10px] border border-[var(--kuct-border)] bg-white px-3 py-3 no-underline shadow-sm transition hover:border-[var(--kuct-text)]"
+                >
+                  <span
+                    className="grid h-12 w-12 shrink-0 place-items-center rounded-[10px] text-xl"
+                    style={{ backgroundColor: item.colorSoft }}
+                    aria-hidden
+                  >
+                    {item.emoji}
+                  </span>
+                  <span className="min-w-0 flex-1">
+                    <span className="block text-sm font-bold text-[var(--kuct-text)]">
+                      {item.labelVi}
+                    </span>
+                    <span className="mt-0.5 block text-sm text-[var(--kuct-muted)]">
+                      {item.blurb}
+                    </span>
+                  </span>
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
       </section>
 
-      <section className="pb-16 sm:pb-20" aria-labelledby="pos-hub-list">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <h2 id="pos-hub-list" className="sr-only">
-            Danh sách ngành POS
-          </h2>
-          <ul className="m-0 grid list-none grid-cols-1 gap-3 p-0 sm:grid-cols-2 lg:grid-cols-3">
-            {POS_CATALOG.map((item) => {
-              const copy = getPosPageCopy(item.slug);
-              return (
-                <li key={item.slug}>
-                  <Link
-                    href={assetPath(`/pos/${item.slug}/`)}
-                    className="flex h-full flex-col rounded-[10px] bg-[var(--kuct-surface-muted)] px-5 py-5 no-underline transition hover:bg-[color-mix(in_srgb,var(--kuct-surface-muted)_70%,var(--kuct-border))]"
-                  >
-                    <h3 className="font-display text-base font-semibold text-[var(--kuct-text)]">
-                      {copy.label}
-                    </h3>
-                    <p className="mt-2 flex-1 text-sm leading-relaxed text-[var(--kuct-muted)]">
-                      {copy.answerFirst.slice(0, 120)}…
-                    </p>
-                    <span className="mt-4 text-sm font-semibold text-[var(--kuct-accent)]">
-                      Xem POS ngành →
-                    </span>
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-      </section>
       <Footer />
     </main>
   );

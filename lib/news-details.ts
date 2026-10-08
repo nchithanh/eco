@@ -29,6 +29,7 @@ import { taiSaoCanDungPhanMemPosCopy } from "@/lib/news-articles/tai-sao-can-dun
 import { giamThatThoatNguyenLieuQuanCafeCopy } from "@/lib/news-articles/giam-that-thoat-nguyen-lieu-quan-cafe";
 import { quanLyTonKhoPetShopCopy } from "@/lib/news-articles/quan-ly-ton-kho-pet-shop";
 import { truocKhiMoCuaHangDungVoiChonPhanMemBanHangCopy } from "@/lib/news-articles/truoc-khi-mo-cua-hang-dung-voi-chon-phan-mem-ban-hang";
+import { phanMemBanHangOnDinhKhiGapLoiCopy } from "@/lib/news-articles/phan-mem-ban-hang-on-dinh-khi-gap-loi";
 import { quanLyDongTienCuaHangCopy } from "@/lib/news-articles/quan-ly-dong-tien-cua-hang";
 
 export const NEWS_CATEGORIES = [
@@ -42,6 +43,7 @@ export const NEWS_CATEGORIES = [
 export type NewsCategory = (typeof NEWS_CATEGORIES)[number];
 
 export const NEWS_SLUGS = [
+  "phan-mem-ban-hang-on-dinh-khi-gap-loi",
   "quan-ly-dong-tien-cua-hang",
   "truoc-khi-mo-cua-hang-dung-voi-chon-phan-mem-ban-hang",
   "quan-ly-ton-kho-pet-shop",
@@ -138,6 +140,10 @@ type NewsMeta = {
 };
 
 const metaBySlug: Record<NewsSlug, NewsMeta> = {
+  "phan-mem-ban-hang-on-dinh-khi-gap-loi": {
+    category: "process",
+    date: "2026-10-09",
+  },
   "quan-ly-dong-tien-cua-hang": {
     category: "process",
     date: "2026-10-07",
@@ -278,6 +284,8 @@ const categoryImages: Record<NewsCategory, string> = {
 };
 
 const slugImages: Partial<Record<NewsSlug, string>> = {
+  "phan-mem-ban-hang-on-dinh-khi-gap-loi":
+    "/news/phan-mem-ban-hang-on-dinh-khi-gap-loi.jpg",
   "quan-ly-dong-tien-cua-hang": "/news/quan-ly-dong-tien-cua-hang.jpg",
   "truoc-khi-mo-cua-hang-dung-voi-chon-phan-mem-ban-hang":
     "/news/truoc-khi-mo-cua-hang-dung-voi-chon-phan-mem-ban-hang.jpg",
@@ -344,6 +352,8 @@ export function getNewsImage(slug: NewsSlug): string {
 
 const copyByLocale: LocaleMap<Record<NewsSlug, NewsArticleCopy>> = {
   vi: {
+    "phan-mem-ban-hang-on-dinh-khi-gap-loi":
+      phanMemBanHangOnDinhKhiGapLoiCopy.vi,
     "quan-ly-dong-tien-cua-hang": quanLyDongTienCuaHangCopy.vi,
     "truoc-khi-mo-cua-hang-dung-voi-chon-phan-mem-ban-hang":
       truocKhiMoCuaHangDungVoiChonPhanMemBanHangCopy.vi,
@@ -562,6 +572,8 @@ const copyByLocale: LocaleMap<Record<NewsSlug, NewsArticleCopy>> = {
     },
   },
   en: {
+    "phan-mem-ban-hang-on-dinh-khi-gap-loi":
+      phanMemBanHangOnDinhKhiGapLoiCopy.en,
     "quan-ly-dong-tien-cua-hang": quanLyDongTienCuaHangCopy.en,
     "truoc-khi-mo-cua-hang-dung-voi-chon-phan-mem-ban-hang":
       truocKhiMoCuaHangDungVoiChonPhanMemBanHangCopy.en,
@@ -708,6 +720,8 @@ const copyByLocale: LocaleMap<Record<NewsSlug, NewsArticleCopy>> = {
     },
   },
   ja: {
+    "phan-mem-ban-hang-on-dinh-khi-gap-loi":
+      phanMemBanHangOnDinhKhiGapLoiCopy.vi,
     "quan-ly-dong-tien-cua-hang": quanLyDongTienCuaHangCopy.ja,
     "truoc-khi-mo-cua-hang-dung-voi-chon-phan-mem-ban-hang":
       truocKhiMoCuaHangDungVoiChonPhanMemBanHangCopy.vi,

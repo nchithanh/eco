@@ -226,21 +226,25 @@ function SectionImage({
  alt,
  priority = false,
  aspect = "aspect-[16/9]",
+ fit = "cover",
 }: {
  src: string;
  alt: string;
  priority?: boolean;
  aspect?: string;
+ fit?: "cover" | "contain";
 }) {
  return (
  <div
- className={`relative ${aspect} overflow-hidden rounded-[10px] bg-[var(--kuct-panel)] shadow-none`}
+ className={`relative ${aspect} overflow-hidden rounded-[10px] shadow-none ${
+ fit === "contain" ? "bg-white" : "bg-[var(--kuct-panel)]"
+ }`}
  >
  <LazyImage
  src={assetPath(src)}
  alt={alt}
  fill
- className="object-cover"
+ className={fit === "contain" ? "object-contain" : "object-cover"}
  sizes="(min-width: 1024px) 56rem, 100vw"
  priority={priority}
  />
@@ -328,7 +332,7 @@ export function AgentDolphinContent({ embedded = false }: { embedded?: boolean }
  </div>
  </section>
 
- <section className="kuct-section-wash scroll-mt-20 py-20">
+ <section className="scroll-mt-20 bg-white py-20">
  <div className="mx-auto max-w-7xl px-6">
  <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-14">
  <Reveal>
@@ -408,8 +412,9 @@ export function AgentDolphinContent({ embedded = false }: { embedded?: boolean }
  <Reveal delay={80} variant="right">
  <SectionImage
  src={IMG.context}
- alt=""
- aspect="aspect-square max-w-lg mx-auto w-full lg:max-w-none lg:sticky lg:top-28"
+ alt="Giao diện Dolphin Care: chào khách, chọn Báo giá, Website, Care, Ops và ô chat"
+ aspect="mx-auto w-full max-w-sm aspect-[499/927] lg:max-w-md lg:sticky lg:top-28"
+ fit="contain"
  />
  </Reveal>
  </div>

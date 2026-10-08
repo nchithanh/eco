@@ -7,13 +7,21 @@ import { FaqAnswerText } from "@/components/FaqAnswerText";
 import { Footer } from "@/components/Footer";
 import { Nav } from "@/components/Nav";
 import { PosAppStage } from "@/components/PosAppStage";
+import {
+  PosDayStrip,
+  PosDescGrid,
+} from "@/components/PosDescBlocks";
 import { PosFeatureBento } from "@/components/PosFeatureBento";
-import { PosProblemIcon, PosWorkflowIcon } from "@/components/PosSceneArt";
+import { PosProblemIcon } from "@/components/PosSceneArt";
 import { Reveal } from "@/components/Reveal";
 import { useQuote } from "@/components/QuoteProvider";
 import { assetPath } from "@/lib/asset";
 import { getPosPageCopy } from "@/lib/i18n/pos-copy";
 import {
+  POS_DAY_STEPS,
+  POS_DEMO_URL,
+  POS_LIMIT_CARDS,
+  POS_WHO_CARDS,
   posBySlug,
   pricingHashForPosSlug,
   type PosSlug,
@@ -28,26 +36,32 @@ export function PosPageContent({ slug }: { slug: PosSlug }) {
   const faqId = useId();
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const pricingHref = `${assetPath("/chinh-sach-gia-dolphin-2026/")}${pricingHashForPosSlug(slug)}`;
+  const faqItems = c.faq.slice(0, 6);
 
   const bentoCards = [
-    { title: c.posTitle, body: c.posBody, art: "counter" as const },
-    { title: c.inventoryTitle, body: c.inventoryBody, art: "inventory" as const },
-    { title: c.channelsTitle, body: c.channelsBody, art: "channels" as const },
-    { title: c.plansTitle, body: c.plansBody, art: "plans" as const },
+    { title: "Bán hàng", body: c.posBody, art: "counter" as const },
+    { title: "Kho", body: c.inventoryBody, art: "inventory" as const },
+    { title: "Tài chính & ca", body: c.channelsBody, art: "channels" as const },
+    { title: "Gói theo năm", body: c.plansBody, art: "plans" as const },
   ];
 
   return (
     <main className="bg-[var(--kuct-bg)]">
       <Nav />
 
-      {/* Hero — centered, white, no frame */}
       <section className="bg-white py-14 sm:py-16 lg:py-20">
         <div className="mx-auto max-w-7xl px-4 text-center sm:px-6">
           <Reveal variant="title">
-            <nav aria-label="Breadcrumb" className="text-sm text-[var(--kuct-muted)]">
+            <nav
+              aria-label="Breadcrumb"
+              className="text-sm text-[var(--kuct-muted)]"
+            >
               <ol className="m-0 flex list-none flex-wrap items-center justify-center gap-1.5 p-0">
                 <li>
-                  <Link href={assetPath("/")} className="hover:text-[var(--kuct-text)]">
+                  <Link
+                    href={assetPath("/")}
+                    className="hover:text-[var(--kuct-text)]"
+                  >
                     Trang chủ
                   </Link>
                 </li>
@@ -64,96 +78,93 @@ export function PosPageContent({ slug }: { slug: PosSlug }) {
                 <li className="text-[var(--kuct-text)]">{meta.labelVi}</li>
               </ol>
             </nav>
-            <p className="kuct-section-eyebrow mt-6">Dolphin POS · {c.label}</p>
-            <h1 className="mx-auto mt-4 max-w-[16ch] font-display text-[2rem] font-semibold leading-[1.08] tracking-tight text-[var(--kuct-text)] sm:text-[2.5rem] lg:text-[2.75rem]">
+            <p className="kuct-section-eyebrow mt-6">
+              Dolphin POS · {c.label}
+            </p>
+            <h1 className="mx-auto mt-4 max-w-[14ch] font-display text-[2rem] font-semibold leading-[1.08] tracking-tight text-[var(--kuct-text)] sm:text-[2.5rem] lg:text-[2.75rem]">
               <AccentText>{c.h1}</AccentText>
             </h1>
-            <p className="mx-auto mt-5 max-w-[48ch] text-base leading-[1.7] text-[var(--kuct-muted)]">
+            <p className="mx-auto mt-5 max-w-[40ch] text-base leading-relaxed text-[var(--kuct-muted)]">
               {c.answerFirst}
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+              <a
+                href={POS_DEMO_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="kuct-btn-primary inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-semibold no-underline"
+              >
+                Mở demo POS
+              </a>
               <button
                 type="button"
                 onClick={openQuote}
-                className="kuct-btn-primary inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-semibold"
+                className="kuct-btn-outline inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-semibold"
               >
                 {c.ctaTitle}
               </button>
               <a
                 href={pricingHref}
-                className="kuct-btn-outline inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-semibold no-underline"
+                className="inline-flex items-center justify-center rounded-full border border-[var(--kuct-border)] px-5 py-2.5 text-sm font-semibold text-[var(--kuct-text)] no-underline transition hover:bg-[var(--kuct-surface-muted)]"
               >
-                Xem bảng giá
+                Bảng giá
               </a>
             </div>
-            <ul className="mt-5 flex list-none flex-wrap items-center justify-center gap-x-4 gap-y-2 p-0 text-sm font-medium">
-              <li>
-                <Link
-                  href={assetPath("/pos/")}
-                  className="text-[var(--kuct-muted)] no-underline hover:text-[var(--kuct-text)]"
-                >
-                  Tất cả POS
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href={assetPath("/industries/")}
-                  className="text-[var(--kuct-muted)] no-underline hover:text-[var(--kuct-text)]"
-                >
-                  CRM · dịch vụ
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href={assetPath("/faq/")}
-                  className="text-[var(--kuct-muted)] no-underline hover:text-[var(--kuct-text)]"
-                >
-                  FAQ
-                </Link>
-              </li>
-            </ul>
           </Reveal>
         </div>
       </section>
 
-      {/* Product stage */}
       <section className="pb-10 sm:pb-14" aria-label="Minh họa Dolphin POS">
         <PosAppStage slug={slug} demo={c} />
       </section>
 
-      {/* Feature bento */}
+      <PosDayStrip
+        id="pos-day"
+        title="Một ca trên Dolphin POS"
+        steps={POS_DAY_STEPS}
+      />
+
       <PosFeatureBento
         eyebrow={c.featuresEyebrow}
         title={c.featuresTitle}
-        support={c.featuresSupport}
+        support="Mở demo để xem quầy, kho và quỹ — không cần đọc dài."
         cards={bentoCards}
       />
 
-      {/* Problems — clean icon rows */}
+      <PosDescGrid
+        id="pos-who"
+        title="Ai dùng hàng ngày"
+        cards={POS_WHO_CARDS}
+        muted
+      />
+
       <section
-        className="border-t border-[var(--kuct-border)] py-16 sm:py-20"
+        className="border-t border-[var(--kuct-border)] bg-white py-14 sm:py-16"
         aria-labelledby="pos-problems"
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <div className="max-w-xl">
-            <h2
-              id="pos-problems"
-              className="font-display text-[1.65rem] font-semibold tracking-tight sm:text-[2rem]"
-            >
-              <AccentText>{c.problemsTitle}</AccentText>
-            </h2>
-            <p className="mt-3 text-[var(--kuct-muted)]">{c.problemsLead}</p>
-          </div>
-          <ul className="mt-12 grid list-none grid-cols-1 gap-x-16 gap-y-10 p-0 sm:grid-cols-3">
+          <h2
+            id="pos-problems"
+            className="font-display text-[1.65rem] font-semibold tracking-tight sm:text-[2rem]"
+          >
+            <AccentText>{c.problemsTitle}</AccentText>
+          </h2>
+          <p className="mt-2 max-w-[40ch] text-sm text-[var(--kuct-muted)]">
+            {c.problemsLead}
+          </p>
+          <ul className="mt-8 grid list-none grid-cols-1 gap-3 p-0 sm:grid-cols-3">
             {c.problems.map((item, index) => (
-              <li key={item.title}>
+              <li
+                key={item.title}
+                className="rounded-[10px] border border-[var(--kuct-border)] bg-[var(--kuct-surface-muted)] px-4 py-4"
+              >
                 <span className="inline-flex text-[var(--kuct-muted)]">
                   <PosProblemIcon index={index} />
                 </span>
-                <h3 className="mt-4 font-display text-lg font-semibold tracking-tight text-[var(--kuct-text)]">
+                <h3 className="mt-3 text-sm font-semibold text-[var(--kuct-text)]">
                   {item.title}
                 </h3>
-                <p className="mt-2 max-w-[32ch] text-sm leading-[1.7] text-[var(--kuct-muted)]">
+                <p className="mt-1.5 m-0 text-sm leading-relaxed text-[var(--kuct-muted)]">
                   {item.body}
                 </p>
               </li>
@@ -162,74 +173,18 @@ export function PosPageContent({ slug }: { slug: PosSlug }) {
         </div>
       </section>
 
-      {/* Workflow */}
-      <section
-        className="border-t border-[var(--kuct-border)] bg-[var(--kuct-surface-muted)] py-16 sm:py-20"
-        aria-labelledby="pos-workflow"
-      >
-        <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <h2
-            id="pos-workflow"
-            className="font-display text-[1.65rem] font-semibold tracking-tight sm:text-[2rem]"
-          >
-            <AccentText>{c.workflowTitle}</AccentText>
-          </h2>
-          <ol className="mt-10 grid list-none gap-4 p-0 sm:grid-cols-3">
-            {c.workflow.map((step, index) => (
-              <li
-                key={step.title}
-                className="rounded-[10px] border border-[var(--kuct-border)] bg-white px-5 py-5"
-              >
-                <span className="inline-flex text-[var(--kuct-muted)]">
-                  <PosWorkflowIcon index={index} />
-                </span>
-                <p className="mt-4 m-0 text-xs font-semibold tabular-nums tracking-[0.12em] text-[var(--kuct-muted)] uppercase">
-                  Step {String(index + 1).padStart(2, "0")}
-                </p>
-                <h3 className="mt-2 font-display text-base font-semibold">
-                  {step.title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-[var(--kuct-muted)]">
-                  {step.body}
-                </p>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
+      <PosDescGrid
+        id="pos-limits"
+        title="Nói rõ giới hạn"
+        lead="Demo trung thực — biết trước khi tư vấn gói năm."
+        cards={POS_LIMIT_CARDS}
+        muted
+      />
 
-      {/* Feature bullets (from demo.features) — compact strip */}
       <section
-        className="border-t border-[var(--kuct-border)] py-16 sm:py-20"
-        aria-labelledby="pos-answer"
+        className="border-t border-[var(--kuct-border)] bg-white py-14 sm:py-16"
+        aria-labelledby="pos-faq"
       >
-        <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <h2
-            id="pos-answer"
-            className="max-w-[22ch] font-display text-[1.65rem] font-semibold tracking-tight sm:text-[2rem]"
-          >
-            <AccentText>{c.answerTitle}</AccentText>
-          </h2>
-          <ul className="mt-10 grid list-none gap-3 p-0 sm:grid-cols-3">
-            {c.features.map((feature) => (
-              <li
-                key={feature.title}
-                className="rounded-[10px] border border-[var(--kuct-border)] bg-white px-5 py-5"
-              >
-                <h3 className="m-0 text-sm font-semibold text-[var(--kuct-text)]">
-                  {feature.title}
-                </h3>
-                <p className="mt-2 m-0 text-sm leading-relaxed text-[var(--kuct-muted)]">
-                  {feature.body}
-                </p>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section className="border-t border-[var(--kuct-border)] py-16 sm:py-20" aria-labelledby="pos-faq">
         <div className="mx-auto max-w-3xl px-4 sm:px-6">
           <h2
             id="pos-faq"
@@ -237,13 +192,13 @@ export function PosPageContent({ slug }: { slug: PosSlug }) {
           >
             <AccentText>{c.faqTitle}</AccentText>
           </h2>
-          <div className="mt-10 divide-y divide-[var(--kuct-border)] overflow-hidden rounded-[10px] border border-[var(--kuct-border)] bg-white">
-            {c.faq.map((item, index) => {
+          <div className="mt-8 divide-y divide-[var(--kuct-border)] overflow-hidden rounded-[10px] border border-[var(--kuct-border)] bg-[var(--kuct-surface-muted)]">
+            {faqItems.map((item, index) => {
               const open = openFaq === index;
               const buttonId = `${faqId}-q-${index}`;
               const panelId = `${faqId}-a-${index}`;
               return (
-                <div key={item.q}>
+                <div key={item.q} className="bg-white">
                   <h3 className="m-0">
                     <button
                       type="button"
@@ -272,12 +227,20 @@ export function PosPageContent({ slug }: { slug: PosSlug }) {
               );
             })}
           </div>
+          <p className="mt-4 text-center text-sm text-[var(--kuct-muted)]">
+            Câu hỏi khác:{" "}
+            <Link
+              href={assetPath("/faq/")}
+              className="font-semibold text-[var(--kuct-accent)]"
+            >
+              FAQ chung
+            </Link>
+          </p>
         </div>
       </section>
 
-      {/* CTA */}
       <section
-        className="border-t border-[var(--kuct-border)] py-16 sm:py-20"
+        className="border-t border-[var(--kuct-border)] py-14 sm:py-16"
         aria-labelledby="pos-cta"
       >
         <div className="mx-auto max-w-2xl px-4 text-center sm:px-6">
@@ -287,14 +250,22 @@ export function PosPageContent({ slug }: { slug: PosSlug }) {
           >
             <AccentText>{c.ctaTitle}</AccentText>
           </h2>
-          <p className="mx-auto mt-3 max-w-[44ch] text-[var(--kuct-muted)]">
+          <p className="mx-auto mt-3 max-w-[36ch] text-sm text-[var(--kuct-muted)]">
             {c.ctaSupport}
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <a
+              href={POS_DEMO_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="kuct-btn-primary inline-flex rounded-full px-5 py-2.5 text-sm font-semibold no-underline"
+            >
+              Mở demo POS
+            </a>
             <button
               type="button"
               onClick={openQuote}
-              className="kuct-btn-primary inline-flex rounded-full px-5 py-2.5 text-sm font-semibold"
+              className="kuct-btn-outline inline-flex rounded-full px-5 py-2.5 text-sm font-semibold"
             >
               {c.ctaTitle}
             </button>
@@ -302,7 +273,7 @@ export function PosPageContent({ slug }: { slug: PosSlug }) {
               href={ZALO}
               target="_blank"
               rel="noopener noreferrer"
-              className="kuct-btn-outline inline-flex items-center rounded-full px-5 py-2.5 text-sm font-semibold no-underline"
+              className="inline-flex items-center rounded-full border border-[var(--kuct-border)] px-5 py-2.5 text-sm font-semibold no-underline transition hover:bg-[var(--kuct-surface-muted)]"
             >
               Chat Zalo
             </a>

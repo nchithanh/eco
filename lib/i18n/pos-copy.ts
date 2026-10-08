@@ -66,18 +66,18 @@ export const posHubVi: PosHubCopy = {
   metaTitle:
     "Dolphin POS theo ngành — Cafe · Trà sữa · Pet · Fashion | Dolphin Software",
   metaDescription:
-    "Dolphin POS cho cửa hàng bán hàng: F&B, cafe, trà sữa, pet shop, fashion và shop bán hàng. Tách biệt CRM dịch vụ (spa/salon). Xem gói Cơ Bản · Chuyên nghiệp · Toàn Diện theo năm.",
+    "Dolphin POS cho cửa hàng bán hàng: nhà hàng, cafe, trà sữa, pet shop, thời trang, tạp hóa. Bán hàng, kho, tài chính, chi nhánh — demo live. Tách CRM dịch vụ. Gói năm Cơ Bản · Chuyên nghiệp · Toàn Diện.",
   h1: "Dolphin POS cho cửa hàng bán hàng",
-  lead: "Dòng sản phẩm POS — hóa đơn, quầy, kho, FnB, kênh bán. Không gộp với CRM spa/salon. Chọn ngành bên dưới hoặc mở bảng giá POS.",
-  answerTitle: "POS khác CRM của Dolphin ở đâu?",
+  lead: "Quầy, kho, quỹ, chi nhánh — như app demo. Không gộp CRM spa/salon.",
+  answerTitle: "POS khác CRM ở đâu?",
   answerFirst:
-    "POS phục vụ cửa hàng bán hàng (F&B, pet, fashion, HKD): bán tại quầy, tồn kho, ca, web/sàn khi cần. CRM · Care · Ops phục vụ doanh nghiệp dịch vụ (khách, lịch, follow-up, AI chăm sóc). Hai bảng giá và hai cụm landing tách riêng trên site.",
+      "POS = cửa hàng bán hàng. CRM = lịch & khách dịch vụ. Hai bảng giá tách.",
 };
 
 const sharedCta = {
   ctaTitle: "Nhận tư vấn POS",
   ctaSupport:
-    "Kể loại cửa hàng, số quầy và chỗ đang nghẽn (hóa đơn, kho, ca, kênh bán). Dolphin đề xuất gói Cơ Bản · Chuyên nghiệp · Toàn Diện — app POS triển khai theo lộ trình (TODO runtime).",
+    "Kể loại cửa hàng và chỗ nghẽn. Xem demo rồi chọn gói năm trên bảng giá.",
 };
 
 function page(
@@ -92,7 +92,7 @@ const posFeatureDemoVi: Record<PosSlug, PosFeatureDemo> = {
     featuresEyebrow: "Tính năng POS · F&B",
     featuresTitle: "Bán nhanh tại quầy — vẫn soi được cuối ngày",
     featuresSupport:
-      "Mock dưới đây minh họa luồng bán F&B trên Dolphin POS (marketing). Runtime app: TODO.",
+      "Minh họa quầy F&B trên Dolphin POS. Thử app demo: https://nchithanh.github.io/pos/",
     features: [
       {
         title: "Order & hóa đơn quầy",
@@ -133,7 +133,7 @@ const posFeatureDemoVi: Record<PosSlug, PosFeatureDemo> = {
     featuresEyebrow: "Tính năng POS · Cafe",
     featuresTitle: "Order cafe — gắn hạt, sữa và ca làm",
     featuresSupport:
-      "Mỗi ngành có copy SKU riêng. Cafe nhấn hạt Arabica/Robusta, sữa và đóng ca.",
+      "Cafe nhấn hạt, sữa và đóng ca. Demo: https://nchithanh.github.io/pos/",
     features: [
       {
         title: "Menu đồ uống & size",
@@ -186,7 +186,7 @@ const posFeatureDemoVi: Record<PosSlug, PosFeatureDemo> = {
     featuresEyebrow: "Tính năng POS · Trà sữa",
     featuresTitle: "Peak hour — topping và size không bị sót",
     featuresSupport:
-      "Trà sữa cần biến thể nhanh: đường, đá, topping. POS ghi đúng để bar không hỏi lại.",
+      "Trà sữa: đường, đá, topping — ghi đúng để bar không hỏi lại. Demo: https://nchithanh.github.io/pos/",
     features: [
       {
         title: "Biến thể món",
@@ -239,7 +239,7 @@ const posFeatureDemoVi: Record<PosSlug, PosFeatureDemo> = {
     featuresEyebrow: "Tính năng POS · Pet shop",
     featuresTitle: "Bán hạt · cát · phụ kiện — tồn khớp kệ",
     featuresSupport:
-      "Pet shop sống nhờ SKU: hạt mèo, hạt chó, cát vệ sinh. POS gắn bán với tồn.",
+      "Pet shop: SKU hạt/cát gắn bán với tồn. Demo: https://nchithanh.github.io/pos/",
     features: [
       {
         title: "SKU thú cưng",
@@ -292,7 +292,7 @@ const posFeatureDemoVi: Record<PosSlug, PosFeatureDemo> = {
     featuresEyebrow: "Tính năng POS · Fashion",
     featuresTitle: "Size · màu · kênh bán — một sổ tồn",
     featuresSupport:
-      "Thời trang lệch tồn vì biến thể. POS ghi đúng size/màu khi bán quầy và online.",
+      "Thời trang: ghi đúng size/màu khi bán. Demo: https://nchithanh.github.io/pos/",
     features: [
       {
         title: "Biến thể size / màu",
@@ -345,7 +345,7 @@ const posFeatureDemoVi: Record<PosSlug, PosFeatureDemo> = {
     featuresEyebrow: "Tính năng POS · Shop / HKD",
     featuresTitle: "Hóa đơn rõ — lớn dần theo gói",
     featuresSupport:
-      "HKD bắt đầu từ bán + thu chi; sau đó mới kho, ca, đa kênh — đúng bảng giá POS năm.",
+      "Tạp hóa / HKD: bán + thu chi, rồi kho và ca. Demo: https://nchithanh.github.io/pos/",
     features: [
       {
         title: "Hóa đơn mỗi ngày",
@@ -397,18 +397,18 @@ const posFeatureDemoVi: Record<PosSlug, PosFeatureDemo> = {
 };
 
 const plansBodyShared =
-  "Ba gói theo năm trên bảng giá POS: Cơ Bản 1.920.000đ · Chuyên nghiệp 2.520.000đ (phổ biến) · Toàn Diện 8.400.000đ. CTA báo giá / Zalo — không dùng thử miễn phí.";
+  "Cơ Bản · Chuyên nghiệp · Toàn Diện theo năm — xem bảng giá. Không trial miễn phí.";
 
 export const posPagesVi: Record<PosSlug, PosPageCopy> = {
   fnb: page({
     metaTitle: "POS cho F&B — quán ăn đồ uống | Dolphin Software",
     metaDescription:
       "Dolphin POS cho F&B: bán tại quầy, quản lý FnB, ca làm, tồn và kênh bán theo gói. Tách CRM dịch vụ. Xem gói năm và FAQ.",
-    label: "F&B",
+    label: "Nhà hàng",
     h1: "POS vận hành quán F&B",
     answerTitle: "Dolphin POS giúp F&B như thế nào?",
     answerFirst:
-      "Giúp quán ăn / đồ uống ghi đơn tại quầy, theo dõi tài chính cơ bản, quản lý FnB và ca theo gói — mở rộng tồn nâng cao, tích điểm và sàn khi cần gói Toàn Diện. Không thay CRM lịch liệu trình spa.",
+      "Ghi đơn quầy, ca và FnB/tồn theo gói — không phải CRM spa.",
     problemsTitle: "F&B thường nghẽn ở đâu?",
     problemsLead: "Bán nhanh nhưng sổ sách và ca dễ rối khi chỉ dựa Zalo/Excel.",
     problems: [
@@ -428,7 +428,7 @@ export const posPagesVi: Record<PosSlug, PosPageCopy> = {
     solutionsTitle: "POS giải quyết phần nào?",
     posTitle: "Bán tại quầy & hóa đơn",
     posBody:
-      "Tạo hóa đơn / bán tại cửa hàng cơ bản (gói Cơ Bản trở lên); nâng cấp theo gói Chuyên nghiệp · Toàn Diện.",
+      "Tạo hóa đơn / bán tại cửa hàng cơ bản (gói Cơ Bản trở lên)",
     inventoryTitle: "FnB & tồn",
     inventoryBody:
       "Quản lý FnB cơ bản từ gói Chuyên nghiệp; tồn và FnB nâng cao ở gói Toàn Diện.",
@@ -455,7 +455,7 @@ export const posPagesVi: Record<PosSlug, PosPageCopy> = {
       },
       {
         q: "Có app POS chạy sẵn chưa?",
-        a: "Bảng giá và landing đã công bố để báo giá. Runtime app POS: TODO theo lộ trình sản phẩm.",
+        a: "Có demo live tại https://nchithanh.github.io/pos/ (chọn lĩnh vực). Gói năm và phạm vi tính năng xem bảng giá POS.",
       },
       {
         q: "Dolphin POS khác Dolphin Care / Ops thế nào?",
@@ -495,7 +495,7 @@ export const posPagesVi: Record<PosSlug, PosPageCopy> = {
     h1: "POS cho tiệm cafe",
     answerTitle: "Cafe dùng Dolphin POS để làm gì?",
     answerFirst:
-      "Ghi order và thu tại quầy, quản lý ca, theo dõi tồn đồ uống / thành phẩm theo gói — mở rộng tích điểm và đa kênh khi quán scale. Không phải CRM đặt lịch spa.",
+      "Order quầy, ca barista, tồn đồ uống theo gói.",
     problemsTitle: "Cafe hay gặp gì?",
     problemsLead: "Giờ cao điểm cần bán nhanh; sổ cuối ngày dễ lệch.",
     problems: [
@@ -538,7 +538,7 @@ export const posPagesVi: Record<PosSlug, PosPageCopy> = {
       },
       {
         q: "Theo dõi hạt Arabica / Robusta và sữa thế nào?",
-        a: "Tồn / FnB theo gói trên bảng giá (thường Chuyên nghiệp trở lên). Landing minh họa luồng; runtime app: TODO.",
+        a: "Tồn / FnB theo gói trên bảng giá (thường Chuyên nghiệp trở lên). Demo app: https://nchithanh.github.io/pos/.",
       },
       {
         q: "Giờ peak order có hỗ trợ size / sữa không?",
@@ -570,7 +570,7 @@ export const posPagesVi: Record<PosSlug, PosPageCopy> = {
     h1: "POS cho quán trà sữa",
     answerTitle: "Trà sữa dùng POS để làm gì?",
     answerFirst:
-      "Hỗ trợ bán nhanh tại quầy, quản lý ca và FnB/tồn theo gói — phù hợp quán đông giờ peak. Đa cửa hàng / sàn khi lên Toàn Diện.",
+      "Bán nhanh tại quầy, ca và topping/tồn theo gói.",
     problemsTitle: "Trà sữa thường nghẽn gì?",
     problemsLead: "Peak hour + topping/biến thể dễ loạn nếu chỉ ghi tay.",
     problems: [
@@ -605,7 +605,7 @@ export const posPagesVi: Record<PosSlug, PosPageCopy> = {
       },
       {
         q: "Runtime đã có chưa?",
-        a: "Landing + giá để báo giá. App POS: TODO.",
+        a: "Demo app: https://nchithanh.github.io/pos/. Bảng giá năm để báo giá gói.",
       },
       {
         q: "POS trà sữa khác cafe thế nào?",
@@ -645,7 +645,7 @@ export const posPagesVi: Record<PosSlug, PosPageCopy> = {
     h1: "POS cho pet shop",
     answerTitle: "Pet shop dùng Dolphin POS thế nào?",
     answerFirst:
-      "Quản lý bán hàng và tồn sản phẩm thú cưng, hóa đơn và tài chính cơ bản — mở rộng vận chuyển, HĐĐT, đa cửa hàng / sàn theo gói.",
+      "Bán + tồn SKU thú cưng, hóa đơn và quỹ cơ bản.",
     problemsTitle: "Pet shop hay gặp gì?",
     problemsLead: "SKU nhiều; tồn và hạn dùng dễ rối nếu chỉ Excel.",
     problems: [
@@ -680,7 +680,7 @@ export const posPagesVi: Record<PosSlug, PosPageCopy> = {
       },
       {
         q: "App đã live?",
-        a: "TODO runtime — hiện SoT giá + landing để tư vấn.",
+        a: "Có — demo tại https://nchithanh.github.io/pos/. Gói năm và tư vấn qua Zalo / form báo giá.",
       },
       {
         q: "Hạt mèo / hạt chó / cát có quản lý SKU không?",
@@ -716,11 +716,11 @@ export const posPagesVi: Record<PosSlug, PosPageCopy> = {
     metaTitle: "POS cho shop thời trang | Dolphin Software",
     metaDescription:
       "POS fashion: quầy, tồn size/màu, web, sàn TMĐT theo gói năm Dolphin POS.",
-    label: "Fashion",
+    label: "Thời trang",
     h1: "POS cho shop thời trang",
     answerTitle: "Fashion dùng POS để làm gì?",
     answerFirst:
-      "Bán tại quầy và online cơ bản, quản lý tồn theo gói, mở rộng MXH/chat và sàn Shopee/Lazada ở Toàn Diện.",
+      "Quầy + tồn size/màu theo gói; sàn ở Toàn Diện.",
     problemsTitle: "Shop thời trang nghẽn gì?",
     problemsLead: "Biến thể size/màu + đa kênh dễ loạn tồn.",
     problems: [
@@ -755,7 +755,7 @@ export const posPagesVi: Record<PosSlug, PosPageCopy> = {
       },
       {
         q: "Runtime?",
-        a: "TODO app POS; landing dùng để báo giá.",
+        a: "Demo tại https://nchithanh.github.io/pos/; bảng giá năm để báo giá gói.",
       },
       {
         q: "Quản lý size / màu thế nào?",
@@ -791,11 +791,11 @@ export const posPagesVi: Record<PosSlug, PosPageCopy> = {
     metaTitle: "POS cho shop bán hàng / HKD | Dolphin Software",
     metaDescription:
       "POS hộ kinh doanh và cửa hàng: hóa đơn, tài chính, bán quầy & web, nâng cấp kho và đa kênh theo gói năm.",
-    label: "Shop bán hàng",
+    label: "Tạp hóa",
     h1: "POS cho shop bán hàng & HKD",
     answerTitle: "HKD / cửa hàng dùng POS thế nào?",
     answerFirst:
-      "Bắt đầu từ hóa đơn, tài chính và bán quầy/web cơ bản; nâng tồn, ca, HĐĐT, nhân viên rồi đa cửa hàng / sàn khi lớn — đúng 3 gói năm đã công bố.",
+      "Hóa đơn, quỹ, bán quầy — rồi kho, ca, đa cửa hàng theo gói.",
     problemsTitle: "Cửa hàng nhỏ hay gặp gì?",
     problemsLead: "Muốn sổ rõ nhưng chưa cần ERP nặng.",
     problems: [
@@ -838,7 +838,7 @@ export const posPagesVi: Record<PosSlug, PosPageCopy> = {
       },
       {
         q: "Có app POS chạy chưa?",
-        a: "Landing + bảng giá để báo giá. Runtime app POS: TODO.",
+        a: "Demo tại https://nchithanh.github.io/pos/. Bảng giá năm để báo giá gói.",
       },
       {
         q: "Tích hợp ngân hàng?",

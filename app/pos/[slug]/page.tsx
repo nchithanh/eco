@@ -82,7 +82,7 @@ export default async function PosIndustryPage({
             { name: "POS", path: "/pos/" },
             { name: c.label, path },
           ]),
-          faqPageJsonLd(c.faq),
+          faqPageJsonLd(c.faq.slice(0, 6)),
         ]}
       />
       <PosPageContent slug={posSlug} />

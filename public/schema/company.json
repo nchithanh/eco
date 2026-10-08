@@ -4,7 +4,7 @@
     "site": "https://dolphin-software.io.vn/",
     "source": ".cursor/knowledge/",
     "updated": "2026-10-05",
-    "note": "GEO entity + hồ sơ năng lực 2026. GTM: CRM & POS thuê bao là lõi (tách ICP) · Care/Ops/Intel trên CRM · website / gia công phần mềm bổ sung. Giá CRM: dolphin-pricing-policy-2026.ts; POS: dolphin-pos-policy-2026.ts (runtime POS TODO). Profile SoT: /schema/company-profile/.",
+    "note": "GEO entity + hồ sơ năng lực 2026. GTM: CRM & POS thuê bao là lõi (tách ICP) · Care/Ops/Intel trên CRM · website / gia công phần mềm bổ sung. Giá CRM: dolphin-pricing-policy-2026.ts; POS: dolphin-pos-policy-2026.ts (demo https://nchithanh.github.io/pos/). Profile SoT: /schema/company-profile/.",
     "schemaId": "company",
     "schemaPath": "/schema/company/",
     "rawPath": "/schema/company.json",
@@ -20,7 +20,7 @@
     "whatWeAre": [
       "Dolphin Software cho thuê CRM cho doanh nghiệp dịch vụ và POS cho cửa hàng bán hàng. Hai dòng sản phẩm tách nhau rõ. Website và gia công phần mềm vẫn nhận làm khi anh chị cần — như dịch vụ bổ sung, không phải sản phẩm chính. Trụ sở / hoạt động: TP.HCM, Việt Nam.",
       "Không bắt đầu từ công nghệ. Bắt đầu từ chỗ đang nghẽn — lịch rải, khách trôi, follow-up thủ công (CRM) hoặc quầy · kho · hóa đơn rối (POS).",
-      "GTM: (1) CRM thuê theo kỳ — spa, nail, salon, giáo dục, clinic…; Care · Ops · Intelligence là lớp tăng trưởng trên CRM; website thường là quyền lợi combo. (2) Dolphin POS — cafe, trà sữa, F&B, pet, fashion, HKD; bảng giá năm; runtime app TODO. Không gộp hai ICP."
+      "GTM: (1) CRM thuê theo kỳ — spa, nail, salon, giáo dục, clinic…; Care · Ops · Intelligence là lớp tăng trưởng trên CRM; website thường là quyền lợi combo. (2) Dolphin POS — cafe, trà sữa, F&B, pet, fashion, tạp hóa; bảng giá năm; demo live https://nchithanh.github.io/pos/. Không gộp hai ICP."
     ],
     "displayBrand": "Dolphin Software",
     "motto": "Start from the problem, not the product",
@@ -36,7 +36,7 @@
     ],
     "positioning": {
       "CRM": "Nền vận hành dịch vụ — thuê theo kỳ, không bàn giao source nền tảng",
-      "POS": "Nền bán hàng tại quầy — tách CRM dịch vụ; hub /pos/; runtime app TODO",
+      "POS": "Nền bán hàng tại quầy — tách CRM dịch vụ; hub /pos/; demo https://nchithanh.github.io/pos/",
       "AI": "Care · Ops · Intelligence — tăng trưởng trên cùng dữ liệu CRM",
       "Website": "Hiện diện số — tặng hoặc giảm theo combo CRM; không phải sản phẩm lõi",
       "Outsource": "Gia công phần mềm — bàn giao source và tài liệu"
@@ -111,8 +111,9 @@
       "schemaPath": "/schema/agents/dolphin-ops/"
     },
     "pos": {
-      "summary": "Dolphin POS — dòng bán hàng tách CRM dịch vụ: quầy, hóa đơn, kho, kênh. ICP: F&B · cafe · trà sữa · pet · fashion · shop/HKD. Bảng giá năm (Cơ Bản / Chuyên nghiệp / Toàn Diện). Runtime app TODO.",
+      "summary": "Dolphin POS — dòng bán hàng tách CRM dịch vụ: quầy, kho kiểm nhận, tài chính local, chi nhánh. ICP: nhà hàng · cafe · trà sữa · pet · thời trang · tạp hóa. Bảng giá năm (Cơ Bản / Chuyên nghiệp / Toàn Diện). Demo: https://nchithanh.github.io/pos/.",
       "routes": ["/pos/", "/chinh-sach-gia-dolphin-2026/#pos"],
+      "demo": "https://nchithanh.github.io/pos/",
       "homepageSchema": "/schema/homepage/dolphin-pos/",
       "pricingSource": "lib/pricing/dolphin-pos-policy-2026.ts",
       "copySource": "lib/i18n/pos-copy.ts",

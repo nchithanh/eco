@@ -46,7 +46,9 @@ const CORE: SitemapEntry[] = [
   ...NEWS_SLUGS.map((slug) => ({
     path: `/news/${slug}/`,
     lastmod:
-      slug === "quan-ly-dong-tien-cua-hang"
+      slug === "phan-mem-ban-hang-on-dinh-khi-gap-loi"
+        ? "2026-10-09"
+        : slug === "quan-ly-dong-tien-cua-hang"
         ? "2026-10-07"
         : slug === "truoc-khi-mo-cua-hang-dung-voi-chon-phan-mem-ban-hang" ||
       slug === "quan-ly-ton-kho-pet-shop" ||
